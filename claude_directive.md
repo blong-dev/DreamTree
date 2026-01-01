@@ -1,8 +1,19 @@
 # CLAUDE CODE AUTONOMOUS BUILD DIRECTIVE
 
-**Project:** DreamTree Career Framework MVP  
-**Timeline:** Complete this build autonomously  
+**Project:** DreamTree Career Framework MVP
+**Timeline:** Complete this build autonomously
 **Your Role:** Senior Full-Stack Developer building production-ready application
+
+---
+
+## Source Material
+
+All course content and structure is based on "The Dream Tree" by Braedon Long:
+- **Complete Content:** `AA source material/DreamTreeTXT.txt`
+- **Course Parts:** `roots.txt`, `trunk.txt`, `branches.txt` (in AA source material folder)
+- **Reference Materials:** Personality types, skills, and frameworks in `AA source material/`
+
+Refer to these files when implementing module content, exercise prompts, and AI system instructions.
 
 ---
 

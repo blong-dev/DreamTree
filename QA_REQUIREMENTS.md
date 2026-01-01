@@ -2,6 +2,8 @@
 
 Every item must be tested and verified before declaring build complete.
 
+**Source Material:** All module content and exercises are based on "The Dream Tree" by Braedon Long. See `AA source material/` folder for complete course content.
+
 ---
 
 ## Critical Path Testing

@@ -1,0 +1,31 @@
+# Cloudflare Workers/Pages Configuration for DreamTree
+
+name = "dreamtree"
+compatibility_date = "2025-01-01"
+pages_build_output_dir = ".vercel/output/static"
+
+[env.production]
+name = "dreamtree-production"
+
+[[env.production.d1_databases]]
+binding = "DB"
+database_name = "dreamtree-db"
+database_id = "TBD" # Set during deployment
+
+[[env.staging.d1_databases]]
+binding = "DB"
+database_name = "dreamtree-db-staging"
+database_id = "TBD" # Set during deployment
+
+# Environment variables (set via dashboard or wrangler secret)
+[vars]
+NEXT_PUBLIC_APP_URL = "https://dreamtree.org"
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY = ""
+
+# Secrets (set via: wrangler secret put <NAME>)
+# ANTHROPIC_API_KEY
+# STRIPE_SECRET_KEY
+# STRIPE_WEBHOOK_SECRET
+# PLATFORM_ENCRYPTION_KEY
+# DREAMTREE_PRIVATE_KEY
+# ADMIN_PASSWORD

@@ -1,5 +1,16 @@
 # DreamTree Course Content - Complete Structure
 
+## Source Material Reference
+
+This document is derived from "The Dream Tree" by Braedon Long. All content is extracted from:
+- **Primary Source:** `AA source material/DreamTreeTXT.txt`
+- **Part 1 Content:** `AA source material/roots.txt`
+- **Part 2 Content:** `AA source material/trunk.txt`
+- **Part 3 Content:** `AA source material/branches.txt`
+- **Supporting Resources:** See `AA source material/` folder for personality types, skills lists, and frameworks
+
+---
+
 ## Course Overview
 
 **The Dream Tree Framework** by Braedon Long

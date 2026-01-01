@@ -1,9 +1,27 @@
 # DreamTree Build Specification
 ## Complete Technical Implementation Guide
 
-**Version:** 1.0 MVP  
-**Timeline:** 4 weeks (28 days)  
+**Version:** 1.0 MVP
+**Timeline:** 4 weeks (28 days)
 **Tech Stack:** Next.js, Cloudflare (Pages/Workers/D1), Anthropic Claude API, Stripe, Web3 (MetaMask)
+
+---
+
+## Source Material
+
+This implementation is based on "The Dream Tree" by Braedon Long. All course content and structure references are located in:
+
+- **Main Content:** `AA source material/DreamTreeTXT.txt` - Complete book text
+- **Structure:**
+  - `AA source material/IntroandContents.txt` - Table of contents
+  - `AA source material/roots.txt` - Part 1: Roots (Days 1-5)
+  - `AA source material/trunk.txt` - Part 2: Trunk (Days 6-10)
+  - `AA source material/branches.txt` - Part 3: Branches (Days 11-15)
+- **Reference Materials:**
+  - `AA source material/PersonalityTypeSummaries.txt` - MBTI type descriptions
+  - `AA source material/listofskills.txt` - Comprehensive skills taxonomy
+  - `AA source material/odpcompetencyframework.txt` - Competency framework
+  - `AA source material/DreamTreeBook.pdf` - Original PDF version
 
 ---
 
