@@ -11841,3 +11841,1551 @@ Common styling for settings rows used throughout Settings page.
 - **Section 8**: Onboarding Components (ColorSwatch, FontPreview)
 - **Section 4**: Form Inputs (TextInput, Checkbox)
 - **Design System**: Visual tokens, colors, typography, spacing
+
+
+# DreamTree Component Specification
+## Section 11: Credits, Assessments & Skills — Part 1
+
+> New components for attribution and personality/competency assessment.
+
+---
+
+## 11.1 `InlineCitation`
+
+Citation marker within content. Uses existing `Tooltip` component.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `number` | `number` | required | Citation number (assigned by first appearance in content) |
+| `shortCitation` | `string` | required | Tooltip text, e.g., "Burnett & Evans, *Designing Your Life*" |
+
+### Behavior
+
+| Interaction | Result |
+|-------------|--------|
+| Hover (desktop) / Tap-hold (mobile) | Shows `Tooltip` with `shortCitation` |
+| Click / Tap | Navigates to `/credits#citation-{number}` |
+
+### Rendered Structure
+
+```html
+<a 
+  href="/credits#citation-{number}"
+  class="inline-citation"
+  aria-label="Citation {number}: {shortCitation}"
+>
+  <Tooltip content={shortCitation} position="top">
+    <span>[{number}]</span>
+  </Tooltip>
+</a>
+```
+
+### Styling
+
+```css
+.inline-citation {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+}
+
+.inline-citation:hover {
+  text-decoration: underline;
+}
+```
+
+---
+
+## 11.2 `CreditsPage`
+
+Bibliography page listing all sources. Flat alphabetical by author surname, Chicago style.
+
+### URL
+
+`/credits`
+
+### Data Source
+
+Pulls from `references` table, ordered by `author_surname ASC`.
+
+### Rendered Structure
+
+```html
+<AppShell showInput={false}>
+  <div class="credits-page">
+    <header class="credits-header">
+      <h1>Credits & Sources</h1>
+      <p class="credits-author">Primary Author: Braedon Long</p>
+    </header>
+    
+    <section class="credits-bibliography">
+      <h2>Bibliography</h2>
+      <ol class="bibliography-list">
+        {references.map(ref => (
+          <li 
+            key={ref.id} 
+            id={`citation-${ref.citation_number}`}
+            class="bibliography-entry"
+          >
+            <span 
+              class="bibliography-citation"
+              dangerouslySetInnerHTML={{ __html: ref.full_citation }}
+            />
+          </li>
+        ))}
+      </ol>
+    </section>
+  </div>
+</AppShell>
+```
+
+### Styling
+
+```css
+.credits-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4);
+}
+
+.credits-header {
+  margin-bottom: var(--space-8);
+}
+
+.credits-header h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-2);
+}
+
+.credits-author {
+  color: var(--color-muted);
+  font-size: var(--text-base);
+}
+
+.credits-bibliography h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-4);
+}
+
+.bibliography-list {
+  list-style: none;
+  padding: 0;
+}
+
+.bibliography-entry {
+  padding: var(--space-3) 0;
+  border-bottom: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 15%, transparent);
+  scroll-margin-top: var(--space-8);
+}
+
+.bibliography-entry:last-child {
+  border-bottom: none;
+}
+
+.bibliography-citation {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+.bibliography-citation em {
+  font-style: italic;
+}
+
+.bibliography-entry:target {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+  margin: 0 calc(-1 * var(--space-3));
+  padding-left: var(--space-3);
+  padding-right: var(--space-3);
+  border-radius: var(--radius-sm);
+}
+```
+
+---
+
+## 11.3 `MBTISelector`
+
+Typeahead input for selecting personality type. Used in Module 1.1.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `value` | `string \| null` | `null` | Selected type code |
+| `onChange` | `(code: string) => void` | required | Selection handler |
+| `disabled` | `boolean` | `false` | Disable input |
+
+### Data Source
+
+Pulls from `personality_types` table (16 rows).
+
+### Behavior
+
+1. User types in input
+2. Dropdown filters to matching codes and names (e.g., "INT" shows INTJ, INTP; "Arch" shows INTJ)
+3. User selects from filtered list
+4. Selection saves to `user_preferences` or `exercise_responses`
+
+### Rendered Structure
+
+```html
+<div class="mbti-selector" data-open={isOpen}>
+  <label class="mbti-selector-label" for="mbti-input">
+    Your Personality Type
+  </label>
+  
+  <div class="mbti-selector-input-wrapper">
+    <input
+      id="mbti-input"
+      type="text"
+      class="mbti-selector-input"
+      value={inputValue}
+      onChange={handleInputChange}
+      onFocus={() => setIsOpen(true)}
+      placeholder="Type to search (e.g., INTJ or Architect)"
+      aria-expanded={isOpen}
+      aria-controls="mbti-listbox"
+      aria-autocomplete="list"
+      disabled={disabled}
+    />
+    
+    {isOpen && filteredTypes.length > 0 && (
+      <ul 
+        id="mbti-listbox"
+        class="mbti-selector-dropdown"
+        role="listbox"
+      >
+        {filteredTypes.map(type => (
+          <li
+            key={type.code}
+            role="option"
+            class="mbti-selector-option"
+            data-selected={type.code === value}
+            onClick={() => handleSelect(type.code)}
+          >
+            <span class="mbti-option-code">{type.code}</span>
+            <span class="mbti-option-name">{type.name}</span>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
+```
+
+### Styling
+
+```css
+.mbti-selector {
+  position: relative;
+}
+
+.mbti-selector-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-2);
+}
+
+.mbti-selector-input-wrapper {
+  position: relative;
+}
+
+.mbti-selector-input {
+  width: 100%;
+  padding: var(--space-3);
+  font-size: var(--text-base);
+  border: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 30%, transparent);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.mbti-selector-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-primary) 20%, transparent);
+}
+
+.mbti-selector-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: var(--space-1);
+  background: var(--color-bg);
+  border: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 30%, transparent);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  max-height: 240px;
+  overflow-y: auto;
+  z-index: 50;
+  list-style: none;
+  padding: var(--space-1);
+}
+
+.mbti-selector-option {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.mbti-selector-option:hover {
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.mbti-selector-option[data-selected="true"] {
+  background: color-mix(in srgb, var(--color-primary) 15%, transparent);
+}
+
+.mbti-option-code {
+  font-weight: var(--font-semibold);
+  font-size: var(--text-base);
+  min-width: 48px;
+}
+
+.mbti-option-name {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+```
+
+---
+
+## 11.4 `MBTIResultDisplay`
+
+Displays user's personality type with summary. Used in Module 1.1 and Profile.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `code` | `string` | required | 4-letter type code |
+| `name` | `string` | required | Type name, e.g., "The Architect" |
+| `summary` | `string` | required | Career-focused description |
+
+### Rendered Structure
+
+```html
+<div class="mbti-result">
+  <div class="mbti-result-header">
+    <span class="mbti-result-code">{code}</span>
+    <span class="mbti-result-name">{name}</span>
+  </div>
+  <p class="mbti-result-summary">{summary}</p>
+</div>
+```
+
+### Styling
+
+```css
+.mbti-result {
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border-left: 3px solid var(--color-primary);
+  border-radius: var(--radius-md);
+}
+
+.mbti-result-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+
+.mbti-result-code {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+
+.mbti-result-name {
+  font-size: var(--text-lg);
+  color: var(--color-muted);
+}
+
+.mbti-result-summary {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+```
+
+---
+
+## 11.5 `CompetencyLevelSelector`
+
+Guided assessment for determining user's competency level. Used in Module 2.5.1.
+
+### Overview
+
+User completes 15 competency assessments (one per competency). For each, they select from 5 unlabeled level descriptions. Results calculate category and overall averages.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `competencies` | `Competency[]` | required | All 15 competencies with levels |
+| `onComplete` | `(scores: CompetencyScore[]) => void` | required | Completion handler |
+
+### Types
+
+```typescript
+type Competency = {
+  id: string;
+  name: string;
+  definition: string;
+  category: 'delivery' | 'interpersonal' | 'strategic';
+  levels: CompetencyLevel[];
+};
+
+type CompetencyLevel = {
+  level: number; // 1-5
+  description: string;
+};
+
+type CompetencyScore = {
+  competencyId: string;
+  score: number; // 1-5
+};
+
+type CompetencyResults = {
+  scores: CompetencyScore[];
+  deliveryAvg: number;
+  interpersonalAvg: number;
+  strategicAvg: number;
+  overallAvg: number;
+  strengths: string[];      // competency IDs
+  improvements: string[];   // competency IDs
+};
+```
+
+### Calculation Logic
+
+```typescript
+// Category averages
+const deliveryAvg = average(scores.filter(s => getCategory(s.competencyId) === 'delivery'));
+const interpersonalAvg = average(scores.filter(s => getCategory(s.competencyId) === 'interpersonal'));
+const strategicAvg = average(scores.filter(s => getCategory(s.competencyId) === 'strategic'));
+const overallAvg = average(scores);
+
+// Strength/Improvement thresholds (floor after margin)
+const strengthThreshold = Math.floor(overallAvg + 0.3);
+const improvementThreshold = Math.floor(overallAvg - 0.3);
+
+// Classification
+const strengths = scores.filter(s => s.score >= strengthThreshold).map(s => s.competencyId);
+const improvements = scores.filter(s => s.score <= improvementThreshold).map(s => s.competencyId);
+```
+
+### Flow
+
+1. Show competency name + definition
+2. Present 5 level descriptions (unlabeled, in order 1→5)
+3. User selects best fit
+4. Advance to next competency
+5. After all 15, show results
+
+### Rendered Structure (Single Competency Step)
+
+```html
+<div class="competency-step">
+  <header class="competency-step-header">
+    <Badge variant="muted">{category}</Badge>
+    <span class="competency-step-progress">
+      {currentIndex + 1} of {total}
+    </span>
+  </header>
+  
+  <h2 class="competency-step-name">{competency.name}</h2>
+  <p class="competency-step-definition">{competency.definition}</p>
+  
+  <fieldset class="competency-options">
+    <legend class="sr-only">Select the description that best fits you</legend>
+    
+    {competency.levels.map((level, index) => (
+      <label 
+        key={level.level}
+        class="competency-option"
+        data-selected={selectedLevel === level.level}
+      >
+        <input
+          type="radio"
+          name="competency-level"
+          value={level.level}
+          checked={selectedLevel === level.level}
+          onChange={() => setSelectedLevel(level.level)}
+          class="sr-only"
+        />
+        <span class="competency-option-description">
+          {level.description}
+        </span>
+      </label>
+    ))}
+  </fieldset>
+  
+  <div class="competency-step-actions">
+    {currentIndex > 0 && (
+      <Button variant="ghost" onClick={handleBack}>
+        ← Back
+      </Button>
+    )}
+    <Button 
+      variant="primary" 
+      onClick={handleNext}
+      disabled={selectedLevel === null}
+    >
+      {currentIndex === total - 1 ? 'See Results' : 'Next →'}
+    </Button>
+  </div>
+</div>
+```
+
+### Styling
+
+```css
+.competency-step {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.competency-step-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.competency-step-progress {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.competency-step-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+}
+
+.competency-step-definition {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: var(--space-6);
+}
+
+.competency-options {
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.competency-option {
+  display: block;
+  padding: var(--space-4);
+  border: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: border-color var(--duration-fast) ease,
+              background-color var(--duration-fast) ease;
+}
+
+.competency-option:hover {
+  border-color: color-mix(in srgb, var(--color-primary) 50%, transparent);
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+}
+
+.competency-option[data-selected="true"] {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.competency-option-description {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+}
+
+.competency-step-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-6);
+}
+```
+
+---
+
+## 11.6 `CompetencyResultsDisplay`
+
+Shows competency assessment results with averages, level description, and strength/improvement flags.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `results` | `CompetencyResults` | required | Calculated results |
+| `competencies` | `Competency[]` | required | Full competency data |
+| `levelDescriptions` | `LevelDescription[]` | required | Job context per level |
+
+### Types
+
+```typescript
+type LevelDescription = {
+  level: number;
+  jobContext: string; // e.g., "Typically associated with Assistants, Secretaries, Operators"
+};
+```
+
+### Rendered Structure
+
+```html
+<div class="competency-results">
+  <header class="competency-results-header">
+    <h2>Your Competency Profile</h2>
+    <div class="competency-results-overall">
+      <span class="competency-results-level">Level {Math.round(results.overallAvg)}</span>
+      <p class="competency-results-context">
+        {getLevelDescription(Math.round(results.overallAvg)).jobContext}
+      </p>
+    </div>
+  </header>
+  
+  <div class="competency-results-averages">
+    <div class="competency-avg">
+      <span class="competency-avg-label">Delivery-related</span>
+      <span class="competency-avg-value">{results.deliveryAvg.toFixed(1)}</span>
+    </div>
+    <div class="competency-avg">
+      <span class="competency-avg-label">Interpersonal</span>
+      <span class="competency-avg-value">{results.interpersonalAvg.toFixed(1)}</span>
+    </div>
+    <div class="competency-avg">
+      <span class="competency-avg-label">Strategic</span>
+      <span class="competency-avg-value">{results.strategicAvg.toFixed(1)}</span>
+    </div>
+  </div>
+  
+  {['delivery', 'interpersonal', 'strategic'].map(category => (
+    <section key={category} class="competency-category">
+      <h3 class="competency-category-title">{categoryLabels[category]}</h3>
+      
+      {getCompetenciesByCategory(category).map(comp => {
+        const score = getScore(comp.id);
+        const status = getStatus(comp.id); // 'strength' | 'improvement' | 'neutral'
+        
+        return (
+          <div 
+            key={comp.id} 
+            class="competency-item"
+            data-status={status}
+          >
+            <div class="competency-item-header">
+              <span class="competency-item-name">{comp.name}</span>
+              <span class="competency-item-score">Level {score}</span>
+            </div>
+            <p class="competency-item-description">
+              {getLevelDescriptionForCompetency(comp.id, score)}
+            </p>
+          </div>
+        );
+      })}
+    </section>
+  ))}
+</div>
+```
+
+### Styling
+
+```css
+.competency-results {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.competency-results-header {
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+.competency-results-header h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+
+.competency-results-level {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold);
+  color: var(--color-primary);
+}
+
+.competency-results-context {
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  margin-top: var(--space-2);
+}
+
+.competency-results-averages {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+
+.competency-avg {
+  text-align: center;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--color-muted) 5%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.competency-avg-label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  margin-bottom: var(--space-1);
+}
+
+.competency-avg-value {
+  font-size: var(--text-xl);
+  font-weight: var(--font-semibold);
+}
+
+.competency-category {
+  margin-bottom: var(--space-8);
+}
+
+.competency-category-title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 20%, transparent);
+}
+
+.competency-item {
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-md);
+  border-left: 3px solid transparent;
+  background: color-mix(in srgb, var(--color-muted) 3%, transparent);
+}
+
+.competency-item[data-status="strength"] {
+  border-left-color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 5%, transparent);
+}
+
+.competency-item[data-status="improvement"] {
+  border-left-color: var(--color-warning);
+  background: color-mix(in srgb, var(--color-warning) 5%, transparent);
+}
+
+.competency-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.competency-item-name {
+  font-weight: var(--font-medium);
+}
+
+.competency-item-score {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+.competency-item-description {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-muted);
+}
+```
+
+---
+
+## 11.7 `CompetencyCard`
+
+Contextual display of single competency or subset. Used in later modules.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `competency` | `Competency` | required | Competency data |
+| `score` | `number` | required | User's score (1-5) |
+| `levelDescription` | `string` | required | Description for user's level |
+| `status` | `'strength' \| 'improvement' \| 'neutral'` | `'neutral'` | Classification |
+
+### Rendered Structure
+
+```html
+<div class="competency-card" data-status={status}>
+  <div class="competency-card-header">
+    <span class="competency-card-name">{competency.name}</span>
+    <Badge variant="muted">{competency.category}</Badge>
+  </div>
+  <p class="competency-card-description">{levelDescription}</p>
+</div>
+```
+
+### Styling
+
+```css
+.competency-card {
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  border-left: 3px solid transparent;
+  background: color-mix(in srgb, var(--color-muted) 3%, transparent);
+}
+
+.competency-card[data-status="strength"] {
+  border-left-color: var(--color-success);
+  background: color-mix(in srgb, var(--color-success) 5%, transparent);
+}
+
+.competency-card[data-status="improvement"] {
+  border-left-color: var(--color-warning);
+  background: color-mix(in srgb, var(--color-warning) 5%, transparent);
+}
+
+.competency-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-2);
+}
+
+.competency-card-name {
+  font-weight: var(--font-medium);
+}
+
+.competency-card-description {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-muted);
+}
+```
+
+---
+
+## Related Documents
+
+- **Section 6**: Feedback & Status Components (Badge, Tooltip)
+- **Section 4**: Form Input Components (TextInput, RadioGroup)
+- **Design System**: Visual tokens, colors, typography, spacing
+
+
+# DreamTree Component Specification
+## Section 11: Credits, Assessments & Skills — Part 2
+
+> Skills Browser/Tagger, Daily Dos updates, and new database tables.
+
+---
+
+## 11.8 `SkillsBrowser`
+
+Searchable, filterable skill selector with tag-style picking.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `selectedSkills` | `string[]` | `[]` | Array of selected skill IDs |
+| `onChange` | `(skillIds: string[]) => void` | required | Selection change handler |
+| `onAddCustom` | `(skill: NewCustomSkill) => void` | — | Handler for adding custom skill |
+
+### Types
+
+```typescript
+type Skill = {
+  id: string;
+  name: string;
+  category: 'transferable' | 'self_management' | 'knowledge' | null;
+  isCustom: boolean;
+};
+
+type NewCustomSkill = {
+  name: string;
+  category: 'transferable' | 'self_management' | 'knowledge' | null;
+};
+
+type SkillCategory = 'transferable' | 'self_management' | 'knowledge' | 'uncategorized';
+```
+
+### State
+
+```typescript
+const [searchQuery, setSearchQuery] = useState('');
+const [activeFilters, setActiveFilters] = useState<SkillCategory[]>([
+  'transferable', 'self_management', 'knowledge', 'uncategorized'
+]);
+const [showAddCustom, setShowAddCustom] = useState(false);
+```
+
+### Behavior
+
+1. User searches via text input
+2. Results filter by search + active category filters
+3. Click skill to add as selected pill
+4. Click pill to remove
+5. If no match found, show "Add custom skill" option
+
+### Rendered Structure
+
+```html
+<div class="skills-browser">
+  <div class="skills-browser-search">
+    <TextInput
+      value={searchQuery}
+      onChange={setSearchQuery}
+      placeholder="Search skills..."
+      icon={SearchIcon}
+    />
+  </div>
+  
+  <div class="skills-browser-filters">
+    {categories.map(cat => (
+      <button
+        key={cat.id}
+        class="skills-filter"
+        data-active={activeFilters.includes(cat.id)}
+        onClick={() => toggleFilter(cat.id)}
+      >
+        {cat.label}
+      </button>
+    ))}
+  </div>
+  
+  {selectedSkills.length > 0 && (
+    <div class="skills-browser-selected">
+      <span class="skills-selected-label">Selected:</span>
+      <div class="skills-selected-list">
+        {selectedSkills.map(skillId => {
+          const skill = getSkill(skillId);
+          return (
+            <button
+              key={skillId}
+              class="skill-pill"
+              data-selected="true"
+              onClick={() => removeSkill(skillId)}
+            >
+              {skill.name}
+              <XIcon size={14} />
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  )}
+  
+  <div class="skills-browser-results">
+    {filteredSkills.length === 0 ? (
+      <div class="skills-browser-empty">
+        <p>No skills found matching "{searchQuery}"</p>
+        {onAddCustom && (
+          <Button 
+            variant="ghost" 
+            onClick={() => setShowAddCustom(true)}
+          >
+            + Add "{searchQuery}" as custom skill
+          </Button>
+        )}
+      </div>
+    ) : (
+      <div class="skills-list">
+        {filteredSkills.map(skill => (
+          <button
+            key={skill.id}
+            class="skill-pill"
+            data-selected={selectedSkills.includes(skill.id)}
+            onClick={() => toggleSkill(skill.id)}
+          >
+            {skill.name}
+            {skill.isCustom && <Badge variant="muted" size="sm">Custom</Badge>}
+          </button>
+        ))}
+      </div>
+    )}
+  </div>
+  
+  {showAddCustom && (
+    <AddCustomSkillModal
+      initialName={searchQuery}
+      onAdd={handleAddCustom}
+      onClose={() => setShowAddCustom(false)}
+    />
+  )}
+</div>
+```
+
+### Styling
+
+```css
+.skills-browser {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.skills-browser-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skills-filter {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  border: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 30%, transparent);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.skills-filter:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.skills-filter[data-active="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.skills-browser-selected {
+  padding: var(--space-3);
+  background: color-mix(in srgb, var(--color-primary) 5%, transparent);
+  border-radius: var(--radius-md);
+}
+
+.skills-selected-label {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  margin-bottom: var(--space-2);
+}
+
+.skills-selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skills-browser-results {
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  border: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 30%, transparent);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--duration-fast) ease;
+}
+
+.skill-pill:hover {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 10%, transparent);
+}
+
+.skill-pill[data-selected="true"] {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.skills-browser-empty {
+  text-align: center;
+  padding: var(--space-6);
+  color: var(--color-muted);
+}
+
+.skills-browser-empty p {
+  margin-bottom: var(--space-3);
+}
+```
+
+---
+
+## 11.9 `AddCustomSkillModal`
+
+Modal for adding a custom skill to the skills list. Uses existing `Modal` component.
+
+### Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `initialName` | `string` | `''` | Pre-filled skill name |
+| `onAdd` | `(skill: NewCustomSkill) => void` | required | Add handler |
+| `onClose` | `() => void` | required | Close handler |
+
+### Rendered Structure
+
+```html
+<Modal title="Add Custom Skill" onClose={onClose}>
+  <form onSubmit={handleSubmit} class="add-skill-form">
+    <TextInput
+      label="Skill Name"
+      value={name}
+      onChange={setName}
+      required
+    />
+    
+    <div class="add-skill-category">
+      <label class="add-skill-category-label">Category (optional)</label>
+      <RadioGroup
+        name="skill-category"
+        value={category}
+        onChange={setCategory}
+        options={[
+          { value: 'transferable', label: 'Transferable' },
+          { value: 'self_management', label: 'Self-Management' },
+          { value: 'knowledge', label: 'Knowledge' },
+          { value: null, label: 'Uncategorized' },
+        ]}
+      />
+    </div>
+    
+    <div class="add-skill-actions">
+      <Button variant="ghost" type="button" onClick={onClose}>
+        Cancel
+      </Button>
+      <Button variant="primary" type="submit">
+        Add Skill
+      </Button>
+    </div>
+  </form>
+</Modal>
+```
+
+### Styling
+
+```css
+.add-skill-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.add-skill-category-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  margin-bottom: var(--space-2);
+}
+
+.add-skill-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+```
+
+---
+
+# DreamTree Component Specification
+## Section 12: Daily Dos Updates
+
+> Updates to existing Daily Dos logic and data.
+
+---
+
+## 12.1 Updated Tool Types Seed Data
+
+| ID | Name | Has Reminder | Frequency |
+|----|------|--------------|-----------|
+| `flow-tracker` | Flow Log | Yes | daily |
+| `failure-reframer` | Reframe | Yes | weekly |
+| `budget-calculator` | Budget | Yes | monthly |
+| `soared-story` | SOARED Story | Yes | monthly |
+| `networking-prep` | Networking Prep | Yes | daily |
+| `job-prospector` | Job Tracker | Yes | daily |
+| `list-builder` | List | No | — |
+| `ranking-grid` | Ranking | No | — |
+| `idea-tree` | Idea Tree | No | — |
+| `resume-builder` | Resume | No | — |
+
+---
+
+## 12.2 Updated Daily Dos SQL Queries
+
+All queries now include unlock check.
+
+### Daily Reminders
+
+```sql
+SELECT tt.id, tt.singular_name, tt.reminder_prompt
+FROM tool_types tt
+WHERE tt.has_reminder = 1 
+  AND tt.reminder_frequency = 'daily'
+  AND tt.is_active = 1
+  AND EXISTS (
+    SELECT 1 FROM exercise_responses er
+    JOIN exercise_sequence es ON er.full_exercise_id = es.full_exercise_id
+    WHERE er.user_id = ?
+      AND es.unlocks_tool = tt.id
+  )
+  AND NOT EXISTS (
+    SELECT 1 FROM tool_instances ti
+    WHERE ti.user_id = ?
+      AND ti.tool_type = tt.id
+      AND DATE(ti.created_at) = DATE('now')
+  );
+```
+
+### Weekly Reminders
+
+```sql
+SELECT tt.id, tt.singular_name, tt.reminder_prompt
+FROM tool_types tt
+WHERE tt.has_reminder = 1 
+  AND tt.reminder_frequency = 'weekly'
+  AND tt.is_active = 1
+  AND EXISTS (
+    SELECT 1 FROM exercise_responses er
+    JOIN exercise_sequence es ON er.full_exercise_id = es.full_exercise_id
+    WHERE er.user_id = ?
+      AND es.unlocks_tool = tt.id
+  )
+  AND NOT EXISTS (
+    SELECT 1 FROM tool_instances ti
+    WHERE ti.user_id = ?
+      AND ti.tool_type = tt.id
+      AND ti.created_at >= DATE('now', '-7 days')
+  );
+```
+
+### Monthly Reminders
+
+```sql
+SELECT tt.id, tt.singular_name, tt.reminder_prompt
+FROM tool_types tt
+WHERE tt.has_reminder = 1 
+  AND tt.reminder_frequency = 'monthly'
+  AND tt.is_active = 1
+  AND EXISTS (
+    SELECT 1 FROM exercise_responses er
+    JOIN exercise_sequence es ON er.full_exercise_id = es.full_exercise_id
+    WHERE er.user_id = ?
+      AND es.unlocks_tool = tt.id
+  )
+  AND NOT EXISTS (
+    SELECT 1 FROM tool_instances ti
+    WHERE ti.user_id = ?
+      AND ti.tool_type = tt.id
+      AND ti.created_at >= DATE('now', '-30 days')
+  );
+```
+
+---
+
+## 12.3 Daily Dos Data Transformation
+
+Transform SQL results to `DailyDo[]` for existing `DailyDoList` component.
+
+```typescript
+function transformToolReminders(toolTypes: ToolTypeRow[]): DailyDo[] {
+  return toolTypes.map(tt => ({
+    id: tt.id,
+    type: tt.id as DailyDoType,
+    title: tt.singular_name,
+    subtitle: tt.reminder_prompt,
+    action: {
+      label: `${tt.singular_name} →`,
+      onClick: () => navigate(`/tools/${tt.id}`),
+    },
+  }));
+}
+```
+
+---
+
+## 12.4 Resume Workbook Card
+
+Hardcoded card shown when workbook is incomplete.
+
+```typescript
+function getResumeWorkbookCard(nextExercise: Exercise): DailyDo {
+  return {
+    id: 'resume-workbook',
+    type: 'resume',
+    title: 'Resume Workbook',
+    subtitle: nextExercise.title,
+    action: {
+      label: 'Continue →',
+      onClick: () => navigate(nextExercise.path),
+    },
+  };
+}
+```
+
+---
+
+## 12.5 Complete Daily Dos Logic
+
+```typescript
+function getDailyDos(user: User): DailyDo[] {
+  const items: DailyDo[] = [];
+  
+  // Resume workbook card (if incomplete)
+  if (!user.workbookComplete) {
+    const nextExercise = getNextExercise(user.id);
+    items.push(getResumeWorkbookCard(nextExercise));
+  }
+  
+  // Tool reminders (unlocked + due)
+  const dailyReminders = queryDailyReminders(user.id);
+  const weeklyReminders = queryWeeklyReminders(user.id);
+  const monthlyReminders = queryMonthlyReminders(user.id);
+  
+  items.push(...transformToolReminders([
+    ...dailyReminders,
+    ...weeklyReminders,
+    ...monthlyReminders,
+  ]));
+  
+  return items;
+}
+```
+
+---
+
+# DreamTree Component Specification
+## Section 13: New Database Tables
+
+> Schema additions for credits, personality types, competencies, and skills.
+
+---
+
+## 13.1 `references`
+
+Bibliography and attribution data.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `citation_number` | INTEGER | NOT NULL, UNIQUE | Assigned by first appearance |
+| `author_surname` | TEXT | NOT NULL | For alphabetical sort |
+| `full_citation` | TEXT | NOT NULL | Chicago-formatted citation |
+| `short_citation` | TEXT | NOT NULL | Tooltip display |
+| `category` | TEXT | | e.g., "Career Development & Life Design" |
+| `metadata` | TEXT | | JSON: influence, key_concepts, application, referenced_in, notes |
+| `created_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+
+```sql
+CREATE TABLE references (
+    id TEXT PRIMARY KEY,
+    citation_number INTEGER NOT NULL UNIQUE,
+    author_surname TEXT NOT NULL,
+    full_citation TEXT NOT NULL,
+    short_citation TEXT NOT NULL,
+    category TEXT,
+    metadata TEXT,
+    created_at TEXT NOT NULL
+);
+
+CREATE INDEX idx_references_citation_number ON references(citation_number);
+CREATE INDEX idx_references_author_surname ON references(author_surname);
+```
+
+---
+
+## 13.2 `personality_types`
+
+MBTI type data (16 rows).
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `code` | TEXT | PRIMARY KEY | 4-letter code, e.g., "INTJ" |
+| `name` | TEXT | NOT NULL | e.g., "The Architect" |
+| `summary` | TEXT | NOT NULL | Career-focused description |
+
+```sql
+CREATE TABLE personality_types (
+    code TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    summary TEXT NOT NULL
+);
+```
+
+---
+
+## 13.3 `competencies`
+
+Competency definitions (15 rows).
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `name` | TEXT | NOT NULL | e.g., "Analytical Thinking" |
+| `definition` | TEXT | NOT NULL | Full definition paragraph |
+| `category` | TEXT | NOT NULL | "delivery", "interpersonal", "strategic" |
+| `sort_order` | INTEGER | NOT NULL | Display order within category |
+| `relevant_modules` | TEXT | | JSON array of module IDs |
+
+```sql
+CREATE TABLE competencies (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    definition TEXT NOT NULL,
+    category TEXT NOT NULL CHECK (category IN ('delivery', 'interpersonal', 'strategic')),
+    sort_order INTEGER NOT NULL,
+    relevant_modules TEXT
+);
+
+CREATE INDEX idx_competencies_category ON competencies(category, sort_order);
+```
+
+---
+
+## 13.4 `competency_levels`
+
+Level descriptions per competency (75 rows: 15 × 5).
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `competency_id` | TEXT | NOT NULL, FK | Reference to competencies |
+| `level` | INTEGER | NOT NULL | 1-5 |
+| `description` | TEXT | NOT NULL | Level-specific description |
+| `job_context` | TEXT | | e.g., "Assistants, Secretaries, Operators" |
+
+```sql
+CREATE TABLE competency_levels (
+    id TEXT PRIMARY KEY,
+    competency_id TEXT NOT NULL REFERENCES competencies(id),
+    level INTEGER NOT NULL CHECK (level BETWEEN 1 AND 5),
+    description TEXT NOT NULL,
+    job_context TEXT,
+    UNIQUE(competency_id, level)
+);
+
+CREATE INDEX idx_competency_levels_competency ON competency_levels(competency_id);
+```
+
+---
+
+## 13.5 `user_competency_scores`
+
+User assessment results.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `user_id` | TEXT | NOT NULL, FK | Reference to users |
+| `competency_id` | TEXT | NOT NULL, FK | Reference to competencies |
+| `score` | INTEGER | NOT NULL | 1-5 selected |
+| `assessed_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+
+```sql
+CREATE TABLE user_competency_scores (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL REFERENCES users(id),
+    competency_id TEXT NOT NULL REFERENCES competencies(id),
+    score INTEGER NOT NULL CHECK (score BETWEEN 1 AND 5),
+    assessed_at TEXT NOT NULL,
+    UNIQUE(user_id, competency_id)
+);
+
+CREATE INDEX idx_user_competency_scores_user ON user_competency_scores(user_id);
+```
+
+---
+
+## 13.6 `skills`
+
+Master skills list plus user custom skills.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `name` | TEXT | NOT NULL | Skill name |
+| `category` | TEXT | | "transferable", "self_management", "knowledge", or null |
+| `is_custom` | INTEGER | NOT NULL, DEFAULT 0 | Boolean: user-added |
+| `created_by` | TEXT | FK | User ID (null for master list) |
+| `review_status` | TEXT | | "pending", "approved", "rejected" |
+| `created_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+
+```sql
+CREATE TABLE skills (
+    id TEXT PRIMARY KEY,
+    name TEXT NOT NULL,
+    category TEXT CHECK (category IN ('transferable', 'self_management', 'knowledge') OR category IS NULL),
+    is_custom INTEGER NOT NULL DEFAULT 0,
+    created_by TEXT REFERENCES users(id),
+    review_status TEXT CHECK (review_status IN ('pending', 'approved', 'rejected') OR review_status IS NULL),
+    created_at TEXT NOT NULL
+);
+
+CREATE INDEX idx_skills_category ON skills(category);
+CREATE INDEX idx_skills_name ON skills(name);
+CREATE INDEX idx_skills_review ON skills(review_status) WHERE is_custom = 1;
+```
+
+---
+
+## 13.7 `exercise_skills`
+
+Junction table for tagging skills to exercises.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `exercise_instance_id` | TEXT | NOT NULL | FK to exercise response or tool instance |
+| `skill_id` | TEXT | NOT NULL, FK | Reference to skills |
+| `created_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+
+```sql
+CREATE TABLE exercise_skills (
+    id TEXT PRIMARY KEY,
+    exercise_instance_id TEXT NOT NULL,
+    skill_id TEXT NOT NULL REFERENCES skills(id),
+    created_at TEXT NOT NULL,
+    UNIQUE(exercise_instance_id, skill_id)
+);
+
+CREATE INDEX idx_exercise_skills_exercise ON exercise_skills(exercise_instance_id);
+CREATE INDEX idx_exercise_skills_skill ON exercise_skills(skill_id);
+```
+
+---
+
+## Related Documents
+
+- **Section 10**: Dashboard Components (DailyDoList, DailyDoCard)
+- **Section 11 Part 1**: Credits, MBTI, and Competency components
+- **Section 5**: Structured Input Components (existing TagSelector pattern)
+- **Section 7**: Overlay Components (Modal)
+- **Data Architecture**: Existing table schemas
+- **Design System**: Visual tokens, colors, typography, spacing
