@@ -834,7 +834,7 @@ Visual preferences. One row per user, created with defaults on user creation.
 | `user_id` | TEXT | PRIMARY KEY, FK → users.id | Link to user |
 | `background_color` | TEXT | NOT NULL, DEFAULT 'cream' | One of 5 options |
 | `text_color` | TEXT | NOT NULL, DEFAULT 'charcoal' | One of 5 options |
-| `font` | TEXT | NOT NULL, DEFAULT 'system' | One of 5 options |
+| `font` | TEXT | NOT NULL, DEFAULT 'Sans' | One of 5 options |
 | `personality_type` | TEXT | | FK → personality_types.code, user's MBTI type |
 | `created_at` | TEXT | NOT NULL | ISO 8601 timestamp |
 | `updated_at` | TEXT | NOT NULL | ISO 8601 timestamp |

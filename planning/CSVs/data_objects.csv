@@ -1,0 +1,31 @@
+id,name,created_in,reused_in,data_type,implementation_notes
+100000,SOARED Stories (3 stories),Activity 1.1.1c,"1.1.2e, 1.4 (optional), 2.5.3a, 2.5.3b, Networking",Structured Text (S/O/A/R/E/D fields),Store as structured object; pre-fill in later story-related activities
+100001,Top 10 Transferable Skills,Activity 1.1.1e,"1.1.2e, 1.5.1a, 3.1.2b, Resume, LinkedIn",Ranked List with Mastery Rating,Dropdown/selection in later activities
+100002,Top 10 Soft Skills,Activity 1.1.2d,"1.1.2e, Resume, LinkedIn",Ranked List,Dropdown/selection
+100003,4-Letter MBTI Code,Activity 1.1.2a,"1.1.2b, 1.1.2c, 1.1.3c",String (4 chars),Use to filter/show relevant personality resource content
+100004,Complete Job/Experience List,Activity 1.1.1a,"1.2.2a, 1.2.3a-b, 1.3.2a",List of Jobs/Projects/Courses,Master list referenced in multiple modules
+100005,Knowledge Inventory with Mastery,Activity 1.1.3a-d,"1.3.1a, Resume, LinkedIn",List with Mastery Ratings,Include in profile building
+100006,Top 10 Locations,Activity 1.2.1e,"2.4.2 (Work Needs), Job Search",Ranked List,Filter job searches by location preference
+100007,Ideal Workplace Description,Activity 1.2.2b,"2.4.2 (Work Needs), Company Research",Free Text,Reference in company evaluation
+100008,Ideal People Profile,Activity 1.2.3c,"Company Research, Interview Prep",Free Text,Reference in company culture evaluation
+100009,Budget/BATNA,Activity 1.2.4b,3.3.5b (Negotiation),Dollar Amount,Pre-fill minimum salary in negotiation prep
+100010,Work Factor Rankings (1-5),Activity 1.3.1a,"2.4.2, Job Evaluation",Ranked List of 5 items,Weight job opportunities by these priorities
+100011,Flow Activities (High Energy + Focus),Exercise 1.3.2,2.3.1a (Idea Tree Starting Words),List with Energy/Focus Ratings,Filter to high-flow items for brainstorming
+100012,Life Dashboard Ratings,Activity 2.1.1a,Progress tracking,4 Ratings (1-10),Track changes over program duration
+100013,Work Values Statement,Activity 2.1.2a,"2.1.3, 2.5.2b, 3.3.4a",Free Text,Reference in alignment analysis
+100014,Life Values Statement,Activity 2.1.2b,"2.1.3, 2.5.2b, 3.3.4a",Free Text,Reference in alignment analysis
+100015,Value Compass Statement,Activity 2.1.3b,"2.5.2a, 2.5.2b, 3.3.4a",Free Text (brief),Show as reminder throughout Part 2 and 3
+100016,Three Idea Trees,Activity 2.3.1a,2.3.2a,Tree Structure,Visual component; allow selection of leaves
+100017,Three Career Options,Activity 2.3.3a,"2.4.1a, 2.4.2a-c, 2.4.3a-c, 3.1.1a",Structured (Title + Description),Core navigation element for Part 2-3
+100018,5-Year Timelines (x3),Activity 2.4.1a,"2.4.1b, Career Planning",Timeline/Table,Visual timeline component
+100019,Support Assessment Scores (x3),Activity 2.4.2a-c,Career Option Comparison,Scores (100 total per option),Comparison dashboard
+100020,Target Competency Level,Activity 2.5.1a,"Resume, LinkedIn, Interview Prep",Level (1-5),Reference appropriate competency descriptions
+100021,Identity Story (1 page),Activity 2.5.3a,"3.1.2e, 3.2.2d, Resume foundation",Free Text,Core narrative; pull excerpts for other content
+100022,Professional Allegory (1 page),Activity 2.5.3b,"Networking, Interviews",Free Text,Store for reference in Part 3
+100023,Professional Headline (6-12 words),Activity 3.1.2h,"3.2.2d, 3.2.4b",Short Text,Auto-populate in LinkedIn and Facebook fields
+100024,Professional Summary (3-5 sentences),Activity 3.1.2e,"3.2.3a, 3.2.4e",Free Text,Auto-populate in resume and LinkedIn
+100025,Value Proposition (10 words),Activity 3.1.2f,"Resume, LinkedIn, Elevator Pitch",Short Text,Quick reference
+100026,Rewritten Credentials,Activity 3.1.2d,"3.2.3a, 3.2.4e",Bullet List,Pre-fill resume experience bullets
+100027,Job Descriptions Analysis,Exercise 3.1.1,"3.1.2, 3.2.3, 3.2.4",Spreadsheet Data,"Keywords, adjectives, relevant experience"
+100028,Company Research List,Exercise 3.3.4b,"3.4.1, 3.5.2",Spreadsheet Data,Track companies through research and outreach
+100029,Networking Contact List,Exercise 3.4.2,"3.5.2, 3.5.3",Spreadsheet Data,Track contacts and interactions

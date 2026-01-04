@@ -142,9 +142,9 @@ Users choose at onboarding (editable in settings):
 
 | Option | Choices |
 |--------|---------|
-| **Background** | Cream, Sage, Lavender, Sky, Charcoal |
-| **Text** | Charcoal, Forest, Plum, Navy, Cream |
-| **Font** | System, Serif, Sans, Mono, Handwritten |
+| **Background** | Ivory, Creamy Tan, Brown, Bluish Charcoal, Black |
+| **Text** | Ivory, Creamy Tan, Brown, Bluish Charcoal, Black |
+| **Font** | Clean Sans, Classic Serif, Typewriter, Handwritten, Vintage Display |
 
 ---
 

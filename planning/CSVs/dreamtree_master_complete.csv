@@ -1,0 +1,1136 @@
+sequence,part,module,exercise,activity,block_type,content_type,input_type,tool_id,connection_id,content
+1,1,0,0,0,content,heading,,,,Part 1: Roots
+2,1,0,0,0,content,heading,,,,Understanding Your Foundation
+3,1,0,0,0,content,heading,,,,Overview
+4,1,0,0,0,content,instruction,,,,"The first part of the tree is the roots. The roots tell us where we came from, where we have been, and what makes us up. Understanding your roots will help them to grow, furthering the stability of your tree, allowing you to reach ever greater heights. Without our roots, we have nothing to hold us up while we reach for the sky."
+5,1,0,0,0,content,instruction,,,,"Roots are hard. Factual and literal, they are a part of history. Now is not the time for conjecture, imagination, or possibilities; those will come in later parts. No two root systems look the same, different people have different needs, skills, and preferences, but the basic components are the same."
+6,1,0,0,0,content,instruction,,,,"With this and every activity, be honest with yourself. Honesty is always the answer. Nobody wins when you lie. Do not lie; do not exaggerate. Give yourself credit for the things you have done. Acknowledge even the smallest accomplishments."
+7,1,0,0,0,content,instruction,,,,"Life designer Bill Burnett separates our life into four categories: love, health, work, and play.¹ These will be our four primary roots."
+8,1,0,0,0,content,instruction,,,,"**Work** is anything related to the creation of value. Work is any economic activity, regardless of your compensation for that activity. Any activities you engage in with the intent of attaining some goal is work. Doing chores, volunteering, earning degrees, and sales are all to be considered work."
+9,1,0,0,0,content,instruction,,,,"**Play** is nearly the opposite. Play is any activity you engage in for the joy of doing it. If you are competing or trying to accomplish something, then it is not play. Play is what most young children do, without a worry in the world, motivated only by the joy that will come. Of the four parts of life, most adults are worst at play."
+10,1,0,0,0,content,instruction,,,,"**Love** is mostly for you to define. I cannot, and will not, advise you on matters of love. If you so choose, there are plenty of other resources on the topic. None-the-less, it is vital for every person and should be considered when planning your future."
+11,1,0,0,0,content,instruction,,,,"Traditionally, **health** is broken into three categories: physical, mental, and spiritual. To reach the greatest heights, care for all three of these areas. I suggest you consider and look after your physical and spiritual health on your own. There are many resources available in the world to answer any questions you have about physical and spiritual help. Everyone has different physical and spiritual needs, so the exercises here focus on mental health. The importance of health cannot be understated."
+12,1,0,0,0,content,instruction,,,,"Understanding all four of these parts of your life will help clarify the path in front of you, not to mention how useful it will be to have all of this information in one place. Save your interpretations for the next part."
+13,1,0,0,0,content,instruction,,,,"You can only ever be exactly where you are, so let's figure out where you're rooted..."
+14,1,1,0,0,content,heading,,,,Module 1.1: Work Factors 1
+15,1,1,0,0,content,heading,,,,Module Overview
+16,1,1,0,0,content,instruction,,,,"**Focus:** Skills, Talents & Knowledge<br>**Purpose:** Create a comprehensive inventory of your capabilities across three categories: transferable skills, self-management skills, and knowledges<br>**Estimated Time:** 2-3 hours<br>**Key Tools:** Ranking Grid, SOARED Framework, 16Personalities assessment"
+17,1,1,0,0,content,instruction,,,,**Outputs:**
+18,1,1,0,0,content,instruction,,,,- Top 10 ranked transferable skills with mastery ratings
+19,1,1,0,0,content,instruction,,,,- Top 10 ranked self-management (soft) skills
+20,1,1,0,0,content,instruction,,,,- Complete knowledge inventory with mastery ratings
+21,1,1,0,0,content,heading,,,,Skills and Talents
+22,1,1,0,0,content,instruction,,,,"Skills are the most basic unit of performance. Most people think their skills are limited to specific work situations. The goal of this exercise is for you to take full stock of all of your skills, take note of the ones you enjoy the most, and to present them professionally."
+23,1,1,0,0,content,instruction,,,,"According to researcher Sydney Fine, skills can be broken down into three categories: Knowledges, Self-management, and Transferable Skills.²"
+24,1,1,0,0,content,instruction,,,,"**Knowledges** are the topics you know, generally nouns.<br>*Example: Spanish, chemical engineering, graphic design*"
+25,1,1,0,0,content,instruction,,,,"**Self-management skills** describe the way you do your work, generally adjectives/adverbs.<br>*Example: Relentless, innovative, meticulous*"
+26,1,1,0,0,content,instruction,,,,"**Transferable skills** are the things you can do, generally verbs.<br>*Example: Teach, paint, repair, negotiate*"
+27,1,1,0,0,content,instruction,,,,Knowledge is knowing a second language. Self-Management is how often and diligently you practice. Transferable skill is using your second language to some benefit.
+28,1,1,0,0,content,instruction,,,,"All of these are important. First, we want active verbs describing work you can do."
+29,1,1,0,0,content,note,,,,Browse the Skills Library for ideas and reference examples.
+30,1,1,1,0,content,heading,,,,Exercise 1.1.1: Transferable Skills Inventory
+31,1,1,1,0,content,instruction,,,,"**Purpose:** Identify, document, and rank your transferable skills through professional reflection and story analysis using the SOARED framework."
+32,1,1,1,1,content,heading,,,,Activity 1.1.1a: Professional Talents Audit
+33,1,1,1,1,content,instruction,,,,"Record any talent you have used professionally. Start by listing your professional and educational history, then identify the skills each required."
+34,1,1,1,1,prompt,,textarea,,,"List every job you have had, every significant project you have completed, and every important course you have taken."
+35,1,1,1,1,tool,,,list_builder,,"For each item above, add the tasks and skills you performed. Grade each skill on mastery (a=Novice through e=Master)."
+36,1,1,1,2,content,heading,,,,Activity 1.1.1b: Challenge Stories Collection
+37,1,1,1,2,content,instruction,,,,"Think of a time you overcame a challenge (inside or outside of work), a time you soared. Capture one story for each prompt below."
+38,1,1,1,2,prompt,,textarea,,,A time when you had an impact
+39,1,1,1,2,prompt,,textarea,,,A time you did something no one else around could have done
+40,1,1,1,2,prompt,,textarea,,,A time when you were genuinely excited
+41,1,1,1,2,prompt,,textarea,,,A time when you impressed yourself
+42,1,1,1,2,prompt,,textarea,,,A time when everything went according to plan
+43,1,1,1,2,prompt,,textarea,,,A time when nothing went according to plan
+44,1,1,1,2,prompt,,textarea,,,A time when you loved what you were doing
+45,1,1,1,2,prompt,,textarea,,,A time you did something you would like to do again
+46,1,1,1,2,prompt,,textarea,,,A time you did something you would not normally do
+47,1,1,1,2,prompt,,textarea,,,Any other story which represents your skillset
+48,1,1,1,3,content,heading,,,,Activity 1.1.1c: SOARED Story Development
+49,1,1,1,3,content,instruction,,,,Choose the three (3) most impactful stories from above and develop them using the SOARED framework.³
+50,1,1,1,3,content,instruction,,,,**S**ituation – describe the situation<br>**O**bstacle – describe the obstacle/problem you faced<br>**A**ction – describe your action: the step-by-step process you took to address the obstacle<br>**R**esult – describe the result of your actions<br>**E**valuation – your self-evaluation and/or how higher-ups received your actions<br>**D**iscovery – describe what you discovered from the process
+51,1,1,1,3,tool,,,soared_form,,Story 1
+52,1,1,1,3,tool,,,soared_form,,Story 2
+53,1,1,1,3,tool,,,soared_form,,Story 3
+54,1,1,1,4,content,heading,,,,Activity 1.1.1d: Skills Organization & Mastery Rating
+55,1,1,1,4,content,instruction,,,,"Review every transferable skill you used in each of your stories. Organize them from most used to least used, and grade each on mastery."
+56,1,1,1,4,tool,,,skill_tagger,,Tag skills from your stories. Use the Skills Library for reference.
+57,1,1,1,5,content,heading,,,,Activity 1.1.1e: Top 10 Skills Ranking
+58,1,1,1,5,content,instruction,,,,"From all the skills you've identified in Activities 1.1.1a-d, select your top 10 by mastery level."
+59,1,1,1,5,tool,,,list_builder,C003,Select your top 10 mastered skills.
+60,1,1,1,5,content,instruction,,,,Now rank these 10 skills by importance to you—which do you most want to use in your next role?
+61,1,1,1,5,tool,,,ranking_grid,PREV,Rank your items in order of priority.
+62,1,1,2,0,content,heading,,,,Exercise 1.1.2: Self-Management Skills Assessment
+63,1,1,2,0,content,instruction,,,,**Purpose:** Identify your self-management skills (soft skills) using personality assessment and self-reflection.
+64,1,1,2,0,content,instruction,,,,These are often referred to as Soft Skills. You can find lists of common soft skills that random internet people claim will get you any job. Describing ourselves can be difficult. Doing so originally and authentically can be even more challenging.
+65,1,1,2,0,content,heading,,,,Self-Identification Basics
+66,1,1,2,0,content,instruction,,,,"The Enneagram, Myers-Briggs, the Big 5, and the Self-Directed Search are the most commonly used personality tests. Each has its strengths and weaknesses, and they are more alike than they are different."
+67,1,1,2,0,content,instruction,,,,"We will be using an adaptation of Myers-Briggs⁴ as a tool to help us learn about ourselves. It will help you frame your personality in a way which is easier to understand and give you a starting place for finding creative ways to describe yourself. I do not put my full faith into any skills test for many reasons, so remember, this is only a tool."
+68,1,1,2,0,content,instruction,,,,No personality test is perfect. We will use an adaptation of the Myers-Briggs to give you a starting point for your Self-Inventory.
+69,1,1,2,1,content,heading,,,,Activity 1.1.2a: Personality Type Discovery
+70,1,1,2,1,content,instruction,,,,The questionnaire will assign you a four-letter code upon completion. Each letter represents your bias on a set of four scales:
+71,1,1,2,1,content,instruction,,,,- **Extroversion (E) vs. Introversion (I)**<br>- **Sensing (S) vs. Intuition (N)**<br>- **Thinking (T) vs. Feeling (F)**<br>- **Judging (J) vs. Perceiving (P)**
+72,1,1,2,1,content,instruction,,,,"Few people fit their type perfectly. Do not let the results define you. Instead, consider the truths and make a note of the differences."
+73,1,1,2,1,content,instruction,,,,The purpose of this exercise is to illuminate your character traits and to open your mind to possibilities.
+74,1,1,2,1,content,instruction,,,,"While taking the test, it is essential to answer the questions honestly, as they apply to you. There are no wrong answers. Although some of your responses may make you slightly uncomfortable, it is crucial to be as honest as you are able. The more accurate you are, the more this tool can help you."
+75,1,1,2,1,content,instruction,,,,**Take the free assessment at:** www.16personalities.com⁵
+76,1,1,2,1,tool,,,mbti_selector,,Enter your four-letter personality code.
+77,1,1,2,1,content,note,,,,"The website where you take the test is a useful resource. Feel free to learn about your type from them, but it is not necessary for this program."
+78,1,1,2,2,content,heading,,,,Activity 1.1.2b: Dichotomy Self-Rating
+79,1,1,2,2,content,instruction,,,,"To be more confident in your type, read through each of these relative dichotomies and mark yourself on each scale:"
+80,1,1,2,2,content,instruction,,,,"**Extraverts** are more likely to be energized by company, enjoy being the center of attention, keep a fast pace, and talk more than they listen.<br>**Introverts** are more likely to be energized by alone time, be more private, keep their thoughts to themselves, and listen before speaking."
+81,1,1,2,2,prompt,,slider,,,Rate yourself: Extraversion (E) ←→ Introversion (I)
+82,1,1,2,2,content,instruction,,,,**Sensors** tend to be concerned with certainty and what is realistic. They tend to be more literal and are oriented towards the present situation.<br>**Intuitives** tend to be concerned with innovation and what is possible. They tend to be more figurative and are oriented towards the future.
+83,1,1,2,2,prompt,,slider,,,Rate yourself: Sensing (S) ←→ Intuition (N)
+84,1,1,2,2,content,instruction,,,,"**Thinkers** are likely to be most concerned with logic, applying impersonal analysis to opportunities and decisions. They can be seen as detached or heartless.<br>**Feelers** are likely to be most concerned with harmony, empathizing with involved parties with tact when making decisions. May be seen as overemotional, valuing all feelings equally."
+85,1,1,2,2,prompt,,slider,,,Rate yourself: Thinking (T) ←→ Feeling (F)
+86,1,1,2,2,content,instruction,,,,**Judgers** tend to derive the most satisfaction with the completion of a task and manage their time as a finite resource.<br>**Perceivers** prefer to keep their options open and thrive when adapting to new situations. They often view time and deadlines as elastic.
+87,1,1,2,2,prompt,,slider,,,Rate yourself: Judging (J) ←→ Perceiving (P)
+88,1,1,2,2,content,note,,,,"See your Personality Profile for more information about your type: strengths & weaknesses, common character traits, strategies, descriptive words, and more."
+89,1,1,2,2,content,instruction,,,,"Remember, no test can tell you who you are, but these tools can help you describe your talents and identify your weaknesses."
+90,1,1,2,3,content,heading,,,,Activity 1.1.2c: Soft Skills Identification
+91,1,1,2,3,content,instruction,,,,"In your Personality Profile, you will find Self-Management Skills that generally apply to your personality type.⁶ Review your profile and the Skills Library for a comprehensive list."
+92,1,1,2,3,prompt,,textarea,,,"Record any characteristics, strengths, and weaknesses which describe you."
+93,1,1,2,3,prompt,,textarea,,,"Record 1-5 characteristics, strengths, or weaknesses which match your MBTI type, but not you personally. Explain why they are false."
+94,1,1,2,4,content,heading,,,,Activity 1.1.2d: Top 10 Soft Skills Ranking
+95,1,1,2,4,content,instruction,,,,Choose your ten favorite soft skills from above and rank them from your first favorite to your tenth.
+96,1,1,2,4,tool,,,list_builder,,Select your top 10 soft skills.
+97,1,1,2,4,tool,,,ranking_grid,PREV,Rank your items in order of priority.
+98,1,1,2,5,content,heading,,,,Activity 1.1.2e: Skills Description with Evidence
+99,1,1,2,5,content,instruction,,,,"Now combine your self-management skills with your transferable skills to create powerful, evidence-backed descriptions."
+100,1,1,2,5,content,instruction,,,C006,Use your Self-Management Skills to accurately describe your top ten Transferable Skills.
+101,1,1,2,5,prompt,,textarea,C007,,"For each skill, note a specific time you demonstrated it. Draw from your SOARED stories for evidence."
+102,1,1,2,5,prompt,,textarea,,,Add HONEST hard figures to your descriptions. Numbers. Data. Records. Accomplishments. They must be HONEST. You do not want to lie or exaggerate.
+103,1,1,3,0,content,heading,,,,Exercise 1.1.3: Knowledge Audit
+104,1,1,3,0,content,instruction,,,,**Purpose:** Document all your areas of knowledge and expertise with mastery ratings.
+105,1,1,3,0,content,instruction,,,,"Now dive into what you know. The subject matter, the processes, your interests, everything. It is imperative to include everything you know here (or at least as much as possible)."
+106,1,1,3,0,content,instruction,,,,"**Knowledges** are the things you know, generally nouns.<br>*Example: Spanish, chemical engineering, graphic design*"
+107,1,1,3,0,content,instruction,,,,"From work. From your education. From your hobbies. From your interests. From any of your groups or clubs. If it comes to mind, write it down."
+108,1,1,3,0,content,instruction,,,,You want to start broad. Take stock of everything first. Then grade them according to Mastery.
+109,1,1,3,0,content,note,,,,Browse the Skills Library for ideas and reference examples.
+110,1,1,3,1,content,heading,,,,Activity 1.1.3a: Professional & Educational Knowledge
+111,1,1,3,1,prompt,,textarea,,,Write down every job you have had.
+112,1,1,3,1,prompt,,textarea,,,"Write every skill, process, or task you had to perform for those jobs."
+113,1,1,3,1,prompt,,textarea,,,"Write down every course, program, training, and degree you have completed."
+114,1,1,3,1,prompt,,textarea,,,"Write every skill, process, or task you had to perform pursuing those."
+115,1,1,3,2,content,heading,,,,Activity 1.1.3b: Personal Interest Knowledge
+116,1,1,3,2,prompt,,textarea,,,"What else do you know? What are your favorite hobbies? What do you research in your free time? If you wrote a book, what would the content be?"
+117,1,1,3,2,prompt,,textarea,,,What tasks or activities seem to make time fly?
+118,1,1,3,3,content,heading,,,,Activity 1.1.3c: Field Exploration
+119,1,1,3,3,content,instruction,,,,"What fields, careers, or industries sound interesting to you? Check your Personality Profile for ideas based on your type."
+120,1,1,3,3,prompt,,textarea,,,"List fields, careers, or industries that interest you."
+121,1,1,3,4,content,heading,,,,Activity 1.1.3d: Mastery Rating
+122,1,1,3,4,content,instruction,,,,Grade each knowledge you've listed on Mastery: Novice (a) through Master (e).
+123,1,1,3,4,tool,,,list_builder,,Compile your knowledge inventory with mastery ratings.
+124,1,1,3,0,content,heading,,,,Module 1.1 Footnotes
+125,1,1,3,0,content,note,,,,"1. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016. The four life categories (work, play, love, health) provide the foundational framework for Part 1."
+126,1,1,3,0,content,note,,,,"2. Fine, Sydney A. ""Functional Job Analysis Scales: A Desk Aid."" Milwaukee: Sidney A. Fine Associates, 1989."
+127,1,1,3,0,content,note,,,,"3. SOARED Framework is an original tool created by Braedon Long for this program. SOARED stands for: Situation, Obstacle, Action, Results, Evaluation, Discovery."
+128,1,1,3,0,content,note,,,,"4. Myers-Briggs Type Indicator. Developed by Katharine Cook Briggs and Isabel Briggs Myers, based on Carl Jung's theory of psychological types."
+129,1,1,3,0,content,note,,,,"5. NERIS Analytics Limited. ""16Personalities"" (website). www.16personalities.com. Free personality assessment tool based on Myers-Briggs framework."
+130,1,1,3,0,content,note,,,,"6. Tieger, Paul D., and Barbara Barron-Tieger. *Do What You Are: Discover the Perfect Career for You Through the Secrets of Personality Type.* Boston: Little, Brown and Company, 1992."
+131,1,1,3,0,content,instruction,,,,"**Module 1.1 Complete**<br>Next: Module 1.2 - Work Factors 2 (Environment, People, Compensation)"
+132,1,2,0,0,content,heading,,,,Module 1.2: Work Factors 2
+133,1,2,0,0,content,heading,,,,Module Overview
+134,1,2,0,0,content,instruction,,,,"**Focus:** Environment, People & Compensation<br>**Purpose:** Identify your preferred work environment (macro and micro), ideal colleagues and supervisors, and compensation needs<br>**Estimated Time:** 1.5-2 hours<br>**Key Tools:** Ranking Grid, Budget Calculator"
+135,1,2,0,0,content,instruction,,,,**Outputs:**
+136,1,2,0,0,content,instruction,,,,- Top 10 ranked locations
+137,1,2,0,0,content,instruction,,,,- Ideal workplace description
+138,1,2,0,0,content,instruction,,,,- Ideal people profile
+139,1,2,0,0,content,instruction,,,,- Complete budget with minimum salary requirements (BATNA)
+140,1,2,0,0,content,heading,,,,Environment
+141,1,2,0,0,content,instruction,,,,"**Location, Location, Location**"
+142,1,2,0,0,content,instruction,,,,There are two types of location: Macro and Micro.
+143,1,2,0,0,content,instruction,,,,**Macro** – Where in the world do you want to be? Do you want to stay in your town or city? Or would you rather be somewhere else? Are there specific activities you wish to have access to? Do you need to live in a city? Or do you prefer the quiet life of the country?
+144,1,2,0,0,content,instruction,,,,**Micro** – What should your work environment be? Do you need to spend time outside? Is it necessary that you work near a park? Or do you prefer to spend your time indoors? What are your preferred working conditions? Micro-environment might be considered the look and feel of the workplace.
+145,1,2,0,0,content,instruction,,,,"Of course, the more flexible you are, the more opportunities you will find. Also, generally speaking, where there are more people, there are more opportunities. Still, it is essential to know your preferences; you might find your dream job in your dream location. There is only one way to find out."
+146,1,2,0,0,content,instruction,,,,"Do this exercise even if you feel you already know where you want to be. First of all, you might surprise yourself. If not, then you have found more evidence to support what you already thought."
+147,1,2,1,0,content,heading,,,,Exercise 1.2.1: Macro Environment Preferences
+148,1,2,1,0,content,instruction,,,,**Purpose:** Identify and rank your preferred geographic locations for living and working.
+149,1,2,1,1,content,heading,,,,Activity 1.2.1a: Location Desires & Constraints
+150,1,2,1,1,prompt,,textarea,,,"Do you know where you want to live? If you do, write that here. If not, write down the characteristics of a place that you might want to live. (Example: by the ocean, has an active nightlife, quiet, access to nature, etc.)"
+151,1,2,1,1,prompt,,textarea,,,What are your location constraints?
+152,1,2,1,1,prompt,,textarea,,,Do you need to live in a specific country?
+153,1,2,1,1,prompt,,textarea,,,Do you need to stay close to your family?
+154,1,2,1,1,prompt,,textarea,,,Do you have medical needs that affect location?
+155,1,2,1,2,content,heading,,,,Activity 1.2.1b: Past Location Analysis
+156,1,2,1,2,content,instruction,,,,"Struggling for ideas? Even if you are 100% certain, do the following:"
+157,1,2,1,2,prompt,,textarea,,,Write down every place you have lived.
+158,1,2,1,2,prompt,,textarea,,,List every single thing you disliked about those places. (What does it have? What does it lack? What type of people are there? What feelings does it give you?)
+159,1,2,1,2,prompt,,textarea,,,"List the opposites of each of the location traits you dislike. Also, list any positive traits that come to mind."
+160,1,2,1,2,tool,,,list_builder,,Add your positive location traits.
+161,1,2,1,2,tool,,,ranking_grid,PREV,Rank your location traits by importance.
+162,1,2,1,3,content,heading,,,,Activity 1.2.1c: Location Research (Internet)
+163,1,2,1,3,content,instruction,,,,Research. Open your mind to possibilities. Find as many good ideas as possible. Look for places that meet your needs and have as many of your top 5 location traits as possible.
+164,1,2,1,3,prompt,,textarea,,,Search the Internet for places which excel in each of your desired traits. Are there any which excel in multiple? Find 5-10 places which make you excited. Record what excites you about each location.
+165,1,2,1,4,content,heading,,,,Activity 1.2.1d: Location Research (Network)
+166,1,2,1,4,content,instruction,,,,"Ask around. Family, friends, colleagues, acquaintances—you never know what treasure they hold until you ask."
+167,1,2,1,4,prompt,,textarea,,,Share your ranked list of location traits and ask 10-20 people if they know of anywhere which has those traits. Record their ideas. Are there any locations which excel in multiple traits? Find 5-10 places which make you excited.
+168,1,2,1,5,content,heading,,,,Activity 1.2.1e: Top 10 Location Ranking
+169,1,2,1,5,content,instruction,,,,Narrow down your two lists to a single list of 10 possible locations. Rank those ten from most exciting down.
+170,1,2,1,5,tool,,,list_builder,,Select your top 10 locations.
+171,1,2,1,5,tool,,,ranking_grid,PREV,Rank your items in order of priority.
+172,1,2,1,5,content,note,,,,"**If you have a partner:** Both do Activities 1.2.1a & 1.2.1b separately, then discuss your preferred traits. Rank your combined traits using the Ranking Grid. Complete research together and agree upon ten possible locations."
+173,1,2,1,5,content,instruction,,,,Pay special attention to your top 3 locations.
+174,1,2,2,0,content,heading,,,,Exercise 1.2.2: Micro Environment Preferences
+175,1,2,2,0,content,instruction,,,,**Purpose:** Define your ideal workplace environment and conditions.
+176,1,2,2,0,content,instruction,,,,"Now we will focus on the look and feel of the workplace. For each of the following, consider each productive space you have ever had. You may include classrooms, a desk at home, a library, or a cafe. Any space where you get work done is worth studying."
+177,1,2,2,1,content,heading,,,,Activity 1.2.2a: Workplace History Review
+178,1,2,2,1,prompt,,textarea,,,List every job you have had.
+179,1,2,2,1,prompt,,textarea,,,"List every work condition which had a positive impact upon you, your mood, or your effectiveness."
+180,1,2,2,1,prompt,,textarea,,,"List every work condition which had a negative impact upon you, your mood, or your effectiveness."
+181,1,2,2,1,prompt,,textarea,,,What would the opposite of those negative influences be?
+182,1,2,2,2,content,heading,,,,Activity 1.2.2b: Ideal Workplace Description
+183,1,2,2,2,content,instruction,,,,Consider all of the above. Describe your ideal workplace.
+184,1,2,2,2,prompt,,textarea,,,How does the office look?
+185,1,2,2,2,prompt,,textarea,,,What is nearby?
+186,1,2,2,2,prompt,,textarea,,,Are there any important features?
+187,1,2,2,2,prompt,,textarea,,,What part of the city or town is best?
+188,1,2,2,2,prompt,,textarea,,,Is it near child care?
+189,1,2,2,2,prompt,,textarea,,,What else can you think of?
+190,1,2,3,0,content,heading,,,,Exercise 1.2.3: People Preferences
+191,1,2,3,0,content,instruction,,,,**Purpose:** Identify the characteristics of people you work well with and for.
+192,1,2,3,0,content,instruction,,,,"For many, we spend more time with the people we work with than the people we live with. For that reason, aim to have a clear idea of whom you work well with, what types of people can help you to be more productive, and what kinds of people are a negative influence on your work and life."
+193,1,2,3,0,content,instruction,,,,"Simply understanding these things does not guarantee that you will love your next co-workers, but it certainly helps to know what you are looking for."
+194,1,2,3,0,content,instruction,,,,"It is also essential to understand the type of people you like to work for. You work for your boss, and you work for your client, customer, pupil, audience, family, organization, etc. You work for the people who depend on you to do your job."
+195,1,2,3,0,content,instruction,,,,"Some people thrive in competitive environments while others need emotional support. Some people need specific direction, and others need to be left to their expertise. Some people work extraordinarily well in groups, and others prefer solitary labor."
+196,1,2,3,0,content,instruction,,,C010,Reflect on your experiences from Exercise 1.1.1 (Transferable Skills Inventory).
+197,1,2,3,1,content,heading,,,,Activity 1.2.3a: Negative Influence Identification
+198,1,2,3,1,prompt,,textarea,,,Review each job or experience you have had. Recall and record the traits of the people who hurt your productivity in any way. Focus on what about them made your work less productive. List the harmful character traits.
+199,1,2,3,1,prompt,,textarea,,,Write the antonym of each of those negative traits.
+200,1,2,3,2,content,heading,,,,Activity 1.2.3b: Positive Influence Identification
+201,1,2,3,2,prompt,,textarea,,,Review each job or experience you have had. Recall and record the traits of the people who helped your productivity in any way.
+202,1,2,3,2,prompt,,textarea,C011,,"Recall any time when you were particularly productive. Who was directing you? Were you serving anyone (client, etc.)? What traits do those people have that support a positive work environment?"
+203,1,2,3,3,content,heading,,,,Activity 1.2.3c: Ideal Colleague & Supervisor Profile
+204,1,2,3,3,prompt,,textarea,,,What types of people do you want to work with?
+205,1,2,3,3,prompt,,radio_group,,,"Do you prefer to work in teams, pairs, or alone?"
+206,1,2,3,3,prompt,,textarea,,,What types of people do you want to work for?
+207,1,2,3,3,prompt,,textarea,,,Who in this world do you want to serve with your work?
+208,1,2,4,0,content,heading,,,,Exercise 1.2.4: Compensation Analysis
+209,1,2,4,0,content,instruction,,,,"**Purpose:** Determine your financial needs, benefit requirements, and establish your BATNA (Best Alternative To a Negotiated Agreement)."
+210,1,2,4,0,content,instruction,,,,How much money do you want to make? How much money do you need to make? What are your needs? How much do you plan to save? What bonuses and extras are you seeking from your work?
+211,1,2,4,1,content,heading,,,,Activity 1.2.4a: Salary History
+212,1,2,4,1,prompt,,textarea,,,"Record how much you have made at each of your positions, including any changes in pay at any one position."
+213,1,2,4,2,content,heading,,,,Activity 1.2.4b: Budget Creation
+214,1,2,4,2,content,instruction,,,,"Create a complete budget. This will calculate your total monthly expenses, annual expenses, and minimum hourly wage."
+215,1,2,4,2,tool,,,budget_calculator,,Calculate your budget needs.
+216,1,2,4,2,content,instruction,,,,"Be diligent about your budget, and live within your means. Unless you are giving the loan, debt is not your friend. It is easy to spend money; it is difficult to save money. Wealth is built by saving and investing wisely."
+217,1,2,4,3,content,heading,,,,Activity 1.2.4c: Benefits Assessment
+218,1,2,4,3,prompt,,textarea,,,What benefits do you need?
+219,1,2,4,4,content,heading,,,,Activity 1.2.4d: Compensation Structure Evaluation
+220,1,2,4,4,content,instruction,,,,"Describe the benefits and drawbacks of each compensation type, for you."
+221,1,2,4,4,prompt,,textarea,,,"**Salary** (aggregate pay per year or month, regardless of hours worked)"
+222,1,2,4,4,prompt,,textarea,,,**Hourly** (pay for time worked)
+223,1,2,4,4,prompt,,textarea,,,"**Contracting** (pay agreed upon per project, typical for freelancers)"
+224,1,2,4,4,prompt,,textarea,,,**Commission** (% of sale per sale)
+225,1,2,4,4,prompt,,textarea,,,"**Combination of above, or Other** (specify)"
+226,1,2,4,0,content,heading,,,,Module 1.2 Footnotes
+227,1,2,4,0,content,note,,,,"7. This approach to work-life integration draws from Paula Caligiuri's philosophy in *Get a Life, Not a Job: Do What You Love and Let Your Talents Work for You.* Upper Saddle River, NJ: FT Press, 2010."
+228,1,2,4,0,content,instruction,,,,"**Module 1.2 Complete**<br>Next: Module 1.3 - Priorities, Ecstasy & Flow"
+229,1,3,0,0,content,heading,,,,"Module 1.3: Priorities, Ecstasy & Flow"
+230,1,3,0,0,content,heading,,,,Module Overview
+231,1,3,0,0,content,instruction,,,,"**Focus:** Prioritizing work factors and understanding your peak performance states<br>**Purpose:** Rank your work factors by importance and identify activities that create flow states (high engagement + high energy)<br>**Estimated Time:** 1 hour initial + ongoing daily tracking<br>**Key Tools:** Ranking Grid, Flow Tracker<br>**Ongoing Practice:** Daily flow tracking continues through Part 3"
+232,1,3,0,0,content,instruction,,,,**Outputs:**
+233,1,3,0,0,content,instruction,,,,- Prioritized work factors (1-5 ranking)
+234,1,3,0,0,content,instruction,,,,- Flow patterns identification
+235,1,3,0,0,content,instruction,,,,"- List of high-engagement, high-energy activities"
+236,1,3,1,0,content,heading,,,,Exercise 1.3.1: Work Factor Prioritization
+237,1,3,1,0,content,instruction,,,,**Purpose:** Establish your personal hierarchy of work factors to guide career decisions.
+238,1,3,1,0,content,instruction,,,C012,Consider your work factors from Modules 1.1 and 1.2.
+239,1,3,1,0,content,instruction,,,,"When considering employment, what is most important to you?"
+240,1,3,1,0,content,instruction,,,,**The Five Work Factors:**
+241,1,3,1,0,content,instruction,,,,"- **Compensation** – how much money you earn, benefits, and bonus structure"
+242,1,3,1,0,content,instruction,,,,- **Environment** – where in the world you live and the make-up of your office
+243,1,3,1,0,content,instruction,,,,- **Skills** – being able to use the skills you have or learn new skills
+244,1,3,1,0,content,instruction,,,,- **Knowledges** – being able to excel in your field of interest or expertise
+245,1,3,1,0,content,instruction,,,,- **People** – getting along with the people you work with and for
+246,1,3,1,1,content,heading,,,,Activity 1.3.1a: Five-Factor Ranking
+247,1,3,1,1,content,instruction,,,,Rank your work factors from most important (1) to least important (5):
+248,1,3,1,1,tool,,,ranking_grid,,"Rank: Compensation, Environment, Skills, Knowledges, People"
+249,1,3,1,1,prompt,,textarea,,,"If you feel the need to be more specific about any factor, explain here:"
+250,1,3,2,0,content,heading,,,,Exercise 1.3.2: Flow State Mapping
+251,1,3,2,0,content,instruction,,,,**Purpose:** Identify activities and conditions that produce your optimal performance state.
+252,1,3,2,0,content,instruction,,,,"You have documented all of your work factors and have thought about what is most important to you. Now, recall the time when you were the most present. For this step, you will reflect upon your past experiences to get a sense of how they affected you and your fundamental motivation. We're talking about the studied and admired sensation of flow."
+253,1,3,2,0,content,instruction,,,,"Human beings are hardwired to experience flow. During states of flow, people are upwards of 500% more effective or productive doing their work.⁸ In short, the body achieves this by turning off the prefrontal cortex, effectively allowing the brain to remove criticism and doubt, exist deeply in the present moment, make more lateral connections between new and old information, and innovate upon those newly created ideas seamlessly."
+254,1,3,2,0,content,instruction,,,,"Everyone experiences flow from time to time; the most brilliant among us learn to use it to their advantage. You can increase your chances of flow by practicing mindful paced breathing. Practice breathing evenly and in rhythm (try in for 5, out for 5). Your heart is the generator of your body, and everything adapts around it. Steady breath will help your heart beat more regularly, which will entrain the rest of your body to the same rhythm."
+255,1,3,2,0,content,instruction,,,,"Flow is often achieved when someone is pushed to their extreme limits after preparation. These are times when all of our skills and expertise are called upon, we shut out everything except the task at hand, and we execute on a very high level. Symptoms of flow include time distortion, being oblivious to anything other than the task, euphoria, extreme productivity, creative ease, and a sense of singular focus."
+256,1,3,2,0,content,heading,,,,Understanding the Flow Tracking System⁹
+257,1,3,2,0,content,instruction,,,,Separate flow into **focus** and **energy** for the purpose of tracking during this activity.
+258,1,3,2,0,content,instruction,,,,- Think of **focus** as being the scale between boring and captivating.
+259,1,3,2,0,content,instruction,,,,- Think of **energy** as being the scale between draining and energizing.
+260,1,3,2,0,content,instruction,,,,"**When you are fully engaged and completely energized by a task, you are experiencing flow.**"
+261,1,3,2,0,content,instruction,,,,"**Example:** Stacy is a journalist who reported a huge corruption case. While doing the background research was a bit draining, she remembers being extremely focused. Then one day everything came together and she knew it was big. She can't quite say how she connected the dots—the memory is a bit blurry—but everything lined up for her as if she already knew all the answers; that was flow."
+262,1,3,2,1,content,heading,,,,Activity 1.3.2a: Memorable Past Flow Analysis
+263,1,3,2,1,content,instruction,,,C014,Draw from your experiences documented in Module 1.1.
+264,1,3,2,1,content,instruction,,,,"The most significant events, when you experienced flow, deserve more attention."
+265,1,3,2,1,tool,,,flow_tracker,C014,Rate your memorable past events for energy and focus.
+266,1,3,2,1,prompt,,textarea,,,"Is there any activity, task, or skill which you find both highly energizing and highly captivating?"
+267,1,3,2,2,content,heading,,,,Activity 1.3.2b: Recent Past Flow Tracking
+268,1,3,2,2,content,instruction,,,,"Recall the past 3-10 days. (The more you track, the stronger the tool will be.)"
+269,1,3,2,2,tool,,,flow_tracker,,Record significant activities from the past 3-10 days.
+270,1,3,2,2,prompt,,textarea,,,Are there any activities which you find both highly energizing and highly captivating?
+271,1,3,2,3,content,heading,,,,Activity 1.3.2c: Present Flow Tracking (Ongoing)
+272,1,3,2,3,content,instruction,,,,**Repeat this process at the end of each day. Continue until Part 3 is complete.**
+273,1,3,2,3,tool,,,flow_tracker,,Track today's significant activities.
+274,1,3,2,3,prompt,,textarea,,,Are there any activities which you find both highly energizing and highly captivating?
+275,1,3,2,0,content,heading,,,,Module 1.3 Footnotes
+276,1,3,2,0,content,note,,,,"8. Csikszentmihalyi, Mihaly. *Flow: The Psychology of Optimal Experience.* New York: Harper & Row, 1990."
+277,1,3,2,0,content,note,,,,"9. Flow Tracking Methodology is an original tool created by Braedon Long for this program, adapted from Csikszentmihalyi's flow theory."
+278,1,3,2,0,content,instruction,,,,**Module 1.3 Complete**<br>Next: Module 1.4 - Love
+279,1,4,0,0,content,heading,,,,Module 1.4: Love
+280,1,4,0,0,content,heading,,,,Module Overview
+281,1,4,0,0,content,instruction,,,,"**Focus:** Relationships, meaning, and what you care about<br>**Purpose:** Reflect on family, community, world, and self to understand what drives you and shapes your values<br>**Estimated Time:** 1-1.5 hours<br>**Privacy Note:** Answers in this module are encrypted; only you can access them"
+282,1,4,0,0,content,instruction,,,,**Outputs:**
+283,1,4,0,0,content,instruction,,,,- Family impact summary
+284,1,4,0,0,content,instruction,,,,- Community profile
+285,1,4,0,0,content,instruction,,,,- World values statement
+286,1,4,0,0,content,instruction,,,,- Self-understanding summary
+287,1,4,0,0,content,heading,,,,Introduction
+288,1,4,0,0,content,instruction,,,,The focus of this module is love. All people have a sense of what love is. You might be more comfortable considering the things and people you care about.
+289,1,4,0,0,content,instruction,,,,"Love can be a tricky topic to talk about. Love manifests in each person's life in a different way. You might have intensely positive, intensely negative, or completely neutral experiences in each of the categories below. The purpose of this activity is not to dictate right from wrong, but to reflect and understand."
+290,1,4,0,0,content,instruction,,,,"Many programs focus on the idea of passion. Passion is simply one of the many paths into flow. Passion is also pretty ambiguous; only about 1 in 4 people know their passion. For our purposes, we will focus on what we love and care about as a window into what might bring us the most fulfillment in the future."
+291,1,4,0,0,content,note,,,,**There are no wrong answers here—these questions are for you and you only.** Your answers in this module are encrypted so that only you can access them.
+292,1,4,0,0,content,instruction,,,,"**Answer every question.** The process works if you work it. This section is no less important than any other section. Seriously reflect on each of these, and record vivid details. Consider telling your stories using the SOARED framework so that you don't miss any important details."
+293,1,4,1,0,content,heading,,,,Exercise 1.4.1: Family Reflection
+294,1,4,1,0,content,instruction,,,,**Purpose:** Understand how family relationships have shaped who you are and what you need.
+295,1,4,1,1,content,heading,,,,Activity 1.4.1a: Childhood Stories
+296,1,4,1,1,prompt,,textarea,,,What stories from your childhood have helped shape who you are today?
+297,1,4,1,2,content,heading,,,,Activity 1.4.1b: Family Relationships Impact
+298,1,4,1,2,prompt,,textarea,,,What family relationships have had particularly significant impacts upon your beliefs?
+299,1,4,1,3,content,heading,,,,Activity 1.4.1c: Caregiving Considerations
+300,1,4,1,3,prompt,,textarea,,,Do you have any elderly family members you care for or support? How does this shape your needs?
+301,1,4,1,3,prompt,,textarea,,,Do you have any children you care for or support? How does this shape your needs?
+302,1,4,1,4,content,heading,,,,Activity 1.4.1d: Family Inspiration & Lessons
+303,1,4,1,4,prompt,,textarea,,,"Do you have any family members or stories which inspire you? If so, give details."
+304,1,4,1,4,prompt,,textarea,,,What are the most significant lessons your family has taught you?
+305,1,4,2,0,content,heading,,,,Exercise 1.4.2: Community Connection
+306,1,4,2,0,content,instruction,,,,**Purpose:** Identify the groups you belong to and understand their importance to you.
+307,1,4,2,1,content,heading,,,,Activity 1.4.2a: Group Identification
+308,1,4,2,1,prompt,,textarea,,,"What group, or groups, do you identify with?"
+309,1,4,2,1,prompt,,textarea,,,"Are you involved in any organizations, religious groups, neighborhood associations, group of friends, gaming club, or other regularly organized social events?"
+310,1,4,2,2,content,heading,,,,Activity 1.4.2b: Community Involvement Analysis
+311,1,4,2,2,prompt,,textarea,,,Why are you involved in those groups?
+312,1,4,2,3,content,heading,,,,Activity 1.4.2c: Community Goals
+313,1,4,2,3,prompt,,textarea,,,Do you have any personal goals concerning your community?
+314,1,4,2,3,prompt,,textarea,,,Is there anything that might cause you to leave your community?
+315,1,4,3,0,content,heading,,,,Exercise 1.4.3: World Perspective
+316,1,4,3,0,content,instruction,,,,**Purpose:** Explore your views on global issues and your place in the broader world.
+317,1,4,3,1,content,heading,,,,Activity 1.4.3a: Global Issues Identification
+318,1,4,3,1,prompt,,textarea,,,Are there any worldly issues that are important to you? What are they?
+319,1,4,3,2,content,heading,,,,Activity 1.4.3b: Historical Lessons
+320,1,4,3,2,prompt,,textarea,,,What are some lessons people should learn from history?
+321,1,4,3,2,prompt,,textarea,,,Are there any worldly problems which you feel the need to help solve?
+322,1,4,3,3,content,heading,,,,Activity 1.4.3c: Cultural Learning
+323,1,4,3,3,prompt,,textarea,,,Have you ever traveled outside of your country? Your continent?
+324,1,4,3,3,prompt,,textarea,,,What have you learned from other cultures of the world?
+325,1,4,3,4,content,heading,,,,Activity 1.4.3d: Future Visioning
+326,1,4,3,4,prompt,,textarea,,,What do you think the world will look like in 10 years?
+327,1,4,3,4,prompt,,textarea,,,What do you think the world will look like in 50 years?
+328,1,4,3,4,prompt,,textarea,,,What do you think the world will look like in 100 years?
+329,1,4,4,0,content,heading,,,,Exercise 1.4.4: Self-Understanding
+330,1,4,4,0,content,instruction,,,,**Purpose:** Develop deeper self-awareness through honest reflection.
+331,1,4,4,1,content,heading,,,,Activity 1.4.4a: Self-Critique
+332,1,4,4,1,prompt,,textarea,,,They say that you are your own hardest critic. Critique yourself. What can you do better?
+333,1,4,4,2,content,heading,,,,Activity 1.4.4b: Strengths Recognition
+334,1,4,4,2,prompt,,textarea,,,What are your strengths?
+335,1,4,4,3,content,heading,,,,Activity 1.4.4c: Core Identity
+336,1,4,4,3,prompt,,textarea,,,"Do you have an idea or memory which makes you feel most like yourself? If so, describe it."
+337,1,4,4,3,prompt,,textarea,,,What do you love about yourself?
+338,1,4,4,4,content,heading,,,,Activity 1.4.4d: Major Life Events
+339,1,4,4,4,prompt,,textarea,,,What major life events have shaped you? Briefly describe them.
+340,1,4,4,5,content,heading,,,,Activity 1.4.4e: Greatest Gift & Commitment
+341,1,4,4,5,prompt,,textarea,,,What is your greatest gift?
+342,1,4,4,5,prompt,,textarea,,,Are you willing to do what needs to be done?
+343,1,4,4,0,content,heading,,,,Module 1.4 Footnotes
+344,1,4,4,0,content,note,,,,"10. Seligman, Martin E.P. *Flourish: A Visionary New Understanding of Happiness and Well-being.* New York: Free Press, 2011."
+345,1,4,4,0,content,instruction,,,,**Module 1.4 Complete**<br>Next: Module 1.5 - Health
+346,1,5,0,0,content,heading,,,,Module 1.5: Health
+347,1,5,0,0,content,heading,,,,Module Overview
+348,1,5,0,0,content,instruction,,,,"**Focus:** Mental health, discipline, and daily practice<br>**Purpose:** Develop mental fortitude through skill sharpening, grit development, mindfulness, and routine establishment<br>**Estimated Time:** 1.5 hours initial + ongoing daily practices<br>**Key Tools:** Routine Tracker"
+349,1,5,0,0,content,instruction,,,,**Ongoing Practices:**
+350,1,5,0,0,content,instruction,,,,- Daily skill sharpening (15+ minutes)
+351,1,5,0,0,content,instruction,,,,- Daily mindfulness (5-20 minutes)
+352,1,5,0,0,content,instruction,,,,- Daily routine tracking
+353,1,5,0,0,content,instruction,,,,**Outputs:**
+354,1,5,0,0,content,instruction,,,,- Skill sharpening commitment
+355,1,5,0,0,content,instruction,,,,- Accountability plan
+356,1,5,0,0,content,instruction,,,,- Mindfulness routine
+357,1,5,0,0,content,instruction,,,,- Daily routine schedule
+358,1,5,0,0,content,heading,,,,Introduction
+359,1,5,0,0,content,instruction,,,,"We will focus on mental health. Physical and spiritual health are both important, but it is best for you to find answers to questions you may have about those topics from another source. People from all walks of life can benefit from mental health practices."
+360,1,5,0,0,content,instruction,,,,"I am going to address three aspects of mental health: **achievement**, **fortitude**, and **emotional intelligence**."
+361,1,5,0,0,content,instruction,,,,"In all three, the lesson is discipline and practice. The goal is not perfection. The goal is active practice."
+362,1,5,0,0,content,instruction,,,,"Bill Burnett describes five mindsets which are imperative to our cause: **curiosity, bias to action, reframing, awareness, and radical collaboration**.¹ Mastering these mindsets and living them will lead you to opportunity."
+363,1,5,1,0,content,heading,,,,Exercise 1.5.1: Skill Sharpening Practice
+364,1,5,1,0,content,instruction,,,,**Purpose:** Commit to daily improvement of a skill that sets you apart.
+365,1,5,1,0,content,instruction,,,,"Achievement is characterized by the things that we can do—otherwise known as our skills. In previous modules, we described our skills, our mastery over them, whether they give or take energy from us, and how captivated we are by them."
+366,1,5,1,0,content,instruction,,,,"Whether it is for our own pleasure, to further our working cause, or to give us a competitive edge, it is crucial to be a student of life, for life. Everybody should always be improving themselves in one way or another."
+367,1,5,1,0,content,instruction,,,,"The post-industrial economy is based on specialization. Pick a transferable skill or a knowledge which sets you apart from others—an expertise. If you do not have one, it is your duty to make one of your skills an expertise."
+368,1,5,1,0,content,instruction,,,,**You will want to start as soon as possible. Today is best; right now is even better.**
+369,1,5,1,1,content,heading,,,,Activity 1.5.1a: Skill Selection
+370,1,5,1,1,content,instruction,,,C018,Use your top skills from Exercise 1.1.1e and flow activities from Exercise 1.3.2.
+371,1,5,1,1,prompt,,text,,,Selected skill:
+372,1,5,1,2,content,heading,,,,Activity 1.5.1b: Daily Practice Commitment (Ongoing)
+373,1,5,1,2,content,instruction,,,,Dedicate at least 15 minutes of singular focus to improving that skill every single day. Practice the skill every single day. Don't stop.
+374,1,5,1,2,content,instruction,,,,"If you grow tired of practicing this skill, reach a level of mastery, or otherwise need a change, choose another skill and repeat the process. This is the never-ending task of self-betterment."
+375,1,5,2,0,content,heading,,,,Exercise 1.5.2: Grit Development
+376,1,5,2,0,content,instruction,,,,**Purpose:** Develop mental fortitude and personal accountability.
+377,1,5,2,0,content,instruction,,,,"Grit describes the mental fortitude to work tirelessly for rewards which are either abstract or far removed, often both.¹¹ I am a proponent of working smarter, not harder, but there is no replacement for diligence, perseverance, and drive. You absolutely must take yourself seriously."
+378,1,5,2,0,content,heading,,,,Take Yourself Seriously
+379,1,5,2,0,content,instruction,,,,"On April 1st, 2016, I woke up at 3 pm. I had slept through two strategy meetings, an interview, training, and was supposed to be getting ready to go out knocking doors for the next 5 hours. I called my campaign director; she was furious, but more, she was sad."
+380,1,5,2,0,content,instruction,,,,"Four months ago she had put her name on the line to bring me in to direct a field canvass that had, until that point, no direction and no hope. Enthusiastic and passionate, I left everything else behind to join her. We had been working 60+ hours each week to get going and had finally started to gain some momentum."
+381,1,5,2,0,content,instruction,,,,"Tuesday, March 31st, we went to dinner and then to a local bar to watch some music. Long after my co-worker went home, I was the last patron in the bar, finishing something past my 20th drink, around 4 am. I had promised to be at work by 8:30."
+382,1,5,2,0,content,instruction,,,,I woke up in severe pain which had become all too common. I couldn't open my eyes. An attempt to stand was met with icy hot needles in my brain; I collapsed.
+383,1,5,2,0,content,instruction,,,,"I remembered the promises I had made: to my co-workers, to my employees, to the people who depended on me. I remembered the times I had been sent to the hospital for alcohol poisoning, and all the promises I had made to my Mother. I called my boss and told her I wasn't going to make it to work that day."
+384,1,5,2,0,content,instruction,,,,"That is when I realized that nothing I said mattered. Every promise I had made, I was breaking it. Here I was, doing what I wanted to do, and throwing it all away."
+385,1,5,2,0,content,instruction,,,,"When I finally pulled my face off the floor and crawled to the sink, I knew I had to do something I hadn't ever done before. I stared myself in the eyes, unsure of what would happen next. That's when I knew. **I had to take myself seriously.**"
+386,1,5,2,0,content,instruction,,,,"I had dreams, ambitions, goals, and more. Yet so far, I had let those sit idly by. No more. I told myself I would never drink again. I made a promise to myself which I live by to this day. I promised accountability. Whatever challenge should come, I vowed to face it. I vowed to overcome."
+387,1,5,2,0,content,instruction,,,,"Since that day, my entire life has changed. I have been and am sober. I quit smoking. I revolutionized my diet. I started working out regularly. I fell in love. I moved to another continent. I started a business. **I take myself seriously.**"
+388,1,5,2,0,content,instruction,,,,"Overcoming addiction, changing your life, creating your story, standing up for yourself, surmounting your fears—no matter what you plan on doing next, **TAKE YOURSELF SERIOUSLY**. Every day. Never stop. This is grit. Daily sacrifice for long-term gain."
+389,1,5,2,0,content,instruction,,,,Look yourself in the mirror and hold yourself accountable. Every single day. No one else can tell you what you need to do. No one else can do the things you need to do. It's up to you to give yourself permission to live a more fulfilled life.
+390,1,5,2,0,content,instruction,,,,**Do the things you know you need to do.** Be relentless.
+391,1,5,2,1,content,heading,,,,Activity 1.5.2a: Role Model Identification
+392,1,5,2,1,prompt,,textarea,,,Who do you look up to? Who is your role model? Why?
+393,1,5,2,1,prompt,,textarea,,,What about that person (those people) do you admire? What characteristics do they have that you don't?
+394,1,5,2,2,content,heading,,,,Activity 1.5.2b: Habit Assessment
+395,1,5,2,2,prompt,,textarea,,,What are the bad habits you need to quit?
+396,1,5,2,2,prompt,,textarea,,,What are the good habits you need to start?
+397,1,5,2,3,content,heading,,,,Activity 1.5.2c: Promise Keeping
+398,1,5,2,3,prompt,,textarea,,,What promises do you need to keep? To yourself? To those you care about?
+399,1,5,2,3,prompt,,textarea,,,What has stopped you from keeping those promises?
+400,1,5,2,4,content,heading,,,,Activity 1.5.2d: Accountability Practice
+401,1,5,2,4,content,instruction,,,,"Choose an order to accomplish these. If you need, start with the easy ones and work up. No matter what, choose one to complete as soon as you possibly can. Start building active trust in yourself."
+402,1,5,2,4,content,instruction,,,,"Forgive yourself when you mess up. If you fall off the horse, focus on getting back on the horse, not on the fact that you fell off. Forgive. Take yourself seriously—if you don't, who will? Next."
+403,1,5,3,0,content,heading,,,,Exercise 1.5.3: Mindfulness Practice
+404,1,5,3,0,content,instruction,,,,**Purpose:** Develop mental discipline through daily mindfulness practice.
+405,1,5,3,0,content,instruction,,,,Mindfulness is rooted in the eastern practice of meditation. We're not asking you to chant mantras or do yoga unless that is what you want to do. This is about discipline for your mind. Silencing your mind is difficult.
+406,1,5,3,0,content,instruction,,,,Try thinking about nothing for the next 2 minutes...
+407,1,5,3,0,content,instruction,,,,Too hard? How about only thinking about your breath for the next 2 minutes...
+408,1,5,3,0,content,instruction,,,,How did you do? Did your mind wander? It is okay if it did. The important thing is practicing the act of coming back to silence. Practice batting down thoughts and distractions.
+409,1,5,3,0,content,instruction,,,,"Your brain is just like every other muscle; the parts you exercise get stronger. Mindfulness uses emotional intelligence. Training your brain to focus, to stay calm, and to shut out distractions will improve your soft skills, make you more able to communicate with others, improve your mental energy, and make you generally grittier."
+410,1,5,3,1,content,heading,,,,Activity 1.5.3a: Daily Mindfulness Setup
+411,1,5,3,1,content,instruction,,,,Spend between 5 and 20 minutes a day practicing mindfulness. Focus on your breath. Push out all distractions. Silence your inner voice for a period each and every day.
+412,1,5,3,1,prompt,,text,,,Time of day:
+413,1,5,3,1,prompt,,text,,,Duration:
+414,1,5,3,1,prompt,,text,,,Location:
+415,1,5,4,0,content,heading,,,,Exercise 1.5.4: Routine Establishment
+416,1,5,4,0,content,instruction,,,,**Purpose:** Create an intentional daily routine that incorporates all your new practices.
+417,1,5,4,0,content,instruction,,,,"Routine is the final point of this module. A routine is the manifestation of discipline. Whether you realize it or not, you have a routine. Humans are creatures of habit, and that will never change."
+418,1,5,4,0,content,instruction,,,,My task for you is to consider your routine intentionally. Do you wander through your day from one thing to the next? Or is there a method to your day?
+419,1,5,4,0,content,instruction,,,,"Either way, this part has given you at least three tasks which demand your attention every day:"
+420,1,5,4,0,content,instruction,,,C020,Reference your flow tracking practice from Exercise 1.3.2c.
+421,1,5,4,0,content,instruction,,,C021,Reference your skill sharpening practice from Exercise 1.5.1b.
+422,1,5,4,0,content,instruction,,,C022,Reference your mindfulness practice from Exercise 1.5.3a.
+423,1,5,4,0,content,instruction,,,,"Finally, remember the five mindsets every day:¹"
+424,1,5,4,0,content,instruction,,,,- **Curiosity**<br>- **Bias to action**<br>- **Reframing**<br>- **Awareness**<br>- **Radical collaboration**
+425,1,5,4,1,content,heading,,,,Activity 1.5.4a: Routine Design
+426,1,5,4,1,content,instruction,,,,"We try to keep you on track with the Daily Dos. It takes about five weeks to break old habits and build new ones. If you start now, exercising your brain will become a part of your daily routine before you finish the program."
+427,1,5,4,1,content,instruction,,,,Design your daily routine:
+428,1,5,4,1,prompt,,textarea,,,Morning:
+429,1,5,4,1,prompt,,textarea,,,Midday:
+430,1,5,4,1,prompt,,textarea,,,Evening:
+431,1,5,4,0,content,heading,,,,Module 1.5 Footnotes
+432,1,5,4,0,content,note,,,,"1. Burnett, Bill, and Dave Evans. *Designing Your Life.* The five designer mindsets (curiosity, bias to action, reframing, awareness, radical collaboration) provide the mental framework for approaching career design."
+433,1,5,4,0,content,note,,,,"11. Duckworth, Angela. *Grit: The Power of Passion and Perseverance.* New York: Scribner, 2016."
+434,1,5,4,0,content,note,,,,"12. Grover, Tim S. *Relentless: From Good to Great to Unstoppable.* New York: Scribner, 2013."
+435,1,5,4,0,content,instruction,,,,**Module 1.5 Complete**<br>**Part 1: Roots Complete**
+436,1,5,0,0,content,heading,,,,Part 1 Summary: Ongoing Practices
+437,1,5,0,0,content,instruction,,,,"As you move into Part 2, continue these daily practices:"
+438,1,5,0,0,content,instruction,,,,| Practice | Source | Daily Time | Purpose |<br>|----------|--------|------------|---------|<br>| Flow Tracking | Exercise 1.3.2c | 5 min | Identify engaging activities |<br>| Skill Sharpening | Exercise 1.5.1b | 15+ min | Build expertise |<br>| Mindfulness | Exercise 1.5.3a | 5-20 min | Develop mental discipline |<br>| Routine Tracking | Exercise 1.5.4a | 5 min | Maintain accountability |
+439,2,0,0,0,content,heading,,,,Part 2: Trunk
+440,2,0,0,0,content,heading,,,,Connecting Your Past to Your Future
+441,2,0,0,0,content,heading,,,,Overview
+442,2,0,0,0,content,instruction,,,,"Now that you have taken stock of your literal makeup and background, it is time to take a higher level view of who you are, how you are doing, and where your life is going. If you are unsure about the path ahead, that is okay. If you are confident you know where your path leads, that is okay too. Go through each exercise with an open mind."
+443,2,0,0,0,content,instruction,,,,"The trunk of our tree represents the present. This is where your past meets your future. In many respects, the present is the only thing that genuinely exists. Everything else is an interpretation. Your mission is to interpret your situation to your benefit and steer towards your best possible future."
+444,2,0,0,0,content,instruction,,,,"There is no possible way to know every effect of each and every choice we make. Therefore, it is impossible to make the best decision in every instance. So, we gather as much information as is needed, and then we make a choice. Bias to action.¹"
+445,2,0,0,0,content,instruction,,,,"Approach this part with an open mind. A lot of this will be brainstorming. When brainstorming, defer to quantity over quality. We, as people, have all sorts of social filters which hinder most people from thinking creatively. Your job is to ignore anything that tells you something is a bad idea and write it down anyway."
+446,2,0,0,0,content,instruction,,,,"There will be a time and a place for evaluation, but first, you need to generate as many ideas as possible. While the most outlandish ideas don't always seem useful, they open the door for creativity and can often lead to innovation. Remember, many of the most incredible discoveries were made by accident—open yourself up to those accidents."
+447,2,0,0,0,content,note,,,,"**Important:** This works best with a small group of people who know you but do not think they know what you need to do for your next step in life. 2-3 other people works best, but even one will help tremendously."
+448,2,1,0,0,content,heading,,,,Module 2.1: Finding The Light
+449,2,1,0,0,content,heading,,,,Module Overview
+450,2,1,0,0,content,instruction,,,,"**Focus:** Current life assessment and values clarification<br>**Purpose:** Evaluate your current state across all life areas and identify your guiding values—the ""light"" that will direct your career decisions<br>**Estimated Time:** 1.5-2 hours<br>**Key Concepts:** Four life categories, work values, life values, alignment"
+451,2,1,0,0,content,instruction,,,,**Outputs:**
+452,2,1,0,0,content,instruction,,,,"- Life dashboard (ratings for work, play, love, health)"
+453,2,1,0,0,content,instruction,,,,- Work values statement
+454,2,1,0,0,content,instruction,,,,- Life values statement
+455,2,1,0,0,content,instruction,,,,- Value compass (alignment analysis)
+456,2,1,0,0,content,heading,,,,Introduction
+457,2,1,0,0,content,instruction,,,,Every plant grows towards the light. The light is nourishing for trees.
+458,2,1,0,0,content,instruction,,,,"You, too, must reach towards your light. Once you identify what your light is, it will guide you through your decision-making process. Anytime you have a decision to make, your light will tell you which way to go—grow towards the light. So, what is your light? What is nourishing for you?"
+459,2,1,1,0,content,heading,,,,Exercise 2.1.1: Life Assessment
+460,2,1,1,0,content,instruction,,,,**Purpose:** Evaluate your current satisfaction across all four life categories.
+461,2,1,1,0,content,instruction,,,C023,"Building on Part 1, you are going to write a brief summary of each of the four main parts of your life. You will then evaluate each part out of ten."
+462,2,1,1,1,content,heading,,,,Activity 2.1.1a: Life Dashboard
+463,2,1,1,1,tool,,,life_dashboard,C023,Rate each life area from 1-10 and write a brief summary.
+464,2,1,1,1,prompt,,textarea,,,"Overall, how are you?"
+465,2,1,2,0,content,heading,,,,Exercise 2.1.2: Values Exploration
+466,2,1,2,0,content,instruction,,,,**Purpose:** Articulate your work values and life values to identify your guiding compass.
+467,2,1,2,0,content,instruction,,,,It is time to identify your light and begin to understand the compass that will guide you into the future.
+468,2,1,2,0,content,instruction,,,,"There are two main values to consider: your **work values** and your **life values**. Values are not a description of what you want or what you are seeking. This is philosophical. Reflect on the deeper meaning. There are no wrong answers, except for blank answers."
+469,2,1,2,1,content,heading,,,,Activity 2.1.2a: Work Values
+470,2,1,2,1,content,instruction,,,,**Work**
+471,2,1,2,1,prompt,,textarea,,,What does work mean to you?
+472,2,1,2,1,prompt,,textarea,,,Why do you work?
+473,2,1,2,1,prompt,,textarea,,,Why do other people work?
+474,2,1,2,1,prompt,,textarea,,,What is the purpose of people working?
+475,2,1,2,1,prompt,,textarea,,,"Other than money, what is gained from work?"
+476,2,1,2,1,prompt,,textarea,,,"Are honor, growth, or fulfillment essential to work? Explain."
+477,2,1,2,1,prompt,,textarea,,,What work would you do if all your needs were guaranteed?
+478,2,1,2,2,content,heading,,,,Activity 2.1.2b: Life Values
+479,2,1,2,2,content,instruction,,,,**Life**
+480,2,1,2,2,prompt,,textarea,,,Is there a meaning of life? Give details.
+481,2,1,2,2,prompt,,textarea,,,What is the meaning of your life?
+482,2,1,2,2,prompt,,textarea,,,Why do we exist?
+483,2,1,2,2,prompt,,textarea,,,What is good?
+484,2,1,2,2,prompt,,textarea,,,What is evil?
+485,2,1,2,2,prompt,,textarea,,,What is happiness?
+486,2,1,2,2,prompt,,textarea,,,Is there a higher being?
+487,2,1,2,2,prompt,,textarea,,,Why do we experience pain and suffering?
+488,2,1,2,2,prompt,,textarea,,,"Is there some deeper meaning, mission, or purpose to life?"
+489,2,1,2,2,prompt,,textarea,,,What injustices are there in the world?
+490,2,1,3,0,content,heading,,,,Exercise 2.1.3: Values Alignment
+491,2,1,3,0,content,instruction,,,,**Purpose:** Find the intersection of your work and life values—your compass.
+492,2,1,3,0,content,instruction,,,,"The most fulfilling lives grow from the place where life views and work views overlap.¹,² In other words, if your work values complement your life values, your life will have more value."
+493,2,1,3,1,content,heading,,,,Activity 2.1.3a: Alignment Analysis
+494,2,1,3,1,prompt,,textarea,,,Where do your two value systems support each other?
+495,2,1,3,1,prompt,,textarea,,,Where do they disagree?
+496,2,1,3,1,prompt,,textarea,,,Is one more important to you than the other? Which one? Why?
+497,2,1,3,1,prompt,,textarea,,,"In your own words, explain how your work values and your life values work together."
+498,2,1,3,2,content,heading,,,,Activity 2.1.3b: Value Compass Definition
+499,2,1,3,2,content,instruction,,,,"You spend a tremendous amount of your life working. The more closely your work supports your values, the more rewarding your life will be. **The overlap between your work values and your life values is where your light shines the brightest.** The closer your work—the way you spend your productive time—complements your values, the more rewarding your life will be."
+500,2,1,3,2,content,instruction,,,,"If you are unclear on what you value, talk to people who know you well, or research your idols' values and compare your values to their values. This alignment is the light you are using to guide the next steps in your life—be diligent."
+501,2,1,3,2,content,instruction,,,,"If you find yourself stuck, practice free writing several potential answers to the questions. Then, choose which solution is best for you or combine them to create another."
+502,2,1,3,2,prompt,,textarea,,,**My Value Compass:** Write a brief statement that captures the overlap between your work values and life values—this is your guiding light for career decisions.
+503,2,1,3,0,content,heading,,,,Module 2.1 Footnotes
+504,2,1,3,0,content,note,,,,"1. Burnett, Bill, and Dave Evans. *Designing Your Life.* New York: Alfred A. Knopf, 2016. The four life categories and concept of values alignment provide the foundation for life design."
+505,2,1,3,0,content,note,,,,"2. Caligiuri, Paula. *Get a Life, Not a Job.* Upper Saddle River, NJ: FT Press, 2010."
+506,2,1,3,0,content,instruction,,,,**Module 2.1 Complete**<br>Next: Module 2.2 - Reality
+507,2,2,0,0,content,heading,,,,Module 2.2: Reality
+508,2,2,0,0,content,heading,,,,Module Overview
+509,2,2,0,0,content,instruction,,,,"**Focus:** Mindset development, action orientation, and reframing failure<br>**Purpose:** Develop the creator's mentality through the five designer mindsets and learn to transform obstacles into opportunities<br>**Estimated Time:** 1.5-2 hours + ongoing weekly practice<br>**Key Tools:** Failure Reframer<br>**Ongoing Practice:** Weekly failure reframing through Part 3"
+510,2,2,0,0,content,instruction,,,,**Outputs:**
+511,2,2,0,0,content,instruction,,,,- Mindset character profiles
+512,2,2,0,0,content,instruction,,,,- Action plan with fear strategies
+513,2,2,0,0,content,instruction,,,,- Growth opportunities log
+514,2,2,0,0,content,heading,,,,Introduction
+515,2,2,0,0,content,instruction,,,,"There are many things which are outside of our control in life. It is best if we let them be. Accept them as they are and work around them. This is not to say that we should not fight injustices or work to right the wrongs in the world. Quite the contrary, we should understand what cannot be changed so that we may be productive in our efforts to support our values."
+516,2,2,0,0,content,instruction,,,,"For example, there is bias and discrimination in most hiring processes. While these issues do need to be addressed and rectified, we would be foolish to act as though they do not exist. Try not to assume the obstacles you will find, but be prepared for obstacles to appear, and be ready to overcome them."
+517,2,2,0,0,content,heading,,,,Two Approaches to Finding Work
+518,2,2,0,0,content,instruction,,,,There are two main approaches to finding the next job.
+519,2,2,0,0,content,instruction,,,,"**The first** is the one you likely know: write your resume, find a job opening, apply to every position you can, wait in the dark, then (if you're super lucky) you might get an email initiating the interview process. There are a TON of reasons this doesn't work, but the important thing is, for all intents and purposes, **this doesn't work**.³"
+520,2,2,0,0,content,instruction,,,,"**The second** one is the one that works: **networking**.³ We are not here to debate the ethics of this, only to share the reality of it. Most employers look inside their organization first, then they either target people they have found or already know, or they defer to people who are referred by trustworthy workers within the organization."
+521,2,2,1,0,content,heading,,,,Exercise 2.2.1: Creator's Mentality
+522,2,2,1,0,content,instruction,,,,**Purpose:** Internalize the five designer mindsets through character study and personal reflection.
+523,2,2,1,0,content,instruction,,,,"Rather than waiting for the perfect job to fall into your lap, you are going to create your own opportunity. The best way to create opportunity is to have a plan and to live the five mindsets.¹"
+524,2,2,1,0,content,heading,,,,The Five Designer Mindsets¹
+525,2,2,1,0,content,instruction,,,,**Curiosity** – Be curious. You are going to be speaking to people. People love to feel interesting. Being genuinely interested in the people you are talking to will make every interaction you have a more positive one.
+526,2,2,1,0,content,instruction,,,,"**Bias to action** – When it is time, take action. When in doubt, take action. You can research and postulate and imagine all day every day. A certain amount of preparation is good and necessary, but preparation has diminishing returns. Sooner rather than later, you need to go out and take action."
+527,2,2,1,0,content,instruction,,,,**Reframing** – Otherwise known as a change of perspective. Some problems are insurmountable. Most problems are opportunities. Learning to see obstacles as opportunities will pay dividends in all aspects of life.
+528,2,2,1,0,content,instruction,,,,"*Before:* ""I have applied to every job I qualify for, and none of them are answering me. I will never find a job."""
+529,2,2,1,0,content,instruction,,,,"*After:* ""I have tried applying for jobs using traditional methods. I need to change how I am looking for a job."""
+530,2,2,1,0,content,instruction,,,,"**Awareness** – The human brain is always looking for ways to optimize. The more aware you are of what is going on around you, the more likely you are to recognize opportunity when it comes."
+531,2,2,1,0,content,instruction,,,,**Radical collaboration** – People. Know that everything in the world of work and creation is made up of people. The most abundant resource you have is not the internet. It is the people you know.
+532,2,2,1,1,content,heading,,,,Activity 2.2.1a: Mindset Character Profiles
+533,2,2,1,1,content,instruction,,,,"Find a character from a book, series, movie, or real life for each mindset. The mindset should be that character's defining quality."
+534,2,2,1,1,tool,,,mindset_profiles,,Select a character for each of the five mindsets.
+535,2,2,1,1,prompt,,textarea,,,Defend your choices. Explain how and why these characters exemplify the mindset. Give examples.
+536,2,2,1,1,prompt,,textarea,,,What does embodying the mindset help the character to accomplish?
+537,2,2,2,0,content,heading,,,,Exercise 2.2.2: Action Triggers
+538,2,2,2,0,content,instruction,,,,"**Purpose:** Define your goals, confront your fears, and develop strategies for action."
+539,2,2,2,0,content,heading,,,,Eight Principles for Action
+540,2,2,2,0,content,instruction,,,,1. Focus on the task at hand. *The one who chases two rabbits catches none.*
+541,2,2,2,0,content,instruction,,,,"2. Use the skills you have, not the ones you don't. *A bird in the hand is worth two in the bush.*"
+542,2,2,2,0,content,instruction,,,,3. Find your inspiration. Reproduce or create your most successful scenarios.
+543,2,2,2,0,content,instruction,,,,4. Set your intentions and follow through.
+544,2,2,2,0,content,instruction,,,,"5. Aim for the moon; if you miss, you'll land in the stars."
+545,2,2,2,0,content,instruction,,,,6. Embrace fear. Get comfortable being uncomfortable. Move through fear into the unknown.
+546,2,2,2,0,content,instruction,,,,"7. Take massive action. Hypothesize, act, observe, adjust, iterate."
+547,2,2,2,0,content,instruction,,,,8. Persevere. Be relentless.⁴ Never stop. *Remember that the tortoise beats the hare.*
+548,2,2,2,1,content,heading,,,,Activity 2.2.2a: Defining Success
+549,2,2,2,1,content,instruction,,,,"I want you to aim for the moon. So, now, define your ""moon."" Be specific. How much wealth? How much income? What material desires? What organizations, businesses, or non-profits need to exist? Dream it all, and write it all down."
+550,2,2,2,1,prompt,,textarea,,,What do you need to survive?
+551,2,2,2,1,prompt,,textarea,,,How would a comfortable life for you look?
+552,2,2,2,1,prompt,,textarea,,,What does happiness mean to you?
+553,2,2,2,1,prompt,,textarea,,,What is your definition of success?
+554,2,2,2,1,prompt,,textarea,,,"If you had three wishes, what would they be?"
+555,2,2,2,1,prompt,,textarea,,,Describe your dream life.
+556,2,2,2,1,prompt,,textarea,,,What are you willing to do to achieve your standards?
+557,2,2,2,2,content,heading,,,,Activity 2.2.2b: Confronting Fear
+558,2,2,2,2,prompt,,textarea,,,What strikes fear into your bones?
+559,2,2,2,2,prompt,,textarea,,,Detail some actions you think you could take to conquer those fears.
+560,2,2,2,2,prompt,,textarea,,,What situation over the next year are you afraid of failing?
+561,2,2,2,2,prompt,,textarea,,,Give three opportunistic perspectives on that situation. (Practice reframing)
+562,2,2,2,2,prompt,,textarea,,,Brainstorm actions you could take to excel in that situation.
+563,2,2,2,3,content,heading,,,,Activity 2.2.2c: Building on Past Success
+564,2,2,2,3,prompt,,textarea,,,Describe a time you overcame your fear.
+565,2,2,2,3,prompt,,textarea,,,Have you ever had an authority figure who motivated you? What about that person motivated you?
+566,2,2,2,4,content,heading,,,,Activity 2.2.2d: Resilience Planning
+567,2,2,2,4,prompt,,textarea,,,What is the worst possible situation you can accept for your life?
+568,2,2,2,4,prompt,,textarea,,,"Describe the last time you were down. (Financially, emotionally, in performance—you choose your frame)"
+569,2,2,2,4,prompt,,textarea,,,What did you do to improve your situation?
+570,2,2,2,4,prompt,,textarea,,,What could you have done better?
+571,2,2,3,0,content,heading,,,,Exercise 2.2.3: Reframing Failure
+572,2,2,3,0,content,instruction,,,,**Purpose:** Transform failures into growth opportunities through systematic reflection.
+573,2,2,3,0,content,instruction,,,,"Failure is no longer an end. Life is not a pass or fail test. Sometimes, things do not work the way we expect. So, either change what you expect or change the way it works. Reframing failure is an extension of being mindful."
+574,2,2,3,1,content,heading,,,,Activity 2.2.3a: Failure Log & Reframe (Ongoing)
+575,2,2,3,1,content,instruction,,,,"Look back over the last week (or month or year), and log your failures. Label them as screwups, weaknesses, or growth opportunities. Reframe each as an opportunity for growth."
+576,2,2,3,1,tool,,,failure_reframer,,Log and reframe your failures as growth opportunities.
+577,2,2,3,1,content,instruction,,,,**Repeat at the end of each week** to build the habit of reflection and growth.
+578,2,2,3,1,content,heading,,,,Understanding the Reframing Process
+579,2,2,3,1,content,instruction,,,,"Often, life is a numbers game. If you try enough times, eventually something will work. You need to go a step beyond random trials. Record your mishaps, reflect on them, and adjust your behavior accordingly. **Do not fail the same way twice.** Failure is not an end; it is a means to learn."
+580,2,2,3,1,content,instruction,,,,Practice reframing in your daily life. Change your perspective to see opportunity in every instance:
+581,2,2,3,1,content,instruction,,,,"- Lost your keys? → Memory exercise<br>- Family argument? → Practice diplomacy, communication, and negotiation<br>- Not enough time? → Streamline for efficiency"
+582,2,2,3,0,content,heading,,,,Module 2.2 Footnotes
+583,2,2,3,0,content,note,,,,"1. Burnett, Bill, and Dave Evans. *Designing Your Life.* The five designer mindsets form the mental framework for approaching career design with creativity and resilience."
+584,2,2,3,0,content,note,,,,"3. Bolles, Richard N. *What Color Is Your Parachute?* Networking and informational interviewing are far more effective than traditional application methods."
+585,2,2,3,0,content,note,,,,"4. Grover, Tim S. *Relentless: From Good to Great to Unstoppable.* New York: Scribner, 2013."
+586,2,2,3,0,content,instruction,,,,**Module 2.2 Complete**<br>Next: Module 2.3 - Landmarking
+587,2,3,0,0,content,heading,,,,Module 2.3: Landmarking
+588,2,3,0,0,content,heading,,,,Module Overview
+589,2,3,0,0,content,instruction,,,,"**Focus:** Generating possibilities and making career choices<br>**Purpose:** Use idea trees to brainstorm potential career paths, then select three viable options for your future<br>**Estimated Time:** 2-2.5 hours<br>**Key Tools:** Idea Tree Builder, flow tracking data from Exercise 1.3.2<br>**Group Activity:** Recommended for Exercise 2.3.1"
+590,2,3,0,0,content,instruction,,,,**Outputs:**
+591,2,3,0,0,content,instruction,,,,- Three idea trees
+592,2,3,0,0,content,instruction,,,,- 9+ job possibilities
+593,2,3,0,0,content,instruction,,,,- Three defined career options
+594,2,3,0,0,content,heading,,,,Introduction
+595,2,3,0,0,content,instruction,,,,"I cannot state enough how impactful today's activities can be, no matter how far along you are in your process. By opening your mind to your own ideas and building neural paths to stimulate and support creativity, you are practicing one of the most highly valued skills in the information economy—**innovation**."
+596,2,3,1,0,content,heading,,,,Exercise 2.3.1: New Growth (Idea Trees)
+597,2,3,1,0,content,instruction,,,,**Purpose:** Generate a wide range of career possibilities through associative brainstorming.
+598,2,3,1,0,content,instruction,,,,"When plants grow, they send out shoots in many directions. They don't reach in every direction, but they give themselves plenty of opportunities, knowing that not all of them will grow into significant parts of the plant."
+599,2,3,1,0,content,instruction,,,,"For this step, you are going to create three idea trees. The process is simple—don't overthink it. As before, the important thing right now is **quantity**. We, as people, make better choices when we can choose between multiple options."
+600,2,3,1,0,content,instruction,,,,"You are going to start with the trunk. Then, add 3-4 branches. Next, each branch gets 3-4 more branches. Finally, one more round of branches."
+601,2,3,1,0,content,instruction,,,,**DO NOT CENSOR YOUR IDEAS. ALL IDEAS ARE WELCOME.**
+602,2,3,1,1,content,heading,,,,Activity 2.3.1a: Idea Tree Creation
+603,2,3,1,1,content,instruction,,,C024,"Review the topics or situations which both energize and captivate you (from Exercise 1.3.2: Flow State Mapping), and choose the three which interest and engage you the most for your starting words."
+604,2,3,1,1,tool,,,idea_tree,C024,Tree 1
+605,2,3,1,1,tool,,,idea_tree,,Tree 2
+606,2,3,1,1,tool,,,idea_tree,,Tree 3
+607,2,3,2,0,content,heading,,,,Exercise 2.3.2: Reading the Leaves
+608,2,3,2,0,content,instruction,,,,**Purpose:** Transform your idea tree concepts into potential job possibilities.
+609,2,3,2,0,content,instruction,,,,You are now going to take the ideas you have generated and brainstorm jobs that combine them. This doesn't need to be realistic. The point of this exercise is to practice exploring ideas. **Imagination is the key.**
+610,2,3,2,0,content,heading,,,,Examples
+611,2,3,2,0,content,instruction,,,,"**Example 1:** Let's say the three ideas I choose from my first idea tree are: dogs, economics, and mountains. I could breed and sell dogs in the mountains. I could start a business for dog and owner retreats in the mountains."
+612,2,3,2,0,content,instruction,,,,"**Example 2:** Let's say the three ideas I choose from my second idea tree are: travel, dance, and teaching. I could teach different styles of dance from around the world. I could find and exhibit various forms of dance on a YouTube channel."
+613,2,3,2,1,content,heading,,,,Activity 2.3.2a: Combining Ideas into Jobs
+614,2,3,2,1,content,instruction,,,,"You have these three ""trees"" with all sorts of interconnected ideas on them. Start with just one tree."
+615,2,3,2,1,content,instruction,,,,1. Pick three ideas from the outermost layer of branches. Pick them with genuine interest.<br>2. Think of jobs that combine all three of those ideas.<br>3. Repeat for each tree.
+616,2,3,2,1,tool,,,job_combiner,PREV,Combine ideas from your trees into potential jobs.
+617,2,3,2,1,content,heading,,,,Reflection
+618,2,3,2,1,content,instruction,,,,"It is entirely possible that you just stumbled upon a great idea or even a few great ideas. If that is you, CONGRATULATIONS. If not, don't worry. Most people don't."
+619,2,3,2,1,content,instruction,,,,**The goal is to get used to generating ideas without judgment. Imagination is the essence of creativity; creativity is the basis of innovation.**
+620,2,3,3,0,content,heading,,,,Exercise 2.3.3: Making Choices
+621,2,3,3,0,content,instruction,,,,**Purpose:** Select three career paths to develop into full plans.
+622,2,3,3,0,content,instruction,,,,"Now you are going to make a few decisions. For some, this will be easy. For others, this will be a painstaking process. Take your time and sincerely consider your options. There is no right answer."
+623,2,3,3,0,content,instruction,,,,"Life is a bit like looking up from the trunk of a tree. Look for the leaves you want to reach, and go that direction. Most paths don't lead straight to the leaves you want; there are many decisions to make between where you are and where you want to go."
+624,2,3,3,0,content,heading,,,,Guidelines for Your Three Options
+625,2,3,3,0,content,instruction,,,,Design and plan three full options for your future. You are not choosing a specific place to work. You are picking a **profession**.
+626,2,3,3,0,content,instruction,,,,*Examples: Underwater Welder. High school Spanish teacher. Quality control manager for toy manufacturers.*
+627,2,3,3,0,content,instruction,,,C025,"When making your choices, consider your skills and talents, but keep in mind that you can usually learn more skills than you expect on the job. There are jobs which have strict entrance requirements. Every industry has multiple layers—search for ones that fit your skills and potential."
+628,2,3,3,1,content,heading,,,,Activity 2.3.3a: Defining Your Three Options
+629,2,3,3,1,content,instruction,,,,**Option 1: Your First Choice**<br>The one that meets your real-world needs and utilizes your skills and interests the most.
+630,2,3,3,1,prompt,,textarea,,,Career Option 1:
+631,2,3,3,1,content,instruction,,,,"**Option 2: Your Second Choice**<br>This would be your first choice if the first one didn't exist. This one should be just as good as the first, but definitively different."
+632,2,3,3,1,prompt,,textarea,,,Career Option 2:
+633,2,3,3,1,content,instruction,,,,**Option 3: Your Long Shot**<br>This would be your choice if there were no restraining factors. This is your chance to write down the long shot. Maybe you love the idea but don't think you have a chance. The third is my favorite pick of the three.
+634,2,3,3,1,prompt,,textarea,,,Career Option 3:
+635,2,3,3,0,content,heading,,,,Module 2.3 Footnotes
+636,2,3,3,0,content,note,,,,"5. Banayan, Alex. *The Third Door.* New York: Currency, 2018. The most successful people often found unconventional paths—""the third door""—rather than following traditional routes."
+637,2,3,3,0,content,note,,,,"6. Blake, Jenny. *Pivot: The Only Move That Matters Is Your Next One.* New York: Portfolio/Penguin, 2016."
+638,2,3,3,0,content,instruction,,,,**Module 2.3 Complete**<br>Next: Module 2.4 - Launching Pad
+639,2,4,0,0,content,heading,,,,Module 2.4: Launching Pad
+640,2,4,0,0,content,heading,,,,Module Overview
+641,2,4,0,0,content,instruction,,,,**Focus:** Planning and evaluating your three career options<br>**Purpose:** Develop detailed 5-year plans for each career path and assess their viability through resource analysis<br>**Estimated Time:** 1.5-2 hours<br>**Key Tools:** Career Path Planner
+642,2,4,0,0,content,instruction,,,,**Outputs:**
+643,2,4,0,0,content,instruction,,,,- Three 5-year career timelines
+644,2,4,0,0,content,instruction,,,,"- Support ratings for each path (resources, excitement, confidence, coherence)"
+645,2,4,0,0,content,instruction,,,,- Research questions for each path
+646,2,4,0,0,content,heading,,,,Introduction
+647,2,4,0,0,content,instruction,,,C026,Plan out each of your ideas from Exercise 2.3.3 (Making Choices). You will do the same three steps for each of your three choices.
+648,2,4,1,0,content,heading,,,,Exercise 2.4.1: Framework Development
+649,2,4,1,0,content,instruction,,,,**Purpose:** Create detailed timelines and titles for each career path.
+650,2,4,1,1,content,heading,,,,Activity 2.4.1a: Career Path Timelines
+651,2,4,1,1,content,instruction,,,C026,"For each of your three career options, create a timeline that includes work events and life events. Five years is a good guideline."
+652,2,4,1,1,tool,,,career_timeline,C026,Option 1 Timeline
+653,2,4,1,1,tool,,,career_timeline,,Option 2 Timeline
+654,2,4,1,1,tool,,,career_timeline,,Option 3 Timeline
+655,2,4,1,2,content,heading,,,,Activity 2.4.1b: Career Path Titles
+656,2,4,1,2,content,instruction,,,,"Once you have designed a timeline, give this life option—this branch of your tree—a complete and accurate title. Describe your potential life in a way that suits you now, your roots, and this future."
+657,2,4,1,2,prompt,,text,,,Option 1 Title:
+658,2,4,1,2,prompt,,text,,,Option 2 Title:
+659,2,4,1,2,prompt,,text,,,Option 3 Title:
+660,2,4,2,0,content,heading,,,,Exercise 2.4.2: Support Assessment
+661,2,4,2,0,content,instruction,,,,"**Purpose:** Evaluate the resources, excitement, and viability of each career path."
+662,2,4,2,0,content,instruction,,,,"Gauge each of the following out of 10 (0 being little to none, 10 being extremely strong). Give detailed examples and explain in as much detail as you can."
+663,2,4,2,1,content,heading,,,,Activity 2.4.2a: Option 1 Assessment
+664,2,4,2,1,tool,,,career_assessment,C026,Assess Career Option 1
+665,2,4,2,2,content,heading,,,,Activity 2.4.2b: Option 2 Assessment
+666,2,4,2,2,tool,,,career_assessment,,Assess Career Option 2
+667,2,4,2,3,content,heading,,,,Activity 2.4.2c: Option 3 Assessment
+668,2,4,2,3,tool,,,career_assessment,,Assess Career Option 3
+669,2,4,3,0,content,heading,,,,Exercise 2.4.3: Unknowns Identification
+670,2,4,3,0,content,instruction,,,,**Purpose:** Articulate the questions you need to answer as you pursue each path.
+671,2,4,3,0,content,instruction,,,,It is crucial that you approach your future with genuine curiosity. You need to have some questions you are seeking answers to as you move down any path in life.
+672,2,4,3,0,content,instruction,,,,**Consider:**<br>- What is uncertain?<br>- What will you need to learn to be successful on this path?<br>- What ideas or realities will you explore on this path?<br>- What are you going to learn from pursuing this path?
+673,2,4,3,1,content,heading,,,,Activity 2.4.3a: Option 1 Questions
+674,2,4,3,1,tool,,,list_builder,,List 2-5 questions for Career Option 1
+675,2,4,3,2,content,heading,,,,Activity 2.4.3b: Option 2 Questions
+676,2,4,3,2,tool,,,list_builder,,List 2-5 questions for Career Option 2
+677,2,4,3,3,content,heading,,,,Activity 2.4.3c: Option 3 Questions
+678,2,4,3,3,tool,,,list_builder,,List 2-5 questions for Career Option 3
+679,2,4,3,0,content,heading,,,,Module 2.4 Footnotes
+680,2,4,3,0,content,note,,,,"6. Blake, Jenny. *Pivot.* Blake's framework emphasizes creating multiple options and evaluating them systematically before committing."
+681,2,4,3,0,content,instruction,,,,**Module 2.4 Complete**<br>Next: Module 2.5 - Story Weaving
+682,2,5,0,0,content,heading,,,,Module 2.5: Story Weaving
+683,2,5,0,0,content,heading,,,,Module Overview
+684,2,5,0,0,content,instruction,,,,"**Focus:** Crafting your professional identity story<br>**Purpose:** Construct a compelling, authentic narrative that connects your past, present, and future while positioning you for your target career<br>**Estimated Time:** 2.5-3 hours<br>**Key Tools:** SOARED Framework, Competency Framework"
+685,2,5,0,0,content,instruction,,,,**Outputs:**
+686,2,5,0,0,content,instruction,,,,- Target competency level identification
+687,2,5,0,0,content,instruction,,,,- Story framework understanding
+688,2,5,0,0,content,instruction,,,,- 1-page identity story
+689,2,5,0,0,content,instruction,,,,- 1-page allegory (professional story)
+690,2,5,0,0,content,heading,,,,Introduction
+691,2,5,0,0,content,instruction,,,,"To finish this part, you will be constructing your story. You have analyzed your past, identified your compass, and laid out three potential futures. Now, it is time to connect the dots and form a cohesive and coherent story which presents you in the best and most accurate light possible."
+692,2,5,0,0,content,instruction,,,,"If you are not entirely satisfied with what you think your story is, then you are not looking at it in the right light. **Every single person has a good story to tell**—seeing and understanding yours is a matter of perspective and construction."
+693,2,5,1,0,content,heading,,,,Exercise 2.5.1: Choosing Your Level
+694,2,5,1,0,content,instruction,,,,**Purpose:** Identify your target professional level to guide your story and presentation.
+695,2,5,1,0,content,instruction,,,,"The purpose of this exercise is to determine the level of business you are targeting. Are you an executive who enjoys the big picture, or are you best served dealing with your own needs?"
+696,2,5,1,0,content,heading,,,,The Five Competency Levels¹⁰
+697,2,5,1,0,content,instruction,,,,"**Level 1** is typically associated with jobs such as Assistants, Secretaries, Technicians, and Operators."
+698,2,5,1,0,content,instruction,,,,"**Level 2** is typically associated with jobs such as Statisticians, Management Assistants, Logistics Officers, Engineers, and Documentation specialists."
+699,2,5,1,0,content,instruction,,,,"**Level 3** is typically associated with jobs such as Economists, Policy Analysts, IT Analysts, Developers, and HR Advisers."
+700,2,5,1,0,content,instruction,,,,"**Level 4** is typically associated with jobs such as Senior Economists, Senior Analysts, Leads, or Managers."
+701,2,5,1,0,content,instruction,,,,"**Level 5** is typically associated with jobs such as Heads of Division, Counsellors, Deputy Directors, C-level Officers, and Directors."
+702,2,5,1,1,content,heading,,,,Activity 2.5.1a: Level Identification
+703,2,5,1,1,content,instruction,,,,"Your specific role may not be listed. If that is the case, make the best estimation you can. Review the Competency Framework in Resources for details on each level."
+704,2,5,1,1,prompt,,select,,,My target level: (1-5)
+705,2,5,1,1,prompt,,textarea,,,Competencies I can demonstrate:
+706,2,5,1,1,prompt,,textarea,,,Competencies I need to develop:
+707,2,5,2,0,content,heading,,,,Exercise 2.5.2: Persuasive Storytelling
+708,2,5,2,0,content,instruction,,,,**Purpose:** Learn the four elements of compelling professional storytelling.
+709,2,5,2,0,content,heading,,,,"Element 1: Motive (The ""Why"")"
+710,2,5,2,0,content,instruction,,,,"The first thing to understand when crafting a persuasive story is the ""why."" Why are you telling this story? A story is the most effective way to communicate any complex ideas."
+711,2,5,2,0,content,instruction,,,,"**A single well-told and well-chosen story will give your audience a firm idea of who you are, what your morals are, what you stand for, and how worthy of their time and resources you are.**"
+712,2,5,2,0,content,instruction,,,,"The key to a good story is **authenticity**. Be who you are, not whom you think you are supposed to be. Refer back to your compass, your light (Exercise 2.1.3)."
+713,2,5,2,1,content,heading,,,,Activity 2.5.2a: Motive Clarification
+714,2,5,2,1,prompt,,textarea,,,What do you want to achieve by telling your story?
+715,2,5,2,1,content,heading,,,,Element 2: Purpose (Your Theme)
+716,2,5,2,1,content,instruction,,,,"The second big step is to identify your purpose. A life with purpose is a life worth living. Take a look at your life, the work you have done, and all you have accomplished. What themes tie all of them together?"
+717,2,5,2,1,content,instruction,,,C027,Reflect upon your roots (Part 1) and your value compass (Exercise 2.1.3). Consider your life values and your work values—the theme you want to identify is one that draws a line between the two.
+718,2,5,2,2,content,heading,,,,Activity 2.5.2b: Purpose Exploration
+719,2,5,2,2,prompt,,textarea,,,"**In 10 words or less, what is the theme or meaning that ties your life together?**"
+720,2,5,2,2,content,heading,,,,Element 3: Content (Your Stories)
+721,2,5,2,2,content,instruction,,,,The third part to telling a persuasive story is the actual content of the story. The story needs to be consistent and coherent while demonstrating your values and purpose.
+722,2,5,2,2,content,heading,,,,**Focus on Turning Points**
+723,2,5,2,2,content,instruction,,,,One of the most effective ways of achieving this is to focus on the turning points of your life. What stories from your past helped to shape you into the person you are today?
+724,2,5,2,2,content,heading,,,,**The Hero's Journey⁷**
+725,2,5,2,2,content,instruction,,,,"People generally love a hero's tale. The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, and returning to face the world born anew are classic and effective. **Authenticity does not mean remaining the same person. It means owning your journey.**"
+726,2,5,2,2,content,heading,,,,**Content Guidelines**
+727,2,5,2,2,content,instruction,,,,- **Demonstrate a balanced life.** Display your human nature while preserving your professionalism.
+728,2,5,2,2,content,instruction,,,,- **Tell stories of triumph.** Positivity and success tend to resonate the way we want them to.
+729,2,5,2,2,content,instruction,,,,"- **Practice humility.** Do not gloat, brag, or be overly self-congratulatory."
+730,2,5,2,2,content,instruction,,,,- **Include emotional reality.** Emotion is significantly stronger than reason.
+731,2,5,2,2,content,instruction,,,,- **Use limited humor.** Using limited humor shows mastery over your faults.
+732,2,5,2,2,content,instruction,,,,"- **Provide context.** Construct a visceral, emotionally relatable story."
+733,2,5,2,3,content,heading,,,,Activity 2.5.2c: Content Development
+734,2,5,2,3,prompt,,textarea,C028,,List 3-10 evocative stories from your past. (Remember your SOARED stories from Exercise 1.1.1c)
+735,2,5,2,3,prompt,,textarea,,,"Quickly jot down emotions, adjectives, and other vital descriptors associated with each story."
+736,2,5,2,3,prompt,,textarea,,,"Describe the life lesson you learned in every story, using six words or less for each."
+737,2,5,2,3,prompt,,textarea,,,How does each of these life lessons tie into the theme of your life? Be explicit.
+738,2,5,2,3,content,heading,,,,Element 4: Audience (Preparation)
+739,2,5,2,3,content,instruction,,,,The final thing to consider when constructing a persuasive story is your audience. Prepare your story to fit your audience.
+740,2,5,2,3,content,instruction,,,,"**The best stories align you, the people in the room, and the organization at large into a cohesive and logical picture.** Tell your story in a way that demonstrates how well you fit without explicitly saying it."
+741,2,5,2,4,content,heading,,,,Activity 2.5.2d: Audience Awareness
+742,2,5,2,4,prompt,,textarea,,,Record 2-5 times you built a fantastic rapport with someone.
+743,2,5,2,4,prompt,,textarea,,,What made those interactions successful?
+744,2,5,3,0,content,heading,,,,Exercise 2.5.3: Drafting Your Story
+745,2,5,3,0,content,instruction,,,,**Purpose:** Write your complete identity story and professional allegory using the SOARED framework.
+746,2,5,3,0,content,instruction,,,C029,The acronym I teach for storytelling is SOARED. (You used this in Exercise 1.1.1c.) I don't just want you to describe a time you were successful—tell stories of when you truly soared.
+747,2,5,3,0,content,instruction,,,,"**S**ituation – describe the setting, what was happening<br>**O**bstacle – what was the problem, the disruption, which had to be overcome<br>**A**ction – what action did you take to surmount the obstacle<br>**R**esults – what was the result of your action; was the problem solved or not<br>**E**valuation – did you do everything you could have; what did you miss or how did you succeed<br>**D**iscovery – in hindsight, what have you learned from the event"
+748,2,5,3,0,content,heading,,,,Story Guidelines⁸
+749,2,5,3,0,content,instruction,,,,"According to Stephen Denning's storytelling framework, effective identity stories should demonstrate:"
+750,2,5,3,0,content,instruction,,,,- **Relevance:** Does it reflect the kind of person you are to the necessary audience?
+751,2,5,3,0,content,instruction,,,,- **Clarity:** Is your role in the story clear? Are your values reflected clearly in the story?
+752,2,5,3,0,content,instruction,,,,- **Distinctiveness:** Does the story indicate what is unique about you?
+753,2,5,3,0,content,instruction,,,,- **Consistency:** Is the story consistent with the way you conduct your life now?
+754,2,5,3,1,content,heading,,,,Activity 2.5.3a: Identity Story
+755,2,5,3,1,content,instruction,,,,**Your First Story: The Identity Story**
+756,2,5,3,1,content,instruction,,,,"This is not an autobiography. It should be about 1 page typed and needs to make sense of your values, work history, future goals, and your life mission. It is the story you tell yourself, the ideal which you try to live by."
+757,2,5,3,1,prompt,,textarea,,,Write your identity story here (approximately 1 page):
+758,2,5,3,2,content,heading,,,,Activity 2.5.3b: Professional Allegory
+759,2,5,3,2,content,instruction,,,,**Your Second Story: The Allegory**
+760,2,5,3,2,content,instruction,,,,"This single allegory should provide a window into your entire life. When done correctly, this story will communicate some combination of your values, your character, and your passion to the listener, without explicitly stating any of them."
+761,2,5,3,2,content,instruction,,,,Use real stories from your past. Consider:<br>- A favorite place when you were young and what made it special<br>- How you overcame adversity or an obstacle when you were young<br>- An incident with someone whom you admired or who influenced you<br>- The most significant thing that happened to you when you were young
+762,2,5,3,2,prompt,,textarea,,,Write your allegory here (approximately 1 page):
+763,2,5,3,0,content,heading,,,,Module 2.5 Footnotes
+764,2,5,3,0,content,note,,,,"7. Campbell, Joseph. *The Hero with a Thousand Faces.* Princeton University Press, 1949. Campbell's monomyth structure provides the universal framework for personal narrative."
+765,2,5,3,0,content,note,,,,"8. Denning, Stephen. *The Leader's Guide to Storytelling.* San Francisco: Jossey-Bass, 2005. Denning's four criteria for identity stories guide the construction of effective professional narratives."
+766,2,5,3,0,content,note,,,,"9. Slim, Pamela. *Body of Work.* New York: Portfolio/Penguin, 2013. Slim's concept of ""body of work"" informs weaving diverse experiences into a coherent professional narrative."
+767,2,5,3,0,content,note,,,,"10. Organisation for Economic Co-operation and Development (OECD). ""Competency Framework."" The five-level competency framework is adapted from OECD standards."
+768,2,5,3,0,content,note,,,,11. SOARED Framework is an original tool created by Braedon Long for this program.
+769,2,5,3,0,content,instruction,,,,**Module 2.5 Complete**<br>**Part 2: Trunk Complete**
+770,2,5,0,0,content,heading,,,,Part 2 Summary
+771,2,5,0,0,content,instruction,,,,You have now:
+772,2,5,0,0,content,instruction,,,,- ✅ Assessed your current life state
+773,2,5,0,0,content,instruction,,,,- ✅ Clarified your work values and life values
+774,2,5,0,0,content,instruction,,,,"- ✅ Identified your value compass (your ""light"")"
+775,2,5,0,0,content,instruction,,,,- ✅ Internalized the five designer mindsets
+776,2,5,0,0,content,instruction,,,,- ✅ Established a reframing practice
+777,2,5,0,0,content,instruction,,,,- ✅ Generated career possibilities through idea trees
+778,2,5,0,0,content,instruction,,,,- ✅ Selected three career options
+779,2,5,0,0,content,instruction,,,,- ✅ Created 5-year plans for each option
+780,2,5,0,0,content,instruction,,,,- ✅ Identified your target competency level
+781,2,5,0,0,content,instruction,,,,- ✅ Written your identity story and allegory
+782,2,5,0,0,content,instruction,,,,**Carry forward into Part 3:**
+783,2,5,0,0,content,instruction,,,,- Your three career options (with ratings and questions)
+784,2,5,0,0,content,instruction,,,,- Your identity story and allegory
+785,2,5,0,0,content,instruction,,,,- Your value compass
+786,2,5,0,0,content,instruction,,,,- The five mindsets
+787,3,0,0,0,content,heading,,,,Part 3: Branches
+788,3,0,0,0,content,heading,,,,Reaching Into the World
+789,3,0,0,0,content,heading,,,,Overview
+790,3,0,0,0,content,instruction,,,,Your roots are where you come from; they make you who you are and give you the foundation to reach towards the sky.
+791,3,0,0,0,content,instruction,,,,"Your trunk is the present—it is the most robust and tangible part of you, where your past meets your future."
+792,3,0,0,0,content,instruction,,,,"The branches above represent all the possible paths that lie in front of you. From the present, each is as likely as the next. You must understand these paths and grow towards your light."
+793,3,0,0,0,content,instruction,,,C037,"Up to now, you have mapped out three potential futures, written out your story, and iterated your life mission."
+794,3,0,0,0,content,instruction,,,,"From here, you are going to reach out into the world and find your next place of work. We've discussed before that the traditional method of finding work is not very effective.¹"
+795,3,0,0,0,content,instruction,,,,"**You have a lot to do in this part.** In each activity, move quickly. Be confident that you are taking the right steps and take them. Nothing you do here is permanent."
+796,3,0,0,0,content,instruction,,,,We are firm believers in the idea that there is an excellent job for every person on this planet.
+797,3,0,0,0,content,instruction,,,,"Rather than following the beaten path, you are going to forge your own.² In this part, you are going to:"
+798,3,0,0,0,content,instruction,,,,- Craft the image that you project into the world
+799,3,0,0,0,content,instruction,,,,- Find companies who are doing things you are interested in
+800,3,0,0,0,content,instruction,,,,- Find individuals doing the work you are interested in
+801,3,0,0,0,content,instruction,,,,- Begin reaching out to those individuals
+802,3,1,0,0,content,heading,,,,Module 3.1: Intentional Impressions
+803,3,1,0,0,content,heading,,,,Module Overview
+804,3,1,0,0,content,instruction,,,,**Focus:** Researching employer language and creating targeted content<br>**Purpose:** Analyze job descriptions for your target positions and craft content that speaks their language<br>**Estimated Time:** 2-3 hours<br>**Key Tools:** Job Analysis Tool
+805,3,1,0,0,content,instruction,,,,**Outputs:**
+806,3,1,0,0,content,instruction,,,,- Completed job description analysis (2-10 positions)
+807,3,1,0,0,content,instruction,,,,- Keyword and descriptor inventory
+808,3,1,0,0,content,instruction,,,,- Resume content drafts
+809,3,1,0,0,content,instruction,,,,- Professional summary and headline
+810,3,1,0,0,content,heading,,,,Introduction
+811,3,1,0,0,content,instruction,,,,"For much of this part, you are going to be using the Job Prospects tool. It is designed to help organize all of the information you will be gathering."
+812,3,1,0,0,content,instruction,,,,"Today you will research the specific way employers describe the position you are interested in, start to get an idea of what problems they need to have solved, and how you are equipped to solve those problems."
+813,3,1,1,0,content,heading,,,,Exercise 3.1.1: Initial Research
+814,3,1,1,0,content,instruction,,,,**Purpose:** Analyze job descriptions to understand employer language and requirements.
+815,3,1,1,0,content,instruction,,,C038,"Start with your first job option (from Exercise 2.3.3), or with the interviews that you have scheduled."
+816,3,1,1,1,content,heading,,,,Activity 3.1.1a: Job Description Collection
+817,3,1,1,1,content,instruction,,,,Find 2-10 job descriptions for your first job option from Part 2. **Hold off on applying to these positions**—be more prepared when you approach the companies.
+818,3,1,1,2,content,heading,,,,Activity 3.1.1b: Job Analysis Documentation
+819,3,1,1,2,content,instruction,,,,"Record the following for each position: Career Description, Job Title, Company Name, Job Description, Adjectives & Adverbs, Your Relevant Experience, Skills You Lack, Story Fit."
+820,3,1,1,2,tool,,,job_analyzer,C038,Analyze job descriptions for your target positions.
+821,3,1,2,0,content,heading,,,,Exercise 3.1.2: Writing Your Content
+822,3,1,2,0,content,instruction,,,,**Purpose:** Rewrite your qualifications using employer language to create compelling professional content.
+823,3,1,2,0,content,instruction,,,C039,"For this section, you will be rewriting your roots with the specific intention of relaying your skills and experiences to employers."
+824,3,1,2,1,content,heading,,,,Activity 3.1.2a: Keyword Identification
+825,3,1,2,1,prompt,,textarea,,,What descriptive language stands out as universal or commonly used in the job descriptions?
+826,3,1,2,1,prompt,,textarea,,,"Which descriptors stand out as being the best, while also describing you, your experience, or your skills?"
+827,3,1,2,2,content,heading,,,,Activity 3.1.2b: Credibility Inventory
+828,3,1,2,2,prompt,,textarea,C039,,"Look back through your roots (Part 1), and record everything you have done that supports your credible claim to the position you are seeking."
+829,3,1,2,2,prompt,,textarea,,,Prioritize these skills and experiences according to how important they are to your successful execution of the tasks described.
+830,3,1,2,3,content,heading,,,,Activity 3.1.2c: Job Title Definition
+831,3,1,2,3,prompt,,text,,,What would be the title of the job that you want most?
+832,3,1,2,3,prompt,,textarea,,,Are there any keywords or phrases you think you should use in this job title?
+833,3,1,2,4,content,heading,,,,Activity 3.1.2d: Credential Rewriting
+834,3,1,2,4,content,instruction,,,,Rewrite your credible traits using these guidelines:
+835,3,1,2,4,content,instruction,,,,"a) Simple past & simple present tense<br>b) Phrases, not sentences – start with an active verb<br>c) Contain roughly one keyword (from job descriptions)<br>d) Are quantifiable whenever possible"
+836,3,1,2,4,content,instruction,,,,"**Examples:**<br>- Developed software which increased sales team efficiency by 6%<br>- Grew publication reach from 5,000 to 20,000 readers per month<br>- Maintained function of 458 machine units for five years with 0 failures"
+837,3,1,2,4,tool,,,credential_writer,C039,Rewrite your credentials using employer language.
+838,3,1,2,5,content,heading,,,,Activity 3.1.2e: Professional Summary
+839,3,1,2,5,prompt,,textarea,C040,,Write a short (3-5 sentences) summary of your experience. Draw on your roots and how well the position fits into your identity story.
+840,3,1,2,6,content,heading,,,,Activity 3.1.2f: Value Proposition
+841,3,1,2,6,prompt,,text,,,"In 10 words or less, explain why you are the perfect fit for this job and career."
+842,3,1,2,7,content,heading,,,,Activity 3.1.2g: Professional Bio
+843,3,1,2,7,prompt,,textarea,C040,,Summarize your identity story and professional achievements in 2-3 sentences.
+844,3,1,2,8,content,heading,,,,Activity 3.1.2h: Headline Creation
+845,3,1,2,8,prompt,,text,,,Write a clear and conclusive personal introduction in 6-12 words. (This is your headline.)
+846,3,1,2,0,content,heading,,,,Module 3.1 Footnotes
+847,3,1,2,0,content,note,,,,"1. Bolles, Richard N. *What Color Is Your Parachute?* Traditional application methods have significantly lower success rates than networking."
+848,3,1,2,0,content,note,,,,"2. Banayan, Alex. *The Third Door.* New York: Currency, 2018."
+849,3,1,2,0,content,instruction,,,,**Module 3.1 Complete**<br>Next: Module 3.2 - Constructing the Projection
+850,3,2,0,0,content,heading,,,,Module 3.2: Constructing the Projection
+851,3,2,0,0,content,heading,,,,Module Overview
+852,3,2,0,0,content,instruction,,,,"**Focus:** Building your professional presence across all platforms<br>**Purpose:** Create a consistent, professional image across Google, social media, resume, and LinkedIn<br>**Estimated Time:** 3-4 hours<br>**Required:** Professional photograph"
+853,3,2,0,0,content,instruction,,,,**Outputs:**
+854,3,2,0,0,content,instruction,,,,- Clean Google search results
+855,3,2,0,0,content,instruction,,,,- Professional Social Media Profiles
+856,3,2,0,0,content,instruction,,,,- Draft resume/CV
+857,3,2,0,0,content,instruction,,,,- Complete LinkedIn profile
+858,3,2,0,0,content,heading,,,,Introduction
+859,3,2,0,0,content,instruction,,,,"Today, you will use the information you have gathered to tell your identity story in every reasonable and necessary format."
+860,3,2,0,0,content,instruction,,,,**Now the rubber meets the road.**
+861,3,2,0,0,content,instruction,,,,**You are going to need at least one professionally acceptable photograph:**
+862,3,2,0,0,content,instruction,,,,"- Upper torso, face<br>- Presentable for your profession<br>- No alcohol or drugs<br>- Preferably alone<br>- Good lighting<br>- Genuine expression"
+863,3,2,1,0,content,heading,,,,Exercise 3.2.1: Google Audit
+864,3,2,1,0,content,instruction,,,,**Purpose:** Ensure your online search results present you professionally.
+865,3,2,1,1,content,heading,,,,Activity 3.2.1a: Search Yourself
+866,3,2,1,1,content,instruction,,,,Clear your cookies. Open an incognito window. Google your name. Google your name and city. Consider using DuckDuckGo for unbiased results.
+867,3,2,1,1,prompt,,checkbox,,,Google search completed
+868,3,2,1,1,prompt,,checkbox,,,Image search completed
+869,3,2,1,2,content,heading,,,,Activity 3.2.1b: Clean Up Results
+870,3,2,1,2,content,instruction,,,,"For any unsavory posts: Untag yourself, ask the original poster to take the photo down, or take it down yourself."
+871,3,2,1,2,prompt,,textarea,,,Issues identified:
+872,3,2,1,2,prompt,,textarea,,,Actions taken:
+873,3,2,2,0,content,heading,,,,Exercise 3.2.2: Social Media Update
+874,3,2,2,0,content,instruction,,,,**Purpose:** Ensure your social media profiles present you professionally.
+875,3,2,2,1,content,heading,,,,Activity 3.2.2a: Profile Picture Update
+876,3,2,2,1,content,instruction,,,,Update your profile picture. Comb through all your profile pictures. Your photographs tell a story about you; make sure they tell the story you want.
+877,3,2,2,1,prompt,,checkbox,,,Profile picture updated
+878,3,2,2,1,prompt,,checkbox,,,Cover photo updated
+879,3,2,2,1,prompt,,checkbox,,,Old profile pictures reviewed
+880,3,2,2,2,content,heading,,,,Activity 3.2.2b: Privacy Settings
+881,3,2,2,2,content,instruction,,,,Check your privacy settings. Make sure that you are comfortable with them. We suggest being comfortable adding professional contacts.
+882,3,2,2,2,prompt,,checkbox,,,Privacy settings reviewed
+883,3,2,2,3,content,heading,,,,Activity 3.2.2c: Content Audit
+884,3,2,2,3,content,instruction,,,,"Edit what you have posted. While political expression is your right, extreme views can be a turn off for employers. The last thing we want is for you to find the perfect job and then be denied an opportunity."
+885,3,2,2,3,prompt,,checkbox,,,Posts reviewed and cleaned
+886,3,2,2,4,content,heading,,,,Activity 3.2.2d: About Section
+887,3,2,2,4,content,instruction,,,C041,"Update your ""about"" section with a summary of your identity story (from Exercise 2.5.3a). Update your ""intro"" with your 6-10 word phrase (from Activity 3.1.2h)."
+888,3,2,2,4,prompt,,checkbox,,,About section updated
+889,3,2,2,5,content,heading,,,,Activity 3.2.2e: Photo Review
+890,3,2,2,5,content,instruction,,,,Go through the photographs you are tagged in and the pictures you have posted. Make sure they are either private or professionally appropriate.
+891,3,2,2,5,prompt,,checkbox,,,Tagged photos reviewed
+892,3,2,2,5,prompt,,checkbox,,,Posted photos reviewed
+893,3,2,3,0,content,heading,,,,Exercise 3.2.3: Resume/CV Creation
+894,3,2,3,0,content,instruction,,,,**Purpose:** Create a professional resume that tells your story using employer language.
+895,3,2,3,0,content,instruction,,,,"Resume if you are looking in the US, Curriculum Vitae everywhere else."
+896,3,2,3,0,content,heading,,,,Getting Past Automated Filters
+897,3,2,3,0,content,instruction,,,,**First:** Use keywords and phrases listed in the job descriptions.
+898,3,2,3,0,content,instruction,,,,"**Second:** Apply to smaller companies. Less competition, easier to stand out."
+899,3,2,3,0,content,heading,,,,Resume Guidelines
+900,3,2,3,0,content,instruction,,,,"**Do:**<br>- Use keywords, but do not overstuff<br>- Quantify any work that can be quantified<br>- Tell your story<br>- Be clear and concise<br>- Write every line in simple tense<br>- Focus on what you can do<br>- Use your potential employers' vocabulary"
+901,3,2,3,0,content,instruction,,,,**Don't:**<br>- Use bland statements that are difficult to prove<br>- Include explanations—save those for interviews<br>- Focus on things you cannot do<br>- Include references
+902,3,2,3,0,content,instruction,,,,"**Show, Don't Tell:** Rather than expressing your characteristics, use examples that demonstrate them. You are not a ""capable leader""; you ""increased team efficiency by 30% in 3 months."""
+903,3,2,3,1,content,heading,,,,Activity 3.2.3a: Resume Draft
+904,3,2,3,1,content,instruction,,,C042,"Draft a presentable resume using all the skills you have learned: Tell your story, use keywords from job posts, describe your skills using quantifiable facts."
+905,3,2,3,1,tool,,,resume_builder,C042,Build your resume.
+906,3,2,3,1,content,instruction,,,,"**This is a draft, an iteration. It is not the final copy.** Update your resume periodically throughout your life."
+907,3,2,4,0,content,heading,,,,Exercise 3.2.4: LinkedIn Optimization
+908,3,2,4,0,content,instruction,,,,"**Purpose:** Create a complete, professional LinkedIn profile that supports your networking efforts."
+909,3,2,4,0,content,instruction,,,,"LinkedIn is an excellent tool for finding opportunities, networking, and engaging in your professional community."
+910,3,2,4,1,content,heading,,,,Activity 3.2.4a: Profile Picture
+911,3,2,4,1,content,instruction,,,,"Update your profile picture: Focus on your face from shoulders up, clean and clear, professionally presentable, visible to all LinkedIn members."
+912,3,2,4,1,prompt,,checkbox,,,Profile picture updated
+913,3,2,4,2,content,heading,,,,Activity 3.2.4b: Headline
+914,3,2,4,2,content,instruction,,,C043,Fill in the headline section with your headline from Activity 3.1.2h.
+915,3,2,4,2,prompt,,text,,,Headline:
+916,3,2,4,3,content,heading,,,,Activity 3.2.4c: Current Position
+917,3,2,4,3,content,instruction,,,,"List your current position if you are looking to move forward in your field. If you are dramatically switching fields, you are ""aspiring to be [title you are looking to have]."""
+918,3,2,4,3,prompt,,text,,,Current position:
+919,3,2,4,4,content,heading,,,,Activity 3.2.4d: Profile Completion
+920,3,2,4,4,content,instruction,,,,Complete your profile with as much relevant information as you see fit. Customize your LinkedIn Profile URL to include your full name.
+921,3,2,4,4,prompt,,text,,,Custom URL: linkedin.com/in/
+922,3,2,4,4,prompt,,checkbox,,,Visibility settings adjusted
+923,3,2,4,5,content,heading,,,,Activity 3.2.4e: Experience & Education
+924,3,2,4,5,content,instruction,,,,Input all of your relevant work experience and education. Use the same language as your resume. Be honest but use keywords from job descriptions.
+925,3,2,4,5,prompt,,checkbox,,,Work experience added
+926,3,2,4,5,prompt,,checkbox,,,Education added
+927,3,2,4,5,prompt,,checkbox,,,Skills added
+928,3,2,4,6,content,heading,,,,Activity 3.2.4f: Professional Websites
+929,3,2,4,6,prompt,,textarea,,,"List any professional websites you run, blogs that help establish your legitimacy, etc."
+930,3,2,4,7,content,heading,,,,Activity 3.2.4g: Group Membership
+931,3,2,4,7,content,instruction,,,,Request to join 3-5 groups in the field that you are looking to enter.
+932,3,2,4,7,tool,,,list_builder,,Build your list.
+933,3,2,4,0,content,instruction,,,,**Module 3.2 Complete**<br>Next: Module 3.3 - Networking
+934,3,3,0,0,content,heading,,,,Module 3.3: Networking
+935,3,3,0,0,content,heading,,,,Module Overview
+936,3,3,0,0,content,instruction,,,,**Focus:** Building professional relationships to access the hidden job market<br>**Purpose:** Learn and implement effective networking strategies<br>**Estimated Time:** 4-5 hours to learn + ongoing daily practice<br>**Key Tools:** Networking Tracker<br>**Critical:** Read this entire module before taking action
+937,3,3,0,0,content,instruction,,,,**Outputs:**
+938,3,3,0,0,content,instruction,,,,- Internalized networking mindsets
+939,3,3,0,0,content,instruction,,,,- Conversation skills framework
+940,3,3,0,0,content,instruction,,,,- Company research and contact lists
+941,3,3,0,0,content,instruction,,,,- Active networking relationships
+942,3,3,0,0,content,heading,,,,Introduction: Breaking Into the Hidden Job Market
+943,3,3,0,0,content,instruction,,,,"Almost everything in life is, at its core, based on relationships. **Relationships hold the keys to the hidden job market.**"
+944,3,3,0,0,content,instruction,,,,"Even if you already have a pending interview, this is the absolute best way to prepare for that interview, and it will give you a unique edge over your competition."
+945,3,3,0,0,content,heading,,,,Why This Method Works
+946,3,3,0,0,content,instruction,,,,"**First,** an interview is a conversation. In the most successful interviews, the candidate and the employer build a sense of rapport."
+947,3,3,0,0,content,instruction,,,,"**Second,** the employers' preferred method of finding quality hires is not sifting through resumes, but rather hiring someone that they know.¹"
+948,3,3,0,0,content,instruction,,,,"**Third,** by embracing the proper mindset, you will learn how real people doing your dream job found their way to where they are."
+949,3,3,0,0,content,instruction,,,,"**Fourth,** you can use psychology to your advantage. By starting the conversation with genuine curiosity, focusing on them and their achievements, you are opening them up to build a real relationship."
+950,3,3,0,0,content,instruction,,,,"**Fifth,** you are doing vital research while you are networking."
+951,3,3,0,0,content,instruction,,,,**This method of networking is tried and true by the best job programs in the world. Why? Because it works.**
+952,3,3,1,0,content,heading,,,,Exercise 3.3.1: Mindset in Practice
+953,3,3,1,0,content,instruction,,,,**Purpose:** Internalize the five designer mindsets for effective networking.
+954,3,3,1,0,content,heading,,,,What It Isn't
+955,3,3,1,0,content,instruction,,,,"Do not fabricate stories about yourself and your capabilities. **Your story, your networking, must be genuine.** Authenticity does not mean remaining the same person. It means owning your journey."
+956,3,3,1,1,content,heading,,,,Activity 3.3.1a: Awareness
+957,3,3,1,1,content,instruction,,,,"Be aware of yourself, others, and your environment. Being aware of other people's needs, in the context of their personal and professional narrative, makes it easier to build genuine rapport."
+958,3,3,1,1,content,instruction,,,,"**Always listen for the purpose of understanding, not for the sake of answering.**"
+959,3,3,1,1,prompt,,textarea,,,"Reflect on your self-awareness. What are your strengths, flaws, and presence?"
+960,3,3,1,2,content,heading,,,,Activity 3.3.1b: Curiosity
+961,3,3,1,2,content,instruction,,,,"**To be genuinely curious, you must be genuinely present.** Curiosity is the drive and the will to drink the water, to walk through the door."
+962,3,3,1,2,content,instruction,,,,**Curiosity means listening for an answer when you ask a question.**
+963,3,3,1,2,prompt,,textarea,,,What genuine questions do you have about your target industry and the people in it?
+964,3,3,1,3,content,heading,,,,Activity 3.3.1c: Bias to Action
+965,3,3,1,3,content,instruction,,,,Always lean towards taking action. **The only wrong answer is inaction.** Be biased toward taking action.
+966,3,3,1,3,content,instruction,,,,"**The more action you take, the harder you work, the more influence you have over your future.**"
+967,3,3,1,3,prompt,,textarea,,,What actions have you been putting off? What would happen if you took them today?
+968,3,3,1,4,content,heading,,,,Activity 3.3.1d: Reframing
+969,3,3,1,4,content,instruction,,,,**Turn every obstacle into an opportunity.** Reframe a lack of work experience to a complete commitment to honest hard work.
+970,3,3,1,4,content,instruction,,,,"**Every path worth walking encounters rejection.** View rejection with enthusiasm—a chance to learn, to grow, a necessary step on the road to success."
+971,3,3,1,4,prompt,,textarea,,,What is your biggest obstacle right now? Reframe it as an opportunity.
+972,3,3,1,5,content,heading,,,,Activity 3.3.1e: Radical Collaboration
+973,3,3,1,5,content,instruction,,,,**Talk to people.** Remember that an interview is a two-way conversation. Finding a job means finding people to collaborate with.
+974,3,3,1,5,content,instruction,,,,"**Always ask for help.** It is, in fact, a great show of strength."
+975,3,3,1,5,prompt,,textarea,,,Who in your network could help you? Who could you help?
+976,3,3,2,0,content,heading,,,,Exercise 3.3.2: The Art of Conversation
+977,3,3,2,0,content,instruction,,,,**Purpose:** Develop effective conversation skills for networking and interviews.
+978,3,3,2,0,content,instruction,,,,**The secret? Be present and pay attention.** Embody the mindsets. Approach them with genuine curiosity.
+979,3,3,2,0,content,instruction,,,,**Be interested in other people. Everyone has something brilliant to share.**
+980,3,3,2,1,content,heading,,,,Activity 3.3.2a: Ten Principles for Better Conversations⁶
+981,3,3,2,1,content,instruction,,,,"**1. Don't Multitask** – When you are talking with someone, be present in the conversation. **Do not look at or pick up your phone.**"
+982,3,3,2,1,content,instruction,,,,"**2. Don't Pontificate** – The goal is to collaborate, which means you have to invite dialogue."
+983,3,3,2,1,content,instruction,,,,"**3. Use Open-Ended Questions** – Open-ended questions generally start with a ""w"" (who, what, when, where, how) and lack specifics."
+984,3,3,2,1,content,instruction,,,,"**4. Go With The Flow** – Great ideas will occur to you while someone else is talking. Let them come, and let them go."
+985,3,3,2,1,content,instruction,,,,"**5. If You Don't Know, Say That You Don't Know** – Don't lie about your abilities, knowledge, and skills."
+986,3,3,2,1,content,instruction,,,,**6. Never Equate Your Experiences With Another Person's** – All experiences are individual.
+987,3,3,2,1,content,instruction,,,,**7. Try Not To Repeat Yourself** – People hear you the first time. Respect their boundaries.
+988,3,3,2,1,content,instruction,,,,"**8. Stay Out Of The Weeds** – Most of the time, people don't care about the details."
+989,3,3,2,1,content,instruction,,,,**9. Listen** – Listening might be the most valuable skill in the world. **No one ever listened their way out of a job.**
+990,3,3,2,1,content,instruction,,,,**10. Be Brief** – Respect others' time.
+991,3,3,3,0,content,heading,,,,Exercise 3.3.3: Target Information
+992,3,3,3,0,content,instruction,,,,**Purpose:** Understand what information to gather from networking conversations.
+993,3,3,3,0,content,instruction,,,,**The main goal is to build and create professional rapport.**
+994,3,3,3,1,content,heading,,,,Activity 3.3.3a: Information Framework
+995,3,3,3,1,content,instruction,,,,"**About Them:** Origin story, what took them into the work, preferred work conditions, things they wish they knew coming into the industry, traits that fuel their success."
+996,3,3,3,1,content,instruction,,,,"**From Them:** Contacts within the org, workplace attitude, do's and don'ts, possible industry contacts."
+997,3,3,3,1,content,instruction,,,,"**Always offer help before leaving.** Ask: ""Is there any way I can help you?"""
+998,3,3,4,0,content,heading,,,,Exercise 3.3.4: The Process of Networking
+999,3,3,4,0,content,instruction,,,,**Purpose:** Implement a systematic approach to building your professional network.
+1000,3,3,4,0,content,instruction,,,,"**From this point onwards, build your network each and every day.**"
+1001,3,3,4,0,content,heading,,,,The 5-Step Networking Process
+1002,3,3,4,0,content,instruction,,,,1. Decide what type of company you want to work for<br>2. Build a list of companies who could be a good fit<br>3. Research all of the companies on your list<br>4. Connect with recruiters and HR professionals<br>5. Reach out to people who work or have worked in those companies
+1003,3,3,4,1,content,heading,,,,Activity 3.3.4a: Step 1 – Decide What Type of Company
+1004,3,3,4,1,content,instruction,,,C044,The type of company you want to work for is determined by your compass (Exercise 2.1.3).
+1005,3,3,4,1,prompt,,textarea,,,List 3-4 fields of work that give you the best chance of feeling productive and living a life full of value.
+1006,3,3,4,1,prompt,,textarea,,,Which field of work is most appealing to you and best fits your needs?
+1007,3,3,4,2,content,heading,,,,Activity 3.3.4b: Step 2 – Build a List of Companies
+1008,3,3,4,2,content,instruction,,,,**Build your list with this ratio:** 5 small companies : 3 medium companies : 2 large/massive companies
+1009,3,3,4,2,content,instruction,,,,**Company sizes:**<br>- Massive: 2500+ employees<br>- Large: 500-2500 employees<br>- Medium: 150-500 employees<br>- Small: less than 150 people
+1010,3,3,4,2,content,instruction,,,,**The Magic Number 150:** Companies around this size often take care of their people.
+1011,3,3,4,2,content,heading,,,,Where to Find Companies
+1012,3,3,4,2,content,instruction,,,,"**People You Know:** Start with close friends and family, then move to acquaintances or **weak ties**."
+1013,3,3,4,2,content,instruction,,,,**Google:** Google companies that share your values.
+1014,3,3,4,2,content,instruction,,,,**LinkedIn:** Use advanced searches and company pages to find similar companies.
+1015,3,3,4,3,content,heading,,,,Activity 3.3.4c: Building Your Company List
+1016,3,3,4,3,tool,,,company_tracker,C038,Build your initial company list (10 companies).
+1017,3,3,4,4,content,heading,,,,Activity 3.3.4d: Step 3 – Research Companies
+1018,3,3,4,4,content,instruction,,,,"For your immediate needs, you want to know: The service they provide, their origin story, their mission statement, the story they tell."
+1019,3,3,4,4,content,instruction,,,,"**The best stories are founded in truth.** To effectively tell honest stories, you must do thorough research."
+1020,3,3,4,5,content,heading,,,,Activity 3.3.4e: Step 4 – Connect with Recruiters and HR
+1021,3,3,4,5,content,instruction,,,,Recruiters and HR professionals are connectors. Think of them like the hub of a wheel.
+1022,3,3,4,5,content,heading,,,,Connection Request Template
+1023,3,3,4,5,content,instruction,,,,"Dear [recruiter's name], I am very interested in joining [company name] on their journey to [company mission]. I am a [position title] looking for the next step in my mission to [6-10 word summary of life mission]. Are you the recruiter who handles these kinds of positions? If not, will you direct me to the recruiter who does? Could we set up a time to talk about your organization?"
+1024,3,3,4,6,content,heading,,,,Activity 3.3.4f: Step 5 – Build Relationships
+1025,3,3,4,6,content,instruction,,,,"**Up to 85% of new hires come from employee references.** By building relationships with employees in your target industry, you are creating the best possible odds."
+1026,3,3,4,6,content,instruction,,,,**Never directly ask these people for jobs.** Approach them with curiosity. You are looking for advice and insight.
+1027,3,3,4,6,content,instruction,,,,"**The key is to ask for advice.** Ask to meet for coffee, lunch, or to speak on the phone. **You never want to ask for more than 20 minutes of their time.**"
+1028,3,3,4,6,content,instruction,,,,**Past employees** are wonderful sources of information. A positive review from someone without much incentive to give one is precious.
+1029,3,3,5,0,content,heading,,,,Exercise 3.3.5: Preparation
+1030,3,3,5,0,content,instruction,,,,**Purpose:** Prepare effectively for networking meetings and negotiations.
+1031,3,3,5,1,content,heading,,,,Activity 3.3.5a: Meeting Preparation
+1032,3,3,5,1,content,instruction,,,,**5-10 days prior:**<br>- Research the company and the person<br>- Come prepared with a few genuine questions<br>- Ask what brought the individual to the company<br>- Establish how your story and the company story intersect
+1033,3,3,5,1,content,instruction,,,,**Immediately before:**<br>- Take written questions<br>- Pen and paper<br>- Solid copy resume<br>- Dress for the job<br>- Review research & story intersection<br>- Breathe
+1034,3,3,5,1,content,instruction,,,,**After:**<br>- Send thank you notes to secretary and individual within 24 hours
+1035,3,3,5,2,content,heading,,,,Activity 3.3.5b: Negotiation Preparation
+1036,3,3,5,2,content,instruction,,,,"Before officially accepting any job, negotiate your salary and benefits. **There is no downside to negotiating your salary.**"
+1037,3,3,5,2,content,instruction,,,,**Three figures to identify:**
+1038,3,3,5,2,content,instruction,,,C045,1. **Your needs (BATNA)** – Your absolute minimum. Review your needs from Part 1. **Never accept less than what you are worth and what you need.**
+1039,3,3,5,2,content,instruction,,,,2. **Your market value** – Use websites like glassdoor.com to identify salary ranges.
+1040,3,3,5,2,content,instruction,,,,3. **Your benefits valuation** – Understand how valuable benefits packages are to you.
+1041,3,3,5,2,content,instruction,,,,**Execution:** Start with the most that you can defend. **You will only ever get what you negotiate for.** Never accept less than your BATNA.
+1042,3,3,5,0,content,heading,,,,Module 3.3 Footnotes
+1043,3,3,5,0,content,note,,,,"1. Bolles, Richard N. *What Color Is Your Parachute?* Networking is far more effective than traditional application methods."
+1044,3,3,5,0,content,note,,,,"6. Headlee, Celeste. *We Need to Talk: How to Have Conversations That Matter.* New York: Harper Wave, 2017."
+1045,3,3,5,0,content,note,,,,"7. Gladwell, Malcolm. *The Tipping Point.* New York: Little, Brown and Company, 2000. The ""rule of 150."""
+1046,3,3,5,0,content,note,,,,"8. Granovetter, Mark S. ""The Strength of Weak Ties."" *American Journal of Sociology* 78, no. 6 (1973)."
+1047,3,3,5,0,content,instruction,,,,**Module 3.3 Complete**<br>Next: Module 3.4 - Research
+1048,3,4,0,0,content,heading,,,,Module 3.4: Research
+1049,3,4,0,0,content,heading,,,,Module Overview
+1050,3,4,0,0,content,instruction,,,,**Focus:** Deep company and contact investigation<br>**Purpose:** Conduct thorough research on potential employers and contacts before outreach<br>**Estimated Time:** 3-4 hours per research round<br>**Key Tools:** Company Research Tool
+1051,3,4,0,0,content,instruction,,,,**Outputs:**
+1052,3,4,0,0,content,instruction,,,,- Complete company profiles (10+ companies)
+1053,3,4,0,0,content,instruction,,,,- Gatekeeper contact lists
+1054,3,4,0,0,content,instruction,,,,- Target employee contact lists
+1055,3,4,0,0,content,heading,,,,Introduction
+1056,3,4,0,0,content,instruction,,,,**Careful research is paramount to your success.** Use the skills and techniques discussed in Module 3.3.
+1057,3,4,1,0,content,heading,,,,Exercise 3.4.1: Company Research Rounds
+1058,3,4,1,0,content,instruction,,,,**Purpose:** Systematically research companies using the 5:3:2 ratio.
+1059,3,4,1,1,content,heading,,,,Activity 3.4.1a: Research Checklist
+1060,3,4,1,1,content,instruction,,,,"For each company, complete: Basic Information, Company Story, Culture & Reputation, Fit Analysis."
+1061,3,4,1,1,tool,,,company_researcher,PREV,Research each company on your list.
+1062,3,4,1,2,content,heading,,,,Activity 3.4.1b: Research Round Tracker
+1063,3,4,1,2,tool,,,research_tracker,,Track your company research rounds.
+1064,3,4,2,0,content,heading,,,,Exercise 3.4.2: Contact Identification
+1065,3,4,2,0,content,instruction,,,,**Purpose:** Identify gatekeepers and target employees for each company.
+1066,3,4,2,1,content,heading,,,,Activity 3.4.2a: Gatekeeper Identification
+1067,3,4,2,1,content,instruction,,,,"Search LinkedIn for: recruiter, talent acquisition, human resources, HR. Record: Name, title, LinkedIn URL, mutual connections."
+1068,3,4,2,1,tool,,,contact_tracker,,Track contacts for each company.
+1069,3,4,2,2,content,heading,,,,Activity 3.4.2b: Target Employee Identification
+1070,3,4,2,2,content,instruction,,,,"For each company, identify 2-3 people doing the work you want to do."
+1071,3,4,2,2,tool,,,contact_tracker,,Track contacts for each company.
+1072,3,4,2,0,content,instruction,,,,**Module 3.4 Complete**<br>Next: Module 3.5 - Action
+1073,3,5,0,0,content,heading,,,,Module 3.5: Action
+1074,3,5,0,0,content,heading,,,,Module Overview
+1075,3,5,0,0,content,instruction,,,,"**Focus:** Active networking and relationship building<br>**Purpose:** Execute your networking strategy through daily outreach, meetings, and relationship development<br>**Estimated Time:** Ongoing daily commitment<br>**Key Tools:** Networking Tracker"
+1076,3,5,0,0,content,instruction,,,,**Critical:** Any given conversation could lead to a job offer—treat every interaction accordingly
+1077,3,5,0,0,content,instruction,,,,**Goal:** Multiple quality job offers to choose from
+1078,3,5,0,0,content,heading,,,,Introduction
+1079,3,5,0,0,content,instruction,,,,It is time to take action and start building your professional network. **Review Module 3.3 if you have any doubts or questions.**
+1080,3,5,1,0,content,heading,,,,Exercise 3.5.1: LinkedIn Network Growth
+1081,3,5,1,0,content,instruction,,,,**Purpose:** Systematically expand your professional network.
+1082,3,5,1,1,content,heading,,,,Activity 3.5.1a: Daily Connection Requests
+1083,3,5,1,1,content,instruction,,,,**Daily targets:**<br>- Send 5-10 connection requests to people in your industry<br>- Personalize each request<br>- Accept all reasonable incoming requests
+1084,3,5,1,1,tool,,,networking_tracker,,Track your daily connection requests.
+1085,3,5,2,0,content,heading,,,,Exercise 3.5.2: Outreach Campaign
+1086,3,5,2,0,content,instruction,,,,**Purpose:** Initiate conversations with gatekeepers and target employees.
+1087,3,5,2,1,content,heading,,,,Activity 3.5.2a: Gatekeeper Outreach
+1088,3,5,2,1,content,instruction,,,,Contact recruiters and HR professionals using the template from Activity 3.3.4e.
+1089,3,5,2,1,tool,,,outreach_tracker,,Track your outreach to contacts.
+1090,3,5,2,2,content,heading,,,,Activity 3.5.2b: Target Employee Outreach
+1091,3,5,2,2,content,instruction,,,,"Remember:<br>- Ask for advice, not jobs<br>- Request no more than 19 minutes<br>- Approach with genuine curiosity<br>- Offer help in return"
+1092,3,5,2,2,tool,,,outreach_tracker,,Track your outreach to contacts.
+1093,3,5,3,0,content,heading,,,,Exercise 3.5.3: Informational Meetings
+1094,3,5,3,0,content,instruction,,,,**Purpose:** Conduct effective networking conversations.
+1095,3,5,3,1,content,heading,,,,Activity 3.5.3a: Meeting Preparation Checklist
+1096,3,5,3,1,content,instruction,,,,Before each meeting:<br>- [ ] Researched the company thoroughly<br>- [ ] Researched the individual<br>- [ ] Prepared 5-7 genuine questions<br>- [ ] Reviewed how your story aligns with theirs<br>- [ ] Printed resume (just in case)<br>- [ ] Pen and paper ready<br>- [ ] Set 17-minute alarm (for 19-minute meetings)<br>- [ ] Dressed appropriately<br>- [ ] Practiced breathing/centering
+1097,3,5,3,1,tool,,,meeting_prep,,Complete your meeting preparation checklist.
+1098,3,5,3,2,content,heading,,,,Activity 3.5.3b: Meeting Notes Template
+1099,3,5,3,2,tool,,,meeting_notes,,Record notes from your meeting.
+1100,3,5,4,0,content,heading,,,,Exercise 3.5.4: Relationship Development
+1101,3,5,4,0,content,instruction,,,,**Purpose:** Convert initial contacts into lasting professional relationships.
+1102,3,5,4,1,content,heading,,,,Activity 3.5.4a: Follow-Up System
+1103,3,5,4,1,content,instruction,,,,**After every meeting:**<br>1. Send thank you note within 24 hours<br>2. Connect on LinkedIn with personalized note<br>3. Follow up on any referrals within 1 week<br>4. Add contact to your relationship management system<br>5. Schedule reminder to check in within 2-4 weeks
+1104,3,5,4,2,content,heading,,,,Activity 3.5.4b: Referral Chain Tracking
+1105,3,5,4,2,content,instruction,,,,**Goal:** Earn at least one referral from each positive contact.
+1106,3,5,4,2,tool,,,referral_tracker,,Track referrals from your contacts.
+1107,3,5,5,0,content,heading,,,,Exercise 3.5.5: Opportunity Development
+1108,3,5,5,0,content,instruction,,,,**Purpose:** Convert relationships into concrete opportunities.
+1109,3,5,5,1,content,heading,,,,Activity 3.5.5a: Opportunity Tracker
+1110,3,5,5,1,content,instruction,,,,"Seize any opportunity: Shadowing, workplace visits, meeting co-workers, attending company events, informal coffee meetings."
+1111,3,5,5,1,tool,,,opportunity_tracker,,Track opportunities as they develop.
+1112,3,5,5,0,content,heading,,,,Daily Action Checklist
+1113,3,5,5,0,content,instruction,,,,Use this checklist daily throughout your job search:
+1114,3,5,5,0,content,instruction,,,,**Morning:**<br>- [ ] Review today's scheduled meetings/calls<br>- [ ] Send any pending follow-up emails<br>- [ ] Check LinkedIn for messages and connection acceptances
+1115,3,5,5,0,content,instruction,,,,**Midday:**<br>- [ ] Send 5-10 new connection requests<br>- [ ] Research 1-2 new companies<br>- [ ] Reach out to 2-3 new contacts
+1116,3,5,5,0,content,instruction,,,C046,**Evening:**<br>- [ ] Update networking spreadsheet<br>- [ ] Send thank you notes for any meetings<br>- [ ] Plan tomorrow's outreach<br>- [ ] Log flow tracking (Exercise 1.3.2c)<br>- [ ] Practice skill sharpening (Exercise 1.5.1b)<br>- [ ] Complete mindfulness practice (Exercise 1.5.3a)<br>- [ ] Reframe any rejections (Exercise 2.2.3)
+1117,3,5,5,0,content,heading,,,,Module 3.5 Key Reminders
+1118,3,5,5,0,content,instruction,,,,"1. **Approach with curiosity, NOT job requests**<br>2. **Ask for advice and insights**<br>3. **Request referrals to others**<br>4. **Offer help before leaving**<br>5. **Send thank you notes**<br>6. **Track all interactions**<br>7. **Be persistent but respectful**<br>8. **Any conversation could lead to an offer**"
+1119,3,5,5,0,content,instruction,,,,**Module 3.5 Complete**<br>**Part 3: Branches Complete**
+1120,3,5,0,0,content,heading,,,,Program Summary: The Dream Tree
+1121,3,5,0,0,content,instruction,,,,You have now completed all three parts of The Dream Tree:
+1122,3,5,0,0,content,heading,,,,Part 1: Roots – Understanding Your Foundation
+1123,3,5,0,0,content,instruction,,,,"- Documented your skills, talents, and knowledge<br>- Identified your environmental and people preferences<br>- Mapped your flow states and priorities<br>- Explored your relationships and self-understanding<br>- Established daily practices for growth"
+1124,3,5,0,0,content,heading,,,,Part 2: Trunk – Connecting Your Past to Your Future
+1125,3,5,0,0,content,instruction,,,,"- Clarified your work and life values<br>- Identified your value compass (your ""light"")<br>- Mastered the five designer mindsets<br>- Generated career possibilities<br>- Selected and planned three career paths<br>- Crafted your identity story"
+1126,3,5,0,0,content,heading,,,,Part 3: Branches – Reaching Into the World
+1127,3,5,0,0,content,instruction,,,,- Created professional profiles and presence<br>- Learned effective networking strategies<br>- Built your company research system<br>- Began active relationship building<br>- Developed your negotiation skills
+1128,3,5,0,0,content,heading,,,,Ongoing Practices
+1129,3,5,0,0,content,instruction,,,C047,Continue these daily practices throughout your job search and career:<br>- Flow Tracking (5 min)<br>- Skill Sharpening (15+ min)<br>- Mindfulness (5-20 min)<br>- Networking Outreach (30-60 min)<br>- Failure Reframing (Weekly)
+1130,3,5,0,0,content,heading,,,,Final Thoughts
+1131,3,5,0,0,content,instruction,,,,Remember: **You are the perfect fit somewhere.** The job market rewards those who understand the hidden dynamics and put in the relentless effort to build genuine relationships.
+1132,3,5,0,0,content,instruction,,,,Your story matters. Your skills matter. Your values matter.
+1133,3,5,0,0,content,instruction,,,,"Now go find the place where all of these align, and create the career—and life—you deserve."
+1134,3,5,0,0,content,instruction,,,,**Grow towards your light.**
+1135,3,5,0,0,content,note,,,,*The Dream Tree © Braedon Long*

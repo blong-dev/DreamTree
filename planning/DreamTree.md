@@ -1,0 +1,6492 @@
+# The Dream Tree
+
+**By Braedon Long**
+
+---
+
+## Table of Contents
+
+---
+
+### Part 1: Roots
+
+- Overview
+- **Module 1.1 – Work Factors 1**
+  - Skills and Talents
+  - Transferable Skills
+  - Self-Management Skills
+  - Knowledges
+- **Module 1.2 – Work Factors 2**
+  - Environment
+    - Macro: Where in the World...
+    - Micro: The Work Environment You Flourish In
+  - People
+  - Compensation
+- **Module 1.3 – Priorities, Ecstasy & Flow**
+  - Prioritize
+  - Flow
+  - Memorable Past
+  - Recent Past
+  - Present
+- **Module 1.4 – Love**
+  - Family
+  - Community
+  - World
+  - Self
+- **Module 1.5 – Health**
+  - Sharpening
+  - Grittiness
+  - Take Yourself Seriously
+  - Mindfulness
+  - Routine
+
+---
+
+### Part 2: Trunk
+
+- Overview
+- **Module 2.1 – Finding The Light**
+  - How You Are
+  - Your Values
+  - Work
+  - Life
+  - Alignment
+- **Module 2.2 – Reality**
+  - Creator's Mentality
+  - Action Triggers
+  - Reframing Failure
+- **Module 2.3 – Landmarking**
+  - New Growth
+  - Reading the Leaves
+  - Making Choices
+- **Module 2.4 – Launching Pad**
+  - Framework
+  - Support
+  - Unknowns
+- **Module 2.5 – Story Weaving**
+  - Choosing Your Level
+  - Persuasive Storytelling
+    - Motive
+    - Purpose
+    - Content
+    - Audience
+  - Drafting Your Story
+  - SOARED
+
+---
+
+### Part 3: Branches
+
+- Overview
+- **Module 3.1 – Intentional Impressions**
+  - Initial Research
+  - Writing Your Content
+- **Module 3.2 – Constructing the Projection**
+  - Google
+  - Facebook
+  - Resume/CV
+  - LinkedIn
+- **Module 3.3 – Networking**
+  - Breaking Into the Hidden Job Market
+  - Mindset in Practice
+    - What It Isn't
+    - Awareness
+    - Curiosity
+    - Bias to Action
+    - Reframing
+    - Radical Collaboration
+  - The Art of Conversation and Building Rapport
+    - Don't Multitask
+    - Don't Pontificate
+    - Use Open-Ended Questions
+    - Go With The Flow
+    - If You Don't Know, Say That You Don't Know
+    - Never Equate Your Experiences With Another Person's
+    - Try Not To Repeat Yourself
+    - Stay Out Of The Weeds
+    - Listen
+    - Be Brief
+  - Target Information
+  - The Process of Networking
+    - Decide what type of company you want to work for
+    - Build a list of companies who could be a good fit
+    - People You Know
+    - Google
+    - LinkedIn
+    - Researching the companies on your list
+    - Connecting with recruiters and HR professionals
+    - Building relationships with people like you
+  - Preparation
+  - Negotiation
+    - Preparation
+    - Practice
+    - Execution
+    - Post-Negotiation
+- **Module 3.4 – Research**
+- **Module 3.5 – Action**
+
+---
+
+### Resources & Materials
+
+- **Personality Type Profiles**
+  - ENFJ
+  - INFJ
+  - ENFP
+  - INFP
+  - ENTJ
+  - INTJ
+  - ENTP
+  - INTP
+  - ESTJ
+  - ISTJ
+  - ESFJ
+  - ISFJ
+  - ESTP
+  - ISTP
+  - ESFP
+  - ISFP
+- **Competency Framework**
+  - Job Families
+  - Technical Competencies
+  - Core Competencies
+  - Definitions
+    - Delivery-related – Achieving Results
+    - Interpersonal – Building Relationships
+    - Strategic – Planning for the Future
+  - Level 1
+  - Level 2
+  - Level 3
+  - Level 4
+  - Level 5
+- **Additional Tools**
+  - Reframing Failure
+  - Transferable Skills (People, Data and Ideas, Things)
+  - Self-Management Skills
+  - Tracking Flow
+  - Ranking Grid
+  - Brainstorm
+
+---
+
+# Part 1: Roots
+## Understanding Your Foundation
+
+---
+
+## Overview
+
+The first part of the tree is the roots. The roots tell us where we came from, where we have been, and what makes us up. Understanding your roots will help them to grow, furthering the stability of your tree, allowing you to reach ever greater heights. Without our roots, we have nothing to hold us up while we reach for the sky.
+
+Roots are hard. Factual and literal, they are a part of history. Now is not the time for conjecture, imagination, or possibilities; those will come in later parts. No two root systems look the same, different people have different needs, skills, and preferences, but the basic components are the same.
+
+With this and every activity, be honest with yourself. Honesty is always the answer. Nobody wins when you lie. Do not lie; do not exaggerate. Give yourself credit for the things you have done. Acknowledge even the smallest accomplishments.
+
+Life designer Bill Burnett separates our life into four categories: love, health, work, and play.¹ These will be our four primary roots.
+
+**Work** is anything related to the creation of value. Work is any economic activity, regardless of your compensation for that activity. Any activities you engage in with the intent of attaining some goal is work. Doing chores, volunteering, earning degrees, and sales are all to be considered work.
+
+**Play** is nearly the opposite. Play is any activity you engage in for the joy of doing it. If you are competing or trying to accomplish something, then it is not play. Play is what most young children do, without a worry in the world, motivated only by the joy that will come. Of the four parts of life, most adults are worst at play.
+
+**Love** is mostly for you to define. I cannot, and will not, advise you on matters of love. If you so choose, there are plenty of other resources on the topic. None-the-less, it is vital for every person and should be considered when planning your future.
+
+Traditionally, **health** is broken into three categories: physical, mental, and spiritual. To reach the greatest heights, care for all three of these areas. I suggest you consider and look after your physical and spiritual health on your own. There are many resources available in the world to answer any questions you have about physical and spiritual help. Everyone has different physical and spiritual needs, so the exercises here focus on mental health. The importance of health cannot be understated.
+
+Understanding all four of these parts of your life will help clarify the path in front of you, not to mention how useful it will be to have all of this information in one place. Save your interpretations for the next part.
+
+You can only ever be exactly where you are, so let's figure out where you're rooted...
+
+---
+
+## Module 1.1: Work Factors 1
+
+### Module Overview
+
+**Focus:** Skills, Talents & Knowledge  
+**Purpose:** Create a comprehensive inventory of your capabilities across three categories: transferable skills, self-management skills, and knowledges  
+**Estimated Time:** 2-3 hours  
+**Key Tools:** Ranking Grid, SOARED Framework, 16Personalities assessment  
+**Outputs:**
+- Top 10 ranked transferable skills with mastery ratings
+- Top 10 ranked self-management (soft) skills
+- Complete knowledge inventory with mastery ratings
+
+---
+
+### Skills and Talents
+
+Skills are the most basic unit of performance. Most people think their skills are limited to specific work situations. The goal of this exercise is for you to take full stock of all of your skills, take note of the ones you enjoy the most, and to present them professionally.
+
+According to researcher Sydney Fine, skills can be broken down into three categories: Knowledges, Self-management, and Transferable Skills.²
+
+**Knowledges** are the topics you know, generally nouns.  
+*Example: Spanish, chemical engineering, graphic design*
+
+**Self-management skills** describe the way you do your work, generally adjectives/adverbs.  
+*Example: Relentless, innovative, meticulous*
+
+**Transferable skills** are the things you can do, generally verbs.  
+*Example: Teach, paint, repair, negotiate*
+
+Knowledge is knowing a second language. Self-Management is how often and diligently you practice. Transferable skill is using your second language to some benefit.
+
+All of these are important. First, we want active verbs describing work you can do.
+
+→ See Resource: List of Skills for ideas and more info ←
+
+---
+
+### Exercise 1.1.1: Transferable Skills Inventory
+
+**Purpose:** Identify, document, and rank your transferable skills through professional reflection and story analysis using the SOARED framework.
+
+---
+
+#### Activity 1.1.1a: Professional Talents Audit
+
+1. Record any talent you have used professionally.
+
+   a) List every job you have had, every significant project you have completed, and every important course you have taken.
+
+
+
+
+   b) For each item from part a), write down everything you had to do.
+
+
+
+
+
+   c) Every task you completed is a skill you have. Grade each skill on Mastery:
+   
+   Novice (a, b, c, d, e) Master
+   
+   **Example:** Gas Metal Arc Welding (c), Spanish/English legal translation (d)
+
+
+
+
+---
+
+#### Activity 1.1.1b: Challenge Stories Collection
+
+2. Think of a time you overcame a challenge (inside or outside of work), a time you soared, for each of the following statements. One challenge per statement.
+
+   a) A time when you had an impact
+
+
+   b) A time you did something no one else around could have done
+
+
+   c) A time when you were genuinely excited
+
+
+   d) A time when you impressed yourself
+
+
+   e) A time when everything went according to plan
+
+
+   f) A time when nothing went according to plan
+
+
+   g) A time when you loved what you were doing
+
+
+   h) A time you did something you would like to do again
+
+
+   i) A time you did something you would not normally do
+
+
+   j) Any other story which represents your skillset
+
+
+---
+
+#### Activity 1.1.1c: SOARED Story Development
+
+3. Choose the three (3) most impactful stories and describe these events using the SOARED framework:³
+
+   **S**ituation – describe the situation  
+   **O**bstacle – describe the obstacle/problem you faced  
+   **A**ction – describe your action: the step-by-step process you took to address the obstacle  
+   **R**esult – describe the result of your actions  
+   **E**valuation – your self-evaluation and/or how higher-ups received your actions  
+   **D**iscovery – describe what you discovered from the process
+
+
+
+
+
+
+
+*Note: You will use the SOARED framework throughout this program, particularly in Module 2.5 (Story Weaving) and during networking conversations in Part 3.*
+
+---
+
+#### Activity 1.1.1d: Skills Organization & Mastery Rating
+
+4. Record every transferable skill you used in each of your stories. Refer to the List of Skills resource for reference.
+
+
+
+
+   a) Organize your skillset from the most used to the least used.
+
+
+
+
+
+   b) Grade each skill on Mastery:
+   
+   Novice (a, b, c, d, e) Master
+   
+   **Example:** Gas Metal Arc Welding (c), Spanish/English legal translation (d)
+
+
+
+---
+
+#### Activity 1.1.1e: Top 10 Skills Ranking
+
+5. What skills have you mastered? Record your top 10 skills (according to mastery) from Activities 1.1.1a-d here:
+
+   a)  
+   b)  
+   c)  
+   d)  
+   e)  
+   f)  
+   g)  
+   h)  
+   i)  
+   j)
+
+6. Use the Ranking Grid (see Resources) to organize these skills by importance to you:
+
+   1)  
+   2)  
+   3)  
+   4)  
+   5)  
+   6)  
+   7)  
+   8)  
+   9)  
+   10)
+
+---
+
+### Exercise 1.1.2: Self-Management Skills Assessment
+
+**Purpose:** Identify your self-management skills (soft skills) using personality assessment and self-reflection.
+
+These are often referred to as Soft Skills. You can find lists of common soft skills that random internet people claim will get you any job. Describing ourselves can be difficult. Doing so originally and authentically can be even more challenging.
+
+---
+
+#### Self-Identification Basics
+
+The Enneagram, Myers-Briggs, the Big 5, and the Self-Directed Search are the most commonly used personality tests. Each has its strengths and weaknesses, and they are more alike than they are different.
+
+We will be using an adaptation of Myers-Briggs⁴ as a tool to help us learn about ourselves. It will help you frame your personality in a way which is easier to understand and give you a starting place for finding creative ways to describe yourself. I do not put my full faith into any skills test for many reasons, so remember, this is only a tool.
+
+No personality test is perfect. We will use an adaptation of the Myers-Briggs to give you a starting point for your Self-Inventory.
+
+---
+
+#### Activity 1.1.2a: Personality Type Discovery
+
+The questionnaire will assign you a four-letter code upon completion. Each letter represents your bias on a set of four scales:
+
+- **Extroversion (E) vs. Introversion (I)**
+- **Sensing (S) vs. Intuition (N)**
+- **Thinking (T) vs. Feeling (F)**
+- **Judging (J) vs. Perceiving (P)**
+
+Few people fit their type perfectly. Do not let the results define you. Instead, consider the truths and make a note of the differences.
+
+The purpose of this exercise is to illuminate your character traits and to open your mind to possibilities.
+
+While taking the test, it is essential to answer the questions honestly, as they apply to you. There are no wrong answers. Although some of your responses may make you slightly uncomfortable, it is crucial to be as honest as you are able. The more accurate you are, the more this tool can help you.
+
+**Take the free assessment at:** www.16personalities.com⁵
+
+We need your four-letter code. Write it here: ___________
+
+*(The website where you take the test is a useful resource. Feel free to learn about your type from them, but it is not necessary for this program.  This program is self inclusive, covers everything you need to complete it.)*
+
+---
+
+#### Activity 1.1.2b: Dichotomy Self-Rating
+
+To be more confident, read through each of these relative dichotomies and mark yourself on each scale below:
+
+**Extraverts** are more likely to be energized by company, enjoy being the center of attention, keep a fast pace, and talk more than they listen.
+
+**Introverts** are more likely to be energized by alone time, be more private, keep their thoughts to themselves, and listen before speaking.
+
+________________________,_________________________  
+E                                                  I
+
+**Sensors** tend to be concerned with certainty and what is realistic. They tend to be more literal and are oriented towards the present situation.
+
+**Intuitives** tend to be concerned with innovation and what is possible. They tend to be more figurative and are oriented towards the future.
+
+________________________,_________________________  
+S                                                  N
+
+**Thinkers** are likely to be most concerned with logic, applying impersonal analysis to opportunities and decisions. They can be seen as detached or heartless.
+
+**Feelers** are likely to be most concerned with harmony, empathizing with involved parties with tact when making decisions. May be seen as overemotional, valuing all feelings equally.
+
+________________________,_________________________  
+T                                                  F
+
+**Judgers** tend to derive the most satisfaction with the completion of a task and manage their time as a finite resource.
+
+**Perceivers** prefer to keep their options open and thrive when adapting to new situations. They often view time and deadlines as elastic.
+
+________________________,_________________________  
+J                                                  P
+
+**See Resource: Personality Info for more information about each type:**
+- Strengths & weaknesses
+- Common character traits
+- Strategies, descriptive words, & more
+
+Remember, no test can tell you who you are, but these tools can help you describe your talents and identify your weaknesses.
+
+---
+
+#### Activity 1.1.2c: Soft Skills Identification
+
+In the Personality Info resource, you will find Self-Management Skills that generally apply to your personality type.⁶ In the List of Skills resource, you will find a more thorough list of skills. The test you took will also provide insight into your self-management skills.
+
+1. Review these resources. Record any characteristics, strengths, and weaknesses which describe you here:
+
+
+
+2. Record 1-5 characteristics, strengths, or weaknesses which match your MBTI type, but not you personally, here. Explain why they are false:
+
+
+
+---
+
+#### Activity 1.1.2d: Top 10 Soft Skills Ranking
+
+3. Choose your ten favorite soft skills from above and order them from your first favorite to your tenth, using the Ranking Grid (see Resources):
+
+   1)  
+   2)  
+   3)  
+   4)  
+   5)  
+   6)  
+   7)  
+   8)  
+   9)  
+   10)
+
+---
+
+#### Activity 1.1.2e: Skills Description with Evidence
+
+4. Use your Self-Management Skills to accurately describe your top ten Transferable Skills (from Exercise 1.1.1):
+
+
+
+
+5. Make a note of times you used your skills in the way you describe (possibly from your written stories in Activity 1.1.1c):
+
+
+
+
+6. Add HONEST hard figures to your descriptions. Numbers. Data. Records. Accomplishments. They must be HONEST. You do not want to lie or exaggerate.
+
+*Note: You will use this language when creating your resume in Module 3.2 and throughout your networking conversations in Part 3.*
+
+---
+
+### Exercise 1.1.3: Knowledge Audit
+
+**Purpose:** Document all your areas of knowledge and expertise with mastery ratings.
+
+Now dive into what you know. The subject matter, the processes, your interests, everything. It is imperative to include everything you know here (or at least as much as possible).
+
+**Knowledges** are the things you know, generally nouns.  
+*Example: Spanish, chemical engineering, graphic design*
+
+From work. From your education.  
+From your hobbies. From your interests.  
+From any of your groups or clubs.  
+If it comes to mind, write it down.
+
+You want to start broad. Take stock of everything first.  
+Then grade them according to Mastery.
+
+→ See Resource: List of Skills for ideas and more info ←
+
+---
+
+#### Activity 1.1.3a: Professional & Educational Knowledge
+
+1. a) Write down every job you have had.
+
+
+
+
+   b) Write every skill, process, or task you had to perform for those jobs.
+
+
+
+
+2. a) Write down every course, program, training, and degree you have completed.
+
+
+
+
+   b) Write every skill, process, or task you had to perform pursuing those.
+
+
+
+
+
+---
+
+#### Activity 1.1.3b: Personal Interest Knowledge
+
+3. What else do you know? What are your favorite hobbies? What do you research in your free time? If you wrote a book, what would the content be?
+
+
+
+   a) What tasks or activities seem to make time fly?
+
+
+
+
+---
+
+#### Activity 1.1.3c: Field Exploration
+
+4. What fields, careers, or industries sound interesting to you? Check the Personality Info resource for ideas.
+
+
+
+
+---
+
+#### Activity 1.1.3d: Mastery Rating
+
+5. Grade each knowledge on Mastery:
+
+   Novice (a, b, c, d, e) Master
+   
+   **Example:** Python (c), English Language (d)
+
+
+
+---
+
+### Module 1.1 Footnotes
+
+1. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016. The four life categories (work, play, love, health) provide the foundational framework for Part 1.
+
+2. Fine, Sydney A. "Functional Job Analysis Scales: A Desk Aid." Milwaukee: Sidney A. Fine Associates, 1989.
+
+3. SOARED Framework is an original tool created by Braedon Long for this program. SOARED stands for: Situation, Obstacle, Action, Results, Evaluation, Discovery. This framework will be used throughout the program for storytelling and interview preparation.
+
+4. Myers-Briggs Type Indicator. Developed by Katharine Cook Briggs and Isabel Briggs Myers, based on Carl Jung's theory of psychological types. This program uses the MBTI framework as a self-reflection tool only, not as an official psychological assessment. Myers-Briggs Type Indicator®, MBTI®, and Myers-Briggs® are registered trademarks of The Myers-Briggs Company. This program is not affiliated with or endorsed by The Myers-Briggs Company.
+
+5. NERIS Analytics Limited. "16Personalities" (website). www.16personalities.com. Free personality assessment tool based on Myers-Briggs framework.
+
+6. Tieger, Paul D., and Barbara Barron-Tieger. *Do What You Are: Discover the Perfect Career for You Through the Secrets of Personality Type.* Boston: Little, Brown and Company, 1992 (multiple editions). This work applies MBTI personality types to career matching and provides characteristics associated with each type.
+
+---
+
+**Module 1.1 Complete**  
+Next: Module 1.2 - Work Factors 2 (Environment, People, Compensation)
+
+---
+# Part 1: Roots (Continued)
+
+## Module 1.2: Work Factors 2
+
+### Module Overview
+
+**Focus:** Environment, People & Compensation  
+**Purpose:** Identify your preferred work environment (macro and micro), ideal colleagues and supervisors, and compensation needs  
+**Estimated Time:** 1.5-2 hours  
+**Key Tools:** Ranking Grid, Budget Template  
+**Partner Activity:** Exercise 1.2.1 (if applicable)  
+**Outputs:**
+- Top 10 ranked locations
+- Ideal workplace description
+- Ideal people profile
+- Complete budget with minimum salary requirements (BATNA)
+
+---
+
+### Environment
+
+**Location, Location, Location**
+
+There are two types of location: Macro and Micro.
+
+**Macro** – Where in the world do you want to be? Do you want to stay in your town or city? Or would you rather be somewhere else? Are there specific activities you wish to have access to? Do you need to live in a city? Or do you prefer the quiet life of the country?
+
+**Micro** – What should your work environment be? Do you need to spend time outside? Is it necessary that you work near a park? Or do you prefer to spend your time indoors? What are your preferred working conditions? Micro-environment might be considered the look and feel of the workplace.
+
+Of course, the more flexible you are, the more opportunities you will find. Also, generally speaking, where there are more people, there are more opportunities. Still, it is essential to know your preferences; you might find your dream job in your dream location. There is only one way to find out.
+
+Do this exercise even if you feel you already know where you want to be. First of all, you might surprise yourself. If not, then you have found more evidence to support what you already thought.
+
+---
+
+### Exercise 1.2.1: Macro Environment Preferences
+
+**Purpose:** Identify and rank your preferred geographic locations for living and working.
+
+---
+
+#### Activity 1.2.1a: Location Desires & Constraints
+
+1. Do you know where you want to live?
+
+   a) If you do, write that here. If not, write down the characteristics of a place that you might want to live.  
+   *(Example: by the ocean, has an active nightlife, quiet, access to nature, etc.)*
+
+
+
+   b) What are your location restraints?
+
+
+   c) Do you need to live in a specific country?
+
+
+   d) Do you need to stay close to your family?
+
+
+   e) Do you have medical needs?
+
+
+
+---
+
+#### Activity 1.2.1b: Past Location Analysis
+
+2. Struggling for ideas? Even if you are 100% certain, do the following:
+
+   a) Write down every place you have lived.
+
+
+
+
+   b) List every single thing you disliked about those places.  
+   *(What does it have? What does it lack? What type of people are there? What feelings does it give you?)*
+
+
+
+   c) List the opposites of each of the location traits you dislike. Also, list any positive traits that come to mind.
+
+
+
+   d) Rank the positive location traits using the Ranking Grid (see Resources).
+
+
+
+---
+
+#### Activity 1.2.1c: Location Research (Internet)
+
+3. Research. Open your mind to possibilities. Find as many good ideas as possible. Look for places that meet your needs and have as many of your top 5 location traits as possible.
+
+   a) Search the Internet.
+   
+   - Search for places which excel in each of your desired traits. Make lists.
+
+
+
+   - Are there any which excel in multiple?
+
+
+
+   - Find 5-10 places which make you excited. Record what excites you about each location.
+
+
+
+---
+
+#### Activity 1.2.1d: Location Research (Network)
+
+   b) Ask around. Family, friends, colleagues, acquaintances—you never know what treasure they hold until you ask.
+   
+   - Write down your ranked list of location traits and ask 10-20 people if they know of anywhere which has those traits. Write down their ideas. ALWAYS thank them for their time and effort.
+
+
+
+   - Are there any locations which excel in multiple traits?
+
+
+
+   - Research each of the locations which embody multiple of your desired traits.
+
+
+
+   - Find 5-10 places which make you excited. Record what excites you about each location.
+
+
+
+---
+
+#### Activity 1.2.1e: Top 10 Location Ranking
+
+4. Narrow down your two lists to a single list of 10 possible locations. Rank those ten from most exciting down.
+
+
+
+
+5. **IF YOU HAVE A PARTNER**
+
+   Before you make a list of locations – Before you start researching –
+
+   - Both of you do Activities 1.2.1a & 1.2.1b separately.
+   
+   - Discuss your preferred location traits. Find any similarities.
+   
+   - Rank your combined traits using the Ranking Grid. (Combine the top 5 from each partner)
+   
+   - Then both of you complete Activity 1.2.1c & 1.2.1d
+   
+   - Do Activity 1.2.1e together. Compare your findings. Discuss honestly. Agree upon ten possible locations. Rank together.
+
+
+6. Pay the most attention to, make a special note of, your top 3 locations.
+
+
+
+---
+
+### Exercise 1.2.2: Micro Environment Preferences
+
+**Purpose:** Define your ideal workplace environment and conditions.
+
+Now we will focus on the look and feel of the workplace.
+
+For each of the following, consider each productive space you have ever had. You may include classrooms, a desk at home, a library, or a cafe. Any space where you get work done is worth studying.
+
+---
+
+#### Activity 1.2.2a: Workplace History Review
+
+1. Previous Employment
+
+   a) List every job you have had.
+
+
+
+   b) List every work condition which had a positive impact upon you, your mood, or your effectiveness.
+
+
+
+   c) List every work condition which had a negative impact upon you, your mood, or your effectiveness.
+
+
+
+   d) What would the opposite of those negative influences be?
+
+
+
+---
+
+#### Activity 1.2.2b: Ideal Workplace Description
+
+2. Consider the above. Describe your ideal workplace.
+
+
+
+
+   a) How does the office look?
+
+
+   b) What is nearby?
+
+
+   c) Are there any important features?
+
+
+   d) What part of the city or town is it best?
+
+
+   e) Is it near child care?
+
+
+   f) What else can you think of?
+
+
+---
+
+### Exercise 1.2.3: People Preferences
+
+**Purpose:** Identify the characteristics of people you work well with and for.
+
+For many, we spend more time with the people we work with than the people we live with. For that reason, aim to have a clear idea of whom you work well with, what types of people can help you to be more productive, and what kinds of people are a negative influence on your work and life.
+
+Simply understanding these things does not guarantee that you will love your next co-workers, but it certainly helps to know what you are looking for.
+
+It is also essential to understand the type of people you like to work for. You work for your boss, and you work for your client, customer, pupil, audience, family, organization, etc. You work for the people who depend on you to do your job.
+
+Some people thrive in competitive environments while others need emotional support. Some people need specific direction, and others need to be left to their expertise. Some people work extraordinarily well in groups, and others prefer solitary labor.
+
+This exercise is designed to help you identify the sorts of people you are productive with and for and the sorts of people you are not.
+
+Refer to your complete list of experiences from Exercise 1.1.1 (Transferable Skills Inventory).
+
+---
+
+#### Activity 1.2.3a: Negative Influence Identification
+
+1. Review each job or experience you have had. Recall and record the traits of the people who hurt your productivity in any way. Maybe you didn't like them, but do not focus on who they are. You need to pinpoint what about them made your work less productive. List the harmful character traits.
+
+
+2. Write the antonym of each of the traits from number 1.
+
+
+---
+
+#### Activity 1.2.3b: Positive Influence Identification
+
+3. Review each job or experience you have had. Recall and record the traits of the people who helped your productivity in any way.
+
+
+4. Recall any time when you were particularly productive. The production can be from your education, the stories you wrote in Exercise 1.1.1, or work experience. Who was directing you? Were you serving anyone (client, etc.)?
+
+
+5. What traits do the people from question 4 have that support a positive work environment?
+
+
+---
+
+#### Activity 1.2.3c: Ideal Colleague & Supervisor Profile
+
+6. What types of people do you want to work with?
+
+
+7. Do you prefer to work in teams, pairs, or alone?
+
+
+8. What types of people do you want to work for?
+
+
+9. Who in this world do you want to serve with your work?
+
+
+---
+
+### Exercise 1.2.4: Compensation Analysis
+
+**Purpose:** Determine your financial needs, benefit requirements, and establish your BATNA (Best Alternative To a Negotiated Agreement).
+
+How much money do you want to make?  
+How much money do you need to make?  
+What are your needs?  
+How much do you plan to save?  
+What bonuses and extras are you seeking from your work?
+
+---
+
+#### Activity 1.2.4a: Salary History
+
+1. Record how much you have made at each of your positions, including any changes in pay at any one position.
+
+
+---
+
+#### Activity 1.2.4b: Budget Creation
+
+2. Write a complete budget. Use the spreadsheet titled "Budget", or compare your own to the one in the app. Costs are listed on the left. Fill in how much you spend per month on the right. Below you will find...
+
+   – TOTAL MONTHLY EXPENSES →  
+   – TOTAL ANNUAL EXPENSES →  
+   – MINIMUM HOURLY WAGE →
+
+Be diligent about your budget, and live within your means. Unless you are giving the loan, debt is not your friend. It is easy to spend money; it is difficult to save money. Wealth is built by saving and investing wisely.
+
+---
+
+#### Activity 1.2.4c: Benefits Assessment
+
+3. What benefits do you need?
+
+
+
+---
+
+#### Activity 1.2.4d: Compensation Structure Evaluation
+
+4. Describe the benefits and drawbacks of each, for you. (Assume bi-weekly or monthly paydays)
+
+   **Salary** (aggregate pay per year or month, regardless of hours worked)
+
+
+   **Hourly** (pay for time worked)
+
+
+   **Contracting** (pay agreed upon per project, typical for freelancers)
+
+
+   **Commission** (% of sale per sale)
+
+
+   **Combination of above, or Other** (specify)
+
+
+---
+
+### Module 1.2 Footnotes
+
+7. This approach to work-life integration draws from Paula Caligiuri's philosophy in *Get a Life, Not a Job: Do What You Love and Let Your Talents Work for You.* Upper Saddle River, NJ: FT Press, 2010. Caligiuri emphasizes that your work should support your life goals, not the other way around.
+
+---
+
+**Module 1.2 Complete**  
+Next: Module 1.3 - Priorities, Ecstasy & Flow
+
+---
+# Part 1: Roots (Continued)
+
+## Module 1.3: Priorities, Ecstasy & Flow
+
+### Module Overview
+
+**Focus:** Prioritizing work factors and understanding your peak performance states  
+**Purpose:** Rank your work factors by importance and identify activities that create flow states (high engagement + high energy)  
+**Estimated Time:** 1 hour initial + ongoing daily tracking  
+**Key Tools:** Ranking Grid, Flow Tracking Worksheet  
+**Ongoing Practice:** Daily flow tracking continues through Part 3  
+**Outputs:**
+- Prioritized work factors (1-5 ranking)
+- Flow patterns identification
+- List of high-engagement, high-energy activities
+
+---
+
+### Exercise 1.3.1: Work Factor Prioritization
+
+**Purpose:** Establish your personal hierarchy of work factors to guide career decisions.
+
+Before we move on, you need to prioritize your work factors from Modules 1.1 & 1.2. Use the Ranking Grid.
+
+When considering employment, what is most important to you?
+
+**The Five Work Factors:**
+
+- **Compensation** – how much money you earn, benefits, and bonus structure
+- **Environment** – where in the world you live and the make-up of your office
+- **Skills** – being able to use the skills you have or learn new skills
+- **Knowledges** – being able to excel in your field of interest or expertise
+- **People** – getting along with the people you work with and for
+
+---
+
+#### Activity 1.3.1a: Five-Factor Ranking
+
+Rank your work factors from most important (1) to least important (5):
+
+1.
+2.
+3.
+4.
+5.
+
+If you feel the need to be more specific, do so here:
+
+
+
+
+---
+
+### Exercise 1.3.2: Flow State Mapping
+
+**Purpose:** Identify activities and conditions that produce your optimal performance state.
+
+You have documented all of your work factors and have thought about what is most important to you.
+
+Now, recall the time when you were the most present. For this step, you will reflect upon your past experiences to get a sense of how they affected you and your fundamental motivation. We're talking about the studied and admired sensation of flow.
+
+Human beings are hardwired to experience flow. During states of flow, people are upwards of 500% more effective or productive doing their work.⁸ In short, the body achieves this by turning off the prefrontal cortex, effectively allowing the brain to remove criticism and doubt, exist deeply in the present moment, make more lateral connections between new and old information, and innovate upon those newly created ideas seamlessly. The state is often described by the feeling of brilliant information flowing out of the subject, connecting one moment seamlessly to the next.
+
+Everyone experiences flow from time to time; the most brilliant among us learn to use it to their advantage. You can increase your chances of flow by practicing mindful paced breathing. There are several books and entire businesses built around that fact. Practice breathing evenly ("hoooooooooooo", not "ho ho ho ho ho ho ho") and in rhythm (try in for 5, out for 5). You may have been taught to breathe from your gut, but today, breathe from the core of your chest, more specifically your heart. Your heart is the generator of your body, and everything adapts around it, a concept called entrainment, so breathe from your core. Steady breath will help your heart beat more regularly, which will entrain the rest of your body to the same rhythm. When your body is all in rhythm, it resonates, creating a whole that is more than the sum of its parts. Practice breathing to increase your vitality and the amount of time you are in flow.
+
+There is a great deal of research about the idea of "flow."⁸ Every expertise has its own word to describe the state; most people recognize "in the zone." Flow is often achieved when someone is pushed to their extreme limits after preparation. These are times when all of our skills and expertise are called upon, we shut out everything except the task at hand, and we execute on a very high level. Symptoms of flow include time distortion, being oblivious to anything other than the task, euphoria, extreme productivity, creative ease, and a sense of singular focus. If you have ever amazed yourself with what you could do or you accomplished something that did not seem possible at the start, you were probably experiencing flow.
+
+Flow is similar to a sense of ecstasy, but ecstasy is more closely related to play than work. Ecstasy describes also being singular in mind and focus, being exactly where and when you are, but it refers to elation and bliss rather than accomplishment and execution. Some professionals differentiate between what we get joy from and the work that we do. The best way to live life is to align the two, just like our life values and our work values. Ecstasy is pure happiness, pure energy. Flow is the essence of the creative state. Physiologically, the two are more or less the same; these extreme mental states are characterized by a flood of powerful neurotransmitters.
+
+---
+
+#### Understanding the Flow Tracking System⁹
+
+Separate flow into **focus** and **energy** for the purpose of picking your brain during this activity.
+
+- Think of **focus** as being the scale between boring and captivating.
+- Think of **energy** as being the scale between draining and energizing.
+
+**When you are fully engaged and completely energized by a task, you are experiencing flow.**
+
+**Example:** Stacy is a journalist who reported a huge corruption case a few years back. While doing the background research was a bit draining, she remembers being extremely focused. Then, there was one day when the whole story came together and she knew it was big. Once she had done her research, she spread out all her findings one night to try to crack the case. She can't quite say how she connected the dots—the memory is a bit blurry—but everything lined up for her as if she already knew all the answers; that was flow.
+
+**For the following activities, you will use the tool titled "Flow Tracking"**
+
+I've done my best to turn this into a seamless tool, feel free to give  me feed back, and good luck!
+
+**How to use the Flow Tracking Worksheet:**
+1. Name the activity
+2. Write a short description of the activity (about 10 - 25 words)
+3. Adjust the sliders for energy and focus
+4. If you were in flow during the activity, check the "flow" box
+
+---
+
+#### Activity 1.3.2a: Memorable Past Flow Analysis
+
+1. Recall all the significant events you have recorded in Modules 1.1 and 1.2. For each event, assign two scores: one for focus and one for energy.
+
+   The most significant events, when you experienced flow, deserve more attention. Mark those events with the word "Flow."
+   
+   **Energy:** draining (-2, -1, 0, 1, 2) energizing  
+   **Focus:** boring (v, w, x, y, z) captivating
+   
+   **Example:** For Stacy, researching her case was a (-1, z) while the night of creative problem solving was (2, z) and induced flow.
+
+
+2. Record your top 5-10 most focused activities in the Flow Tracking tool.
+
+
+3. Record your top 5-10 most energizing activities from Flow Tracking.
+
+
+4. Is there any activity, task, or skill which you find both highly energizing and highly captivating?
+
+
+
+---
+
+#### Activity 1.3.2b: Recent Past Flow Tracking
+
+Recall the past 3-10 days. (The more you do, the stronger the tool will be.)
+
+1. Record every significant activity of the day in the Flow Tracking tool.
+
+2. Write a short description of each activity.
+
+3. Adjust the slider according to the energy and captivation of the activity.
+
+4. Are there any activities which you find both highly energizing and highly captivating?
+
+
+
+---
+
+#### Activity 1.3.2c: Present Flow Tracking (Ongoing)
+
+**Repeat this process at the end of each day. Continue until Part 3 is complete.**
+
+1. Record every significant activity of the day in the Flow Tracking tool.
+
+2. Write a short description of each activity.
+
+3. Adjust the slider according to the energy and captivation of the activity.
+
+4. Are there any activities which you find both highly energizing and highly captivating?
+
+*Note: This ongoing practice will provide crucial data for Module 2.3 (Landmarking) when you create your idea trees based on high-engagement activities.*
+
+---
+
+### Module 1.3 Footnotes
+
+8. Csikszentmihalyi, Mihaly. *Flow: The Psychology of Optimal Experience.* New York: Harper & Row, 1990. Csikszentmihalyi's research established the scientific foundation for understanding flow states and their impact on performance and well-being.
+
+9. Flow Tracking Methodology is an original tool created by Braedon Long for this program, adapted from Csikszentmihalyi's flow theory. The energy/focus matrix provides a practical way to identify activities that produce optimal engagement.
+
+---
+
+**Module 1.3 Complete**  
+Next: Module 1.4 - Love
+
+---
+# Part 1: Roots (Continued)
+
+## Module 1.4: Love
+
+### Module Overview
+
+**Focus:** Relationships, meaning, and what you care about  
+**Purpose:** Reflect on family, community, world, and self to understand what drives you and shapes your values  
+**Estimated Time:** 1-1.5 hours  
+**Privacy Note:** Answers in this module remain private; share only what you're comfortable sharing  
+**Outputs:**
+- Family impact summary
+- Community profile
+- World values statement
+- Self-understanding summary
+
+---
+
+### Introduction
+
+The focus of this module is love. All people have a sense of what love is. You might be more comfortable considering the things and people you care about.
+
+Love can be a tricky topic to talk about. Love manifests in each person's life in a different way. You might have intensely positive, intensely negative, or completely neutral experiences in each of the categories below. The purpose of this activity is not to dictate right from wrong, but to reflect and understand.
+
+Many programs focus on the idea of passion. Passion is simply one of the many paths into flow. Passion is also pretty ambiguous; only about 1 in 4 people know their passion. For our purposes, we will focus on what we love and care about as a window into what might bring us the most fulfillment in the future.
+
+**There are no wrong answers here—these questions are for you and you only.** While you will be asked questions that relate to this topic, we do not store your answers (we encrypt everything from this module so that we can't see it. Only your password can decrypt the data. So, you can use it, but no one else can); share what you are comfortable sharing.
+
+**Answer every question.** The process works if you work it. This section is no less important than any other section. In fact, this might be one of the most important modules in the program. Seriously reflect on each of these, and record vivid details. Consider telling your stories using the SOARED framework (see Exercise 1.1.1c) so that you don't miss any important details.
+
+Don't leave anything out. Some parts of your life might seem obvious or redundant—record them anyway. You cannot possibly be over-prepared. Do the work.
+
+---
+
+### Exercise 1.4.1: Family Reflection
+
+**Purpose:** Understand how family relationships have shaped who you are and what you need.
+
+---
+
+#### Activity 1.4.1a: Childhood Stories
+
+1. What stories from your childhood have helped shape who you are today?
+
+
+---
+
+#### Activity 1.4.1b: Family Relationships Impact
+
+2. What family relationships have had particularly significant impacts upon your beliefs?
+
+
+---
+
+#### Activity 1.4.1c: Caregiving Considerations
+
+3. Do you have any elderly family members you care for or support? How does this shape your needs?
+
+
+4. Do you have any children you care for or support? How does this shape your needs?
+
+
+---
+
+#### Activity 1.4.1d: Family Inspiration & Lessons
+
+5. Do you have any family members or stories which inspire you? If so, give details.
+
+
+6. What are the most significant lessons your family has taught you?
+
+
+---
+
+### Exercise 1.4.2: Community Connection
+
+**Purpose:** Identify the groups you belong to and understand their importance to you.
+
+---
+
+#### Activity 1.4.2a: Group Identification
+
+1. What group, or groups, do you identify with?
+
+
+2. Are you involved in any organizations, religious groups, neighborhood associations, group of friends, gaming club, or other regularly organized social events?
+
+
+---
+
+#### Activity 1.4.2b: Community Involvement Analysis
+
+3. Why are you involved in those groups?
+
+
+---
+
+#### Activity 1.4.2c: Community Goals
+
+4. Do you have any personal goals concerning your community?
+
+
+5. Is there anything that might cause you to leave your community?
+
+
+---
+
+### Exercise 1.4.3: World Perspective
+
+**Purpose:** Explore your views on global issues and your place in the broader world.
+
+---
+
+#### Activity 1.4.3a: Global Issues Identification
+
+1. Are there any worldly issues that are important to you? What are they?
+
+
+---
+
+#### Activity 1.4.3b: Historical Lessons
+
+2. What are some lessons people should learn from history?
+
+
+3. Are there any worldly problems which you feel the need to help solve?
+
+
+---
+
+#### Activity 1.4.3c: Cultural Learning
+
+4. Have you ever traveled outside of your country? Your continent?
+
+
+5. What have you learned from other cultures of the world?
+
+
+---
+
+#### Activity 1.4.3d: Future Visioning
+
+6. What do you think the world will look like in 10 years?
+
+
+   ...50 years?
+
+
+   ...100 years?
+
+
+
+---
+
+### Exercise 1.4.4: Self-Understanding
+
+**Purpose:** Develop deeper self-awareness through honest reflection.
+
+---
+
+#### Activity 1.4.4a: Self-Critique
+
+1. They say that you are your own hardest critic. Critique yourself. What can you do better?
+
+
+---
+
+#### Activity 1.4.4b: Strengths Recognition
+
+2. What are your strengths?
+
+
+---
+
+#### Activity 1.4.4c: Core Identity
+
+3. Do you have an idea or memory which makes you feel most like yourself? If so, describe it.
+
+
+4. What do you love about yourself?
+
+
+---
+
+#### Activity 1.4.4d: Major Life Events
+
+5. What major life events have shaped you? Briefly describe them.
+
+
+---
+
+#### Activity 1.4.4e: Greatest Gift & Commitment
+
+6. What is your greatest gift?
+
+
+7. Are you willing to do what needs to be done?
+
+
+---
+
+### Module 1.4 Footnotes
+
+10. Seligman, Martin E.P. *Flourish: A Visionary New Understanding of Happiness and Well-being.* New York: Free Press, 2011. Seligman's PERMA model (Positive emotion, Engagement, Relationships, Meaning, Accomplishment) supports the importance of examining relationships and meaning as components of a flourishing life.
+
+---
+
+**Module 1.4 Complete**  
+Next: Module 1.5 - Health
+
+---
+# Part 1: Roots (Continued)
+
+## Module 1.5: Health
+
+### Module Overview
+
+**Focus:** Mental health, discipline, and daily practice  
+**Purpose:** Develop mental fortitude through skill sharpening, grit development, mindfulness, and routine establishment  
+**Estimated Time:** 1.5 hours initial + ongoing daily practices  
+**Key Tools:** Routine Tracking Template  
+**Ongoing Practices:** 
+- Daily skill sharpening (15+ minutes)
+- Daily mindfulness (5-20 minutes)
+- Daily routine tracking
+**Outputs:**
+- Skill sharpening commitment
+- Accountability plan
+- Mindfulness routine
+- Daily routine schedule
+
+---
+
+### Introduction
+
+We will focus on mental health. Physical and spiritual health are both important, but it is best for you to find answers to questions you may have about those topics from another source. People from all walks of life can benefit from mental health practices.
+
+I am going to address three aspects of mental health: **achievement**, **fortitude**, and **emotional intelligence**.
+
+In all three, the lesson is discipline and practice. The goal is not perfection. The goal is active practice.
+
+Bill Burnett describes five mindsets which are imperative to our cause: **curiosity, bias to action, reframing, awareness, and radical collaboration**.¹ Mastering these mindsets and living them will lead you to opportunity.
+
+---
+
+### Exercise 1.5.1: Skill Sharpening Practice
+
+**Purpose:** Commit to daily improvement of a skill that sets you apart.
+
+Achievement is characterized by the things that we can do—otherwise known as our skills. In previous modules, we described our skills, our mastery over them, whether they give or take energy from us, and how captivated we are by them.
+
+Whether it is for our own pleasure, to further our working cause, or to give us a competitive edge, it is crucial to be a student of life, for life. Everybody should always be improving themselves in one way or another.
+
+The post-industrial economy is based on specialization. Pick a transferable skill or a knowledge which sets you apart from others—an expertise. If you do not have one, it is your duty to make one of your skills an expertise.
+
+Additional practice, above and beyond what is needed for any of the work that you do, is self-improvement for the sake of self-improvement. Sharpen your skills to make you a better candidate than your competition.
+
+**You will want to start as soon as possible. Today is best; right now is even better.**
+
+---
+
+#### Activity 1.5.1a: Skill Selection
+
+1. Choose a skill to practice. (Review your top skills from Exercise 1.1.1e and your flow activities from Exercise 1.3.2)
+
+   Selected skill:
+
+
+---
+
+#### Activity 1.5.1b: Daily Practice Commitment (Ongoing)
+
+2. Dedicate at least 15 minutes of singular focus to improving that skill every single day.
+
+3. Practice the skill every single day. Don't stop.
+
+4. If you grow tired of practicing this skill, reach a level of mastery, or otherwise need a change, choose another skill and repeat the process. This is the never-ending task of self-betterment.
+
+---
+
+### Exercise 1.5.2: Grit Development
+
+**Purpose:** Develop mental fortitude and personal accountability.
+
+Grit describes the mental fortitude to work tirelessly for rewards which are either abstract or far removed, often both.¹¹ I am a proponent of working smarter, not harder, but there is no replacement for diligence, perseverance, and drive. You absolutely must take yourself seriously. Even if your profession is in comedy, be a comic, not a joke.
+
+To get this message across, I have decided to share a personal story.
+
+---
+
+#### Take Yourself Seriously
+
+On April 1st, 2016, I woke up at 3 pm. I had slept through two strategy meetings, an interview, training, and was supposed to be getting ready to go out knocking doors for the next 5 hours. I called my campaign director; she was furious, but more, she was sad.
+
+Four months ago she had put her name on the line to bring me in to direct a field canvass that had, until that point, no direction and no hope. Enthusiastic and passionate, I left everything else behind to join her. We had been working 60+ hours each week to get going and had finally started to gain some momentum.
+
+Tuesday, March 31st, we went to dinner and then to a local bar to watch some music. Long after my co-worker went home, I was the last patron in the bar, finishing something past my 20th drink, around 4 am. I had promised to be at work by 8:30. I had told myself before dinner that I would have two beers and be at work early, hoping for 8, thinking it would probably be 8:15.
+
+I woke up in severe pain which had become all too common. I couldn't open my eyes. An attempt to stand was met with icy hot needles in my brain; I collapsed. Watching my drool inch across the hardwood, I considered the remedy I had taken for what was becoming countless days prior; I longed for the rye whiskey on my window sill.
+
+I remembered the promises I had made: to my co-workers, to my employees, to the people who depended on me. I remembered the times I had been sent to the hospital for alcohol poisoning, and all the promises I had made to my Mother. I called my boss, who had done so much for me already, and told her I wasn't going to make it to work that day. No way.
+
+That is when I realized that nothing I said mattered. Every promise I had made, I was breaking it. Both the spoken and the unspoken. Here I was, doing what I wanted to do, and throwing it all away. I wallowed for a bit on all the people I was letting down. But I had done that before. It got me nowhere. I thought about slowing drinking, but I had tried who knows how many times—hell, just last night was supposed to be slow.
+
+When I finally pulled my face off the floor and crawled to the sink, I knew I had to do something I hadn't ever done before. I stared myself in the eyes, unsure of what would happen next. That's when I knew. **I had to take myself seriously.**
+
+I had dreams, ambitions, goals, and more. Yet so far, I had let those sit idly by while I pissed it away. No more. I told myself I would never drink again. I told myself that it was just the start. I made a promise to myself which I live by to this day. I promised accountability. Whatever challenge should come, I vowed to face it. I vowed to overcome. I promised to be the person I knew I was meant to be.
+
+That day wasn't the first time I had made promises to myself. So, I vowed to take myself seriously. I can still see my face. The most resolute I had ever been, and terrified of what was to come. In those eyes I see relief. Finally, I was going to take myself seriously, and no one could stop me.
+
+Since that day, my entire life has changed. I have been and am sober. I quit smoking. I revolutionized my diet. I started working out regularly. I have found time for my spirituality. I fell in love. I moved to another continent. I started a business. **I take myself seriously.**
+
+That wasn't the end of my journey, I still go through times of struggle, but it has served as the foundation of my life. When times are tough, I know I have it in me. I've found the strength to give myself permission to live in the present, to be fully present, and to reap the life that hard work sows. 
+
+---
+
+Overcoming addiction, changing your life, creating your story, standing up for yourself, surmounting your fears, starting your next project, building your dreams—no matter what you plan on doing next, **TAKE YOURSELF SERIOUSLY**. Every day. Never stop. This is grit. Daily sacrifice for long-term gain.
+
+This isn't just wearing nice clothes and looking people in the eye (although those are great habits for networking). Look yourself in the mirror and hold yourself accountable. Every single day. No one else can tell you what you need to do. No one else can do the things you need to do. It's up to you to give yourself permission to live a more fulfilled life. You are your greatest enemy and your greatest ally. Choose to be your ally. Every day. No matter how hard it is. Don't lie to yourself—you'll know. Take yourself seriously.
+
+
+**Do the things you know you need to do.**
+
+Be relentless.
+
+---
+
+#### Activity 1.5.2a: Role Model Identification
+
+1. Who do you look up to? Who is your role model? Why?
+
+
+2. What about that person (those people) do you admire? What characteristics do they have that you don't?
+
+
+---
+
+#### Activity 1.5.2b: Habit Assessment
+
+3. What are the bad habits you need to quit?
+
+
+4. What are the good habits you need to start?
+
+
+---
+
+#### Activity 1.5.2c: Promise Keeping
+
+5. What promises do you need to keep? To yourself? To those you care about?
+
+
+6. What has stopped you from keeping those promises?
+
+
+---
+
+#### Activity 1.5.2d: Accountability Practice
+
+7. Choose an order to accomplish these. If you need, start with the easy ones and work up. No matter what, choose one to complete as soon as you possibly can. Start building active trust in yourself.
+
+
+8. Forgive yourself when you mess up. If you fall off the horse, focus on getting back on the horse, not on the fact that you fell off. Forgive. Take yourself seriously—if you don't, who will? Next.
+
+---
+
+### Exercise 1.5.3: Mindfulness Practice
+
+**Purpose:** Develop mental discipline through daily mindfulness practice.
+
+Mindfulness is rooted in the eastern practice of meditation. We're not asking you to chant mantras or do yoga unless that is what you want to do. This is about is discipline for your mind. Silencing your mind is difficult. Try thinking about nothing for the next 2 minutes.
+
+...
+
+Too hard? How about only thinking about your breath for the next 2 minutes.
+
+...
+
+How did you do? Did your mind wander? It is okay if it did. The important thing is practicing the act of coming back to silence. Practice batting down thoughts and distractions. The world is more distracting today than it ever has been. Grabbing attention is a trillion-dollar business.
+
+So, why is this important? I'm glad you asked.
+
+Your brain is just like every other muscle; the parts you exercise get stronger. Mindfulness uses emotional intelligence. Emotional intelligence is otherwise known as keeping a level head in the face of animosity. Psychologists have shown this works, neurologists agree, and some cultures have been practicing this basic technique for thousands of years.
+
+Training your brain to focus, to stay calm, and to shut out distractions will improve your soft skills, make you more able to communicate with others, improve your mental energy, and make you generally grittier.
+
+You can spend as much or as little time on this as you think necessary. I suggest taking it seriously.
+
+---
+
+#### Activity 1.5.3a: Daily Mindfulness Setup
+
+Spend between 5 and 20 minutes a day practicing mindfulness. Focus on your breath. Push out all distractions. Silence your inner voice for a period each and every day.
+
+Some people do this while completing thoughtless tasks, but it is most effective when practiced on its own. Do what works best for you.
+
+**My mindfulness commitment:**
+- Time of day:
+- Duration:
+- Location:
+
+---
+
+### Exercise 1.5.4: Routine Establishment
+
+**Purpose:** Create an intentional daily routine that incorporates all your new practices.
+
+Routine is the final point of this module. A routine is the manifestation of discipline. Whether you realize it or not, you have a routine. Humans are creatures of habit, and that will never change.
+
+My task for you is to consider your routine intentionally. Do you wander through your day from one thing to the next? Or is there a method to your day?
+
+Either way, this part has given you at least three tasks which demand your attention every day:
+
+1. **Flow Tracking** (from Exercise 1.3.2c) – tracking your daily activities, how they affect your energy, and how engaged you are in them
+
+2. **Skill Sharpening** (from Exercise 1.5.1b) – choosing a useful and enjoyable skill to hone, practice, and sharpen as a way to stand out from your peers and, more importantly, to better yourself
+
+3. **Mindfulness** (from Exercise 1.5.3a) – set aside a short amount of time to practice quieting your mind each day
+
+Finally, remember the five mindsets every day:¹
+
+- **Curiosity**
+- **Bias to action**
+- **Reframing**
+- **Awareness**
+- **Radical collaboration**
+
+---
+
+#### Activity 1.5.4a: Routine Design
+
+We try to keep you on track with the Daily Dos. It takes about five weeks to break old habits and build new ones. If you start now, exercising your brain will become a part of your daily routine before you finish the program.
+
+**Design your daily routine here:**
+
+Morning:
+
+
+Midday:
+
+
+Evening:
+
+
+---
+
+### Module 1.5 Footnotes
+
+1. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016. The five designer mindsets (curiosity, bias to action, reframing, awareness, radical collaboration) provide the mental framework for approaching career design and life changes.
+
+11. Duckworth, Angela. *Grit: The Power of Passion and Perseverance.* New York: Scribner, 2016. Duckworth's research demonstrates that grit—the combination of passion and perseverance for long-term goals—is a stronger predictor of success than talent alone.
+
+12. Grover, Tim S., with Shari Wenk. *Relentless: From Good to Great to Unstoppable.* New York: Scribner, 2013. Grover's work on mental toughness and relentless commitment informs the "take yourself seriously" philosophy central to this module.
+
+---
+
+**Module 1.5 Complete**  
+**Part 1: Roots Complete**
+
+Next: Part 2 - Trunk (Connecting Your Past to Your Future)
+
+---
+
+## Part 1 Summary: Ongoing Practices
+
+As you move into Part 2, continue these daily practices:
+
+| Practice | Source | Daily Time | Purpose |
+|----------|--------|------------|---------|
+| Flow Tracking | Exercise 1.3.2c | 5 min | Identify engaging activities |
+| Skill Sharpening | Exercise 1.5.1b | 15+ min | Build expertise |
+| Mindfulness | Exercise 1.5.3a | 5-20 min | Develop mental discipline |
+| Routine Tracking | Exercise 1.5.4a | 5 min | Maintain accountability |
+
+---
+# Part 2: Trunk
+## Connecting Your Past to Your Future
+
+---
+
+## Overview
+
+Now that you have taken stock of your literal makeup and background, it is time to take a higher level view of who you are, how you are doing, and where your life is going. If you are unsure about the path ahead, that is okay. If you are confident you know where your path leads, that is okay too. Go through each exercise with an open mind. If you are searching for answers, this process will guide you through finding them. If you are decided and confident, this will provide reassurance, perspective, and ensure that you did your due diligence. Just as with the roots, understanding where you are can only help you reach greater heights.
+
+The trunk of our tree represents the present. This is where your past meets your future. In many respects, the present is the only thing that genuinely exists. Everything else is an interpretation. Your mission is to interpret your situation to your benefit and steer towards your best possible future.
+
+There is no possible way to know every effect of each and every choice we make. Therefore, it is impossible to make the best decision in every instance. So, we gather as much information as is needed, and then we make a choice. Bias to action.¹
+
+Approach this part with an open mind. A lot of this will be brainstorming. When brainstorming, defer to quantity over quality. We, as people, have all sorts of social filters which hinder most people from thinking creatively. Your job is to ignore anything that tells you something is a bad idea and write it down anyway.
+
+There will be a time and a place for evaluation, but first, you need to generate as many ideas as possible. While the most outlandish ideas don't always seem useful, they open the door for creativity and can often lead to innovation. Remember, many of the most incredible discoveries were made by accident—open yourself up to those accidents.
+
+**Important:** This works best with a small group of people who know you but do not think they know what you need to do for your next step in life. 2-3 other people works best, but even one will help tremendously. Otherwise, do your best to step outside of yourself and provide unbiased feedback. 
+
+---
+
+## Module 2.1: Finding The Light
+
+### Module Overview
+
+**Focus:** Current life assessment and values clarification  
+**Purpose:** Evaluate your current state across all life areas and identify your guiding values—the "light" that will direct your career decisions  
+**Estimated Time:** 1.5-2 hours  
+**Key Concepts:** Four life categories,¹ work values, life values, alignment  
+**Outputs:**
+- Life dashboard (ratings for work, play, love, health)
+- Work values statement
+- Life values statement
+- Value compass (alignment analysis)
+
+---
+
+### Introduction
+
+Every plant grows towards the light. The light is nourishing for trees.
+
+You, too, must reach towards your light. Once you identify what your light is, it will guide you through your decision-making process. Anytime you have a decision to make, your light will tell you which way to go—grow towards the light. So, what is your light? What is nourishing for you?
+
+---
+
+### Exercise 2.1.1: Life Assessment
+
+**Purpose:** Evaluate your current satisfaction across all four life categories.
+
+Building on Part 1, you are going to write a brief summary of each of the four main parts of your life.¹ You will then evaluate each part out of ten. Give marks according to how you see fit.
+
+---
+
+#### Activity 2.1.1a: Life Dashboard
+
+| Life Area | Summary | Rating (1-10) |
+|-----------|---------|---------------|
+| 1. Work | | |
+| 2. Play | | |
+| 3. Love | | |
+| 4. Health | | |
+
+5. Overall, how are you?
+
+
+
+
+---
+
+### Exercise 2.1.2: Values Exploration
+
+**Purpose:** Articulate your work values and life values to identify your guiding compass.
+
+It is time to identify your light and begin to understand the compass that will guide you into the future.
+
+There are two main values to consider: your **work values** and your **life values**. Values are not a description of what you want or what you are seeking. This is philosophical. Reflect on the deeper meaning. There are no wrong answers, except for blank answers.
+
+---
+
+#### Activity 2.1.2a: Work Values
+
+**Work**
+
+1. What does work mean to you?
+
+
+2. Why do you work?
+
+
+3. Why do other people work?
+
+
+4. What is the purpose of people working?
+
+
+5. Other than money, what is gained from work?
+
+
+6. Are honor, growth, or fulfillment essential to work? Explain.
+
+
+7. What work would you do if all your needs were guaranteed?
+
+
+
+---
+
+#### Activity 2.1.2b: Life Values
+
+**Life**
+
+1. Is there a meaning of life? Give details.
+
+
+2. What is the meaning of your life?
+
+
+3. Why do we exist?
+
+
+4. What is good?
+
+
+5. What is evil?
+
+
+6. What is happiness?
+
+
+7. Is there a higher being?
+
+
+8. Why do we experience pain and suffering?
+
+
+9. Is there some deeper meaning, mission, or purpose to life?
+
+
+10. What injustices are there in the world?
+
+
+---
+
+### Exercise 2.1.3: Values Alignment
+
+**Purpose:** Find the intersection of your work and life values—your compass.
+
+The most fulfilling lives grow from the place where life views and work views overlap.¹,² In other words, if your work values complement your life values, your life will have more value.
+
+---
+
+#### Activity 2.1.3a: Alignment Analysis
+
+1. Where do your two value systems support each other?
+
+
+2. Where do they disagree?
+
+
+3. Is one more important to you than the other? Which one? Why?
+
+
+4. In your own words, explain how your work values and your life values work together.
+
+
+
+
+---
+
+#### Activity 2.1.3b: Value Compass Definition
+
+You spend a tremendous amount of your life working. The more closely your work supports your values, the more rewarding your life will be. **The overlap between your work values and your life values is where your light shines the brightest.** The closer your work—the way you spend your productive time—complements your values, the more rewarding your life will be.
+
+If you are unclear on what you value, talk to people who know you well, or research your idols' values and compare your values to their values. This alignment is the light you are using to guide the next steps in your life—be diligent.
+
+If you find yourself stuck, practice free writing several potential answers to the questions. Then, choose which solution is best for you or combine them to create another. This doesn't need to be a world-altering philosophy, but you do need to clarify your values.
+
+**My Value Compass:**
+
+*(Write a brief statement that captures the overlap between your work values and life values—this is your guiding light for career decisions)*
+
+
+
+
+---
+
+### Module 2.1 Footnotes
+
+1. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016. The four life categories (work, play, love, health) and the concept of values alignment provide the foundation for life design.
+
+2. Caligiuri, Paula. *Get a Life, Not a Job: Do What You Love and Let Your Talents Work for You.* Upper Saddle River, NJ: FT Press, 2010. Caligiuri's work reinforces the importance of aligning career choices with life values rather than treating work as separate from life.
+
+---
+
+**Module 2.1 Complete**  
+Next: Module 2.2 - Reality
+
+---
+# Part 2: Trunk (Continued)
+
+## Module 2.2: Reality
+
+### Module Overview
+
+**Focus:** Mindset development, action orientation, and reframing failure  
+**Purpose:** Develop the creator's mentality through the five designer mindsets and learn to transform obstacles into opportunities  
+**Estimated Time:** 1.5-2 hours + ongoing weekly practice  
+**Key Tools:** Reframing Failure Worksheet  
+**Ongoing Practice:** Weekly failure reframing through Part 3  
+**Outputs:**
+- Mindset character profiles
+- Action plan with fear strategies
+- Growth opportunities log
+
+---
+
+### Introduction
+
+There are many things which are outside of our control in life. It is best if we let them be. Accept them as they are and work around them. This iss not to say that we should not fight injustices or work to right the wrongs in the world. Quite the contrary, we should understand what cannot be changed so that we may be productive in our efforts to support our values.
+
+For example, there is bias and discrimination in most hiring processes. While these issues do need to be addressed and rectified, we would be foolish to act as though they do not exist. Try not to assume the obstacles you will find, but be prepared for obstacles to appear, and be ready to overcome them. 
+
+---
+
+#### Two Approaches to Finding Work
+
+There are two main approaches to finding the next job.
+
+**The first** is the one you likely know: write your resume, find a job opening, apply to every position you can with your carefully crafted documents, wait in the dark, then (if you're super lucky) you might get an email initiating the interview process. The first interviews are screening; the employer is just looking for reasons to narrow down the list. The final interview is when you get the chance to build a bond and sell yourself as an actual human who brings more to the table than a list of skills.
+
+There are a TON of reasons this doesn't work, but the important thing is, for all intents and purposes, **this doesn't work**.³ Incentives are misaligned at every step of this process. For example, you are not a list of skills; the person writing job descriptions is either looking for the person who just left (with none of the downside) or doesn't fully understand what the position calls for. The process makes it incredibly challenging to showcase or find qualities which genuinely predict success. Meanwhile, it's often a charade because the position has already been filled through the second method.
+
+**The second** one is the one that works: **networking**.³ We are not here to debate the ethics of this, only to share the reality of it. Most employers look inside their organization first, then they either target people they have found or already know, or they defer to people who are referred by trustworthy workers within the organization. Employers around the world have found that this is the surest way to find good hires. So, this is the method we use.
+
+---
+
+### Exercise 2.2.1: Creator's Mentality
+
+**Purpose:** Internalize the five designer mindsets through character study and personal reflection.
+
+Rather than waiting for the perfect job to fall into your lap, you are going to create your own opportunity. The best way to create opportunity is to have a plan and to live the five mindsets.¹
+
+---
+
+#### The Five Designer Mindsets¹
+
+**Curiosity** – Be curious. You are going to be speaking to people. People love to feel interesting. Being genuinely interested in the people you are talking to will make every interaction you have a more positive one. Further, if you are genuinely curious about the people you are speaking with, then you are more likely to be talking to the right people. Research is professional curiosity. Discovery is what comes from curiosity. Be curious. Do all your research, then find more questions to answer. Curiosity is the spirit of authentic connections. The best, and most effective, networking is authentic.
+
+**Bias to action** – When it is time, take action. When in doubt, take action. You can research and postulate and imagine all day every day. A certain amount of preparation is good and necessary, but preparation has diminishing returns. Sooner rather than later, you need to go out and take action on your postulations. Make a hypothesis, test your hypothesis, observe the effects, iterate, and improve. We can only truly learn through action.
+
+**Reframing** – Otherwise known as a change of perspective. Some problems are insurmountable. Most problems are opportunities. Learning to see obstacles as opportunities will pay dividends in all aspects of life. An example:
+
+*Before:* "I have applied to every job I qualify for, and none of them are answering me. I will never find a job."
+
+*After:* "I have tried applying for jobs using traditional methods. I need to change how I am looking for a job."
+
+**Awareness** – The human brain is always looking for ways to optimize. Think of your daily commute. While you are on your commute, you probably do not notice much of what is going on around you, unless it is extraordinary. The very first time you took the commute was likely a small adventure, fraught with new stimuli, and the excitement of your new job ahead. Now that you have made the trip so many times, your brain does not waste the energy it takes to observe every little thing—it assumes you know what is essential and only pays attention to those things. Attention is a trillion-dollar business; companies spend a tremendous amount on advertising; the entertainment industry is massive. Know the difference between awareness and distraction. The more aware you are of what is going on around you, the more likely you are to recognize opportunity when it comes. Not everything that glitters is gold. Awareness means knowing the difference.
+
+**Radical collaboration** – People. Know that everything in the world of work and creation is made up of people. Every institution, every group, everything, is made up of people. The most abundant resource you have is not the internet. It is the people you know. Don't be afraid to tap into the genius and perspective around you. Flow is when an individual performs at an extremely high level. Yet, no individual can accomplish what a group working together can. Every potential job will have gatekeepers; secretaries, HR representatives, hiring managers, and future co-workers are all people. Each interview is a two-way conversation. You are working together to find out if you can work well together.
+
+---
+
+#### Activity 2.2.1a: Mindset Character Profiles
+
+1. Find a character from a book, series, movie, or real life for each mindset. The mindset should be that character's defining quality.
+
+| Mindset | Character | Source |
+|---------|-----------|--------|
+| Curiosity | | |
+| Bias to Action | | |
+| Reframing | | |
+| Awareness | | |
+| Radical Collaboration | | |
+
+2. Defend your choices. Explain how and why these characters exemplify the mindset. Give examples.
+
+
+3. What does embodying the mindset help the character to accomplish?
+
+
+
+---
+
+### Exercise 2.2.2: Action Triggers
+
+**Purpose:** Define your goals, confront your fears, and develop strategies for action.
+
+#### Eight Principles for Action
+
+1. Focus on the task at hand. *The one who chases two rabbits catches none.*
+2. Use the skills you have, not the ones you don't. *A bird in the hand is worth two in the bush.*
+3. Find your inspiration. Reproduce or create your most successful scenarios.
+4. Set your intentions and follow through.
+5. Aim for the moon; if you miss, you'll land in the stars.
+6. Embrace fear. Get comfortable being uncomfortable. Move through fear into the unknown.
+7. Take massive action. Hypothesize, act, observe, adjust, iterate.
+8. Persevere. Be relentless.⁴ Never stop. *Remember that the tortoise beats the hare.*
+
+---
+
+#### Activity 2.2.2a: Defining Success
+
+I want you to aim for the moon. So, now, define your "moon." Be specific. How much wealth? How much income? What material desires? What organizations, businesses, or non-profits need to exist? What connections do you need to make? Dream it all, and write it all down here.
+
+1. What do you need to survive?
+
+
+2. How would a comfortable life for you look?
+
+
+3. What does happiness mean to you?
+
+
+4. What is your definition of success?
+
+
+5. If you had three wishes, what would they be?
+
+
+6. Describe your dream life.
+
+
+7. What are you willing to do to achieve your standards?
+
+
+---
+
+#### Activity 2.2.2b: Confronting Fear
+
+8. What strikes fear into your bones?
+
+
+9. Detail some actions you think you could take to conquer those fears.
+
+
+10. What situation over the next year are you afraid of failing?
+
+
+11. Give three opportunistic perspectives on that situation. (Practice reframing)
+
+
+12. Brainstorm actions you could take to excel in that situation.
+
+
+---
+
+#### Activity 2.2.2c: Building on Past Success
+
+13. Describe a time you overcame your fear.
+
+
+14. Have you ever had an authority figure who motivated you? What about that person motivated you?
+
+
+---
+
+#### Activity 2.2.2d: Resilience Planning
+
+15. What is the worst possible situation you can accept for your life?
+
+
+16. Describe the last time you were down. (Financially, emotionally, in performance—you choose your frame)
+
+
+17. What did you do to improve your situation?
+
+
+18. What could you have done better?
+
+
+
+---
+
+### Exercise 2.2.3: Reframing Failure
+
+**Purpose:** Transform failures into growth opportunities through systematic reflection.
+
+Failure is no longer an end. Life is not a pass or fail test. Sometimes, things do not work the way we expect. So, either change what you expect or change the way it works. Reframing failure is an extension of being mindful.
+
+---
+
+#### Activity 2.2.3a: Failure Log & Reframe (Ongoing)
+
+1. Using the Reframing Failure Worksheet (see Resources), look back over the last week (or month or year), and log your failures.
+
+2. Label them as screwups, weaknesses, or growth opportunities.
+
+3. Reframe each as an opportunity for growth.
+
+4. **Repeat at the end of each week** to build the habit of reflection and growth.
+
+---
+
+#### Understanding the Reframing Process
+
+Often, life is a numbers game. If you try enough times, eventually something will work. You need to go a step beyond random trials. Record your mishaps, reflect on them, and adjust your behavior accordingly. **Do not fail the same way twice.** Learn from science, pay close attention to all the variables involved. Failure is not an end; it is a means to learn.
+
+Practice reframing in your daily life. Change your perspective to see opportunity in every instance:
+
+- Lost your keys? → Memory exercise
+- Family argument? → Practice diplomacy, communication, and negotiation
+- Not enough time? → Streamline for efficiency
+
+Decide to view the world from a place of possibility by repeatedly choosing perspectives which are acceptable to you. Practicing mindfulness—pausing to take a few deep breaths and settling your mind—will help you to see aspects of any situation which you might otherwise overlook.
+
+---
+
+### Module 2.2 Footnotes
+
+1. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016. The five designer mindsets (curiosity, bias to action, reframing, awareness, radical collaboration) form the mental framework for approaching career design with creativity and resilience.
+
+3. Bolles, Richard N. *What Color Is Your Parachute? A Practical Manual for Job-Hunters and Career-Changers.* Berkeley: Ten Speed Press. Bolles's research consistently shows that networking and informational interviewing are far more effective than traditional application methods.
+
+4. Grover, Tim S., with Shari Wenk. *Relentless: From Good to Great to Unstoppable.* New York: Scribner, 2013.
+
+---
+
+**Module 2.2 Complete**  
+Next: Module 2.3 - Landmarking
+
+---
+# Part 2: Trunk (Continued)
+
+## Module 2.3: Landmarking
+
+### Module Overview
+
+**Focus:** Generating possibilities and making career choices  
+**Purpose:** Use idea trees to brainstorm potential career paths, then select three viable options for your future  
+**Estimated Time:** 2-2.5 hours  
+**Key Tools:** Brainstorming tool, flow tracking data from Exercise 1.3.2  
+**Group Activity:** Recommended for Exercise 2.3.1  
+**Outputs:**
+- Three idea trees
+- 9+ job possibilities
+- Three defined career options
+
+---
+
+### Introduction
+
+I cannot state enough how impactful today's activities can be, no matter how far along you are in your process. By opening your mind to your own ideas and building neural paths to stimulate and support creativity, you are practicing one of the most highly valued skills in the information economy—**innovation**. The more earnestly you engage with these activities, the more you will get out of the entire process.
+
+---
+
+### Exercise 2.3.1: New Growth (Idea Trees)
+
+**Purpose:** Generate a wide range of career possibilities through associative brainstorming.
+
+When plants grow, they send out shoots in many directions. They don't reach in every direction, but they give themselves plenty of opportunities, knowing that not all of them will grow into significant parts of the plant.
+
+For this step, you are going to create three idea trees. The process is simple—don't overthink it. As before, the important thing right now is **quantity**. We, as people, make better choices when we can choose between multiple options. So, keep your judgment to the side as best as you can.
+
+You are going to start with the trunk. Then, add 3-4 branches. Next, each branch gets 3-4 more branches. Finally, one more round of branches. If any of these last ones beg for their own branches, follow your heart and give them some.
+
+Each bunch of branches only needs to be related to its parent branch, not the branches before it, not the other branches, and not the trunk.
+
+This can be done with a pencil and paper, but we've built a tool to keep it all in house as well.
+
+**DO NOT CENSOR YOUR IDEAS. ALL IDEAS ARE WELCOME.**
+
+You cannot know if it is a bad idea or a good idea during the exercise; do not pass judgment on any ideas during this stage.
+
+---
+
+#### Activity 2.3.1a: Idea Tree Creation
+
+**To make your idea trees, read and then follow the directions below:**
+
+1. Clear your mind of expectations.
+
+2. Review the topics or situations which both energize and captivate you (from Exercise 1.3.2: Flow State Mapping), and choose the three which interest and engage you the most for your starting words.
+
+3. Write your first word intot he prompt. This is your starter. You now have the trunk of your idea tree.
+
+4. Read the word. Write 3-4 words related to your starter. Write the first words you think of. This is your first layer of branches.
+
+5. Read each word in your first layer. Write 3-4 words related to each word in your first layer of branches. Write the first words you think of. This is your second layer of branches.
+
+6. Read each word in your second layer. Write 3-4 words related to each word in your second layer of branches. Write the first words you think of. This is your third layer of branches.
+
+7. If you believe any words from the third layer of branches need branches of their own, write down your ideas.
+
+8. Repeat steps 3-7 for your second and third starting words.
+
+**Starting Words (from your high-flow activities):**
+
+Tree 1: _______________
+
+Tree 2: _______________
+
+Tree 3: _______________
+
+---
+
+### Exercise 2.3.2: Reading the Leaves
+
+**Purpose:** Transform your idea tree concepts into potential job possibilities.
+
+You are now going to take the ideas you have generated and brainstorm jobs that combine them. This doesn't need to be realistic. The point of this exercise is to practice exploring ideas. **Imagination is the key.** There is no right or wrong answer. Remember, this is only a step on your path; you do not need to have the best ideas in the world, only to practice creating new opportunities.
+
+---
+
+#### Examples
+
+**Example 1:** Let's say the three ideas I choose from my first idea tree are: dogs, economics, and mountains. I could breed and sell dogs in the mountains. I could start a business for dog and owner retreats in the mountains. I could open a dog kennel with a mountain theme.
+
+**Example 2:** Let's say the three ideas I choose from my second idea tree are: travel, dance, and teaching. I could teach different styles of dance from around the world. I could find and exhibit various forms of dance from around the world on a YouTube channel. I could start a club encouraging the exchange of dance ideas across cultures.
+
+---
+
+#### Activity 2.3.2a: Combining Ideas into Jobs
+
+You have these three "trees" with all sorts of interconnected ideas on them.
+
+Start with just one tree.
+
+1. Pick three ideas from the outermost layer of branches. Pick them with genuine interest. Which of your ideas captivate you?
+
+2. Think of jobs that combine all three of those ideas.
+
+3. Repeat for each tree.
+
+**Tree 1 Ideas:**
+- Idea A:
+- Idea B:
+- Idea C:
+- Possible jobs combining these:
+
+
+
+
+**Tree 2 Ideas:**
+- Idea A:
+- Idea B:
+- Idea C:
+- Possible jobs combining these:
+
+
+
+
+**Tree 3 Ideas:**
+- Idea A:
+- Idea B:
+- Idea C:
+- Possible jobs combining these:
+
+
+
+
+---
+
+#### Reflection
+
+It is entirely possible that you just stumbled upon a great idea or even a few great ideas. If that is you, CONGRATULATIONS.
+
+If not, don't worry. Most people don't.
+
+If you found this activity completely pointless, you may want to consider your perspective. The point is not to be right or wrong. The goal is to open up your mind to possibilities. You might not move into these professions, but it is a healthy and beneficial practice.
+
+**The goal is to get used to generating ideas without judgment. Imagination is the essence of creativity; creativity is the basis of innovation.**
+
+---
+
+### Exercise 2.3.3: Making Choices
+
+**Purpose:** Select three career paths to develop into full plans.
+
+Now you are going to make a few decisions. For some, this will be easy. For others, this will be a painstaking process. Take your time and sincerely consider your options. There is no right answer. The average worker will change jobs more than ten times in their life. Most people completely change careers a couple of times. There are multiple lives that you could live that might bring you joy for years to come. Also, there is no way to know if you will love or hate something until you go out and try it, so don't write anything off just because it sounds silly.
+
+Life is a bit like looking up from the trunk of a tree. Look for the leaves you want to reach, and go that direction. Most paths don't lead straight to the leaves you want; there are many decisions to make between where you are and where you want to go.
+
+**It is time to make some real decisions.**
+
+---
+
+#### Guidelines for Your Three Options
+
+Design and plan three full options for your future. You are not choosing a specific place to work. You are picking a **profession**. Do not consider the actual place of employment—that is not the task. The task is to choose professions.
+
+*Examples: Underwater Welder. High school Spanish teacher. Quality control manager for toy manufacturers.*
+
+You are going to want three options. Life is unpredictable and full of opportunities. Like a tree in nature, the sun does not only shine from one place. There are multiple directions you could grow, and each of them will give you a healthy and robust life. You are not a bamboo shoot—do not limit yourself to only one choice. All people make better decisions when there are a few options on the board.
+
+In Exercise 2.3.2, you came up with a variety of ideas. You should seriously consider those ideas. They were generated from connections to productive activities that make you tick. You might not have found your passion during the activity, but there is a good chance you could become passionate about one of the prospects you imagined.
+
+When making your choices, consider your skills and talents, but keep in mind that you can usually learn more skills than you expect on the job. There are jobs which have strict entrance requirements, like doctors. So, maybe you can't just become a doctor, but there are entire industries which work very closely with doctors and patients, most of which do not require such extensive preparation. Every industry has multiple layers—search for ones that fit your skills and potential. If you have ten years to become a doctor, by all means, go for it; if not, consider becoming a nurse or joining a medical equipment sales team.
+
+More often than not, someone somewhere has taken an unconventional path to realize their dream.⁵ There are many paths—do not judge, doubt, or censor something that stands out in your mind because you cannot see the way at this time.
+
+---
+
+#### Activity 2.3.3a: Defining Your Three Options
+
+**Option 1: Your First Choice**
+The one that meets your real-world needs and utilizes your skills and interests the most. For some, this is a clear and obvious choice—the exercises up to now have only solidified your direction. If that is not you, look back at your ranked lists of skills, consider your work priorities, and weigh them against your compass. Where could life shine the brightest for you? What job could provide you with the most growth? For help answering those questions, consider discussing your Roots (Part 1) and your New Growth Leaves (Exercise 2.3.1) with some trustworthy people you are close to.
+
+**Career Option 1:**
+
+
+
+
+**Option 2: Your Second Choice**
+This would be your first choice if the first one didn't exist. This one should be just as good as the first, but definitively different.
+
+**Career Option 2:**
+
+
+
+
+**Option 3: Your Long Shot**
+This would be your choice if there were no restraining factors (no financial needs, no location dependence, no qualification needs, etc.). This is your chance to write down the long shot. Maybe you love the idea but don't think you have a chance at landing that position. Perhaps it is way outside of your current skill set, but you think it would engage you like nothing else ever has. The third is my favorite pick of the three. There are several ways to make significant changes in our lives, and many paths that most people don't see at first.⁵ We will discuss this option more down the road; for now, take the long shot.
+
+**Career Option 3:**
+
+
+
+
+---
+
+### Module 2.3 Footnotes
+
+5. Banayan, Alex. *The Third Door: The Wild Quest to Uncover How the World's Most Successful People Launched Their Careers.* New York: Currency, 2018. Banayan's research reveals that the most successful people often found unconventional paths—"the third door"—rather than following traditional routes.
+
+6. Blake, Jenny. *Pivot: The Only Move That Matters Is Your Next One.* New York: Portfolio/Penguin, 2016. Blake's pivot methodology emphasizes focusing on the next viable step rather than distant, uncertain goals.
+
+---
+
+**Module 2.3 Complete**  
+Next: Module 2.4 - Launching Pad
+
+---
+# Part 2: Trunk (Continued)
+
+## Module 2.4: Launching Pad
+
+### Module Overview
+
+**Focus:** Planning and evaluating your three career options  
+**Purpose:** Develop detailed 5-year plans for each career path and assess their viability through resource analysis  
+**Estimated Time:** 1.5-2 hours  
+**Key Tools:** Launching Pad Worksheet (one per career path)  
+**Outputs:**
+- Three 5-year career timelines
+- Support ratings for each path (resources, excitement, confidence, coherence)
+- Research questions for each path
+
+---
+
+### Introduction
+
+Plan out each of your ideas from Exercise 2.3.3 (Making Choices).
+
+Use the "Launching Pad" worksheet (see Resources) to complete this exercise.
+
+You will do the same three steps for each of your three choices.
+
+---
+
+### Exercise 2.4.1: Framework Development
+
+**Purpose:** Create detailed timelines and titles for each career path.
+
+---
+
+#### Activity 2.4.1a: Career Path Timelines
+
+For each of your three career options from Exercise 2.3.3, create a timeline that includes:
+
+- Work events and life events
+- If you cannot immediately move into this position, include how you think you can grow towards your goal and when you will achieve it
+- Five years is a good guideline
+
+**Option 1 Timeline:**
+
+| Year | Work Milestones | Life Milestones |
+|------|-----------------|-----------------|
+| Year 1 | | |
+| Year 2 | | |
+| Year 3 | | |
+| Year 4 | | |
+| Year 5 | | |
+
+
+**Option 2 Timeline:**
+
+| Year | Work Milestones | Life Milestones |
+|------|-----------------|-----------------|
+| Year 1 | | |
+| Year 2 | | |
+| Year 3 | | |
+| Year 4 | | |
+| Year 5 | | |
+
+
+**Option 3 Timeline:**
+
+| Year | Work Milestones | Life Milestones |
+|------|-----------------|-----------------|
+| Year 1 | | |
+| Year 2 | | |
+| Year 3 | | |
+| Year 4 | | |
+| Year 5 | | |
+
+---
+
+#### Activity 2.4.1b: Career Path Titles
+
+Once you have designed a timeline, give this life option—this branch of your tree—a complete and accurate title. Describe your potential life in a way that suits you now, your roots, and this future.
+
+**Option 1 Title:**
+
+
+**Option 2 Title:**
+
+
+**Option 3 Title:**
+
+
+---
+
+### Exercise 2.4.2: Support Assessment
+
+**Purpose:** Evaluate the resources, excitement, and viability of each career path.
+
+Gauge each of the following out of 10 (0 being little to none, 10 being extremely strong).
+
+Give detailed examples and explain in as much detail as you can where necessary.
+
+---
+
+#### Activity 2.4.2a: Option 1 Assessment
+
+**Career Option 1:** _______________________
+
+**1. Resources**
+
+a) Time – Do you have the time to pull this off?  
+Rating: ___/10  
+Explanation:
+
+
+b) Funding – Do you need any additional funds? Are there any financial risks you are taking?  
+Rating: ___/10  
+Explanation:
+
+
+c) Skills – Do you already have all the necessary skills, or are there some you still need to learn?  
+Rating: ___/10  
+Explanation:
+
+
+d) Contacts – Do you know anyone doing this? Do you know anyone in the industry?  
+Rating: ___/10  
+Explanation:
+
+
+**2. Excitement** – Are you excited about this prospect? When you imagine this life unfolding in front of you, how does it make you feel?  
+Rating: ___/10  
+Explanation:
+
+
+**3. Confidence** – How confident are you in this prospect?  
+Rating: ___/10  
+Explanation:
+
+
+**4. Coherence** – How in line with your work values and your life values is this idea? (Review Exercise 2.1.3)  
+Rating: ___/10  
+Explanation:
+
+
+**5. Work Needs** – Consider your work priorities and all the pieces from Part 1. Does this idea support your roots? Consider location, financial needs, and any other areas of importance to you.  
+Rating: ___/10  
+Explanation:
+
+
+**6. Discovery** – What will you learn from this journey? What is the impact of choosing this path?  
+Rating: ___/10  
+Explanation:
+
+
+**Option 1 Total Score:** ___/100
+
+---
+
+#### Activity 2.4.2b: Option 2 Assessment
+
+**Career Option 2:** _______________________
+
+**1. Resources**
+
+a) Time  
+Rating: ___/10  
+Explanation:
+
+
+b) Funding  
+Rating: ___/10  
+Explanation:
+
+
+c) Skills  
+Rating: ___/10  
+Explanation:
+
+
+d) Contacts  
+Rating: ___/10  
+Explanation:
+
+
+**2. Excitement**  
+Rating: ___/10  
+Explanation:
+
+
+**3. Confidence**  
+Rating: ___/10  
+Explanation:
+
+
+**4. Coherence**  
+Rating: ___/10  
+Explanation:
+
+
+**5. Work Needs**  
+Rating: ___/10  
+Explanation:
+
+
+**6. Discovery**  
+Rating: ___/10  
+Explanation:
+
+
+**Option 2 Total Score:** ___/100
+
+---
+
+#### Activity 2.4.2c: Option 3 Assessment
+
+**Career Option 3:** _______________________
+
+**1. Resources**
+
+a) Time  
+Rating: ___/10  
+Explanation:
+
+
+b) Funding  
+Rating: ___/10  
+Explanation:
+
+
+c) Skills  
+Rating: ___/10  
+Explanation:
+
+
+d) Contacts  
+Rating: ___/10  
+Explanation:
+
+
+**2. Excitement**  
+Rating: ___/10  
+Explanation:
+
+
+**3. Confidence**  
+Rating: ___/10  
+Explanation:
+
+
+**4. Coherence**  
+Rating: ___/10  
+Explanation:
+
+
+**5. Work Needs**  
+Rating: ___/10  
+Explanation:
+
+
+**6. Discovery**  
+Rating: ___/10  
+Explanation:
+
+
+**Option 3 Total Score:** ___/100
+
+---
+
+### Exercise 2.4.3: Unknowns Identification
+
+**Purpose:** Articulate the questions you need to answer as you pursue each path.
+
+It is crucial that you approach your future with genuine curiosity. You need to have some questions you are seeking answers to as you move down any path in life. We have given you some starting points, but these do not need to be your questions. Write 2-5 good questions for each option.
+
+**Consider:**
+- What is uncertain?
+- What will you need to learn to be successful on this path?
+- What ideas or realities will you explore on this path?
+- What are you going to learn from pursuing this path?
+
+---
+
+#### Activity 2.4.3a: Option 1 Questions
+
+**Career Option 1:** _______________________
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+---
+
+#### Activity 2.4.3b: Option 2 Questions
+
+**Career Option 2:** _______________________
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+---
+
+#### Activity 2.4.3c: Option 3 Questions
+
+**Career Option 3:** _______________________
+
+1.
+
+2.
+
+3.
+
+4.
+
+5.
+
+---
+
+### Module 2.4 Summary
+
+| Career Option | Title | Total Score | Top Question |
+|---------------|-------|-------------|--------------|
+| Option 1 | | /100 | |
+| Option 2 | | /100 | |
+| Option 3 | | /100 | |
+
+---
+
+### Module 2.4 Footnotes
+
+6. Blake, Jenny. *Pivot: The Only Move That Matters Is Your Next One.* New York: Portfolio/Penguin, 2016. Blake's framework emphasizes creating multiple options and evaluating them systematically before committing to a pivot.
+
+---
+
+**Module 2.4 Complete**  
+Next: Module 2.5 - Story Weaving
+
+---
+# Part 2: Trunk (Continued)
+
+## Module 2.5: Story Weaving
+
+### Module Overview
+
+**Focus:** Crafting your professional identity story  
+**Purpose:** Construct a compelling, authentic narrative that connects your past, present, and future while positioning you for your target career  
+**Estimated Time:** 2.5-3 hours  
+**Key Tools:** SOARED Framework, Competency Framework (OECD)  
+**Key Concepts:** Hero's journey,⁷ persuasive storytelling,⁸ body of work⁹  
+**Outputs:**
+- Target competency level identification
+- Story framework understanding
+- 1-page identity story
+- 1-page allegory (professional story)
+
+---
+
+### Introduction
+
+To finish this part, you will be constructing your story. You have analyzed your past, identified your compass, and laid out three potential futures. Now, it is time to connect the dots and form a cohesive and coherent story which presents you in the best and most accurate light possible.
+
+If you are not entirely satisfied with what you think your story is, then you are not looking at it in the right light. **Every single person has a good story to tell**—seeing and understanding yours is a matter of perspective and construction.
+
+First, you will aim for a certain level of competency—are you looking to run a corporation, or are you hoping to work on a design team? There is no right answer in the first section, but it is important to get an idea of where you are aiming.
+
+Then you will learn the basics of persuasive storytelling. Not only do you want to tell your story, but you want that story to convince your audience of something—particularly that you are fantastic and will accomplish the goals that you have set out.
+
+The last thing you need to do is write a full draft of your story. Shape and record the story that you tell yourself. It should be positive, accurate, follow your "light," and convince even your harshest critics that you are an impressive individual (according to your needs). From this story, you will construct your elevator pitch and decipher the best ways to approach your upcoming interviews. Weave together all the pieces of your life and learn to present your story as the masterpiece it is.
+
+---
+
+### Exercise 2.5.1: Choosing Your Level
+
+**Purpose:** Identify your target professional level to guide your story and presentation.
+
+The purpose of this exercise is to determine the level of business you are targeting. Are you an executive who enjoys the big picture, or are you best served dealing with your own needs? Not one of these is notably better than the other, but each level does have different responsibilities requiring different preparation. While it can be difficult to pigeonhole some real-world roles into particular categories, you should do your best to identify which level you are the most prepared for.
+
+---
+
+#### The Five Competency Levels¹⁰
+
+**Level 1** is typically associated with jobs such as Assistants, Secretaries, Technicians, and Operators.
+
+**Level 2** is typically associated with jobs such as Statisticians, Corporate Management and Administration Assistants/Officers, Logistics Officers, Engineers, and Documentation specialists.
+
+**Level 3** is typically associated with jobs such as Economists, Policy Analysts, IT Analysts, Developers, and HR Advisers.
+
+**Level 4** is typically associated with jobs such as Senior Economists, Senior Analysts, Leads, or Managers.
+
+**Level 5** is typically associated with jobs such as Heads of Division, Counsellors, Deputy Directors, C-level Officers, and Directors.
+
+---
+
+#### Activity 2.5.1a: Level Identification
+
+Your specific role may not be listed. If that is the case, make the best estimation you can, based on the examples given.
+
+Once you have estimated your level, see the Competency Framework (in Resources)¹⁰ and read through the qualifications for your level.
+
+If you are unclear on some of the objectives, that is okay. Be as confident as possible that most of them are accurate for you. We will discuss this first thing at our next meeting.
+
+Adjust your estimated level accordingly. You will want to be able to demonstrate ability, success, or excellence for each point associated with your level.
+
+**My target level:** ___
+
+**Competencies I can demonstrate:**
+
+
+**Competencies I need to develop:**
+
+
+---
+
+### Exercise 2.5.2: Persuasive Storytelling
+
+**Purpose:** Learn the four elements of compelling professional storytelling.
+
+---
+
+#### Element 1: Motive (The "Why")
+
+The first thing to understand when crafting a persuasive story is the "why." Why are you telling this story? Storytelling is an ancient art passed down for thousands of generations. According to some sociologists, it is a fundamental building block of humanity, a building block of society.
+
+In more relevant terms, a story is the most effective way to communicate any complex ideas. Coming out and telling your prospective boss that you are a hard worker is lame and ineffective. Rather than touting your accomplishments, put your audience in your shoes, appeal to their empathy, make them feel what you felt from your point of view, and lead them to the conclusions you want.
+
+By nature, humans identify patterns. As a result of our evolution, we design all sorts of algorithms to help us save time and energy. Most people assume (unconsciously or consciously) that microcosms reflect macrocosms. In fact, that is the basis of the entire traditional interview process. We boil down our lives to one piece of paper for employers to screen for a 15-minute interaction where both parties make life-altering decisions with consequences which play out over several years.
+
+**A single well-told and well-chosen story will give your audience a firm idea of who you are, what your morals are, what you stand for, and how worthy of their time and resources you are.** The interview process is essentially the employer's attempt to find and understand your story in the most efficient manner possible. Our job is to craft an honest story that leads them to the conclusions we need them to find.
+
+The key to a good story is **authenticity**. Accounts that are relatable and real are the most impressionable. Being liked is not your job; your responsibility is to demonstrate your character. While you should consider your audience (their needs, desires, etc.—we will cover this more later), your main goal is to demonstrate who you are. Respect is much more powerful than being liked. If you are not a good fit but they like you, then maybe you are offered a job that is not good for you. If you are not a good fit but they respect you, then perhaps you are given a referral to a job that will be the perfect fit.
+
+Be who you are, not whom you think you are supposed to be. Refer back to your compass, your light (Exercise 2.1.3). You want your story to demonstrate coherence. You do not need to have been following some mystical compass or to have known your passion throughout your life for this to be effective, accurate, and authentic. Your mission is to craft a storyline that makes sense of the events in your life while showing some commitment to your internal compass.
+
+**Your message, your values, your actions, and your direction in life should all resonate together as one.** Among other things, this will help your story to be more complete, and therefore, easier for the audience to comprehend.
+
+---
+
+#### Activity 2.5.2a: Motive Clarification
+
+What do you want to achieve by telling your story?
+
+
+
+
+---
+
+#### Element 2: Purpose (Your Theme)
+
+The second big step is to identify your purpose. A life with purpose is a life worth living.⁹ You are telling this story to relay your life mission and your constitution to your audience. So, the more precise and authentic your purpose is, the more compelling your story will be.
+
+Take a look at your life, the work you have done, and all you have accomplished. What themes tie all of them together? If you are struggling for a clear answer, reflect on the activities you have completed before this for help.
+
+Reflect upon your roots (Part 1) and your value compass (Exercise 2.1.3). Consider your life values and your work values—the theme you want to identify is one that draws a line between the two. No one is perfect, so remember that you are a work in progress. Be forgiving of your faults and allow yourself to see your best qualities.
+
+You might come up with things like "pursuit of excellence," "multicultural understanding," or "scientific innovation." When I did this exercise, I found "economic justice," "improved education," and "growth through dialogue."
+
+Your purpose might be money, sports, wealth, legacy, environment, fighting poverty, sobriety, religion, exploration, security, stability, or anything else imaginable. It does not matter what it is, only that you identify one as clearly as possible.
+
+**This decision is not permanent.** In fact, it is perfectly okay and normal to change direction, to shift the meaning you find in life. You might accomplish your goals, find a greater purpose, or completely lose interest. That is all perfectly okay. Today, your job is to identify a mission, a message to build your story around. It does not have to be your campaign until the end of time, but it does need to make sense in the context of your life. The more your current "life's meaning" resonates with all the parts of your past, the stronger your story will be.
+
+The theme you identify should have meaning to you. You may find it inspiring, and you might be extremely passionate about the subject you identify. You might not. At the very least, the theme needs to make sense to you. If it does not make sense to you, it won't make sense to anyone else.
+
+Finding clarity in your purpose serves you in many ways. First of all, and maybe most importantly, is that it is easier to live a happy life when you believe your life has meaning. The meaning gives you direction and will make difficult decisions easier. Reflect upon your compass from Module 2.1; attempt to peer up and down your path to see where you have been, where you are going, and the ideas that tie the aggregate of past, present, and immediate future you, together.
+
+Think of yourself as a character in a story. Take an outside view of your life and do your best to describe your character. Do not expect to find the perfect answer. Strive to find a plot, a few explanations, or a series of allegories which make sense of your story. Start broad, then work to narrow your definition until you have a concise record that you feel good about.
+
+---
+
+#### Activity 2.5.2b: Purpose Exploration
+
+Brainstorm, make notes, and generate ideas now.
+
+
+
+
+**In 10 words or less, what is the theme or meaning that ties your life together?**
+
+
+
+
+---
+
+#### Element 3: Content (Your Stories)
+
+The third part to telling a persuasive story is the actual content of the story. The story needs to be consistent and coherent while demonstrating your values and purpose.
+
+**Focus on Turning Points**
+
+One of the most effective ways of achieving this is to focus on the turning points of your life. What stories from your past helped to shape you into the person you are today? These times, generally from childhood, demonstrate that you are a human who possibly overcame something significant. The story needs to give a glimpse of the deeper feelings within you and how you were affected. When choosing your turning point story, focus on a time that demonstrates a significant disruption, a reaction, and overcoming.
+
+**The Hero's Journey⁷**
+
+People generally love a hero's tale. The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective. Yet, if it is false, then it is all for nothing. This is not asking you to stay who you have always been, but to be honest in your storytelling.
+
+Everybody has a hero's story of their own. What you should have done, and should still be doing, is identifying your hero's story. Although we are generally the protagonist of our own story, many people have a hard time picturing themselves as a genuine hero. Authenticity does not mean remaining the same person. It means owning your journey.
+
+Every person reading this is at a different point in their hero's journey. Some overcome great odds at very young ages while others never get the chance to see their journey through. Part of living a fulfilled life means identifying the person you wish to be and striving to be that person, not through sleight of hand or a web of lies, but with personal growth, persistence, and grit.
+
+**Content Guidelines**
+
+- **Demonstrate a balanced life.** While remaining authentic, you (most probably) do not want to describe yourself as a bohemian, but you want to avoid being perceived as a robot as well. You need to display your human nature while preserving your professionalism.
+
+- **Tell stories of triumph.** Positivity and success tend to resonate the way we want them to. Prospective employers likely won't be drawn to someone who builds their identity around failure.
+
+- **Practice humility.** Do not gloat, brag, or be overly self-congratulatory. Overstating your achievements will turn your audience off and make them doubt your credibility. Giving credit to those who were involved in your successes will display humility while painting you as a good team player.
+
+- **Include emotional reality.** Emotion is significantly stronger than reason. Appealing to empathy is a shortcut to building trustworthy relationships. Emotions add depth to the story, making them more engaging, and to your character, making you a better job candidate.
+
+- **Use limited humor.** Using limited humor shows mastery over your faults and can display an appropriate level of emotion and sensitivity. Job hunting, networking, and preparing for interviews are not the time for inappropriate jokes of any sort.
+
+- **Provide context.** Identity stories are typically colorful, evoking the sights and sounds and smells of the setting. Construct a visceral, emotionally relatable story which demonstrates your drive and mission through overcoming some significant obstacle.
+
+---
+
+#### Activity 2.5.2c: Content Development
+
+List 3-10 evocative stories from your past. These can be stories you have already used for this program (remember, you have a better chance of making a good choice when you are choosing from a field of options):
+
+
+
+
+Quickly jot down emotions, adjectives, and other vital descriptors associated with each story:
+
+
+
+
+Describe the life lesson you learned in every story, using six words or less for each:
+
+
+
+
+How does each of these life lessons tie into the theme of your life? Be explicit:
+
+
+
+
+---
+
+#### Element 4: Audience (Preparation)
+
+The final thing to consider when constructing a persuasive story is your audience. Prepare your story to fit your audience. Otherwise, you may think you are communicating one idea while they hear something completely different.
+
+That said, this is not the most compelling tactic of persuasive storytelling; the preeminent objective is portraying your authentic humanity. The reason you need to consider your audience is that people are empathetic to situations with which they can relate.
+
+**Example:** If you are sharing an experience about writing code with sales associates, the monotony of drafting 10,000 lines of code will likely fall on deaf ears. To better your chances, consider what struggles the salespeople have overcome themselves. For instance, tell your coding story from the angle of overcoming denial and repeated failure to reach eventual triumph. While they may not be able to relate to writing code, they know what it is to overcome the word "no." The story is still about coding, but it is told with respect for the audience and the challenges they face.
+
+Every person, every organization, has a story that comprises their identity. To prepare, you will research each of the interactions you have before you have them. Study your audiences, learn their stories, and estimate where they are in the process of their story. People like to hear about themselves without being told who they are. Do not tell them where they are or who they are, and do not be presumptive. Learn about them so that you can present yourself in a manner that best fits their needs, without fabrication.
+
+**The best stories align you, the people in the room, and the organization at large into a cohesive and logical picture.** Just like your best life aligns your life values and your work values, the best hire and the best job aligns the stories of all who are involved. Upon hearing your story, the audience should come to the natural conclusion that you are the perfect fit. Tell your story in a way that demonstrates how well you fit without explicitly saying it.
+
+---
+
+#### Activity 2.5.2d: Audience Awareness
+
+Record 2-5 times you built a fantastic rapport with someone:
+
+
+
+
+What made those interactions successful?
+
+
+
+
+---
+
+### Exercise 2.5.3: Drafting Your Story
+
+**Purpose:** Write your complete identity story and professional allegory using the SOARED framework.
+
+The acronym I teach for storytelling is SOARED.¹¹ I don't just want you to describe a time you were successful—tell stories of when you truly soared.
+
+**S**ituation – describe the setting, what was happening  
+**O**bstacle – what was the problem, the disruption, which had to be overcome  
+**A**ction – what action did you take to surmount the obstacle  
+**R**esults – what was the result of your action; was the problem solved or not  
+**E**valuation – did you do everything you could have; what did you miss or how did you succeed  
+**D**iscovery – in hindsight, what have you learned from the event
+
+You can use this for these stories. Use this method when answering questions in interviews. SOARED will ensure that you don't miss any critical details while keeping the answer logical, orderly, and natural.
+
+---
+
+#### Story Guidelines⁸
+
+According to Stephen Denning's storytelling framework, effective identity stories should demonstrate:
+
+- **Relevance:** Does it reflect the kind of person you are to the necessary audience?
+- **Clarity:** Is your role in the story clear? Are your values reflected clearly in the story?
+- **Distinctiveness:** Does the story indicate what is unique about you?
+- **Consistency:** Is the story consistent with the way you conduct your life now?
+
+---
+
+#### Activity 2.5.3a: Identity Story
+
+**Your First Story: The Identity Story**
+
+This is not an autobiography. It should be about 1 page typed and needs to make sense of your values, work history, future goals, and your life mission. It is the story you tell yourself, the ideal which you try to live by. We will build off of this story to create your resume, elevator pitch, and your general presentation—it does not need to be any of those yet.
+
+Explain your roots, how they made you who you are, and how you have grown into the intentional and capable person that you are today. You may not feel as though you have a cohesive story. Today is your opportunity to create that story. Take your time and revisit this task occasionally. To move forward in the process, you need to have an explicitly written identity today.
+
+**Write your identity story here (approximately 1 page):**
+
+
+
+
+
+
+
+
+
+
+---
+
+#### Activity 2.5.3b: Professional Allegory
+
+**Your Second Story: The Allegory**
+
+This is the full expression of Element 3 (Content). This single allegory should provide a window into your entire life. When done correctly, this story will communicate some combination of your values, your character, and your passion to the listener, without explicitly stating any of them.
+
+Use real stories from your past. Use these guidelines:
+
+**About:**
+- A favorite place when you were young and what made it special to you
+- How you overcame adversity or an obstacle when you were young
+- An incident with someone whom you admired or who influenced you
+- The most significant thing that happened to you when you were young
+
+**Check against:**
+- **Relevance:** Does it reflect the kind of person you are to the necessary audience?
+- **Clarity:** Is your role in the story clear? Are your values reflected clearly in the story?
+- **Distinctiveness:** Does the story indicate what is unique about you?
+- **Consistency:** Is the story consistent with the way you conduct your life now?
+
+**Write your allegory here (approximately 1 page):**
+
+
+
+
+
+
+
+
+
+
+---
+
+### Module 2.5 Footnotes
+
+7. Campbell, Joseph. *The Hero with a Thousand Faces.* Princeton: Princeton University Press, 1949 (multiple editions). Campbell's monomyth structure—the hero's journey of departure, initiation, and return—provides the universal framework for personal narrative.
+
+8. Denning, Stephen. *The Leader's Guide to Storytelling: Mastering the Art and Discipline of Business Narrative.* San Francisco: Jossey-Bass, 2005. Denning's four criteria for identity stories (relevance, clarity, distinctiveness, consistency) guide the construction of effective professional narratives.
+
+9. Slim, Pamela. *Body of Work: Finding the Thread That Ties Your Story Together.* New York: Portfolio/Penguin, 2013. Slim's concept of "body of work" informs the approach of weaving diverse experiences into a coherent professional narrative.
+
+10. Organisation for Economic Co-operation and Development (OECD). "Competency Framework." The five-level competency framework (Levels 1-5 with delivery-related, interpersonal, and strategic competencies) is adapted from OECD standards. See Resources section for complete framework.
+
+11. SOARED Framework is an original tool created by Braedon Long for this program. SOARED stands for: Situation, Obstacle, Action, Results, Evaluation, Discovery.
+
+---
+
+**Module 2.5 Complete**  
+**Part 2: Trunk Complete**
+
+Next: Part 3 - Branches (Reaching Into the World)
+
+---
+
+## Part 2 Summary
+
+You have now:
+- ✅ Assessed your current life state
+- ✅ Clarified your work values and life values
+- ✅ Identified your value compass (your "light")
+- ✅ Internalized the five designer mindsets
+- ✅ Established a reframing practice
+- ✅ Generated career possibilities through idea trees
+- ✅ Selected three career options
+- ✅ Created 5-year plans for each option
+- ✅ Identified your target competency level
+- ✅ Written your identity story and allegory
+
+**Carry forward into Part 3:**
+- Your three career options (with ratings and questions)
+- Your identity story and allegory
+- Your value compass
+- The five mindsets
+
+---
+# Part 3: Branches
+## Reaching Into the World
+
+---
+
+## Overview
+
+Your roots are where you come from; they make you who you are and give you the foundation to reach towards the sky.
+
+Your trunk is the present—it is the most robust and tangible part of you, where your past meets your future.
+
+The branches above represent all the possible paths that lie in front of you. From the present, each is as likely as the next. You must understand these paths and grow towards your light.
+
+Up to now, you have mapped out three potential futures, written out your story, and iterated your life mission. Again, you are not tied to your mission, but having a clear mission statement will help you to build a clear identity to communicate with potential employers.
+
+From here, you are going to reach out into the world and find your next place of work. We've discussed before that the traditional method of finding work is not very effective.¹ It is not the most efficient method of hiring from the employer's standpoint, and has a relatively low success rate for employees (around 60% of workers in the United States are dissatisfied with their work).
+
+**You have a lot to do in this part.** In each activity, move quickly. Be confident that you are taking the right steps and take them. Nothing you do here is permanent. There will be activities that might seem incredibly important. This work is ongoing. For most people, it's more important to get through the breadth so that you have a clear scope of this work. Then, you will be revisiting each piece. You do have the opportunity to master everything here. 
+
+We are firm believers in the idea that there is an excellent job for every person on this planet. When people struggle to find the correct employment, it is generally a result of a lack of understanding of the job market and a complete absence of trial. How can you possibly know that you are going to excel and enjoy something you have never tried? Maybe a job sounds great to you right now, but there is no guarantee that you will be able to withstand, enjoy, or find passion in the day-to-day grind of any position without useful insight.
+
+The few systems set in place which help ease the transition from education to the workforce (internships, apprenticeships, residencies) are inundated with misleading expectations and outside influences.
+
+Rather than following the beaten path, you are going to forge your own.² In almost every profession, there are people who reach their positions in unorthodox ways. They have a cohesive identity story and the grit to chase their dreams.
+
+In this part, you are going to:
+- Craft the image that you project into the world
+- Find companies who are doing things you are interested in
+- Find individuals doing the work you are interested in
+- Begin reaching out to those individuals
+
+You are going to exploit human nature to get your foot in the door. Remember, very few jobs are actually obtained through sending resumes, and it is the last place that employers look for quality hires because it has the lowest success rate while being a high-cost and high-risk process.¹ Rather than approaching companies and asking for jobs outright, you are going to approach individuals with genuine curiosity and authenticity.
+
+For clarity, we are not advising you not to apply for jobs, and if you already have interviews lined up, that is still a valuable process.
+
+We will get more into the details as the part goes forward. For now, start by constructing and compiling the content you will project into the world.
+
+---
+
+## Module 3.1: Intentional Impressions
+
+### Module Overview
+
+**Focus:** Researching employer language and creating targeted content  
+**Purpose:** Analyze job descriptions for your target positions and craft content that speaks their language while authentically representing your experience  
+**Estimated Time:** 2-3 hours  
+**Key Tools:** Job Prospects Spreadsheet (Tab 1)  
+**Outputs:**
+- Completed job description analysis (2-10 positions)
+- Keyword and descriptor inventory
+- Resume content drafts
+- Professional summary and headline
+
+---
+
+### Introduction
+
+For much of this part, you are going to be using the spreadsheet labeled "Job Prospects." It is designed to help organize all of the information you will be gathering and to help you use it to the greatest effect.
+
+"Job Prospects" has three tabs. The first is best used to build your resume and presentation. You are going to craft your image into one that employers are looking for. To do that, you need to go and find out what exactly employers want and need. Then, reuse the descriptive language in the job posts to describe your characteristics honestly. Use the same adjectives and adverbs in the job descriptions to describe yourself.
+
+When using the spreadsheet, work your way from left to right, and record as much accurate information as possible. Every column has a description embedded in the header. Float your pointer over the top of the column for additional directions and information.
+
+Today you will research the specific way employers describe the position you are interested in, start to get an idea of what problems they need to have solved, and how you are equipped to solve those problems.
+
+Then, you are going to write some content that will prove very useful in Module 3.2. The content does not need to be perfect, but it is important and deserves your full attention. The more you accomplish in this module, the easier the next module will be.
+
+---
+
+### Exercise 3.1.1: Initial Research
+
+**Purpose:** Analyze job descriptions to understand employer language and requirements.
+
+Start with your first job option (from Exercise 2.3.3), or with the interviews that you have scheduled.
+
+---
+
+#### Activity 3.1.1a: Job Description Collection
+
+1. Find 2-10 job descriptions for your first job option from Part 2. You will see these descriptions on wanted ads and application forms. The most critical descriptions are for the jobs and companies you might be interested in. Unless you already have, **hold off on applying to these positions**—I want you to be more prepared when you approach the companies.
+
+---
+
+#### Activity 3.1.1b: Spreadsheet Documentation
+
+Using the Job Prospects Spreadsheet (Tab 1), record the following for each position:
+
+2. **Career Description** (Column 1) – This is general; it is not the exact job title, but rather the field that the job is in.
+
+3. **Job Title** (Column 2) – Record the exact job title from the job post.
+
+4. **Company Name** (Column 3) – Write the name of the company offering the position.
+
+5. **Job Description** (Column 4) – Copy and paste any relevant parts of the job description.
+
+6. **Adjectives & Adverbs** (Column 5) – Record the adjectives, adverbs, and specific skills that each ad uses.
+
+7. **Your Relevant Experience** (Column 6) – Record all of the relevant experience and skills that you have. Use descriptive language directly from the job description. You will combine these with the descriptive language from your roots in Part 1 soon. For now, use the language in each post.
+
+8. **Skills You Lack** (Column 7) – Record the skills and experience that are called for which you do not have. More often than not, the person writing the job post is listing all of the strengths of the last employee and asking for the next person to be strong in all of their weaknesses as well. Of course, they are also probably looking to spend less money. Quite often, they are asking for more than is reasonable in the job post. There are plenty of ways to deal with these hurdles, and you will. For now, record what you lack.
+
+9. **Story Fit** (Column 8) – Describe how this job fits into your story. What intangibles do you bring to the table? How can you solve the problems that this company faces better than anyone else? How would this particular position at this specific place of work fit into your overall story? You will further develop these ideas later on. For now, focus on finding an honest answer and moving on. Do not waste a ton of time on this part of the task. If it doesn't fit, or if you are not sure, that is okay. We have not done the thorough research needed to know if this place of work will be the best fit for you, so do not stress the details here and now. Get something written, and keep moving.
+
+That is all you need to record into the spreadsheet for now. We will come back for the "Potential Employers" tab and the "Networking" tab later in this part.
+
+---
+
+### Exercise 3.1.2: Writing Your Content
+
+**Purpose:** Rewrite your qualifications using employer language to create compelling professional content.
+
+For this section, you will be rewriting your roots with the specific intention of relaying your skills and experiences to employers. Use the descriptive language from the job descriptions found in Exercise 3.1.1.
+
+---
+
+#### Activity 3.1.2a: Keyword Identification
+
+1. What descriptive language stands out as universal or commonly used in the job descriptions from Exercise 3.1.1?
+
+
+
+
+2. Which descriptors stand out to you as being the best, while also describing you, your experience, or your skills, in a healthy positive light?
+
+
+
+
+---
+
+#### Activity 3.1.2b: Credibility Inventory
+
+3. Look back through your roots (Part 1), and record everything you have done that supports your credible claim to the position you are seeking.
+
+
+
+
+4. Prioritize these skills and experiences according to how important they are to your successful execution of the tasks described in the job description. Use the Ranking Grid if you need to.
+
+
+
+
+---
+
+#### Activity 3.1.2c: Job Title Definition
+
+5. What would be the title of the job that you want most?
+
+
+
+
+6. Are there any keywords or phrases you think you should use in this job title?
+
+
+
+
+---
+
+#### Activity 3.1.2d: Credential Rewriting
+
+7. Rewrite your credible traits using these guidelines:
+
+   a) Simple past & simple present tense
+   b) Phrases, not sentences – start with an active verb; the subject is assumed to be you
+   c) Contain roughly one keyword (from job descriptions)
+   d) Are quantifiable whenever possible
+
+**Examples:**
+- Developed software which increased sales team efficiency by 6%
+- Grew publication reach from 5,000 readers per month to 20,000 readers per month in the first six months
+- Maintained function of 458 machine units for five years with 0 significant failures
+
+**Your rewritten credentials:**
+
+
+
+
+
+
+
+
+
+
+
+
+---
+
+#### Activity 3.1.2e: Professional Summary
+
+8. Write a short (3-5 sentences) summary of your experience. This summary should draw on your roots and how well the position fits into your identity story. Your aim is for the position to seem as though it is the next logical step in your story.
+
+
+
+
+
+
+
+
+
+
+---
+
+#### Activity 3.1.2f: Value Proposition
+
+9. In 10 words or less, explain why you are the perfect fit for this job and career.
+
+
+
+
+
+
+---
+
+#### Activity 3.1.2g: Professional Bio
+
+10. Summarize your identity story and professional achievements in 2-3 sentences.
+
+
+
+
+
+---
+
+#### Activity 3.1.2h: Headline Creation
+
+11. Write a clear and conclusive personal introduction in 6-12 words. (This is your headline.)
+
+
+
+
+---
+
+### Module 3.1 Footnotes
+
+1. Bolles, Richard N. *What Color Is Your Parachute? A Practical Manual for Job-Hunters and Career-Changers.* Berkeley: Ten Speed Press. Bolles's research consistently demonstrates that traditional application methods (resume submission, job boards) have significantly lower success rates than networking and informational interviewing approaches.
+
+2. Banayan, Alex. *The Third Door: The Wild Quest to Uncover How the World's Most Successful People Launched Their Careers.* New York: Currency, 2018. Banayan's research reveals that successful people often find unconventional paths—"the third door"—rather than following traditional routes.
+
+---
+
+**Module 3.1 Complete**  
+Next: Module 3.2 - Constructing the Projection
+
+---
+# Part 3: Branches (Continued)
+
+## Module 3.2: Constructing the Projection
+
+### Module Overview
+
+**Focus:** Building your professional presence across all platforms  
+**Purpose:** Create a consistent, professional image across Google, social media, resume, and LinkedIn that tells your identity story  
+**Estimated Time:** 3-4 hours  
+**Key Tools:** Canva (for resume templates), Job Prospects Spreadsheet content  
+**Required:** Professional photograph  
+**Outputs:**
+- Clean Google search results
+- Professional Social Media Profiles
+- Draft resume/CV
+- Complete LinkedIn profile
+
+---
+
+### Introduction
+
+Up to this point, you have been analyzing your capabilities, deciding your trajectory, and preparing the information you are going to use to achieve your dreams. From this module onwards, you will be explicitly chasing those dreams.
+
+**Now the rubber meets the road.**
+
+Today, you will use the information you have gathered to tell your identity story in every reasonable and necessary format. You will, of course, be creating a resume using the descriptors and phrases we have covered so far. You will also be addressing the image that potential employers and contacts will find when they do their research on you—namely, your LinkedIn, Facebook, X (Twitter), and anything else that appears when they Google you.
+
+**You are going to need at least one professionally acceptable photograph:**
+- Upper torso, face
+- Presentable for your profession
+- No alcohol or drugs
+- Preferably alone
+- Good lighting
+- Genuine expression
+
+You need to update every single profile picture you have. They will all show up in a thorough search. You do not need to update your music streaming service with a suit and tie, but it does need to be an acceptable picture. These pictures are the images that people are going to associate with your name. You want it to be professionally flattering.
+
+**You do not need a social media presence. You also do not need to be overly active on social media.** If you are posting 200 times a day, when are you working? For our purposes, think of social media as a tool. It should be used to present a carefully crafted image to the world and to engage with and grow your professional and personal networks.
+
+---
+
+### Exercise 3.2.1: Google Audit
+
+**Purpose:** Ensure your online search results present you professionally.
+
+---
+
+#### Activity 3.2.1a: Search Yourself
+
+1. Clear your cookies. Open an incognito window in Chrome, or the equivalent in your preferred browser. Google your name. Google your name and city. Google any identifying traits someone might use to find you. Consider using DuckDuckGo for this research. They do not track you, so the results will be far less biased - you might see something there that google won't show you.
+
+2. For all of the above, you need to scour both the "all" results and the image results. Follow the links to see what people can find about you. It is common to find pictures or websites that have not been used in years. Go through everything you can find and either update the images and the content available or delete the account altogether.
+
+---
+
+#### Activity 3.2.1b: Clean Up Results
+
+3. For any unsavory posts that display you in a less than ideal manner:
+   - Untag yourself
+   - Ask the original poster to take the photo down
+   - Take it down yourself
+   - You can contact Google to remove the image, but that is not the best route
+
+4. You might consider trickling more ideal pictures onto your preferred social media network on your own, with family, and through friends. This approach takes time and might not be the best investment right this moment. Extracurricular activities show a well-rounded person. Intoxicated pictures do not.
+
+**Search results reviewed:** ☐  
+**Issues identified:**
+
+
+**Actions taken:**
+
+
+---
+
+### Exercise 3.2.2: Facebook Update
+
+**Purpose:** Ensure your Facebook profile presents you professionally.
+
+Someone is going to find your Facebook profile. You want it to be presentable. If you have not used Facebook in 10 years, you still have a profile. If you have deleted your profile, you still have a profile. The only time you should not be editing what you have on your Facebook profile is if you have never used the website or application.
+
+---
+
+#### Activity 3.2.2a: Profile Picture Update
+
+1. Update your profile picture. Comb through all your profile pictures. You don't need to show people how drunk you were in college, or the last New Year for that matter. Many people have had Facebook for a decade or more—make sure you are okay presenting your pictures from the past if you are going to keep them. Your photographs tell a story about you; make sure they tell the story you want, and need, them to tell. While you are here, address your cover photo as well.
+
+**Profile picture updated:** ☐  
+**Cover photo updated:** ☐  
+**Old profile pictures reviewed:** ☐
+
+---
+
+#### Activity 3.2.2b: Privacy Settings
+
+2. Check your privacy settings. Make sure that you are comfortable with them. We suggest that you be comfortable adding professional contacts to your friend list.
+
+**Privacy settings reviewed:** ☐
+
+---
+
+#### Activity 3.2.2c: Content Audit
+
+3. Accounting for your privacy settings and the fact that you will be gaining new friends, edit what you have posted. While political expression is your right, extreme views of any sort can be a turn off for employers, unless of course, you are going to work in politics. Do not engage in bigotry and discrimination. You have every right to have your opinions and feelings, but think carefully about what information you are presenting to your potential employers. Most workplaces are made up of diverse people with differing views—be aware of that fact. The last thing we want is for you to find the perfect job and then be denied an opportunity because your employer is turned off by something you said on Facebook. You can delete posts, and you can set them so that only you can see them. If you do not know how to do those things, use Google to learn how.
+
+**Posts reviewed and cleaned:** ☐
+
+---
+
+#### Activity 3.2.2d: About Section
+
+4. Update your "about" section with a summary of your identity story (from Exercise 2.5.3a).
+
+5. Update your "intro" with a 6-10 word phrase summarizing your identity (from Activity 3.1.2h).
+
+6. Edit the rest of your "about" section to be up to date and accurate. Be intentional about what you choose to share. You do not need to share everything.
+
+**About section updated:** ☐
+
+---
+
+#### Activity 3.2.2e: Photo Review
+
+7. Go through the photographs you are tagged in and the pictures you have posted. Make sure that they are either private or professionally appropriate.
+
+**Tagged photos reviewed:** ☐  
+**Posted photos reviewed:** ☐
+
+---
+
+### Exercise 3.2.3: Resume/CV Creation
+
+**Purpose:** Create a professional resume that tells your story using employer language.
+
+Resume if you are looking in the US, Curriculum Vitae everywhere else.
+
+The role of a resume or CV is twofold. The first job of the resume is to avoid the trash bin. The second is to leave a positive impression on the employer. While you want your resume to represent your story, it is not going to give a complete account of who you are. Many companies use software to filter the tens, hundreds, or thousands of resumes they receive.
+
+---
+
+#### Getting Past Automated Filters
+
+There are two main things that you will do to get past automated filters.
+
+**First:** Use keywords and phrases listed in the job descriptions for those positions (you did this in Exercise 3.1.1). The worker who creates the job post is almost certainly in communication with whoever is setting up the resume filter, and they are looking for the same attributes.
+
+**Second:** Apply to smaller companies. Smaller companies tend to have less competition for open jobs, and therefore, it is easier to stand out from the crowd.
+
+---
+
+#### Resume Guidelines
+
+In Module 3.1, you should have written everything you need to express on your resume. We have discussed how to approach your resume. We strongly suggest using a resume template from "Canva" or a website like "Canva." When choosing your template, be sure that it sends the message you want it to send. The layout of your resume is an extension of the story you are telling.
+
+**Do:**
+- Use keywords, but do not overstuff your resume with them
+- Quantify any work that can be quantified
+- Pass the screening first, then engage curiosity
+- Lead interviewers into asking about your most significant achievements
+- Tell your story
+- Be clear and concise
+- Write every line in simple tense
+- Focus on what you can do
+- Use your potential employers' vocabulary
+
+**Don't:**
+- Use bland statements that are difficult to prove (everyone is a "hard worker" and everyone is "innovative")
+- Include explanations—save those for interviews
+- Sell yourself overtly—leave that for interviews
+- Focus on the things you cannot do
+- Include references
+
+**Show, Don't Tell:**
+Rather than expressing your characteristics, use examples that demonstrate those characteristics. You are not a "capable leader"; you "increased team efficiency by 30% in 3 months with human-first management techniques."
+
+---
+
+#### Activity 3.2.3a: Resume Draft
+
+Draft a presentable resume using all the skills you have learned up to this point:
+- Tell your story
+- Use keywords from job posts
+- Describe your skills and experience using quantifiable facts
+- Be clear and concise
+- Every line should be in simple tense
+
+**This is a draft, an iteration. It is not the final copy.** Update your resume periodically throughout your life. Consider getting feedback from trusted contacts or mentors in your field.
+
+No resume is perfect. You are only trying to sell the person who is going to hire you. So, don't be afraid to be you, and be sure to tell your story while relying on facts and figures.
+
+**Resume draft completed:** ☐  
+**Template source:**  
+**Keywords included:**
+
+
+---
+
+### Exercise 3.2.4: LinkedIn Optimization
+
+**Purpose:** Create a complete, professional LinkedIn profile that supports your networking efforts.
+
+LinkedIn is an excellent tool for finding opportunities, networking, and engaging in your professional community. You are going to use this tool. If you do not have a LinkedIn profile, create one now and use the following guidelines to set everything up correctly.
+
+Visit your LinkedIn profile. Click on the Edit pencil.
+
+---
+
+#### Activity 3.2.4a: Profile Picture
+
+1. Update your profile picture:
+   - Focus the picture on your face, from the shoulders up
+   - It needs to be clean and clear
+   - Be professionally presentable
+   - Set the "visibility" to all LinkedIn members or public
+
+**Profile picture updated:** ☐
+
+---
+
+#### Activity 3.2.4b: Headline
+
+2. Fill in the headline section with your headline from Activity 3.1.2h.
+
+**Headline:** 
+
+
+---
+
+#### Activity 3.2.4c: Current Position
+
+3. List your current position if you are looking to move forward in your field. If you are dramatically switching fields, you are "aspiring to be [title you are looking to have in your next job]."
+
+**Current position listed:** ☐
+
+---
+
+#### Activity 3.2.4d: Profile Completion
+
+4. Complete your profile with as much relevant information as you see fit.
+
+5. Return to your profile. In the top right corner, you can edit your public profile and URL. Change your LinkedIn Profile URL to include your full name. If you have a common name, use a common-sense abbreviation.
+
+**Custom URL:** linkedin.com/in/_______________
+
+6. Along the right side of the "edit" screen, adjust the visibility of each of your sections as you see fit. Try to be as visible as possible. You have nothing to hide, and want to leave good impressions, which requires making some impact.
+
+**Visibility settings adjusted:** ☐
+
+---
+
+#### Activity 3.2.4e: Experience & Education
+
+7. Take the time to input all of your relevant work experience and your education. Use the same language as your resume. Be honest, but be certain to use the keywords you found in job descriptions in Module 3.1. Do not "stuff" keywords—you want the profile to be natural, but targeted.
+
+8. Fill out your education and skills on LinkedIn.
+
+**Work experience added:** ☐  
+**Education added:** ☐  
+**Skills added:** ☐
+
+---
+
+#### Activity 3.2.4f: Professional Websites
+
+9. List any professional websites you run, blogs that help establish your legitimacy as an expert in your field, etc.
+
+**Websites listed:**
+
+
+---
+
+#### Activity 3.2.4g: Group Membership
+
+10. Request to join 3-5 groups in the field that you are looking to enter.
+
+**Groups joined:**
+1.
+2.
+3.
+4.
+5.
+
+---
+
+### Module 3.2 Summary Checklist
+
+| Task | Complete |
+|------|----------|
+| Google search results cleaned | ☐ |
+| Professional photo obtained | ☐ |
+| Facebook profile updated | ☐ |
+| Resume draft created | ☐ |
+| LinkedIn profile complete | ☐ |
+| LinkedIn URL customized | ☐ |
+| LinkedIn groups joined | ☐ |
+
+---
+
+### Module 3.2 Footnotes
+
+*No new sources introduced in this module. Content builds on frameworks from Module 3.1.*
+
+---
+
+**Module 3.2 Complete**  
+Next: Module 3.3 - Networking
+
+---
+# Part 3: Branches (Continued)
+
+## Module 3.3: Networking
+
+### Module Overview
+
+**Focus:** Building professional relationships to access the hidden job market  
+**Purpose:** Learn and implement effective networking strategies through mindset development, conversation skills, and systematic outreach  
+**Estimated Time:** 4-5 hours to learn + ongoing daily practice  
+**Key Tools:** Job Prospects Spreadsheet (Tabs 2-3)  
+**Critical:** Read this entire module before taking action  
+**Outputs:**
+- Internalized networking mindsets
+- Conversation skills framework
+- Company research and contact lists
+- Active networking relationships
+
+---
+
+### Introduction: Breaking Into the Hidden Job Market
+
+Almost everything in life is, at its core, based on relationships. Notably, and most importantly for our cause, finding and securing a job. Every step of this program, of any job program, is essentially an exercise in communicating who you are to other people and communicating to them that you are the best fit for a given position. Success in any particular job is largely based upon relationships: relationships with your boss, your coworkers, your clients, other branches of your organization, and so on.
+
+**Relationships hold the keys to the hidden job market.** Even if you already have a pending interview, this is the absolute best way to prepare for that interview, and it will give you a unique edge over your competition. In the coming days and weeks, you will be acting upon everything you learn today. You are more than welcome to start working upon what you learn as soon as possible, but make sure you read through and understand this entire module first.
+
+Up to now, you have expressed and recorded your experience, established your professional identity, and crafted the image that you project into the world. From this point onward, use that projection to reach out into the world and land your next job. When the time comes, reach out to, and have conversations with, professionals in your target industry.
+
+You will identify people who currently or previously do the job that you want to be doing and have genuine conversations with them.
+
+---
+
+### Why This Method Works
+
+There are several reasons that networking in this particular way works so incredibly well:
+
+**First,** an interview is a conversation. In the most successful interviews, the candidate and the employer build a sense of rapport. Interviewer and interviewee come to find that they have the same goals, can fill each other's needs, and have a good chance of building a productive and pleasant relationship.
+
+**Second,** the employers' preferred method of finding quality hires—the method that yields the most consistent results—is not sifting through resumes, but rather hiring someone that they know.¹ For better or worse, the classic phrase "it is not what you know, but whom you know" is very real and very effective. Rather than being a martyr to the flawed cause of using the traditional method, do your future employer a favor and do the extra networking.
+
+**Third,** by embracing the proper mindset (curiosity, bias to action, reframing, awareness, and radical collaboration),³ you will learn how real people doing your dream job found their way to where they are.
+
+**Fourth,** you can use psychology to your advantage. When you approach people asking for a job, they automatically start screening you through that filter and assessing whether or not they can afford to bring you on as an employee. If they don't already think they have room for you, they will almost certainly shut you down from the start. Further, they are less likely to send you in a helpful direction. **By starting the conversation with genuine curiosity, focusing on them and their achievements, you are opening them up to build a real relationship.** Relationships lead to opportunities.
+
+**Fifth,** you are doing vital research while you are networking. The best way to know if a job is a good fit for you is to do the job. If you are able to, you can find internship or shadowing opportunities through direct contacts. The next best way to know is to speak to people who do that job. Networking conversations and actual time spent at the place of work provide the opportunity to get inside information about each of the companies and places of work in your field, directly from the source. You will uncover a treasure of knowledge that is otherwise unavailable to you. You will learn about alternative paths into your desired work.
+
+**This method of networking is tried and true by the best job programs in the world. Why? Because it works.** You may have to speak to 50+ people before finding the perfect fit. Stick to it, and it is guaranteed to work. Build relationships with the people in your industry to find otherwise hidden opportunities.
+
+There is little better preparation for an interview than speaking directly with the people who do the work you are looking to do. Not only are you gaining valuable knowledge about the actual work, but you are building relationships inside your industry and practicing for your interview. In every conversation you have, during your networking and the actual interview process, you will be using the same skills. The more practice you get, the more prepared you will be.
+
+---
+
+### Module Structure
+
+This module covers:
+1. **Mindset in Practice** – The mental framework for effective networking
+2. **The Art of Conversation** – Building rapport through genuine dialogue
+3. **Target Information** – What to learn from your contacts
+4. **The Process of Networking** – Step-by-step system for building your network
+5. **Preparation** – How to prepare for meetings and negotiations
+
+**Your goal goes far beyond securing and executing interviews. Your goal is to be offered multiple quality jobs.** Multiple quality offers will provide you with the best odds of choosing a successful, fruitful, and rewarding place of work. It's time to go out and find those job offers.
+
+---
+
+### Exercise 3.3.1: Mindset in Practice
+
+**Purpose:** Internalize the five designer mindsets for effective networking.
+
+Everything up to this point and everything you do moving forward depends on your mindset. People talk a lot about the power of positivity and the idea of persistence. I, like many others, have looked into these ideas and done my part to live by them. Positivity provides decent direction, but it lacks depth as a rule to live by.
+
+While looking for something more practical, I came upon the "designer mindset" laid out by Bill Burnett in his book *Designing Your Life*.³ We've briefly discussed these ideals throughout the course. Now I'll elaborate the five mindsets, the logic behind them, and how to implement each one effectively.
+
+---
+
+#### What It Isn't
+
+Before diving into the meat of these mindsets, we should touch on what they are not. Do not fabricate stories about yourself and your capabilities. The line between conducting proper research to prepare for your audience and falsely presenting yourself as their savior can be thin.
+
+Authenticity is a tricky subject. The most potent stories resonate with the audience, often engaging in emotional realities shared by the protagonist and the audience. The tale of reinventing yourself is excellent, but you have to practice what you preach. **Your story, your networking, must be genuine.**
+
+People generally love a hero's tale.⁴ The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective. Yet, if it is false, then it is all for nothing. This is not asking you to stay who you have always been. It is telling you to be honest in your storytelling.
+
+Everybody has a hero's story of their own. What you should have done, and should still be doing, is identifying your hero's story. Although we are generally the protagonist of our own story, many people have a hard time picturing themselves as a genuine hero. **Authenticity does not mean remaining the same person. It means owning your journey.**
+
+Every person reading this is at a different point in their hero's journey. Some overcome great odds at very young ages while others never get the chance to see their journey through. Part of living a fulfilled life means identifying the person you wish to be and striving to be that person, not through sleight of hand or a web of lies, but with personal growth, persistence, and grit.⁵ It is entirely possible to swindle your dreams into reality, but what we are striving for is a reality built with solid foundations. This tool is not here to teach you how to lie or be a charlatan. The dream is to help you identify and harness your potential and then achieve it.
+
+Your journey will last until your dying breath. Your life is a story that you get to create. There are surely outside forces that affect you—carefully choose how to react to them. Be an active player rather than a spectator, and you increase the odds of achieving the life of your dreams.
+
+---
+
+#### Activity 3.3.1a: Awareness
+
+**Awareness**
+
+Everything discussed so far involves some level of awareness. Be aware of yourself, others, and your environment. For this particular part of your journey, be aware that finding and landing your dream job is a process.
+
+Being aware of your daily environment requires active involvement. Awareness is the difference between being a participant and a player. To affect outcomes and push the needle in your favor, start by being aware. To start, try being as present in each moment as possible. Use your senses to observe reality as it is presented to you, and don't assume anything. Be aware of what you see, smell, hear, taste, and feel.
+
+By assuming nothing and approaching everything as a detached observer, you can become aware of details you and others otherwise overlook. Awareness goes beyond what is immediately obvious and peers into the unknown and the hidden. The sleight of hand used to perform magic tricks is an excellent example of manipulating awareness and pushing the limits of an audience's attention. You have to search somewhere you have never looked to see something you have never seen.
+
+Be open to the concept that everyone is operating according to their own code of ethics, their own story, and their own motives. Keep in mind that **everyone is their own hero**. When you are in a meeting with someone, listen for their values and their needs. By being aware of other people's needs, in the context of their personal and professional narrative, it is easier to understand your contacts and build genuine rapport.
+
+**Always listen for the purpose of understanding, not for the sake of answering.** If you have an idea or comment while someone else is talking, let that idea go, let it pass. Holding onto your idea keeps you from engaging with what the person is saying. They may answer your question before you ask, but you can only know if you are listening and aware. (You should be prepared for every meeting with a pen and paper. Take quick notes; do not write full ideas. Sorting through an entire concept steals your attention.)
+
+**Self-awareness** can be a challenging prospect for many. Aim to be aware of your flaws, your strengths, and your presence. Gain self-awareness by interviewing yourself, asking people close to you the same questions, and comparing and contrasting the answers, sifting through biases in search of the truth. If you are wanting for ideas, read your horoscope or take a free personality quiz. Use the results as a springboard; no test can flawlessly describe who you are. Think very carefully about what is accurate and what is inaccurate, the pieces of your personality that are missing, and any feelings or thoughts you might have about the entire topic.
+
+Others can provide a perspective that you might not consider. When you ask others about your tendencies, be aware of the fact that you might not like what you hear. Prepare yourself to be open and receptive to their criticism. Ask your helper to balance positive feedback with criticism, and do not let them tear into you incessantly. You will not learn anything if you are emotionally inflamed; there is no reason to subject yourself to more criticism than you can handle with a level head. Criticize yourself with the goal of self-improvement. More can be gained from a calm and inquisitive mind than from a state of paranoia or judgment.
+
+Finally, be aware of the process, whatever your process might be. In seeking your dream job, that means being aware that this is difficult, and no, you should not give up. Take time to write down everything that brought you to this point and all the possibilities in front of you. Ask if you are taking steps towards your goal each day. Write down all your questions, all your worries, all your hopes, and all your dreams. Observe actions from the perspective of goals and work to understand how the past flows into the future.
+
+**Do your best not to mistake the trees for the forest.** It is easy to get bogged down in the individual steps on your journey. Taking time to lift your head and see where you are along your path will help to keep you motivated while ensuring that you are, in fact, still going the right direction. Do your best to make sure that every step you take follows your compass. Creating and living a coherent story takes intention and awareness.
+
+---
+
+#### Activity 3.3.1b: Curiosity
+
+**Curiosity**
+
+Curiosity is very similar to existing in the present moment. Meaning that when you are focused on the present—not on what will happen next, not on your past, and not on external drama—you are likely to be more engaged and therefore more curious. Recall from Exercise 1.3.2 (Flow State Mapping) that engagement is our measure for flow, which is when people are at their best and most productive.
+
+**To be genuinely curious, you must be genuinely present.** It is good and proper to prepare a list of questions for an interview, but if you are not present in the interview you cannot ask excellent and relevant questions, you cannot build rapport, and you cannot build a fortuitous relationship.
+
+Curiosity is a trait often exemplified by children. It is the desire to learn, to discover, and to explore. Curiosity breeds innovation, which every growing company is seeking in some fashion. Being curious in your life means being fully engaged with what is happening when it is happening. Curiosity is thirst, and discovery is water.
+
+Ideally, this will not be a chore for you. Aligning your work values and your life values should provide you with some motivation to do the work you are seeking. If you are seeking employment that will fulfill you, you should want to care about every aspect of that work. You are looking for a job, which means that you have questions that need to be answered. The most meaningful answers you can find are to questions that you ask for yourself. **You have to want to learn.** I can lead a horse to water, but I cannot force it to drink. I can show you the door, but I cannot force you to walk through the door. Curiosity is the drive and the will to drink the water, to walk through the door.
+
+Curiosity is awareness. Many opportunities in life go unnoticed. How many times have you lost your keys or your glasses only to find them right under your nose? Chances are, you were distracted by something external or by the stress of the situation itself. By letting the pressure of the situation consume your attention, you fail to notice what you are looking for when it is presented. Curiosity embraces the innocence of the situation and absorbs reality as it is given rather than as we seek it.
+
+**Curiosity means listening for an answer when you ask a question.** The right question can lead to the most rewarding opportunities, but only if you genuinely listen to the response. Going through the motions is not good enough here. You must be willing to learn. You must be thirsty for information. Being curious means admitting your shortcomings and asking for help. It comes from a place of humility. A curious mind is keenly aware that it does not know the answers it seeks.
+
+A curious mind must truly process and chew on new information. Throughout life, we build a system of algorithms in our minds to help us process information. Most of those algorithms are formed in our childhood, or at least while our brain is still developing. For tens of thousands of years, that was more than enough. Today, we exist in a world with more information exposure than ever before. By no fault of any individual, our natural inclinations simply are not good enough. To be open to new information, you have to make an effort to force the door open. You have to override your programming, choose the hard road, and manually sift through new information. Without making an effort to do so, you might discard the gold you are looking for without ever knowing you had it.
+
+**For you, curiosity means seeking people with genuine interest.** Seek and find stories that will help you on your path. Do not go through the motions when networking. They have answers, advice, history, and connections, which can all help you. One—likely more—of the interactions you have will open doors for you.
+
+Emotion is more deeply tied to memory than thoughts are. The most impactful impressions are emotional. We remember people we hate far longer than we remember why we hate them. Words cannot quite capture the meaning of love. **Leave someone with a positive emotional memory attached to your name, and that emotion will influence and eventually dominate the memory.**
+
+By asking for advice and following through with curiosity, you make it easier to form a relationship with the person you are interviewing. Attempt to engage them on their history and their accomplishments, asking them what they did and how they did it.
+
+Come prepared with a set of topics—you could even write out some questions explicitly—but be sure to ask questions about any new information that comes up. Being prepared is essential, but follow the natural flow of the conversation. Use prepared prompts to keep the conversation alive if need be. Do not cut off a live topic unless you are running out of time.
+
+---
+
+#### Activity 3.3.1c: Bias to Action
+
+**Bias to Action**
+
+Always lean towards taking action. When the options are failure, success, and doing nothing, always choose action. There is no better teacher than failure. **The only wrong answer is inaction.** Be biased toward taking action.
+
+You make thousands of decisions every day. Every decision ends in some action or inaction. Every action or inaction is a step. Life is a journey of a thousand miles. Your values give you a compass to navigate the journey. Pay attention to where each step takes you and keep taking steps.
+
+Think of each decision like an equation:
+
+```
+Current Situation = C
+Decision = D
+Future Situation = F
+Reality = R
+
+(C × D) + R = F
+```
+
+Good scientific hypotheses utilize constants and a single variable in order to identify and measure reliable results.
+
+To get the best understanding of your current situation, balance objective logic with any feelings or inclinations you might have. While logic dominates the current worldview, science is showing that the body has several layers of processing and storing information. Many of the most reliable tools we have lie outside of the frontal cortex ("go with your heart" and "trust your gut" are more than just idioms).
+
+Reality here refers to entropy and the general rule of chaos in the universe. Reality is anything but predictable—always expect the best and prepare for the worst. Reality is an uncontrollable variable.
+
+Which leaves decisions—the closest thing to control and influence over this equation that anyone has. Even when accounting for the interference of reality, choices play a huge role because this equation runs hundreds or thousands of times a day. Making coherent decisions, following your value compass, living with a code, a mission, or a purpose provides the consistency needed for your bias to action to have a significant impact on future situations and realities.
+
+Running the equation with two variables creates chaos. Consistent, intentional decision making ushers that chaos in a direction. **The more active you are in your decision making, the more control you have in this process.** You can never have complete control, but relentless action will yield results.
+
+Most of the time, people do not recognize the fruits of their labor. The amount of time it takes to notice the effects of our decisions is just long enough that most people forget the decision-making process. This disconnect creates three problems: it is easy to give up before we see results, it is difficult to learn from our decisions, and we rarely give ourselves proper credit. Being biased to action solves all three. Understand your compass, and always take action. Trust that being intentional with the "D" in your equation gives you better odds than non-action.
+
+**The simple truth is that there is no way to know the future.** However, you can do everything in your power to push future realities towards your favor. The more action you take, the harder you work, the more influence you have over your future. Be biased to action.
+
+---
+
+#### Activity 3.3.1d: Reframing
+
+**Reframing**
+
+Reframing is possibly the most powerful mindset in the bunch. Reframing means observing a situation, finding the most useful perspective possible, and using that perspective to your advantage. Failure is a chance to learn. Being broken means rebuilding stronger. Devastation clears the path for new growth. Practicing reframing can be impersonal, indifferent, and even detached. Leave behind emotional involvement to see the silver lining; **turn every obstacle into an opportunity.**
+
+Through reframing, it is possible to control the current situation as much as possible. Take, for instance, the reality of addiction. An addict in recovery may have massive gaps in their employment history and could be considered unreliable. Fighting addiction means practicing rigorous authenticity, surrendering to the outcome, and doing uncomfortable work—which are all highly prized soft skills that have the power to drive entire companies to success. Reframe a lack of work experience to a complete commitment to honest hard work.
+
+**Every path worth walking encounters rejection.** "No" is a crushing word and reality for many. For others, it is rife with possibility and opportunity, a chance to learn, a chance to grow, a necessary step on the road to success. View rejection with enthusiasm. Turn your most significant obstacle into your greatest strength. Rejection in the job market is an opportunity to learn. Rather than taking it personally, ask for guidance and referrals. While you might not be the right fit for that position, the person who just shut one door could open up the next door for you. While there are no guarantees, overcoming negative momentum is worth reframing the situation in and of itself.
+
+Many great minds have left us with excellent quotes about overcoming failure. What is most important is that you learn from your failures. Take each step as an opportunity to adjust your worldview according to the decisions you made and how they affected your situation. Reframing means actively altering your perspective. Do not blindly make decisions without regard for how and why they do or do not work.
+
+**Reframing is the art of marketing and sales.** While these might not be your expertise, they encapsulate the job search reasonably well. Present your skills in the most palatable design possible to close the deal with one lucky employer. The more compelling your marketing, the stronger your sales will be. Job seekers often overlook their most valuable traits. Every person has a heroic story, but most people don't see how they are a hero. Every job seeker is the perfect fit somewhere. Some fits are more challenging to find.
+
+Practice reframing as often as you possibly can. Change problems into opportunities. Spend the extra energy to change how you view the world as often as possible. Just like training the body, the more practice you have reframing problems, the easier it will get. As reframing gets easier, you will be able to change your perspective on more substantial issues with more impact. Energy invested reframing now will pay off tenfold when your path is easier to navigate and rejection becomes motivation. Luckily for you, if you have been following your schedule, you have been practicing reframing failure since Exercise 2.2.3.
+
+**Reframing is the soul of innovation, creativity, and flexibility.**
+
+---
+
+#### Activity 3.3.1e: Radical Collaboration
+
+**Radical Collaboration**
+
+The last piece of mindset advice is to embrace radical collaboration. In other words, **talk to people**. Remember that an interview is a two-way conversation; you must collaborate with potential employers, and networking leads to the benefit of everyone involved. The more genuine rapport you build, the more you will get out of your interactions with professionals and peers. The result of radical collaboration is greater than the sum of the individual parts.
+
+Further, for many of the activities in this program, you are asked to talk to peers. Group brainstorming is extremely useful when used correctly. Meaning, it is not the sort of activity that will be successful with half effort. It must be a radical effort.
+
+The goal of brainstorming sessions is to generate new ideas. New ideas flourish in open and accepting environments. Creating open and inviting environments means going past social norms, setting clear boundaries and guidelines for your groups, and taking a leap of faith. There is no guarantee that the people you ask to help you will be the best for the job, but after careful consideration on your part, there is only one way to find out. Approaching any situation with the notion that it will not work before it has even begun is a sure-fire path to an unsuccessful venture. Foster open-mindedness, for it is precious and fleeting.
+
+**In general, always ask for help.** While some see asking for help as a weakness, it is, in fact, a great show of strength. Be aware of what you do not know and seek the answers you need. This integrity builds trust between people and lays solid foundations for fruitful relationships. Generally speaking, people enjoy sharing what they know. That does not mean that everyone will tell you everything they know.
+
+The basis of economic activity is social interaction. Finding a job means finding people to collaborate with. Approach the process of networking and collaboration with excitement and vigor. Find the people you want to grow with by asking genuine questions aimed at solving problems through radical collaboration.
+
+---
+
+*Module 3.3 continues in Part 2...*
+
+---
+# Part 3: Module 3.3 - Networking (Continued)
+
+---
+
+### Exercise 3.3.2: The Art of Conversation and Building Rapport
+
+**Purpose:** Develop effective conversation skills for networking and interviews.
+
+There is nothing in the world quite like an excellent conversation. The kind that leaves you in a euphoric glow, the ones you return to when your mind wanders years later. The best conversations can be had between complete strangers or a couple of 65 years. People from entirely different backgrounds, even people who are at odds with one another, share amazing interactions every day.
+
+Networking is intimately related to conversation. If this fact is daunting for you, remember that most people in your target field are similar to you. There is a fair likelihood that the people you encounter are socially similar to you. Ideally, you are going to share an interest (the field you want to work in) with each contact. Everyone you encounter holds some nugget of truth that can help you on your journey, and every person is perfectly capable and good enough to build the relationships necessary to bridge between the present and the desired future.
+
+The classic advice for conversations and interviews includes eye contact, nodding along with the speaker, summarizing what you hear to ensure clarity, and coming prepared with a list of questions. For the most part, it's poor advice focused on the symptoms rather than the root. **The secret? Be present and pay attention.** Embody the mindsets listed above. Approach them with genuine curiosity and the desire to collaborate. Be aware of their needs, and listen for any clues they might give you. Always listen first.
+
+**First impressions are important.** First impressions are mostly made up of emotional impacts (did you like the person, or not?). Leave your encounters with a positive emotional feeling attached to your name, and they will likely forget the small mistakes you made along the way. Professional flattery is serviceable, and flattery via asking for advice will often get you in the door. However, once you are sitting down with someone, building real rapport takes a bit more than simple flattery.
+
+Of all the great advice out there, Celeste Headlee covers the most critical aspects with her principles for conversations and interviews.⁶
+
+**Be interested in other people. Everyone has something brilliant to share. Keep your mouth shut, your mind open, and you will never be let down.**
+
+---
+
+#### Activity 3.3.2a: Ten Principles for Better Conversations⁶
+
+**1. Don't Multitask**
+
+Multi-tasking isn't real. No human can genuinely do two things at once. Many people try to switch quickly back and forth between tasks, which inhibits their ability to perform either task. Focus on one thing at a time.
+
+When you are talking with someone, be present in the conversation. Do not engage with technology, resist the urge to daydream, and keep yourself grounded in the situation at hand. Find your way out if you are done with the conversation. Don't waste the other person's time by disrespecting them.
+
+**With an exception for extreme emergencies, do not look at or pick up your phone.**
+
+**2. Don't Pontificate**
+
+The goal is to collaborate, which means you have to invite dialogue. Don't give speeches that are uninvited. Conversations require multiple participants. If you want to talk to yourself, do it on a blog or in a journal; don't waste other people's time.
+
+Always be willing to learn something new. Every idea that you do put forward could open up your cohort to information that could change your life—be prepared to hear what they have to say. Set your ego aside before every conversation you have. The more open you are, the more open the other person feels in the discussion, the more they will share with you. The goal of networking is to learn from other people and build relationships. Approach every conversation as a student ready to learn.
+
+**Everyone is an expert at something; be approachable enough for people to show you their expertise.**
+
+**3. Use Open-Ended Questions**
+
+Open-ended questions generally start with a "w" (who, what, when, where, how) and lack specifics. You want to know what the other person thinks, so don't give them a place to start their answer. Force them to think about what to say and to craft a genuine response. This process accomplishes two things: it shows them that you value their input while allowing them to open up to you. Let people show you how they think; don't make any assumptions.
+
+**BAD:** "Did you learn about perseverance and teamwork when you led your high school basketball team to the championship in 2005?"
+
+**BETTER:** "What life lessons did you learn from playing basketball in high school?"
+
+In the first example, the question gives the target possible answers. The target could feel like their honest answer isn't as good as the suggestions, or that it is easier to say "yes" than it is to provide honest reflection. Further, it is entirely possible that the most significant lessons learned from that part of the target's life didn't come during the championship run. The second example specifies what type of answer is being sought without providing any potential outs. The question has a specific target while remaining open-ended.
+
+**Every time you ask a question, wait for the other person to answer.** Sometimes people have to think about what to say. Do not jump in with another question or any suggestions. Adding more questions is confusing. Suggesting answers gives the person an excuse not to provide a thorough and genuine response. Both are disrespectful and show the other person that you don't care about what they have to say.
+
+**4. Go With The Flow**
+
+Great ideas will inevitably occur to you while someone else is talking. Either quickly make a short note of them, or let them go entirely.
+
+These ideas can completely derail a conversation. By engaging with your idea, you disengage with the speaker. The speaker may answer your question or bring up something more interesting and relevant while you are distracted inside your head.
+
+**Let ideas come, and let them go.** Think about how irritating it can be when you are telling a story, and someone answers with a seemingly unrelated question. When it is time for you to ask a question, trust that you will either remember what you had to say or that it wasn't meant to be. Engaging with people is of paramount importance. Getting lost in your thoughts is a great way to lose rapport with someone.
+
+**5. If You Don't Know, Say That You Don't Know**
+
+Honesty is an astounding tool when practiced regularly. Better to be honest and open to learning than to bluff and appear unprofessional and untrustworthy. If someone is taking the time to explain something to you, be sure that you understand the premise to comprehend the message best. Just as you should be aware of how others are receiving your words, you must also take care to grasp ideas and stories that are shared with you wholeheartedly.
+
+**Don't lie about your abilities, knowledge, and skills.**
+
+**6. Never Equate Your Experiences With Another Person's**
+
+No matter how similar two instances may seem, there is never an opportunity to volunteer your own story as a comparison. Listen with intent, not for the sake of comparison but for the purpose of learning about the person speaking. By comparing your own experiences, you fail to absorb the detail and nuance of the experience being shared with you while you also disrespect the sharer, making them less comfortable to share more.
+
+If, afterward, you are invited to communicate your own experience, do not compare and contrast the two. Take the time to tell your story as it occurred, not as a comparison to another. You will not further rapport or the relationship by promoting yourself with experiential comparisons. **All experiences are individual.** Build open communication by acknowledging the validity of unique experiences.
+
+**7. Try Not To Repeat Yourself**
+
+Generally speaking, people hear you the first time you say something. Unless they ask you to repeat yourself, don't. It is condescending to assume that they did not understand or to demand an answer for a particular question. Respect people's boundaries and allow people to communicate with you in the way they are most comfortable.
+
+Repetition is monotonous and does not further any arguments. Repeatedly approaching the same point from different angles is a great way to turn off a prospect and destroy any rapport built. If it is indeed a matter of misunderstanding, then work on clarifying communication, but be wary.
+
+**8. Stay Out Of The Weeds**
+
+Dates, numbers, temperature, names of ancillary characters, the exact shade of blue paint—most of the time, people don't care about the details. Conversations have a flow to them. A rhythm of back and forth between the involved parties. Stopping to conjure the exact date of the meeting that led to a huge breakthrough is going to have a significant impact on building rapport—a negative one. The flow of the story that you are telling is far more meaningful than the date itself. **People are easily distracted. Keeping their attention and engaging their mind is the goal.** Breaking flow loses the audience's attention.
+
+If you forget a specific detail, don't sweat it and move on. If the date is of particular importance to your audience, they will ask for it. If it is imperative for your story, be prepared with a written reminder.
+
+**9. Listen**
+
+Listening might be the most valuable skill in the world. It is undoubtedly the most important for our purposes. Listen for the sake of understanding and nothing more. Immerse yourself in the person who is sharing with you. Engage fully in creating rapport by clearing your mind of any distractions and forcing yourself to listen.
+
+The human brain is capable of following about 500 words per minute, while we can only speak at around 275 words per minute. So, roughly half the time, you must consciously engross yourself in the story. No matter how boring or slow the contact might be, hang on every word as if it is the secret to eternal happiness.
+
+Keeping the human brain on topic and away from daydreaming takes mental effort. This effort can be practiced and strengthened by practicing mindfulness (Exercise 1.5.3).
+
+**No one ever listened their way out of a job.**
+
+**10. Be Brief**
+
+---
+
+### Exercise 3.3.3: Target Information
+
+**Purpose:** Understand what information to gather from networking conversations.
+
+You do not want to dictate every conversation too rigidly, or you will stifle genuine rapport and fail to build meaningful relationships. You do not want to be completely free-form, or your discussions will lack direction and meaning. There isn't an exact checklist of what you need to learn from your contacts while you are networking, but I'll do my best to give you one.
+
+**The main goal is to build and create professional rapport.** Networking for this purpose is not a practice in making friends; it's for developing professional contacts. Although the two are not totally dissimilar. Professionalism is not void of emotional connection, but it must keep a reasonably professional focus.
+
+---
+
+#### Activity 3.3.3a: Information Checklist
+
+| Category | What to Learn |
+|----------|---------------|
+| **Topic** | Stay on target, but some time can be spent bonding over shared interests—in the light of lifestyle |
+| **About Them** | Origin story, what took them into the work, preferred work conditions, thoughts and feelings about the work they do and the place they work, things they wish they knew coming into the industry, location benefits, traits that fuel their success |
+| **From Them** | Contact(s) within the org, workplace attitude and flow, do's and don'ts, gatekeeper tendencies and general character (how to get your foot in the door), possible industry contacts (other orgs doing good similar work), characteristics of success in a specific company and in industry |
+| **About You** | Share your story—work and personal story, honest about ambitions without asking for a job, exist within your character—don't be something you are not |
+| **General** | Always offer help before leaving, keep a keen ear for some way you can help them during the conversation, offer your network, a small amount of your time (define this while hashing out details). If nothing arises, make a general offer: "Is there any way I can help you?" or "You have been a tremendous resource, thank you. Is there some way I can return the favor?" |
+| **Time** | Set a time limit and stick to it |
+
+**Not all information is made equal.** You do not know what question or topic will yield the knowledge you seek, so follow the guidelines for conversation. The best conversations may veer off course only to lead to a fruitful relationship. Go with the flow.
+
+**Shadowing:** You are searching for opportunities to get in the door by either meeting more people, shadowing them a day at work, visiting for a casual gathering—anything that leads towards a productive relationship.
+
+---
+
+### Exercise 3.3.4: The Process of Networking
+
+**Purpose:** Implement a systematic approach to building your professional network.
+
+**Networking is something you need to do habitually for the rest of this program. From this point onwards, build your network each and every day.**
+
+---
+
+#### The 5-Step Networking Process
+
+1. Decide what type of company you want to work for
+2. Build a list of companies who could be a good fit
+3. Research all of the companies on your list
+4. Connect with recruiters and HR professionals in those companies
+5. Reach out to and build relationships with the people who work or have worked in those companies
+
+---
+
+#### Activity 3.3.4a: Step 1 – Decide What Type of Company
+
+The type of company you want to work for is determined by your compass (Exercise 2.1.3), the direction your inner light pulls you, and the effect you want to have on the world. This is markedly different from the actual job you are doing. The type of company is who you will be doing your job for. The type of company concerns the goals your work helps to achieve.
+
+You can be a graphic designer for a political campaign or for a vacuum salesman. You can teach in a public school, tutor struggling students, implement corporate training, fight for better education standards in an NGO, and even work in the education sector of some government body. Your chosen career can fit a wide array of fields.
+
+If you have not already made this decision, take the time now to review your work values and your life values (Exercise 2.1.2). Consider your priorities; some fields pay better than others for the same work. For instance, a geologist can choose to do research for a university or search for precious resources with a private company. Only you can make this decision, but I encourage you to speak with those who are close to you for ideas.
+
+**What field of work gives you the best chance of feeling productive and living a life full of value?**
+
+List 3-4 ideas here:
+
+
+
+
+**Which field of work is most appealing to you and best fits your needs and preferences?**
+
+
+
+
+---
+
+#### Activity 3.3.4b: Step 2 – Build a List of Companies
+
+A point to remember is that you are not necessarily looking for companies who are actively hiring. It might seem counter-intuitive but will work to your advantage. As we have mentioned, many companies post jobs online to gather information, while others have already made their decision but are required for one reason or another to "go through the motions."
+
+You want to build a list of companies that are in line with your identity story, fit into your value system, and (preferably) hire people with your skillset. If you do not think they hire people like you, keep an open mind. That criterion certainly makes life more comfortable, but it is not a deal-breaker. More on that later.
+
+**Four Types of Companies:**
+
+**Massive companies** (2500+ employees): High competition for openings, wide variety of locations, established practice for hiring, array of established benefits. Can be great or nightmare scenarios—many treat human capital as numbers rather than people.
+
+**Large companies** (500-2500 employees): More similar to massive companies than different. Bureaucracy can be king in these organizations.
+
+**Medium companies** (150-500 employees): Could be relatively new, up and coming, or recently expanding. May be established in their niche and comfortable where they are. Tend to be good companies to work for—more personal than larger companies while retaining benefits and relative job security.
+
+**Small companies** (less than 150 people): Can be the hardest jobs to find but also have the chance to be the most rewarding. If you find a young company on the way up, it could be the opportunity of a lifetime. If you find a stable company around this size, there is a good chance that the company takes care of its people.
+
+**The Magic Number 150:**⁷ One hundred fifty people is roughly the limit for many tribes across the world. It is also about the limit for the number of people you can have any level of relationship with in one area of your life. The materials company Gore-Tex keeps its factories at 150 people. When people start parking on the grass, they split and build another factory. Keep an eye out for companies around this size.
+
+**Build your list with this ratio:** 5 small companies : 3 medium companies : 2 large/massive companies
+
+Start with 10 companies, do your research, continue the process, and repeat. That way, you don't get stuck brainstorming 50 companies one day then get overwhelmed trying to follow through with the rest of the process for all of them at the same time.
+
+---
+
+#### Where to Find Companies
+
+**People You Know**
+
+The most immediate resource you have is also the oldest one: the people you know. Start with your close friends and family, and ask them if they know of any companies in the field you are interested in.
+
+From there, move on to your acquaintances, or **weak ties**.⁸ The idea of weak ties comes from Johns Hopkins sociologist Mark Granovetter's paper called "The Strength of Weak Ties." The idea here is that people who know who you are, but you don't spend a ton of time with, likely have access to information and contacts which you do not.
+
+Weak ties can be school associates, co-workers from the past, neighbors, and your children's friends' parents.
+
+**Google**
+
+Google companies that share your values. You are bound to find one or two, and maybe more.
+
+**LinkedIn**
+
+LinkedIn is an incredible resource, particularly for this step of the process. You should have a LinkedIn Profile completed with all of your information up to date (from Exercise 3.2.4).
+
+At this time, you should look to connect with as many people that you know as possible. Keep these connections professional. If you attended a college or university, connect with people you know or knew from that time of your life. While those individuals may not have been professionals when you knew them, there is a good chance that they are now. Connections are useful. Start sending requests and LinkedIn will suggest more for you. Request, request, request.
+
+**Do advanced searches:** Enter the job title or field you are seeking in the search bar and search. Use the "connections" filter to find people you know who do that work. First connections are people you are connected with. Make a note of any of these people you are comfortable reaching out to. Second connections are people whom your connections are connected with. Having a mutual connection increases your chances for positive interactions and gives you some credibility.
+
+**Use the advanced search** to filter for specific job titles, location, industry, education, language, and more.
+
+**Company Pages:** These are awesome. Plug a company you have found into the search bar and make your way to their company page. Along the bottom right (web) or bottom of page (mobile), is a list of similar companies. Start with these companies, recording each in your spreadsheet as you go along.
+
+---
+
+#### Activity 3.3.4c: Building Your Company List
+
+Record companies in the "Potential Employers" tab (Tab 2) of your Job Prospects Spreadsheet:
+- Field
+- Company name
+- Company size
+- Company location
+- LinkedIn page
+
+**My initial company list:**
+
+| # | Company Name | Size Category | Field |
+|---|--------------|---------------|-------|
+| 1 | | | |
+| 2 | | | |
+| 3 | | | |
+| 4 | | | |
+| 5 | | | |
+| 6 | | | |
+| 7 | | | |
+| 8 | | | |
+| 9 | | | |
+| 10 | | | |
+
+---
+
+#### Activity 3.3.4d: Step 3 – Research Companies
+
+Researching the companies on your list allows you to learn more about the places you might end up working. You are looking to establish your preferences among the field, gain understanding and insight, and get an idea of where you might be a good fit.
+
+The process of finding a good job is similar to dating. It needs to work for both parties. You want to be sure that you will enjoy, or at the very least tolerate, the place where you will be spending most of your time. Ideally, you want the company to express and support your values in some practical manner. Doing work that keeps your work values and your life values in line will be the most rewarding work you can find.
+
+Beyond the immediate fit, this research will also help you in the interview process, and later in your job. You are not only studying your future place of work, but you are also studying the competition.
+
+**For your immediate needs, you want to know:**
+- The service they provide
+- Their origin story
+- Their mission statement
+- The story they tell (if different from mission statement)
+
+**Research sources:**
+- LinkedIn page
+- Company website (including the About section)
+- Glassdoor reviews
+- General Google search
+
+**While reading reviews, keep in mind that companies do engage in the practice of boosting their own reviews and bombing their competitors.**
+
+The edge you want to gain from your research is understanding how your story and the company stories work together. The most robust support you can have in your quest to be offered quality jobs is the aligning of both stories. If everything you have done makes you the perfect fit for what they are looking for, you will get an offer. The stronger your argument, the more power you will have when it comes to negotiations.
+
+**The best stories are founded in truth.** To effectively tell honest stories, you must do thorough research.
+
+---
+
+#### Activity 3.3.4e: Step 4 – Connect with Recruiters and HR Professionals
+
+Recruiters and HR professionals are connectors. They know many people and likely got into their line of work because they enjoy working with and connecting people. Think of these people like the hub of a wheel. By connecting with one person, you have gained secondary connections with a vast range of people.
+
+**How to find them:**
+- LinkedIn advanced search for people with "recruiter" in their job title
+- Visit profiles of companies on your list
+- Search through their employees with keywords: recruiter, talent, human resources, HR
+
+**Connection request template:**
+
+> Dear [recruiter's name],
+>
+> I am very interested in joining [company name] on their journey to [company mission]. I am a [position title] looking for the next step in my mission to [6-10 word summary of life mission]. Are you the recruiter who handles these kinds of positions? If not, will you direct me to the recruiter who does? Could we set up a time to talk about your organization? In the meantime, please accept this invitation to connect.
+>
+> [Your name]
+
+**Don't say more.** Once you have sent the invitation, wait for them to accept, or even reach out to you.
+
+**If they do not accept:** That is okay. You have left an excellent first impression by being transparent, forward, and goal-oriented.
+
+**If they do accept but you do not hear from them:** That is okay too. You will now show up as an immediate connection to them, and a secondary connection to their entire network. You have also left a good first impression.
+
+**If you do hear back from them:** Follow up with genuine curiosity and network with them with the same strategies and enthusiasm that you would with any other new professional contact. Primarily, you are hoping for advice, insights, and recommendations. Moreover, ask how you can help them. You want to flatter people professionally, and you want to offer your help. Networking is all about building relationships. These are the gatekeepers; being on their good side is priceless.
+
+---
+
+#### Activity 3.3.4f: Step 5 – Build Relationships with People Like You
+
+The most critical aspect of networking is building relationships. Relationships are the essence of the economy. Interviews are like speed dating—an unnatural encounter with limited information with lasting implications. My goal is to equip you with tools that give you the best possible chance at having and creating positive encounters.
+
+**Up to 85% of new hires come from employee references.** By building relationships with employees in your target industry, in your target companies, you are creating the best possible odds.
+
+**Find people like you** the same way you found the gatekeepers: on the company LinkedIn profile, using the advanced search tool. Reach out to people in order of connection. The closer your connection, the more likely they are to respond. For second-degree connections in your target job market, consider reaching out to your mutual connection and asking for an introduction.
+
+**Remember to be persistent.** Reach out a few times, but keep it to two or three attempts. Instead, direct your persistence towards other options and possibilities. Do not set your heart upon any particular connection. Let the connections come that will. Focus on your successes and learn from your failures.
+
+**Never directly ask these people for jobs.** Approach them with curiosity. You are looking for advice and insight. Networking is like a finger trap: with the finger trap, the harder you pull, the tighter it holds you; you must first push inwards to loosen the grip of the trap before you can remove your fingers. With networking, being bullish rarely works. **By starting the conversation with genuine curiosity, focusing on them and their achievements, you are opening them up to build a real relationship.**
+
+**The key is to ask for advice.** By asking for advice, you are insinuating that they have knowledge that you covet—you are complimenting them. Most people enjoy talking about themselves. Ask to meet for coffee, lunch, or to speak on the phone at a time that is convenient for them. **You never want to ask for more than 20 minutes of their time.** A good tip is to be exact—ask for 19 minutes. If you do that, be serious about your deadline. Set an alarm (on vibrate) for 17 minutes and wrap up the conversation when the time comes.
+
+**Past employees** are wonderful sources of information. While a current employee has an incentive to speak positively about their place of work, someone who has moved on does not. A positive review from someone without much incentive to give one is precious. A reasonably negative review is a serious red flag and deserves your attention.
+
+---
+
+### Exercise 3.3.5: Preparation
+
+**Purpose:** Prepare effectively for networking meetings and negotiations.
+
+---
+
+#### Activity 3.3.5a: Meeting Preparation
+
+**5-10 days prior:**
+- Research the company and the person
+- Come prepared with a few genuine questions that build on what is commonly known about the company
+- Ask what brought the individual to the company
+- Establish how your story and the company story intersect
+
+**Immediately before:**
+- Take written questions
+- Pen and paper
+- Solid copy resume
+- Dress for the job
+- Review research & story intersection
+- Breathe
+
+**After:**
+- Send thank you notes to secretary and individual with a summary of skills and interview or the bond created
+
+---
+
+#### Activity 3.3.5b: Negotiation Preparation
+
+Before officially accepting any job, negotiate your salary and benefits. Negotiation is the most undervalued portion of most job transitions. **There is no downside to negotiating your salary.**
+
+The basic premise of negotiation is that you have a minimum you are willing to accept, and your future employer has a maximum they are ready to give. If your minimum is lower than the employer's maximum, then the two of you should be able to work out a satisfactory arrangement. If there is no common ground, then there is no deal. **Do not take a job that does not meet your needs.**
+
+The common ground—between your minimum and their maximum—is commonly referred to as **the pie**. Both parties want as much of the pie for themselves as possible. The goal for all parties in negotiation is to identify the pie and take as much of it as possible for themselves.
+
+**Preparation**
+
+There are three central figures you need to identify before engaging in any salary negotiation:
+1. **Your needs (BATNA)** – Best Alternative to a Negotiated Agreement. Your BATNA is the point at which you genuinely do not care if you get the deal done or not. The salary package at your BATNA does not excite you. It is your absolute minimum. You should have identified your needs in Part 1. Review them. **Never accept less than what you are worth and what you need.**
+
+2. **Your market value** – To discern how valuable you are to potential employers, you must do some market research. Websites like glassdoor.com can help you identify the range and average salary for people holding similar positions in particular locations.
+
+3. **Your benefits valuation** – Understand how valuable benefits packages are to you. Consider your current situation, how long you plan to stay with the company, and the trajectory of your life when weighing the value of benefits. (Dental, health insurance, incentives, commission, bonuses, paid time off, sick leave, unpaid time off, maternity leave, rollover benefits, stock options, potential career paths, internal training, professional development, continued education, job security, salary vs. hourly, overtime, tax incentives, tech budget, and any industry-specific benefits.)
+
+**Practice**
+
+For some, negotiations are natural and fun. For others, they are entirely foreign and nerve-racking. For all, training will improve your chances of walking away with more of the pie. Negotiate meals with family, activities with friends, and prices at bazaars and flea markets.
+
+**Execution**
+
+Never start a negotiation at your BATNA; begin with the most that you can defend. Let's say the range of incomes for your desired position is $85,000 - $110,000 per year according to your market research. Considering your skillset and experience, you can build an argument for $105,000, and your BATNA is $90,000. Your very first ask should be $105,000 or higher.
+
+Do not egregiously overshoot the max that you are worth. You do not want to insult your potential employer. But you should push the limit. **You will only ever get what you negotiate for.** Once you put out a number, you will have a tough time asking for more. Start high and be ready to negotiate backward or to trade dollars for benefits. Value yourself.
+
+**Never accept less than your BATNA.** Trust the research that you have done and trust that you are worth what you know you are worth.
+
+**Post-Negotiation**
+
+While some negotiations can get heated, the ultimate goal is to reach an agreement. Once you have achieved your goals, be happy about it. Appreciate a company that places value in you and reciprocate that value. Deliver what you promised; do not make a fool of the person/people who agree to pay you what you bargained for. Show your gratitude, but understand that talk is cheap.
+
+---
+
+### Module 3.3 Footnotes
+
+1. Bolles, Richard N. *What Color Is Your Parachute? A Practical Manual for Job-Hunters and Career-Changers.* Berkeley: Ten Speed Press. Bolles's research consistently demonstrates that networking and informational interviewing are far more effective than traditional application methods.
+
+3. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016. The five designer mindsets (curiosity, bias to action, reframing, awareness, radical collaboration) provide the mental framework for effective networking.
+
+4. Campbell, Joseph. *The Hero with a Thousand Faces.* Princeton: Princeton University Press, 1949. Campbell's monomyth—the hero's journey—provides the universal framework for understanding personal narratives and authentic storytelling.
+
+5. Duckworth, Angela. *Grit: The Power of Passion and Perseverance.* New York: Scribner, 2016.
+
+6. Headlee, Celeste. *We Need to Talk: How to Have Conversations That Matter.* New York: Harper Wave, 2017. Headlee's conversation principles provide the foundation for effective networking dialogue. These principles were also presented in her TED Talk "10 ways to have a better conversation" (2015).
+
+7. Gladwell, Malcolm. *The Tipping Point: How Little Things Can Make a Big Difference.* New York: Little, Brown and Company, 2000. Gladwell discusses the "rule of 150"—the cognitive limit on the number of stable relationships humans can maintain—which informs the discussion of company size.
+
+8. Granovetter, Mark S. "The Strength of Weak Ties." *American Journal of Sociology* 78, no. 6 (1973): 1360-1380. Granovetter's seminal research demonstrates that weak ties (acquaintances) often provide more valuable job leads than strong ties (close friends) because they connect you to different social networks.
+
+---
+
+**Module 3.3 Complete**  
+Next: Module 3.4 - Research
+
+---
+# Part 3: Branches (Continued)
+
+## Module 3.4: Research
+
+### Module Overview
+
+**Focus:** Deep company and contact investigation  
+**Purpose:** Conduct thorough research on potential employers and contacts before outreach  
+**Estimated Time:** 3-4 hours per research round  
+**Key Tools:** Job Prospects Spreadsheet (Tab 2 - Potential Employers)  
+**Outputs:**
+- Complete company profiles (10+ companies)
+- Gatekeeper contact lists
+- Target employee contact lists
+
+---
+
+### Introduction
+
+At this point, there is very little information left for you to learn. It is time to go out in the real world and practice the skills you have learned thus far.
+
+**Careful research is paramount to your success.** Use the skills and techniques discussed in Module 3.3 to thoroughly research potential employers, contacts, gatekeepers, and your target industry.
+
+---
+
+### Exercise 3.4.1: Company Research Rounds
+
+**Purpose:** Systematically research companies using the 5:3:2 ratio.
+
+Start with 5 small, 3 medium, and 2 large companies per round of research. Complete a full round of research before reaching out.
+
+---
+
+#### Activity 3.4.1a: Research Checklist
+
+For each company, complete the following:
+
+**Basic Information:**
+- [ ] Company name
+- [ ] Company size (employee count)
+- [ ] Location(s)
+- [ ] Industry/Field
+- [ ] LinkedIn company page URL
+- [ ] Company website URL
+
+**Company Story:**
+- [ ] Service/product they provide
+- [ ] Origin story
+- [ ] Mission statement
+- [ ] Company values
+- [ ] Recent news or developments
+
+**Culture & Reputation:**
+- [ ] Glassdoor reviews (note patterns, not just ratings)
+- [ ] News articles (positive and negative)
+- [ ] Social media presence
+- [ ] Employee testimonials
+
+**Fit Analysis:**
+- [ ] How does your story align with their story?
+- [ ] What problems could you solve for them?
+- [ ] What concerns do you have?
+- [ ] What questions do you need answered?
+
+---
+
+#### Activity 3.4.1b: Research Round Tracker
+
+**Round 1:**
+
+| Company | Size | Research Complete | Story Fit (1-10) | Priority |
+|---------|------|-------------------|------------------|----------|
+| 1. | Small | ☐ | | |
+| 2. | Small | ☐ | | |
+| 3. | Small | ☐ | | |
+| 4. | Small | ☐ | | |
+| 5. | Small | ☐ | | |
+| 6. | Medium | ☐ | | |
+| 7. | Medium | ☐ | | |
+| 8. | Medium | ☐ | | |
+| 9. | Large | ☐ | | |
+| 10. | Large | ☐ | | |
+
+---
+
+### Exercise 3.4.2: Contact Identification
+
+**Purpose:** Identify gatekeepers and target employees for each company.
+
+---
+
+#### Activity 3.4.2a: Gatekeeper Identification
+
+For each company on your list, identify:
+
+**Recruiters/HR:**
+- Search LinkedIn for: recruiter, talent acquisition, human resources, HR
+- Record: Name, title, LinkedIn URL, mutual connections
+
+**Company:**  
+**Gatekeeper 1:**  
+Name:  
+Title:  
+LinkedIn:  
+Mutual connections:  
+
+**Gatekeeper 2:**  
+Name:  
+Title:  
+LinkedIn:  
+Mutual connections:  
+
+---
+
+#### Activity 3.4.2b: Target Employee Identification
+
+For each company, identify 2-3 people doing the work you want to do:
+
+**Company:**  
+
+**Target 1:**  
+Name:  
+Title:  
+LinkedIn:  
+Background notes:  
+Mutual connections:  
+
+**Target 2:**  
+Name:  
+Title:  
+LinkedIn:  
+Background notes:  
+Mutual connections:  
+
+**Target 3:**  
+Name:  
+Title:  
+LinkedIn:  
+Background notes:  
+Mutual connections:  
+
+---
+
+### Research Summary
+
+| Step | Action | Complete |
+|------|--------|----------|
+| 1 | Decide company type preference | ☐ |
+| 2 | Build initial list (10 companies) | ☐ |
+| 3 | Research all companies on list | ☐ |
+| 4 | Identify gatekeepers for each | ☐ |
+| 5 | Identify target employees for each | ☐ |
+| 6 | Record all contact information | ☐ |
+
+---
+
+**Module 3.4 Complete**  
+Next: Module 3.5 - Action
+
+---
+
+## Module 3.5: Action
+
+### Module Overview
+
+**Focus:** Active networking and relationship building  
+**Purpose:** Execute your networking strategy through daily outreach, meetings, and relationship development  
+**Estimated Time:** Ongoing daily commitment  
+**Key Tools:** Job Prospects Spreadsheet (Tab 3 - Networking)  
+**Critical:** Any given conversation could lead to a job offer—treat every interaction accordingly  
+**Goal:** Multiple quality job offers to choose from
+
+---
+
+### Introduction
+
+It is time to take action and start building your professional network. Use the skills and techniques discussed in Module 3.3 to contact potential employers, contacts, gatekeepers, and your target industry.
+
+**Review Module 3.3 if you have any doubts or questions.**
+
+---
+
+### Exercise 3.5.1: LinkedIn Network Growth
+
+**Purpose:** Systematically expand your professional network.
+
+---
+
+#### Activity 3.5.1a: Daily Connection Requests
+
+Begin growing your LinkedIn network using the templates and methods discussed in Module 3.3.
+
+**Daily targets:**
+- Send 5-10 connection requests to people in your industry
+- Personalize each request (mention mutual connections, shared interests, or specific reasons for connecting)
+- Accept all reasonable incoming requests
+
+**Tracking:**
+
+| Date | Requests Sent | Requests Accepted | Notes |
+|------|---------------|-------------------|-------|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+---
+
+### Exercise 3.5.2: Outreach Campaign
+
+**Purpose:** Initiate conversations with gatekeepers and target employees.
+
+---
+
+#### Activity 3.5.2a: Gatekeeper Outreach
+
+Contact recruiters and HR professionals using the template from Activity 3.3.4e.
+
+**Outreach Tracker:**
+
+| Company | Gatekeeper | Date Contacted | Response | Follow-up |
+|---------|------------|----------------|----------|-----------|
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+
+---
+
+#### Activity 3.5.2b: Target Employee Outreach
+
+Reach out to people doing the work you want to do. Remember:
+- Ask for advice, not jobs
+- Request no more than 19 minutes
+- Approach with genuine curiosity
+- Offer help in return
+
+**Outreach Tracker:**
+
+| Company | Contact | Date Contacted | Response | Meeting Scheduled |
+|---------|---------|----------------|----------|-------------------|
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+| | | | ☐ Yes ☐ No | |
+
+---
+
+### Exercise 3.5.3: Informational Meetings
+
+**Purpose:** Conduct effective networking conversations.
+
+---
+
+#### Activity 3.5.3a: Meeting Preparation Checklist
+
+Before each meeting:
+
+- [ ] Researched the company thoroughly
+- [ ] Researched the individual (LinkedIn, Google)
+- [ ] Prepared 5-7 genuine questions
+- [ ] Reviewed how your story aligns with theirs
+- [ ] Printed resume (just in case)
+- [ ] Pen and paper ready
+- [ ] Set 17-minute alarm (for 19-minute meetings)
+- [ ] Dressed appropriately
+- [ ] Practiced breathing/centering
+
+---
+
+#### Activity 3.5.3b: Meeting Notes Template
+
+**Meeting with:** _______________  
+**Company:** _______________  
+**Date:** _______________  
+**Duration:** _______________
+
+**Key insights:**
+
+
+
+
+**Their story/background:**
+
+
+
+
+**Advice they gave:**
+
+
+
+
+**Referrals/contacts mentioned:**
+
+
+
+
+**Ways I can help them:**
+
+
+
+
+**Follow-up actions:**
+- [ ] Send thank you note within 24 hours
+- [ ] Connect on LinkedIn (if not already)
+- [ ] Follow up on referrals within 1 week
+- [ ] Add to networking spreadsheet
+
+---
+
+### Exercise 3.5.4: Relationship Development
+
+**Purpose:** Convert initial contacts into lasting professional relationships.
+
+---
+
+#### Activity 3.5.4a: Follow-Up System
+
+**After every meeting:**
+1. Send thank you note within 24 hours
+2. Connect on LinkedIn with personalized note
+3. Follow up on any referrals within 1 week
+4. Add contact to your relationship management system
+5. Schedule reminder to check in within 2-4 weeks
+
+---
+
+#### Activity 3.5.4b: Referral Chain Tracking
+
+**Goal:** Earn at least one referral from each positive contact.
+
+| Original Contact | Referral 1 | Referral 2 | Referral 3 |
+|------------------|------------|------------|------------|
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+| | | | |
+
+---
+
+### Exercise 3.5.5: Opportunity Development
+
+**Purpose:** Convert relationships into concrete opportunities.
+
+---
+
+#### Activity 3.5.5a: Opportunity Tracker
+
+Seize any opportunity to engage in professional development:
+- Shadowing
+- Workplace visits
+- Meeting co-workers
+- Attending company events
+- Informal coffee meetings
+
+| Opportunity | Company | Contact | Date | Outcome |
+|-------------|---------|---------|------|---------|
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+| | | | | |
+
+---
+
+### Daily Action Checklist
+
+Use this checklist daily throughout your job search:
+
+**Morning:**
+- [ ] Review today's scheduled meetings/calls
+- [ ] Send any pending follow-up emails
+- [ ] Check LinkedIn for messages and connection acceptances
+
+**Midday:**
+- [ ] Send 5-10 new connection requests
+- [ ] Research 1-2 new companies
+- [ ] Reach out to 2-3 new contacts
+
+**Evening:**
+- [ ] Update networking spreadsheet
+- [ ] Send thank you notes for any meetings
+- [ ] Plan tomorrow's outreach
+- [ ] Log flow tracking (Exercise 1.3.2c)
+- [ ] Practice skill sharpening (Exercise 1.5.1b)
+- [ ] Complete mindfulness practice (Exercise 1.5.3a)
+- [ ] Reframe any rejections (Exercise 2.2.3)
+
+---
+
+### Module 3.5 Key Reminders
+
+1. **Approach with curiosity, NOT job requests**
+2. **Ask for advice and insights**
+3. **Request referrals to others**
+4. **Offer help before leaving**
+5. **Send thank you notes**
+6. **Track all interactions**
+7. **Be persistent but respectful**
+8. **Any conversation could lead to an offer**
+
+---
+
+### Module 3.5 Footnotes
+
+*This module applies all frameworks from Module 3.3. Refer to those footnotes for source citations.*
+
+---
+
+**Module 3.5 Complete**  
+**Part 3: Branches Complete**
+
+---
+
+## Program Summary: The Dream Tree
+
+You have now completed all three parts of The Dream Tree:
+
+### Part 1: Roots – Understanding Your Foundation
+- Documented your skills, talents, and knowledge
+- Identified your environmental and people preferences
+- Mapped your flow states and priorities
+- Explored your relationships and self-understanding
+- Established daily practices for growth
+
+### Part 2: Trunk – Connecting Your Past to Your Future
+- Clarified your work and life values
+- Identified your value compass (your "light")
+- Mastered the five designer mindsets
+- Generated career possibilities
+- Selected and planned three career paths
+- Crafted your identity story
+
+### Part 3: Branches – Reaching Into the World
+- Created professional profiles and presence
+- Learned effective networking strategies
+- Built your company research system
+- Began active relationship building
+- Developed your negotiation skills
+
+---
+
+## Ongoing Practices
+
+Continue these daily practices throughout your job search and career:
+
+| Practice | Time | Purpose |
+|----------|------|---------|
+| Flow Tracking | 5 min | Identify engaging activities |
+| Skill Sharpening | 15+ min | Build expertise |
+| Mindfulness | 5-20 min | Mental discipline |
+| Networking Outreach | 30-60 min | Build relationships |
+| Failure Reframing | Weekly | Transform obstacles |
+
+---
+
+## Final Thoughts
+
+Remember: **You are the perfect fit somewhere.** The job market rewards those who understand the hidden dynamics and put in the relentless effort to build genuine relationships.
+
+Your story matters. Your skills matter. Your values matter.
+
+Now go find the place where all of these align, and create the career—and life—you deserve.
+
+**Grow towards your light.**
+
+---
+
+*The Dream Tree © Braedon Long*
+
+---
+# MBTI Personality Types
+
+## Table of Contents
+
+- [ENFJ](#enfj)
+- [INFJ](#infj)
+- [ENFP](#enfp)
+- [INFP](#infp)
+- [ENTJ](#entj)
+- [INTJ](#intj)
+- [ENTP](#entp)
+- [INTP](#intp)
+- [ESTJ](#estj)
+- [ISTJ](#istj)
+- [ESFJ](#esfj)
+- [ISFJ](#isfj)
+- [ESTP](#estp)
+- [ISTP](#istp)
+- [ESFP](#esfp)
+- [ISFP](#isfp)
+
+---
+
+## ENFJ
+
+**Extraverted, Intuitive, Feeling, Judging**  
+*Approximately 3–5 percent of the American population*
+
+ENFJs are people-lovers. They place the highest importance on people and relationships and are naturally concerned about others. They take a warm approach to life and feel personally connected to all things.
+
+Because they are idealistic and live by their values, ENFJs are very loyal to the people, causes, or institutions they respect and admire. They are energetic and enthusiastic, as well as responsible, conscientious, and persevering.
+
+ENFJs have a natural tendency to be self-critical. However, because they feel responsible for the feelings of others, ENFJs are seldom critical in public. They are acutely aware of what is (and isn't) appropriate behavior, and are gracious, charming, personable, and socially adept. Even-tempered and tolerant, ENFJs are diplomatic and are good at promoting harmony around them. They are natural leaders, popular and charismatic. They tend to be good communicators, and usually use their expressive gift verbally.
+
+ENFJs make decisions based upon how they feel about a situation, rather than how the situation actually stands. They are interested in possibilities beyond what is already obvious, and in the ways these possibilities might affect others.
+
+Being naturally orderly, ENFJs prefer an organized world and expect others to be the same way. They like to have matters settled, even if someone else is making the decisions.
+
+ENFJs radiate sympathy and understanding and are nurturing and supportive of others. They read people well and are responsible and caring. Since they are idealists, they generally look for the good in others.
+
+### Possible Blind Spots
+
+ENFJs are so empathetic and caring that they can become overly involved with the problems or feelings of others. Sometimes they choose causes that aren't worthy of all the time and energy they pour into them. When things don't work out well, they can become overwhelmed, disappointed, or disillusioned. This can lead them to withdraw, feeling they weren't appreciated. ENFJs need to learn to accept their own limitations as well as those of the people they care about. They also need to learn how to "pick their battles" and how to maintain realistic expectations.
+
+Because of their strong desire for harmony, ENFJs can overlook their own needs and ignore real problems. Because they avoid conflict, they sometimes maintain relationships that are less than honest and equal. ENFJs are so concerned about the feelings of others that they can be blind to important facts when the situation involves criticism or hurt feelings. It's important that ENFJs learn how to accept and deal with conflict as a necessary part of relationships.
+
+Because they are enthusiastic and in a hurry to get on with their next challenge, ENFJs sometimes make incorrect assumptions or make decisions too quickly, without gathering all the important facts. They need to slow down and pay closer attention to the details of their projects. By waiting until enough information is known, they can avoid making mistakes.
+
+ENFJs focus on emotions to the point that they can fail to see the logical consequences of their actions. Trying to focus on the facts, not just the people, involved in their decisions can be helpful.
+
+ENFJs respond well to praise, but are easily hurt by criticism, which can make them appear touchy. They take even the most innocent or well-intentioned criticism personally, and they often respond by becoming flustered, hurt, or angry. Their responses can be illogical to the point that they appear downright irrational to others. ENFJs do well to stop, take a step back, and try to see a situation objectively before reacting. Trying to be less sensitive will enable an ENFJ to hear the important and helpful information that is contained in constructive criticism.
+
+ENFJs are so idealistic that they tend to see things the way they wish they were. They are vulnerable to idealizing relationships, and they tend to overlook facts that contradict what they believe. ENFJs who don't learn to face facts they find disagreeable end up ignoring their problems instead of finding solutions for them. In general, ENFJs need to try to keep their eyes open as well as their hearts.
+
+---
+
+## INFJ
+
+**Introverted, Intuitive, Feeling, Judging**  
+*Approximately 2–3 percent of the American population*
+
+INFJs inhabit a world of ideas. They are independent, original thinkers with strong feelings, firm principles, and personal integrity.
+
+INFJs trust their own ideas and decisions even in the face of skepticism. They are motivated by an inner vision that they value above all else, including prevailing opinion or established authority. INFJs often see deeper meanings and have intuitive insights into situations. Their inspirations are important and valid to them even if others don't share their enthusiasm.
+
+INFJs are loyal, committed, and idealistic. They are quietly forceful in having their ideas accepted and applied. They value integrity and can be determined to the point of being stubborn. Because of the strength of their conviction and their clear vision of what is best for the common good, INFJs can be great leaders. They are often honored or respected for their contributions.
+
+Because they value harmony and agreement, INFJs like to persuade others of the validity of their viewpoint. They win the cooperation of others by using approval and praise, rather than argument or intimidation. INFJs will go to great lengths to promote fellowship and avoid conflict.
+
+Generally thoughtful decision makers, INFJs find problems stimulating and usually reflect carefully before they act. They prefer to focus in great depth on one thing at a time, which can result in periods of single-mindedness.
+
+Empathetic and compassionate, INFJs have a strong desire to contribute to the welfare of others. They are aware of other people's emotions and interests, and often deal well with complicated people. INFJs themselves tend to have deep, complex personalities and can be both sensitive and intense. They can be reserved and hard to get to know, but are willing to share their inner selves with people they trust. They tend to have a small circle of deep, longstanding friendships, and can generate plenty of personal warmth and enthusiasm in the right circumstances.
+
+### Possible Blind Spots
+
+Since they tend to be so absorbed with "the idea," INFJs can sometimes be impractical and are capable of neglecting routine details that need attention. Becoming more aware of what is around them and relying more on proven information helps INFJs anchor their creative ideas in the real world.
+
+INFJs can be so committed to their own principles that they develop tunnel vision. They can be stubborn about change, and may resist changing a decision once it has been made. Sometimes they overlook important facts that don't support their position, or resist ideas that conflict with their values. They may not hear the objections of others because, to them, their position seems unquestionable. INFJs need to attempt to look at themselves and at their work more objectively, as others might.
+
+Because they are so protective of their own vision, INFJs tend to overregulate. They are often perfectionists, and they can be hypersensitive to criticism. Although they are strong-willed, they also have difficulty dealing with conflicts in relationships and can become disappointed or disillusioned if conflicts develop. The more objective INFJs can be about themselves and their relationships, the less vulnerable they will be to these kinds of hurts.
+
+---
+
+## ENFP
+
+**Extraverted, Intuitive, Feeling, Perceiving**  
+*Approximately 6–7 percent of the American population*
+
+ENFPs are full of enthusiasm and new ideas. Optimistic, spontaneous, creative, and confident, they have original minds and a strong sense of the possible. For an ENFP, life is an exciting drama.
+
+Because they are so interested in possibilities, ENFPs see significance in all things and prefer to keep lots of options open. They are perceptive and keen observers who notice anything out of the ordinary. ENFPs are curious; they prefer to understand rather than judge.
+
+Imaginative, adaptable, and alert, ENFPs value inspiration above all else and are often ingenious inventors. They are sometimes nonconformists, and are good at seeing new ways of doing things. ENFPs open up new avenues for thought or action… and then keep them open!
+
+In carrying out their innovative ideas, ENFPs rely on their impulsive energy. They have lots of initiative and find problems stimulating. They also get an infusion of energy from being around other people, and can successfully combine their talents with the strengths of others.
+
+ENFPs are charming and full of vitality. They treat people with sympathy, gentleness, and warmth and are ready to help anyone with a problem. They can be remarkably insightful and perceptive, and they often care about the development of others. ENFPs avoid conflict and prefer harmony. They put more energy into maintaining personal relationships than into maintaining objects, and they like to keep a wide assortment of relationships alive.
+
+### Possible Blind Spots
+
+Since they find it so easy to generate ideas, ENFPs have difficulty focusing on just one thing at a time and can have trouble making decisions. They see so many possibilities that they have difficulty selecting the best activity or interest to pursue. Sometimes they make poor choices or get involved with too many things at once. Carefully choosing where they will focus their energy helps ENFPs avoid wasting their time and squandering their considerable talents.
+
+To an ENFP, the fun part of a project is the initial problem solving and creation of something new. They like to exercise their inspiration on the important and challenging parts of a problem. After this stage, they often lose interest and lack the self-discipline necessary to complete what they've started. They are likely to start many projects but finish few. ENFPs have more to show for their efforts when they follow through with the necessary but tedious parts of a project until it is completed. Often writing important facts or steps down on paper helps them keep from getting sidetracked.
+
+Often ENFPs are not particularly well organized. They can benefit from learning and applying time management and personal organizational skills. They do well when they team up with other more realistic and practical people. This usually suits them fine anyway, since ENFPs don't like working alone, especially for extended periods of time. They find working with another person, even on a less interesting phase of a project, far preferable to working alone.
+
+ENFPs are not much interested in details. Since they are more excited about using their imagination and creating something original, they may not bother to collect all the information they need in order to carry out a particular activity. Sometimes they just improvise on the spot, instead of planning and preparing ahead. Because they find information gathering tedious, ENFPs run the risk of never getting past the "bright idea" stage or, once started, never finishing. Always restless, they'd rather put off dealing with troublesome details and move on to something else new or unusual. ENFPs are more effective when they consciously attend to the actual world around them and gather more realistic impressions to make their innovations workable.
+
+---
+
+## INFP
+
+**Introverted, Intuitive, Feeling, Perceiving**  
+*Approximately 3–4 percent of the American population*
+
+INFPs value inner harmony above all else. Sensitive, idealistic, and loyal, they have a strong sense of honor concerning their personal values and are often motivated by deep personal belief or by devotion to a cause they feel is worthy.
+
+INFPs are interested in possibilities beyond what is already known and focus most of their energy on their dreams and visions. Open-minded, curious, and insightful, they often have excellent long-range vision. In day-to-day matters they are usually flexible, tolerant, and adaptable, but they are very firm about their inner loyalties and set very high—in fact, nearly impossible—standards for themselves.
+
+INFPs have many ideals and loyalties that keep them occupied. They are deeply committed to whatever they choose to undertake—and they tend to undertake too much but somehow get everything done.
+
+Although they demonstrate cool reserve on the outside, INFPs care deeply inside. They are compassionate, sympathetic, understanding, and very sensitive to the feelings of others. They avoid conflict and are not interested in impressing or dominating others unless their values are at stake. Often INFPs prefer to communicate their feelings in writing, rather than orally. When they are persuading others of the importance of their ideals, INFPs can be most convincing.
+
+INFPs seldom express the intensity of their feelings and often appear reticent and calm. However, once they know you, they are enthusiastic and warm. INFPs are friendly, but tend to avoid superficial socializing. They treasure people who take the time to understand their goals and values.
+
+### Possible Blind Spots
+
+Since logic is not a priority for INFPs, they sometimes make errors of fact and can be unaware that they are being illogical. When their dreams become out of touch with reality, others may see them as flighty and mystical. INFPs do well to ask the advice of more practical people to find out if their ideas are workable and useful in the real world.
+
+Because they are so committed to their own ideals, INFPs have a tendency to overlook other points of view and can sometimes be rigid. They are not particularly interested in physical surroundings, and often are so busy that they fail to notice what is happening around them.
+
+INFPs may reflect on an idea much longer than is really necessary to begin a project. Their perfectionistic tendencies can lead them to refine and polish their ideas for so long that they never share them. This is dangerous, since it is important for INFPs to find ways of expressing their ideas. To keep from getting discouraged, they need to work toward becoming more action-oriented.
+
+INFPs are so emotionally entangled in their undertakings that they are very sensitive to criticism. To complicate things further, they tend to demand too much of themselves as they aspire to their own impossibly high standards. This can lead to feelings of inadequacy, even though they in fact are capable of accomplishing a great deal. When INFPs are disappointed, they tend to become negative about everything around them. Trying to develop more objectivity about their projects will help keep INFPs less vulnerable to both criticism and disappointment.
+
+Because INFPs tend to try to please many people at the same time, it can be hard for them to stand up for an unpopular position. They hesitate to criticize others, and they have a hard time saying no. When INFPs don't express their negative opinions about ideas or plans, others can be misled into thinking they agree with them. INFPs need to develop more assertiveness, and can benefit from learning how to offer honest criticism of others when needed.
+
+---
+
+## ENTJ
+
+**Extraverted, Intuitive, Thinking, Judging**  
+*Approximately 2–5 percent of the American population*
+
+ENTJs are great leaders and decision makers. They easily see possibilities in all things and are happy to direct others toward making their vision become a reality. They are ingenious thinkers and great long-range planners.
+
+Because ENTJs are so logical and analytical, they are usually good at anything that requires reasoning and intelligence. Driven to achieve competence in all they do, they can naturally spot the flaws that may exist in a situation and see immediately how to improve them. They strive to perfect systems rather than simply accept them as they are. ENTJs enjoy working with complex problem solving and are undaunted in their pursuit of mastery of anything they find intriguing. ENTJs value truth above all else and are convinced only by logical reasoning.
+
+Eager to continually add to their base of knowledge, ENTJs are systematic about planning and researching new things. They enjoy working with complex theoretical problems and work toward the pursuit of mastery of anything they find intriguing. They are much more interested in the future consequences of actions than the present condition of things.
+
+Natural leaders with a hearty and frank style, ENTJs tend to take charge of any situation they find themselves in. They are good organizers of people because they have the ability to see ahead and then communicate their vision to others. They tend to live by a rather strict set of rules and expect others to do so as well. Therefore, they tend to be challenging and push others as hard as they push themselves.
+
+### Possible Blind Spots
+
+Owing to their desire to move on to the next challenge or toward their larger goal, ENTJs sometimes make decisions too hastily. Slowing down occasionally will give the chance to gather all relevant data, and consider both the practical and personal ramifications of their actions. Their action orientation propels them to act on their decisions as soon as they are made rather than stopping to double check their facts and the realities of the situation.
+
+Because ENTJs take a logical approach to life, they can be tough, blunt, impatient, and insensitive to the needs and feelings of others when they don't see the logic of those feelings. ENTJs can be argumentative and difficult to approach and don't often welcome the commonsense advice of others. Rather than automatically being critical, they need to listen to the input of those around them and express their appreciation for their contributions. ENTJs need to make a conscious effort—in fact to make it a rule—to stop and listen to others before charging ahead with their own ideas, and avoid acting domineering and dictatorial.
+
+ENTJs' impersonal approach to life leaves little time, tolerance, or compassion for emotions, even their own. When they allow their feelings to go ignored or unexpressed, they can find themselves overreacting emotionally. They are particularly prone to this if they perceive someone to be questioning their competence, especially someone they respect. They can have explosive reactions to seemingly insignificant situations, and these outbursts can be hurtful to those close to them. ENTJs are more effective and happy when they give themselves time to consider and understand how they really feel. Giving their emotions a constructive outlet, rather than allowing them to take over their personalities, will actually allow them to stay more fully in control, a position they enjoy and strive for. Surprisingly, ENTJs may actually be less experienced and competent than their confident style indicates. They will increase their personal power and rate of success by allowing themselves to take some reasonable and valuable assistance from others.
+
+---
+
+## INTJ
+
+**Introverted, Intuitive, Thinking, Judging**  
+*Approximately 2–4 percent of the American population*
+
+INTJs are perfectionists. Their strong need for autonomy and personal competence, as well as their unshakable faith in their own original ideas, drives them to achieve their objectives.
+
+Logical, critical, and ingenious, INTJs can see the consequences of the application of new ideas and live to see systems translated into real substance. They are demanding with themselves and others, and tend to drive others almost as hard as themselves. They are not particularly bothered by indifference or criticism. As the most independent of all types, INTJs prefer to do things their own way. They are usually skeptical, decisive, and determined in the face of opposition. They are not impressed with authority per se, but can conform to rules only if they see them as useful to their greater purpose.
+
+With original minds, great insight, and vision, INTJs are natural brainstormers. They are naturally theoretical and work well with complex and global concepts. They are good strategic thinkers and can usually see with clarity the benefits and flaws of any situation. In subjects that interest them, they are fine organizers with insight and vision. If the idea or project is of their own making, they can invest incredible concentration, focus, energy, and drive. Their many accomplishments are achieved through determination and perseverance toward reaching or exceeding their high standards.
+
+### Possible Blind Spots
+
+Being visionaries with sometimes unrealistically high standards, INTJs may expect too much from themselves and others. In fact, they tend not to care how they measure up to others' standards; it is their own that are important. They may lack an understanding of how their behavior affects others and can be critical and blunt in giving recommendations for improvement. They don't often encourage others to challenge their views or express any personal feelings. Because INTJs have a rather impersonal style, they may erroneously assume others wish to be treated in the same manner. They need to learn to understand the seemingly "illogical" feelings of others, and accept that they are rational and valid. This will help keep them from alienating and offending those around them.
+
+Because INTJs place so much value on their own visions and ideas for the future, they are vulnerable to missing some important realities and facts of the present moment. They may also fail to recognize practical weaknesses in their ideas that may make their execution more difficult. Gathering all the relevant and factual data will help ensure that their ideas are workable. INTJs need to simplify their often theoretical and complicated ideas so they can communicate them to others.
+
+Because INTJs often choose to be alone and are single-minded in their efforts, they can neglect to invite others to participate or assist in their activities. Soliciting the input and suggestions of others can help them recognize an impractical idea earlier in the process, or help them make the necessary changes and improvements before investing huge amounts of time.
+
+Increased effectiveness for INTJs lies in making an effort to yield on less important points to win the more important ones. This will also decrease the likelihood of the INTJ becoming too stubborn and controlling. When they make an effort to adopt a more accepting approach to life and their dealings with others, INTJs will achieve more balance and competence, and will succeed at having more of their innovations accepted by the world.
+
+---
+
+## ENTP
+
+**Extraverted, Intuitive, Thinking, Perceiving**  
+*Approximately 2–5 percent of the American population*
+
+ENTPs love excitement and challenge. Enthusiastic and ingenious, they are talkative, clever, and good at many things and constantly strive to increase their competence and personal power.
+
+ENTPs are born enterprising. They are fascinated with new ideas and are alert to all possibilities. They have strong initiative and operate on creative impulse. ENTPs value their inspiration above all else and strive to turn their original ideas into reality. They are inquisitive, versatile, adaptable, and resourceful in solving challenging and theoretical problems.
+
+Alert and outspoken, ENTPs can easily see the flaw in any position and often enjoy arguing for fun on either side of an issue. They have excellent analytical abilities and are great strategic thinkers. They can almost always find a logical reason for the things that they want.
+
+Most ENTPs like to test the limits around them and consider that most rules and regulations are meant to be bent, if not broken. They are sometimes unconventional in their approach and enjoy helping others to push past what is accepted and expected. They like to live freely and look for fun and variety in everyday situations.
+
+ENTPs deal imaginatively with social relationships and often have a great number and variety of friends and acquaintances. They can display great humor and optimism. ENTPs can be charming and stimulating company and often inspire others to become involved in their projects through their infectious enthusiasm. They prefer to try to understand and respond to people rather than judge them.
+
+### Possible Blind Spots
+
+Because ENTPs value creativity and innovation above all else, they sometimes ignore the standard way of doing something simply because it is not original. Their intense dislike for the routine and predictable can make it difficult for them to notice the necessary details. They sometimes neglect the needed preparation when, in their zeal to take on something fresh, they dive in too quickly. And once major problems are solved, they are often off to the next exciting adventure rather than sticking around to see the original project through. They need to work toward making commitments to fewer projects so they will complete more of the ones they start.
+
+Often, ENTPs talk so quickly, and so much, they don't allow others to contribute. They are honest and fair but can be blunt and tactless in their ready criticism of others. ENTPs need to consider the feelings of others as valid and important, even if they don't share them. While they can be charming, funny, and entertaining, they can also be insincere. ENTPs need to resist the urge to simply adapt and perform, and instead share their genuine emotions.
+
+ENTPs' reluctance to commit to one thing stems from the fear that they may miss other, more appealing opportunities. Their desire to remain open and responsive to new challenges can make them undependable and inconsiderate of the plans and schedules of others. Thinking through how their actions affect others will help them be more dependable.
+
+ENTPs' natural quickness and ability to anticipate what is coming means they occasionally assume erroneously that they knew what the person was going to say, and may jump in to finish their sentences. Taking the time to pay closer attention to what is actually going on in the real world around them and listening carefully to the input and reactions of others will help them avoid appearing arrogant and rude.
+
+---
+
+## INTP
+
+**Introverted, Intuitive, Thinking, Perceiving**  
+*Approximately 3–5 percent of the American population*
+
+INTPs are conceptual problem solvers. They are intensely intellectual and logical, with flashes of creative brilliance.
+
+Outwardly quiet, reserved, and detached, INTPs are inwardly absorbed in analyzing problems. They are critical, precise, and skeptical. They try to find and use principles to understand their many ideas. They like conversation to be logical and purposeful and may argue to the point of hairsplitting just for fun. INTPs are convinced only by logical reasoning.
+
+INTPs are usually ingenious and original thinkers. They prize intelligence in themselves, have a strong drive for personal competence, and are interested in challenging other people to become more competent as well. INTPs are primarily interested in seeing possibilities beyond what is currently known, accepted, or obvious. They like to develop models for improving the way things are or solving difficult problems. They think in extremely complex ways and are better able to organize concepts and ideas than they are able to organize people. Occasionally, their ideas are so complex they have difficulty communicating and making others understand them.
+
+Highly independent, INTPs enjoy speculative and imaginative activities. They are flexible and open-minded and are more interested in finding creative yet sound solutions to problems than they are in seeing those solutions made into reality.
+
+### Possible Blind Spots
+
+Because INTPs rely so heavily on their logical analysis, they can overlook what matters to others. If something is not logical, INTPs run the risk of dismissing it, even if it is important to them. Admitting to themselves what they really care about will help them stay in touch with their true feelings.
+
+INTPs are excellent at detecting the flaws in an idea but are more reticent about expressing their appreciation. They can get bogged down on a minor flaw in one part of a plan and keep the entire project from moving toward completion because they refuse to let one illogical point remain within the whole. When they turn their highly honed critical thinking skills on the people around them, their naked honesty may translate into unintended hurtfulness. They need to be told, and need to learn to ask, what matters emotionally to others.
+
+Because INTPs are fascinated with solving problems, they tend to be impatient with routine details and may lose interest in a project and never complete it if it requires too much follow-through or detail. Turning their energy outward will enable them to gain sufficient practical knowledge to make their ideas workable and acceptable to other people.
+
+INTPs sometimes feel inadequate when they try to live up to their own high standards of perfection. Learning to share those feelings with someone else can help them get a more realistic and objective view of themselves.
+
+---
+
+## ESTJ
+
+**Extraverted, Sensing, Thinking, Judging**  
+*Approximately 8–12 percent of the American population*
+
+ESTJs are great at getting things done. They like to run the show and make things happen. They are responsible, conscientious, and faithful to their commitments. They like structure and can remember and organize many details. They systematically set about achieving their goals on schedule and as efficiently as possible.
+
+ESTJs are driven to make decisions. Often they base their decisions on their own past experience. They are logical, objective, and analytical and have great reasoning power. In fact, they are unlikely to be persuaded by anything but logic.
+
+ESTJs are realistic, practical, and matter-of-fact. They are more interested in "real things" than in intangibles, such as abstract ideas and theories. They tend to not be interested in subjects for which they see no practical application. They know what's happening around them and are concerned primarily with the here and now.
+
+Because they live by a certain set of rules, ESTJs are consistent and dependable. They tend to be traditional and interested in maintaining established institutions. They are consistent in their relationships, although their emotional and social life is not as important to them as other aspects of life. They are comfortable judging others, and can be crisp disciplinarians.
+
+ESTJs are outgoing, sociable, direct, and friendly. They are usually easy to get to know, since "what you see is what you get."
+
+### Possible Blind Spots
+
+Because ESTJs adopt a strict code of ethics for both themselves and others, they can be seen as dictatorial when they attempt to impose their standards of behavior on others. Attempting to be more flexible and open-minded will prevent an ESTJ from becoming rigid.
+
+Being logical and impersonal analysts, ESTJs don't naturally consider the impact their decisions have on others. They can be seen as cold and uncaring, and often need to become more aware of their own feelings as well as more respectful of the thoughts and feelings of others.
+
+Since they are naturally critical, ESTJs usually don't demonstrate their appreciation of the positive attributes or contributions of those around them. They need to try to become more aware of the talents and efforts of others, and then offer compliments and praise.
+
+Sometimes ESTJs are so intent on their own plans that they don't stop to listen to what others have to say. They don't naturally ask "what if," so they often miss possible meanings, implications, connections, and patterns. An easy way to protect against being close-minded is to wait a few seconds before speaking, giving others a chance to offer input.
+
+ESTJs often jump to conclusions without gathering all the necessary information or taking the time to fully understand a situation. They need to learn to consciously delay making decisions until they have considered more information, especially alternatives they may have overlooked.
+
+ESTJs who have been able to relinquish some of the control they seek and who have learned to see that there are gray areas in life (rather than seeing things only in black and white) become more adaptable and successful.
+
+---
+
+## ISTJ
+
+**Introverted, Sensing, Thinking, Judging**  
+*Approximately 11–14 percent of the American population*
+
+ISTJs are the serious, responsible, and sensible stalwarts of society. They are trustworthy and honor their commitments. Their word is their solemn vow.
+
+Practical and realistic, ISTJs are matter-of-fact and thorough. They are painstakingly accurate and methodical, with great powers of concentration. Whatever they are doing they accomplish with orderliness and reliability. They have unshakable, well-thought-out ideas and are difficult to distract or discourage once they have embarked on what they believe to be the best course of action.
+
+Characteristically quiet and hardworking, ISTJs have great practical judgment and memory for details. They can cite accurate evidence to support their views and apply their past experiences to their present decisions. They value and use logic and impersonal analysis, are organized and systematic in their approach to following things through and getting them done on time. They follow necessary systems and procedures and are impatient with those who do not.
+
+ISTJs are cautious and traditional. They listen well and like things to be factual and clearly stated. They are said to "Say what you mean and mean what you say." Private by nature, ISTJs appear calm even during times of crisis. They are duty bound and steadfast but beneath their calm facade, they may have strong yet rarely expressed reactions.
+
+### Possible Blind Spots
+
+A common problem for ISTJs is their tendency to lose themselves in the details and daily operations of a project. Once immersed, they can be rigid and unwilling to adapt or accept another point of view. They tend to be skeptical of new ideas if they don't see their immediate and practical application. They need to take time to look at their overall objectives and consider alternatives they may not have considered. Gathering a wider range of information and consciously trying to anticipate the future implications of their behavior will increase the ISTJ's effectiveness in all areas.
+
+ISTJs sometimes have trouble understanding the needs of others, especially those that are different from their own. Because they keep their reactions private, they can be perceived as cold and unfeeling. They need to express their appreciation for others directly, rather than keeping it to themselves.
+
+Because they are logical, ISTJs tend to expect others to be so as well. They run the risk of imposing their judgments on others and overriding the opinions of less assertive people. They can demand conformity to their way of doing things and discourage more creative or innovative approaches. By staying open to untested or unconventional methods, they will develop more tolerance for differences in people, and also end up with more effective alternatives and options.
+
+---
+
+## ESFJ
+
+**Extraverted, Sensing, Feeling, Judging**  
+*Approximately 9–13 percent of the American population*
+
+ESFJs are motivated to help other people in real and practical ways through direct action and cooperation. They are responsible, friendly, and sympathetic.
+
+Because ESFJs place such importance on their relationships with other people, they tend to be popular, gracious, eager to please, and talkative. They need harmonious relationships with others and work hard to achieve and maintain them. In fact, they often idealize whatever or whomever they admire. ESFJs need to be appreciated for themselves and their service, so they are highly sensitive to indifference or criticism. They usually express strong opinions and are decisive, and they like to have things settled.
+
+Practical and realistic, ESFJs tend to be matter-of-fact and organized. They attend to and remember important facts and details and like others to be sure of their facts as well. They base their planning and opinions on their own personal experience or that of someone else they trust. They are aware of and involved with their physical environment and like to be active and productive.
+
+Because ESFJs are conscientious and traditional, they are bound by their sense of duty and commitments. They nurture established institutions and tend to be active and cooperative members of committees and organizations. Their social ties are important and well maintained. They often go out of their way to do something helpful and nice for someone else and especially enjoy being responsive in times of trouble or great celebration.
+
+### Possible Blind Spots
+
+Because ESFJs value harmony so highly, they tend to avoid conflicts rather than deal with problems head-on. They sometimes place too much importance and value on the opinions and feelings of those they care for. During tense or hurtful times, they can become blind to the facts of the situation. They need to learn to deal directly and honestly with conflict, trusting that their natural sensitivity to others' feelings will provide them with the necessary tact in even the most difficult situations.
+
+ESFJs often overlook their own needs because of their desire to please or help other people. They have a difficult time saying no or asking for help because they don't want to risk offending or disappointing anyone. They usually have trouble giving or accepting constructive criticism because they take things so personally. They can become pessimistic and gloomy when they don't see ways to make changes in their lives. Taking a step back from their problems to get some objectivity usually helps them gain a fresh outlook.
+
+In their efforts to help other people, ESFJs sometimes express their strong opinions in ways that are bossy and domineering. They do better to wait to find out if their help or suggestions are really wanted before offering them.
+
+ESFJs often make decisions too quickly, before they've had adequate time to gather all the less obvious facts and consider the implications of their actions. They don't tend to look for new or different ways of doing things and can appear inflexible. Postponing judgments in favor of staying open to novel approaches to problems will give them a better base of information and help them make better decisions.
+
+---
+
+## ISFJ
+
+**Introverted, Sensing, Feeling, Judging**  
+*Approximately 9–14 percent of the American population*
+
+ISFJs are loyal, devoted, compassionate, and perceptive about how other people feel. They are conscientious and responsible and enjoy being needed.
+
+ISFJs are down-to-earth and realistic people and prefer others who are quiet and unassuming. They absorb and enjoy using a large number of facts. With great memories for details, they are patient with the follow-through phase of tasks. ISFJs like things to be clearly and explicitly stated.
+
+Because they have a strong work ethic, they accept responsibility for things that need to be done, if they can see that their actions will actually help. They are painstakingly accurate and systematic in handling tasks. ISFJs tend to be conservative, with traditional values. They use practical judgment in making decisions and lend stability through their excellent commonsense perspective.
+
+Quiet and modest, ISFJs are serious and hardworking. They are gentle, sympathetic, tactful, and supportive of friends and colleagues. They like to care for others and prefer to help in practical and tangible ways. They use personal warmth to communicate, and they relate well to people in need. ISFJs tend not to show their private feelings but have an intensely personal reaction to most situations and events. They are protective and devoted to their friends, service-minded, and committed to meeting their obligations.
+
+### Possible Blind Spots
+
+Because ISFJs live so completely in the present, they have trouble seeing events in global terms or anticipating the possible outcomes of a situation, especially when it is unfamiliar. They need help looking beyond the moment and imagining what might or could be if things were done differently.
+
+ISFJs can become mired in the daily grind and the unending work around them, both their own and others' for whom they feel responsible. They can easily become overworked, doing everything themselves to be sure that tasks are completed meticulously. Because they are not naturally assertive or tough-minded, they risk being taken advantage of. They need to express their frequently bottled-up feelings of resentment so they don't find themselves in the rescuing role. They also need to let other people know their needs and their accomplishments.
+
+ISFJs often need extra time to master technical subjects. They tend to plan excessively and need to develop strategies that will help them refocus the energy they often expend worrying. ISFJs need to find ways of getting the much-needed enjoyment and relaxation they deserve.
+
+---
+
+## ESTP
+
+**Extraverted, Sensing, Thinking, Perceiving**  
+*Approximately 4–5 percent of the American population*
+
+ESTPs don't worry—they're happy! Active, easygoing, and spontaneous, ESTPs enjoy the present moment rather than planning for the future.
+
+Extremely realistic, ESTPs rely on and trust what their senses tell them about their world. They are curious and keen observers. Because they accept things as they are, they tend to be open-minded and tolerant of others and themselves. ESTPs like real things that can be handled, taken apart, and put back together.
+
+ESTPs prefer action to conversation and enjoy dealing with situations as they arise. They are good problem solvers because they can absorb necessary factual information and then find logical and sensible solutions quickly, without a lot of wasted effort or energy. They can be diplomatic negotiators, happy to try unconventional approaches and usually able to persuade other people to give their compromises a chance. They are able to grasp underlying principles and make decisions based upon what is logical, rather than on how they feel about things. Therefore they are pragmatic and can be tough when the situation warrants.
+
+Friendly and charming, ESTPs are popular and at ease in most social situations. They are outgoing, versatile, and funny, and may have an endless supply of jokes and stories for whatever situation they find themselves in. They can be good at easing tense situations by lightening up the atmosphere and getting conflicting parties together.
+
+### Possible Blind Spots
+
+ESTPs' preference for living in the moment and adopting an "emergency" style of responding to unexpected crises can result in a chaotic environment for those around them. They may miss opportunities through lack of planning. They sometimes take on too much at one time and find themselves overloaded and unable to keep their commitments. ESTPs need to look beyond the current moment and their interest in the material world to try to anticipate ways of finishing tasks on time.
+
+ESTPs also tend to overlook other people's feelings and may be blunt and insensitive in their desire to be honest, especially when they are rushing from one experience to another. Their flamboyance can sometimes be perceived as crudeness and may alienate the people they are trying to entertain. ESTPs become more effective with other people when they direct their keen powers of observation to be sensitive to the people around them. They are more effective when they rein in their boldness, energy, and love of a good time to a level where other people are more comfortable.
+
+More interested in solving problems quickly and effortlessly, ESTPs tend to jump directly into the next crisis and not follow through on the less-exciting portions of current projects. They do well to learn and apply time management and long-range planning techniques to help them prepare for and complete responsibilities. Slowing down to develop standards for their own behavior and considering the ramifications of their actions will make them more effective.
+
+---
+
+## ISTP
+
+**Introverted, Sensing, Thinking, Perceiving**  
+*Approximately 4–6 percent of the American population*
+
+ISTPs are straightforward, honest, and pragmatic people who prefer action to conversation. They are unpretentious and often have a good understanding of the way things work.
+
+Because they are analytical, ISTPs are most interested in the impersonal and underlying principles of things. ISTPs have an innate understanding of how mechanical things work and are usually skilled at using tools and working with their hands. They tend to make logical and private decisions, stating things clearly and directly, just as they see them.
+
+Curious and observant, ISTPs tend to be convinced only by hard, reliable facts. They have a great respect for facts and can be veritable storehouses of information on the things they know well and understand. Because they are realists, they are able to capitalize well on available resources, which makes them practical, with a good sense of timing.
+
+Quiet and reserved, ISTPs tend to appear cool and aloof and are inclined toward shyness, except when with good friends. They are self-leading, egalitarian, and fair. They tend to operate on impulse, so they are quite adaptable and responsive to immediate challenges and problems. Because they thrive on excitement and action, they usually like the outdoors and sports.
+
+### Possible Blind Spots
+
+Because ISTPs make judgments privately, they often keep even the most important issues to themselves, which leaves the people in their lives in the dark about what is going on. They have difficulty sharing their reactions, feelings, and concerns with others because it seems unnecessary to them. They need to accept that other people want and need to know what is going on in their lives and realize they are the only ones who can provide an accurate explanation.
+
+ISTPs are so realistic that they can usually see ways of minimizing effort on almost all projects. Because of their desire to have free time, they often don't prepare more than is absolutely necessary or may not stick with a project to its conclusion. This can lead them to cut corners. Mapping out a plan, complete with all the steps and details, will help them curb their potential lack of initiative and reduce their apparent indifference.
+
+Because ISTPs are constantly on the alert for new sensory information and prefer to keep all their options open, they may be indecisive. Their need for excitement can make them reckless and also easily bored. Setting goals and making serious commitments to people and things will help them avoid the common disappointments and dangers of such a potentially haphazard lifestyle.
+
+---
+
+## ESFP
+
+**Extraverted, Sensing, Feeling, Perceiving**  
+*Approximately 4–9 percent of the American population*
+
+ESFPs enjoy people and have a real zest for living. They are playful and vivacious, and make things more fun for others by their pure and unabashed enjoyment.
+
+Adaptable and easygoing, ESFPs are warm, friendly, and generous. They are extremely sociable and are often "on stage" with others. They enthusiastically and cooperatively join in activities and games and are usually juggling several activities at once.
+
+ESFPs are realistic observers and see and accept things as they are. They tend to trust what they can hear, smell, taste, touch, and see instead of theoretical explanations. Because they like concrete facts and have good memories for details, they learn best from hands-on experience. Their common sense gives them practical abilities with people and things. They prefer to gather information and see what solutions naturally arise.
+
+Tolerant and accepting of themselves and others, ESFPs don't tend to try to impose their will on other people. Tactful and sympathetic, ESFPs are generally and genuinely liked by many people. They are usually able to get people to adopt their suggestions, so they are good at helping conflicting factions get back together. They seek out the company of others and are good conversationalists. They enjoy helping other people but prefer to assist in real and tangible ways.
+
+Spontaneous and charming, ESFPs are persuasive. They love surprises and finding ways of bringing delight and unexpected pleasure to others.
+
+### Possible Blind Spots
+
+Because ESFPs place such a strong priority on experiencing and enjoying life, they sometimes allow their other responsibilities to suffer. Their constant socializing can interfere and get them into trouble and because they are so easily tempted, they have difficulty disciplining themselves. ESFPs' tendency to become distracted from finishing the tasks they start can make them lazy. By working to prioritize their activities, and finding a balance between work and play, they will gain a broader perspective and longer-range vision for their lives. Using successful and accepted methods of organization and time management helps them overcome this natural predisposition.
+
+Their active life keeps them so busy, they fail to plan ahead. This can leave them unprepared for life's changes that would be easier to cope with if clues of their approach had been noticed. ESFPs need to try to anticipate what might be coming down the road and develop an alternative plan in case things become unpleasant.
+
+ESFPs also tend to make decisions without considering the logical consequences of their actions. Their own personal feelings are trusted and used to the exclusion of more objective data. Friends are so highly valued by ESFPs that they tend to look only at their positive sides. ESFPs need to take a step back to consider the cause and effect of actions and work toward becoming more tough-minded. Saying no will not be nearly as difficult if they do.
+
+---
+
+## ISFP
+
+**Introverted, Sensing, Feeling, Perceiving**  
+*Approximately 5–9 percent of the American population*
+
+ISFPs are gentle, caring, and sensitive people, who keep much of their intensely personal ideals and values to themselves. They more often express their deeply felt passions through actions than through words.
+
+Modest and reserved, ISFPs are really tremendously warm and enthusiastic people but tend not to show that side of themselves except with people they know well and trust fully. ISFPs tend to be misunderstood because of their tendency not to express themselves directly.
+
+ISFPs are patient, flexible, and easy to get along with and have little need to dominate or control others. They are nonjudgmental and accepting of others' behavior in a rather matter-of-fact way. They are observant of people and things around them and do not seek to find motives or meanings.
+
+Because ISFPs live completely in the present moment, they do not tend to prepare or plan more than is necessary. Good short-range planners, they are relaxed about getting things done because they are fully engaged in the here and now and like to enjoy the current experience without rushing on to the next.
+
+Interested in what they learn and sense directly from their experiences and senses, they are often artistic and aesthetic, and seek to create beautiful and personal environments for themselves.
+
+Without the need to lead, ISFPs are often loyal followers and good team members. Because they use their personal values to judge everything in life, they like other people who take the time to get to know them and understand their inner loyalties. Basically trusting and understanding, they need harmonious relationships in their lives and are sensitive to conflicts and disagreements.
+
+### Possible Blind Spots
+
+The highly sensitive nature of ISFPs allows them to clearly see the needs of other people, and they sometimes work so excessively to fulfill those needs that they neglect themselves in the process. This can result in their becoming physically ill from exhaustion and overwork. They need to take time out from caring for others to take care of themselves.
+
+Because they focus so completely on their experience in the moment, they tend not to look beyond the present, and miss the broader view. They sometimes have difficulty understanding things in a more complex context. Because they don't usually look for or see possibilities that don't exist at the present time, they don't tend to prepare in advance. They often have trouble organizing their time and resources. They may have to work hard to curb their impulse to go off and enjoy a quiet moment, or participate in a favorite activity.
+
+ISFPs are vulnerable to the criticism of others because they tend to take feedback personally and become offended and discouraged. They may be seen as gullible and too trusting because they accept people and things as they are and don't expect a malicious motive or read anything else into them. They need to become more assertive about their own needs and consider the implications of another's behavior. By applying some objectivity and skepticism to their analysis, they can become better judges of character.
+
+# Competency Framework
+
+---
+
+## Job Families
+
+Classifying jobs into families allows us to classify jobs across industries then determine the maximum impact of your capabilities and target your best employment level. Using this framework provides insights into expected and unexpected potential, corporate learning opportunities, career development, and the development of your personal brand.
+
+---
+
+## Technical Competencies
+
+Specific competencies are usually required to perform a given job within a job family or industry. These are known as technical competencies. Technical competencies cover the various fields of expertise relevant to the specific work. Technical competencies are at the core of your employment.
+
+Technical competency requirements to successfully perform a given job are generally defined in job vacancy announcements.
+
+---
+
+## Core Competencies
+
+The Core Competencies summarize the capabilities that are important across all jobs and that collectively contribute to the success of all businesses. That said, the importance of each competency may vary according to the specific job duties and requirements.
+
+This Competency Framework displays fifteen Core Competencies grouped into three clusters.
+
+---
+
+## Definitions
+
+### Delivery-related – Achieving Results
+
+**Analytical Thinking** is the ability to identify patterns across situations that are not obviously related, and to identify key or underlying issues in complex situations.
+
+**Achievement Focus** is generating results by assuming responsibility for one's performance and the correctness of one's interventions, and recognizing opportunities and acting efficiently at the appropriate moment and within the given deadlines.
+
+**Drafting Skills** are based on the ability to respectfully communicate ideas and information (often technical) in writing to ensure that information and messages are understood and have the desired impact.
+
+**Flexible Thinking** involves the ability to effectively adapt to a variety of situations, individuals or groups. It is based on the ability to understand and appreciate different and opposing perspectives on an issue, to adapt an approach as the requirements of a situation change, and to change or easily accept changes in one's own organizational or job requirements.
+
+**Managing Resources** is about understanding human, financial, and operational resource issues to make decisions aimed at building and planning efficient project workflows, and at improving overall organizational performance.
+
+**Teamwork and Team Leadership** implies working co-operatively with others, being a part of a team, and assuming the role of leader of a team. In the OECD, people work not only with their own teams but also with teams and groups across and outside the Organization. Therefore they need to work together effectively with interdependent goals and common values and norms to foster a collaborative environment and drive teams in the same direction.
+
+---
+
+### Interpersonal – Building Relationships
+
+**Client Focus** is based on the ability to understand internal/external clients' (e.g. Committees, working groups, country representatives, etc.) needs and concerns in the short to long-term and to provide sound recommendations and/or solutions.
+
+**Diplomatic Sensitivity** implies understanding other people. It includes the ability to hear accurately and understand unspoken, partly expressed thoughts, feelings and concerns of others. Included in this competency is an emphasis on cross-cultural sensitivity. Proficiency in Diplomatic Sensitivity requires the ability to keep one's emotions under control and restrain negative actions when faced with opposition or hostility from others or when working under stress.
+
+**Influencing** implies an intention to convince others in an honest, respectful and sensitive manner in order to get them to go along with one's objectives. It can also be the desire to have a specific impact or effect on others.
+
+**Negotiating** involves the ability to work towards win-win outcomes. At lower levels, this competency assumes an understanding of one's counterparts and how to respond to them during negotiations. At the higher levels, the competency reflects a focus to achieve value-added results.
+
+**Organizational Knowledge** is the ability to understand the power relationships within the Organization and with other organizations. It includes the ability to understand the formal rules and structures including the ability to identify who the real decision-makers are as well as the individuals who can influence them.
+
+---
+
+### Strategic – Planning for the Future
+
+**Developing Talent** means fostering an environment that will encourage professional and personal growth and the transfer of knowledge to future talent.
+
+**Organizational Alignment** is the ability and willingness to align one's own behavior with the needs, priorities, and goals of the Organization, and to act in ways that promote the Organization's goals or meet organizational needs. Organizational Alignment means focusing on the Organization's mission before one's own preferences or professional priorities.
+
+**Strategic Networking** involves working to build and maintain friendly, trustworthy and open internal and external relationships and networks with people who are, or might become, important actors in achieving strategic-related goals.
+
+**Strategic Thinking** is the ability to develop a broad, big-picture view of the Organization and its mission. Competitive advantage and threats, industry trends, emerging technology, market opportunities, stakeholder focus – Strategic Thinking is where these all come together. Strategic Thinking keeps individuals and groups focused and helps decide where to invest critical resources. It includes the ability to link long-range visions and concepts to daily work.
+
+---
+
+## Key Indicators by Level
+
+Each level of the Core Competencies has behavioral indicators that highlight how an individual can demonstrate that competency. Behavioral indicators are designed to show the requirements for successful performance.
+
+---
+
+### Level 1
+
+*Typically associated with jobs such as Assistants, Secretaries, and Operators.*
+
+#### Delivery-related – Achieving Results
+
+**Analytical Thinking**
+- Distinguishes between critical and irrelevant pieces of information.
+- Gathers information from a variety of sources to reach a conclusion.
+
+**Achievement Focus**
+- Defines ambitious, but realistic, personal goals.
+- Works while meeting quality and performance standards.
+- Promptly and efficiently completes work assignments.
+
+**Drafting Skills**
+- Tailors communication (e.g. content, style and medium) to diverse audiences.
+- Writes and presents factual material in a concise manner.
+
+**Flexible Thinking**
+- Proposes ways to do things differently.
+- Understands and recognizes the value of other points of view and ways of doing things.
+- Displays a positive attitude in the face of ambiguity and change.
+
+**Managing Resources**
+- Organizes the use of resources to meet expectations and identifies difficulties.
+- Plans, coordinates and manages internal and external resources to accomplish assignments within the given deadlines.
+
+**Teamwork and Team Leadership**
+- Initiates collaboration with others and spontaneously assists others in the delivery of their work.
+- Shares all relevant information with others and seeks others' input.
+- Expresses own opinion while remaining factual and respectful.
+
+#### Interpersonal – Building Relationships
+
+**Client Focus**
+- Responds to and anticipates client needs in a timely, professional, helpful and courteous manner, regardless of client attitude.
+- Clearly shows clients that their perspectives are valued.
+- Strives to consistently meet service standards.
+
+**Diplomatic Sensitivity**
+- Listens actively, considers people's concerns and adjusts own behavior in a helpful manner.
+- Understands the reason behind, or motivation for someone's actions.
+- Is attentive when doing projects and assignments, or when interacting with people from different countries and backgrounds.
+- Expresses negative feelings constructively.
+
+**Influencing**
+- Checks own understanding of others' communication (e.g. paraphrases, asks questions).
+- Maintains continuous, open and consistent communication with others.
+- Builds on successful initiatives to gain support for ideas.
+- Adapts arguments to others' needs/interests.
+
+**Negotiating**
+- Identifies main negotiating points of a given issue and engages in negotiation.
+- Listens to differing points of view and promotes mutual understanding.
+
+**Organizational Knowledge**
+- Demonstrates understanding of the general environment in which the Organization operates.
+- Understands and uses the Organization's structures, rules and networks.
+- Knows and respects the Organization's Code of Conduct and values.
+
+#### Strategic – Planning for the Future
+
+**Strategic Networking**
+- Actively nurtures both formal and informal contacts to facilitate the progress of work by proactively sharing information, best practices, respective interests and areas of expertise.
+- Identifies current or past contacts that can provide work-related information or assistance.
+- Fosters two-way trust in dealing with contacts (e.g. maintains confidentiality regarding sensitive information).
+
+**Strategic Thinking**
+- Identifies new information or data to key decision-makers or stakeholders to support their understanding and decisions.
+
+**Developing Talent**
+- Takes advantage of learning opportunities provided (e.g. courses, feedback from supervisor or peers) to meet requirements of current job.
+- Sets clear self-development expectations.
+
+**Organizational Alignment**
+- Explains the role and goals of the Organization and how they relate to own area of work.
+- Is able to explain how own work relates to the work of the Organization.
+
+---
+
+### Level 2
+
+*Typically associated with jobs such as Statisticians, Corporate Management and Administration Assistants/Officers, Logistics Officers, and Documentations.*
+
+#### Delivery-related – Achieving Results
+
+**Analytical Thinking**
+- Identifies critical connections and patterns in information/data.
+- Soundly analyses verbal and numerical data.
+- Recognizes causes and consequences of actions and events that are not readily apparent.
+- Anticipates and thinks ahead about next steps.
+
+**Achievement Focus**
+- Demonstrates the ability to challenge existing practices in order to become more effective.
+- Contributes to improve work methods, outcomes and team performance.
+- Generates results by acting in a focused way and within the deadlines, and finds ways to go around obstacles with minimum guidance.
+- Makes efforts to optimize process workflows efficiently using technology.
+
+**Drafting Skills**
+- Writes information coming from multiple sources in a logical and comprehensive, yet concise manner.
+- Combines information from various sources in a concise and consistent manner.
+- Makes sound use of graphics and tables to effectively present numerical data.
+
+**Flexible Thinking**
+- Anticipates having to adapt work methods to changing technology and environments.
+- Considers problems from all new perspectives and can expand on the thinking or solutions proposed by others.
+- Adapts to new ideas and initiatives relevant to own area of work.
+- Understands and promotes the Organization's business needs and policies for introducing change.
+
+**Managing Resources**
+- Manages the allocation of resources in relation to business needs.
+- Manages the work plan, sets timelines and milestones, and involves stakeholders to deliver on time.
+- Provides advice on procedures and the use of financial resources.
+
+**Teamwork and Team Leadership**
+- Supports others in taking independent action.
+- Resolves issues that occur with minimal direction.
+- Invites and builds upon the ideas of others.
+- Assumes additional responsibilities to facilitate the achievement of team goals.
+
+#### Interpersonal – Building Relationships
+
+**Client Focus**
+- Follows-up with clients during and after the delivery of services to ensure that their needs have been met.
+- Keeps clients up-to-date on the progress of the service they are receiving and changes that affect them.
+- Ensures service is provided to clients during critical periods.
+- Prioritizes clients' issues and addresses them accordingly.
+
+**Diplomatic Sensitivity**
+- Listens actively, considers people's concerns and adjusts own behavior in a helpful manner.
+- Understands the reason behind, or motivation for someone's actions.
+- Is attentive when doing projects, assignments or interacting with people from different countries and backgrounds.
+- Expresses negative feelings constructively.
+
+**Influencing**
+- Persuades by using concrete examples to make a point.
+- Recalls others' main points and takes them into account in own communication.
+- Reads cues from various listeners to assess when and how to change the planned communication approach to effectively deliver messages.
+
+**Negotiating**
+- Identifies main negotiating points of a given issue and engages in negotiation.
+- Listens to differing points of view and promotes mutual understanding.
+
+**Organizational Knowledge**
+- Seeks to understand and raises awareness of the Organization's decision making bodies and power relationships.
+- Shares knowledge about and encourages others to keep up-to-date with the Organization's rules, structures, networks, systems and environment.
+- Recognizes what is and is not acceptable/possible at certain times given the Organizational rules, structures, decision-making bodies, power relationships, Code of Conduct, and values.
+- Raises compliance, ethical or other issues to protect the Organization's reputation and obligations.
+
+#### Strategic – Planning for the Future
+
+**Developing Talent**
+- Actively shares knowledge among peers or offers advice to less experienced colleagues.
+- Self-assesses against standards for current position to identify learning needs.
+- Effectively transfers acquired knowledge and expertise.
+- Demonstrates initiative in professional self-development.
+
+**Organizational Alignment**
+- Is able to present the Organization's priorities as they relate to own area of work.
+- Explains and convinces others of the need for adaptation and change of policies, structures, and methods.
+
+**Strategic Networking**
+- Actively nurtures both formal and informal contacts to facilitate the progress of work by proactively sharing information, best practices and respective interests and areas of expertise.
+- Identifies current or past contacts that can provide work-related information or assistance.
+- Fosters two-way trust in dealing with contacts (e.g. maintains confidentiality regarding sensitive information).
+
+**Strategic Thinking**
+- Identifies new information or data to key decision-makers or stakeholders to support their understanding and decisions.
+
+---
+
+### Level 3
+
+*Typically associated with jobs such as Economists/Policy Analysts, IT Analysts, and HR Advisers.*
+
+#### Delivery-related – Achieving Results
+
+**Analytical Thinking**
+- Independently engages in tasks requiring interpretation of complex and often vague sets of information.
+- Identifies gaps in information and makes assumptions in order to continue analysis and/or take action.
+- Seeks a wide range of sources of information.
+
+**Achievement Focus**
+- Identifies needed adjustments in own area of responsibility and sets priorities accordingly.
+- Considers the implications of proposed courses of actions.
+- Takes new initiatives aimed at improving team performance.
+
+**Drafting Skills**
+- Writes on complex and highly specialized issues.
+- Conveys critical nuances and qualifiers to facilitate complete understanding of the material.
+
+**Flexible Thinking**
+- Seeks best practices inside and outside the Organization to anticipate change.
+- Stays open-minded and encourages others to bring new perspectives.
+
+**Managing Resources**
+- Allocates and controls resources within own area of responsibility/scope of assignment.
+- Identifies needs for resources to effectively support current initiatives, services and offerings.
+- Manages assignments' delivery process and deadlines.
+
+**Teamwork and Team Leadership**
+- Assumes accountability for work delegated to others (peers, team members, experts, etc.).
+- Seeks to work with teams with complementary skills/expertise.
+- Encourages people with opposing viewpoints to express their concerns.
+- Resolves conflict among team members sensitively and fairly.
+
+#### Interpersonal – Building Relationships
+
+**Client Focus**
+- Brings together aspects of a trend or policy into a clear picture for others to understand.
+- Looks for ways to add value beyond clients' immediate requests and acts on them.
+- Anticipates clients' upcoming needs and concerns.
+- Explores and addresses long-term client needs.
+
+**Diplomatic Sensitivity**
+- Maintains objectivity when one's own positions or opinions are challenged by peers or stakeholders.
+- Encourages others to contribute by overcoming cultural barriers and background differences.
+- Remains objective when facing criticism.
+
+**Influencing**
+- Uses compelling argumentation to convey conclusions and ideas.
+- Understands others' complex or underlying needs, motivation, emotions or concerns and adjusts communication effectively.
+
+**Negotiating**
+- Identifies minimal or ideal conditions of others during negotiations.
+- Negotiates based on first-hand observations and information collected from both sides avoiding using hearsay or personal opinions.
+
+**Organizational Knowledge**
+- Anticipates outcomes based on an understanding of organizational decision-making bodies and power relationships.
+- Promotes and encourages others to keep up-to-date with the Organization's rules, structures, decision-making bodies, networks, power relationships and environment.
+
+#### Strategic – Planning for the Future
+
+**Developing Talent**
+- Helps others learn from experience and development initiatives. Recommends readings, trainings and other resources.
+- Continually acquires and applies new knowledge and learning to improve job performance.
+- Provides constructive feedback to others.
+
+**Organizational Alignment**
+- Stays aware of the organizational objectives and monitors current developments and trends that may affect implementation of organizational direction, programs or plans.
+- Helps others understand the strategic goals of the Organization and how their work relates to these.
+
+**Strategic Networking**
+- Evaluates current network for effectiveness and relevance to achieving strategic objectives within own area.
+- Identifies and creates opportunities to initiate new connections that will facilitate the achievement of strategic goals within own area.
+
+**Strategic Thinking**
+- Demonstrates awareness of the impact of own work on aspects of organizational strategy, and the impact of organizational strategy on own work.
+- Identifies implications of own analysis.
+
+---
+
+### Level 4
+
+*Typically associated with jobs such as Senior Economists/Policy Analysts or Managers.*
+
+#### Delivery-related – Achieving Results
+
+**Analytical Thinking**
+- Develops conceptual frameworks that guide analysis.
+- Draws sound conclusions based upon a mixture of analysis and experience.
+
+**Achievement Focus**
+- Sets challenging goals for his/her area of responsibility in relation to business opportunities.
+- Measures the risks involved while taking a course of action.
+- Engages in action at the right time and to achieve results.
+
+**Drafting Skills**
+- Transforms technical information to engage a non-specialist audience.
+- Tailors communication to the reader and to the context to positively influence policies, reforms, and directions.
+- Edits work delegated to others.
+
+**Flexible Thinking**
+- Contributes to shaping business practices and policies.
+- Shares new ideas and perspectives to adjust business strategies.
+- Encourages others to see the positive outcome of doing things differently.
+
+**Managing Resources**
+- Advises and/or develops practical solutions to address resource issues that impact the effectiveness of a team or project and the work to be delivered.
+- Allocates and controls financial resources within own area consistent with goals, priorities and budget.
+- Organizes people and activities, separates and combines tasks into an efficient workflow to deliver project outputs according to a clear timeframe.
+
+**Teamwork and Team Leadership**
+- Provides clear directions and priorities to teams.
+- Delegates responsibility to individuals to make them accountable for successful execution.
+- Organizes teamwork to encourage co-operation and bring together complementary skills/expertise.
+- Credits individual contributions and acknowledges team accomplishments.
+- Facilitates the discussion and resolution of conflicts or disagreement.
+- Encourages and values teams' input.
+
+#### Interpersonal – Building Relationships
+
+**Client Focus**
+- Acts as a seasoned adviser, providing independent opinions on complex client problems and novel initiatives, and assists with handling priority issues.
+- Gives the client constructive feedback about issues/problems encountered.
+- Advocates on behalf of clients to senior management, identifying approaches that meet the clients' needs as well as those of the Organization.
+
+**Diplomatic Sensitivity**
+- Identifies and responds to underlying attitudes or behavior patterns such as cultural norms and personality differences.
+- Phrases ideas in a way that avoids negative reactions (internally as well as externally).
+- Reacts purposefully to frustrations.
+
+**Influencing**
+- Communicates complex issues clearly and credibly with widely varied audiences.
+- Scans the environment for key information and messages to form the development of communication strategies.
+- Uses situations (e.g. the setting, people present, sequence of events) to create a desired impact and to maximize the chances of a favorable outcome.
+
+**Negotiating**
+- Prepares and effectively runs negotiating meetings to achieve a specific objective.
+- Negotiates in a constructive manner when tackling difficult issues.
+- Makes realistic compromises during negotiations.
+- Maintains an objective, non-emotional distance from interpersonal conflicts or arguments that arise during negotiations.
+- Focuses on achieving value-added results during negotiations.
+
+**Organizational Knowledge**
+- Based on knowledge of the Organization's governance, rules, structures and people, recognizes the opportune time for action, having positioned all key elements to maximize the probability of success.
+- Manages compliance, ethical and other issues to protect the Organization's reputation and respect its obligations.
+
+#### Strategic – Planning for the Future
+
+**Developing Talent**
+- Assembles teams with complementary skills and promotes the expectation that they will learn from one another.
+- Identifies and plans learning, targeted to specific developmental needs in current position.
+- Encourages others to take on new responsibilities in order to support professional development.
+- Gives feedback that is constructive and precise based on facts and behavioral patterns observed, and gives individualized suggestions for improvement.
+
+**Organizational Alignment**
+- Promotes a shared understanding of the Organization's needs and strategic direction to rally teams.
+- Develops and implements projects, programs and processes aligned with the Organization's strategic direction and needs.
+
+**Strategic Networking**
+- Actively and continuously expands own network to meet strategic goals.
+- Identifies and creates opportunities to initiate new partnerships that will facilitate the achievement of strategic goals.
+
+**Strategic Thinking**
+- Identifies and considers emerging development opportunities and risks when articulating new options and recommendations.
+- Maintains a broad, strategic perspective while identifying and focusing on crucial details.
+
+---
+
+### Level 5
+
+*Typically associated with jobs such as Heads of Division, Counsellors, Deputy Directors, and Directors.*
+
+#### Delivery-related – Achieving Results
+
+**Analytical Thinking**
+- Is sought out by others for advice and solutions on how to best interpret and use information.
+- Discerns the level of pressure or influence to apply in each aspect of the analysis in relation to the broader context.
+
+**Achievement Focus**
+- Assesses group performance against goals and identifies areas for improvement.
+- Translates business opportunities into concrete measures that are beneficial for the Organization.
+- Dares to take calculated risks in order to let the business develop positively.
+
+**Drafting Skills**
+- Handles creation of strategic written communication for the Organization.
+- Reviews complex and/or sensitive work carried out identifying the impact for the Organization.
+
+**Flexible Thinking**
+- Is intellectually agile in response to challenges of internal and external environments.
+- Solicits ideas and responds positively to those of staff, committees and the Secretary-General.
+
+**Managing Resources**
+- Sets and redefines priorities and reorganizes staff to increase the group's response capacity to internal and external demands.
+- Evaluates the financial impact of decisions and develops strategies to address financial resource issues.
+
+**Teamwork and Team Leadership**
+- Makes team assignments within and outside of the Division/Directorate to facilitate horizontal work.
+- Delegates authority to match responsibility, and holds staff accountable for agreed upon commitments.
+- Appropriately involves others in decisions and plans that affect them.
+- Promotes group morale and productivity by being clear about output expectations.
+- Sees arising conflict and takes action at Division/Directorate/Organization level.
+
+#### Interpersonal – Building Relationships
+
+**Client Focus**
+- Builds client's confidence using own personal reputation in the international community and expertise.
+- Knows when it is appropriate to push clients to consider difficult issues and acts accordingly.
+- Determines strategic direction and long-term opportunities to best meet clients' evolving needs.
+- Monitors, evaluates and, as needed, renews the client service model and service standards.
+
+**Diplomatic Sensitivity**
+- Makes one's case tactfully, especially when dealing with the highest level of government officials.
+- Knows when to stand firm and when to accommodate.
+- Accurately hears and understands the unspoken thoughts or feelings of others and acts purposefully.
+
+**Influencing**
+- Handles strategic communication issues for the Organization in highly-exposed situations.
+- Handles difficult on-the-spot questions (e.g. from senior executives, public officials, interest groups, or the media).
+- Anticipates and builds on others' reactions to keep momentum and support for an approach.
+- Uses experts or other third parties to influence (e.g. takes multiple actions to make staged arguments, assembles political coalitions, builds "behind-the-scenes" support for ideas).
+- Takes well thought-out impactful actions to win a point or reach an agreement.
+
+**Negotiating**
+- Constructively works towards a win-win solution during negotiations.
+- Explores creative solutions with others to overcome antagonism and to develop partnerships.
+- Successfully leads negotiations with strong impact on one's unit.
+- Demonstrates more than one preferred negotiating style (e.g. competing, co-operative, avoiding, compromise, accommodating) and adapts depending on the counterpart and context.
+- Demonstrates an ability to step back when necessary from the negotiation process while staying focused on the objective.
+
+**Organizational Knowledge**
+- Uses knowledge of corporate politics to handle complex situations effectively and with discretion.
+- Understands the nature and limits of related organizations and government agencies, and uses that knowledge to influence and lead.
+- Takes ownership of compliance, ethical and other issues in order to protect the Organization's reputation and respect its obligations.
+
+#### Strategic – Planning for the Future
+
+**Developing Talent**
+- Delegates authority and responsibility with the capacity to do a task in one's own way and encourages others to take the lead and learn new skills.
+- Promotes sharing of expertise and supports learning opportunities across the Division/Directorate/Organization.
+- Develops a common understanding and is transparent about staff potential to take over new responsibilities.
+- Sets an example for staff development in the Division/Directorate/Organization.
+- Encourages others to develop their people through development dialogues and action plans.
+
+**Organizational Alignment**
+- Uses a variety of means to communicate the Organization's needs and strategic directions.
+- Develops a strategic direction for one's unit that connects the role of the team to the success of the Organization.
+- Ensures the initiatives and priorities in one's area are integrated with one another and aligned with the strategic priorities of the broader Organization.
+- Aligns people, processes and structures with strategic direction and Organizational needs.
+
+**Strategic Networking**
+- Manages relationships among key outside organizations and government entities to create long-range opportunities.
+- Utilizes established network of relationships to seek information of strategic importance and to seek a position of influence in key forums.
+
+**Strategic Thinking**
+- Understands the position of the Organization in the larger world context; conveys a thorough understanding of the Organization's/Directorate's/Division's strengths, weaknesses, opportunities and threats; identifies competitive differentiators.
+- Considers the bigger picture while setting priorities and the way forward.
+
+---
+# List of Skills
+
+*As adapted from R. Bolles — What Color Is Your Parachute and others*
+
+---
+
+## Overview
+
+This resource provides a comprehensive inventory of skills organized into two main categories: **Transferable Skills** (what you can do) and **Self-Management Skills** (how you do it). Use this list as a reference when completing the exercises in Module 1.1.
+
+---
+
+## Transferable Skills
+
+Transferable skills are the things you can do—generally verbs. These skills transfer across jobs, industries, and life situations.
+
+---
+
+### People Skills
+
+**Leadership & Initiative**
+- Initiate
+- Lead
+- Pioneer
+- Supervise
+- Manage
+- Follow through
+- Accomplish
+- Motivate
+
+**Influence & Persuasion**
+- Persuade
+- Sell
+- Recruit
+- Consult
+- Advise
+- Coordinate
+- Negotiate
+- Resolve conflict
+- Network
+- Connect
+
+**Care & Support**
+- Heal
+- Cure
+- Assess
+- Evaluate
+- Treat
+- Empathize
+- Interview
+- Comfort
+- Encourage
+- Build esteem
+- Counsel
+
+**Teaching & Communication**
+- Instruct
+- Teach
+- Tutor
+- Train
+- Speak
+- Listen
+- Counsel
+- Guide
+- Mentor
+
+**Communication Methods**
+- Communicate in person
+- Communicate in writing
+- Communicate digitally
+
+**Entertainment & Performance**
+- Divert
+- Amuse
+- Entertain
+- Perform
+- Act
+- Play an instrument
+
+**Foreign Language**
+- Speak
+- Write
+- Read
+- Interpret
+- Communicate
+
+**Service**
+- Serve
+- Care for
+- Follow
+
+---
+
+### Data and Ideas Skills
+
+**Creative & Conceptual**
+- Use intuition
+- Create
+- Innovate
+- Invent
+- Design
+- Be original
+- Visualize
+- Imagine
+- Think
+- Synthesize
+
+**Organizational**
+- Systematize
+- Prioritize
+- Organize
+- Classify
+- Recognize patterns
+
+**Analytical**
+- Analyze
+- Compute
+- Remember with excellence
+- Develop
+- Improve
+- Problem solve
+- Plan
+- Program
+
+**Research & Investigation**
+- Research
+- Examine
+- Inspect
+- Compare
+- Contrast
+
+**Sensory & Observational**
+- Sense
+- Hear
+- See
+- Smell
+- Taste
+- Feel
+- Study
+- Observe
+
+**Information Management**
+- Compile
+- Record
+- File
+- Retrieve
+- Copy
+
+---
+
+### Things Skills
+
+**Operations & Production**
+- Control
+- Expedite
+- Make
+- Produce
+- Manufacture
+- Repair
+- Finish
+- Restore
+- Preserve
+
+**Construction & Crafting**
+- Construct
+- Shape
+- Model
+- Sculpt
+- Cut
+- Carve
+- Chisel
+
+**Artistic**
+- Paint
+- Draw
+- Sketch
+
+**Assembly & Operation**
+- Set-up
+- Assemble
+- Handle
+- Tend
+- Feed
+- Operate
+- Drive
+- Manipulate
+
+**Physical Dexterity or Strength**
+- Body
+- Hands
+- Fingers
+
+---
+
+## Self-Management Skills
+
+Self-management skills describe the way you do your work—generally adjectives and adverbs. These traits characterize your working style and personal qualities.
+
+---
+
+### Complete List (Alphabetical)
+
+- Accurate
+- Achievement oriented
+- Adaptable
+- Adept
+- Adventurous
+- Alert
+- Appreciative
+- Assertive
+- Astute
+- Authoritative
+- Calm
+- Cautious
+- Charismatic
+- Competent
+- Consistent
+- Contagiously enthusiastic
+- Cooperative
+- Courageous
+- Creative
+- Decisive
+- Deliberate
+- Dependable
+- Diligent
+- Diplomatic
+- Discreet
+- Driven
+- Dynamic
+- Effective
+- Efficient
+- Empathetic
+- Energetic
+- Enthusiastic
+- Exceptional
+- Exhaustive
+- Experienced
+- Expert
+- Economic
+- Firm
+- Flexible
+- Human-oriented
+- Impulsive
+- Independent
+- Innovative
+- Knowledgeable
+- Loyal
+- Methodical
+- Objective
+- Open-minded
+- Outgoing
+- Outstanding
+- Patient
+- Penetrating
+- Perceptive
+- Pioneering
+- Practical
+- Professional
+- Provocative
+- Punctual
+- Quick
+- Rational
+- Realistic
+- Reliable
+- Resourceful
+- Responsible
+- Responsive
+- Safeguarding
+- Self-motivated
+- Self-reliant
+- Sensitive
+- Sophisticated
+- Strong
+- Supportive
+- Tactful
+- Thorough
+- Unique
+- Unusual
+- Versatile
+- Vigorous
+
+---
+
+## How to Use This Resource
+
+1. **During Activity 1.1.1d:** Reference this list when recording transferable skills from your SOARED stories.
+
+2. **During Activity 1.1.2c:** Use the self-management skills section to identify characteristics that describe your working style.
+
+3. **During Activity 1.1.2e:** Combine self-management skills with transferable skills to create powerful skill descriptions (e.g., "methodically analyze," "creatively problem solve," "diplomatically negotiate").
+
+---
+
+*Return to Module 1.1: Work Factors 1*
+
+---
+
+# Citation Quick Reference Guide
+## Where to Cite Each Book in The Dream Tree
+
+This guide shows where each source should be cited with footnotes in the workbook text.
+
+---
+
+## Part 1: Roots - Understanding Your Foundation
+
+### Module 1.1: Work Factors 1
+
+**First mention of skills categorization:**
+"According to researcher Sydney Fine, skills can be broken down into three categories: Knowledges, Self-management, and Transferable Skills.¹"
+→ **CITE: Fine (1989)**
+
+**When introducing MBTI:**
+"We will be using an adaptation of Myers-Briggs² as a tool to help us learn about ourselves."
+→ **CITE: Myers-Briggs Type Indicator**
+
+**When directing to personality test:**
+"Take the free assessment at: www.16personalities.com³"
+→ **CITE: NERIS Analytics (16personalities.com)**
+
+**When personality types inform career matching:**
+"Consider which careers might align with your personality type⁴"
+→ **CITE: Tieger & Barron-Tieger, *Do What You Are***
+
+### Module 1.2: Work Factors 2
+
+**When discussing life-work integration philosophy:**
+"Your work should support your life, not the other way around⁵"
+→ **CITE: Caligiuri, *Get a Life, Not a Job***
+
+### Module 1.3: Priorities, Ecstasy & Flow
+
+**First mention of flow:**
+"Recall from Week One that engagement is our measure for flow, which is when people are at their best and most productive.⁶"
+→ **CITE: Csikszentmihalyi, *Flow***
+
+**Note on Flow Tracking Methodology:**
+"The Flow Tracking Methodology used in this program is an adaptation of Csikszentmihalyi's flow theory,⁶ created by Braedon Long."
+
+### Module 1.4: Love
+
+**When discussing four life categories:**
+"Life designer Bill Burnett separates our life into four categories: love, health, work, and play.⁷"
+→ **CITE: Burnett & Evans, *Designing Your Life***
+
+**When discussing well-being:**
+"True flourishing requires attention to all aspects of life⁸"
+→ **CITE: Seligman, *Flourish***
+
+### Module 1.5: Health
+
+**When introducing five mindsets:**
+"While looking for something more practical, I came upon the 'designer mindset' laid out by Bill Burnett in his book *Designing Your Life*.⁷"
+→ **CITE: Burnett & Evans, *Designing Your Life***
+
+**When discussing grit:**
+"Grit describes the mental fortitude to work tirelessly for rewards which are either abstract or far removed.⁹"
+→ **CITE: Duckworth, *Grit***
+
+**When emphasizing relentless commitment:**
+"Be relentless in your pursuit of becoming who you're meant to be¹⁰"
+→ **CITE: Grover, *Relentless***
+
+---
+
+## Part 2: Trunk - Connecting Your Past to Your Future
+
+### Module 2.1: Finding The Light
+
+**When discussing values alignment:**
+"The most fulfilling lives grow from the place where life views and work views overlap.⁷"
+→ **CITE: Burnett & Evans, *Designing Your Life***
+
+### Module 2.2: Reality
+
+**When introducing designer mindsets:**
+"The five mindsets—curiosity, bias to action, reframing, awareness, and radical collaboration⁷—are essential to your success."
+→ **CITE: Burnett & Evans, *Designing Your Life***
+
+### Module 2.3: Landmarking
+
+**When discussing career transitions:**
+"When considering your next move, focus on the immediate step rather than a distant destination¹¹"
+→ **CITE: Blake, *Pivot***
+
+### Module 2.4: Launching Pad
+
+**When planning multiple paths:**
+"Create multiple options for your future, allowing flexibility in your career trajectory¹¹"
+→ **CITE: Blake, *Pivot***
+
+### Module 2.5: Story Weaving
+
+**When introducing competency levels:**
+"Review the OECD Competency Framework¹² and identify your current level."
+→ **CITE: OECD Competency Framework**
+
+**When discussing storytelling criteria:**
+"According to Stephen Denning's storytelling framework, your story should demonstrate relevance, clarity, distinctiveness, and consistency.¹³"
+→ **CITE: Denning, *The Leader's Guide to Storytelling***
+
+**When discussing hero's journey:**
+"People generally love a hero's tale. The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective.¹⁴"
+→ **CITE: Campbell, *The Hero with a Thousand Faces***
+
+**When emphasizing authenticity in storytelling:**
+"Everybody has a hero's story of their own.¹⁴ Every person reading this is at a different point in their hero's journey."
+→ **CITE: Campbell, *The Hero with a Thousand Faces***
+
+**When discussing body of work narrative:**
+"Your complete career story—your body of work—tells who you are¹⁵"
+→ **CITE: Slim, *Body of Work***
+
+---
+
+## Part 3: Branches - Reaching Into the World
+
+### Module 3.1: Intentional Impressions
+
+**When discussing job search approach:**
+"The traditional resume-and-apply method is the least effective path to employment¹⁹"
+→ **CITE: Bolles, *What Color Is Your Parachute***
+
+### Module 3.2: Constructing the Projection
+
+**When creating resume:**
+"Your resume should demonstrate your skills with quantifiable results¹⁹"
+→ **CITE: Bolles, *What Color Is Your Parachute***
+
+### Module 3.3: Networking
+
+**When introducing informational interviewing:**
+"The most effective job search strategy is informational interviewing—networking conversations with professionals in your target field.¹⁹"
+→ **CITE: Bolles, *What Color Is Your Parachute***
+
+**When discussing alternative paths:**
+"Rather than following the beaten path, you are going to forge your own. There is always a 'third door'¹⁸—an unconventional route to success."
+→ **CITE: Banayan, *The Third Door***
+
+**When explaining weak ties theory:**
+"As Johns Hopkins sociologist Mark Granovetter demonstrated in his research on 'The Strength of Weak Ties,'¹⁶ people you know casually often have access to information and opportunities your close contacts don't."
+→ **CITE: Granovetter, "The Strength of Weak Ties"**
+
+**When discussing social dynamics and connectors:**
+"Understanding the social dynamics of networks—how connectors, mavens, and influencers operate¹⁷—can help you build more effective relationships."
+→ **CITE: Gladwell, *The Tipping Point***
+
+**When mentioning the "rule of 150":**
+"The magic number of 150 people—the limit for meaningful relationships in one context¹⁷—is why small companies around this size often have unique cultures."
+→ **CITE: Gladwell, *The Tipping Point***
+
+**When introducing conversation principles:**
+"Of all the great advice out there, I have found that Celeste Headlee covers the most critical aspects with her list of ten guidelines to conversations and interviews.¹⁵"
+→ **CITE: Headlee, *We Need to Talk***
+
+**Each of Headlee's 10 principles should be cited:**
+- "1. Don't Multitask¹⁵"
+- "2. Don't Pontificate¹⁵"
+- etc. (all 10 principles)
+
+---
+
+## Sample Footnote Formatting
+
+### In-text Citation Examples:
+
+**Superscript number after relevant sentence:**
+```
+According to researcher Sydney Fine, skills can be broken down into 
+three categories: Knowledges, Self-management, and Transferable Skills.¹
+```
+
+**Multiple sources for one concept:**
+```
+The most fulfilling lives align work values with life values.⁷,⁸
+```
+
+**Same source cited multiple times:**
+```
+First mention: [full citation with superscript ⁷]
+Later mentions: [same superscript number ⁷]
+```
+
+### Footnote Examples:
+
+**Book (single author):**
+```
+9. Duckworth, Angela. *Grit: The Power of Passion and Perseverance.* 
+   New York: Scribner, 2016.
+```
+
+**Book (multiple authors):**
+```
+7. Burnett, Bill, and Dave Evans. *Designing Your Life: How to Build 
+   a Well-Lived, Joyful Life.* New York: Alfred A. Knopf, 2016.
+```
+
+**Journal article:**
+```
+16. Granovetter, Mark S. "The Strength of Weak Ties." *American Journal 
+    of Sociology* 78, no. 6 (1973): 1360-1380.
+```
+
+**Organizational publication:**
+```
+12. Organisation for Economic Co-operation and Development (OECD). 
+    "Competency Framework."
+```
+
+**Website:**
+```
+3. NERIS Analytics Limited. "16Personalities" (website). 
+   www.16personalities.com
+```
+
+---
+
+## Original Works (No Citation Needed - These Are Yours)
+
+When introducing your original frameworks, mark them as such:
+
+**SOARED Framework:**
+```
+"Choose the three most impactful stories and describe these events using 
+the SOARED framework: Situation, Obstacle, Action, Results, Evaluation, 
+Discovery."
+
+[Footnote: SOARED Framework is an original tool created by Braedon Long 
+for this program.]
+```
+
+**Flow Tracking Methodology:**
+```
+"The Flow Tracking Methodology is an original tool by Braedon Long, 
+adapted from Mihaly Csikszentmihalyi's flow theory.⁶"
+```
+
+---
+
+## Citation Density Guidelines
+
+### Heavy Citation Sections:
+- Part 1, Module 1 (skills, personality) - cite liberally
+- Part 1, Module 5 (health, mindsets) - cite frequently
+- Part 2, Module 5 (storytelling) - cite key frameworks
+- Part 3, Module 3 (networking) - cite conversation principles individually
+
+### Light Citation Sections:
+- Exercises and worksheets - minimal citations
+- Your original instructions and examples - no citations
+- Personal story sections - no citations
+
+### General Rule:
+**First mention** of any borrowed concept = citation required
+**Subsequent mentions** of same concept = use same citation number
+**Your synthesis or application** of concepts = no citation needed
+
+---
+
+## Special Citation Notes
+
+### Bill Burnett
+**Most frequently cited source** - appears throughout all three parts
+- Designer mindsets (Parts 1, 2, 3)
+- Four life categories (Part 1)
+- Design thinking approach (Part 2)
+
+### Celeste Headlee
+**Special case** - see COPYRIGHT_ANALYSIS.md
+- Each of 10 principles needs individual citation
+- Consider paraphrasing to reduce copyright concerns
+- Alternative: cite once, then number principles without repeated citations
+
+### Richard Bolles
+**Foundational influence** - inform Part 3 structure overall
+- Cite when introducing informational interviewing concept
+- General job search philosophy doesn't need constant citation
+- Your specific networking process is original, inspired by Bolles
+
+### Joseph Campbell
+**Conceptual influence** - hero's journey framework
+- Cite when discussing authentic storytelling
+- Cite when mentioning "hero's journey" explicitly
+- Your application of concept doesn't need citation
+
+---
+
+## Webapp Implementation
+
+For the webapp version, consider:
+
+1. **Hover citations** - superscript numbers that show full citation on hover
+2. **Expandable bibliography** - click footnote number to expand full reference
+3. **Resources page** - complete bibliography with links to purchase books
+4. **Per-module citations** - show relevant citations at end of each module
+
+---
+
+**Quick Reference Version:** 1.0  
+**Last Updated:** [Date]  
+**Use this guide when:** Adding footnotes to workbook text
+
+
+---
+# The Dream Tree: Credits & Sources
+## Complete Bibliography & Attribution
+
+---
+
+## Primary Author
+**Braedon Long**
+
+---
+
+## Original Frameworks & Tools (Created by Braedon Long)
+- SOARED Storytelling Framework (Situation, Obstacle, Action, Results, Evaluation, Discovery)
+- Flow Tracking Methodology (adapted from Csikszentmihalyi's flow theory)
+- Ranking Grid Tool
+- Job Prospects Spreadsheet System
+- Launching Pad Worksheet
+- Reframing Failure Worksheet
+- Budget Template
+- Routine Tracking System
+
+---
+
+## Complete Bibliography
+
+### Career Development & Life Design
+
+**Bolles, Richard N.** *What Color Is Your Parachute? A Practical Manual for Job-Hunters and Career-Changers.* 
+Berkeley: Ten Speed Press, (updated annually, original 1970).
+- **Foundational influence for:** Part 3 overall structure and approach
+- **Key concepts:** Informational interviewing, skills inventory methodology, networking-focused job search
+- **Application in program:** The networking process (Part 3, Module 3), skills assessment approach (Part 1, Module 1), hidden job market strategy
+- **Referenced in:** Part 3 (Branches - overall approach)
+- **Note:** This classic career guide established many of the informational interviewing and networking principles used throughout the program
+
+**Burnett, Bill, and Dave Evans.** *Designing Your Life: How to Build a Well-Lived, Joyful Life.* 
+New York: Alfred A. Knopf, 2016.
+- **Core influence for:** Designer mindset and life design approach
+- **Key concepts:** 
+  - Five designer mindsets (curiosity, bias to action, reframing, awareness, radical collaboration)
+  - Four life categories (work, play, love, health)
+  - Design thinking applied to career planning
+- **Application in program:** Foundational framework throughout all three parts
+- **Referenced in:** Part 1 (Roots - Overview, Module 5), Part 2 (Trunk - Module 2), Part 3 (Branches - Module 3)
+
+**Blake, Jenny.** *Pivot: The Only Move That Matters Is Your Next One.* 
+New York: Portfolio/Penguin, 2016.
+- **Influence for:** Career transition methodology
+- **Key concepts:** Career pivoting strategy, focus on next step rather than distant future
+- **Application in program:** Transition-focused approach in Part 2, emphasis on "next step" throughout
+- **Referenced in:** Part 2 (Trunk - overall philosophy)
+- **Note:** Influences the program's focus on immediate next career move while building toward larger goals
+
+**Caligiuri, Paula.** *Get a Life, Not a Job: Do What You Love and Let Your Talents Work for You.* 
+Upper Saddle River, NJ: FT Press, 2010.
+- **Influence for:** Work-life integration philosophy
+- **Key concepts:** Life-centered career planning, beyond traditional job focus
+- **Application in program:** Holistic approach to work factors, life-work balance emphasis
+- **Referenced in:** Part 1 (Roots - conceptual foundation)
+- **Note:** Complements Burnett's four life categories with focus on life-first career planning
+
+**Slim, Pamela.** *Body of Work: Finding the Thread That Ties Your Story Together.* 
+New York: Portfolio/Penguin, 2013.
+- **Influence for:** Portfolio career concept and narrative coherence
+- **Key concepts:** Body of work as complete career story, finding thread through diverse experiences
+- **Application in program:** Story weaving approach, creating coherent narrative from varied experiences
+- **Referenced in:** Part 2, Module 5 (Story Weaving)
+- **Note:** Influences how the program helps users create coherent identity stories from diverse backgrounds
+
+---
+
+### Personality & Career Fit
+
+**Tieger, Paul D., and Barbara Barron-Tieger.** *Do What You Are: Discover the Perfect Career for You Through the Secrets of Personality Type.* 
+Boston: Little, Brown and Company, 1992 (multiple editions).
+- **Influence for:** MBTI application to career matching
+- **Key concepts:** Using personality type to identify suitable careers, personality-based career fit
+- **Application in program:** Self-management skills assessment, career matching considerations
+- **Referenced in:** Part 1, Module 1 (Self-Management Skills)
+- **Note:** Provides framework for connecting personality traits to career satisfaction
+
+**Myers-Briggs Type Indicator (MBTI)**
+- Developers: Katharine Cook Briggs and Isabel Briggs Myers
+- Based on: Carl Jung's theory of psychological types
+- **Used for:** Personality assessment framework (E/I, S/N, T/F, J/P)
+- **Application in program:** Self-reflection tool for understanding work style and preferences
+- **Note:** Adapted as self-reflection tool, not diagnostic instrument
+- **Referenced in:** Part 1, Module 1 (Self-Management Skills)
+- **Assessment tool referenced:** 16personalities.com (NERIS Analytics Limited)
+
+---
+
+### Psychology, Performance & Mindset
+
+**Campbell, Joseph.** *The Hero with a Thousand Faces.* 
+Princeton: Princeton University Press, 1949 (multiple editions).
+- **Influence for:** Hero's journey framework for personal narrative
+- **Key concepts:** Monomyth structure (departure, initiation, return), universal story pattern
+- **Application in program:** Authentic storytelling, narrative identity development
+- **Referenced in:** Part 3, Module 3 (Networking - Authenticity section), Part 2, Module 5 (Story Weaving)
+- **Key quote influence:** "People generally love a hero's tale. The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew..."
+- **Note:** Foundational for understanding personal growth as heroic journey
+
+**Csikszentmihalyi, Mihaly.** *Flow: The Psychology of Optimal Experience.* 
+New York: Harper & Row, 1990.
+- **Theoretical foundation for:** Flow state concepts, engagement measurement
+- **Key concepts:** Flow state, optimal experience, balance of challenge and skill
+- **Application in program:** Flow Tracking Methodology (adapted by Braedon Long)
+- **Referenced in:** Part 1, Module 3 (Priorities, Ecstasy & Flow)
+- **Note:** Original research on flow adapted into practical tracking tool for identifying engaging activities
+
+**Duckworth, Angela.** *Grit: The Power of Passion and Perseverance.* 
+New York: Scribner, 2016.
+- **Influence for:** Grit concept and long-term persistence framework
+- **Key concepts:** Grit as combination of passion and perseverance, sustained effort toward long-term goals
+- **Application in program:** Mental fortitude development, sustained effort emphasis
+- **Referenced in:** Part 1, Module 5 (Health - Grittiness section)
+- **Key concept:** "Grit describes the mental fortitude to work tirelessly for rewards which are either abstract or far removed"
+
+**Grover, Tim S., with Shari Wenk.** *Relentless: From Good to Great to Unstoppable.* 
+New York: Scribner, 2013.
+- **Influence for:** Relentless mindset and commitment
+- **Key concepts:** Unstoppable mindset, relentless pursuit of excellence, mental toughness
+- **Application in program:** "Take Yourself Seriously" philosophy, commitment to growth
+- **Referenced in:** Part 1, Module 5 (Health - Grittiness section)
+- **Note:** Influences personal accountability and serious commitment to change
+
+**Seligman, Martin E.P.** *Flourish: A Visionary New Understanding of Happiness and Well-being.* 
+New York: Free Press, 2011.
+- **Influence for:** Well-being theory and flourishing concept
+- **Key concepts:** PERMA model (Positive emotion, Engagement, Relationships, Meaning, Accomplishment), well-being focus
+- **Application in program:** Holistic health approach, four life categories conceptual support
+- **Referenced in:** Part 1, Module 5 (Health), Part 1 (Overview - life categories)
+- **Note:** Supports the program's emphasis on comprehensive well-being alongside career success
+
+---
+
+### Communication & Storytelling
+
+**Denning, Stephen.** *The Leader's Guide to Storytelling: Mastering the Art and Discipline of Business Narrative.* 
+San Francisco: Jossey-Bass, 2005.
+- **Direct influence for:** Identity story guidelines
+- **Key concepts:** Storytelling framework (relevance, clarity, distinctiveness, consistency)
+- **Application in program:** Crafting identity stories and professional narratives
+- **Referenced in:** Part 2, Module 5 (Story Weaving - Persuasive Storytelling)
+- **Specific elements used:** Four criteria for effective identity stories
+
+**Headlee, Celeste.** *We Need to Talk: How to Have Conversations That Matter.* 
+New York: Harper Wave, 2017.
+- **Source for:** 10 principles of conversation
+- **Key concepts:** 
+  1. Don't multitask
+  2. Don't pontificate
+  3. Use open-ended questions
+  4. Go with the flow
+  5. If you don't know, say so
+  6. Don't equate your experiences
+  7. Don't repeat yourself
+  8. Stay out of the weeds
+  9. Listen
+  10. Be brief
+- **Application in program:** Networking conversations, interview preparation
+- **Referenced in:** Part 3, Module 3 (Networking - Art of Conversation)
+- **Note:** Also presented in TED Talk "10 ways to have a better conversation" (2015)
+- **Copyright note:** See copyright analysis for usage considerations
+
+---
+
+### Networking & Social Theory
+
+**Banayan, Alex.** *The Third Door: The Wild Quest to Uncover How the World's Most Successful People Launched Their Careers.* 
+New York: Currency, 2018.
+- **Influence for:** Alternative path philosophy and unconventional approach
+- **Key concepts:** "Third door" - finding unconventional paths to success, alternative routes
+- **Application in program:** Networking approach, forging own path rather than traditional applications
+- **Referenced in:** Part 3, Module 3 (Networking - overview)
+- **Key concept influence:** "Rather than following the beaten path, you are going to forge your own"
+
+**Gladwell, Malcolm.** *The Tipping Point: How Little Things Can Make a Big Difference.* 
+New York: Little, Brown and Company, 2000.
+- **Influence for:** Social dynamics and connectors concept
+- **Key concepts:** Connectors, mavens, salesmen; the "rule of 150"
+- **Application in program:** Understanding network effects, the 150-person limit mentioned for small companies
+- **Referenced in:** Part 3, Module 3 (Networking - company size discussion)
+- **Note:** Complements Granovetter's weak ties theory with broader social dynamics
+
+**Granovetter, Mark S.** "The Strength of Weak Ties." 
+*American Journal of Sociology* 78, no. 6 (1973): 1360-1380.
+- **Direct source for:** Weak ties networking theory
+- **Key concepts:** Weak ties provide access to new information and opportunities
+- **Application in program:** Networking strategy, reaching beyond immediate circle
+- **Referenced in:** Part 3, Module 3 (Networking - People You Know section)
+
+---
+
+### Skills Assessment & Classification
+
+**Fine, Sydney A.** "Functional Job Analysis Scales: A Desk Aid." 
+Milwaukee: Sidney A. Fine Associates, 1989.
+- **Source for:** Three-category skills framework
+- **Key concepts:** Skills categorization (Knowledges, Self-management Skills, Transferable Skills)
+- **Application in program:** Skills inventory structure
+- **Referenced in:** Part 1, Module 1 (Skills and Talents)
+
+---
+
+### Organizational Frameworks
+
+**Organisation for Economic Co-operation and Development (OECD).** "Competency Framework."
+- **Source for:** Five-level competency framework (Levels 1-5)
+- **Key concepts:** Three competency categories (Delivery-related, Interpersonal, Strategic) across five career levels
+- **Application in program:** Professional level identification, competency targeting
+- **Referenced in:** Part 2, Module 5 (Choosing Your Level); Resources section
+- **Attribution required:** "Adapted from OECD Competency Framework"
+- **Note:** See copyright analysis for usage terms
+
+---
+
+### Online Resources
+
+**NERIS Analytics Limited.** "16Personalities" (website). 
+www.16personalities.com
+- **Purpose:** Free personality assessment tool based on Myers-Briggs framework
+- **Application in program:** Recommended assessment tool for self-management skills
+- **Referenced in:** Part 1, Module 1 (Self-Management Skills - Activity 1.1.2a)
+
+---
+
+## Influence Map by Program Section
+
+### Part 1: Roots - Understanding Your Foundation
+
+**Module 1.1: Work Factors 1 (Skills & Knowledge)**
+- Sydney Fine (skills categorization)
+- Tieger & Barron-Tieger (personality-career matching)
+- Myers-Briggs Type Indicator (personality framework)
+- Richard Bolles (skills inventory approach)
+
+**Module 1.2: Work Factors 2 (Environment, People, Compensation)**
+- Bill Burnett (design thinking approach)
+- Paula Caligiuri (life-centered planning)
+
+**Module 1.3: Priorities, Ecstasy & Flow**
+- Mihaly Csikszentmihalyi (flow theory)
+- Bill Burnett (priorities framework)
+
+**Module 1.4: Love**
+- Bill Burnett (four life categories)
+- Martin Seligman (well-being theory)
+
+**Module 1.5: Health**
+- Bill Burnett (four life categories, mindsets)
+- Angela Duckworth (grit)
+- Tim Grover (relentless mindset)
+- Martin Seligman (flourishing)
+
+### Part 2: Trunk - Connecting Your Past to Your Future
+
+**Module 2.1: Finding The Light**
+- Bill Burnett (values alignment, life categories)
+- Paula Caligiuri (life-work integration)
+
+**Module 2.2: Reality**
+- Bill Burnett (designer mindsets)
+- Angela Duckworth (growth mindset aspects)
+
+**Module 2.3: Landmarking**
+- Bill Burnett (idea generation, design thinking)
+- Jenny Blake (pivot methodology)
+
+**Module 2.4: Launching Pad**
+- Jenny Blake (next move focus)
+- Bill Burnett (prototyping paths)
+
+**Module 2.5: Story Weaving**
+- Stephen Denning (storytelling framework)
+- Joseph Campbell (hero's journey)
+- Pamela Slim (body of work narrative)
+- OECD (competency levels)
+
+### Part 3: Branches - Reaching Into the World
+
+**Module 3.1: Intentional Impressions**
+- Richard Bolles (job search approach)
+
+**Module 3.2: Constructing the Projection**
+- Richard Bolles (resume and presentation)
+
+**Module 3.3: Networking**
+- Richard Bolles (informational interviewing)
+- Bill Burnett (designer mindsets)
+- Celeste Headlee (conversation principles)
+- Mark Granovetter (weak ties theory)
+- Joseph Campbell (authentic hero's story)
+- Alex Banayan (third door/alternative path)
+- Malcolm Gladwell (social dynamics)
+
+**Module 3.4: Research**
+- Richard Bolles (company research methodology)
+
+**Module 3.5: Action**
+- Richard Bolles (networking process)
+- Alex Banayan (unconventional approach)
+
+---
+
+## Conceptual Synthesis
+
+The Dream Tree program represents a synthesis of established career development theory, positive psychology, design thinking, and communication best practices. While individual concepts are drawn from the sources listed above, the overall structure, integrated approach, and specific tools (SOARED, Flow Tracking, etc.) are original works by Braedon Long.
+
+**Key Synthesized Concepts:**
+1. **Life Design Approach** (Burnett) + **Life-First Career Planning** (Caligiuri) = Holistic foundation
+2. **Skills Assessment** (Fine, Bolles) + **Personality Matching** (Tieger) = Comprehensive self-knowledge
+3. **Flow Theory** (Csikszentmihalyi) + **Well-being Focus** (Seligman) = Engagement-based career fit
+4. **Grit** (Duckworth) + **Relentless Mindset** (Grover) = Sustained commitment framework
+5. **Hero's Journey** (Campbell) + **Storytelling** (Denning) + **Body of Work** (Slim) = Narrative identity
+6. **Informational Interviewing** (Bolles) + **Weak Ties** (Granovetter) + **Conversation Skills** (Headlee) = Networking mastery
+7. **Alternative Paths** (Banayan) + **Design Thinking** (Burnett) + **Pivot Methodology** (Blake) = Unconventional approach
+
+---
+
+## Copyright & Permissions
+
+### Fair Use Considerations
+This educational program references and builds upon published works under fair use principles for educational purposes. All sources are properly attributed. Users should consult original sources for complete understanding of referenced frameworks.
+
+### Commercial Use Considerations
+If commercializing this program as a paid webapp or published book, additional permissions may be required for certain frameworks, particularly:
+- Celeste Headlee's conversation principles (extended use)
+- OECD Competency Framework (commercial license)
+
+See COPYRIGHT_ANALYSIS.md for detailed guidance.
+
+### Trademark Notices
+- Myers-Briggs Type Indicator®, MBTI®, and Myers-Briggs® are registered trademarks of The Myers-Briggs Company
+- This program is not affiliated with or endorsed by any of the publishers or authors listed
+
+---
+
+## Recommended Citation for This Program
+
+**Academic/Professional Citation:**
+```
+Long, Braedon. The Dream Tree: A Comprehensive Career Development Program. 
+[Year]. [Format: Webapp/Workbook]. 
+
+Original frameworks include SOARED storytelling method and Flow Tracking 
+Methodology. Program synthesizes research from Burnett, Bolles, Campbell, 
+Csikszentmihalyi, Duckworth, and others. See complete bibliography for 
+all sources.
+```
+
+**Webapp Footer:**
+```
+The Dream Tree © [Year] Braedon Long
+
+This career development program synthesizes research from leading experts 
+in career counseling, psychology, and personal development. Original 
+tools and frameworks by Braedon Long. See Credits & Sources for complete 
+attribution.
+```
+
+---
+
+## Acknowledgments
+
+This program stands on the shoulders of giants in the fields of:
+- Career Development (Bolles, Tieger)
+- Life Design (Burnett & Evans, Blake, Caligiuri, Slim)
+- Psychology & Performance (Csikszentmihalyi, Duckworth, Seligman, Grover)
+- Communication & Storytelling (Denning, Headlee, Campbell)
+- Social Dynamics (Granovetter, Gladwell, Banayan)
+
+Their groundbreaking work has made this integrated approach possible.
+
+---
+
+**Document Version:** 2.0 (Complete)  
+**Last Updated:** [Date]  
+**Status:** Ready for webapp implementation
+
+For questions about permissions, sources, or citations, contact: [Your contact information]
