@@ -1,0 +1,29 @@
+id,source_type,author,title,subtitle,publisher,year,url,short_description,is_original
+fine-1989,book,"Fine, Sydney","Functional Job Analysis","","","1989","","Skills categorization into three types: Knowledges, Self-management, and Transferable",0
+myers-briggs,framework,"Briggs, Katharine Cook; Myers, Isabel Briggs","Myers-Briggs Type Indicator","","","","","Personality type framework based on Jung's psychological types (E/I, S/N, T/F, J/P)",0
+16personalities,website,"NERIS Analytics Limited","16Personalities","","","","https://www.16personalities.com","Free personality assessment based on MBTI framework",0
+tieger-1992,book,"Tieger, Paul D.; Barron-Tieger, Barbara","Do What You Are","Discover the Perfect Career for You Through the Secrets of Personality Type","Little, Brown and Company","1992","","Connecting personality type to career satisfaction and fit",0
+caligiuri-2010,book,"Caligiuri, Paula","Get a Life, Not a Job","Do What You Love and Let Your Talents Work for You","FT Press","2010","","Life-centered career planning that puts living before working",0
+csikszentmihalyi-1990,book,"Csikszentmihalyi, Mihaly","Flow","The Psychology of Optimal Experience","Harper & Row","1990","","Flow states occur when challenge and skill are balanced—the foundation for engagement",0
+burnett-2016,book,"Burnett, Bill; Evans, Dave","Designing Your Life","How to Build a Well-Lived, Joyful Life","Alfred A. Knopf","2016","","Design thinking applied to life and career: curiosity, bias to action, reframing, awareness, radical collaboration",0
+seligman-2011,book,"Seligman, Martin E.P.","Flourish","A Visionary New Understanding of Happiness and Well-being","Free Press","2011","","PERMA model: Positive emotion, Engagement, Relationships, Meaning, Accomplishment",0
+duckworth-2016,book,"Duckworth, Angela","Grit","The Power of Passion and Perseverance","Scribner","2016","","Grit is passion and perseverance toward long-term goals—working tirelessly for distant rewards",0
+grover-2013,book,"Grover, Tim S.; Wenk, Shari","Relentless","From Good to Great to Unstoppable","Scribner","2013","","Unstoppable mindset and relentless pursuit of excellence",0
+blake-2016,book,"Blake, Jenny","Pivot","The Only Move That Matters Is Your Next One","Portfolio/Penguin","2016","","Focus on immediate next step rather than distant destination when changing careers",0
+oecd-competency,framework,"Organisation for Economic Co-operation and Development","OECD Competency Framework","","OECD","","","Three competency clusters across five career levels—adapted for DreamTree",0
+denning-2005,book,"Denning, Stephen","The Leader's Guide to Storytelling","Mastering the Art and Discipline of Business Narrative","Jossey-Bass","2005","","Effective stories need relevance, clarity, distinctiveness, and consistency",0
+campbell-1949,book,"Campbell, Joseph","The Hero with a Thousand Faces","","Princeton University Press","1949","","The monomyth: departure, initiation, return—everyone has their own hero's journey",0
+slim-2013,book,"Slim, Pamela","Body of Work","Finding the Thread That Ties Your Story Together","Portfolio/Penguin","2013","","Your complete career story creates coherent identity from diverse experiences",0
+bolles-1970,book,"Bolles, Richard N.","What Color Is Your Parachute?","A Practical Manual for Job-Hunters and Career-Changers","Ten Speed Press","1970","","Informational interviewing and networking-focused job search strategies",0
+banayan-2018,book,"Banayan, Alex","The Third Door","The Wild Quest to Uncover How the World's Most Successful People Launched Their Careers","Currency","2018","","There's always an unconventional path—a third door—to success",0
+granovetter-1973,article,"Granovetter, Mark S.","The Strength of Weak Ties","","American Journal of Sociology","1973","","Casual acquaintances often provide better job leads than close friends",0
+gladwell-2000,book,"Gladwell, Malcolm","The Tipping Point","How Little Things Can Make a Big Difference","Little, Brown and Company","2000","","Social dynamics: connectors, mavens, and the rule of 150 meaningful relationships",0
+headlee-2017,book,"Headlee, Celeste","We Need to Talk","How to Have Conversations That Matter","Harper Wave","2017","","Ten principles for meaningful conversations—don't multitask, don't pontificate, listen",0
+long-soared,framework,"Long, Braedon","SOARED Framework","","DreamTree","2025","","Storytelling structure: Situation, Obstacle, Action, Results, Evaluation, Discovery",1
+long-flow-tracking,framework,"Long, Braedon","Flow Tracking Methodology","","DreamTree","2025","","Practical tool for identifying engaging activities, adapted from Csikszentmihalyi's flow theory",1
+long-ranking-grid,tool,"Long, Braedon","Ranking Grid Tool","","DreamTree","2025","","Visual tool for comparing and prioritizing options across multiple criteria",1
+long-launching-pad,tool,"Long, Braedon","Launching Pad Worksheet","","DreamTree","2025","","Structured planning tool for career transitions",1
+long-reframing-failure,tool,"Long, Braedon","Reframing Failure Worksheet","","DreamTree","2025","","Tool for extracting learning and growth from setbacks",1
+long-budget-template,tool,"Long, Braedon","Budget Template","","DreamTree","2025","","Financial planning tool for career transitions",1
+long-routine-tracking,tool,"Long, Braedon","Routine Tracking System","","DreamTree","2025","","Tool for building and maintaining productive habits",1
+long-dreamtree,framework,"Long, Braedon","DreamTree","A Comprehensive Career Development Program","DreamTree","2025","","Tree metaphor for career development: Roots (self-knowledge), Trunk (connecting past to future), Branches (reaching into the world)",1

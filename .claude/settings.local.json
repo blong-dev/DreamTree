@@ -21,7 +21,8 @@
       "Bash(taskkill:*)",
       "Bash(cmd /c \"taskkill /F /PID 4384\")",
       "Bash(tasklist:*)",
-      "Bash(xargs cat:*)"
+      "Bash(xargs cat:*)",
+      "Bash(cat:*)"
     ]
   }
 }

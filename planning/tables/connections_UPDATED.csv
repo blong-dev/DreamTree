@@ -1,0 +1,19 @@
+id,name,method,params,implementation_notes
+100000,connection_100000,custom,"{""instructions"": [""tagged for jobs and education"", ""populate item from 1.a""]}",Auto-generated - needs refinement
+100001,connection_100001,custom,"{""instructions"": [""internal association tagging"", ""fuzzy search skills - verbs - from 1.b - select true""]}",Auto-generated - needs refinement
+100002,connection_100002,custom,"{""instructions"": [""mastery slider 1-5"", ""internal association tagging - skills to experiences""]}",Auto-generated - needs refinement
+100003,connection_100003,custom,"{""instructions"": [""2a-2i select 3"", ""selection 1""]}",Auto-generated - needs refinement
+100004,connection_100004,custom,"{""instructions"": [""selection 2""]}",Auto-generated - needs refinement
+100005,connection_100005,custom,"{""instructions"": [""selection 3""]}",Auto-generated - needs refinement
+100006,connection_100006,custom,"{""instructions"": [""skills_mapping fuzzy search existing skills to each soared story"", ""confirm & build list""]}",Auto-generated - needs refinement
+100007,connection_100007,custom,"{""instructions"": [""mastery slider 1-5"", ""internal association tagging - skills to experiences"", ""bucketing tool -- this is new -- drag and drop into 5 vertical buckets most to least -- list on the left buckets on the right"", ""auto-pop top 10 transferable skills""]}",Auto-generated - needs refinement
+100008,connection_100008,custom,"{""instructions"": [""fetch and present the associated MBTI explanation text"", ""present remaining chars""]}",Auto-generated - needs refinement
+100009,connection_100009,custom,"{""instructions"": [""present selectable pills of defined soft skills from this activity"", ""present populated ranking grid"", ""present top 10 transferable skills"", ""drag and drop SMS to each TS""]}",Auto-generated - needs refinement
+100010,connection_100010,custom,"{""instructions"": [""present each textarea from 5 for editing, and confirmation"", ""populate with employment history"", ""iterate list builder"", ""populate education history"", ""iterate list builder""]}",Auto-generated - needs refinement
+100011,connection_100011,custom,"{""instructions"": [""ideation resource"", ""populate with every skill from knowledges"", ""mastery slider 1-5""]}",Auto-generated - needs refinement
+100012,hydrate_top_skills_by_mastery,auto_populate,"{""source"": ""transferable_skills"", ""filter"": ""top_10_by_mastery"", ""from_exercises"": [""1.1.1.1"", ""1.1.1.2"", ""1.1.1.3"", ""1.1.1.4""]}",Populate top 10 transferable skills by mastery rating for ranking
+100013,hydrate_jobs_from_entry,auto_populate,"{""source"": ""employment_history"", ""from_exercise"": ""1.1.1.1""}",Populate job list from earlier entry for work environment reflection
+100014,hydrate_energizing_topics,auto_populate,"{""source"": ""flow_tracking"", ""filter"": ""high_energy_high_captivation"", ""from_module"": ""1.3""}",Populate energizing/captivating topics for Idea Tree starting words
+100015,hydrate_compass_light,auto_populate,"{""source"": ""values_compass"", ""from_exercise"": ""2.1.3""}",Populate compass/light values for story coherence reference
+100016,hydrate_skills_reference,reference_link,"{""target"": ""skills_master"", ""display"": ""inline""}",Link to skills reference list
+100017,hydrate_experiences_list,auto_populate,"{""source"": ""all_experiences"", ""from_module"": ""1.1""}",Populate complete list of experiences from Module 1

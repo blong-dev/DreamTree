@@ -1,0 +1,96 @@
+# DreamTree Build Clause
+
+**Purpose**: Track changes, active tasks, decisions, and blockers during development.
+
+---
+
+## Current Sprint
+
+| Status | Task | Notes |
+|--------|------|-------|
+| - | - | - |
+
+---
+
+## Decision Log
+
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| 2026-01-07 | Project initialized | Created build folder structure |
+| 2026-01-07 | Z-index scale finalized | Use layered approach: UI (0-40), overlays (100-400). See below. |
+| 2026-01-07 | Colors/fonts confirmed | Design System doc is source of truth (5 backgrounds, 5 fonts) |
+| 2026-01-07 | Typing effect: YES | Include character-by-character reveal for DreamTree content. Click to skip. |
+| 2026-01-07 | Missing tools: defer | Decide on Skill Sharpening, Mindfulness, Routine, Resume Builder when encountered |
+| 2026-01-07 | Connections audit: before Phase 3 | Must map data flows before building tools that depend on hydration |
+
+### Z-Index Scale (Final)
+
+| Layer | Z-Index | Usage |
+|-------|---------|-------|
+| `z-base` | 0 | Default content |
+| `z-raised` | 10 | User response bubbles |
+| `z-header` | 20 | Breadcrumb bar |
+| `z-nav` | 30 | Navigation bar |
+| `z-input` | 40 | Input area |
+| `z-backdrop` | 100 | Overlay backgrounds |
+| `z-overlay` | 200 | TOC panel, tools panel |
+| `z-modal` | 300 | Confirmation dialogs |
+| `z-tooltip` | 400 | Tooltips, popovers |
+
+---
+
+## Change Log
+
+### 2026-01-07
+- Initialized `/dreamtree` build directory
+- Created `clause.md` for project tracking
+- Created `README.md` with project overview
+- Reviewed Design System, Component Spec, Build Plan
+- Resolved open spec decisions (z-index, colors/fonts, typing effect)
+- Adjusted build phases: added Phase 2.5 for connections audit
+
+---
+
+## Blockers
+
+| Issue | Impact | Status |
+|-------|--------|--------|
+| - | - | - |
+
+---
+
+## Reference
+
+- **Architecture**: `/planning/DreamTree_Data_Architecture_v4.md`
+- **Build Plan**: `/planning/DreamTree_Build_Plan.md`
+- **Project Summary**: `/planning/DreamTree_Project_Summary.md`
+- **Content Data**: `/planning/tables/*.csv`
+
+---
+
+## Build Phases (Adjusted)
+
+| Phase | Focus | Status |
+|-------|-------|--------|
+| 1 | Foundation (DB, Auth, Onboarding) | Not Started |
+| 2 | Conversation UI (Design System, Messages, Forms) | Not Started |
+| 2.5 | **Connections Audit** (map data flows between exercises) | Not Started |
+| 3 | Tools (16 MVP tools) | Not Started |
+| 4 | Navigation (Dashboard, TOC, Profile) | Not Started |
+| 5 | Polish (Feedback, A11y, Performance) | Not Started |
+
+---
+
+## Quick Stats
+
+- **Database Tables**: 40
+- **Content Rows (stem)**: 821
+- **MVP Tools**: 16 (29 total)
+- **Prompts**: 171
+- **Connections**: 19
+
+---
+
+## Notes
+
+_Add working notes, questions for Braedon, or reminders here._

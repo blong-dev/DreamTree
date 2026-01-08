@@ -1,205 +1,171 @@
 id,prompt_text,input_type,input_config,version,is_active
-100000,"List every job you have had, every significant project you have completed, and every important course you have taken.",textarea,,1,True
-100001,A time when you had an impact,textarea,,1,True
-100002,A time you did something no one else around could have done,textarea,,1,True
-100003,A time when you were genuinely excited,textarea,,1,True
-100004,A time when you impressed yourself,textarea,,1,True
-100005,A time when everything went according to plan,textarea,,1,True
-100006,A time when nothing went according to plan,textarea,,1,True
-100007,A time when you loved what you were doing,textarea,,1,True
-100008,A time you did something you would like to do again,textarea,,1,True
-100009,A time you did something you would not normally do,textarea,,1,True
-100010,Any other story which represents your skillset,textarea,,1,True
-100011,Rate yourself: Extraversion (E) ←→ Introversion (I),slider,,1,True
-100012,Rate yourself: Sensing (S) ←→ Intuition (N),slider,,1,True
-100013,Rate yourself: Thinking (T) ←→ Feeling (F),slider,,1,True
-100014,Rate yourself: Judging (J) ←→ Perceiving (P),slider,,1,True
-100015,"Record any characteristics, strengths, and weaknesses which describe you.",textarea,,1,True
-100016,"Record 1-5 characteristics, strengths, or weaknesses which match your MBTI type, but not you personally. Explain why they are false.",textarea,,1,True
-100017,"For each skill, note a specific time you demonstrated it. Draw from your SOARED stories for evidence.",textarea,,1,True
-100018,Add HONEST hard figures to your descriptions. Numbers. Data. Records. Accomplishments. They must be HONEST. You do not want to lie or exaggerate.,textarea,,1,True
-100019,Write down every job you have had.,textarea,,1,True
-100020,"Write every skill, process, or task you had to perform for those jobs.",textarea,,1,True
-100021,"Write down every course, program, training, and degree you have completed.",textarea,,1,True
-100022,"Write every skill, process, or task you had to perform pursuing those.",textarea,,1,True
-100023,"What else do you know? What are your favorite hobbies? What do you research in your free time? If you wrote a book, what would the content be?",textarea,,1,True
-100024,What tasks or activities seem to make time fly?,textarea,,1,True
-100025,"List fields, careers, or industries that interest you.",textarea,,1,True
-100026,"Do you know where you want to live? If you do, write that here. If not, write down the characteristics of a place that you might want to live. (Example: by the ocean, has an active nightlife, quiet, access to nature, etc.)",textarea,,1,True
-100027,What are your location constraints?,textarea,,1,True
-100028,Do you need to live in a specific country?,textarea,,1,True
-100029,Do you need to stay close to your family?,textarea,,1,True
-100030,Do you have medical needs that affect location?,textarea,,1,True
-100031,Write down every place you have lived.,textarea,,1,True
-100032,List every single thing you disliked about those places. (What does it have? What does it lack? What type of people are there? What feelings does it give you?),textarea,,1,True
-100033,"List the opposites of each of the location traits you dislike. Also, list any positive traits that come to mind.",textarea,,1,True
-100034,Search the Internet for places which excel in each of your desired traits. Are there any which excel in multiple? Find 5-10 places which make you excited. Record what excites you about each location.,textarea,,1,True
-100035,Share your ranked list of location traits and ask 10-20 people if they know of anywhere which has those traits. Record their ideas. Are there any locations which excel in multiple traits? Find 5-10 places which make you excited.,textarea,,1,True
-100036,List every job you have had.,textarea,,1,True
-100037,"List every work condition which had a positive impact upon you, your mood, or your effectiveness.",textarea,,1,True
-100038,"List every work condition which had a negative impact upon you, your mood, or your effectiveness.",textarea,,1,True
-100039,What would the opposite of those negative influences be?,textarea,,1,True
-100040,How does the office look?,textarea,,1,True
-100041,What is nearby?,textarea,,1,True
-100042,Are there any important features?,textarea,,1,True
-100043,What part of the city or town is best?,textarea,,1,True
-100044,Is it near child care?,textarea,,1,True
-100045,What else can you think of?,textarea,,1,True
-100046,Review each job or experience you have had. Recall and record the traits of the people who hurt your productivity in any way. Focus on what about them made your work less productive. List the harmful character traits.,textarea,,1,True
-100047,Write the antonym of each of those negative traits.,textarea,,1,True
-100048,Review each job or experience you have had. Recall and record the traits of the people who helped your productivity in any way.,textarea,,1,True
-100049,"Recall any time when you were particularly productive. Who was directing you? Were you serving anyone (client, etc.)? What traits do those people have that support a positive work environment?",textarea,,1,True
-100050,What types of people do you want to work with?,textarea,,1,True
-100051,"Do you prefer to work in teams, pairs, or alone?",radio_group,,1,True
-100052,What types of people do you want to work for?,textarea,,1,True
-100053,Who in this world do you want to serve with your work?,textarea,,1,True
-100054,"Record how much you have made at each of your positions, including any changes in pay at any one position.",textarea,,1,True
-100055,What benefits do you need?,textarea,,1,True
-100056,"**Salary** (aggregate pay per year or month, regardless of hours worked)",textarea,,1,True
-100057,**Hourly** (pay for time worked),textarea,,1,True
-100058,"**Contracting** (pay agreed upon per project, typical for freelancers)",textarea,,1,True
-100059,**Commission** (% of sale per sale),textarea,,1,True
-100060,"**Combination of above, or Other** (specify)",textarea,,1,True
-100061,"If you feel the need to be more specific about any factor, explain here:",textarea,,1,True
-100062,"Is there any activity, task, or skill which you find both highly energizing and highly captivating?",textarea,,1,True
-100063,Are there any activities which you find both highly energizing and highly captivating?,textarea,,1,True
-100064,Are there any activities which you find both highly energizing and highly captivating?,textarea,,1,True
-100065,What stories from your childhood have helped shape who you are today?,textarea,,1,True
-100066,What family relationships have had particularly significant impacts upon your beliefs?,textarea,,1,True
-100067,Do you have any elderly family members you care for or support? How does this shape your needs?,textarea,,1,True
-100068,Do you have any children you care for or support? How does this shape your needs?,textarea,,1,True
-100069,"Do you have any family members or stories which inspire you? If so, give details.",textarea,,1,True
-100070,What are the most significant lessons your family has taught you?,textarea,,1,True
-100071,"What group, or groups, do you identify with?",textarea,,1,True
-100072,"Are you involved in any organizations, religious groups, neighborhood associations, group of friends, gaming club, or other regularly organized social events?",textarea,,1,True
-100073,Why are you involved in those groups?,textarea,,1,True
-100074,Do you have any personal goals concerning your community?,textarea,,1,True
-100075,Is there anything that might cause you to leave your community?,textarea,,1,True
-100076,Are there any worldly issues that are important to you? What are they?,textarea,,1,True
-100077,What are some lessons people should learn from history?,textarea,,1,True
-100078,Are there any worldly problems which you feel the need to help solve?,textarea,,1,True
-100079,Have you ever traveled outside of your country? Your continent?,textarea,,1,True
-100080,What have you learned from other cultures of the world?,textarea,,1,True
-100081,What do you think the world will look like in 10 years?,textarea,,1,True
-100082,What do you think the world will look like in 50 years?,textarea,,1,True
-100083,What do you think the world will look like in 100 years?,textarea,,1,True
-100084,They say that you are your own hardest critic. Critique yourself. What can you do better?,textarea,,1,True
-100085,What are your strengths?,textarea,,1,True
-100086,"Do you have an idea or memory which makes you feel most like yourself? If so, describe it.",textarea,,1,True
-100087,What do you love about yourself?,textarea,,1,True
-100088,What major life events have shaped you? Briefly describe them.,textarea,,1,True
-100089,What is your greatest gift?,textarea,,1,True
-100090,Are you willing to do what needs to be done?,textarea,,1,True
-100091,Selected skill:,text,,1,True
-100092,Who do you look up to? Who is your role model? Why?,textarea,,1,True
-100093,What about that person (those people) do you admire? What characteristics do they have that you don't?,textarea,,1,True
-100094,What are the bad habits you need to quit?,textarea,,1,True
-100095,What are the good habits you need to start?,textarea,,1,True
-100096,What promises do you need to keep? To yourself? To those you care about?,textarea,,1,True
-100097,What has stopped you from keeping those promises?,textarea,,1,True
-100098,Time of day:,text,,1,True
-100099,Duration:,text,,1,True
-100100,Location:,text,,1,True
-100101,Morning:,textarea,,1,True
-100102,Midday:,textarea,,1,True
-100103,Evening:,textarea,,1,True
-100104,"Overall, how are you?",textarea,,1,True
-100105,What does work mean to you?,textarea,,1,True
-100106,Why do you work?,textarea,,1,True
-100107,Why do other people work?,textarea,,1,True
-100108,What is the purpose of people working?,textarea,,1,True
-100109,"Other than money, what is gained from work?",textarea,,1,True
-100110,"Are honor, growth, or fulfillment essential to work? Explain.",textarea,,1,True
-100111,What work would you do if all your needs were guaranteed?,textarea,,1,True
-100112,Is there a meaning of life? Give details.,textarea,,1,True
-100113,What is the meaning of your life?,textarea,,1,True
-100114,Why do we exist?,textarea,,1,True
-100115,What is good?,textarea,,1,True
-100116,What is evil?,textarea,,1,True
-100117,What is happiness?,textarea,,1,True
-100118,Is there a higher being?,textarea,,1,True
-100119,Why do we experience pain and suffering?,textarea,,1,True
-100120,"Is there some deeper meaning, mission, or purpose to life?",textarea,,1,True
-100121,What injustices are there in the world?,textarea,,1,True
-100122,Where do your two value systems support each other?,textarea,,1,True
-100123,Where do they disagree?,textarea,,1,True
-100124,Is one more important to you than the other? Which one? Why?,textarea,,1,True
-100125,"In your own words, explain how your work values and your life values work together.",textarea,,1,True
-100126,**My Value Compass:** Write a brief statement that captures the overlap between your work values and life values—this is your guiding light for career decisions.,textarea,,1,True
-100127,Defend your choices. Explain how and why these characters exemplify the mindset. Give examples.,textarea,,1,True
-100128,What does embodying the mindset help the character to accomplish?,textarea,,1,True
-100129,What do you need to survive?,textarea,,1,True
-100130,How would a comfortable life for you look?,textarea,,1,True
-100131,What does happiness mean to you?,textarea,,1,True
-100132,What is your definition of success?,textarea,,1,True
-100133,"If you had three wishes, what would they be?",textarea,,1,True
-100134,Describe your dream life.,textarea,,1,True
-100135,What are you willing to do to achieve your standards?,textarea,,1,True
-100136,What strikes fear into your bones?,textarea,,1,True
-100137,Detail some actions you think you could take to conquer those fears.,textarea,,1,True
-100138,What situation over the next year are you afraid of failing?,textarea,,1,True
-100139,Give three opportunistic perspectives on that situation. (Practice reframing),textarea,,1,True
-100140,Brainstorm actions you could take to excel in that situation.,textarea,,1,True
-100141,Describe a time you overcame your fear.,textarea,,1,True
-100142,Have you ever had an authority figure who motivated you? What about that person motivated you?,textarea,,1,True
-100143,What is the worst possible situation you can accept for your life?,textarea,,1,True
-100144,"Describe the last time you were down. (Financially, emotionally, in performance—you choose your frame)",textarea,,1,True
-100145,What did you do to improve your situation?,textarea,,1,True
-100146,What could you have done better?,textarea,,1,True
-100147,Career Option 1:,textarea,,1,True
-100148,Career Option 2:,textarea,,1,True
-100149,Career Option 3:,textarea,,1,True
-100150,Option 1 Title:,text,,1,True
-100151,Option 2 Title:,text,,1,True
-100152,Option 3 Title:,text,,1,True
-100153,My target level: (1-5),select,,1,True
-100154,Competencies I can demonstrate:,textarea,,1,True
-100155,Competencies I need to develop:,textarea,,1,True
-100156,What do you want to achieve by telling your story?,textarea,,1,True
-100157,"**In 10 words or less, what is the theme or meaning that ties your life together?**",textarea,,1,True
-100158,List 3-10 evocative stories from your past. (Remember your SOARED stories from Exercise 1.1.1c),textarea,,1,True
-100159,"Quickly jot down emotions, adjectives, and other vital descriptors associated with each story.",textarea,,1,True
-100160,"Describe the life lesson you learned in every story, using six words or less for each.",textarea,,1,True
-100161,How does each of these life lessons tie into the theme of your life? Be explicit.,textarea,,1,True
-100162,Record 2-5 times you built a fantastic rapport with someone.,textarea,,1,True
-100163,What made those interactions successful?,textarea,,1,True
-100164,Write your identity story here (approximately 1 page):,textarea,,1,True
-100165,Write your allegory here (approximately 1 page):,textarea,,1,True
-100166,What descriptive language stands out as universal or commonly used in the job descriptions?,textarea,,1,True
-100167,"Which descriptors stand out as being the best, while also describing you, your experience, or your skills?",textarea,,1,True
-100168,"Look back through your roots (Part 1), and record everything you have done that supports your credible claim to the position you are seeking.",textarea,,1,True
-100169,Prioritize these skills and experiences according to how important they are to your successful execution of the tasks described.,textarea,,1,True
-100170,What would be the title of the job that you want most?,text,,1,True
-100171,Are there any keywords or phrases you think you should use in this job title?,textarea,,1,True
-100172,Write a short (3-5 sentences) summary of your experience. Draw on your roots and how well the position fits into your identity story.,textarea,,1,True
-100173,"In 10 words or less, explain why you are the perfect fit for this job and career.",text,,1,True
-100174,Summarize your identity story and professional achievements in 2-3 sentences.,textarea,,1,True
-100175,Write a clear and conclusive personal introduction in 6-12 words. (This is your headline.),text,,1,True
-100176,Google search completed,checkbox,,1,True
-100177,Image search completed,checkbox,,1,True
-100178,Issues identified:,textarea,,1,True
-100179,Actions taken:,textarea,,1,True
-100180,Profile picture updated,checkbox,,1,True
-100181,Cover photo updated,checkbox,,1,True
-100182,Old profile pictures reviewed,checkbox,,1,True
-100183,Privacy settings reviewed,checkbox,,1,True
-100184,Posts reviewed and cleaned,checkbox,,1,True
-100185,About section updated,checkbox,,1,True
-100186,Tagged photos reviewed,checkbox,,1,True
-100187,Posted photos reviewed,checkbox,,1,True
-100188,Profile picture updated,checkbox,,1,True
-100189,Headline:,text,,1,True
-100190,Current position:,text,,1,True
-100191,Custom URL: linkedin.com/in/,text,,1,True
-100192,Visibility settings adjusted,checkbox,,1,True
-100193,Work experience added,checkbox,,1,True
-100194,Education added,checkbox,,1,True
-100195,Skills added,checkbox,,1,True
-100196,"List any professional websites you run, blogs that help establish your legitimacy, etc.",textarea,,1,True
-100197,"Reflect on your self-awareness. What are your strengths, flaws, and presence?",textarea,,1,True
-100198,What genuine questions do you have about your target industry and the people in it?,textarea,,1,True
-100199,What actions have you been putting off? What would happen if you took them today?,textarea,,1,True
-100200,What is your biggest obstacle right now? Reframe it as an opportunity.,textarea,,1,True
-100201,Who in your network could help you? Who could you help?,textarea,,1,True
-100202,List 3-4 fields of work that give you the best chance of feeling productive and living a life full of value.,textarea,,1,True
-100203,Which field of work is most appealing to you and best fits your needs?,textarea,,1,True
+100000,a) A time when you had an impact,textarea,,1,True
+100001,b) A time you did something no one else around could have done,textarea,,1,True
+100002,c) A time when you were genuinely excited,textarea,,1,True
+100003,d) A time when you impressed yourself,textarea,,1,True
+100004,e) A time when everything went according to plan,textarea,,1,True
+100005,f) A time when nothing went according to plan,textarea,,1,True
+100006,g) A time when you loved what you were doing,textarea,,1,True
+100007,h) A time you did something you would like to do again,textarea,,1,True
+100008,i) A time you did something you would not normally do,textarea,,1,True
+100009,j) Any other story which represents your skillset,textarea,,1,True
+100010,Write your four letter MBTI code here:,text_input,,1,True
+100011,"Introverts are more likely to be energized by alone time, be more private, keep their thoughts to themselves, and listen before speaking.",slider,"{""labels"": [""e"", ""i""]}",1,True
+100012,Intuitives tend to be concerned with innovation and what is possible. They tend to be more figurative and are oriented towards the future.,slider,"{""labels"": [""s"", ""n""]}",1,True
+100013,"Feelers are likely to be most concerned with harmony, empathizing with involved parties with tact when making decisions. May be seen as overemotional, valuing all feelings equally.",slider,"{""labels"": [""t"", ""f""]}",1,True
+100014,Perceivers prefer to keep their options open and thrive when adapting to new situations. They often view time and deadlines as elastic.,slider,"{""labels"": [""j"", ""p""]}",1,True
+100015,"2. These are the remaining characteristics, strengths, or weaknesses which match your MBTI type, but you didn't select above. Reflect and explain why they are false.",textarea,,1,True
+100016,(possibly from your written stories),textarea,"{""raw"": ""list builder""}",1,True
+100017,"a) If you do, write that here. If not, write down the characteristics of a place that you might want to live. (ex. by the ocean, has an active nightlife, quiet, access to nature, etc.)",textarea,,1,True
+100018,b) What are your location restraints?,textarea,,1,True
+100019,c) Do you need to live in a specific country?,textarea,,1,True
+100020,d) Do you need to stay close to your family?,textarea,,1,True
+100021,e) Do you have medical needs?,textarea,,1,True
+100022,-Are there any which excel in multiple?,textarea,,1,True
+100023,-Write down your ranked list of location traits and ask 10-20 people if they know of anywhere which has those traits. Write down their ideas. ALWAYS thank them for their time and effort.,textarea,,1,True
+100024,-Are there any locations which excel in multiple traits?,textarea,,1,True
+100025,-Research each of the locations which embody multiple of your desired traits.,textarea,,1,True
+100026,-Do number 4 together. Compare your findings. Discuss honestly. Agree upon ten possible locations. Rank together.,textarea,,1,True
+100027,"Pay the most attention to, make a special note of, your top 3 locations.",textarea,,1,True
+100028,Consider the above. Describe your ideal workplace.,textarea,,1,True
+100029,a) How does the office look?,textarea,,1,True
+100030,b) What is nearby?,textarea,,1,True
+100031,c) Are there any important features?,textarea,,1,True
+100032,d) What part of the city or town is best?,textarea,,1,True
+100033,e) Is it near child care?,textarea,,1,True
+100034,f) What else can you think of?,textarea,,1,True
+100035,"Recall any time when you were particularly productive. The production can be from your education, the stories you wrote before, or work experience. Who was directing you? Were you serving anyone (client, etc.)?",textarea,,1,True
+100036,What types of people do you want to work with?,textarea,,1,True
+100037,"Do you prefer to work in teams, pairs, or alone?",radio,,1,True
+100038,What types of people do you want to work for?,textarea,,1,True
+100039,Who in this world do you want to serve with your work?,textarea,,1,True
+100040,"– Salary (aggregate pay per year or month, regardless of hours worked)",textarea,,1,True
+100041,– Hourly (pay for time worked),textarea,,1,True
+100042,"– Contracting (pay agreed upon per project, typical for freelancers)",textarea,,1,True
+100043,– Commission (% of sale per sale),textarea,,1,True
+100044,"– Combination of above, or Other (specify)",textarea,,1,True
+100045,"If you feel the need to be more specific, do so here.",textarea,,1,True
+100046,"Is there any activity, task, or skill which you find both highly energizing and highly captivating?",textarea,,1,True
+100047,Write a short description of each activity on the lines provided.,textarea,,1,True
+100048,Are there any activities which you find both highly energizing and highly captivating?,textarea,,1,True
+100049,Write a short description of each activity on the lines provided.,textarea,,1,True
+100050,Are there any activities which you find both highly energizing and highly captivating?,textarea,,1,True
+100051,What stories from your childhood have helped shape who you are today?,textarea,,1,True
+100052,What family relationships have had particularly significant impacts upon your beliefs?,textarea,,1,True
+100053,Do you have any elderly family members you care for or support? How does this shape your needs?,textarea,,1,True
+100054,Do you have any children you care for or support? How does this shape your needs?,textarea,,1,True
+100055,"Do you have any family members or stories which inspire you? If so, give details.",textarea,,1,True
+100056,What are the most significant lessons your family has taught you?,textarea,,1,True
+100057,"What group, or groups, do you identify with?",textarea,,1,True
+100058,"Are you involved in any organizations, religious groups, neighborhood associations, group of friends, gaming club, or other regularly organized social events?",textarea,,1,True
+100059,Why are you involved in those groups?,textarea,,1,True
+100060,Do you have any personal goals concerning your community?,textarea,,1,True
+100061,Is there anything that might cause you to leave your community?,textarea,,1,True
+100062,Are there any worldly issues that are important to you? What are they?,textarea,,1,True
+100063,What are some lessons people should learn from history?,textarea,,1,True
+100064,Are there any worldly problems which you feel the need to help solve?,textarea,,1,True
+100065,Have you ever traveled outside of your country? Your continent?,textarea,,1,True
+100066,What have you learned from other cultures of the world?,textarea,,1,True
+100067,What do you think the world will look like in 10 years?,textarea,,1,True
+100068,… 50 years?,textarea,,1,True
+100069,… 100 years?,textarea,,1,True
+100070,They say that you are your own hardest critic. Critique yourself. What can you do better?,textarea,,1,True
+100071,What are your strengths?,textarea,,1,True
+100072,"Do you have an idea or memory which makes you feel most like yourself? If so, describe it.",textarea,,1,True
+100073,What do you love about yourself?,textarea,,1,True
+100074,What major life events have shaped you? Briefly describe them.,textarea,,1,True
+100075,What is your greatest gift?,textarea,,1,True
+100076,Are you willing to do what needs to be done?,textarea,,1,True
+100077,Choose a skill to practice.,textarea,,1,True
+100078,Dedicate at least 15 minutes of singular focus to improving that skill every single day.,checkbox,,1,True
+100079,Practice the skill every single day. Don't stop.,checkbox,,1,True
+100080,"If you grow tired of practicing this skill, reach a level of mastery, or otherwise, choose another skill and repeat the process. This is the never-ending task of self-betterment.",textarea,,1,True
+100081,Who do you look up to? Who is your role model? Why?,textarea,,1,True
+100082,What do you admire about that person (or those people)? What characteristics do they have that make them special?,textarea,,1,True
+100083,What promises do you need to keep? To yourself? To those you care about?,textarea,,1,True
+100084,What has stopped you from keeping those promises?,textarea,,1,True
+100085,"Forgive yourself when you mess up. If you fall off the horse, focus on getting back on the horse, not on the fact that you fell off. Forgive. Take yourself seriously, if you don't, who will? Next.",textarea,,1,True
+100086,"Sharpening your sword – choosing a useful and enjoyable skill to hone, practice, and sharpen as a way to stand out from your peers and, more importantly, to better yourself.",textarea,,1,True
+100087,Mindfulness – set aside a short amount of time to practice quieting your mind each day.,textarea,,1,True
+100088,1. Work,textarea,,1,True
+100089,,slider,"{""min"": 1, ""max"": 10}",1,True
+100090,2. Play,textarea,,1,True
+100091,,slider,"{""min"": 1, ""max"": 10}",1,True
+100092,3. Love,textarea,,1,True
+100093,,slider,"{""min"": 1, ""max"": 10}",1,True
+100094,4. Health,textarea,,1,True
+100095,,slider,"{""min"": 1, ""max"": 10}",1,True
+100096,"5. Overall, how are you?",textarea,,1,True
+100097,,slider,"{""min"": 1, ""max"": 10}",1,True
+100098,1. What does work mean to you?,textarea,,1,True
+100099,2. Why do you work?,textarea,,1,True
+100100,3. Why do other people work?,textarea,,1,True
+100101,4. What is the purpose of people working?,textarea,,1,True
+100102,"5. Other than money, what is gained from work?",textarea,,1,True
+100103,"6. Are honor, growth, or fulfillment essential to work? Explain.",textarea,,1,True
+100104,7. What work would you do if all your needs were guaranteed?,textarea,,1,True
+100105,1. Is there a meaning of life? Give details.,textarea,,1,True
+100106,2. What is the meaning of your life?,textarea,,1,True
+100107,3. Why do we exist?,textarea,,1,True
+100108,4. What is good?,textarea,,1,True
+100109,5. What is evil?,textarea,,1,True
+100110,6. What is happiness?,textarea,,1,True
+100111,7. Is there a higher being?,textarea,,1,True
+100112,8. Why do we experience pain and suffering?,textarea,,1,True
+100113,"9. Is there some deeper meaning, mission, or purpose to life?",textarea,,1,True
+100114,10. What injustices are there in the world?,textarea,,1,True
+100115,1. Where do your two value systems support each other?,textarea,,1,True
+100116,2. Where do they disagree?,textarea,,1,True
+100117,3. Is one more important to you than the other? Which one? Why?,textarea,,1,True
+100118,"4. In your own words, explain how your work values and your life values work together.",textarea,,1,True
+100119,"1. Find a character from a book, series, movie, or real life for each mindset. The mindset should be that character's defining quality.",textarea,,1,True
+100120,2. Defend your choices. Explain how and why these characters exemplify the mindset. Give examples.,textarea,,1,True
+100121,3. What does embodying the mindset help the character to accomplish?,textarea,,1,True
+100122,1. What do you need to survive?,textarea,,1,True
+100123,2. How would a comfortable life for you look?,textarea,,1,True
+100124,3. What does happiness mean to you?,textarea,,1,True
+100125,4. What is your definition of success?,textarea,,1,True
+100126,"5. If you had three wishes, what would they be?",textarea,,1,True
+100127,6. Describe your dream life.,textarea,,1,True
+100128,7. What are you willing to do to achieve your standards?,textarea,,1,True
+100129,8. What strikes fear into your bones?,textarea,,1,True
+100130,9. Detail some actions you think you could take to conquer those fears.,textarea,,1,True
+100131,10. What situation over the next year are you afraid of failing?,textarea,,1,True
+100132,11. Give three opportunistic perspectives on that situation.,textarea,,1,True
+100133,12. Brainstorm actions you could take to excel in that situation.,textarea,,1,True
+100134,13. Describe a time you overcame your fear.,textarea,,1,True
+100135,14. Have you ever had an authority figure who motivated you? What about that person motivated you?,textarea,,1,True
+100136,15. What is the worst possible situation you can accept for your life?,textarea,,1,True
+100137,"16. Describe the last time you were down. (Financially, emotionally, in performance, you choose your frame)",textarea,,1,True
+100138,17. What did you do to improve your situation?,textarea,,1,True
+100139,18. What could you have done better?,textarea,,1,True
+100140,1.,textarea,,1,True
+100141,2.,textarea,,1,True
+100142,3.,textarea,,1,True
+100143,"Then, once you have designed a timeline, give this life option, this branch of your tree, a complete and accurate title. Describe your potential life in a way that suits you now, your roots, and this future.",textarea,,1,True
+100144,a. time – do you have the time to pull this off?,slider,"{""min"": 1, ""max"": 10}",1,True
+100145,,textarea,,1,True
+100146,"b. Funding – do you need any additional funds, are there any financial risks you are taking?",slider,"{""min"": 1, ""max"": 10}",1,True
+100147,,textarea,,1,True
+100148,"c. Skills – do you already have all the necessary skills, or are there some you still need to learn?",slider,"{""min"": 1, ""max"": 10}",1,True
+100149,,textarea,,1,True
+100150,d. Contacts – do you know anyone doing this? Do you know anyone in the industry?,slider,"{""min"": 1, ""max"": 10}",1,True
+100151,,textarea,,1,True
+100152,"2. Excitement – are you excited about this prospect? When you imagine this life unfolding in front of you, how does it make you feel?",slider,"{""min"": 1, ""max"": 10}",1,True
+100153,,textarea,,1,True
+100154,3. Confidence – How confident are you in this prospect?,slider,"{""min"": 1, ""max"": 10}",1,True
+100155,,textarea,,1,True
+100156,4. Coherence – How in line with your work values and your life values is this idea?,slider,"{""min"": 1, ""max"": 10}",1,True
+100157,,textarea,,1,True
+100158,"5. Work Needs – consider your work priorities and all the pieces from Part 1. Does this idea support your roots? Consider location, financial needs, and any other areas of importance to you.",slider,"{""min"": 1, ""max"": 10}",1,True
+100159,,textarea,,1,True
+100160,6. Discovery – what will you learn from this journey? What is the impact of choosing this path?,textarea,,1,True
+100161,What do you want to achieve by telling your story?,textarea,,1,True
+100162,"Brainstorm, make notes and generate ideas now.",textarea,,1,True
+100163,"In 10 words or less, what is the theme or meaning that ties your life together?",text_input,,1,True
+100164,"- Quickly jot down emotions, adjectives, and other vital descriptors associated with each story",textarea,,1,True
+100165,"- Describe the life lesson you learned in every story, using six words or less for each",textarea,,1,True
+100166,- How does each of these life lessons tie into the theme of your life? Be explicit.,textarea,,1,True
+100167,- Record 2-5 times you built a fantastic rapport with someone,textarea,,1,True
+100168,"The first story is your identity story. Not an autobiography. It should be about 1 page typed and needs to make sense of your values, work history, future goals, and your life mission. It is the story you tell yourself, the ideal which you try to live by. We will build off of this story to create your resume, elevator pitch, and your general presentation, it does not need to be any of those yet. Explain your roots, how they made you who you are, and how you have grown into an intentional and capable person that you are today. You may not feel as though you have a cohesive story. This is your opportunity to create that story. Take your time and revisit this task occasionally. To move forward in the process, you need to have an explicitly written identity. Write your story now.",textarea,,1,True
+100169,• Consistency: Is the story consistent with the way you conduct your life now?,textarea,,1,True

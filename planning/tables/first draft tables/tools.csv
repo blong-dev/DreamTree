@@ -26,5 +26,3 @@ id,name,description,instructions,has_reminder,reminder_frequency,version,is_acti
 100024,meeting_notes,Meeting notes template,"Capture key points, action items, and follow-ups from meetings.",False,,1,True
 100025,referral_tracker,Track referrals received,Track referrals received and their outcomes.,False,,1,True
 100026,opportunity_tracker,Track job opportunities,Track job opportunities through the application pipeline.,False,,1,True
-100027,bucketing_tool,Drag-and-drop sorting into ranked buckets,"Drag items from a list into 5 vertical buckets representing frequency of use, from most to least.",False,,1,True
-100028,competency_assessment,Self-assessment against OECD competency framework,"Rate yourself on 15 competencies across Delivery, Interpersonal, and Strategic categories at 5 proficiency levels.",False,,1,True

@@ -1,0 +1,1447 @@
+Roots&TrunkContentEdited
+
+
+Part 1: 
+Roots
+Understanding Your Foundation
+
+Table of Contents
+Overview	2
+Day 1 – Work Factors 1	4
+Skills and Talents	4
+I Transferable Skills	4
+II Self Management Skills	8
+Knowledges	12
+Day 2 – Work Factors 2	15
+Environment	15
+I Macro: Where in the World...	15
+II Micro: the Work Environment You Flourish in	18
+People	19
+Compensation	20
+Day 3 – Priorities, Ecstasy & Flow	22
+Prioritize	22
+Flow & Ecstasy	23
+Memorable Past	23
+Recent Past	24
+Present	24
+Day 4 – Love	25
+Family	25
+Community	25
+World	26
+Self	27
+Day 5 – Health	28
+Sharpening	28
+Grittiness	29
+Mindfulness	31
+Routine	32
+Consultation	33
+
+Overview
+The first part of the tree is the roots. The roots tell us where we came from, where we have been, and what makes us up. Understanding your roots will help them to grow, furthering the stability of your tree, allowing you to reach ever greater heights. Without our roots, we have nothing to hold us up while we reach for the sky. 
+Roots are hard. Factual and literal, they are a part of history. Now is not the time for conjecture, imagination, or possibilities; those will come into play later. No two root systems look the same, different people have different needs, skills, and preferences, but the basic components are the same. 
+With this and every activity, be honest with yourself. Honesty is always the answer. Don't lie and don't exaggerate. Nobody wins when you lie. Give yourself credit for the things you have done. Acknowledge even the smallest accomplishments. 
+Life designer, Bill Burnett, separates our life into four categories: love, health, work, and play. These will be our four primary roots. 
+
+Work is anything related to the creation of value. Work is any economic activity, regardless of your compensation for that activity. Any activities you engage in with the intent of attaining some goal is work. Doing chores, volunteering, earning degrees, and sales are all to be considered work. 
+
+Play is nearly the opposite. Play is any activity you engage in for the joy of doing it. If you are competing or trying to accomplish something, then it is not play. Play is what most young children do, without a worry in the world, motivated only by the joy that will come. Of the four parts of life, most adults are worst at play.
+
+Love is mostly for you to define. I cannot, and will not, advise you on matters of love. If you so choose, there are plenty of other resources on the topic. Nonetheless, it is vital for every person and should be considered when planning your future. 
+
+Traditionally, health is broken into three categories: physical, mental, and spiritual. To reach the greatest heights, care for all three of these areas. I suggest you consider and look after your physical and spiritual health on your own. There are many resources available in the world to answer any questions you have about physical and spiritual help. Everyone has different physical and spiritual needs, so the exercises here focus on mental health. The importance of health cannot be overstated.
+
+Understanding all four of these parts of your life will help clarify the path in front of you, not to mention how useful it will be to have all of this information in one place. Save your interpretations for later. 
+
+Remember, our goal is that this is the last time you ever have to fill all this information out in full. Life demands updates, but power through - the juice really is worth the squeeze.
+
+You can only ever be exactly where you are, so let’s figure out where you’re rooted….
+
+Module 1 – Work Factors 1
+Skills and Talents
+Skills are the most basic unit of performance. Most people think their skills are limited to specific work situations. The goal of this exercise is for you to take full stock of all of your skills, take note of the ones you enjoy the most, and to present them professionally. 
+According to researcher Sydney Fine, skills can be broken down into three categories: Knowledges, Self-management, and Transferable Skills. 
+
+-Knowledges are the topics you know, generally nouns. 
+    Spanish, chemical engineering, graphic design.
+
+-Self-management skills describe the way you do your work, generally adjectives/adverbs. 
+    Relentless, innovative, meticulous.
+
+-Transferable skills are the things you can do, generally verbs. 
+    Teach, paint, repair, negotiate. 
+
+Knowledge is knowing a second language. Self-Management is how often and diligently you practice. Transferable skill is using your second language to some benefit. 
+All of these are important. 
+
+First, we want active verbs describing work you can do. 
+→ extensive List of Skills for ideas ← 
+
+I    Transferable Skills
+1. Record any talent you have used professionally. This is your experience
+a) List every job you have had, every significant project you have completed. Write down every course, program, training, and degree you have completed or are currently working through. 
+
+{list builder}
+{tagged for jobs and education}
+
+b) For each item from part a), write down everything you had to do.
+
+{populate item from 1.a}
+{list builder}
+{internal association tagging}
+
+c) Every task you completed is a skill you have. Let's lock these in and grade your mastery of those skills. Don't fret over this, trust your gut and move through them. None of this defines your world, we're just building a profile
+
+{fuzzy search skills - verbs - from 1.b - select true}
+{list builder with List of Skills selector}
+{mastery slider 1-5}
+{internal association tagging - skills to experiences}
+
+
+2. Think of a time you overcame a challenge (inside or outside of work), a time you soared, for each of the following statements. One challenge per statement.
+    
+a) A time when you had an impact
+{textarea}
+
+b) A time you did something no one else around could have done
+{textarea}
+
+c) A time when you were genuinely excited
+{textarea}
+
+d) A time when you impressed yourself
+{textarea}
+
+e) A time when everything went according to plan
+{textarea}
+
+f) A time when nothing went according to plan
+{textarea}
+
+g) A time when you loved what you were doing
+{textarea}
+
+h) A time you did something you would like to do again
+{textarea}
+
+i) A time you did something you would not normally do
+{textarea}
+
+j) Any other story which represents your skillset
+{textarea}
+
+3. Choose the three (3) most impactful stories and describe these events using the anagram SOARED.
+
+    Situation – describe the situation 
+    Obstacle – describe the obstacle/problem you faced
+    Action – describe your action: the step by step process you took to address the obstacle
+    Result – describe the result of your actions
+    Evaluation – your self evaluation and/or how higher-ups received your actions
+    Discovery – describe what you discovered from the process
+
+a) {2a-2i select 3}
+
+b) {selection 1}
+	{soared tool}
+c) {selection 2}
+	{soared tool}
+d) {selection 3}
+	{soared tool}
+
+
+4.  Record every transferable skill you used in each of your stories. Refer to the List of Skills for reference.
+
+{skills_mapping fuzzy search existing skills to each soared story}
+{confirm & build list}
+
+{list builder with List of Skills selector for new skills}
+	{mastery slider 1-5}
+	{internal association tagging - skills to experiences}
+
+
+
+5. Organize your skillset from the most used to the least used. 
+
+{bucketing tool -- this is new -- drag and drop into 5 vertical buckets most to least -- list on the left buckets on the right}
+
+
+
+6. These are the 10 or so skills you have mastered. Adjust mastery above if you feel like these are off or we are missing something?
+
+{auto-pop top 10 transferable skills}
+
+7. Use the ranking grid to organize these skills by importance to you. 
+ {rankinggrid_tool}
+
+
+II    Self Management Skills
+These are often referred to as Soft Skills. You can find lists of common soft skills that random internet people claim will get you any job. Describing ourselves can be difficult. Doing so originally and authentically can be even more challenging. 
+Self Identification Basics:
+The Enneagram, Myers-Briggs, the Big 5, and the Self Directed Search are the most commonly used personality tests. Each has its strengths and weaknesses, and are more alike than they are different. 
+We will be using an adaptation of Myers-Briggs as a tool to help us learn about ourselves. This tool will help you frame your personality in a way which is easier to understand and give you a starting place for finding creative ways to describe yourself. I do not put my full faith into any skills test for many reasons, so remember, this is only a tool. 
+No personality test is perfect. We will use an adaptation of the Myers-Briggs to give you a starting point for your Self-Inventory. 
+
+The questionnaire will assign you a four-letter code upon completion. Each letter represents your bias on a set of four scales.
+
+Extroversion (E) vs. Introversion (I)        
+Sensing (S) vs. Intuition (N)
+Thinking (T) vs. Feeling (F)
+Judging (J) vs. Perceiving (P)
+
+The purpose of this exercise is to illuminate your character traits and to open your mind to possibilities. 
+While taking the test, it is essential to answer the questions honestly, as they apply to you. There are no wrong answers. Although some of your responses may make you slightly uncomfortable, it is crucial to be as honest as you are able. The more accurate you are, the more this tool can help you.  
+
+Few people fit their type perfectly. Do not let the results define you. Instead, consider the truths and make a note of the differences. 
+
+www.16personalities.com 
+
+Write your four letter MBTI code here:
+
+{text input}
+
+(The website where you take the test is a useful resource, feel free to learn about your type from them, but it is not necessary for this program.  We don't sponsor each other in any way.)
+
+
+To be more confident, read through each of these relative dichotomies and mark yourself on each scale below.
+
+Extraverts are more likely to be energized by company, enjoy being the center of attention, keep a fast pace, and talk more than they listen. 
+Introverts are more likely to be energized by alone time, be more private, keep their thoughts to themselves, and listen before speaking. 
+
+{slider from E to I}
+
+Sensors tend to be concerned with certainty and what is realistic. They tend to be more literal and are oriented towards the present situation. 
+Intuitives tend to be concerned with innovation and what is possible. They tend to be more figurative and are oriented towards the future. 
+
+{slider from S to N}
+
+Thinkers are likely to be most concerned with logic, applying impersonal analysis to opportunities and decisions. They can be seen as detached or heartless. 
+Feelers are likely to be most concerned with harmony, empathizing with involved parties with tact when making decisions. May be seen as overemotional, valuing all feelings equally. 
+
+{slider from T to F}
+
+Judgers tend to derive the most satisfaction with the completion of a task and manage their time as a finite resource.
+Perceivers prefer to keep their options open and thrive when adapting to new situations. They often view time and deadlines as elastic. 
+
+{slider from J to P}
+
+
+
+
+{fetch and present the associated MBTI explanation text}
+
+
+
+Remember, no test can tell you who you are, but these tools can help you describe your talents and identify your weaknesses.
+
+
+You can dig into 16personalities to find some self management skills that may, or may not apply to you. 
+
+
+1. Review these. Record any characteristics, strengths, and weaknesses which describe you here.
+
+a) Characteristics
+{list_builder}{prompt with skills associated with type}
+
+b) Strengths
+{list_builder}{prompt with skills associated with type}
+
+c) Weaknesses
+{list_builder}{prompt with skills associated with type}
+
+
+2. These are the remaining characteristics, strengths, or weaknesses which match your MBTI type, but you didn't select above. Reflect and explain why they are false. 
+
+{present remaining chars}
+{textarea}
+
+
+
+3. Choose your ten favorite soft skills from above 
+
+{present selectable pills of defined soft skills from this activity}
+
+Let's rank these --
+
+{present populated ranking grid}
+
+
+4. Use your Self Management Skills to accurately describe your top ten Transferable Skills.
+
+{present top 10 transferable skills}
+{drag and drop SMS to each TS}
+
+
+5. Make a note of times you used your skills in the way you describe.
+(possibly from your written stories)
+
+{textarea list builder}
+
+
+6. Add HONEST hard figures to your descriptions. Numbers. Data. Records. Accomplishments. They must be HONEST. You do not want to lie or exaggerate.
+
+{present each textarea from 5 for editing, and confirmation}
+
+
+
+
+
+Knowledges
+Now dive into what you know. The subject matter, the processes, your interests, everything. It is imperative to include everything you know here (or at least as much as possible).
+
+-Knowledges are the things you know, generally nouns. 
+    Spanish, chemical engineering, graphic design
+
+From work. From your education.  
+From your hobbies. From your interests. 
+From any of your groups or clubs. 
+If it comes to mind, write it down. 
+
+You want to start broad. Take stock of everything first. 
+Then grade them according to Mastery.
+
+{populate with employment history}
+
+1. a) Write every skill, process, or task you had to perform for those jobs. 
+
+{iterate list builder}
+
+
+{populate education history}
+
+2. a) Write every skill, process, or task you had to perform pursuing education. 
+
+{iterate list builder}
+
+
+3. Knowledge is far reaching, likely further than what you have considered before in a professional manner, let's stretch your mind a bit to find what else you know....
+a) What are your favorite hobbies? 
+{list builder}
+
+b) What do you research in your free time? 
+{list builder}
+
+c) If you wrote a book, what would the content be?
+{list builder}
+
+d) What tasks or activities seem to make time fly?
+{list builder}
+
+
+4. Just a bit of brainstorming.... What fields, careers, or industries sound interesting to you?
+{list builder}
+{ideation resource}
+
+
+5. Grade each knowledge on Mastery.
+{populate with every skill from knowledges}
+{mastery slider 1-5}
+
+
+
+
+Module 2 – Work Factors 2
+Environment
+You may have heard it about realty....
+Location, Location, Location.
+If it matters for your house, it matters for your life.
+There are two types of location. Micro and Macro
+Macro – where in the world do you want to be? Do you want to stay in your town or city? Or would you rather be somewhere else? Are there specific activities you wish to have access to? Do you need to live in a city? Or do you prefer the quiet life of the country?
+Micro – what work environment nourishes you? Do you need to spend time outside? Is it necessary that you work near a park? Or do you prefer to spend your time indoors? What are your preferred working conditions? Consider the look and feel of the workplace the micro-environment.
+Of course, the more flexible you are, the more opportunities you will find. Also, generally speaking, where there are more people, there are more opportunities. Still, it is essential to know your preferences; you might find your dream job in your dream location. There is only one way to find out.
+Do this exercise even if you feel you already know where you want to be. First of all, you might surprise yourself. If not, then you have found more evidence to support what you already thought.
+I    Macro: Where in the World...
+
+Do you know where you want to live?
+
+a) If you do, write that here. If not, write down the characteristics of a place that you might want to live. (ex. by the ocean, has an active nightlife, quiet, access to nature, etc.)
+{textarea}
+b) What are your location restraints?
+{textarea}
+c) Do you need to live in a specific country?
+{textarea}
+d) Do you need to stay close to your family?
+{textarea}
+e) Do you have medical needs?
+{textarea}
+
+Struggling for ideas? Even if you are 100% certain, do the following:
+
+a) Write down every place you have lived.
+{list_builder}
+b) List every single thing you disliked about those places. (What does it have? What does it lack? What type of people are there? What feelings does it give you?)
+{list_builder}
+c) List the opposites of each of the location traits you dislike. Also, list any positive traits that come to mind.
+{list_builder}
+d) Rank the positive location traits.
+{ranking_grid}
+
+Research. Open your mind to possibilities. Find as many good ideas as possible. Look for places that meet your needs and have as many of your top 5 location traits as possible.
+
+a) Search the Internet.
+-Search for places which excel in each of your desired traits. Make lists.
+{list_builder}
+-Are there any which excel in multiple?
+{textarea}
+-Find 5-10 places which make you excited. Record what excites you about each location.
+{list_builder}
+b) Ask around. Family, friends, colleagues, acquaintances, you never know what treasure they hold until you ask.
+-Write down your ranked list of location traits and ask 10-20 people if they know of anywhere which has those traits. Write down their ideas. ALWAYS thank them for their time and effort.
+{textarea}
+-Are there any locations which excel in multiple traits?
+{textarea}
+-Research each of the locations which embody multiple of your desired traits.
+{textarea}
+-Find 5-10 places which make you excited. Record what excites you about each location.
+{list_builder}
+
+Narrow down your two lists to a single list of 10 possible locations. Rank those ten from most exciting down.
+
+{ranking_grid}
+
+IF YOU HAVE A PARTNER
+
+– Before you make a list of locations – Before you start researching –
+-Both of you do numbers 1 & 2 separately.
+-Discuss your preferred location traits. Find any similarities.
+-Rank your combined traits. (combine the top 5 from each partner)
+{ranking_grid}
+-Then both of you complete number 3
+-Do number 4 together. Compare your findings. Discuss honestly. Agree upon ten possible locations. Rank together.
+{textarea}
+
+Pay the most attention to, make a special note of, your top 3 locations.
+
+{textarea}
+II    Micro: the Work Environment You Flourish in
+Now we will focus on the look and feel of the workplace.
+For each of the following, consider each productive space you have ever had. You may include classrooms, a desk at home, a library, or a cafe. Any space where you get work done is worth studying.
+
+Previous Employment
+
+a) List every job you have had.
+{list_builder}
+b) List every work condition which had a positive impact upon you, your mood, or your effectiveness.
+{list_builder}
+c) List every work condition which had a negative impact upon you, your mood, or your effectiveness.
+{list_builder}
+d) What would the opposite of those negative influences be?
+{list_builder}
+
+Consider the above. Describe your ideal workplace.
+
+{textarea}
+a) How does the office look?
+{textarea}
+b) What is nearby?
+{textarea}
+c) Are there any important features?
+{textarea}
+d) What part of the city or town is best?
+{textarea}
+e) Is it near child care?
+{textarea}
+f) What else can you think of?
+{textarea}
+People
+For many, we spend more time with the people we work with than the people we live with. For that reason, aim to have a clear idea of whom you work well with, what types of people can help you to be more productive, and what kinds of people have a negative influence on your work and life.
+Simply understanding these things does not guarantee that you will love your next co-workers, but it certainly helps to know what you are looking for.
+It is also essential to understand the type of people you like to work for. You work for your boss, and you work for your client, customer, pupil, audience, family, organization, etc. You work for the people who depend on you to do your job.
+Some people thrive in competitive environments while others need emotional support. Some people need specific direction, and others need to be left to their expertise. Some people work extraordinarily well in groups, and others prefer solitary labor.
+This exercise is designed to help you identify the sorts of people you are productive with and for, and those you are not.
+Refer to your complete list of experiences from Module 1.
+
+Review each job or experience you have had. Recall and record the traits of the people who hurt your productivity in any way. Maybe you didn't like them, but do not focus on who they are. You need to pinpoint what about them made your work less productive. List the harmful character traits.
+
+{list_builder}
+
+Write the antonym of each of the traits from number 1.
+
+{list_builder}
+
+Review each job or experience you have had. Recall and record the traits of the people who helped your productivity in any way.
+
+{list_builder}
+
+Recall any time when you were particularly productive. The production can be from your education, the stories you wrote before, or work experience. Who was directing you? Were you serving anyone (client, etc.)?
+
+{textarea}
+
+What traits do the people from 4 have that support a positive work environment?
+
+{list_builder}
+
+What types of people do you want to work with?
+
+{textarea}
+
+Do you prefer to work in teams, pairs, or alone?
+
+{radio}
+
+What types of people do you want to work for?
+
+{textarea}
+
+Who in this world do you want to serve with your work?
+
+{textarea}
+Compensation
+How much money do you want to make?
+How much money do you need to make?
+What are your needs?
+How much do you plan to save?
+What bonuses and extras are you seeking from your work?
+
+Record how much you have made at each of your positions, including any changes in pay at any one position.
+
+{list_builder}
+
+Write a complete budget.
+
+{budget_calculator}
+
+Be diligent about your budget and live within your means. Avoid accumulating unnecessary debt. It is easy to spend money; it is difficult to save money. Wealth is built by saving and investing wisely.
+
+What benefits do you need?
+
+{list_builder}
+
+Describe the benefits and drawbacks of each, for you. (assume bi-weekly or monthly paydays)
+
+– Salary (aggregate pay per year or month, regardless of hours worked)
+{textarea}
+– Hourly (pay for time worked)
+{textarea}
+– Contracting (pay agreed upon per project, typical for freelancers)
+{textarea}
+– Commission (% of sale per sale)
+{textarea}
+– Combination of above, or Other (specify)
+{textarea}
+
+Module 3 – Priorities, Ecstasy & Flow
+Prioritize
+Before we move on, you need to prioritize your work factors from Modules 1 & 2.
+When considering employment, what is most important to you?
+Compensation – how much money you earn, benefits, and bonus structure
+Environment – where in the world you live and the make-up of your office
+Skills – being able to use the skills you have or learn new skills
+Knowledges – being able to excel in your field of interest or expertise
+People – getting along with the people you work with and for
+{ranking_grid}
+If you feel the need to be more specific, do so here.
+{textarea}
+Flow
+You have documented all of your work factors and have thought about what is most important to you.
+Now, I want you to recall the time when you were the most present. For this step, you will reflect upon your past experiences to get a sense of how they affected you and your fundamental motivation. I am talking about the sensation of flow.
+Human beings are hardwired to experience flow. During states of flow, people are upwards of 500% more effective or productive doing their work. In short, the body achieves this by turning off the prefrontal cortex, effectively allowing the brain to remove criticism and doubt, exist deeply in the present moment, make more lateral connections between new and old information, and innovate upon those newly created ideas seamlessly. The state is often described by the feeling of brilliant information flowing out of the subject, connecting one moment seamlessly to the next.
+Everyone experiences flow from time to time, the most brilliant among us learn to use it to their advantage. You can increase your chances of flow by practicing mindful paced breathing. There are several books and entire businesses built around that fact, so I will spare you the details for now. Practice breathing evenly ("hoooooooooooo", not "ho ho ho ho ho ho ho") and in rhythm (try in for 5, out for 5). You may have been taught to breathe from your gut, but I want you to breathe from the core of your chest, more specifically your heart. There is a concept called entrainment. Entrainment is the phenomena of rhythmic alignment; it occurs across physics, biology and social interactions. Training your nervous system to breathe from your core, you can entrain your physiology on your heart. Dive into this rabbit hole if it piques your interest, but the basic concept is that by eliminating chaos, you benefit from the calm power of harmony at a physiological level. Steady breath will help your heart beat more regularly, which will entrain the rest of your body to the same rhythm. When your body is all in rhythm, it resonates, creating a whole that is more than the sum of its parts. Practice breathing to increase your vitality and the amount of time you are in flow.
+There is a great deal of research about the idea of "flow". Every expertise has its own word to describe the state, most people recognize "in the zone". Flow is often achieved when someone is pushed to their extreme limits after preparation. These are times when all of our skills and expertise are called upon, we shut out everything except the task at hand, and we execute on a very high level. Symptoms of flow include time distortion, being oblivious to anything other than the task, euphoria, extreme productivity, creative ease, and a sense of singular focus. If you have ever amazed yourself with what you could do or you accomplished something that did not seem possible at the start, you were probably experiencing Flow.
+Flow is similar to a sense of ecstasy, but ecstasy is more closely related to play than work. Ecstasy describes also being singular in mind and focus, being exactly where and when you are, but it refers to elation and bliss rather than accomplishment and execution. Some professionals differentiate between what we get joy from, and the work that we do. The best way to live life is to align the two, just like our life values and our work values. Ecstasy is pure happiness, pure energy. Flow is the essence of the creative state. Physiologically, the two are more or less the same; these extreme mental states are characterized by a flood of powerful neurotransmitters.
+Separate flow into focus and energy for the purpose of picking your brain during this activity.
+Think of focus as being the scale between boring and captivating.
+Think of energy as being the scale between draining and energizing.
+When you are fully engaged and completely energized by a task, you are experiencing flow.
+Example: Stacy is a journalist who reported a huge corruption case a few years back. While doing the background research was a bit draining, she remembers being extremely focused. Then, there was one day when the whole story came together and she knew it was big. Once she had done her research she spread out all her findings one night to try to crack the case. She can't quite say how she connected the dots, the memory is a bit blurry, but everything lined up for her as if she already knew all the answers; that was flow.
+Memorable Past
+
+Recall all the significant events you have recorded in the first two modules of this program. For each event, assign two scores: one for focus and one for energy.
+The most significant events, when you experienced flow, deserve more attention. Mark those events with the word "Flow".
+Energy: draining (-2, -1, 0, 1, 2,) energizing
+Focus: boring (v, w, x, y, z,) captivating
+Example: For Stacy, researching her case was a (-1, z) while the night of creative problem solving was (2,z) and induced flow.
+
+{flow_tracker}
+
+Record your top 5-10 most focused activities.
+
+{flow_tracker}
+
+Record your top 5-10 most energizing activities.
+
+{flow_tracker}
+
+Is there any activity, task, or skill which you find both highly energizing and highly captivating?
+
+{textarea}
+Recent Past
+Recall the past 3-10 days. (the more you do, the stronger the tool will be)
+
+Record every significant activity of each day.
+
+{flow_tracker}
+
+Write a short description of each activity on the lines provided.
+
+{textarea}
+
+Shade the boxes according to the energy and focus of the activity.
+
+{flow_tracker}
+
+Are there any activities which you find both highly energizing and highly captivating?
+
+{textarea}
+Present
+Repeat this process at the end of each day. Continue until Part 3.
+
+Record every significant activity of the day.
+
+{flow_tracker}
+
+Write a short description of each activity on the lines provided.
+
+{textarea}
+
+Shade the boxes according to the energy and captivation of the activity.
+
+{flow_tracker}
+
+Are there any activities which you find both highly energizing and highly captivating?
+
+{textarea}
+
+Module 4 – Love
+The focus of this module is love. I think all people have a sense of what love is. You might be more comfortable considering the things and people you care about.
+Love can be a tricky topic to talk about. Love manifests differently in each person's life. You might have intensely positive, intensely negative, or completely neutral experiences in each of the categories below. The purpose of this activity is not to dictate right from wrong, but to reflect and understand.
+Many programs focus on the idea of passion. Passion is simply one of the many paths into flow. Passion can be elusive; about 1:4 people know their passion. For our purposes, we will focus on what we love and care about as a window into what might bring us the most fulfillment in the future.
+There are no wrong answers here, these questions are for you and you only. While you will be asked questions that relate to this topic, we encrypt this data for you so that you are the only one with access to anything you write here; share what you are comfortable sharing.
+Answer every question. The process works, if you work it. This section is no less important than any other section. In fact, this might be one of the most important modules in the program. Seriously reflect on each of these, and record vivid details. Consider telling your stories using the acronym SOARED (wink wink) so that you don't miss any important details.
+Don't leave anything out. Some parts of your life might seem obvious or redundant, record them anyways. You cannot possibly be over prepared. Do the work.
+Family
+
+What stories from your childhood have helped shape who you are today?
+
+{textarea}
+
+What family relationships have had particularly significant impacts upon your beliefs?
+
+{textarea}
+
+Do you have any elderly family members you care for or support? How does this shape your needs?
+
+{textarea}
+
+Do you have any children you care for or support? How does this shape your needs?
+
+{textarea}
+
+Do you have any family members or stories which inspire you? If so, give details.
+
+{textarea}
+
+What are the most significant lessons your family has taught you?
+
+{textarea}
+Community
+
+What group, or groups, do you identify with?
+
+{textarea}
+
+Are you involved in any organizations, religious groups, neighborhood associations, group of friends, gaming club, or other regularly organized social events?
+
+{textarea}
+
+Why are you involved in those groups?
+
+{textarea}
+
+Do you have any personal goals concerning your community?
+
+{textarea}
+
+Is there anything that might cause you to leave your community?
+
+{textarea}
+World
+
+Are there any worldly issues that are important to you? What are they?
+
+{textarea}
+
+What are some lessons people should learn from history?
+
+{textarea}
+
+Are there any worldly problems which you feel the need to help solve?
+
+{textarea}
+
+Have you ever traveled outside of your country? Your continent?
+
+{textarea}
+
+What have you learned from other cultures of the world?
+
+{textarea}
+
+What do you think the world will look like in 10 years?
+
+{textarea}
+… 50 years?
+{textarea}
+… 100 years?
+{textarea}
+Self
+
+They say that you are your own hardest critic. Critique yourself. What can you do better?
+
+{textarea}
+
+What are your strengths?
+
+{textarea}
+
+Do you have an idea or memory which makes you feel most like yourself? If so, describe it.
+
+{textarea}
+
+What do you love about yourself?
+
+{textarea}
+
+What major life events have shaped you? Briefly describe them.
+
+{textarea}
+
+What is your greatest gift?
+
+{textarea}
+
+Are you willing to do what needs to be done?
+
+{textarea}
+
+Module 5 – Health
+We will focus on mental health. Physical and Spiritual health are both important, but I feel it is best for you to find answers to questions you may have about those topics from another source. People from all walks of life can benefit from mental health.
+I am going to address three aspects of mental health: achievement, fortitude, and emotional intelligence.
+In all three, the lesson is discipline and practice. The goal is not perfection. The goal is active practice.
+Bill Burnett describes five mindsets which are imperative to our cause. Curiosity, bias to action, reframing, awareness, and radical collaboration. Mastering these mindsets and living them will lead you to opportunity.
+Sharpening
+Achievement is characterized by the things that we can do. Otherwise known as our skills. In previous modules we described our skills, our mastery over them, whether they give or take energy from us, and how captivated we are by them.
+Whether it is for our own pleasure, to further our working cause, or to give us a competitive edge, it is crucial to be a student of life, for life. Everybody should always be improving themselves in one way or another.
+The post-industrial economy is based on specialization. Pick a transferable skill or a knowledge which sets you apart from others, an expertise. If you do not have one, your duty is to make one of your skills an expertise.
+Additional practice, above and beyond what is needed for any of the work that you do is self-improvement for the sake of self-improvement. Sharpen your skills to make you a better candidate than your competition.
+You will want to start as soon as possible. Today is best; right now is even better.
+
+Choose a skill to practice.
+
+{textarea}
+
+Dedicate at least 15 minutes of singular focus to improving that skill every single day.
+
+{checkbox}
+
+Practice the skill every single day. Don't stop.
+
+{checkbox}
+
+If you grow tired of practicing this skill, reach a level of mastery, or otherwise, choose another skill and repeat the process. This is the never-ending task of self-betterment.
+
+{textarea}
+Grittiness
+Grit describes the mental fortitude to work tirelessly for rewards which are either abstract or far removed, often both. I am a proponent of working smarter, not harder, but there is no replacement for diligence, perseverance, and drive. You absolutely must take yourself seriously. Even if your profession is in comedy, be a comic, not a joke.
+To get this message across, I have decided to share a personal story.
+Take Yourself Seriously
+On April 1st, 2016, I woke up at 3 pm. I had slept through two strategy meetings, an interview, training, and was supposed to be getting ready to go out knocking doors for the next 5 hours. I called my campaign director, she was furious, but more, she was sad.
+Four months ago she had put her name on the line to bring me in to direct a field canvass that had, until that point, no direction and no hope. Enthusiastic and passionate I left everything else behind to join her. We had been working 60+ hours each week to get going and had finally started to gain some momentum.
+Tuesday, March 31st, we went to dinner and then to a local bar to watch some music. Long after my co-worker went home, I was the last patron in the bar, finishing something past my 20th drink, around 4 am. I had promised to be at work by 830. I had told myself before dinner, that I would have two beers, and be at work early, hoping for 8, thinking it would probably be 8:15.
+I woke up in severe pain which had become all too common. I couldn't open my eyes. An attempt to stand was met with icy hot needles in my brain; I collapsed. Watching my drool inch across the hardwood, I considered the remedy I had taken for what was becoming countless days prior; I longed for the rye whiskey on my windowsill.
+I remembered the promises I had made: to my co-workers, to my employees, to the people who depended on me. I remembered the times I had been sent to the hospital for alcohol poisoning, and all the promises I had made to my Mother. I called Alex, who had done so much for me already, and told her I wasn't going to make it to work that day. No way.
+That is when I realized that nothing I said mattered. Every promise I had made, I was breaking it. Both the spoken and the unspoken. Here I was, doing what I wanted to do, and throwing it all away. I wallowed for a bit on all the people I was letting down. But I had done that before. It got me nowhere. I thought about slowing down my drinking, but I had tried who knows how many times, hell, just last night was supposed to be slow.
+When I finally pulled my face off the floor and crawled to the sink, I knew I had to do something I hadn't ever done before. I stared myself in the eyes, unsure of what would happen next. That's when I knew. I had to take myself seriously.
+I had dreams, ambitions, goals, and more. Yet so far, I had let those sit idly by while I did as I pleased. No more. I told myself I would never drink again. I told myself that it was just the start. I made a promise to myself which I live by to this day. I promised accountability. Whatever challenge should come, I vowed to face it. I vowed to overcome. I promised to be the person I knew I was meant to be.
+That day wasn't the first time I had made promises to myself. So, I vowed to take myself seriously. I can still see my face. The most resolute I had ever been, and terrified of what was to come. In those eyes I see relief. Finally, I was going to take myself seriously, and no one could stop me.
+Since that day, my entire life has changed. I have been and am sober. I quit smoking. I revolutionized my diet. I started working out regularly. I have found time for my spirituality. I fell in love. I moved to another continent. I started a business. I take myself seriously.
+Overcoming addiction, changing your life, creating your story, standing up for yourself, surmounting your fears, starting your next project, building your dreams, no matter what you plan on doing next, TAKE YOURSELF SERIOUSLY. Every day. Never stop. This is grit. Daily sacrifice for long term gain.
+I don't mean to wear nice clothes and look people in the eye (although those are useful habits for networking). I mean, look yourself in the mirror and hold yourself accountable. Every single day. No one else can tell you what you need to do. No one else can do the things you need to do. I am giving you all the help you need to live a more fulfilled life. The rest is up to you. You are your greatest enemy and your greatest ally. Choose to be your ally. Every day. No matter how hard it is. Don't lie to yourself, you'll know. Take yourself seriously.
+Do the things you know you need to do.
+
+Who do you look up to? Who is your role model? Why?
+
+{textarea}
+
+What do you admire about that person (or those people)? What characteristics do they have that make them special?
+
+{textarea}
+
+What bad habits do you need to quit?
+
+{list_builder}
+
+What are the good habits you need to start?
+
+{list_builder}
+
+What promises do you need to keep? To yourself? To those you care about?
+
+{textarea}
+
+What has stopped you from keeping those promises?
+
+{textarea}
+
+Choose an order to accomplish these. If you need, start with the easy ones and work up. No matter what, choose one to complete as soon as you possibly can. Start building active trust in yourself.
+
+{ranking_grid}
+
+Forgive yourself when you mess up. If you fall off the horse, focus on getting back on the horse, not on the fact that you fell off. Forgive. Take yourself seriously, if you don't, who will? Next.
+
+{textarea}
+Mindfulness
+Mindfulness is rooted in the eastern practice of meditation. I am not asking you to chant mantras or do yoga unless that is what you want to do. What I am talking about is discipline for your mind. Silencing your mind is difficult. Try thinking about nothing for the next 5 minutes.
+…
+Too hard? How about only thinking about your breath for the next 2 minutes.
+…
+How did you do? Did your mind wander? It is okay if it did. The important thing is practicing the act of coming back to silence. Practice batting down thoughts and distractions. The world is more distracting today than it ever has been. Grabbing attention is a trillion dollar business.
+So, why is this important? I am glad you asked.
+Your brain is just like every other muscle; the parts you exercise get stronger. Mindfulness uses emotional intelligence. Emotional intelligence is otherwise known as, keeping a level head in the face of animosity. Psychologists have shown this works, neurologists agree, and some cultures have been practicing this basic technique for thousands of years.
+Training your brain to focus, to stay calm, and to shut out distractions will improve your soft skills, make you more able to communicate with others, improve your mental energy, and make you generally grittier.
+You can spend as much or as little time on this as you think necessary. I highly suggest taking it seriously.
+Spend between 5 and 20 minutes a day practicing mindfulness. Focus on your breath. Push out all distractions. Silence your inner voice for a period each and every day.
+Some people do this while completing thoughtless tasks, but it is most effective when practiced on its own. Do what works best for you.
+Routine
+Routine is the final point of Part 1. A routine is the manifestation of discipline. Whether you realize it or not, you have a routine. Humans are creatures of habit, and that will never change.
+My task for you is to consider your routine intentionally. Do you wander through your day from one thing to the next? Or is there a method to your day?
+Either way, I have given you at least three tasks which demand your attention every day.
+
+Tracking Flow – tracking your daily activities, how they affect your energy, and how engaged you are in them.
+
+{flow_tracker}
+
+Sharpening your sword – choosing a useful and enjoyable skill to hone, practice, and sharpen as a way to stand out from your peers and, more importantly, to better yourself.
+
+{textarea}
+
+Mindfulness – set aside a short amount of time to practice quieting your mind each day.
+
+{textarea}
+Finally, remember the five mindsets every day.
+Curiosity
+Bias to action
+Reframing
+Awareness
+Radical collaboration
+It takes about five weeks to break old habits and build new ones. If you start now, exercising your brain will become a part of your daily routine before you finish the course.
+
+
+
+
+Part 2: Trunk
+Connecting Your Past to Your Future
+
+Table of Contents
+Overview
+Module 1 – Finding The Light
+    How You Are
+    Your Values
+Module 2 – Reality
+    Creator's Mentality
+    Action Triggers
+    Reframing Failure
+Module 3 – Landmarking
+    New Growth
+    Reading the Leaves
+    Making Choices
+Module 4 – Launching Pad
+    Framework
+    Support
+    Unknowns
+Module 5 – Story Weaving
+    Choosing Your Level
+    Persuasive Story Telling
+    Drafting Your Story
+
+
+Overview
+Now that you have taken stock of your literal makeup and background, it is time to take a higher level view of who you are, how you are doing, and where your life is going. If you are unsure about the path ahead, that is okay. If you are confident you know where your path leads, that is okay too. Go through each exercise with an open mind. If you are searching for answers, this process will guide you through finding them. If you are decided and confident, this will provide reassurance, perspective, and ensure that you did your due diligence. Just as with the roots, understanding where you are can only help you reach greater heights. 
+The trunk of our tree represents the present. This is where your past meets your future. In many respects, the present is the only thing that genuinely exists. Everything else is an interpretation. Your mission is to interpret your situation to your benefit and steer towards your best possible future. 
+There is no possible way to know every effect of each and every choice we make. So, it's nearly impossible to make the best decision in every instance. We gather as much information as is needed, and then we make a choice. Bias to Action. 
+Approach this part with an open mind. A lot of this will be brainstorming. When brainstorming, defer to quantity over quality. We, as people, make better choices when we can choose between multiple options. So, keep your judgment to the side as best as you can. 
+There will be a time and a place for evaluation, but first, you need to generate as many ideas as possible. While the most outlandish ideas don't always seem useful, they open the door for creativity, and can often lead to innovation. Remember, many of the most incredible discoveries were made by accident, open yourself up to those accidents. 
+
+*** You are going to need a small group of people who know you but do not think they know what you need to do for your next step in life. 2-3 other people works best, but even one will help tremendously. ***
+
+
+Module 1 – Finding The Light
+Every plant grows towards the light. The light is nourishing for trees. 
+You, too, must reach towards your light. Once you identify what your light is, it will guide you through your decision-making process. Anytime you have a decision to make your light will tell you which way to go, grow towards the light. So, what is your light? What is nourishing for you?
+
+How You Are
+Building on Part 1, you are going to write a brief summary of each of the four main parts of your life. You will then evaluate each part out of ten. Give marks according to how you see fit. 
+
+Write a Summary
+Mark out of 10
+
+1. Work
+
+{textarea}
+{slider 1-10}
+
+2. Play
+
+{textarea}
+{slider 1-10}
+
+3. Love
+
+{textarea}
+{slider 1-10}
+
+4. Health
+
+{textarea}
+{slider 1-10}
+
+5. Overall, how are you?
+
+{textarea}
+{slider 1-10}
+
+
+Your Values
+It is time to identify your light and begin to understand the compass that will guide you into the future. 
+There are two main values to consider, your work values and your life values. Values are not a description of what you want, or what you are seeking. This is philosophical. Reflect on the deeper meaning. There are no wrong answers, except for blank answers. 
+
+Work
+1. What does work mean to you?
+
+{textarea}
+
+2. Why do you work?
+
+{textarea}
+
+3. Why do other people work?
+
+{textarea}
+
+4. What is the purpose of people working?
+
+{textarea}
+
+5. Other than money, what is gained from work?
+
+{textarea}
+
+6. Are honor, growth, or fulfillment essential to work? Explain.
+
+{textarea}
+
+7. What work would you do if all your needs were guaranteed?
+
+{textarea}
+
+
+Life
+1. Is there a meaning of life? Give details.
+
+{textarea}
+
+2. What is the meaning of your life?
+
+{textarea}
+
+3. Why do we exist?
+
+{textarea}
+
+4. What is good?
+
+{textarea}
+
+5. What is evil?
+
+{textarea}
+
+6. What is happiness?
+
+{textarea}
+
+7. Is there a higher being?
+
+{textarea}
+
+8. Why do we experience pain and suffering?
+
+{textarea}
+
+9. Is there some deeper meaning, mission, or purpose to life?
+
+{textarea}
+
+10. What injustices are there in the world?
+
+{textarea}
+
+
+Alignment
+The most fulfilling lives grow from the place where life views and work views overlap. In other words, if your work values complement your life values, your life will have more value. 
+
+1. Where do your two value systems support each other?
+
+{textarea}
+
+2. Where do they disagree?
+
+{textarea}
+
+3. Is one more important to you than the other? Which one? Why?
+
+{textarea}
+
+4. In your own words, explain how your work values and your life values work together.
+
+{textarea}
+
+
+You spend a tremendous amount of your life working. The more closely your work supports your values, the more rewarding your life will be. The overlap between your work values and your life values is where your light shines the brightest. The closer your work, the way you spend your productive time, complements your values, the more rewarding your life will be. 
+If you are unclear on what you value, talk to people who know you well, or research your idols' values and compare your values to their values. This alignment is the light you are using to guide the next steps in your life, be diligent. 
+If you find yourself stuck, practice free writing several potential answers to the questions. Then, choose which solution is best for you or combine them to create another. This doesn't need to be a world-altering philosophy, but you do need to clarify your values. 
+
+
+Module 2 – Reality
+There are many things which are outside of our control in life. It is best if we let them be. Accept them as they are, and work around them. I am not saying that we should not fight injustices or work to right the wrongs in the world. Quite the contrary, we should understand what cannot be changed so that we may be productive in our efforts to support our values. 
+For example, there is bias and discrimination in most hiring processes. While these issues do need to be addressed and rectified, we would be foolish to act as though they do not exist. 
+There are two main approaches to finding the next job. 
+
+The first is the one you likely know: write your resume, find a job opening, apply to every position you can with your carefully crafted documents, wait in the dark, then (if you're super lucky) you might get an email initiating the interview process. The first interviews are screening; the employer is just looking for reasons to narrow down the list. The final interview is when you get the chance to build a bond and sell yourself as an actual human who brings more to the table than a list of skills.
+There are a TON of reasons this doesn't work, but the important thing is, for all intents and purposes, this doesn't work. Incentives are misaligned at every step of this process. For example, you are not a list of skills; the person writing job descriptions is either looking for the person who just left (with none of the downside) or doesn't fully understand what the position calls for. The process makes it incredibly challenging to showcase or find qualities which genuinely predict success. Meanwhile, it's often a charade because the position has already been filled through the second method. 
+The second one is the one that works, networking. I am not here to debate the ethics of this, only to share the reality of it. Most employers look inside their organization first, then they either target people they have found or already know, or they defer to prospects who are referred by trustworthy employees within the organization. Employers around the world have found that this is the surest way to find good hires. So, this is the method we use.
+
+Creator's Mentality
+Rather than waiting for the perfect job to fall into your lap, you are going to create your own opportunity. The best way to create opportunity is to have a plan and to live the five mindsets I mentioned in Part 1.
+
+Curiosity – Be curious. You are going to be speaking to people. People love to feel interesting. Being genuinely interested in the people you are talking to will make every interaction you have, a more positive one. Further, if you are genuinely curious about the people you are speaking with, then you are more likely to be talking to the right people. Research is professional curiosity. Discovery is what comes from curiosity. Be curious. Do all your research, then find more questions to answer. Curiosity is the spirit of authentic connections. The best, and most effective, networking is authentic. 
+
+Bias to action – When it is time, take action. When in doubt, take action. You can research and postulate and imagine all day every day. A certain amount of preparation is good and necessary, but preparation has diminishing returns. Sooner rather than later, you need to go out and take action on your postulations. Make a hypothesis, test your hypothesis, observe the effects, iterate, and improve. We can only truly learn through action. 
+
+Reframing – otherwise known as a change of perspective. Some problems are insurmountable. Most problems are opportunities. Learning to see obstacles as opportunities will pay dividends in all aspects of life. An example, 
+Before → "I have applied to every job I qualify for, and none of them are answering me. I will never find a job."
+After → "I have tried applying for jobs using traditional methods. I need to change how I am looking for a job."
+
+Awareness – The human brain is always looking for ways to optimize. Think of your daily commute. While you are on your commute, you probably do not notice much of what is going on around you, unless it is extraordinary. The very first time you took the commute was likely a small adventure, fraught with new stimuli, and the excitement of your new job ahead. Now that you have made the trip so many times, your brain does not waste the energy it takes to observe every little thing, it assumes you know what is essential and only pays attention to those things. Attention is a trillion dollar business; companies spend a tremendous amount on advertising; the entertainment industry is massive. Know the difference between awareness and distraction. The more aware you are of what is going on around you, the more likely you are to recognize opportunity when it comes. Not everything that glitters is gold. Awareness means knowing the difference. 
+
+Radical collaboration – People. Know that everything in the world of work and creation is made up of people. Every institution, every group, everything, is made up of people. The most abundant resource you have is not the internet. It is the people you know. Don't be afraid to tap into the genius and perspective around you. Flow is when an individual performs at an extremely high level. Yet, no individual can accomplish what a group working together can. Every potential job will have gatekeepers; secretaries, HR representatives, hiring managers, and future co-workers are all people. Each interview is a two-way conversation. You are working together to find out if you can work well together. 
+
+1. Find a character from a book, series, movie, or real life for each mindset. The mindset should be that character's defining quality.
+
+{textarea}
+
+2. Defend your choices. Explain how and why these characters exemplify the mindset. Give examples.
+
+{textarea}
+
+3. What does embodying the mindset help the character to accomplish?
+
+{textarea}
+
+
+Action Triggers
+1. Focus on the task at hand. The one who chases two rabbits catches none.
+2. Use the skills you have, not the ones you don't. A bird in the hand is worth two in the bush.
+3. Find your inspiration. Reproduce or create your most successful scenarios.
+4. Set your intentions and follow through.
+5. Aim for the moon. If you miss, you'll land in the stars.
+6. Embrace fear. Get comfortable being uncomfortable. Move through fear into the unknown. 
+7. Take massive action. Hypothesize, act, observe, adjust, iterate. 
+8. Persevere. Be relentless. Never stop. Remember that the tortoise beats the hare.
+
+I want you to aim for the moon. So, now, define your "moon". Be specific. How much wealth? How much income? What material desires? What organizations, businesses, or non-profits need to exist? What connections do you need to make? Dream it all, and write it all down here. 
+
+1. What do you need to survive?
+
+{textarea}
+
+2. How would a comfortable life for you look?
+
+{textarea}
+
+3. What does happiness mean to you?
+
+{textarea}
+
+4. What is your definition of success?
+
+{textarea}
+
+5. If you had three wishes, what would they be?
+
+{textarea}
+
+6. Describe your dream life.
+
+{textarea}
+
+7. What are you willing to do to achieve your standards?
+
+{textarea}
+
+8. What strikes fear into your bones?
+
+{textarea}
+
+9. Detail some actions you think you could take to conquer those fears.
+
+{textarea}
+
+10. What situation over the next year are you afraid of failing?
+
+{textarea}
+
+11. Give three opportunistic perspectives on that situation.
+
+{textarea}
+
+12. Brainstorm actions you could take to excel in that situation.
+
+{textarea}
+
+13. Describe a time you overcame your fear.
+
+{textarea}
+
+14. Have you ever had an authority figure who motivated you? What about that person motivated you?
+
+{textarea}
+
+15. What is the worst possible situation you can accept for your life?
+
+{textarea}
+
+16. Describe the last time you were down. (Financially, emotionally, in performance, you choose your frame)
+
+{textarea}
+
+17. What did you do to improve your situation?
+
+{textarea}
+
+18. What could you have done better?
+
+{textarea}
+
+
+Reframing Failure
+Failure is no longer an end. Life is not a pass or fail test. Sometimes, things do not work the way we expect. So, either change what you expect or change the way it works. Reframing failure is an extension of being mindful. 
+
+1. Look back over the last week (or month or year), and log your failures.
+
+{failure_reframer}
+
+2. Label them as screwups, weaknesses, or growth opportunities.
+
+{failure_reframer}
+
+3. Reframe each as an opportunity for growth.
+
+{failure_reframer}
+
+4. Repeat at the end of each week to build the habit of reflection and growth
+
+{failure_reframer}
+
+Often, life is a numbers game. If you try enough times, eventually something will work. You need to go a step beyond random trials. Record your mishaps, reflect on them, and adjust your behavior accordingly. Do not fail the same way twice. Learn from science, pay close attention to all the variables involved. Failure is not an end; it is a means to learn. 
+Practice reframing in your daily life. Change your perspective to see opportunity in every instance. Lost your keys? Memory exercise. Family argument? Practice diplomacy, communication, and negotiation. Not enough time? Streamline for efficiency. Decide to view the world from a place of possibility by repeatedly choosing perspectives which are acceptable to you. Practicing mindfulness, pausing to take a few deep breaths and settling your mind, will help you to see aspects of any situation which you might otherwise overlook. 
+
+
+Module 3 – Landmarking
+I cannot overstate how impactful this module's activities can be, no matter how far along you are in your process. By opening your mind to your own ideas and building neural paths to stimulate and support creativity, you are practicing one of the most highly valued skills in the information economy – innovation. The more earnestly you engage with these activities, the more you will get out of the entire process. 
+
+New Growth
+When plants grow, they send out shoots in many directions. They don't reach in every direction, but they give themselves plenty of opportunities, knowing that not all of them will grow into significant parts of the plant. 
+For this step, you are going to create three idea trees. For each, start with a blank piece of paper and a pen or pencil. The process is simple, don't overthink it. As before, the important thing right now is quantity. We, as people, make better choices when we can choose between multiple options. So, keep your judgment to the side as best as you can. 
+You are going to start with the trunk. Then, add 3-4 branches. Next, each branch gets 3-4 more branches. Finally, one more round of branches. If any of these last ones beg for their own branches, follow your heart and give them some. 
+Each bunch of branches only needs to be related to its parent branch, not the branches before it, not the other branches, and not the trunk. 
+DO NOT CENSOR YOUR IDEAS. ALL IDEAS ARE WELCOME. You cannot know if it is a bad idea or a good idea during the exercise, do not pass judgment on any ideas during this stage. 
+
+To make your idea trees, read and then follow the directions below:
+
+1. Review the topics or situations which both energize and captivate you (Part 1, Module 3), and choose the three which interest and engage you the most for your starting words. 
+
+{idea_tree}
+
+2. Write your first word in the middle. Circle it. This is your starter. You now have the trunk of your idea tree. 
+
+{idea_tree}
+
+3. Read the word. Write 3-4 words related to your starter. Write the first words you think of. This is your first layer of branches. 
+
+{idea_tree}
+
+4. Read each word in your first layer. Write 3-4 words related to each word in your first layer of branches. Write the first words you think of. This is your second layer of branches.
+
+{idea_tree}
+
+5. Read each word in your second layer. Write 3-4 words related to each word in your second layer of branches. Write the first words you think of. This is your third layer of branches.
+
+{idea_tree}
+
+6. If you believe any words from the third layer of branches need branches of their own, write down your ideas.
+
+{idea_tree}
+
+7. Repeat for your second and third starting words.
+
+{idea_tree}
+{idea_tree}
+
+
+Reading the Leaves
+You are now going to take the ideas you have generated and brainstorm jobs that combine them. This doesn't need to be realistic. The point of this exercise is to practice exploring ideas. Imagination is the key. There is no right or wrong answer. Remember, this is only a step on your path; you do not need to have the best ideas in the world, only to practice creating new opportunities. 
+For example, let's say the three ideas I choose from my first idea tree are as follows: dogs, economics, and mountains. I could breed and sell dogs in the mountains. I could start a business for dog and owner retreats, in the mountains. I could open a dog kennel with a mountain theme. 
+Another example. Let's say the three ideas I choose from my second idea tree are as follows: travel, dance, and teaching. I could teach different styles of dance from around the world. I could find and exhibit various forms of dance from around the world on a youtube channel. I could start a club encouraging the exchange of dance ideas across cultures. 
+
+You have these three "trees" with all sorts of interconnected ideas on them. 
+Start with just one tree. 
+I want you to pick three ideas from the outmost layer of branches. Pick them with genuine interest. Which of your ideas captivate you?
+Then, think of jobs that combine all three of those ideas. 
+Repeat for each tree. 
+
+{job_combiner}
+
+It is entirely possible that you just stumbled upon a great idea or even a few great ideas. If that is you, CONGRATULATIONS.
+If not, don't worry. Most people don't. 
+If you found this activity completely pointless, you may want to consider your perspective. The point is not to be right or wrong. The goal is to open up your mind to possibilities. You might not move into these professions, but it is a healthy and beneficial practice. 
+The goal is to get used to generating ideas without judgment. Imagination is the essence of creativity; creativity is the basis of innovation.
+
+
+Making Choices
+Now you are going to make a few decisions. For some, this will be easy. For others, this will be a painstaking process. Take your time and sincerely consider your options. There is no right answer. The average worker will change jobs more than ten times in their life. Most people completely change careers a couple of times. There are multiple lives that you could live that might bring you joy for years to come. Also, there is no way to know if you will love or hate something until you go out and try it, so don't write anything off just because it sounds silly. 
+Life is a bit like looking up from the trunk of a tree. Look for the leaves you want to reach, and go that direction. Most paths don't lead straight to the leaves you want, there are many decisions to make between where you are and where you want to go. 
+It is time to make some real decisions. 
+Design and plan three full options for your future. You are not choosing a specific place to work. You are picking a profession. Do not consider the actual place of employment, that is not the task. The task is to choose professions. Underwater Welder. High school Spanish teacher. Quality control manager for toy manufacturers. 
+You are going to want three options. Life is unpredictable and full of opportunities. Like a tree in nature, the sun does not only shine from one place. There are multiple directions you could grow, and each of them will give you a healthy and robust life. You are not a bamboo shoot, do not limit yourself to only one choice. All people make better decisions when there are a few options on the board. 
+In the last activity, Reading The Leaves, you came up with a variety of ideas. It would be best if you seriously considered those ideas. They were generated from connections to productive activities that make you tic. You might not have found your passion during the activity, but there is a good chance you could become passionate about one of the prospects you imagined. 
+When making your choices, you will want to consider your skills and talents, but keep in mind that you can usually learn more skills than you expect on the job. There are jobs which have strict entrance requirements, like doctors. So, maybe you can't just become a doctor, but there are entire industries which work very closely with doctors and patients, most of which do not require such extensive preparation. Every industry has multiple layers, search for ones that fit your skills and potential. If you have ten years to become a doctor, by all means, go for it, if not, consider becoming a nurse or joining a medical equipment sales team. 
+More often than not, someone somewhere has taken an unconventional path to realize their dream. There are many paths, do not judge, doubt, or censor something that stands out in your mind because you cannot see the way at this time. 
+The first is your first choice, the one that meets your real-world needs and utilizes your skills and interests the most. For some, this is a clear and obvious choice, the exercises up to this point have only solidified your direction. If that is not you, look back at your ranked lists of skills, consider your work priorities, and weigh them against your compass. Where could life shine the brightest for you? What job could provide you with the most growth? For help answering those questions, discuss your Roots and your New Growth Leaves with some trustworthy people you are close to. 
+The second would be your first choice if the first one didn't exist. This one should be just as good as the first, but definitively different. 
+The third one would be your choice if there were no restraining factors (no financial needs, no location dependence, no qualifications needs, etc.). This is your chance to write down the long shot. Maybe you love the idea, but don't think you have a chance at landing that position. Perhaps it is way outside of your current skill set, but you think it would engage you like nothing else ever has. The third is my favorite pick of the three. There are several ways to make significant changes in our lives, and many paths that most people don't see at first. We will discuss this option more down the road, for now, take the long shot. 
+
+1.
+
+{textarea}
+
+2.
+
+{textarea}
+
+3. 
+
+{textarea}
+
+
+Module 4 – Launching Pad
+Plan out each of your ideas from the previous exercise. 
+
+You will do the same three steps for each of your three choices. 
+
+Framework
+First, make a timeline for this plan. Include work events and life events. If you cannot immediately move into this position, including how you think you can grow towards your goal and when you will achieve it. Five years is a good guideline. 
+
+{career_timeline}
+
+Then, once you have designed a timeline, give this life option, this branch of your tree, a complete and accurate title. Describe your potential life in a way that suits you now, your roots, and this future. 
+
+{textarea}
+
+Support
+Gauge each of the following out of 10 (0 being little to none, 10 being extremely strong)
+Give detailed examples and explain in as much detail as you can where necessary. 
+
+1. Resources
+    a. time – do you have the time to pull this off?
+    
+    {slider 1-10}
+    {textarea}
+    
+    b. Funding – do you need any additional funds, are there any financial risks you are taking?
+    
+    {slider 1-10}
+    {textarea}
+    
+    c. Skills – do you already have all the necessary skills, or are there some you still need to learn?
+    
+    {slider 1-10}
+    {textarea}
+    
+    d. Contacts – do you know anyone doing this? Do you know anyone in the industry?
+    
+    {slider 1-10}
+    {textarea}
+
+2. Excitement – are you excited about this prospect? When you imagine this life unfolding in front of you, how does it make you feel?
+
+{slider 1-10}
+{textarea}
+
+3. Confidence – How confident are you in this prospect?
+
+{slider 1-10}
+{textarea}
+
+4. Coherence – How in line with your work values and your life values is this idea? 
+
+{slider 1-10}
+{textarea}
+
+5. Work Needs – consider your work priorities and all the pieces from Part 1. Does this idea support your roots? Consider location, financial needs, and any other areas of importance to you.
+
+{slider 1-10}
+{textarea}
+
+6. Discovery – what will you learn from this journey? What is the impact of choosing this path?
+
+{textarea}
+
+Unknowns
+It is crucial that you approach your future with genuine curiosity. You need to have some questions you are seeking answers to as you move down any path in life. I have given you some starting points, but these do not need to be your questions. Write 2-5 good questions. 
+What is uncertain?
+What will you need to learn to be successful on this path?
+What ideas or realities will you explore on this path?
+What are you going to learn from pursuing this path?
+
+{list_builder}
+
+
+Module 5 – Story Weaving
+To finish this part, you will be constructing your story. You have analyzed your past, identified your compass, and laid out three potential futures. Now, it is time to connect the dots and form a cohesive and coherent story which presents you in the best and most accurate light possible. If you are not entirely satisfied with what you think your story is, then you are not looking at it in the right light. Every single person has a good story to tell, seeing and understanding yours is a matter of perspective and construction. 
+First, you will aim for a certain level of competency, are you looking to run a corporation, or are you hoping to work on a design team? There is no right answer in the first section, but it is important that you and I both understand where you are aiming. 
+Then you will learn the basics of persuasive storytelling. Not only do you want to tell your story, but you want that story to convince your audience of something, particularly that you are fantastic and will accomplish the goals that you have set out. 
+The last thing you need to do is to write a full draft of your story. Shape and record the story that you tell yourself. It should be positive, accurate, follow your "light," and convince even your harshest critics that you are an impressive individual (according to your needs). From this story, you will construct your elevator pitch, and decipher the best ways to approach your upcoming interviews. Weave together all the pieces of your life and learn to present your story as the masterpiece it is.
+
+Choosing Your Level
+The purpose of this exercise is to determine the level of business you are targeting. Are you an executive who enjoys the big picture or are you best served dealing with your own needs? Not one of these is notably better than the other, but each level does have different responsibilities requiring different preparation. While it can be difficult to pigeon hole some real-world roles into particular categories, you should do your best to identify which level you are the most prepared for. 
+Level 1 is typically associated with jobs such as Assistants, Secretaries, Technicians, and Operators. 
+Level 2 is typically associated with jobs such as Statisticians, Corporate Management and Administration Assistants/Officers, Logistics Officers, Engineers, and Documentations. 
+Level 3 is typically associated with jobs such as Economists, Policy Analysts, IT Analysts, Developers, and HR Advisers. 
+Level 4 is typically associated with jobs such as Senior Economists, Senior Analysts, Leads, or Managers. 
+Level 5 is typically associated with jobs such as Heads of Division, Counsellors, Deputy Directors, C level Officers, and Directors. 
+Your specific role may not be listed. If that is the case, make the best estimation you can, based on the examples given. 
+Once you have estimated your level, see the Competency Framework and read through the qualifications for your level. 
+If you are unclear on some of the objectives, that is okay. Be as confident as possible that most of them are accurate for you. 
+Adjust your estimated level accordingly. You will want to be able to demonstrate ability, success, or excellence for each point associated with your level. 
+
+{competency_assessment}
+
+Persuasive Story Telling
+
+1.
+The first thing to understand when crafting a persuasive story is the "why." Why are you telling this story? Storytelling is an ancient art passed down for thousands of generations. According to some sociologists, it is a fundamental building block of humanity, a building block of society.
+In more relevant terms, a story is the most effective way to communicate any complex ideas. Coming out and telling your prospective boss that you are a hard worker is lame and ineffective. Rather than touting your accomplishments, put your audience in your shoes, appeal to their empathy, make them feel what you felt from your point of view, and lead them to the conclusions you want.
+By nature, humans identify patterns. As a result of our evolution, we design all sorts of algorithms to help us save time and energy. Most people assume (unconsciously or consciously) that microcosms reflect macrocosms. In fact, that is the basis of the entire traditional interview process. We boil down our lives to one piece of paper for employers to screen for a 15-minute interaction where both parties make life-altering decisions with consequences which play out over several years. 
+A single well told and well-chosen story will give your audience a firm idea of who you are, what your morals are, what you stand for, and how worthy of their time and resources you are. The interview process is essentially the employers attempt to find and understand your story in the most efficient manner possible. Our job is to craft an honest story that leads them to the conclusions we need them to find. 
+The key to a good story is authenticity. Accounts that are relatable and real bear the most weight. Being liked is not your job; your responsibility is to demonstrate your character. While you should consider your audience (their needs, desires, etc., we will cover this more, later), your main goal is to demonstrate who you are. Respect is much more powerful than being liked. If you are not a good fit, but they like you then maybe you are offered a job that is not good for you. If you are not a good fit, but they respect you, then perhaps you are given a referral to a job that will be the perfect fit. 
+Be who you are, not who you think you are supposed to be. Refer back to your compass, your light. You want your story to demonstrate coherence. You do not need to have been following some mystical compass or to have known your passion throughout your life for this to be effective, accurate, and authentic. Your mission is to craft a storyline that makes sense of the events in your life while showing some commitment to your internal compass.
+Your message, your values, your actions, and your direction in life should all resonate together as one. Among other things, this will help your story to be more complete, and therefore, easier for the audience to comprehend. 
+
+What do you want to achieve by telling your story?
+
+{textarea}
+
+
+2.
+The second big step is to identify your purpose. A life with purpose is a life worth living. You are telling this story to relay your life mission and your constitution to your audience. So, the more precise and authentic your purpose is, the more compelling your story will be.
+Take a look at your life, the work you have done, and all you have accomplished. What themes tie all of them together? If you are struggling for a clear answer, reflect on the activities you have completed before this for help. 
+Reflect upon your roots and your value compass. Consider your life values and your work values, the theme you want to identify is one that draws a line between the two. No one is perfect, so remember that you are a work in progress. Be forgiving of your faults and allow yourself to see your best qualities. 
+You might come up with things like "pursuit of excellence," "multicultural understanding," or "scientific innovation". When I did this exercise, I found "economic justice", "improved education", and "growth through dialogue". 
+Your purpose might be money, sports, wealth, legacy, environment, fighting poverty, sobriety, religion, exploration, security, stability, or anything else imaginable. It does not matter what it is, only that you identify one as clearly as possible. 
+This decision is not permanent. In fact, it is perfectly okay and normal to change direction, to shift the meaning you find in life. You might accomplish your goals, find a greater purpose, or completely lose interest. That is all perfectly okay. Your job is to identify a mission, a message to build your story around. It does not have to be your campaign until the end of time, but it does need to make sense in the context of your life. The more your current "life's meaning" resonates with all the parts of your past, the stronger your story will be. 
+The theme you identify should have meaning to you. You may find it inspiring, and you might be extremely passionate about the subject you identify. You might not. At the very least, the theme needs to make sense to you. If it does not make sense to you, it won't make sense to anyone else. 
+Finding clarity in your purpose serves you in many ways. First of all, and maybe most importantly, is that it is easier to live a happy life when you believe your life has meaning. The meaning gives you direction and will make difficult decisions easier. Reflect upon your compass from Part 2 Module 1, attempt to peer up and down your path to see where you have been, where you are going, and the ideas that tie the aggregate of past, present, and immediate future you, together.
+Think of yourself as a character in a story. Take an outside view of your life and do your best to describe your character. Do not expect to find the perfect answer. Strive to find a plot, a few explanations, or a series of allegories which make sense of your story. Start broad, then work to narrow your definition until you have a concise record that you feel good about. 
+Brainstorm, make notes and generate ideas now. 
+
+{textarea}
+
+In 10 words or less, what is the theme or meaning that ties your life together? 
+
+{text_input}
+
+
+3.
+The third part to telling a persuasive story is the actual content of the story. The story needs to be consistent and coherent while demonstrating your values and purpose.
+One of the most effective ways of achieving this is to focus on the turning points of your life. What stories from your past helped to shape you into the person you are today? These times, generally from childhood, demonstrate that you are a human, who possibly overcame something significant. The story needs to give a glimpse of the deeper feelings within you and how you were affected. When choosing your turning point story, focus on a time that demonstrates a significant disruption, a reaction, and overcoming. 
+You want to demonstrate a balanced life. While remaining authentic, you (most probably) do not want to describe yourself as a bohemian, but you want to avoid being perceived as a robot as well. You need to display your human nature while preserving your professionalism. 
+The story you tell should almost certainly be one of triumph. Positivity and success tend to resonate the way we want them to. Prospective employers likely won't be drawn to someone who builds their identity around failure. With that said, do not gloat, brag, or be overly self-congratulatory. Your story needs to be about a positive success without being too cocky. Overstating your achievements will turn your audience off, and make them doubt your credibility. Whenever possible, exhibit humility. Giving credit to those who were involved in your successes will display humility while painting you as a good team player. 
+Emotion is significantly stronger than reason. Appealing to empathy is a shortcut to building trustworthy relationships. To engage your audience emotionally, your story needs to include some emotional reality for you. Emotions add depth to the story, making them more engaging, and to your character, making you a better job candidate. Again, unless your profession calls for it, this should be done in moderation. You want to maintain your air of professionalism while displaying your human nature.
+Humor is a powerful tool. Using limited humor shows mastery over your faults, and can display an appropriate level of emotion and sensitivity. Job hunting, networking, and preparing for interviews are not the time for inappropriate jokes of any sort. Slander and bigotry are not acceptable. Do not demean others. Do not point out the faults of others. Do not laugh at the expense of others. 
+Context is everything. Identity stories are typically colorful, evoking the sights and sounds and smells of the setting in which the story is told. The goal of your full-length story is to immerse your audience. Construct a visceral, emotionally relatable story which demonstrates your drive and mission through overcoming some significant obstacle. Being overly descriptive can be annoying, and possibly a pointless endeavor. Your goal is not to be Emerson. Preferably, choose essential details and describe them explicitly, you want to evoke the feeling of being where you were. You do not need to list every blade of grass. You need to help the listener get in your shoes. 
+
+- List 3-10 evocative stories from your past, these can be stories you have already used for this training (remember, you have a better chance of making a good choice when you are choosing from a field of options. Coming up with a range of stories can be difficult, but will pay dividends down the road)
+
+{list_builder}
+
+- Quickly jot down emotions, adjectives, and other vital descriptors associated with each story
+
+{textarea}
+
+- Describe the life lesson you learned in every story, using six words or less for each
+
+{textarea}
+
+- How does each of these life lessons tie into the theme of your life? Be explicit. 
+
+{textarea}
+
+
+4.
+The final thing to consider when constructing a persuasive story is your audience. Prepare your story to fit your audience. Otherwise, you may think you are communicating one idea while they hear something completely different. 
+That said, this is not the most compelling tactic of persuasive storytelling; the preeminent objective is portraying your authentic humanity. The reason you need to consider your audience is that people are empathetic to situations with which they can relate. For example, if you are sharing an experience about writing code with sales associates, the monotony of drafting 10,000 lines of code will likely fall on deaf ears. To better your chances, consider what struggles the salespeople have overcome themselves. For instance, tell your coding story from the angle of overcoming denial and repeated failure to reach eventual triumph. While they may not be able to relate to writing code, they know what it is to overcome the word "no." The story is still about coding, but it is told with respect for the audience and the challenges they face. 
+Every person, every organization, has a story that comprises their identity. To prepare, research each of the interactions before you have them. Study your audiences, learn their stories, and estimate where they are in the process of their story. People like to hear about themselves without being told who they are. Do not tell them where they are or who they are, and do not be presumptive. Learn about them so that you can present yourself in a manner that best fits their needs, without fabrication. 
+While you are in any constructive conversation, you need to be listening as much as you are speaking. All interactions should be 50-50. You have to make sure that they hear the story you are telling. The only way to know that is by paying attention, being interactive, and never making assumptions. If you are unsure, ask questions. It is much better to ask a question to ensure solid communication than to give a lengthy explanation only to find that you have entirely lost your audience. 
+You may admit that you researched them if it comes up, but you will never explicitly tell them you analyzed their story intending to shape your storytelling to fit their needs best. 
+The best stories align you, the people in the room, and the organization at large into a cohesive and logical picture. Just like your best life aligns your life values and your work values, the best hire and the best job aligns the stories of all who are involved. Upon hearing your story, the audience should come to the natural conclusion that you are the perfect fit. Tell your story in a way that demonstrates how well you fit without explicitly saying it.  
+In our conversations to come, practice this art. In every conversation you have, practice this art. Research, listen, seek understanding, and align coherent storylines to develop rapport. The best conversations, the ones that lay the foundations for fruitful relationships, resemble a sort of shared flow between the involved parties. 
+Think of the best conversations you have ever had. Do you remember what you spoke about? Maybe you do. Do you remember how it felt? I am referring to the conversations that create the deepest friendships, the ones which are the foundations of love and family, the moments that seem timeless. Take 10-15 minutes to reflect upon the times in your life where you felt like you had complete understanding and trust with another individual. 
+…
+The most influential communicators in the world harness that rapport and bring it into their lives. It is the buzz you get from talking with an excellent salesman, the feeling of the most promising first date, the energy created around an inspiring leader. That is the energy that drives people to action and creates trustworthy bonds. Creating that energy between you and potential employers is an excellent way to assure a positive outcome. It may not guarantee a job, but if you create a genuine connection, you will be able to reap some benefit from the interaction (referral, industry relationship, etc.).
+The best way to create that energy is to listen, be curious, and to be genuine. You cannot fabricate excellent rapport. It must be built. You have to be completely present in the situation in order to better, even perfect, your ability to build rapport with people is to practice. 
+Every conversation you have from now on, you need to practice building genuine rapport. Listen when people are talking. Do not use, or even hold, your phone when you are in a conversation. Ask meaningful questions every time you have a conversation. Do this all the time. With your spouse, your children, your family, your friends, customer service, servers, baristas, co-workers, everyone. The more you practice, the easier it will be. The better you get at this, the more opportunities you will have.
+You do not need to be an extravert for this to be effective. In fact, extraverts may find genuinely listening more difficult than their counterparts. The key is listening. Listen to the words people say. Understand and consider the story that people are living. Pay attention to body language. Recognize intention and implication. 
+
+- Record 2-5 times you built a fantastic rapport with someone
+
+{textarea}
+
+
+Drafting Your Story
+The acronym I teach for storytelling is SOARED. I don't just want you to describe a time you were successful, tell stories of when you truly soared. 
+Situation. Obstacle. Action. Results. Evaluation. Discovery. 
+
+Situation – describe the setting, what was happening
+Obstacle – what was the problem, the disruption, which had to be overcome
+Action – what action did you take to surmount the obstacle
+Results – what was the result of your action, was the problem solved or not
+Evaluation – did you do everything you could have, what did you miss or how did you succeed
+Discovery – in hindsight, what have you learned from the event
+
+You can use this for these stories. Use this method when answering questions in interviews. SOARED will ensure that you don't miss any critical details while keeping the answer logical, orderly, and natural. 
+
+To complete this task, you are going to write two stories. Both need to follow and consider all of the counsel given previously, to the best of your ability. 
+
+1.
+The first story is your identity story. Not an autobiography. It should be about 1 page typed and needs to make sense of your values, work history, future goals, and your life mission. It is the story you tell yourself, the ideal which you try to live by. We will build off of this story to create your resume, elevator pitch, and your general presentation, it does not need to be any of those yet. Explain your roots, how they made you who you are, and how you have grown into an intentional and capable person that you are today. You may not feel as though you have a cohesive story. This is your opportunity to create that story. Take your time and revisit this task occasionally. To move forward in the process, you need to have an explicitly written identity. Write your story now. 
+
+{textarea}
+
+2.
+The second story is an allegory. It is the full expression of number three from "persuasive storytelling". This single allegory should provide a window into your entire life. When done correctly, this story will communicate some combination of your values, your character, and your passion to the listener, without explicitly stating any of them. Use real stories from your past. Use these guidelines from Stephen Denning's "The Leader's Guide to Storytelling":
+    About -
+    • A favorite place when you were young and what made it special to you 
+    • How you overcame adversity or obstacle when you were young 
+    • An incident with someone whom you admired or who influenced you 
+    • The most significant thing that happened to you when you were young 
+    With -
+    • Relevance: Does it reflect the kind of person you are to the necessary audience? 
+    • Clarity: Is your role in the story clear? Are your values reflected clearly in the story? 
+    • Distinctiveness: Does the story indicate what is unique about you? 
+    • Consistency: Is the story consistent with the way you conduct your life now? 
+
+{textarea}
+
+
+
+
+

@@ -415,7 +415,7 @@ While taking the test, it is essential to answer the questions honestly, as they
 
 We need your four-letter code. Write it here: ___________
 
-*(The website where you take the test is a useful resource. Feel free to learn about your type from them, but it is not necessary for this course. I provide you with everything you need to know.)*
+*(The website where you take the test is a useful resource. Feel free to learn about your type from them, but it is not necessary for this program.  This program is self inclusive, covers everything you need to complete it.)*
 
 ---
 
@@ -905,7 +905,7 @@ What bonuses and extras are you seeking from your work?
 
 #### Activity 1.2.4b: Budget Creation
 
-2. Write a complete budget. Use the spreadsheet titled "Budget", or compare your own to the one I have provided. Costs are listed on the left. Fill in how much you spend per month on the right. Below you will find...
+2. Write a complete budget. Use the spreadsheet titled "Budget", or compare your own to the one in the app. Costs are listed on the left. Fill in how much you spend per month on the right. Below you will find...
 
    – TOTAL MONTHLY EXPENSES →  
    – TOTAL ANNUAL EXPENSES →  
@@ -976,7 +976,7 @@ Next: Module 1.3 - Priorities, Ecstasy & Flow
 
 **Purpose:** Establish your personal hierarchy of work factors to guide career decisions.
 
-Before we move on, you need to prioritize your work factors from Modules 1.1 & 1.2. Use the Ranking Grid (see Resources).
+Before we move on, you need to prioritize your work factors from Modules 1.1 & 1.2. Use the Ranking Grid.
 
 When considering employment, what is most important to you?
 
@@ -1013,11 +1013,11 @@ If you feel the need to be more specific, do so here:
 
 You have documented all of your work factors and have thought about what is most important to you.
 
-Now, I want you to recall the time when you were the most present. For this step, you will reflect upon your past experiences to get a sense of how they affected you and your fundamental motivation. I am talking about the studied and admired sensation of flow.
+Now, recall the time when you were the most present. For this step, you will reflect upon your past experiences to get a sense of how they affected you and your fundamental motivation. We're talking about the studied and admired sensation of flow.
 
 Human beings are hardwired to experience flow. During states of flow, people are upwards of 500% more effective or productive doing their work.⁸ In short, the body achieves this by turning off the prefrontal cortex, effectively allowing the brain to remove criticism and doubt, exist deeply in the present moment, make more lateral connections between new and old information, and innovate upon those newly created ideas seamlessly. The state is often described by the feeling of brilliant information flowing out of the subject, connecting one moment seamlessly to the next.
 
-Everyone experiences flow from time to time; the most brilliant among us learn to use it to their advantage. You can increase your chances of flow by practicing mindful paced breathing. There are several books and entire businesses built around that fact, so I will spare you the details for now. Practice breathing evenly ("hoooooooooooo", not "ho ho ho ho ho ho ho") and in rhythm (try in for 5, out for 5). You may have been taught to breathe from your gut, but I want you to breathe from the core of your chest, more specifically your heart. Your heart is the generator of your body, and everything adapts around it, a concept called entrainment, so breathe from your core. Steady breath will help your heart beat more regularly, which will entrain the rest of your body to the same rhythm. When your body is all in rhythm, it resonates, creating a whole that is more than the sum of its parts. Practice breathing to increase your vitality and the amount of time you are in flow.
+Everyone experiences flow from time to time; the most brilliant among us learn to use it to their advantage. You can increase your chances of flow by practicing mindful paced breathing. There are several books and entire businesses built around that fact. Practice breathing evenly ("hoooooooooooo", not "ho ho ho ho ho ho ho") and in rhythm (try in for 5, out for 5). You may have been taught to breathe from your gut, but today, breathe from the core of your chest, more specifically your heart. Your heart is the generator of your body, and everything adapts around it, a concept called entrainment, so breathe from your core. Steady breath will help your heart beat more regularly, which will entrain the rest of your body to the same rhythm. When your body is all in rhythm, it resonates, creating a whole that is more than the sum of its parts. Practice breathing to increase your vitality and the amount of time you are in flow.
 
 There is a great deal of research about the idea of "flow."⁸ Every expertise has its own word to describe the state; most people recognize "in the zone." Flow is often achieved when someone is pushed to their extreme limits after preparation. These are times when all of our skills and expertise are called upon, we shut out everything except the task at hand, and we execute on a very high level. Symptoms of flow include time distortion, being oblivious to anything other than the task, euphoria, extreme productivity, creative ease, and a sense of singular focus. If you have ever amazed yourself with what you could do or you accomplished something that did not seem possible at the start, you were probably experiencing flow.
 
@@ -1036,17 +1036,15 @@ Separate flow into **focus** and **energy** for the purpose of picking your brai
 
 **Example:** Stacy is a journalist who reported a huge corruption case a few years back. While doing the background research was a bit draining, she remembers being extremely focused. Then, there was one day when the whole story came together and she knew it was big. Once she had done her research, she spread out all her findings one night to try to crack the case. She can't quite say how she connected the dots—the memory is a bit blurry—but everything lined up for her as if she already knew all the answers; that was flow.
 
-**For the following activities, you will need the worksheet titled "Flow Tracking" (see Resources)**
+**For the following activities, you will use the tool titled "Flow Tracking"**
 
-The document must be printed for the greatest effect. You may want to print several copies front and back.
-
-You may absolutely fashion your own version of the worksheet by hand or create your own document. No matter what path you take, be certain to complete each of the steps.
+I've done my best to turn this into a seamless tool, feel free to give  me feed back, and good luck!
 
 **How to use the Flow Tracking Worksheet:**
 1. Name the activity
-2. Provide a very short description of the activity
-3. Use the table on the right to mark your energy and focus level, coloring in each box below your mark
-4. If you were in flow during the activity, write "flow" and circle it
+2. Write a short description of the activity (about 10 - 25 words)
+3. Adjust the sliders for energy and focus
+4. If you were in flow during the activity, check the "flow" box
 
 ---
 
@@ -1062,10 +1060,10 @@ You may absolutely fashion your own version of the worksheet by hand or create y
    **Example:** For Stacy, researching her case was a (-1, z) while the night of creative problem solving was (2, z) and induced flow.
 
 
-2. Record your top 5-10 most focused activities on the Flow Tracking worksheet.
+2. Record your top 5-10 most focused activities in the Flow Tracking tool.
 
 
-3. Record your top 5-10 most energizing activities on the Flow Tracking worksheet.
+3. Record your top 5-10 most energizing activities from Flow Tracking.
 
 
 4. Is there any activity, task, or skill which you find both highly energizing and highly captivating?
@@ -1078,11 +1076,11 @@ You may absolutely fashion your own version of the worksheet by hand or create y
 
 Recall the past 3-10 days. (The more you do, the stronger the tool will be.)
 
-1. Record every significant activity of each day on the Flow Tracking worksheet.
+1. Record every significant activity of the day in the Flow Tracking tool.
 
-2. Write a short description of each activity on the lines provided.
+2. Write a short description of each activity.
 
-3. Shade the boxes according to the energy and focus of the activity.
+3. Adjust the slider according to the energy and captivation of the activity.
 
 4. Are there any activities which you find both highly energizing and highly captivating?
 
@@ -1094,11 +1092,11 @@ Recall the past 3-10 days. (The more you do, the stronger the tool will be.)
 
 **Repeat this process at the end of each day. Continue until Part 3 is complete.**
 
-1. Record every significant activity of the day on the Flow Tracking worksheet.
+1. Record every significant activity of the day in the Flow Tracking tool.
 
-2. Write a short description of each activity on the lines provided.
+2. Write a short description of each activity.
 
-3. Shade the boxes according to the energy and captivation of the activity.
+3. Adjust the slider according to the energy and captivation of the activity.
 
 4. Are there any activities which you find both highly energizing and highly captivating?
 
@@ -1138,13 +1136,13 @@ Next: Module 1.4 - Love
 
 ### Introduction
 
-The focus of this module is love. I think all people have a sense of what love is. You might be more comfortable considering the things and people you care about.
+The focus of this module is love. All people have a sense of what love is. You might be more comfortable considering the things and people you care about.
 
 Love can be a tricky topic to talk about. Love manifests in each person's life in a different way. You might have intensely positive, intensely negative, or completely neutral experiences in each of the categories below. The purpose of this activity is not to dictate right from wrong, but to reflect and understand.
 
 Many programs focus on the idea of passion. Passion is simply one of the many paths into flow. Passion is also pretty ambiguous; only about 1 in 4 people know their passion. For our purposes, we will focus on what we love and care about as a window into what might bring us the most fulfillment in the future.
 
-**There are no wrong answers here—these questions are for you and you only.** While you will be asked questions that relate to this topic, my staff and I will not have a copy of your answers; share what you are comfortable sharing.
+**There are no wrong answers here—these questions are for you and you only.** While you will be asked questions that relate to this topic, we do not store your answers (we encrypt everything from this module so that we can't see it. Only your password can decrypt the data. So, you can use it, but no one else can); share what you are comfortable sharing.
 
 **Answer every question.** The process works if you work it. This section is no less important than any other section. In fact, this might be one of the most important modules in the program. Seriously reflect on each of these, and record vivid details. Consider telling your stories using the SOARED framework (see Exercise 1.1.1c) so that you don't miss any important details.
 
@@ -1353,7 +1351,7 @@ Next: Module 1.5 - Health
 
 ### Introduction
 
-We will focus on mental health. Physical and spiritual health are both important, but I feel it is best for you to find answers to questions you may have about those topics from another source. People from all walks of life can benefit from mental health practices.
+We will focus on mental health. Physical and spiritual health are both important, but it is best for you to find answers to questions you may have about those topics from another source. People from all walks of life can benefit from mental health practices.
 
 I am going to address three aspects of mental health: **achievement**, **fortitude**, and **emotional intelligence**.
 
@@ -1418,27 +1416,30 @@ Tuesday, March 31st, we went to dinner and then to a local bar to watch some mus
 
 I woke up in severe pain which had become all too common. I couldn't open my eyes. An attempt to stand was met with icy hot needles in my brain; I collapsed. Watching my drool inch across the hardwood, I considered the remedy I had taken for what was becoming countless days prior; I longed for the rye whiskey on my window sill.
 
-I remembered the promises I had made: to my co-workers, to my employees, to the people who depended on me. I remembered the times I had been sent to the hospital for alcohol poisoning, and all the promises I had made to my Mother. I called Alex, who had done so much for me already, and told her I wasn't going to make it to work that day. No way.
+I remembered the promises I had made: to my co-workers, to my employees, to the people who depended on me. I remembered the times I had been sent to the hospital for alcohol poisoning, and all the promises I had made to my Mother. I called my boss, who had done so much for me already, and told her I wasn't going to make it to work that day. No way.
 
 That is when I realized that nothing I said mattered. Every promise I had made, I was breaking it. Both the spoken and the unspoken. Here I was, doing what I wanted to do, and throwing it all away. I wallowed for a bit on all the people I was letting down. But I had done that before. It got me nowhere. I thought about slowing drinking, but I had tried who knows how many times—hell, just last night was supposed to be slow.
 
 When I finally pulled my face off the floor and crawled to the sink, I knew I had to do something I hadn't ever done before. I stared myself in the eyes, unsure of what would happen next. That's when I knew. **I had to take myself seriously.**
 
-I had dreams, ambitions, goals, and more. Yet so far, I had let those sit idly by while I did as I pleased. No more. I told myself I would never drink again. I told myself that it was just the start. I made a promise to myself which I live by to this day. I promised accountability. Whatever challenge should come, I vowed to face it. I vowed to overcome. I promised to be the person I knew I was meant to be.
+I had dreams, ambitions, goals, and more. Yet so far, I had let those sit idly by while I pissed it away. No more. I told myself I would never drink again. I told myself that it was just the start. I made a promise to myself which I live by to this day. I promised accountability. Whatever challenge should come, I vowed to face it. I vowed to overcome. I promised to be the person I knew I was meant to be.
 
 That day wasn't the first time I had made promises to myself. So, I vowed to take myself seriously. I can still see my face. The most resolute I had ever been, and terrified of what was to come. In those eyes I see relief. Finally, I was going to take myself seriously, and no one could stop me.
 
 Since that day, my entire life has changed. I have been and am sober. I quit smoking. I revolutionized my diet. I started working out regularly. I have found time for my spirituality. I fell in love. I moved to another continent. I started a business. **I take myself seriously.**
 
+That wasn't the end of my journey, I still go through times of struggle, but it has served as the foundation of my life. When times are tough, I know I have it in me. I've found the strength to give myself permission to live in the present, to be fully present, and to reap the life that hard work sows. 
+
 ---
 
-Overcoming addiction, changing your life, creating your story, standing up for yourself, surmounting your fears, starting your next project, building your dreams—no matter what you plan on doing next, **TAKE YOURSELF SERIOUSLY**. Every day. Never stop. This is grit.¹¹ Daily sacrifice for long-term gain.
+Overcoming addiction, changing your life, creating your story, standing up for yourself, surmounting your fears, starting your next project, building your dreams—no matter what you plan on doing next, **TAKE YOURSELF SERIOUSLY**. Every day. Never stop. This is grit. Daily sacrifice for long-term gain.
 
-I don't mean to wear nice clothes and look people in the eye (although those are useful habits for networking). I mean, look yourself in the mirror and hold yourself accountable. Every single day. No one else can tell you what you need to do. No one else can do the things you need to do. I am giving you all the help you need to live a more fulfilled life. The rest is up to you. You are your greatest enemy and your greatest ally. Choose to be your ally. Every day. No matter how hard it is. Don't lie to yourself—you'll know. Take yourself seriously.
+This isn't just wearing nice clothes and looking people in the eye (although those are great habits for networking). Look yourself in the mirror and hold yourself accountable. Every single day. No one else can tell you what you need to do. No one else can do the things you need to do. It's up to you to give yourself permission to live a more fulfilled life. You are your greatest enemy and your greatest ally. Choose to be your ally. Every day. No matter how hard it is. Don't lie to yourself—you'll know. Take yourself seriously.
+
 
 **Do the things you know you need to do.**
 
-Be relentless.¹²
+Be relentless.
 
 ---
 
@@ -1485,7 +1486,7 @@ Be relentless.¹²
 
 **Purpose:** Develop mental discipline through daily mindfulness practice.
 
-Mindfulness is rooted in the eastern practice of meditation. I am not asking you to chant mantras or do yoga unless that is what you want to do. What I am talking about is discipline for your mind. Silencing your mind is difficult. Try thinking about nothing for the next 5 minutes.
+Mindfulness is rooted in the eastern practice of meditation. We're not asking you to chant mantras or do yoga unless that is what you want to do. This is about is discipline for your mind. Silencing your mind is difficult. Try thinking about nothing for the next 2 minutes.
 
 ...
 
@@ -1495,13 +1496,13 @@ Too hard? How about only thinking about your breath for the next 2 minutes.
 
 How did you do? Did your mind wander? It is okay if it did. The important thing is practicing the act of coming back to silence. Practice batting down thoughts and distractions. The world is more distracting today than it ever has been. Grabbing attention is a trillion-dollar business.
 
-So, why is this important? I am glad you asked.
+So, why is this important? I'm glad you asked.
 
 Your brain is just like every other muscle; the parts you exercise get stronger. Mindfulness uses emotional intelligence. Emotional intelligence is otherwise known as keeping a level head in the face of animosity. Psychologists have shown this works, neurologists agree, and some cultures have been practicing this basic technique for thousands of years.
 
 Training your brain to focus, to stay calm, and to shut out distractions will improve your soft skills, make you more able to communicate with others, improve your mental energy, and make you generally grittier.
 
-You can spend as much or as little time on this as you think necessary. I highly suggest taking it seriously.
+You can spend as much or as little time on this as you think necessary. I suggest taking it seriously.
 
 ---
 
@@ -1546,9 +1547,7 @@ Finally, remember the five mindsets every day:¹
 
 #### Activity 1.5.4a: Routine Design
 
-I have provided you with a daily schedule to help you accomplish and keep track of these tasks.
-
-Use the "Routine" template (see Resources). It takes about five weeks to break old habits and build new ones. If you start now, exercising your brain will become a part of your daily routine before you finish the course.
+We try to keep you on track with the Daily Dos. It takes about five weeks to break old habits and build new ones. If you start now, exercising your brain will become a part of your daily routine before you finish the program.
 
 **Design your daily routine here:**
 
@@ -1609,7 +1608,7 @@ Approach this part with an open mind. A lot of this will be brainstorming. When 
 
 There will be a time and a place for evaluation, but first, you need to generate as many ideas as possible. While the most outlandish ideas don't always seem useful, they open the door for creativity and can often lead to innovation. Remember, many of the most incredible discoveries were made by accident—open yourself up to those accidents.
 
-**Important:** You are going to need a small group of people who know you but do not think they know what you need to do for your next step in life. 2-3 other people works best, but even one will help tremendously.
+**Important:** This works best with a small group of people who know you but do not think they know what you need to do for your next step in life. 2-3 other people works best, but even one will help tremendously. Otherwise, do your best to step outside of yourself and provide unbiased feedback. 
 
 ---
 
@@ -1810,9 +1809,9 @@ Next: Module 2.2 - Reality
 
 ### Introduction
 
-There are many things which are outside of our control in life. It is best if we let them be. Accept them as they are and work around them. I am not saying that we should not fight injustices or work to right the wrongs in the world. Quite the contrary, we should understand what cannot be changed so that we may be productive in our efforts to support our values.
+There are many things which are outside of our control in life. It is best if we let them be. Accept them as they are and work around them. This iss not to say that we should not fight injustices or work to right the wrongs in the world. Quite the contrary, we should understand what cannot be changed so that we may be productive in our efforts to support our values.
 
-For example, there is bias and discrimination in most hiring processes. While these issues do need to be addressed and rectified, we would be foolish to act as though they do not exist.
+For example, there is bias and discrimination in most hiring processes. While these issues do need to be addressed and rectified, we would be foolish to act as though they do not exist. Try not to assume the obstacles you will find, but be prepared for obstacles to appear, and be ready to overcome them. 
 
 ---
 
@@ -1824,7 +1823,7 @@ There are two main approaches to finding the next job.
 
 There are a TON of reasons this doesn't work, but the important thing is, for all intents and purposes, **this doesn't work**.³ Incentives are misaligned at every step of this process. For example, you are not a list of skills; the person writing job descriptions is either looking for the person who just left (with none of the downside) or doesn't fully understand what the position calls for. The process makes it incredibly challenging to showcase or find qualities which genuinely predict success. Meanwhile, it's often a charade because the position has already been filled through the second method.
 
-**The second** one is the one that works: **networking**.³ I am not here to debate the ethics of this, only to share the reality of it. Most employers look inside their organization first, then they either target people they have found or already know, or they defer to people who are referred by trustworthy workers within the organization. Employers around the world have found that this is the surest way to find good hires. So, this is the method we use.
+**The second** one is the one that works: **networking**.³ We are not here to debate the ethics of this, only to share the reality of it. Most employers look inside their organization first, then they either target people they have found or already know, or they defer to people who are referred by trustworthy workers within the organization. Employers around the world have found that this is the surest way to find good hires. So, this is the method we use.
 
 ---
 
@@ -2022,7 +2021,7 @@ Next: Module 2.3 - Landmarking
 **Focus:** Generating possibilities and making career choices  
 **Purpose:** Use idea trees to brainstorm potential career paths, then select three viable options for your future  
 **Estimated Time:** 2-2.5 hours  
-**Key Tools:** Blank paper for idea trees, flow tracking data from Exercise 1.3.2  
+**Key Tools:** Brainstorming tool, flow tracking data from Exercise 1.3.2  
 **Group Activity:** Recommended for Exercise 2.3.1  
 **Outputs:**
 - Three idea trees
@@ -2043,11 +2042,13 @@ I cannot state enough how impactful today's activities can be, no matter how far
 
 When plants grow, they send out shoots in many directions. They don't reach in every direction, but they give themselves plenty of opportunities, knowing that not all of them will grow into significant parts of the plant.
 
-For this step, you are going to create three idea trees. For each, start with a blank piece of paper and a pen or pencil. The process is simple—don't overthink it. As before, the important thing right now is **quantity**. We, as people, make better choices when we can choose between multiple options. So, keep your judgment to the side as best as you can.
+For this step, you are going to create three idea trees. The process is simple—don't overthink it. As before, the important thing right now is **quantity**. We, as people, make better choices when we can choose between multiple options. So, keep your judgment to the side as best as you can.
 
 You are going to start with the trunk. Then, add 3-4 branches. Next, each branch gets 3-4 more branches. Finally, one more round of branches. If any of these last ones beg for their own branches, follow your heart and give them some.
 
 Each bunch of branches only needs to be related to its parent branch, not the branches before it, not the other branches, and not the trunk.
+
+This can be done with a pencil and paper, but we've built a tool to keep it all in house as well.
 
 **DO NOT CENSOR YOUR IDEAS. ALL IDEAS ARE WELCOME.**
 
@@ -2059,11 +2060,11 @@ You cannot know if it is a bad idea or a good idea during the exercise; do not p
 
 **To make your idea trees, read and then follow the directions below:**
 
-1. Get blank pieces of paper.
+1. Clear your mind of expectations.
 
 2. Review the topics or situations which both energize and captivate you (from Exercise 1.3.2: Flow State Mapping), and choose the three which interest and engage you the most for your starting words.
 
-3. Write your first word in the middle of your first piece of blank paper. Circle it. This is your starter. You now have the trunk of your idea tree.
+3. Write your first word intot he prompt. This is your starter. You now have the trunk of your idea tree.
 
 4. Read the word. Write 3-4 words related to your starter. Write the first words you think of. This is your first layer of branches.
 
@@ -2185,7 +2186,7 @@ More often than not, someone somewhere has taken an unconventional path to reali
 #### Activity 2.3.3a: Defining Your Three Options
 
 **Option 1: Your First Choice**
-The one that meets your real-world needs and utilizes your skills and interests the most. For some, this is a clear and obvious choice—the exercises up to now have only solidified your direction. If that is not you, look back at your ranked lists of skills, consider your work priorities, and weigh them against your compass. Where could life shine the brightest for you? What job could provide you with the most growth? For help answering those questions, discuss your Roots (Part 1) and your New Growth Leaves (Exercise 2.3.1) with some trustworthy people you are close to.
+The one that meets your real-world needs and utilizes your skills and interests the most. For some, this is a clear and obvious choice—the exercises up to now have only solidified your direction. If that is not you, look back at your ranked lists of skills, consider your work priorities, and weigh them against your compass. Where could life shine the brightest for you? What job could provide you with the most growth? For help answering those questions, consider discussing your Roots (Part 1) and your New Growth Leaves (Exercise 2.3.1) with some trustworthy people you are close to.
 
 **Career Option 1:**
 
@@ -2491,7 +2492,7 @@ Explanation:
 
 **Purpose:** Articulate the questions you need to answer as you pursue each path.
 
-It is crucial that you approach your future with genuine curiosity. You need to have some questions you are seeking answers to as you move down any path in life. I have given you some starting points, but these do not need to be your questions. Write 2-5 good questions for each option.
+It is crucial that you approach your future with genuine curiosity. You need to have some questions you are seeking answers to as you move down any path in life. We have given you some starting points, but these do not need to be your questions. Write 2-5 good questions for each option.
 
 **Consider:**
 - What is uncertain?
@@ -2594,7 +2595,7 @@ To finish this part, you will be constructing your story. You have analyzed your
 
 If you are not entirely satisfied with what you think your story is, then you are not looking at it in the right light. **Every single person has a good story to tell**—seeing and understanding yours is a matter of perspective and construction.
 
-First, you will aim for a certain level of competency—are you looking to run a corporation, or are you hoping to work on a design team? There is no right answer in the first section, but it is important that you and I both understand where you are aiming.
+First, you will aim for a certain level of competency—are you looking to run a corporation, or are you hoping to work on a design team? There is no right answer in the first section, but it is important to get an idea of where you are aiming.
 
 Then you will learn the basics of persuasive storytelling. Not only do you want to tell your story, but you want that story to convince your audience of something—particularly that you are fantastic and will accomplish the goals that you have set out.
 
@@ -2723,7 +2724,7 @@ One of the most effective ways of achieving this is to focus on the turning poin
 
 **The Hero's Journey⁷**
 
-People generally love a hero's tale. The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective. Yet, if it is false, then it is all for nothing. I am not asking you to stay who you have always been. I am telling you to be honest in your storytelling.
+People generally love a hero's tale. The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective. Yet, if it is false, then it is all for nothing. This is not asking you to stay who you have always been, but to be honest in your storytelling.
 
 Everybody has a hero's story of their own. What you should have done, and should still be doing, is identifying your hero's story. Although we are generally the protagonist of our own story, many people have a hard time picturing themselves as a genuine hero. Authenticity does not mean remaining the same person. It means owning your journey.
 
@@ -2936,11 +2937,11 @@ The branches above represent all the possible paths that lie in front of you. Fr
 
 Up to now, you have mapped out three potential futures, written out your story, and iterated your life mission. Again, you are not tied to your mission, but having a clear mission statement will help you to build a clear identity to communicate with potential employers.
 
-From here, you are going to reach out into the world and find your next place of work. I have mentioned before that the traditional method of finding work is not very effective.¹ It is not the most efficient method of hiring from the employer's standpoint, and has a relatively low success rate for employees (around 60% of workers in the United States are dissatisfied with their work).
+From here, you are going to reach out into the world and find your next place of work. We've discussed before that the traditional method of finding work is not very effective.¹ It is not the most efficient method of hiring from the employer's standpoint, and has a relatively low success rate for employees (around 60% of workers in the United States are dissatisfied with their work).
 
-**You have a lot to do in this part.** In each activity, move quickly. Be confident that you are taking the right steps and take them. Nothing you do here is permanent. There will be activities that might seem incredibly important. I will do my best to point out when you need to complete the task and when you need to dig deep and spend time on something. If you feel as though I am asking you to move quickly through something that deserves more attention, you will almost certainly be revisiting the material later in the program.
+**You have a lot to do in this part.** In each activity, move quickly. Be confident that you are taking the right steps and take them. Nothing you do here is permanent. There will be activities that might seem incredibly important. This work is ongoing. For most people, it's more important to get through the breadth so that you have a clear scope of this work. Then, you will be revisiting each piece. You do have the opportunity to master everything here. 
 
-I am a firm believer in the idea that there is an excellent job for every person on this planet. When people struggle to find the correct employment, it is generally a result of a lack of understanding of the job market and a complete absence of trial. How can you possibly know that you are going to excel and enjoy something you have never tried? Maybe a job sounds great to you right now, but there is no guarantee that you will be able to withstand, enjoy, or find passion in the day-to-day grind of any position without useful insight.
+We are firm believers in the idea that there is an excellent job for every person on this planet. When people struggle to find the correct employment, it is generally a result of a lack of understanding of the job market and a complete absence of trial. How can you possibly know that you are going to excel and enjoy something you have never tried? Maybe a job sounds great to you right now, but there is no guarantee that you will be able to withstand, enjoy, or find passion in the day-to-day grind of any position without useful insight.
 
 The few systems set in place which help ease the transition from education to the workforce (internships, apprenticeships, residencies) are inundated with misleading expectations and outside influences.
 
@@ -2954,7 +2955,7 @@ In this part, you are going to:
 
 You are going to exploit human nature to get your foot in the door. Remember, very few jobs are actually obtained through sending resumes, and it is the last place that employers look for quality hires because it has the lowest success rate while being a high-cost and high-risk process.¹ Rather than approaching companies and asking for jobs outright, you are going to approach individuals with genuine curiosity and authenticity.
 
-For clarity, I am not advising you not to apply for jobs, and if you already have interviews lined up, that is still a valuable process.
+For clarity, we are not advising you not to apply for jobs, and if you already have interviews lined up, that is still a valuable process.
 
 We will get more into the details as the part goes forward. For now, start by constructing and compiling the content you will project into the world.
 
@@ -3177,7 +3178,7 @@ Next: Module 3.2 - Constructing the Projection
 **Required:** Professional photograph  
 **Outputs:**
 - Clean Google search results
-- Professional Facebook profile
+- Professional Social Media Profiles
 - Draft resume/CV
 - Complete LinkedIn profile
 
@@ -3189,7 +3190,7 @@ Up to this point, you have been analyzing your capabilities, deciding your traje
 
 **Now the rubber meets the road.**
 
-Today, you will use the information you have gathered to tell your identity story in every reasonable and necessary format. You will, of course, be creating a resume using the descriptors and phrases we have covered so far. You will also be addressing the image that potential employers and contacts will find when they do their research on you—namely, your Facebook profile, LinkedIn, Twitter, and what appears when they Google you.
+Today, you will use the information you have gathered to tell your identity story in every reasonable and necessary format. You will, of course, be creating a resume using the descriptors and phrases we have covered so far. You will also be addressing the image that potential employers and contacts will find when they do their research on you—namely, your LinkedIn, Facebook, X (Twitter), and anything else that appears when they Google you.
 
 **You are going to need at least one professionally acceptable photograph:**
 - Upper torso, face
@@ -3201,7 +3202,7 @@ Today, you will use the information you have gathered to tell your identity stor
 
 You need to update every single profile picture you have. They will all show up in a thorough search. You do not need to update your music streaming service with a suit and tie, but it does need to be an acceptable picture. These pictures are the images that people are going to associate with your name. You want it to be professionally flattering.
 
-**You do not need a social media presence. You also do not need to be overly active on social media.** If you are tweeting 200 times a day, when are you working? For our purposes, think of social media as a tool. It should be used to present a carefully crafted image to the world and to engage with and grow your professional and personal networks.
+**You do not need a social media presence. You also do not need to be overly active on social media.** If you are posting 200 times a day, when are you working? For our purposes, think of social media as a tool. It should be used to present a carefully crafted image to the world and to engage with and grow your professional and personal networks.
 
 ---
 
@@ -3213,7 +3214,7 @@ You need to update every single profile picture you have. They will all show up 
 
 #### Activity 3.2.1a: Search Yourself
 
-1. Open an incognito window in Chrome, or the equivalent in your preferred browser. Google your name. Google your name and city. Google any identifying traits someone might use to find you.
+1. Clear your cookies. Open an incognito window in Chrome, or the equivalent in your preferred browser. Google your name. Google your name and city. Google any identifying traits someone might use to find you. Consider using DuckDuckGo for this research. They do not track you, so the results will be far less biased - you might see something there that google won't show you.
 
 2. For all of the above, you need to scour both the "all" results and the image results. Follow the links to see what people can find about you. It is common to find pictures or websites that have not been used in years. Go through everything you can find and either update the images and the content available or delete the account altogether.
 
@@ -3258,7 +3259,7 @@ Someone is going to find your Facebook profile. You want it to be presentable. I
 
 #### Activity 3.2.2b: Privacy Settings
 
-2. Check your privacy settings. Make sure that you are comfortable with them. I suggest that you be comfortable adding professional contacts to your friend list.
+2. Check your privacy settings. Make sure that you are comfortable with them. We suggest that you be comfortable adding professional contacts to your friend list.
 
 **Privacy settings reviewed:** ☐
 
@@ -3266,7 +3267,7 @@ Someone is going to find your Facebook profile. You want it to be presentable. I
 
 #### Activity 3.2.2c: Content Audit
 
-3. Accounting for your privacy settings and the fact that you will be gaining new friends, edit what you have posted. While political expression is your right, extreme views of any sort can be a turn off for employers, unless of course, you are going to work in politics. Do not engage in bigotry and discrimination. You have every right to have your opinions and feelings, but think carefully about what information you are presenting to your potential employers. Most workplaces are made up of diverse people with differing views—be aware of that fact. The last thing I want is for you to find the perfect job and then be denied an opportunity because your employer is turned off by something you said on Facebook. You can delete posts, and you can set them so that only you can see them. If you do not know how to do those things, use Google to learn how.
+3. Accounting for your privacy settings and the fact that you will be gaining new friends, edit what you have posted. While political expression is your right, extreme views of any sort can be a turn off for employers, unless of course, you are going to work in politics. Do not engage in bigotry and discrimination. You have every right to have your opinions and feelings, but think carefully about what information you are presenting to your potential employers. Most workplaces are made up of diverse people with differing views—be aware of that fact. The last thing we want is for you to find the perfect job and then be denied an opportunity because your employer is turned off by something you said on Facebook. You can delete posts, and you can set them so that only you can see them. If you do not know how to do those things, use Google to learn how.
 
 **Posts reviewed and cleaned:** ☐
 
@@ -3315,7 +3316,7 @@ There are two main things that you will do to get past automated filters.
 
 #### Resume Guidelines
 
-In Module 3.1, you should have written everything you need to express on your resume. You and I have discussed how to approach your resume. I strongly suggest using a resume template from "Canva" or a website like "Canva." When choosing your template, be sure that it sends the message you want it to send. The layout of your resume is an extension of the story you are telling.
+In Module 3.1, you should have written everything you need to express on your resume. We have discussed how to approach your resume. We strongly suggest using a resume template from "Canva" or a website like "Canva." When choosing your template, be sure that it sends the message you want it to send. The layout of your resume is an extension of the story you are telling.
 
 **Do:**
 - Use keywords, but do not overstuff your resume with them
@@ -3349,7 +3350,7 @@ Draft a presentable resume using all the skills you have learned up to this poin
 - Be clear and concise
 - Every line should be in simple tense
 
-**This is a draft, an iteration. It is not the final copy.** We will discuss your resume further at our next meeting. Update your resume periodically throughout your life.
+**This is a draft, an iteration. It is not the final copy.** Update your resume periodically throughout your life. Consider getting feedback from trusted contacts or mentors in your field.
 
 No resume is perfect. You are only trying to sell the person who is going to hire you. So, don't be afraid to be you, and be sure to tell your story while relying on facts and figures.
 
@@ -3407,7 +3408,7 @@ Visit your LinkedIn profile. Click on the Edit pencil.
 
 **Custom URL:** linkedin.com/in/_______________
 
-6. Along the right side of the "edit" screen, adjust the visibility of each of your sections as you see fit. I suggest being as visible as possible. You have nothing to hide, and want to leave good impressions, which requires making some impact.
+6. Along the right side of the "edit" screen, adjust the visibility of each of your sections as you see fit. Try to be as visible as possible. You have nothing to hide, and want to leave good impressions, which requires making some impact.
 
 **Visibility settings adjusted:** ☐
 
@@ -3498,7 +3499,7 @@ Almost everything in life is, at its core, based on relationships. Notably, and 
 
 Up to now, you have expressed and recorded your experience, established your professional identity, and crafted the image that you project into the world. From this point onward, use that projection to reach out into the world and land your next job. When the time comes, reach out to, and have conversations with, professionals in your target industry.
 
-With my help, you will identify people who currently or previously do the job that you want to be doing and have genuine conversations with them.
+You will identify people who currently or previously do the job that you want to be doing and have genuine conversations with them.
 
 ---
 
@@ -3541,21 +3542,21 @@ This module covers:
 
 Everything up to this point and everything you do moving forward depends on your mindset. People talk a lot about the power of positivity and the idea of persistence. I, like many others, have looked into these ideas and done my part to live by them. Positivity provides decent direction, but it lacks depth as a rule to live by.
 
-While looking for something more practical, I came upon the "designer mindset" laid out by Bill Burnett in his book *Designing Your Life*.³ I have mentioned these ideals in brief throughout the course. Now I'll elaborate the five mindsets, the logic behind them, and how to implement each one effectively.
+While looking for something more practical, I came upon the "designer mindset" laid out by Bill Burnett in his book *Designing Your Life*.³ We've briefly discussed these ideals throughout the course. Now I'll elaborate the five mindsets, the logic behind them, and how to implement each one effectively.
 
 ---
 
 #### What It Isn't
 
-Before diving into the meat of these mindsets, I would like to explain what they are not. I do not want you to fabricate stories about yourself and your capabilities. The line between conducting proper research to prepare for your audience and falsely presenting yourself as their savior can be thin.
+Before diving into the meat of these mindsets, we should touch on what they are not. Do not fabricate stories about yourself and your capabilities. The line between conducting proper research to prepare for your audience and falsely presenting yourself as their savior can be thin.
 
 Authenticity is a tricky subject. The most potent stories resonate with the audience, often engaging in emotional realities shared by the protagonist and the audience. The tale of reinventing yourself is excellent, but you have to practice what you preach. **Your story, your networking, must be genuine.**
 
-People generally love a hero's tale.⁴ The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective. Yet, if it is false, then it is all for nothing. I am not asking you to stay who you have always been. I am telling you to be honest in your storytelling.
+People generally love a hero's tale.⁴ The wonder and inspiration encapsulated by venturing into the unknown, overcoming a series of trials, suffering a significant loss, overcoming odds, and returning to face the world born anew are classic and effective. Yet, if it is false, then it is all for nothing. This is not asking you to stay who you have always been. It is telling you to be honest in your storytelling.
 
 Everybody has a hero's story of their own. What you should have done, and should still be doing, is identifying your hero's story. Although we are generally the protagonist of our own story, many people have a hard time picturing themselves as a genuine hero. **Authenticity does not mean remaining the same person. It means owning your journey.**
 
-Every person reading this is at a different point in their hero's journey. Some overcome great odds at very young ages while others never get the chance to see their journey through. Part of living a fulfilled life means identifying the person you wish to be and striving to be that person, not through sleight of hand or a web of lies, but with personal growth, persistence, and grit.⁵ It is entirely possible to swindle your dreams into reality, but what I want for you is a reality built with solid foundations. I am not here to teach you how to lie or be a charlatan. My dream is to help you identify and harness your potential and then achieve it.
+Every person reading this is at a different point in their hero's journey. Some overcome great odds at very young ages while others never get the chance to see their journey through. Part of living a fulfilled life means identifying the person you wish to be and striving to be that person, not through sleight of hand or a web of lies, but with personal growth, persistence, and grit.⁵ It is entirely possible to swindle your dreams into reality, but what we are striving for is a reality built with solid foundations. This tool is not here to teach you how to lie or be a charlatan. The dream is to help you identify and harness your potential and then achieve it.
 
 Your journey will last until your dying breath. Your life is a story that you get to create. There are surely outside forces that affect you—carefully choose how to react to them. Be an active player rather than a spectator, and you increase the odds of achieving the life of your dreams.
 
@@ -3703,7 +3704,7 @@ The classic advice for conversations and interviews includes eye contact, noddin
 
 **First impressions are important.** First impressions are mostly made up of emotional impacts (did you like the person, or not?). Leave your encounters with a positive emotional feeling attached to your name, and they will likely forget the small mistakes you made along the way. Professional flattery is serviceable, and flattery via asking for advice will often get you in the door. However, once you are sitting down with someone, building real rapport takes a bit more than simple flattery.
 
-Of all the great advice out there, I have found that Celeste Headlee covers the most critical aspects with her principles for conversations and interviews.⁶
+Of all the great advice out there, Celeste Headlee covers the most critical aspects with her principles for conversations and interviews.⁶
 
 **Be interested in other people. Everyone has something brilliant to share. Keep your mouth shut, your mind open, and you will never be let down.**
 
@@ -3854,7 +3855,7 @@ List 3-4 ideas here:
 
 #### Activity 3.3.4b: Step 2 – Build a List of Companies
 
-A point to remember is that you are not necessarily looking for companies who are actively hiring. It might seem counter-intuitive but will work to your advantage. As I have mentioned, many companies post jobs online to gather information, while others have already made their decision but are required for one reason or another to "go through the motions."
+A point to remember is that you are not necessarily looking for companies who are actively hiring. It might seem counter-intuitive but will work to your advantage. As we have mentioned, many companies post jobs online to gather information, while others have already made their decision but are required for one reason or another to "go through the motions."
 
 You want to build a list of companies that are in line with your identity story, fit into your value system, and (preferably) hire people with your skillset. If you do not think they hire people like you, keep an open mind. That criterion certainly makes life more comfortable, but it is not a deal-breaker. More on that later.
 
@@ -3952,7 +3953,7 @@ Beyond the immediate fit, this research will also help you in the interview proc
 
 **While reading reviews, keep in mind that companies do engage in the practice of boosting their own reviews and bombing their competitors.**
 
-The edge that I want you to gain from your research is understanding how your story and the company stories work together. The most robust support you can have in your quest to be offered quality jobs is the aligning of both stories. If everything you have done makes you the perfect fit for what they are looking for, you will get an offer. The stronger your argument, the more power you will have when it comes to negotiations.
+The edge you want to gain from your research is understanding how your story and the company stories work together. The most robust support you can have in your quest to be offered quality jobs is the aligning of both stories. If everything you have done makes you the perfect fit for what they are looking for, you will get an offer. The stronger your argument, the more power you will have when it comes to negotiations.
 
 **The best stories are founded in truth.** To effectively tell honest stories, you must do thorough research.
 
