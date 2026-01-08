@@ -1,0 +1,9 @@
+name = "dreamtree"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = ".vercel/output/static"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "dreamtree-db"
+database_id = "28ff92b2-a0f1-4bab-a98f-da483b2fdcc1"
