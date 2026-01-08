@@ -66,10 +66,10 @@ export async function GET(
 
     const [partStr, moduleStr, exerciseStr] = parts;
     const part = parseInt(partStr, 10);
-    const module = parseInt(moduleStr, 10);
+    const moduleNum = parseInt(moduleStr, 10);
     const exercise = parseInt(exerciseStr, 10);
 
-    if (isNaN(part) || isNaN(module) || isNaN(exercise)) {
+    if (isNaN(part) || isNaN(moduleNum) || isNaN(exercise)) {
       return NextResponse.json(
         { error: 'Invalid exercise ID. All parts must be numbers.' },
         { status: 400 }
@@ -119,7 +119,7 @@ export async function GET(
         WHERE s.part = ? AND s.module = ? AND s.exercise = ?
         ORDER BY s.sequence
       `)
-      .bind(part, module, exercise)
+      .bind(part, moduleNum, exercise)
       .all<StemRow>();
 
     if (!stemRows.results || stemRows.results.length === 0) {
@@ -176,7 +176,7 @@ export async function GET(
         ORDER BY part, module, exercise
         LIMIT 1
       `)
-      .bind(part, part, module, part, module, exercise)
+      .bind(part, part, moduleNum, part, moduleNum, exercise)
       .first<{ exercise_id: string }>();
 
     const prevExercise = await db.raw
@@ -188,13 +188,13 @@ export async function GET(
         ORDER BY part DESC, module DESC, exercise DESC
         LIMIT 1
       `)
-      .bind(part, part, module, part, module, exercise)
+      .bind(part, part, moduleNum, part, moduleNum, exercise)
       .first<{ exercise_id: string }>();
 
     const response: ExerciseContent = {
       exerciseId,
       part,
-      module,
+      module: moduleNum,
       exercise,
       title,
       blocks,

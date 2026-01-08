@@ -36,10 +36,10 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
 
   const [partStr, moduleStr, exerciseStr] = parts;
   const part = parseInt(partStr, 10);
-  const module = parseInt(moduleStr, 10);
+  const moduleNum = parseInt(moduleStr, 10);
   const exercise = parseInt(exerciseStr, 10);
 
-  if (isNaN(part) || isNaN(module) || isNaN(exercise)) return null;
+  if (isNaN(part) || isNaN(moduleNum) || isNaN(exercise)) return null;
 
   // Fetch stem rows with content
   const stemRows = await db.raw
@@ -80,7 +80,7 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
       WHERE s.part = ? AND s.module = ? AND s.exercise = ?
       ORDER BY s.sequence
     `)
-    .bind(part, module, exercise)
+    .bind(part, moduleNum, exercise)
     .all<StemRow>();
 
   if (!stemRows.results || stemRows.results.length === 0) {
@@ -134,7 +134,7 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
       ORDER BY part, module, exercise
       LIMIT 1
     `)
-    .bind(part, part, module, part, module, exercise)
+    .bind(part, part, moduleNum, part, moduleNum, exercise)
     .first<{ exercise_id: string }>();
 
   const prevExercise = await db.raw
@@ -146,13 +146,13 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
       ORDER BY part DESC, module DESC, exercise DESC
       LIMIT 1
     `)
-    .bind(part, part, module, part, module, exercise)
+    .bind(part, part, moduleNum, part, moduleNum, exercise)
     .first<{ exercise_id: string }>();
 
   return {
     exerciseId,
     part,
-    module,
+    module: moduleNum,
     exercise,
     title,
     blocks,
@@ -184,7 +184,7 @@ export default async function WorkbookExercisePage({ params }: PageProps) {
 
   // Get or create session
   const cookieStore = await cookies();
-  let sessionId = getSessionIdFromCookie(cookieStore.toString());
+  const sessionId = getSessionIdFromCookie(cookieStore.toString());
   let sessionData = sessionId ? await getSessionData(env.DB, sessionId) : null;
   const headers = new Headers();
 

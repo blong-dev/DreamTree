@@ -15,7 +15,7 @@ interface NavItemProps {
 }
 
 export function NavItem({
-  id,
+  id: _id,
   icon: Icon,
   label,
   isActive = false,
@@ -23,6 +23,7 @@ export function NavItem({
   hasExpansion = false,
   onClick,
 }: NavItemProps) {
+  void _id; // Used for external tracking/analytics
   return (
     <button
       className="nav-item"
