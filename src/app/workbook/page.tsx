@@ -5,7 +5,6 @@ import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
 import type { Env } from '@/types/database';
 
-export const runtime = 'edge';
 
 export default async function WorkbookPage() {
   // Get user's current progress and redirect to appropriate exercise
