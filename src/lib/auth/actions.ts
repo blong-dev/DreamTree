@@ -18,7 +18,7 @@ import {
   encodeSalt,
   decodeSalt,
 } from './index';
-import type { Auth, Email, User } from '@/types/database';
+import type { Auth, Email } from '@/types/database';
 
 export interface ClaimAccountResult {
   success: boolean;

@@ -87,7 +87,8 @@ export function CareerTimeline({
     });
   };
 
-  const updateMilestone = (id: string, updates: Partial<TimelineMilestone>) => {
+  // Reserved for future inline editing feature
+  const _updateMilestone = (id: string, updates: Partial<TimelineMilestone>) => {
     onChange({
       ...data,
       milestones: data.milestones.map((m) =>
@@ -95,6 +96,7 @@ export function CareerTimeline({
       ),
     });
   };
+  void _updateMilestone;
 
   return (
     <div className="career-timeline" data-disabled={disabled}>

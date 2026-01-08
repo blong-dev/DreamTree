@@ -7,16 +7,9 @@
 import type { D1Database } from '@cloudflare/workers-types';
 import type {
   User,
-  Auth,
   Session,
   UserSettings,
   UserModule,
-  UserProfile,
-  UserValues,
-  UserSkill,
-  UserStory,
-  UserExperience,
-  UserResponse,
   Stem,
   ContentBlock,
   Prompt,
