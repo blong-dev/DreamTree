@@ -1,0 +1,70 @@
+// Workbook component types
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type BlockContent = Record<string, any>;
+
+export interface ExerciseBlock {
+  id: number;
+  sequence: number;
+  blockType: 'content' | 'prompt' | 'tool';
+  activityId: number;
+  connectionId: number | null;
+  content: BlockContent;
+}
+
+export interface ContentData {
+  id?: number;
+  type?: 'heading' | 'instruction' | 'note' | 'quote' | 'transition' | 'celebration';
+  text?: string;
+}
+
+export interface PromptData {
+  id?: number;
+  promptText?: string;
+  inputType?: 'text_input' | 'textarea' | 'slider' | 'checkbox' | 'checkbox_group' | 'radio' | 'select';
+  inputConfig?: {
+    min?: number;
+    max?: number;
+    step?: number;
+    minLabel?: string;
+    maxLabel?: string;
+    options?: Array<{ value: string; label: string }>;
+    placeholder?: string;
+  };
+}
+
+export interface ToolData {
+  id?: number;
+  name?: string;
+  description?: string;
+  instructions?: string;
+}
+
+export interface ExerciseContent {
+  exerciseId: string;
+  part: number;
+  module: number;
+  exercise: number;
+  title: string;
+  blocks: ExerciseBlock[];
+  nextExerciseId: string | null;
+  prevExerciseId: string | null;
+}
+
+export interface SavedResponse {
+  id: string;
+  prompt_id: number;
+  exercise_id: string;
+  activity_id: string | null;
+  response_text: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface WorkbookMessage {
+  id: string;
+  type: 'content' | 'prompt' | 'user' | 'tool';
+  block?: ExerciseBlock;
+  userResponse?: string;
+  timestamp: Date;
+}
