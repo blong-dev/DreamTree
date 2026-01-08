@@ -19,7 +19,7 @@ export function NameStep({ value, onChange }: NameStepProps) {
       <h2 className="name-step-title">What should we call you?</h2>
 
       <p className="name-step-description">
-        This is how DreamTree will address you throughout your journey.
+        This is how dreamtree will address you throughout your journey.
       </p>
 
       <div className="text-input-wrapper">

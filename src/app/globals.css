@@ -1,7 +1,6 @@
 /* DreamTree Design System v1.0 */
 
-/* Fonts must be imported first */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;500;700&family=Courier+Prime:wght@400;700&family=Shadows+Into+Light&family=Jacquard+24&display=swap');
+/* Fonts loaded via next/font/google in layout.tsx */
 
 @import "tailwindcss";
 
@@ -25,7 +24,7 @@
   --font-lora: 'Lora', Georgia, serif;
   --font-courier-prime: 'Courier Prime', monospace;
   --font-shadows-into-light: 'Shadows Into Light', cursive;
-  --font-jacquard-24: 'Jacquard 24', serif;
+  --font-manufacturing-consent: 'Manufacturing Consent', serif;
 
   /* Spacing Scale (4px base) */
   --space-1: 0.25rem;   /* 4px */

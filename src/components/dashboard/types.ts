@@ -37,7 +37,7 @@ export type FontFamilyId =
   | 'lora'
   | 'courier-prime'
   | 'shadows-into-light'
-  | 'jacquard-24';
+  | 'manufacturing-consent';
 
 export type UserPreview = {
   name: string;
