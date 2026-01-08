@@ -2,6 +2,26 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Team Delegation
+
+**For task routing and area-specific guidance, see `team/MANAGER.md`.**
+
+The codebase is organized into 9 work areas with dedicated documentation:
+
+| Area | File | Focus |
+|------|------|-------|
+| Database & Data | `team/areas/database.md` | Schema, queries, connections |
+| Auth & Security | `team/areas/auth.md` | Sessions, encryption |
+| Shell & Navigation | `team/areas/shell.md` | Layout, nav, overlays |
+| UI Primitives | `team/areas/ui-primitives.md` | Forms, feedback, icons |
+| Conversation | `team/areas/conversation.md` | Chat interface |
+| Tools | `team/areas/tools.md` | 15 interactive tools |
+| Features | `team/areas/features.md` | Dashboard, onboarding, profile |
+| Workbook | `team/areas/workbook.md` | Exercise delivery |
+| Design System | `team/areas/design-system.md` | CSS, theming |
+
+Before starting work, identify the relevant area and read its documentation for patterns, gotchas, and testing guidance.
+
 ## Build Commands
 
 ```bash
@@ -121,6 +141,39 @@ This applies to: new features, bug fixes, refactors, tool implementations, and s
 
 - **Content Data**: `/planning/tables/*.csv` (stem, prompts, tools, connections)
 - **Build Tracking**: Decision log and change log in this file below
+
+---
+
+## Learnings (Compounding Engineering)
+
+Mistakes and patterns discovered during development. Add new learnings as they occur to avoid repeating issues.
+
+### General
+- Always use `--legacy-peer-deps` when running `npm install`
+- bcryptjs works in edge runtime, native bcrypt does NOT
+
+### Database
+- SQLite has no BOOLEAN type - use INTEGER with 0/1
+- Always check `result.results` array length, not truthiness
+- D1 has max 100KB result size per query
+
+### CSS/Styling
+- NO box-shadows anywhere - use borders for elevation
+- Shadows Into Light and Jacquard 24 only have font-weight 400
+- Always use CSS custom properties, never hardcoded values
+
+### Components
+- Form components must be controlled (value + onChange required)
+- TypingEffect needs stable keys to avoid re-animation
+- Toast z-index must be 400 (above modals)
+
+### Workbook
+- Exercise IDs in URLs omit version (`1.2.3`), but DB may need it (`1.2.3.v1`)
+- Resolve connections BEFORE rendering tools, not during
+
+### Auth
+- All users start anonymous - full workbook access without account
+- Session cookie: HttpOnly, Secure (prod), SameSite=Lax
 
 ---
 

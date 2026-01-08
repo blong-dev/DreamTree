@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dreamtree — Brand System (Final)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --rust: #A0522D;
+      --sage: #7D9471;
+      --ivory: #FAF8F5;
+      --tan: #E8DCC4;
+      --charcoal: #2C3E50;
+      --black: #1A1A1A;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f5f5f5;
+      padding: 2rem;
+      min-height: 100vh;
+      color: #333;
+    }
+    
+    .page-header {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 1.5rem;
+    }
+    
+    .page-header h1 {
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+    }
+    
+    .page-header p {
+      font-size: 0.875rem;
+      color: #666;
+    }
+    
+    .section {
+      background: white;
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    
+    .section-header {
+      font-weight: 600;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.25rem;
+      color: var(--sage);
+    }
+    
+    .section-title {
+      font-size: 1.125rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+    }
+    
+    .section-desc {
+      font-size: 0.875rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+    }
+
+    /* ============ ICON ============ */
+    .icon-grid {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    
+    .icon-box {
+      width: 120px;
+      height: 120px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    
+    .icon-box svg {
+      width: 60px;
+      height: auto;
+    }
+    
+    .icon-box.hero {
+      width: 180px;
+      height: 180px;
+    }
+    
+    .icon-box.hero svg {
+      width: 100px;
+    }
+    
+    .icon-sizes {
+      display: flex;
+      gap: 1.5rem;
+      align-items: end;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid #eee;
+      margin-top: 1.5rem;
+    }
+    
+    .icon-size-item {
+      text-align: center;
+    }
+    
+    .icon-size-item .size-label {
+      font-size: 0.625rem;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+    
+    .favicon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+    
+    .favicon-box svg {
+      width: 100%;
+      height: auto;
+    }
+    
+    .app-icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+    }
+    
+    .app-icon-box svg {
+      width: 100%;
+      height: auto;
+    }
+    
+    .social-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px;
+    }
+    
+    .social-icon-box svg {
+      width: 100%;
+      height: auto;
+    }
+
+    /* ============ LOCKUP ============ */
+    .lockup-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    
+    .lockup-box {
+      padding: 1.25rem 1.75rem;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    
+    .lockup-box .icon svg {
+      width: 20px;
+      height: auto;
+      display: block;
+    }
+    
+    .lockup-box .text {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: var(--charcoal);
+    }
+    
+    .lockup-box.on-dark .text {
+      color: var(--ivory);
+    }
+    
+    .lockup-box.large {
+      padding: 1.5rem 2rem;
+      gap: 0.6rem;
+    }
+    
+    .lockup-box.large .icon svg {
+      width: 26px;
+    }
+    
+    .lockup-box.large .text {
+      font-size: 2rem;
+    }
+    
+    .lockup-box.small {
+      padding: 0.75rem 1rem;
+      gap: 0.3rem;
+    }
+    
+    .lockup-box.small .icon svg {
+      width: 14px;
+    }
+    
+    .lockup-box.small .text {
+      font-size: 1rem;
+    }
+
+    /* ============ COLOR ============ */
+    .color-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    
+    .color-chip {
+      text-align: center;
+    }
+    
+    .color-chip .swatch {
+      width: 64px;
+      height: 64px;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+    
+    .color-chip .color-name {
+      font-size: 0.6875rem;
+      font-weight: 500;
+      color: #333;
+    }
+    
+    .color-chip .color-hex {
+      font-size: 0.625rem;
+      color: #999;
+      font-family: 'SF Mono', Monaco, monospace;
+    }
+
+    /* ============ CONTEXTS ============ */
+    .context-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .context-item {
+      text-align: center;
+    }
+    
+    .context-item .context-label {
+      font-size: 0.625rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #999;
+      margin-bottom: 0.75rem;
+    }
+    
+    .browser-tab {
+      background: #dee2e6;
+      border-radius: 8px 8px 0 0;
+      padding: 0.5rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.75rem;
+      color: #495057;
+      font-family: system-ui, sans-serif;
+    }
+    
+    .browser-tab svg {
+      width: 14px;
+      height: auto;
+    }
+    
+    .email-sig {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 1rem;
+      text-align: left;
+      font-size: 0.8125rem;
+      display: inline-block;
+    }
+    
+    .email-sig .sig-name {
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+    
+    .email-sig .sig-title {
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+    
+    .email-sig .sig-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--charcoal);
+    }
+    
+    .email-sig .sig-logo svg {
+      width: 11px;
+      height: auto;
+    }
+
+    /* ============ UTILITIES ============ */
+    .bg-ivory { background: var(--ivory); }
+    .bg-tan { background: var(--tan); }
+    .bg-charcoal { background: var(--charcoal); }
+    .bg-black { background: var(--black); }
+    .bg-white { background: white; border: 1px solid #eee; }
+    
+    .note {
+      font-size: 0.75rem;
+      color: #888;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+    
+    .svg-code {
+      background: #f8f8f8;
+      border: 1px solid #eee;
+      border-radius: 6px;
+      padding: 1rem;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 0.75rem;
+      overflow-x: auto;
+      white-space: pre;
+      color: #555;
+      margin-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>dreamtree</h1>
+  <p>Brand Identity System — Final Specification</p>
+</div>
+
+<!-- ============ PRIMARY MARK ============ -->
+<div class="section">
+  <div class="section-header">01 — Primary Mark</div>
+  <div class="section-title">The Acorn</div>
+  <div class="section-desc">Potential energy. Everything you need is already inside. Sage cap, rust body, subtle point.</div>
+  
+  <div class="icon-grid">
+    <div class="icon-box bg-ivory hero">
+      <svg viewBox="0 0 60 62" fill="none">
+        <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+        <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+        <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="icon-grid">
+    <div class="icon-box bg-ivory">
+      <svg viewBox="0 0 60 62" fill="none">
+        <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+        <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+        <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="icon-box bg-tan">
+      <svg viewBox="0 0 60 62" fill="none">
+        <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+        <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+        <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="icon-box bg-charcoal">
+      <svg viewBox="0 0 60 62" fill="none">
+        <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+        <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+        <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="icon-box bg-black">
+      <svg viewBox="0 0 60 62" fill="none">
+        <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+        <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+        <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  
+  <div class="icon-sizes">
+    <div class="icon-size-item">
+      <div class="favicon-box bg-ivory">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="size-label">Favicon 32px</div>
+    </div>
+    <div class="icon-size-item">
+      <div class="social-icon-box bg-ivory">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="size-label">Social 48px</div>
+    </div>
+    <div class="icon-size-item">
+      <div class="app-icon-box bg-ivory">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="size-label">App Icon 60px</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ LOCKUP ============ -->
+<div class="section">
+  <div class="section-header">02 — Lockup</div>
+  <div class="section-title">Icon + Wordmark</div>
+  <div class="section-desc">Primary brand signature. Icon scaled to complement the text, not dominate it.</div>
+  
+  <div class="lockup-row" style="margin-bottom: 1.5rem;">
+    <div class="lockup-box bg-ivory large">
+      <span class="icon">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text">dreamtree</span>
+    </div>
+  </div>
+  
+  <div class="lockup-row" style="margin-bottom: 1.5rem;">
+    <div class="lockup-box bg-ivory">
+      <span class="icon">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text">dreamtree</span>
+    </div>
+    
+    <div class="lockup-box bg-tan">
+      <span class="icon">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text">dreamtree</span>
+    </div>
+    
+    <div class="lockup-box bg-charcoal on-dark">
+      <span class="icon">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text">dreamtree</span>
+    </div>
+  </div>
+  
+  <div class="lockup-row">
+    <div class="lockup-box bg-ivory small">
+      <span class="icon">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/>
+        </svg>
+      </span>
+      <span class="text">dreamtree</span>
+    </div>
+    <span style="font-size: 0.75rem; color: #999;">← Small variant</span>
+  </div>
+</div>
+
+<!-- ============ IN CONTEXT ============ -->
+<div class="section">
+  <div class="section-header">03 — In Context</div>
+  <div class="section-title">Real-World Applications</div>
+  
+  <div class="context-grid">
+    <div class="context-item">
+      <div class="context-label">Browser Tab</div>
+      <div class="browser-tab">
+        <svg viewBox="0 0 60 62" fill="none">
+          <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+          <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+          <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="6" stroke-linecap="round"/>
+        </svg>
+        dreamtree
+      </div>
+    </div>
+    
+    <div class="context-item">
+      <div class="context-label">Email Signature</div>
+      <div class="email-sig">
+        <div class="sig-name">Braedon</div>
+        <div class="sig-title">Founder</div>
+        <div class="sig-logo">
+          <svg viewBox="0 0 60 62" fill="none">
+            <path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/>
+            <path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/>
+            <path d="M30 5 L30 0" stroke="#7D9471" stroke-width="6" stroke-linecap="round"/>
+          </svg>
+          dreamtree
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ COLOR PALETTE ============ -->
+<div class="section">
+  <div class="section-header">04 — Color</div>
+  <div class="section-title">Brand Palette</div>
+  
+  <div class="color-row">
+    <div class="color-chip">
+      <div class="swatch" style="background: var(--sage);"></div>
+      <div class="color-name">Sage</div>
+      <div class="color-hex">#7D9471</div>
+    </div>
+    <div class="color-chip">
+      <div class="swatch" style="background: var(--rust);"></div>
+      <div class="color-name">Rust</div>
+      <div class="color-hex">#A0522D</div>
+    </div>
+    <div class="color-chip">
+      <div class="swatch" style="background: var(--charcoal);"></div>
+      <div class="color-name">Charcoal</div>
+      <div class="color-hex">#2C3E50</div>
+    </div>
+    <div class="color-chip">
+      <div class="swatch" style="background: var(--ivory);"></div>
+      <div class="color-name">Ivory</div>
+      <div class="color-hex">#FAF8F5</div>
+    </div>
+    <div class="color-chip">
+      <div class="swatch" style="background: var(--tan);"></div>
+      <div class="color-name">Tan</div>
+      <div class="color-hex">#E8DCC4</div>
+    </div>
+    <div class="color-chip">
+      <div class="swatch" style="background: var(--black);"></div>
+      <div class="color-name">Black</div>
+      <div class="color-hex">#1A1A1A</div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ TYPOGRAPHY ============ -->
+<div class="section">
+  <div class="section-header">05 — Typography</div>
+  <div class="section-title">DM Sans</div>
+  <div class="section-desc">Weight: 500 (Medium). Letter-spacing: -0.02em. Lowercase.</div>
+  
+  <div style="font-family: 'DM Sans', sans-serif; font-weight: 500; font-size: 2.5rem; color: var(--charcoal); letter-spacing: -0.02em;">
+    dreamtree
+  </div>
+  <p class="note">Google Fonts: fonts.google.com/specimen/DM+Sans</p>
+</div>
+
+<!-- ============ SVG CODE ============ -->
+<div class="section">
+  <div class="section-header">06 — Assets</div>
+  <div class="section-title">SVG Code</div>
+  <div class="section-desc">Copy-paste ready. ViewBox is 60×62.</div>
+  
+  <div class="svg-code">&lt;svg viewBox="0 0 60 62" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;
+  &lt;!-- Nut body --&gt;
+  &lt;path d="M6 30 Q6 10 30 10 Q54 10 54 30 Q54 50 30 58 Q6 50 6 30Z" fill="#A0522D"/&gt;
+  &lt;!-- Cap --&gt;
+  &lt;path d="M4 18 Q4 5 30 5 Q56 5 56 18 Q56 26 30 26 Q4 26 4 18Z" fill="#7D9471"/&gt;
+  &lt;!-- Stem --&gt;
+  &lt;path d="M30 5 L30 0" stroke="#7D9471" stroke-width="5" stroke-linecap="round"/&gt;
+&lt;/svg&gt;</div>
+</div>
+
+</body>
+</html>

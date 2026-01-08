@@ -518,11 +518,62 @@ Build in this order (frequency of use in Parts 1-2):
 | career_timeline | user_career_options + custom | Timeline data |
 | career_assessment | user_career_options (scores) | Score fields |
 
-### 3.4 Connections Implementation
+### 3.4 Tool Persistence Layer
+
+**Files**: `src/lib/tools/persistence.ts`, `src/app/api/tools/[id]/route.ts`
+
+Tools are pure UI components. The persistence layer handles:
+1. **Auto-save on change** — Debounced saves (500ms) to prevent over-writing
+2. **Data transformation** — Convert tool format → database format
+3. **Data loading** — Fetch from DB when tool mounts, hydrate initial state
+
+**Persistence Architecture**:
+```typescript
+// Wrapper component for tool persistence
+interface ToolPersistenceProps<T> {
+  toolType: ToolType;
+  instanceId: string;
+  userId: string;
+  children: (props: { data: T; onChange: (data: T) => void }) => ReactNode;
+}
+
+// The wrapper handles:
+// 1. Load initial data from DB
+// 2. Pass data + onChange to child tool
+// 3. On change: debounce → transform → save to DB
+```
+
+**API Routes**:
+- `GET /api/tools/[id]` — Fetch tool instance data
+- `PUT /api/tools/[id]` — Update tool instance data
+- `POST /api/tools/[id]` — Create new tool instance
+- `DELETE /api/tools/[id]` — Delete tool instance
+
+**Data Transformations** (tool format → DB format):
+```typescript
+// Example: BudgetCalculator → user_budget table
+import { toBudgetData } from '@/components/tools';
+const dbData = toBudgetData(toolData); // Uses transformation function
+
+// Example: FlowTracker → user_flow_logs table
+// Direct mapping, no transformation needed
+
+// Example: CareerAssessment → user_career_options table
+// Maps CareerOption[] to individual rows with scores
+```
+
+**Deliverables**:
+- [ ] ToolPersistence wrapper component
+- [ ] Debounced save hook (useToolAutoSave)
+- [ ] Tool data loader (useToolData)
+- [ ] API routes for CRUD operations
+- [ ] Transformation functions for each tool type
+
+### 3.5 Connections Implementation
 
 **File**: `src/lib/connections/*`
 
-Connections define data flow between exercises. Current CSV has 12 connections with rough instructions.
+Connections define data flow between exercises. Current CSV has 19 connections with rough instructions.
 
 **Connection Schema** (refined):
 ```typescript

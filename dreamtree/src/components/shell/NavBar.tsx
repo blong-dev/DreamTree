@@ -36,7 +36,7 @@ export function NavBar({
         <li>
           <NavItem
             id="home"
-            icon={HomeIcon}
+            icon={position === 'bottom' ? AcornIcon : HomeIcon}
             label="Home"
             isActive={activeItem === 'home'}
             onClick={() => onNavigate('home')}

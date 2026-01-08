@@ -8,21 +8,67 @@
       "Bash(git commit:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
+      "Bash(git status:*)",
+      "Bash(git diff:*)",
+      "Bash(git log:*)",
+      "Bash(gh:*)",
       "Bash(npx create-next-app@latest dreamtree --typescript --tailwind --app --eslint --src-dir --import-alias \"@/*\" --no-git)",
       "Bash(npx create-next-app:*)",
       "Bash(npm install:*)",
       "Bash(npm run build:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm test:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npx prettier:*)",
+      "Bash(npx eslint:*)",
       "Bash(tree:*)",
       "Bash(find:*)",
       "Bash(node:*)",
       "Bash(netstat:*)",
       "Bash(findstr:*)",
-      "Bash(npm run dev:*)",
       "Bash(taskkill:*)",
       "Bash(cmd /c \"taskkill /F /PID 4384\")",
       "Bash(tasklist:*)",
       "Bash(xargs cat:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(npx tsx:*)",
+      "Bash(npx @cloudflare/next-on-pages)",
+      "Bash(npx wrangler:*)",
+      "Bash(python scripts/generate_seed.py:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)",
+      "Bash(git -C /c/dreamtree log --oneline -30)",
+      "Bash(git -C /c/dreamtree status --short)",
+      "Bash(npm run build:pages:*)",
+      "Bash(xargs -I {} bash -c 'echo \"\"=== {} ===\"\" && head -20 {}')",
+      "Bash(npx opennextjs-cloudflare build)",
+      "Bash(git -C \"C:\\\\dreamtree\" log --oneline)",
+      "Bash(head:*)",
+      "WebFetch(domain:x.com)",
+      "Bash(dir /B C:dreamtreedreamtreemigrations*.sql)",
+      "WebSearch",
+      "WebFetch(domain:twitter-thread.com)",
+      "WebFetch(domain:dreamtree.pages.dev)",
+      "Bash(npm run build:cf:*)",
+      "WebFetch(domain:553f9e66.dreamtree.pages.dev)",
+      "WebFetch(domain:44dc5dae.dreamtree.pages.dev)",
+      "WebFetch(domain:github.com)",
+      "Bash(npx next dev)"
+    ]
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"const p=process.env.CLAUDE_TOOL_INPUT_FILE_PATH||''; if(p.endsWith('.ts')||p.endsWith('.tsx')||p.endsWith('.js')||p.endsWith('.jsx')||p.endsWith('.css')){console.log(JSON.stringify({decision:undefined,reason:'File saved: '+p}))}else{console.log(JSON.stringify({decision:undefined}))}\"",
+            "timeout": 5000
+          }
+        ]
+      }
     ]
   }
 }

@@ -187,7 +187,7 @@ function applyTheme(data: OnboardingData) {
     lora: "'Lora', Georgia, serif",
     'courier-prime': "'Courier Prime', monospace",
     'shadows-into-light': "'Shadows Into Light', cursive",
-    'jacquard-24': "'Jacquard 24', serif",
+    'manufacturing-consent': "'Manufacturing Consent', serif",
   };
 
   const bg = colors[data.backgroundColor];

@@ -1075,6 +1075,7 @@ CREATE TABLE user_profile (
     life_dashboard_play INTEGER CHECK (life_dashboard_play BETWEEN 1 AND 10),
     life_dashboard_love INTEGER CHECK (life_dashboard_love BETWEEN 1 AND 10),
     life_dashboard_health INTEGER CHECK (life_dashboard_health BETWEEN 1 AND 10),
+    life_dashboard_notes TEXT,
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -1194,7 +1195,46 @@ CREATE INDEX idx_user_stories_type ON user_stories(user_id, story_type);
 
 ---
 
-### 3.5 user_experiences
+### 3.5 user_failure_reframes
+
+Structured failure reframes — distinct from SOARED stories.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `user_id` | TEXT | NOT NULL, FK → users.id | Link to user |
+| `situation` | TEXT | | What happened |
+| `initial_feelings` | TEXT | | How you felt initially |
+| `what_learned` | TEXT | | What you learned |
+| `what_would_change` | TEXT | | What you'd do differently |
+| `silver_lining` | TEXT | | Positive outcome or insight |
+| `next_step` | TEXT | | Concrete next action |
+| `reframed_statement` | TEXT | | The positive reframe |
+| `created_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+| `updated_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+
+```sql
+CREATE TABLE user_failure_reframes (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    situation TEXT,
+    initial_feelings TEXT,
+    what_learned TEXT,
+    what_would_change TEXT,
+    silver_lining TEXT,
+    next_step TEXT,
+    reframed_statement TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_user_failure_reframes_user ON user_failure_reframes(user_id);
+```
+
+---
+
+### 3.6 user_experiences
 
 Jobs, education, projects — the source for resume autofill.
 
@@ -1325,6 +1365,7 @@ CREATE TABLE user_career_options (
     work_needs_score INTEGER,
     life_needs_score INTEGER,
     unknowns_score INTEGER,
+    notes TEXT,
     created_at TEXT NOT NULL,
     updated_at TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
@@ -1335,7 +1376,43 @@ CREATE INDEX idx_user_career_options_user ON user_career_options(user_id);
 
 ---
 
-### 3.9 user_budget
+### 3.9 user_milestones
+
+Career timeline milestones for 5-year planning.
+
+| Column | Type | Constraints | Description |
+|--------|------|-------------|-------------|
+| `id` | TEXT | PRIMARY KEY | UUID |
+| `user_id` | TEXT | NOT NULL, FK → users.id | Link to user |
+| `year` | INTEGER | NOT NULL | Target year |
+| `quarter` | INTEGER | CHECK 1-4 | Target quarter |
+| `title` | TEXT | NOT NULL | Milestone title |
+| `category` | TEXT | CHECK | 'work', 'education', 'personal', 'skill' |
+| `description` | TEXT | | Additional details |
+| `created_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+| `updated_at` | TEXT | NOT NULL | ISO 8601 timestamp |
+
+```sql
+CREATE TABLE user_milestones (
+    id TEXT PRIMARY KEY,
+    user_id TEXT NOT NULL,
+    year INTEGER NOT NULL,
+    quarter INTEGER CHECK (quarter BETWEEN 1 AND 4),
+    title TEXT NOT NULL,
+    category TEXT CHECK (category IN ('work', 'education', 'personal', 'skill')),
+    description TEXT,
+    created_at TEXT NOT NULL,
+    updated_at TEXT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+CREATE INDEX idx_user_milestones_user ON user_milestones(user_id);
+CREATE INDEX idx_user_milestones_year ON user_milestones(user_id, year);
+```
+
+---
+
+### 3.10 user_budget
 
 Budget and BATNA calculations. **Contains PII — encrypted at rest.**
 

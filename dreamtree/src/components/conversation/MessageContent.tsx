@@ -157,7 +157,7 @@ export function MessageContent({
         className="message-content"
         id={messageId}
         role="article"
-        aria-label="DreamTree message"
+        aria-label="dreamtree message"
       >
         {content.slice(0, animate ? currentBlockIndex + 1 : content.length).map((block, index) => (
           <ContentBlockRenderer

@@ -16,7 +16,7 @@ const fontNames: Record<FontFamilyId, string> = {
   'lora': 'Serif',
   'courier-prime': 'Typewriter',
   'shadows-into-light': 'Handwritten',
-  'jacquard-24': 'Decorative',
+  'manufacturing-consent': 'Vintage',
 };
 
 interface ProfileHeaderProps {

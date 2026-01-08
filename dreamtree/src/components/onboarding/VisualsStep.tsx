@@ -7,7 +7,7 @@ import {
   COLORS,
   FONTS,
   getColorById,
-  getFontById,
+  getFontStyle,
   getValidTextColors,
   isValidPairing,
 } from './types';
@@ -48,7 +48,7 @@ export function VisualsStep({
 }: VisualsStepProps) {
   const previewBg = backgroundColor ? getColorById(backgroundColor).hex : undefined;
   const previewText = textColor ? getColorById(textColor).hex : undefined;
-  const previewFont = font ? getFontById(font).family : undefined;
+  const previewFontStyle = font ? getFontStyle(font) : {};
 
   return (
     <div className="visuals-step">
@@ -154,11 +154,11 @@ export function VisualsStep({
         style={{
           backgroundColor: previewBg,
           color: previewText,
-          fontFamily: previewFont,
+          ...previewFontStyle,
         }}
       >
         <p className="visuals-preview-text">
-          This is how your DreamTree will look.
+          This is how your dreamtree will look.
         </p>
       </div>
     </div>
