@@ -3,6 +3,8 @@ import { getRequestContext } from '@cloudflare/next-on-pages';
 import { createDb } from '@/lib/db';
 import type { Env } from '@/types/database';
 
+export const runtime = 'edge';
+
 interface StemRow {
   id: number;
   part: number;

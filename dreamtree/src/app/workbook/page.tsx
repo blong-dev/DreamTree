@@ -4,6 +4,7 @@ import { getRequestContext } from '@cloudflare/next-on-pages';
 import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
 import type { Env } from '@/types/database';
+export const runtime = 'edge';
 
 
 export default async function WorkbookPage() {
