@@ -7,6 +7,8 @@ import { WorkbookView } from '@/components/workbook';
 import type { ExerciseContent, SavedResponse } from '@/components/workbook/types';
 import type { Env } from '@/types/database';
 
+export const runtime = 'edge';
+
 interface PageProps {
   params: Promise<{ exerciseId: string }>;
 }

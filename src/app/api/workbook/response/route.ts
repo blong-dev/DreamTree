@@ -4,6 +4,7 @@ import { createDb } from '@/lib/db';
 import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { nanoid } from 'nanoid';
 import type { Env } from '@/types/database';
+export const runtime = 'edge';
 
 
 interface SaveResponseRequest {
