@@ -75,6 +75,7 @@ export function MBTISelector({
         <input
           id="mbti-input"
           type="text"
+          role="combobox"
           className="mbti-selector-input"
           value={inputValue}
           onChange={handleInputChange}

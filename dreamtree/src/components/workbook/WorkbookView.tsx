@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { useRouter } from 'next/navigation';
 import { AppShell } from '../shell/AppShell';
 import { ConversationThread } from '../conversation/ConversationThread';
@@ -44,30 +44,52 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   const { showToast } = useToast();
   const threadRef = useRef<HTMLDivElement>(null);
 
-  // Build a map of saved responses by prompt ID
-  const responseMap = new Map(
-    savedResponses.map(r => [r.prompt_id, r.response_text || ''])
+  // Build maps of saved responses by prompt ID and tool ID (memoized to prevent stale closures)
+  const promptResponseMap = useMemo(
+    () => new Map(
+      savedResponses
+        .filter(r => r.prompt_id !== null)
+        .map(r => [r.prompt_id as number, r.response_text || ''])
+    ),
+    [savedResponses]
+  );
+
+  const toolResponseMap = useMemo(
+    () => new Map(
+      savedResponses
+        .filter(r => r.tool_id !== null)
+        .map(r => [r.tool_id as number, r.response_text || ''])
+    ),
+    [savedResponses]
   );
 
   // Track which block we're currently displaying (for typing effect progression)
   const [displayedBlockIndex, setDisplayedBlockIndex] = useState(() => {
-    // Start from the first unanswered prompt, or show all if all answered
-    const promptBlocks = exercise.blocks.filter(b => b.blockType === 'prompt');
-    const firstUnanswered = promptBlocks.findIndex(b => {
-      const promptData = b.content as PromptData;
-      const promptId = promptData.id;
-      if (promptId === undefined) return true; // No ID means no response possible
-      return !responseMap.has(promptId);
+    // Start from the first unanswered prompt or tool, or show all if all answered
+    const interactiveBlocks = exercise.blocks.filter(b => b.blockType === 'prompt' || b.blockType === 'tool');
+    const firstUnanswered = interactiveBlocks.findIndex(b => {
+      if (b.blockType === 'prompt') {
+        const promptData = b.content as PromptData;
+        const promptId = promptData.id;
+        if (promptId === undefined) return true;
+        return !promptResponseMap.has(promptId);
+      } else if (b.blockType === 'tool') {
+        const toolData = b.content as ToolData;
+        const toolId = toolData.id;
+        if (toolId === undefined) return true;
+        return !toolResponseMap.has(toolId);
+      }
+      return false;
     });
 
     if (firstUnanswered === -1) {
-      // All prompts answered, show everything
+      // All prompts/tools answered, show everything
       return exercise.blocks.length;
     }
 
-    // Find the index in the full blocks array of this prompt
-    const firstUnansweredPrompt = promptBlocks[firstUnanswered];
-    return exercise.blocks.indexOf(firstUnansweredPrompt) + 1;
+    // Find the index in the full blocks array of this block
+    const firstUnansweredBlock = interactiveBlocks[firstUnanswered];
+    return exercise.blocks.indexOf(firstUnansweredBlock) + 1;
   });
 
   // Current active prompt (if any)
@@ -106,7 +128,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       // Check if user has responded to this prompt
       const promptId = promptData.id;
       if (promptId !== undefined) {
-        const savedResponse = responseMap.get(promptId);
+        const savedResponse = promptResponseMap.get(promptId);
         if (savedResponse) {
           messages.push({
             id: `msg-${messageId++}`,
@@ -129,6 +151,17 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         }],
         timestamp: new Date(),
       });
+
+      // Check if user has saved tool data
+      const toolId = toolData.id;
+      if (toolId !== undefined && toolResponseMap.has(toolId)) {
+        messages.push({
+          id: `msg-${messageId++}`,
+          type: 'user',
+          data: { type: 'text', value: '[Tool data saved]' } as UserResponseContent,
+          timestamp: new Date(),
+        });
+      }
     }
   }
 
@@ -147,7 +180,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     if (currentBlock.blockType === 'prompt') {
       const promptData = currentBlock.content as PromptData;
       const promptId = promptData.id;
-      const hasResponse = promptId !== undefined && responseMap.has(promptId);
+      const hasResponse = promptId !== undefined && promptResponseMap.has(promptId);
 
       if (!hasResponse) {
         setActivePrompt(currentBlock);
@@ -167,11 +200,16 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         return;
       }
     } else if (currentBlock.blockType === 'tool') {
-      // Check if tool has been completed (for now, always show)
-      setActiveTool(currentBlock);
-      setActivePrompt(null);
-      setInputType('none');
-      return;
+      const toolData = currentBlock.content as ToolData;
+      const toolId = toolData.id;
+      const hasToolResponse = toolId !== undefined && toolResponseMap.has(toolId);
+
+      if (!hasToolResponse) {
+        setActiveTool(currentBlock);
+        setActivePrompt(null);
+        setInputType('none');
+        return;
+      }
     }
 
     // If we get here, advance to next block
@@ -187,7 +225,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       setActivePrompt(null);
       setActiveTool(null);
     }
-  }, [displayedBlockIndex, exercise.blocks, responseMap]);
+  }, [displayedBlockIndex, exercise.blocks, promptResponseMap, toolResponseMap]);
 
   // Save a response
   const handleSaveResponse = useCallback(async (responseText: string) => {
@@ -214,7 +252,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
 
       // Update local state
       if (promptData.id !== undefined) {
-        responseMap.set(promptData.id, responseText);
+        promptResponseMap.set(promptData.id, responseText);
       }
 
       // Clear input and advance
@@ -232,15 +270,22 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     } finally {
       setIsSaving(false);
     }
-  }, [activePrompt, exercise.exerciseId, isSaving, showToast, responseMap]);
+  }, [activePrompt, exercise.exerciseId, isSaving, showToast, promptResponseMap]);
 
   // Handle tool completion
   const handleToolComplete = useCallback(() => {
+    // Update local state to mark tool as completed
+    if (activeTool) {
+      const toolData = activeTool.content as ToolData;
+      if (toolData.id !== undefined) {
+        toolResponseMap.set(toolData.id, '[saved]');
+      }
+    }
     setActiveTool(null);
     setTimeout(() => {
       setDisplayedBlockIndex(prev => prev + 1);
     }, 300);
-  }, []);
+  }, [activeTool, toolResponseMap]);
 
   // Handle navigation
   const handleNavigate = (id: string) => {

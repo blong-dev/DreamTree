@@ -13,9 +13,20 @@ This area owns all database schema, queries, data types, and the connections sys
 - `seed/` - Seed data utilities
 
 **Does NOT own:**
-- API routes (owned by Workbook)
-- Component data fetching (owned by respective component areas)
+- API routes for workbook (owned by Workbook)
 - Auth-specific queries like password verification (owned by Auth)
+
+**Also owns:**
+- `src/app/api/data/` - Data API routes
+  - `skills/route.ts` - Fetch skills for SkillTagger
+  - `competencies/route.ts` - Fetch competencies for CompetencyAssessment
+  - `connection/route.ts` - Resolve connections for user data hydration
+- `src/app/api/profile/` - Profile data routes
+  - `route.ts` - Fetch user profile, settings, skills, values
+  - `export/route.ts` - Export all user data for download
+- `src/app/api/tools/` - Tool data routes
+  - `counts/route.ts` - Entry counts per tool type
+  - `instances/route.ts` - Tool instances for a specific tool type
 
 ---
 

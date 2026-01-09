@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getRequestContext } from '@cloudflare/next-on-pages';
-import { getSessionIdFromCookie, getSessionData, createAnonymousSession, createSessionCookie } from '@/lib/auth/session';
+import { getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
 import { WorkbookView } from '@/components/workbook';
 import type { ExerciseContent, SavedResponse } from '@/components/workbook/types';
@@ -182,16 +182,20 @@ export default async function WorkbookExercisePage({ params }: PageProps) {
   const { exerciseId } = await params;
   const { env } = getRequestContext() as unknown as { env: Env };
 
-  // Get or create session
+  // Get session from cookie (middleware ensures user is authenticated)
   const cookieStore = await cookies();
-  const sessionId = getSessionIdFromCookie(cookieStore.toString());
-  let sessionData = sessionId ? await getSessionData(env.DB, sessionId) : null;
-  const headers = new Headers();
+  const sessionId = cookieStore.get('dt_session')?.value;
 
-  // Create anonymous session if needed
+  if (!sessionId) {
+    // Middleware should have caught this, but redirect just in case
+    redirect('/login');
+  }
+
+  const sessionData = await getSessionData(env.DB, sessionId);
+
   if (!sessionData) {
-    sessionData = await createAnonymousSession(env.DB);
-    headers.set('Set-Cookie', createSessionCookie(sessionData.session.id));
+    // Session expired or invalid - redirect to login
+    redirect('/login');
   }
 
   // Fetch exercise content

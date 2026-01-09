@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { AppShell, NavItemId } from '@/components/shell';
 import { ToolType } from '@/components/tools';
@@ -15,13 +15,11 @@ const TOOL_CATEGORIES = [
         type: 'soared_form' as ToolType,
         name: 'SOARED Stories',
         description: 'Capture achievement stories using the SOARED framework',
-        count: 0,
       },
       {
         type: 'failure_reframer' as ToolType,
         name: 'Failure Reframes',
         description: 'Transform setbacks into learning opportunities',
-        count: 0,
       },
     ],
   },
@@ -32,19 +30,16 @@ const TOOL_CATEGORIES = [
         type: 'skill_tagger' as ToolType,
         name: 'Skill Tagger',
         description: 'Tag and categorize your skills',
-        count: 0,
       },
       {
         type: 'bucketing_tool' as ToolType,
         name: 'Skill Buckets',
         description: 'Rate your skill mastery levels',
-        count: 0,
       },
       {
         type: 'competency_assessment' as ToolType,
         name: 'Competency Assessment',
         description: 'Assess your workplace competencies',
-        count: 0,
       },
     ],
   },
@@ -55,19 +50,16 @@ const TOOL_CATEGORIES = [
         type: 'ranking_grid' as ToolType,
         name: 'Rankings',
         description: 'Rank and prioritize items',
-        count: 0,
       },
       {
         type: 'mbti_selector' as ToolType,
         name: 'Personality Type',
         description: 'Explore your MBTI preferences',
-        count: 0,
       },
       {
         type: 'mindset_profiles' as ToolType,
         name: 'Mindset Profiles',
         description: 'Understand different mindsets',
-        count: 0,
       },
     ],
   },
@@ -78,13 +70,11 @@ const TOOL_CATEGORIES = [
         type: 'flow_tracker' as ToolType,
         name: 'Flow Tracker',
         description: 'Log activities and flow states',
-        count: 0,
       },
       {
         type: 'life_dashboard' as ToolType,
         name: 'Life Dashboard',
         description: 'Track life domains and balance',
-        count: 0,
       },
     ],
   },
@@ -95,19 +85,16 @@ const TOOL_CATEGORIES = [
         type: 'career_timeline' as ToolType,
         name: 'Career Timeline',
         description: 'Map your career history and future',
-        count: 0,
       },
       {
         type: 'career_assessment' as ToolType,
         name: 'Career Assessment',
         description: 'Evaluate career options',
-        count: 0,
       },
       {
         type: 'budget_calculator' as ToolType,
         name: 'Budget Calculator',
         description: 'Plan your financial needs',
-        count: 0,
       },
     ],
   },
@@ -118,13 +105,11 @@ const TOOL_CATEGORIES = [
         type: 'list_builder' as ToolType,
         name: 'Lists',
         description: 'Create and manage lists',
-        count: 0,
       },
       {
         type: 'idea_tree' as ToolType,
         name: 'Idea Trees',
         description: 'Map out ideas visually',
-        count: 0,
       },
     ],
   },
@@ -133,16 +118,23 @@ const TOOL_CATEGORIES = [
 export default function ToolsIndexPage() {
   const router = useRouter();
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('tools');
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [counts, setCounts] = useState<Record<string, number>>({});
 
+  // Fetch tool counts on mount
   useEffect(() => {
-    const savedData = localStorage.getItem('dreamtree_user');
-    if (savedData) {
-      setIsAuthenticated(true);
-    } else {
-      router.push('/');
+    async function fetchCounts() {
+      try {
+        const response = await fetch('/api/tools/counts');
+        if (response.ok) {
+          const data: { counts?: Record<string, number> } = await response.json();
+          setCounts(data.counts || {});
+        }
+      } catch (error) {
+        console.error('Error fetching tool counts:', error);
+      }
     }
-  }, [router]);
+    fetchCounts();
+  }, []);
 
   const handleNavigate = useCallback(
     (id: NavItemId) => {
@@ -159,14 +151,6 @@ export default function ToolsIndexPage() {
   const handleToolClick = (toolType: ToolType) => {
     router.push(`/tools/${toolType}`);
   };
-
-  if (isAuthenticated === null) {
-    return (
-      <div className="onboarding-flow">
-        <div className="onboarding-content" />
-      </div>
-    );
-  }
 
   return (
     <AppShell
@@ -194,23 +178,26 @@ export default function ToolsIndexPage() {
           <section key={category.title} className="tools-index-category">
             <h2 className="tools-index-category-title">{category.title}</h2>
             <div className="tools-index-grid">
-              {category.tools.map((tool) => (
-                <button
-                  key={tool.type}
-                  className="tools-index-card"
-                  onClick={() => handleToolClick(tool.type)}
-                >
-                  <h3 className="tools-index-card-name">{tool.name}</h3>
-                  <p className="tools-index-card-description">
-                    {tool.description}
-                  </p>
-                  {tool.count > 0 && (
-                    <span className="tools-index-card-count">
-                      {tool.count} {tool.count === 1 ? 'entry' : 'entries'}
-                    </span>
-                  )}
-                </button>
-              ))}
+              {category.tools.map((tool) => {
+                const count = counts[tool.type] || 0;
+                return (
+                  <button
+                    key={tool.type}
+                    className="tools-index-card"
+                    onClick={() => handleToolClick(tool.type)}
+                  >
+                    <h3 className="tools-index-card-name">{tool.name}</h3>
+                    <p className="tools-index-card-description">
+                      {tool.description}
+                    </p>
+                    {count > 0 && (
+                      <span className="tools-index-card-count">
+                        {count} {count === 1 ? 'entry' : 'entries'}
+                      </span>
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </section>
         ))}

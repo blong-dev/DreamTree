@@ -9,3 +9,4 @@ export { TOCInline } from './TOCInline';
 export { TOCInlinePart } from './TOCInlinePart';
 export { TOCInlineModule } from './TOCInlineModule';
 export { TOCInlineExercise } from './TOCInlineExercise';
+export { DashboardPage } from './DashboardPage';

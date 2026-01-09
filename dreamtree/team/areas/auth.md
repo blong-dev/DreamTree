@@ -34,10 +34,12 @@ This area owns user authentication, session management, and data encryption.
 ## Patterns & Conventions
 
 ### Auth Model
-DreamTree uses an **anonymous-first** auth model:
-1. All users start anonymous (session cookie only)
-2. Users "claim" accounts by adding email/password
-3. Anonymous sessions have full workbook access
+DreamTree uses a **required-account** auth model:
+1. Users must sign up with email/password to access app
+2. Signup → Onboarding → Workbook (skips dashboard)
+3. Login → Dashboard (for returning users) or Onboarding (if profile incomplete)
+4. Protected routes: `/workbook`, `/profile`, `/tools`, `/onboarding`
+5. Public routes: `/`, `/login`, `/signup`
 
 ### Session Flow
 ```typescript
@@ -131,10 +133,15 @@ export async function POST(request: Request, { env }) {
 - Secret must be in environment variables
 - Lost secret = lost encrypted data
 
-### Anonymous User Limits
-- Anonymous users can complete full workbook
-- Data belongs to session, not email
-- Claiming account links existing data
+### Session Cookie in Server Components
+- Use `cookies().set()` from `next/headers`
+- Do NOT use `new Headers()` pattern - headers are not returned
+- Cookie options: `httpOnly: true, sameSite: 'lax', secure: prod`
+
+### Middleware Protection
+- `src/middleware.ts` protects routes
+- Check `dt_session` cookie for auth
+- Redirect unauthenticated to `/login`
 
 ---
 

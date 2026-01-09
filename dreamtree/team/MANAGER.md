@@ -125,6 +125,11 @@ Use this table to quickly identify which area owns a task.
 | Color changes | Design System | All UI areas |
 | Spacing/typography | Design System | All UI areas |
 | New CSS component class | Design System | Relevant component area |
+| Data API route | Database | Tools (if for tool data) |
+| Skills/competencies fetch | Database | Tools |
+| Connection resolution | Database | Workbook |
+| Auth middleware | Auth | - |
+| Login/signup pages | Features | Auth |
 
 ---
 
