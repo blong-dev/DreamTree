@@ -18,6 +18,7 @@ interface AppShellProps {
   onInputChange?: (value: string) => void;
   onInputSubmit?: (value: string) => void;
   activeNavItem?: NavItemId;
+  hideContents?: boolean;
   onNavigate?: (id: NavItemId) => void;
   onBreadcrumbNavigate?: (location: Partial<BreadcrumbLocation>) => void;
 }
@@ -33,6 +34,7 @@ export function AppShell({
   onInputChange,
   onInputSubmit,
   activeNavItem,
+  hideContents = false,
   onNavigate,
   onBreadcrumbNavigate,
 }: AppShellProps) {
@@ -58,6 +60,7 @@ export function AppShell({
       <NavBar
         position={isMobile ? 'bottom' : 'left'}
         activeItem={activeNavItem}
+        hideContents={hideContents}
         onNavigate={handleNavigate}
         onExpandTools={() => handleNavigate('tools')}
       />

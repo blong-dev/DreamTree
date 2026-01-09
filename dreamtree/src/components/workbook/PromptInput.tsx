@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import type { PromptData } from './types';
 import { Slider, Checkbox, CheckboxGroup, RadioGroup, Select } from '../forms';
 
@@ -21,7 +21,7 @@ export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputP
   const [radioValue, setRadioValue] = useState('');
   const [selectValue, setSelectValue] = useState('');
 
-  const handleSubmit = () => {
+  const handleSubmit = useCallback(() => {
     let value: string;
 
     switch (prompt.inputType) {
@@ -47,7 +47,7 @@ export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputP
     if (value) {
       onSubmit(value);
     }
-  };
+  }, [prompt.inputType, sliderValue, checkboxValue, checkboxGroupValue, radioValue, selectValue, onSubmit]);
 
   const renderInput = () => {
     const config = prompt.inputConfig || {};
@@ -142,7 +142,7 @@ export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputP
     }
   };
 
-  const isValid = () => {
+  const isValid = useCallback(() => {
     switch (prompt.inputType) {
       case 'slider':
         return true; // Slider always has a value
@@ -157,7 +157,20 @@ export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputP
       default:
         return false;
     }
-  };
+  }, [prompt.inputType, checkboxGroupValue.length, radioValue, selectValue]);
+
+  // Enter key to submit
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && !disabled && isValid()) {
+        e.preventDefault();
+        handleSubmit();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [disabled, isValid, handleSubmit]);
 
   return (
     <div className="prompt-input">

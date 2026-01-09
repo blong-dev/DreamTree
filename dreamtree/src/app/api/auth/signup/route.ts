@@ -23,13 +23,12 @@ import '@/types/database'; // CloudflareEnv augmentation
 interface SignupBody {
   email: string;
   password: string;
-  name?: string;
 }
 
 export async function POST(request: NextRequest) {
   try {
     const body: SignupBody = await request.json();
-    const { email, password, name } = body;
+    const { email, password } = body;
 
     // Validate required fields
     if (!email || !password) {
@@ -133,13 +132,13 @@ export async function POST(request: NextRequest) {
       .bind(userId, now, now)
       .run();
 
-    // Create user_profile row with name if provided
+    // Create user_profile row (name is collected during onboarding)
     await db
       .prepare(
         `INSERT INTO user_profile (user_id, display_name, created_at, updated_at)
-         VALUES (?, ?, ?, ?)`
+         VALUES (?, NULL, ?, ?)`
       )
-      .bind(userId, name || null, now, now)
+      .bind(userId, now, now)
       .run();
 
     // Create user_values row

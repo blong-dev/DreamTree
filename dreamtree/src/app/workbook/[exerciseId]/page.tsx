@@ -166,7 +166,7 @@ async function fetchSavedResponses(userId: string, exerciseId: string): Promise<
 
   const responses = await db.raw
     .prepare(
-      `SELECT id, prompt_id, exercise_id, activity_id, response_text, created_at, updated_at
+      `SELECT id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at
        FROM user_responses
        WHERE user_id = ? AND exercise_id = ?
        ORDER BY created_at`

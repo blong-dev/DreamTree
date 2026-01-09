@@ -6,7 +6,7 @@ import { ListItem } from './types';
 interface ListBuilderProps {
   items: ListItem[];
   onChange: (items: ListItem[]) => void;
-  label: string;
+  label?: string;
   placeholder?: string;
   addLabel?: string;
   maxItems?: number;
@@ -20,7 +20,7 @@ interface ListBuilderProps {
 export function ListBuilder({
   items,
   onChange,
-  label,
+  label = '',
   placeholder = 'Add item...',
   addLabel = '+ Add another',
   maxItems,
@@ -33,6 +33,7 @@ export function ListBuilder({
   const generatedId = useId();
   const listId = id || generatedId;
   const [newItemValue, setNewItemValue] = useState('');
+  const [dragSourceIndex, setDragSourceIndex] = useState<number | null>(null);
 
   const generateId = () => `item-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 
@@ -74,18 +75,44 @@ export function ListBuilder({
     }
   };
 
+  // Drag-drop handlers
+  const handleDragStart = (index: number) => {
+    setDragSourceIndex(index);
+  };
+
+  const handleDragOver = (e: React.DragEvent, targetIndex: number) => {
+    e.preventDefault();
+    if (dragSourceIndex === null || dragSourceIndex === targetIndex) return;
+    // Visual feedback is handled by data-drag-over attribute
+  };
+
+  const handleDrop = (targetIndex: number) => {
+    if (dragSourceIndex === null || dragSourceIndex === targetIndex) {
+      setDragSourceIndex(null);
+      return;
+    }
+    moveItem(dragSourceIndex, targetIndex);
+    setDragSourceIndex(null);
+  };
+
+  const handleDragEnd = () => {
+    setDragSourceIndex(null);
+  };
+
   const canAddMore = !maxItems || items.length < maxItems;
 
   return (
     <div className="list-builder" data-disabled={disabled}>
-      <label className="list-builder-label" id={`${listId}-label`}>
-        {label}
-      </label>
+      {label && (
+        <label className="list-builder-label" id={`${listId}-label`}>
+          {label}
+        </label>
+      )}
 
       <ul
         className="list-builder-items"
         role="list"
-        aria-labelledby={`${listId}-label`}
+        aria-labelledby={label ? `${listId}-label` : undefined}
       >
         {items.map((item, index) => (
           <ListBuilderItem
@@ -96,12 +123,17 @@ export function ListBuilder({
             onRemove={() => removeItem(item.id)}
             onMoveUp={reorderable ? () => moveItem(index, index - 1) : undefined}
             onMoveDown={reorderable ? () => moveItem(index, index + 1) : undefined}
+            onDragStart={() => handleDragStart(index)}
+            onDragOver={(e) => handleDragOver(e, index)}
+            onDrop={() => handleDrop(index)}
+            onDragEnd={handleDragEnd}
             reorderable={reorderable}
             itemType={itemType}
             disabled={disabled}
             canMoveUp={index > 0}
             canMoveDown={index < items.length - 1}
             canRemove={items.length > minItems}
+            isDragSource={dragSourceIndex === index}
           />
         ))}
       </ul>
@@ -147,12 +179,17 @@ interface ListBuilderItemProps {
   onRemove: () => void;
   onMoveUp?: () => void;
   onMoveDown?: () => void;
+  onDragStart: () => void;
+  onDragOver: (e: React.DragEvent) => void;
+  onDrop: () => void;
+  onDragEnd: () => void;
   reorderable: boolean;
   itemType: 'text' | 'textarea';
   disabled: boolean;
   canMoveUp: boolean;
   canMoveDown: boolean;
   canRemove: boolean;
+  isDragSource: boolean;
 }
 
 function ListBuilderItem({
@@ -161,16 +198,20 @@ function ListBuilderItem({
   onRemove,
   onMoveUp,
   onMoveDown,
+  onDragStart,
+  onDragOver,
+  onDrop,
+  onDragEnd,
   reorderable,
   itemType,
   disabled,
   canMoveUp,
   canMoveDown,
   canRemove,
+  isDragSource,
 }: ListBuilderItemProps) {
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(item.value);
-  const [isDragging, setIsDragging] = useState(false);
 
   const saveEdit = () => {
     if (editValue.trim()) {
@@ -192,23 +233,15 @@ function ListBuilderItem({
     }
   };
 
-  const handleDragStart = () => {
-    if (reorderable && !disabled) {
-      setIsDragging(true);
-    }
-  };
-
-  const handleDragEnd = () => {
-    setIsDragging(false);
-  };
-
   return (
     <li
       className="list-builder-item"
-      data-dragging={isDragging}
+      data-dragging={isDragSource}
       draggable={reorderable && !disabled}
-      onDragStart={handleDragStart}
-      onDragEnd={handleDragEnd}
+      onDragStart={onDragStart}
+      onDragOver={onDragOver}
+      onDrop={onDrop}
+      onDragEnd={onDragEnd}
     >
       {reorderable && (
         <button
