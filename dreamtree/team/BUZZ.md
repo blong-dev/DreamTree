@@ -122,9 +122,10 @@ If you see a soul violation, **stop and escalate to Queen Bee**.
 npm run build
 ```
 
-**Deploy command:**
+**Deploy commands:**
 ```bash
-npm run deploy
+npm run deploy           # Production (dreamtree.org)
+npm run deploy:staging   # Staging (dreamtree-staging.braedon.workers.dev)
 ```
 
 **Key patterns:**
