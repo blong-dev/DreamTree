@@ -119,12 +119,19 @@ Before starting work, identify the relevant area and read its documentation for 
 npm run dev          # Start development server
 npm run build        # Production build (validates TypeScript)
 npm run build:pages  # Build for Cloudflare (OpenNext)
-npm run deploy       # Build and deploy to Cloudflare Workers
+npm run deploy       # Build and deploy to production
+npm run deploy:staging  # Build and deploy to staging
 npm run lint         # ESLint
 npm install --legacy-peer-deps  # Install dependencies (legacy-peer-deps required)
 ```
 
 **Deployment**: Uses `@opennextjs/cloudflare` to deploy Next.js to Cloudflare Workers.
+
+**Environments:**
+| Environment | URL | D1 Database |
+|-------------|-----|-------------|
+| Production | https://dreamtree.org | `dreamtree-db` |
+| Staging | https://dreamtree-staging.braedon.workers.dev | `dreamtree-staging-db` |
 
 ---
 
