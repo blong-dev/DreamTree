@@ -7,6 +7,7 @@ interface MessageUserProps {
   content: UserResponseContent;
   timestamp?: Date;
   id?: string;
+  onEdit?: () => void;
 }
 
 function formatTime(date: Date): string {
@@ -78,16 +79,32 @@ function SOAREDRenderer({ story }: { story: SOAREDStory }) {
   );
 }
 
-export function MessageUser({ content, timestamp, id }: MessageUserProps) {
+export function MessageUser({ content, timestamp, id, onEdit }: MessageUserProps) {
   const generatedId = useId();
   const messageId = id || generatedId;
 
+  const handleClick = () => {
+    if (onEdit) {
+      onEdit();
+    }
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (onEdit && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      onEdit();
+    }
+  };
+
   return (
     <div
-      className="message-user"
+      className={`message-user${onEdit ? ' message-user--editable' : ''}`}
       id={messageId}
-      role="article"
-      aria-label="Your response"
+      role={onEdit ? 'button' : 'article'}
+      aria-label={onEdit ? 'Click to edit your response' : 'Your response'}
+      tabIndex={onEdit ? 0 : undefined}
+      onClick={handleClick}
+      onKeyDown={handleKeyDown}
     >
       <div className="message-user-bubble">
         <UserContentRenderer content={content} />

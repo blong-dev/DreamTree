@@ -2,6 +2,81 @@
 
 This area owns the exercise delivery system - the core content experience of DreamTree.
 
+---
+
+## Soul
+
+**Linear but not rigid. The conversation flows like a skilled coach — structured but responsive.**
+
+The workbook is where DreamTree's soul lives. Every other area supports this one. The workbook isn't just "the content delivery system" — it's the embodiment of the "texting through a guided workbook" metaphor.
+
+### The Core Experience
+
+Imagine sitting with a thoughtful career coach. They ask you a question. You think. You respond. They acknowledge what you said, connect it to what you told them last week, and ask a follow-up question that makes you think deeper.
+
+That's what the workbook should feel like.
+
+### The Four Pillars in Action
+
+| Pillar | How Workbook Embodies It |
+|--------|--------------------------|
+| **Conversational Intimacy** | Content appears one block at a time with typing effect. Messages feel like dialogue, not instructions. |
+| **User Autonomy** | Users can scroll back, edit past answers, and click to skip. No forced pace. |
+| **Data Sovereignty** | Every response saves to the user's data. Visible in Profile. Exportable. |
+| **Magic Moments** | Connections surface past answers in new contexts. "Remember when you said..." |
+
+### The Flow Principle
+
+**One thing at a time. Always.**
+
+```
+Show content block → User clicks Continue → Show next block
+Show prompt → User responds → Acknowledge → Continue
+Show tool → User interacts → Save → Continue
+```
+
+Never reveal the whole exercise structure. Never show multiple prompts at once. Never make users feel like they're filling out a form.
+
+The conversation unfolds. Block by block. Response by response.
+
+### Why Linear Progression?
+
+Users must complete exercise N-1 to access exercise N. This isn't limitation — it's design:
+
+1. **Intentional sequencing** — Each exercise builds on insights from the previous
+2. **No skipping self-reflection** — Rushing to "the resume part" undermines the whole journey
+3. **Accumulating wisdom** — Connections require prior data to exist
+4. **Reduced anxiety** — Users don't see the mountain; they just take the next step
+
+### The Three-Part Tree
+
+| Part | Theme | Emotional Arc |
+|------|-------|---------------|
+| **1: Roots** | Who you are | "I understand myself better than I did" |
+| **2: Trunk** | What you bring | "I can tell my story with confidence" |
+| **3: Branches** | Where you're going | "I have a plan and the tools to execute it" |
+
+### What a Soul Violation Looks Like
+
+- **All content visible at once** — Exercise feels like a form, not a conversation
+- **No typing effect** — Text appears instantly like reading a document
+- **Multiple prompts visible** — User sees all questions before answering any
+- **Can't edit past answers** — Feels rigid and punishing
+- **Progress percentages** — "You're 34% through Part 1!" — gamification creep
+- **Skipping allowed** — User can jump to Part 3 without self-discovery
+- **No acknowledgment** — User responds but DreamTree doesn't reflect anything back
+- **Disconnected exercises** — No connections surface prior insights
+
+### The Magic Moments
+
+When a tool in exercise 2.3 pre-populates with skills you tagged in exercise 1.4, that's a Magic Moment. When exercise 3.1 references "the values you said mattered most," that's a Magic Moment.
+
+These moments are why the connections system exists. They transform the workbook from a series of exercises into a coherent journey.
+
+**Every exercise should ask**: "What prior data could make this more meaningful?"
+
+---
+
 ## Ownership
 
 **Scope:**

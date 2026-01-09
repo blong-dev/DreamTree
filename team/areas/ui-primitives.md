@@ -2,6 +2,61 @@
 
 This area owns the foundational UI building blocks: form controls, feedback mechanisms, and icons.
 
+---
+
+## Soul
+
+**Forms should feel like conversation. Feedback should be calm confirmation, not celebration.**
+
+UI primitives are the building blocks that appear throughout DreamTree. Because they're everywhere, they have outsized impact on the overall feel. They must embody the four pillars:
+
+### Why This Matters
+
+#### Forms Are Conversation Elements
+In DreamTree, form inputs appear INSIDE the conversation flow. A TextArea isn't a "form field" — it's a place to respond to your coach. A Slider isn't a "widget" — it's a way to express how strongly you feel.
+
+Design implications:
+- Minimal chrome (no heavy borders, no prominent labels)
+- Placeholder text as conversational prompts
+- Error states that feel helpful, not scolding
+- Auto-save without visible confirmation (the conversation continues)
+
+#### Feedback Is Quiet Confirmation
+When something saves, the user should feel "of course it saved" — not "wow, it saved!" We're building trust through reliability, not celebration.
+
+| Feedback Type | Right Approach | Wrong Approach |
+|---------------|----------------|----------------|
+| Save | Silent auto-save | "Saved!" banner with animation |
+| Error | Calm inline message | Red alert modal |
+| Loading | Subtle indicator | Spinner with percentage |
+| Empty state | Gentle guidance | "Nothing here yet!" |
+
+#### Icons Support, Don't Decorate
+Icons should clarify meaning, not add visual interest. Every icon earns its place by improving comprehension. If you can understand the UI without the icon, remove it.
+
+### What a Soul Violation Looks Like
+
+- **Prominent form labels** — Drawing attention to the form-ness instead of the conversation
+- **Celebration on save** — Confetti, checkmarks, "Great job!" messaging
+- **Aggressive error styling** — Red borders, shake animations, exclamation marks
+- **Decorative icons** — Icons that add visual interest but no meaning
+- **Loading anxiety** — Spinners and percentages that make waiting feel long
+- **Chatty empty states** — "Nothing here yet! Let's get started!" instead of calm guidance
+
+### The Emotional Intent
+
+| Component | Technical Purpose | Emotional Purpose |
+|-----------|-------------------|-------------------|
+| TextInput | Capture text | A place to express a thought |
+| TextArea | Capture longer text | A place to reflect and write |
+| Slider | Capture numeric value | A way to express intensity |
+| Checkbox | Capture boolean/options | A way to indicate yes/no |
+| Toast | Show notifications | Calm acknowledgment |
+| Tooltip | Show help text | Gentle guidance when needed |
+| EmptyState | Show when no data | Calm encouragement to continue |
+
+---
+
 ## Ownership
 
 **Scope:**

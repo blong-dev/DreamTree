@@ -11,17 +11,40 @@ interface ConversationThreadProps {
   messages: Message[];
   onScrollStateChange?: (state: ScrollState) => void;
   autoScrollOnNew?: boolean;
+  onEditMessage?: (messageId: string) => void;
+  /** Set of message IDs that have already been animated (should not re-animate) */
+  animatedMessageIds?: Set<string>;
+  /** Callback when a message animation completes */
+  onMessageAnimated?: (messageId: string) => void;
 }
 
-function MessageRenderer({ message }: { message: Message }) {
+function MessageRenderer({
+  message,
+  onEdit,
+  animate,
+  onAnimationComplete,
+}: {
+  message: Message;
+  onEdit?: () => void;
+  animate?: boolean;
+  onAnimationComplete?: () => void;
+}) {
   switch (message.type) {
     case 'content':
-      return <MessageContent content={message.data as ContentBlock[]} />;
+      return (
+        <MessageContent
+          content={message.data as ContentBlock[]}
+          animate={animate}
+          onAnimationComplete={onAnimationComplete}
+          id={message.id}
+        />
+      );
     case 'user':
       return (
         <MessageUser
           content={message.data as UserResponseContent}
           timestamp={message.timestamp}
+          onEdit={onEdit}
         />
       );
     case 'timestamp':
@@ -38,6 +61,9 @@ export function ConversationThread({
   messages,
   onScrollStateChange,
   autoScrollOnNew = true,
+  onEditMessage,
+  animatedMessageIds,
+  onMessageAnimated,
 }: ConversationThreadProps) {
   const threadRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState<ScrollState>('at-current');
@@ -75,10 +101,31 @@ export function ConversationThread({
       aria-label="Conversation"
       ref={threadRef}
       onScroll={handleScroll}
+      data-testid="conversation-thread"
     >
-      {messages.map((message) => (
-        <MessageRenderer key={message.id} message={message} />
-      ))}
+      {messages.map((message) => {
+        // Only animate content messages that haven't been animated yet
+        const shouldAnimate = message.type === 'content' &&
+          (!animatedMessageIds || !animatedMessageIds.has(message.id));
+
+        return (
+          <MessageRenderer
+            key={message.id}
+            message={message}
+            animate={shouldAnimate}
+            onAnimationComplete={
+              shouldAnimate && onMessageAnimated
+                ? () => onMessageAnimated(message.id)
+                : undefined
+            }
+            onEdit={
+              message.type === 'user' && onEditMessage
+                ? () => onEditMessage(message.id)
+                : undefined
+            }
+          />
+        );
+      })}
     </div>
   );
 }

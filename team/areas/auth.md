@@ -2,6 +2,30 @@
 
 This area owns user authentication, session management, and data encryption.
 
+---
+
+## Soul
+
+**Privacy is architectural. Users trust us with their deepest self-discovery; we honor that with encryption they control.**
+
+DreamTree asks users to explore their values, fears, career struggles, and life choices. This is intimate data. Our auth system exists to:
+
+1. **Protect self-discovery** — Users share vulnerabilities. We encrypt their most personal reflections with keys only they control.
+2. **Honor trust** — Even Braedon (the creator) cannot read user PII. This isn't a policy; it's architecture.
+3. **Enable ownership** — Users can export all their data, delete everything, or restore from backup.
+
+### What a Soul Violation Looks Like
+- Storing PII in plaintext "for analytics"
+- Creating admin backdoors to read user data
+- Logging sensitive fields for debugging
+- Making encryption optional or "premium"
+- Retaining data after user requests deletion
+
+### The Privacy Tradeoff
+If a user loses their password, their encrypted PII is **permanently unrecoverable**. This is intentional. True privacy > convenience.
+
+---
+
 ## Ownership
 
 **Scope:**
@@ -14,7 +38,7 @@ This area owns user authentication, session management, and data encryption.
 
 **Does NOT own:**
 - User table schema (owned by Database)
-- Login/signup UI (owned by Features/Onboarding)
+- Login/signup UI (owned by Features)
 - API route handlers (owned by Workbook)
 
 ---
@@ -23,11 +47,46 @@ This area owns user authentication, session management, and data encryption.
 
 | File | Purpose |
 |------|---------|
-| `src/lib/auth/session.ts` | Session creation, validation, anonymous users |
+| `src/lib/auth/session.ts` | Session creation, validation |
 | `src/lib/auth/password.ts` | bcrypt hashing with 10 salt rounds |
 | `src/lib/auth/encryption.ts` | User-derived AES-GCM encryption |
-| `src/lib/auth/actions.ts` | Login, signup, claim account actions |
+| `src/lib/auth/actions.ts` | Login, signup action handlers |
 | `src/lib/auth/index.ts` | Public API exports |
+
+---
+
+## Principles
+
+### 1. Required Accounts
+All users must create an account to access DreamTree. This ensures:
+- Data persistence across devices
+- Encryption key derivation from credentials
+- Clear ownership of personal data
+
+**Roadmap**: Anonymous mode (cookie-based persistence) is planned but not yet implemented.
+
+### 2. User-Derived Encryption
+Sensitive PII fields are encrypted with keys derived from user credentials:
+```
+[Password] → [Wrapping Key] → unwraps → [Data Key] → encrypts → [PII Fields]
+```
+
+**What's Encrypted (PII):**
+- Module 1.4 "Love" content (deeply personal reflections)
+- Budget Calculator data (financial)
+- Networking Prep data (contacts/relationships)
+- Geographic/address data
+
+**What's NOT Encrypted:**
+- Exercise responses (needed for connections system)
+- Skills and competencies (surfaced across exercises)
+- Progress tracking data
+
+### 3. Session Cookies
+Sessions are stored in D1 with cookie references:
+- Cookie: `dt_session` (HttpOnly, Secure in prod, SameSite=Lax)
+- Session ID links to user_id in sessions table
+- No sensitive data in cookie itself
 
 ---
 
@@ -83,26 +142,21 @@ export async function POST(request: Request, { env }) {
 }
 ```
 
-### Implementing "Claim Account"
-1. Verify email not already claimed
-2. Hash password
-3. Update user: `is_anonymous = 0`
-4. Store auth record with email + hash
-
 ### Adding Encrypted Field
 1. Define field in schema with `_encrypted` suffix
 2. Use `encryptPII` before storage
 3. Use `decryptPII` after retrieval
 4. Store IV with ciphertext
+5. **Document in this file what's being encrypted and why**
 
 ---
 
 ## Testing
 
 ### Session Testing
-- Verify anonymous session creation
+- Verify session creation for authenticated users
 - Test session persistence across requests
-- Check session expiry (if implemented)
+- Check session lookup by cookie ID
 
 ### Password Testing
 - Hash same password twice - hashes should differ
@@ -113,13 +167,14 @@ export async function POST(request: Request, { env }) {
 - Encrypt → Decrypt round-trip
 - Different users get different ciphertexts
 - Invalid key fails decryption gracefully
+- **Verify sensitive data is never logged**
 
 ---
 
 ## Gotchas
 
 ### Cookie Handling
-- Session ID stored in `session` cookie
+- Session ID stored in `dt_session` cookie
 - HttpOnly, Secure (in production), SameSite=Lax
 - Cookie must be set on response, read from request
 
@@ -131,7 +186,7 @@ export async function POST(request: Request, { env }) {
 ### Encryption Key Derivation
 - Keys derived from userId + secret
 - Secret must be in environment variables
-- Lost secret = lost encrypted data
+- Lost secret = lost encrypted data (intentional tradeoff)
 
 ### Session Cookie in Server Components
 - Use `cookies().set()` from `next/headers`
@@ -143,6 +198,11 @@ export async function POST(request: Request, { env }) {
 - Check `dt_session` cookie for auth
 - Redirect unauthenticated to `/login`
 
+### Never Log Sensitive Data
+- Do not console.log passwords, even hashed
+- Do not log PII fields during debugging
+- Use structured error messages without user data
+
 ---
 
 ## Dependencies
@@ -152,7 +212,7 @@ export async function POST(request: Request, { env }) {
 
 **Depended by:**
 - Workbook (session in API routes)
-- Features (onboarding claim flow)
+- Features (login/signup UI)
 
 ---
 

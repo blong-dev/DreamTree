@@ -2,6 +2,43 @@
 
 This area owns all database schema, queries, data types, and the connections system that links user data across exercises.
 
+---
+
+## Soul
+
+**Data flows through the tree. Past insights surface at the right moment. Nothing is forgotten.**
+
+The database isn't just storage — it's the memory that makes DreamTree feel like a coach who actually listened to you. The connections system creates "Magic Moments" where past inputs resurface meaningfully.
+
+### Why This Matters
+
+1. **Recognition** — When Exercise 2.1 says "Remember when you described feeling energized by [X]?", users feel genuinely heard.
+2. **Coherence** — Your values from Part 1 inform your non-negotiables in Part 2. The journey builds on itself.
+3. **Efficiency** — SOARED stories become resume bullet points. Users don't re-enter data.
+4. **Trust** — Users see their data working for them, not being extracted from them.
+
+### The Magic Moments (Connections)
+
+34+ connection points weave user data across exercises:
+
+| Connection Example | The Magic |
+|--------------------|-----------|
+| Skills from 1.3 → 2.1 | "Your superpowers feed into job filtering" |
+| Values from 1.4 → 2.2 | "What you love should inform your non-negotiables" |
+| SOARED stories → 3.2 | "Your stories become resume content" |
+| Flow logs → 2.3 | "Patterns in your energy inform career choices" |
+| Competencies → 3.1 | "Your assessed strengths guide networking" |
+
+### What a Soul Violation Looks Like
+
+- **Data silos** — User enters skills in one exercise, has to re-enter them elsewhere
+- **No memory** — Exercise doesn't acknowledge prior answers
+- **Broken connections** — Tool shows empty when prior data exists
+- **Unclear data flow** — User can't see how their inputs connect
+- **Data extraction feel** — Asking for information without showing how it will be used
+
+---
+
 ## Ownership
 
 **Scope:**
@@ -43,6 +80,71 @@ This area owns all database schema, queries, data types, and the connections sys
 
 ---
 
+## Principles
+
+### 1. Data Belongs to Users
+All user data is:
+- Exportable (JSON for restore, ZIP for human reading)
+- Deletable (full account deletion with confirmation)
+- Visible (Profile page shows what we store)
+- Portable (no lock-in, standard formats)
+
+### 2. Connections Create Magic
+The `connections` table links data sources to tools:
+- **from_exercise**: Where the data came from
+- **to_exercise**: Where it's being used
+- **connection_type**: How to fetch and transform the data
+- **data_object**: What specific data to retrieve
+
+### 3. Schema Reflects the Tree
+Tables organized by the three-part journey:
+- **Part 1 (Roots)**: Skills, values, flow logs, competencies
+- **Part 2 (Trunk)**: Stories (SOARED), priorities, work preferences
+- **Part 3 (Branches)**: Career options, networking contacts, resume content
+
+---
+
+## The Connections System
+
+### How It Works
+
+```
+Exercise with connection_id → ConnectionResolver → User's past data → Tool pre-populated
+```
+
+1. **stem.connection_id** links an exercise to a connection
+2. **connections table** defines what data to fetch and how
+3. **ConnectionResolver** fetches and transforms the data
+4. **Tool receives** pre-populated data from prior exercises
+
+### Connection Types
+
+| Type | Purpose | Example |
+|------|---------|---------|
+| `auto_populate` | Display user data in tool | Show prior skills in SkillTagger |
+| `hydrate` | Pre-fill form fields | Pre-fill SOARED form with prior story |
+| `reference_link` | Link to static reference | Link to skills database |
+| `forward` | Pass data to next exercise | Skills → Job matching |
+
+### Data Source Types
+
+- `user_skills` - Tagged skills from SkillTagger
+- `user_values` - Work and life values
+- `soared_stories` - SOARED form responses
+- `flow_entries` - Flow Tracker logs
+- `competency_scores` - CompetencyAssessment results
+- `career_options` - Career paths being explored
+- Plus 10+ more source types
+
+### Adding a New Connection
+
+1. Add row to `connections` table with proper `from_exercise`, `to_exercise`
+2. Set `connection_type` and `data_object` JSON
+3. If new data source, add fetcher to `ConnectionResolver`
+4. Set `stem.connection_id` on the target tool/exercise
+
+---
+
 ## Patterns & Conventions
 
 ### Query Pattern
@@ -70,13 +172,9 @@ const result = await resolver.resolve({
   userId,
   connectionId: 42,
 });
+// result.data contains the user's prior data
+// result.method indicates how to use it
 ```
-
-### Data Source Types
-- `auto_populate` - Fetch and display user data
-- `hydrate` - Pre-fill forms with prior answers
-- `reference_link` - Link to static reference data
-- `custom` - Tool-specific handling
 
 ---
 
@@ -97,6 +195,14 @@ const result = await resolver.resolve({
 1. Add type to `DataSourceType` in `src/lib/connections/types.ts`
 2. Add case to `fetchDataSource()` in resolver.ts
 3. Implement fetch method with proper type mapping
+4. **Document what exercises use this source**
+
+### Adding a Connection
+1. Insert row in `connections` table
+2. Set `from_exercise` (source) and `to_exercise` (target)
+3. Configure `connection_type` and `data_object`
+4. Link to stem via `stem.connection_id`
+5. **Test that data flows correctly**
 
 ---
 
@@ -112,6 +218,12 @@ npx wrangler d1 migrations apply dreamtree-db --local
 - Use `npm run dev` and test via API routes
 - Check for proper null handling
 - Verify type coercion (SQLite → TypeScript)
+
+### Test Connections
+- Complete an exercise that creates data
+- Navigate to a connected exercise
+- Verify the prior data appears in the tool
+- **This is critical for Magic Moments**
 
 ---
 
@@ -137,6 +249,12 @@ npx wrangler d1 migrations apply dreamtree-db --local
 - Connection IDs are numeric, exercise IDs are strings
 - `from_exercise` format: `"1.2.3"` (Part.Module.Exercise)
 - Some connections reference modules, not exercises
+- **Resolve connections BEFORE rendering tools, not during**
+
+### OpenNext Context
+- Use `getCloudflareContext()` from `@opennextjs/cloudflare`
+- Access D1 via `env.DB`
+- Type augmentation in `src/types/database.ts`
 
 ---
 
@@ -166,6 +284,9 @@ const db: Database = createDb(env.DB);
 import { ConnectionResolver } from '@/lib/connections';
 const resolver = new ConnectionResolver(env.DB);
 const result = await resolver.resolve<DataType>({ userId, connectionId });
+// result.data - the fetched user data
+// result.method - how to apply it (auto_populate, hydrate, etc.)
+// result.isEmpty - true if no data found
 ```
 
 ### Type Imports

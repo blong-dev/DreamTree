@@ -2,6 +2,71 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+## The Soul of DreamTree
+
+**Before writing any code, understand what we're building and why.**
+
+DreamTree is **not** a career quiz, a job board, or a productivity tool.
+
+DreamTree is a **trusted companion** that guides users through self-discovery via conversation. It's the experience of sitting with a thoughtful coach who asks good questions, listens to your answers, and helps you see patterns you couldn't see alone.
+
+**The defining metaphor**: "Texting through a guided workbook."
+
+### The Four Pillars
+
+Every implementation decision should serve these pillars:
+
+#### 1. Conversational Intimacy
+The interface should feel like a dialogue, not a form.
+- **DreamTree speaks** (left-aligned, no bubble) — like receiving a message from a friend
+- **You respond** (right-aligned, subtle bubble) — like sending a reply
+- **Typing effect** creates the feeling that DreamTree is "thinking" before responding
+- **The UI recedes** — chrome auto-hides, leaving just you and the conversation
+- **History scrolls up** — new content appears at the bottom, like any chat app
+
+The conversation metaphor isn't decoration. It's the core emotional experience.
+
+#### 2. User Autonomy & Respect
+DreamTree never rushes you, gamifies your progress, or makes you feel behind.
+- **No time pressure** — work at your own pace
+- **Click to skip** typing if you're impatient — respects your time
+- **No forced flows** — you can scroll back, edit previous answers, explore
+- **Your aesthetic** — you choose colors and fonts; it's YOUR space
+- **No gamification** — no points, badges, streaks, or leaderboards
+
+The tone is professional coaching, not an app trying to "engage" you.
+
+#### 3. Data Sovereignty
+Your data belongs to you. Period.
+- **User-derived encryption** for sensitive PII — even Braedon can't read it
+- **Full export** anytime — JSON for restore, ZIP for reading
+- **Delete everything** with confirmation
+- **Open source core** — trust through transparency
+
+This isn't privacy theater. It's architectural commitment.
+
+#### 4. Magic Moments (Connections)
+The app remembers what you've said and weaves it back meaningfully.
+- Exercise 2.1 might say: "Remember when you described feeling energized by [X]? Let's find work that gives you more of that."
+- Your SOARED stories become resume bullet points
+- Your values from Part 1 inform your non-negotiables in Part 2
+- 34+ connection points where past inputs resurface
+
+These moments create the feeling of being truly heard and understood.
+
+### What Soul Violations Look Like
+
+If your implementation does any of these, stop and reconsider:
+- **Form-like UI** — multiple inputs visible at once, wizard steps, progress bars with percentages
+- **Gamification** — points, badges, streaks, confetti, celebratory animations
+- **Time pressure** — countdowns, session warnings, "complete by" deadlines
+- **Data opacity** — analytics without consent, unclear what's stored, no export option
+- **Broken conversation** — prompts shown twice, jarring transitions, non-chat layouts
+
+---
+
 ## Team Delegation
 
 **For task routing and area-specific guidance, see `team/MANAGER.md`.**
@@ -22,23 +87,40 @@ The codebase is organized into 9 work areas with dedicated documentation:
 
 Before starting work, identify the relevant area and read its documentation for patterns, gotchas, and testing guidance.
 
+---
+
 ## Build Commands
 
 ```bash
 npm run dev          # Start development server
 npm run build        # Production build (validates TypeScript)
+npm run build:pages  # Build for Cloudflare (OpenNext)
+npm run deploy       # Build and deploy to Cloudflare Workers
 npm run lint         # ESLint
 npm install --legacy-peer-deps  # Install dependencies (legacy-peer-deps required)
-npx wrangler pages deploy .next  # Deploy to Cloudflare
 ```
+
+**Deployment**: Uses `@opennextjs/cloudflare` to deploy Next.js to Cloudflare Workers.
+
+---
 
 ## Architecture
 
-**Stack**: Next.js 16 (App Router) → Cloudflare Pages, D1 (SQLite)
+**Stack**: Next.js 15 (App Router) → Cloudflare Workers, D1 (SQLite)
 
 **CSS Strategy**: CSS custom properties only (no Tailwind utilities in components). All design tokens live in `globals.css`.
 
 **Auth Model**: Accounts required. Users sign up → onboarding → workbook. D1 sessions with cookies. PII fields use AES-GCM encryption with user-derived keys.
+
+### The Three-Part Journey (The Tree)
+
+| Part | Metaphor | Focus |
+|------|----------|-------|
+| **1: Roots** | Self-knowledge | Who are you? Skills, values, personality, what energizes you |
+| **2: Trunk** | Connecting | Bridge past to future. Stories, decision frameworks, priorities |
+| **3: Branches** | Reaching out | Into the world. Networking, job search, professional presence |
+
+Linear progression, but not rigid. Complete exercise N-1 to access N, but there's no "done" button. The conversation flows seamlessly.
 
 ### Content Flow
 
@@ -56,6 +138,8 @@ stem (821 rows, sequencing backbone)
 ### Database
 
 40 tables in `migrations/0001_initial.sql`. Types in `src/types/database.ts`.
+
+---
 
 ## MANDATORY: Specification Adherence
 
@@ -113,6 +197,8 @@ Overlays: z-backdrop: 100, z-overlay: 200, z-modal: 300, z-tooltip: 400
 - **Reduced motion** - All animations must respect `prefers-reduced-motion`
 - **Font weights** - Shadows Into Light and Jacquard 24 only have weight 400
 
+---
+
 ## MANDATORY: Post-Task Quality Check
 
 **After completing ANY task, perform this verification:**
@@ -122,8 +208,11 @@ Overlays: z-backdrop: 100, z-overlay: 200, z-modal: 300, z-tooltip: 400
 3. **Think through user experience** - Would this actually work for users? Does it make sense in context?
 4. **Verify data flow** - Does it capture and move data how we need it to?
 5. **Check connections** - Does it work with the connections system? Are data sources aligned?
+6. **Soul check** - Does this serve the four pillars? Would a user feel coached, not processed?
 
 This applies to: new features, bug fixes, refactors, tool implementations, and schema changes.
+
+---
 
 ## Build Status
 
@@ -132,7 +221,7 @@ This applies to: new features, bug fixes, refactors, tool implementations, and s
 | 1 | Foundation (DB, Auth, Onboarding) | **Complete** |
 | 2 | Conversation UI (Design System, Messages, Forms) | **Complete** |
 | 2.5 | Connections Audit | **Complete** |
-| 3 | Tools (16 MVP tools) | **Complete** |
+| 3 | Tools (15 MVP tools) | **Complete** |
 | 4 | Navigation (Dashboard, TOC, Profile) | **Complete** |
 | 5 | Polish (Feedback, A11y, Performance) | **Complete** |
 | 6 | Workbook Content Delivery | **Complete** |
@@ -141,11 +230,20 @@ This applies to: new features, bug fixes, refactors, tool implementations, and s
 | 9 | Tool Response Storage Fix | **Complete** |
 | 10 | Profile & Tools Pages | **Complete** |
 | 11 | Connections System Repair | **Complete** |
+| 12 | UX Bug Fixes (Chat-like experience) | **In Progress** |
+
+### Roadmap (Not Yet Started)
+- Anonymous mode (cookie-based persistence before account creation)
+- AI coaching add-on (paid tier)
+- Tool reminders (daily/weekly/monthly prompts)
+
+---
 
 ## Reference
 
 - **Content Data**: `/planning/tables/*.csv` (stem, prompts, tools, connections)
 - **Build Tracking**: Decision log and change log in this file below
+- **Live Site**: https://dreamtree.org
 
 ---
 
@@ -156,6 +254,7 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 ### General
 - Always use `--legacy-peer-deps` when running `npm install`
 - bcryptjs works in edge runtime, native bcrypt does NOT
+- Use `@opennextjs/cloudflare` with `getCloudflareContext()` for D1 access
 
 ### Database
 - SQLite has no BOOLEAN type - use INTEGER with 0/1
@@ -175,13 +274,20 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 ### Workbook
 - Exercise IDs in URLs omit version (`1.2.3`), but DB may need it (`1.2.3.v1`)
 - Resolve connections BEFORE rendering tools, not during
+- One block at a time with click-to-continue for content blocks
 
 ### Auth
-- Accounts now required - no anonymous access
+- Accounts now required - no anonymous access (roadmap item)
 - Session cookie: HttpOnly, Secure (prod), SameSite=Lax
 - Use `cookies().set()` in Server Components, not `new Headers()`
 - Login redirects: existing user → dashboard, new user → onboarding
 - Onboarding redirects to `/workbook` (skips dashboard on first login)
+
+### Conversation UX
+- New content appears at bottom (like chat apps)
+- User can scroll back through history
+- Enter key advances content blocks or submits input
+- Auto-save silently (no visible indicator)
 
 ---
 
@@ -193,6 +299,9 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 | 2026-01-07 | Typing effect: YES | 30ms/char, click-to-skip |
 | 2026-01-07 | Connections audit before Phase 3 | Map data flows before building tools |
 | 2026-01-07 | Resolved z-index spec conflict | Design System had 50/60/70; updated to 20/30/40 for cleaner scale |
+| 2026-01-09 | OpenNext for Cloudflare | Replaced @cloudflare/next-on-pages with @opennextjs/cloudflare |
+
+---
 
 ## Change Log
 
@@ -229,9 +338,8 @@ Mistakes and patterns discovered during development. Add new learnings as they o
   - Chat-like conversation interface using ConversationThread
   - Linear progression through stem sequence with typing effects
   - Structured prompt inputs (slider, checkbox, radio, select) via PromptInput
-  - Tool embedding placeholder via ToolEmbed
+  - Tool embedding via ToolEmbed with auto-save
   - User response persistence to user_responses table
-  - Session management with anonymous user support
 - **Branding Update**: Acorn brand identity
   - New brand colors: Sage (#7D9471), Rust (#A0522D)
   - Primary accent changed from teal to sage
@@ -283,3 +391,11 @@ Mistakes and patterns discovered during development. Add new learnings as they o
   - Migration `0006_add_connections.sql`: Added 16 new connections (100018-100033) for data flow between exercises
   - Migration `0007_update_stem_connections.sql`: Set connection_id on tool rows that need prior data
   - 34 total connections now properly configured for Parts 1-2
+- **OpenNext Migration**: Switched from `@cloudflare/next-on-pages` to `@opennextjs/cloudflare`
+  - Updated 17 files to use `getCloudflareContext()` instead of `getRequestContext()`
+  - Added CloudflareEnv type augmentation for D1 database binding
+  - Deployed to Cloudflare Workers at dreamtree.org
+- **Phase 12 Started**: UX bug fixes for chat-like experience
+  - Edit previous answers
+  - Auto-save for text prompts
+  - Convert onboarding to conversation-based UI (in progress)

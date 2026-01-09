@@ -36,8 +36,8 @@ interface StoredProgress {
   timestamp: number;
 }
 
-// Define the conversation steps
-type StepType = 'welcome' | 'name-ask' | 'name-input' | 'visuals-intro' | 'background-select' | 'text-select' | 'font-select' | 'complete';
+// Simple 3-step flow: welcome → name → visuals (all together)
+type StepType = 'welcome' | 'name' | 'visuals';
 
 function saveProgress(step: number, data: StoredProgress['data']) {
   if (typeof window === 'undefined') return;
@@ -86,28 +86,16 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   const [nameInput, setNameInput] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Step number mapping for persistence
-  const stepToNumber = (s: StepType): number => {
-    const map: Record<StepType, number> = {
-      'welcome': 0, 'name-ask': 1, 'name-input': 1, 'visuals-intro': 2,
-      'background-select': 2, 'text-select': 2, 'font-select': 2, 'complete': 3
-    };
-    return map[s];
-  };
-
   // Load saved progress on mount
   useEffect(() => {
     const saved = loadProgress();
     if (saved && saved.data.name) {
-      // Resume from where they left off
       setData(saved.data);
-      if (saved.step >= 3) {
-        setStep('complete');
-      } else if (saved.step >= 2) {
-        setStep('visuals-intro');
-      } else if (saved.step >= 1) {
-        setNameInput(saved.data.name);
-        setStep('name-ask');
+      setNameInput(saved.data.name);
+      if (saved.step >= 2) {
+        setStep('visuals');
+      } else {
+        setStep('name');
       }
     }
     setIsLoaded(true);
@@ -116,19 +104,17 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
   // Save progress on changes
   useEffect(() => {
     if (isLoaded && step !== 'welcome') {
-      saveProgress(stepToNumber(step), data);
+      const stepNum = step === 'name' ? 1 : 2;
+      saveProgress(stepNum, data);
     }
   }, [step, data, isLoaded]);
 
-  // Apply live theme preview during visuals selection
+  // Apply live theme preview
   useEffect(() => {
     if (data.backgroundColor) {
       const bg = getColorById(data.backgroundColor);
       document.documentElement.style.setProperty('--color-bg', bg.hex);
-      document.documentElement.setAttribute(
-        'data-theme',
-        bg.isLight ? 'light' : 'dark'
-      );
+      document.documentElement.setAttribute('data-theme', bg.isLight ? 'light' : 'dark');
     }
     if (data.textColor) {
       const text = getColorById(data.textColor);
@@ -140,54 +126,42 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
     }
   }, [data.backgroundColor, data.textColor, data.font]);
 
-  // Focus input when showing name input
+  // Focus input when showing name step
   useEffect(() => {
-    if (step === 'name-input') {
+    if (step === 'name') {
       setTimeout(() => inputRef.current?.focus(), 100);
     }
   }, [step]);
 
   // Build messages for conversation thread
   const messages: Message[] = [];
-  let msgId = 0;
 
-  // Welcome message (always shown)
-  if (step !== 'welcome') {
+  if (step === 'name') {
     messages.push({
-      id: `msg-${msgId++}`,
-      type: 'content',
-      data: [
-        { type: 'heading', level: 1, text: 'Your Career Journey Starts Here' },
-        { type: 'paragraph', text: "A guided journey to discover your career path. We'll explore your values, skills, and interests together — one conversation at a time." },
-      ] as ContentBlock[],
-      timestamp: new Date(),
-    });
-  }
-
-  // Name question and response
-  if (['name-ask', 'name-input', 'visuals-intro', 'background-select', 'text-select', 'font-select', 'complete'].includes(step)) {
-    messages.push({
-      id: `msg-${msgId++}`,
+      id: 'msg-name-ask',
       type: 'content',
       data: [{ type: 'paragraph', text: "What should we call you?" }] as ContentBlock[],
       timestamp: new Date(),
     });
   }
 
-  // Name response (if name submitted)
-  if (data.name && ['visuals-intro', 'background-select', 'text-select', 'font-select', 'complete'].includes(step)) {
+  if (step === 'visuals') {
+    // Show name response
     messages.push({
-      id: `msg-${msgId++}`,
+      id: 'msg-name-ask',
+      type: 'content',
+      data: [{ type: 'paragraph', text: "What should we call you?" }] as ContentBlock[],
+      timestamp: new Date(),
+    });
+    messages.push({
+      id: 'msg-name-response',
       type: 'user',
       data: { type: 'text', value: data.name } as UserResponseContent,
       timestamp: new Date(),
     });
-  }
-
-  // Visuals intro
-  if (['visuals-intro', 'background-select', 'text-select', 'font-select', 'complete'].includes(step)) {
+    // Greeting and visuals intro
     messages.push({
-      id: `msg-${msgId++}`,
+      id: 'msg-visuals-intro',
       type: 'content',
       data: [
         { type: 'paragraph', text: `Nice to meet you, ${data.name}! Let's make this space yours.` },
@@ -197,143 +171,62 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
     });
   }
 
-  // Background selection and response
-  if (['background-select', 'text-select', 'font-select', 'complete'].includes(step)) {
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'content',
-      data: [{ type: 'paragraph', text: "First, pick a background color:" }] as ContentBlock[],
-      timestamp: new Date(),
-    });
-  }
-
-  if (data.backgroundColor && ['text-select', 'font-select', 'complete'].includes(step)) {
-    const bg = getColorById(data.backgroundColor);
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'user',
-      data: { type: 'text', value: bg.name } as UserResponseContent,
-      timestamp: new Date(),
-    });
-  }
-
-  // Text color selection and response
-  if (['text-select', 'font-select', 'complete'].includes(step)) {
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'content',
-      data: [{ type: 'paragraph', text: "Now pick a text color:" }] as ContentBlock[],
-      timestamp: new Date(),
-    });
-  }
-
-  if (data.textColor && ['font-select', 'complete'].includes(step)) {
-    const text = getColorById(data.textColor);
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'user',
-      data: { type: 'text', value: text.name } as UserResponseContent,
-      timestamp: new Date(),
-    });
-  }
-
-  // Font selection and response
-  if (['font-select', 'complete'].includes(step)) {
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'content',
-      data: [{ type: 'paragraph', text: "Finally, choose a font:" }] as ContentBlock[],
-      timestamp: new Date(),
-    });
-  }
-
-  if (data.font && step === 'complete') {
-    const font = getFontById(data.font);
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'user',
-      data: { type: 'text', value: font.name } as UserResponseContent,
-      timestamp: new Date(),
-    });
-
-    // Complete message
-    messages.push({
-      id: `msg-${msgId++}`,
-      type: 'content',
-      data: [
-        { type: 'heading', level: 2, text: `You're all set, ${data.name}!` },
-        { type: 'paragraph', text: "Your dreamtree journey begins now. We'll start by exploring what matters most to you — your values, interests, and the skills you've built along the way." },
-        { type: 'emphasis', text: "Take your time. There are no wrong answers here." },
-      ] as ContentBlock[],
-      timestamp: new Date(),
-    });
-  }
-
   // Handlers
-  const handleContinue = useCallback(() => {
-    switch (step) {
-      case 'welcome':
-        setStep('name-ask');
-        break;
-      case 'name-ask':
-        setStep('name-input');
-        break;
-      case 'visuals-intro':
-        setStep('background-select');
-        break;
-      case 'complete':
-        clearProgress();
-        onComplete(data as OnboardingData);
-        break;
-    }
-  }, [step, data, onComplete]);
-
   const handleNameSubmit = useCallback(() => {
     if (nameInput.trim()) {
       setData(prev => ({ ...prev, name: nameInput.trim() }));
-      setStep('visuals-intro');
+      setStep('visuals');
     }
   }, [nameInput]);
 
   const handleBackgroundSelect = useCallback((bgId: BackgroundColorId) => {
     setData(prev => {
       const newData = { ...prev, backgroundColor: bgId };
-      // Auto-clear text color if pairing becomes invalid
+      // Auto-fix text color if pairing becomes invalid
       if (prev.textColor && !isValidPairing(bgId, prev.textColor)) {
         newData.textColor = getValidTextColors(bgId)[0];
       }
       return newData;
     });
-    setStep('text-select');
   }, []);
 
   const handleTextSelect = useCallback((textId: TextColorId) => {
     setData(prev => ({ ...prev, textColor: textId }));
-    setStep('font-select');
   }, []);
 
   const handleFontSelect = useCallback((fontId: FontFamilyId) => {
     setData(prev => ({ ...prev, font: fontId }));
-    setStep('complete');
   }, []);
+
+  const handleComplete = useCallback(() => {
+    if (data.backgroundColor && data.textColor && data.font) {
+      clearProgress();
+      onComplete(data as OnboardingData);
+    }
+  }, [data, onComplete]);
+
+  const isVisualsComplete = data.backgroundColor && data.textColor && data.font;
 
   // Global Enter key handler
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Enter') {
-        if (step === 'welcome' || step === 'name-ask' || step === 'visuals-intro' || step === 'complete') {
+        if (step === 'welcome') {
           e.preventDefault();
-          handleContinue();
-        } else if (step === 'name-input' && nameInput.trim()) {
+          setStep('name');
+        } else if (step === 'name' && nameInput.trim()) {
           e.preventDefault();
           handleNameSubmit();
+        } else if (step === 'visuals' && isVisualsComplete) {
+          e.preventDefault();
+          handleComplete();
         }
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [step, nameInput, handleContinue, handleNameSubmit]);
+  }, [step, nameInput, isVisualsComplete, handleNameSubmit, handleComplete]);
 
   // Don't render until we've checked localStorage
   if (!isLoaded) {
@@ -346,7 +239,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 
   return (
     <div className="onboarding-chat">
-      {/* Welcome screen - special full-screen treatment */}
+      {/* Welcome screen */}
       {step === 'welcome' && (
         <div className="onboarding-welcome">
           <div className="welcome-brand" aria-hidden="true">
@@ -360,143 +253,157 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
           </p>
           <button
             className="button button-primary button-lg"
-            onClick={handleContinue}
+            onClick={() => setStep('name')}
           >
             Get Started
           </button>
         </div>
       )}
 
-      {/* Chat-style flow for remaining steps */}
-      {step !== 'welcome' && (
-        <>
-          <div className="onboarding-chat-content">
-            <ConversationThread
-              messages={messages}
-              autoScrollOnNew={true}
+      {/* Name step */}
+      {step === 'name' && (
+        <div className="onboarding-chat-content">
+          <ConversationThread messages={messages} autoScrollOnNew={true} />
+          <div className="onboarding-input-area">
+            <input
+              ref={inputRef}
+              type="text"
+              className="onboarding-name-input"
+              value={nameInput}
+              onChange={(e) => setNameInput(e.target.value)}
+              placeholder="Your name"
+              maxLength={50}
+              autoComplete="given-name"
             />
+            <button
+              className="button button-primary"
+              onClick={handleNameSubmit}
+              disabled={!nameInput.trim()}
+            >
+              Continue
+            </button>
+          </div>
+        </div>
+      )}
 
-            {/* Name input */}
-            {step === 'name-input' && (
-              <div className="onboarding-input-area">
-                <input
-                  ref={inputRef}
-                  type="text"
-                  className="onboarding-name-input"
-                  value={nameInput}
-                  onChange={(e) => setNameInput(e.target.value)}
-                  placeholder="Your name"
-                  maxLength={50}
-                  autoComplete="given-name"
-                />
-                <button
-                  className="button button-primary"
-                  onClick={handleNameSubmit}
-                  disabled={!nameInput.trim()}
-                >
-                  Continue
-                </button>
+      {/* Visuals step - all 3 selectors together */}
+      {step === 'visuals' && (
+        <div className="onboarding-chat-content">
+          <ConversationThread messages={messages} autoScrollOnNew={true} />
+
+          <div className="onboarding-visuals-panel">
+            {/* Background color */}
+            <div className="visuals-section">
+              <h3 className="visuals-section-title">Background</h3>
+              <div className="visuals-swatches">
+                {COLORS.map((color) => (
+                  <button
+                    key={color.id}
+                    className="color-swatch"
+                    style={{ backgroundColor: color.hex }}
+                    onClick={() => handleBackgroundSelect(color.id)}
+                    data-selected={data.backgroundColor === color.id}
+                    aria-label={color.name}
+                    title={color.name}
+                  >
+                    {data.backgroundColor === color.id && (
+                      <CheckIcon color={color.isLight ? '#1A1A1A' : '#FAF8F5'} />
+                    )}
+                  </button>
+                ))}
               </div>
-            )}
+            </div>
 
-            {/* Background color selection */}
-            {step === 'background-select' && (
-              <div className="onboarding-selection-area">
-                <div className="onboarding-swatches">
-                  {COLORS.map((color) => (
+            {/* Text color */}
+            <div className="visuals-section">
+              <h3 className="visuals-section-title">Text</h3>
+              <div className="visuals-swatches">
+                {COLORS.map((color) => {
+                  const isValid = data.backgroundColor ? isValidPairing(data.backgroundColor, color.id) : true;
+                  return (
                     <button
                       key={color.id}
-                      className="color-swatch color-swatch-lg"
-                      style={{ backgroundColor: color.hex }}
-                      onClick={() => handleBackgroundSelect(color.id)}
-                      aria-label={color.name}
-                      title={color.name}
+                      className="color-swatch"
+                      style={{ backgroundColor: color.hex, opacity: isValid ? 1 : 0.3 }}
+                      onClick={() => isValid && handleTextSelect(color.id)}
+                      disabled={!isValid}
+                      data-selected={data.textColor === color.id}
+                      aria-label={`${color.name}${!isValid ? ' (not enough contrast)' : ''}`}
+                      title={isValid ? color.name : `${color.name} - not enough contrast`}
                     >
-                      <span className="color-swatch-label" style={{ color: color.isLight ? '#1A1A1A' : '#FAF8F5' }}>
-                        {color.name}
-                      </span>
+                      {data.textColor === color.id && (
+                        <CheckIcon color={color.isLight ? '#1A1A1A' : '#FAF8F5'} />
+                      )}
                     </button>
-                  ))}
-                </div>
+                  );
+                })}
               </div>
-            )}
+            </div>
 
-            {/* Text color selection */}
-            {step === 'text-select' && (
-              <div className="onboarding-selection-area">
-                <div className="onboarding-swatches">
-                  {COLORS.map((color) => {
-                    const isValid = data.backgroundColor ? isValidPairing(data.backgroundColor, color.id) : true;
-                    return (
-                      <button
-                        key={color.id}
-                        className="color-swatch color-swatch-lg"
-                        style={{ backgroundColor: color.hex, opacity: isValid ? 1 : 0.3 }}
-                        onClick={() => isValid && handleTextSelect(color.id)}
-                        disabled={!isValid}
-                        aria-label={`${color.name}${!isValid ? ' (not enough contrast)' : ''}`}
-                        title={isValid ? color.name : `${color.name} - not enough contrast`}
-                      >
-                        <span className="color-swatch-label" style={{ color: color.isLight ? '#1A1A1A' : '#FAF8F5' }}>
-                          {color.name}
-                        </span>
-                      </button>
-                    );
-                  })}
-                </div>
+            {/* Font */}
+            <div className="visuals-section">
+              <h3 className="visuals-section-title">Font</h3>
+              <div className="visuals-fonts">
+                {FONTS.map((fontOption) => (
+                  <button
+                    key={fontOption.id}
+                    className="font-preview"
+                    onClick={() => handleFontSelect(fontOption.id)}
+                    data-selected={data.font === fontOption.id}
+                    aria-label={fontOption.name}
+                  >
+                    <span className="font-preview-sample" style={{ fontFamily: fontOption.family }}>
+                      {fontOption.sampleText}
+                    </span>
+                    <span className="font-preview-name">{fontOption.name}</span>
+                    {data.font === fontOption.id && (
+                      <CheckIcon className="font-preview-check" />
+                    )}
+                  </button>
+                ))}
               </div>
-            )}
+            </div>
 
-            {/* Font selection */}
-            {step === 'font-select' && (
-              <div className="onboarding-selection-area">
-                <div className="onboarding-fonts">
-                  {FONTS.map((fontOption) => (
-                    <button
-                      key={fontOption.id}
-                      className="font-choice"
-                      onClick={() => handleFontSelect(fontOption.id)}
-                      aria-label={fontOption.name}
-                    >
-                      <span
-                        className="font-choice-sample"
-                        style={{ fontFamily: fontOption.family }}
-                      >
-                        {fontOption.sampleText}
-                      </span>
-                      <span className="font-choice-name">{fontOption.name}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Continue button for message-only steps */}
-            {(step === 'name-ask' || step === 'visuals-intro') && (
-              <div className="onboarding-continue">
-                <button
-                  className="button button-primary"
-                  onClick={handleContinue}
-                >
-                  Continue
-                </button>
-              </div>
-            )}
-
-            {/* Complete - Begin Journey button */}
-            {step === 'complete' && (
-              <div className="onboarding-continue">
-                <button
-                  className="button button-primary button-lg"
-                  onClick={handleContinue}
-                >
-                  Begin My Journey
-                </button>
+            {/* Preview */}
+            {data.backgroundColor && data.textColor && (
+              <div className="visuals-preview">
+                <p className="visuals-preview-text">
+                  This is how your text will look.
+                </p>
               </div>
             )}
           </div>
-        </>
+
+          <div className="onboarding-continue">
+            <button
+              className="button button-primary button-lg"
+              onClick={handleComplete}
+              disabled={!isVisualsComplete}
+            >
+              Begin My Journey
+            </button>
+          </div>
+        </div>
       )}
     </div>
+  );
+}
+
+// Simple check icon
+function CheckIcon({ color = 'currentColor', className = '' }: { color?: string; className?: string }) {
+  return (
+    <svg
+      className={`color-swatch-check ${className}`}
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke={color}
+      strokeWidth="3"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <polyline points="20 6 9 17 4 12" />
+    </svg>
   );
 }
