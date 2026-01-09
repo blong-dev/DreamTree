@@ -1,51 +1,39 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { createDb } from '@/lib/db';
+import { withAuth, type AuthenticatedHandler } from '@/lib/auth/with-auth';
 import { ConnectionResolver } from '@/lib/connections/resolver';
-import '@/types/database'; // CloudflareEnv augmentation
 
+/**
+ * GET /api/data/connection?connectionId=100000
+ *
+ * Fetch connected data for a user based on connection definition.
+ * Refactored to use withAuth middleware (IMP-009/040).
+ */
+const handler: AuthenticatedHandler = async (request, { userId, db }) => {
+  const { searchParams } = new URL(request.url);
+  const connectionId = searchParams.get('connectionId');
 
-export async function GET(request: NextRequest) {
+  if (!connectionId) {
+    return NextResponse.json(
+      { error: 'connectionId is required' },
+      { status: 400 }
+    );
+  }
+
+  // Validate connectionId is a positive integer (prevents SQL injection)
+  const parsedConnectionId = parseInt(connectionId, 10);
+  if (isNaN(parsedConnectionId) || parsedConnectionId <= 0 || !Number.isInteger(parsedConnectionId)) {
+    return NextResponse.json(
+      { error: 'connectionId must be a positive integer' },
+      { status: 400 }
+    );
+  }
+
   try {
-    const { searchParams } = new URL(request.url);
-    const connectionId = searchParams.get('connectionId');
-
-    if (!connectionId) {
-      return NextResponse.json(
-        { error: 'connectionId is required' },
-        { status: 400 }
-      );
-    }
-
-    // Get session to identify user
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const { env } = getCloudflareContext();
-    const db = createDb(env.DB);
-
-    // Get user from session
-    const session = await db.getSessionById(sessionId);
-    if (!session) {
-      return NextResponse.json(
-        { error: 'Invalid session' },
-        { status: 401 }
-      );
-    }
-
     // Use ConnectionResolver to fetch the data
-    const resolver = new ConnectionResolver(env.DB);
+    const resolver = new ConnectionResolver(db);
     const result = await resolver.resolve({
-      userId: session.user_id,
-      connectionId: parseInt(connectionId, 10),
+      userId,
+      connectionId: parsedConnectionId,
     });
 
     return NextResponse.json(result);
@@ -56,4 +44,6 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+};
+
+export const GET = withAuth(handler);

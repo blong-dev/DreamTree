@@ -2,12 +2,14 @@
  * POST /api/auth/login
  *
  * Authenticate user with email and password.
+ * Includes rate limiting to prevent brute force attacks (IMP-039).
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { login } from '@/lib/auth';
+import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
@@ -32,15 +34,35 @@ export async function POST(request: NextRequest) {
     const { env } = getCloudflareContext();
     const db = env.DB;
 
+    // Check rate limit before attempting login
+    const rateCheck = await checkRateLimit(db, email, 'login');
+    if (!rateCheck.allowed) {
+      const retryAfter = rateCheck.blockedUntil
+        ? Math.ceil((rateCheck.blockedUntil.getTime() - Date.now()) / 1000)
+        : 1800; // 30 minutes default
+      return NextResponse.json(
+        { error: 'Too many login attempts. Please try again later.' },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(retryAfter) },
+        }
+      );
+    }
+
     // Attempt login
     const result = await login(db, email, password);
 
     if (!result.success) {
+      // Record failed attempt
+      await recordFailedAttempt(db, email, 'login');
       return NextResponse.json(
         { error: result.error || 'Invalid email or password' },
         { status: 401 }
       );
     }
+
+    // Clear rate limit on successful login
+    await clearRateLimit(db, email, 'login');
 
     // Set session cookie using next/headers
     const cookieStore = await cookies();

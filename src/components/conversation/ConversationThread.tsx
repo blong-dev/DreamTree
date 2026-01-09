@@ -16,6 +16,8 @@ interface ConversationThreadProps {
   animatedMessageIds?: Set<string>;
   /** Callback when a message animation completes */
   onMessageAnimated?: (messageId: string) => void;
+  /** Trigger value that forces scroll to bottom when changed (e.g., displayedBlockIndex) */
+  scrollTrigger?: number;
 }
 
 function MessageRenderer({
@@ -64,6 +66,7 @@ export function ConversationThread({
   onEditMessage,
   animatedMessageIds,
   onMessageAnimated,
+  scrollTrigger,
 }: ConversationThreadProps) {
   const threadRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState<ScrollState>('at-current');
@@ -83,7 +86,7 @@ export function ConversationThread({
     }
   };
 
-  // Auto-scroll on new message
+  // Auto-scroll on new message or when scrollTrigger changes
   useEffect(() => {
     if (autoScrollOnNew && scrollState === 'at-current' && threadRef.current) {
       threadRef.current.scrollTo({
@@ -91,7 +94,7 @@ export function ConversationThread({
         behavior: 'smooth',
       });
     }
-  }, [messages.length, autoScrollOnNew, scrollState]);
+  }, [messages.length, autoScrollOnNew, scrollState, scrollTrigger]);
 
   return (
     <div

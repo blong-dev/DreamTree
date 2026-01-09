@@ -13,7 +13,7 @@ import {
 } from '@/components/profile';
 import { VisualsStep } from '@/components/onboarding/VisualsStep';
 import type { BackgroundColorId, TextColorId, FontFamilyId } from '@/components/onboarding/types';
-import { getValidTextColors } from '@/components/onboarding/types';
+import { getValidTextColors, getColorById, getFontById } from '@/components/onboarding/types';
 
 interface ProfileApiResponse {
   profile: {
@@ -118,6 +118,23 @@ export default function ProfilePage() {
     }
     fetchProfile();
   }, []);
+
+  // Update CSS variables when appearance settings change
+  useEffect(() => {
+    if (backgroundColor) {
+      const bg = getColorById(backgroundColor);
+      document.documentElement.style.setProperty('--color-bg', bg.hex);
+      document.documentElement.setAttribute('data-theme', bg.isLight ? 'light' : 'dark');
+    }
+    if (textColor) {
+      const text = getColorById(textColor as BackgroundColorId); // Colors share the same ID space
+      document.documentElement.style.setProperty('--color-text', text.hex);
+    }
+    if (font) {
+      const fontOption = getFontById(font);
+      document.documentElement.style.setProperty('--font-body', fontOption.family);
+    }
+  }, [backgroundColor, textColor, font]);
 
   const handleNavigate = useCallback(
     (id: NavItemId) => {

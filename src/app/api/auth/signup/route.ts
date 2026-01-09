@@ -2,6 +2,7 @@
  * POST /api/auth/signup
  *
  * Create a new user account with email and password.
+ * Includes rate limiting to prevent signup spam (IMP-039).
  */
 
 import { NextRequest, NextResponse } from 'next/server';
@@ -17,6 +18,7 @@ import {
   generateSalt,
   encodeSalt,
 } from '@/lib/auth';
+import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
@@ -58,6 +60,21 @@ export async function POST(request: NextRequest) {
 
     const { env } = getCloudflareContext();
     const db = env.DB;
+
+    // Check rate limit before attempting signup
+    const rateCheck = await checkRateLimit(db, email, 'signup');
+    if (!rateCheck.allowed) {
+      const retryAfter = rateCheck.blockedUntil
+        ? Math.ceil((rateCheck.blockedUntil.getTime() - Date.now()) / 1000)
+        : 1800; // 30 minutes default
+      return NextResponse.json(
+        { error: 'Too many signup attempts. Please try again later.' },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(retryAfter) },
+        }
+      );
+    }
     const normalizedEmail = email.toLowerCase().trim();
 
     // Check if email is already taken
@@ -67,6 +84,8 @@ export async function POST(request: NextRequest) {
       .first();
 
     if (existingEmail) {
+      // Record failed attempt (someone may be probing for existing emails)
+      await recordFailedAttempt(db, normalizedEmail, 'signup');
       return NextResponse.json(
         { error: 'An account with this email already exists' },
         { status: 409 }
@@ -76,6 +95,8 @@ export async function POST(request: NextRequest) {
     const now = new Date().toISOString();
     const userId = nanoid();
     const sessionId = nanoid();
+    const authId = nanoid();
+    const emailId = nanoid();
 
     // Hash password
     const passwordHash = await hashPassword(password);
@@ -87,68 +108,68 @@ export async function POST(request: NextRequest) {
     const wrappedDataKey = await wrapDataKey(dataKey, wrappingKey);
     const storedKey = `${encodeSalt(salt)}:${wrappedDataKey}`;
 
-    // Create user (not anonymous)
-    await db
-      .prepare(
-        `INSERT INTO users (id, is_anonymous, workbook_complete, created_at, updated_at)
-         VALUES (?, 0, 0, ?, ?)`
-      )
-      .bind(userId, now, now)
-      .run();
+    // Execute all 7 inserts as a batch transaction (IMP-044)
+    // If any insert fails, none persist — no orphan records
+    await db.batch([
+      // 1. Create user (not anonymous)
+      db
+        .prepare(
+          `INSERT INTO users (id, is_anonymous, workbook_complete, created_at, updated_at)
+           VALUES (?, 0, 0, ?, ?)`
+        )
+        .bind(userId, now, now),
 
-    // Create auth record
-    await db
-      .prepare(
-        `INSERT INTO auth (id, user_id, type, password_hash, wrapped_data_key, created_at, updated_at)
-         VALUES (?, ?, 'password', ?, ?, ?, ?)`
-      )
-      .bind(nanoid(), userId, passwordHash, storedKey, now, now)
-      .run();
+      // 2. Create auth record
+      db
+        .prepare(
+          `INSERT INTO auth (id, user_id, type, password_hash, wrapped_data_key, created_at, updated_at)
+           VALUES (?, ?, 'password', ?, ?, ?, ?)`
+        )
+        .bind(authId, userId, passwordHash, storedKey, now, now),
 
-    // Create email record
-    await db
-      .prepare(
-        `INSERT INTO emails (id, user_id, email, is_active, added_at)
-         VALUES (?, ?, ?, 1, ?)`
-      )
-      .bind(nanoid(), userId, normalizedEmail, now)
-      .run();
+      // 3. Create email record
+      db
+        .prepare(
+          `INSERT INTO emails (id, user_id, email, is_active, added_at)
+           VALUES (?, ?, ?, 1, ?)`
+        )
+        .bind(emailId, userId, normalizedEmail, now),
 
-    // Create session
-    await db
-      .prepare(
-        `INSERT INTO sessions (id, user_id, created_at, last_seen_at)
-         VALUES (?, ?, ?, ?)`
-      )
-      .bind(sessionId, userId, now, now)
-      .run();
+      // 4. Create session
+      db
+        .prepare(
+          `INSERT INTO sessions (id, user_id, created_at, last_seen_at)
+           VALUES (?, ?, ?, ?)`
+        )
+        .bind(sessionId, userId, now, now),
 
-    // Create default settings
-    await db
-      .prepare(
-        `INSERT INTO user_settings (user_id, background_color, text_color, font, created_at, updated_at)
-         VALUES (?, 'ivory', 'charcoal', 'inter', ?, ?)`
-      )
-      .bind(userId, now, now)
-      .run();
+      // 5. Create default settings
+      db
+        .prepare(
+          `INSERT INTO user_settings (user_id, background_color, text_color, font, created_at, updated_at)
+           VALUES (?, 'ivory', 'charcoal', 'inter', ?, ?)`
+        )
+        .bind(userId, now, now),
 
-    // Create user_profile row (name is collected during onboarding)
-    await db
-      .prepare(
-        `INSERT INTO user_profile (user_id, display_name, created_at, updated_at)
-         VALUES (?, NULL, ?, ?)`
-      )
-      .bind(userId, now, now)
-      .run();
+      // 6. Create user_profile row (name is collected during onboarding)
+      db
+        .prepare(
+          `INSERT INTO user_profile (user_id, display_name, created_at, updated_at)
+           VALUES (?, NULL, ?, ?)`
+        )
+        .bind(userId, now, now),
 
-    // Create user_values row
-    await db
-      .prepare(
-        `INSERT INTO user_values (user_id, created_at, updated_at)
-         VALUES (?, ?, ?)`
-      )
-      .bind(userId, now, now)
-      .run();
+      // 7. Create user_values row
+      db
+        .prepare(
+          `INSERT INTO user_values (user_id, created_at, updated_at)
+           VALUES (?, ?, ?)`
+        )
+        .bind(userId, now, now),
+    ]);
+
+    // Clear rate limit on successful signup
+    await clearRateLimit(db, normalizedEmail, 'signup');
 
     // Set session cookie using next/headers
     const cookieStore = await cookies();

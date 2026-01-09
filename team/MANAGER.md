@@ -225,6 +225,10 @@ All bugs and tasks are tracked in `team/BUGS.md`. This is the **single source of
 
 Async communication between instances. Check this when you start a session, post updates when you finish work or hit blockers. Tag others with `@Name`.
 
+### The Crawl Plan: `team/CRAWL.md`
+
+Systematic codebase exploration plan. Four phases of deep analysis. Check this for your current assignments and deliverables when in Learn Mode.
+
 ### Workflow
 
 ```

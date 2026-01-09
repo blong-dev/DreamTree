@@ -324,19 +324,33 @@ export class ConnectionResolver {
     userId: string,
     type?: 'job' | 'education'
   ): Promise<Experience[]> {
-    let query = `
-      SELECT id, title, organization, experience_type, start_date, end_date, description
-      FROM user_experiences
-      WHERE user_id = ?
-    `;
+    // Use parameterized query to prevent SQL injection (IMP-037)
+    // Type is validated to only allow 'job' or 'education'
+    const validTypes = ['job', 'education'] as const;
+    const safeType = type && validTypes.includes(type) ? type : null;
 
-    if (type) {
-      query += ` AND experience_type = '${type}'`;
+    let result;
+    if (safeType) {
+      result = await this.db
+        .prepare(
+          `SELECT id, title, organization, experience_type, start_date, end_date, description
+           FROM user_experiences
+           WHERE user_id = ? AND experience_type = ?
+           ORDER BY start_date DESC`
+        )
+        .bind(userId, safeType)
+        .all();
+    } else {
+      result = await this.db
+        .prepare(
+          `SELECT id, title, organization, experience_type, start_date, end_date, description
+           FROM user_experiences
+           WHERE user_id = ?
+           ORDER BY start_date DESC`
+        )
+        .bind(userId)
+        .all();
     }
-
-    query += ` ORDER BY start_date DESC`;
-
-    const result = await this.db.prepare(query).bind(userId).all();
 
     return result.results.map((row) => ({
       id: row.id as string,
@@ -623,19 +637,32 @@ export class ConnectionResolver {
     userId: string,
     listType?: string
   ): Promise<Array<{ id: string; name: string; type: string; items: Array<{ id: string; content: string; rank: number }> }>> {
-    let query = `
-      SELECT id, name, list_type
-      FROM user_lists
-      WHERE user_id = ?
-    `;
+    // Use parameterized query to prevent SQL injection (IMP-038)
+    // Validate listType against allowed patterns (alphanumeric + underscore only)
+    const safeListType = listType && /^[a-zA-Z0-9_]+$/.test(listType) ? listType : null;
 
-    if (listType) {
-      query += ` AND list_type = '${listType}'`;
+    let lists;
+    if (safeListType) {
+      lists = await this.db
+        .prepare(
+          `SELECT id, name, list_type
+           FROM user_lists
+           WHERE user_id = ? AND list_type = ?
+           ORDER BY created_at ASC`
+        )
+        .bind(userId, safeListType)
+        .all();
+    } else {
+      lists = await this.db
+        .prepare(
+          `SELECT id, name, list_type
+           FROM user_lists
+           WHERE user_id = ?
+           ORDER BY created_at ASC`
+        )
+        .bind(userId)
+        .all();
     }
-
-    query += ` ORDER BY created_at ASC`;
-
-    const lists = await this.db.prepare(query).bind(userId).all();
 
     // For each list, fetch items
     const result = await Promise.all(
