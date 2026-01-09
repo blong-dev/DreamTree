@@ -751,6 +751,31 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   margin-top: var(--space-1);
 }
 
+/* Editable user messages - click to edit past answers */
+.message-user--editable {
+  cursor: pointer;
+}
+
+.message-user--editable .message-user-bubble {
+  transition: background-color var(--duration-fast) var(--ease-default),
+              border-color var(--duration-fast) var(--ease-default);
+  border: 1px solid transparent;
+}
+
+.message-user--editable:hover .message-user-bubble,
+.message-user--editable:focus .message-user-bubble {
+  background: color-mix(in srgb, var(--color-primary) 25%, transparent);
+  border-color: color-mix(in srgb, var(--color-primary) 40%, transparent);
+}
+
+.message-user--editable:focus {
+  outline: none;
+}
+
+.message-user--editable:focus .message-user-bubble {
+  box-shadow: var(--focus-ring);
+}
+
 @keyframes message-enter {
   from {
     opacity: 0;
@@ -1672,6 +1697,14 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   color: var(--color-muted);
   text-align: center;
   margin: 0 0 var(--space-8) 0;
+}
+
+/* Onboarding Visuals Panel */
+.onboarding-visuals-panel {
+  padding: var(--space-6);
+  max-width: 440px;
+  margin: 0 auto var(--space-4) auto;
+  animation: message-appear var(--duration-normal) var(--ease-default);
 }
 
 .visuals-section {
@@ -5447,6 +5480,20 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   /* Content container */
 }
 
+.profile-appearance-actions {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: flex-end;
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+}
+
+.profile-placeholder {
+  color: var(--color-muted);
+  font-style: italic;
+}
+
 /* Skills List */
 .skills-list {
   display: flex;
@@ -5943,7 +5990,7 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   border: var(--border-thin) solid color-mix(in srgb, var(--color-muted) 20%, transparent);
   border-left: 3px solid var(--color-primary);
   border-radius: var(--radius-md);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* No shadow - use border for elevation per design system */
   max-width: 400px;
   animation: toast-slide-in var(--duration-normal) ease;
 }
@@ -6267,6 +6314,12 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
 .workbook-continue .button {
   min-width: 120px;
   padding: var(--space-2) var(--space-6);
+}
+
+.workbook-autosave {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--space-2) var(--space-4);
 }
 
 /* Prompt Input */

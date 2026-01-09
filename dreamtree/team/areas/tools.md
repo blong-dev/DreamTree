@@ -2,13 +2,59 @@
 
 This area owns the 15 interactive tool components used throughout the workbook.
 
+---
+
+## Soul
+
+**Tools are thinking aids, not data collection. Each one helps users see what they couldn't see alone.**
+
+The tools in DreamTree aren't forms to fill out — they're instruments for self-discovery. A good tool takes something abstract (your skills, your values, your stories) and makes it visible and manipulable. When users finish with a tool, they should feel like they learned something about themselves, not like they completed paperwork.
+
+### Why Each Tool Exists
+
+| Tool | Purpose | The Insight It Creates |
+|------|---------|------------------------|
+| **ListBuilder** | Brainstorm freely, then organize | "I have more ideas than I thought" |
+| **SOAREDForm** | Structure your stories | "My experiences follow meaningful patterns" |
+| **SkillTagger** | Map skills to experiences | "I've been building these skills all along" |
+| **RankingGrid** | Compare preferences | "I can articulate what I actually value" |
+| **FlowTracker** | Log energy patterns | "I notice what energizes vs. drains me" |
+| **LifeDashboard** | Balance life domains | "I see where I'm investing my energy" |
+| **FailureReframer** | Transform setbacks | "My failures taught me things" |
+| **BucketingTool** | Categorize and sort | "I can organize my thoughts" |
+| **MBTISelector** | Capture personality type | "My type helps explain my preferences" |
+| **BudgetCalculator** | Plan finances | "I know what I need financially" |
+| **IdeaTree** | Branch ideas outward | "My thoughts connect in unexpected ways" |
+| **MindsetProfiles** | Assess mindsets | "I can identify my thinking patterns" |
+| **CareerTimeline** | Map career arc | "I see my journey as a coherent story" |
+| **CareerAssessment** | Evaluate options | "I can compare opportunities systematically" |
+| **CompetencyAssessment** | Self-rate competencies | "I understand my professional strengths" |
+
+### What a Soul Violation Looks Like
+
+- **Tool feels like paperwork** — Just filling in boxes without reflection
+- **No visible output** — Data captured but user doesn't see the pattern
+- **Rushed interaction** — No time to think, just click through
+- **Disconnected from journey** — Tool data never resurfaces meaningfully
+- **Overwhelming options** — Too many fields, too much complexity
+
+### The Tool Experience
+
+1. **Enter** — Tool appears with clear purpose (instructions explain why)
+2. **Interact** — User manipulates their own data (not filling a form)
+3. **See** — Patterns become visible as they work
+4. **Save** — Silent auto-save + explicit Continue when ready
+5. **Connect** — Data flows to future exercises (Magic Moments)
+
+---
+
 ## Ownership
 
 **Scope:**
 - `src/components/tools/` - All tool components
   - `ListBuilder.tsx` - Create ordered/unordered lists
   - `SOAREDForm.tsx` - SOARED story prompt form
-  - `RankingGrid.tsx` - Rank items in matrix
+  - `RankingGrid.tsx` - Pairwise comparison ranking
   - `FlowTracker.tsx` - Log flow state activities
   - `LifeDashboard.tsx` - Work/Play/Love/Health tracker
   - `FailureReframer.tsx` - Reframe failures positively
@@ -19,7 +65,7 @@ This area owns the 15 interactive tool components used throughout the workbook.
   - `IdeaTree.tsx` - Tree structure for ideas
   - `MindsetProfiles.tsx` - Mindset assessment
   - `CareerTimeline.tsx` - Career progression planner
-  - `CareerAssessment.tsx` - Career skills assessment
+  - `CareerAssessment.tsx` - Career options evaluator
   - `CompetencyAssessment.tsx` - OECD competency evaluator
   - `ToolInstanceCard.tsx` - Tool container card
   - `ToolPage.tsx` - Tool detail page layout
@@ -42,11 +88,147 @@ This area owns the 15 interactive tool components used throughout the workbook.
 | File | Purpose |
 |------|---------|
 | `src/components/tools/types.ts` | Shared tool interfaces |
-| `src/components/tools/ListBuilder.tsx` | Generic list creation |
-| `src/components/tools/SOAREDForm.tsx` | Situation-Obstacle-Action-Result-Evaluation-Discovery |
-| `src/components/tools/RankingGrid.tsx` | Drag-and-drop ranking |
+| `src/components/tools/ListBuilder.tsx` | Drag-and-drop list creation |
+| `src/components/tools/SOAREDForm.tsx` | Structured story form |
+| `src/components/tools/RankingGrid.tsx` | Pairwise comparison |
 | `src/components/tools/SkillTagger.tsx` | Skill selection with mastery |
-| `src/components/tools/ToolInstanceCard.tsx` | Wrapper for tool instances |
+| `src/components/tools/ToolEmbed.tsx` | (in Workbook) Tool renderer in exercises |
+
+---
+
+## Principles
+
+### 1. Dual-Context Design
+Every tool works in two modes:
+- **Embedded** — Inline in conversation, props from parent exercise
+- **Standalone** — Full page with instance list, create/edit/delete
+
+The same component, different contexts.
+
+### 2. Data Hydration
+Tools receive prior user data via connections:
+```tsx
+// Connection provides pre-populated data
+<SkillTagger
+  skills={skills}  // Reference data
+  selectedSkillIds={connectionData}  // User's prior selections
+/>
+```
+
+### 3. Auto-Save
+Tools silently save as users work:
+- Debounced save (1.5s after last change)
+- No visible "saved" indicator
+- Continue button for explicit progression
+
+### 4. Progressive Unlock
+Tools appear when users reach relevant exercises:
+- FlowTracker unlocks early (daily usage)
+- Networking tools unlock in Part 3
+- Some tools reappear multiple times with different data
+
+---
+
+## The 15 Tools (Detailed)
+
+### ListBuilder
+**Purpose**: Brainstorm items, then organize them
+- Drag-and-drop reordering
+- Inline editing
+- Add/remove items
+- **Connection use**: Lists feed into RankingGrid, BucketingTool
+
+### SOAREDForm
+**Purpose**: Structure professional stories using SOARED framework
+- Situation, Obstacle, Action, Result, Evaluation, Discovery
+- Each field has guidance text
+- **Connection use**: Stories become resume content, skill evidence
+
+### SkillTagger
+**Purpose**: Tag skills from a searchable database
+- 200+ skills in categories (Technical, Interpersonal, Self-Management)
+- Custom skills allowed
+- Mastery levels (1-5)
+- **Connection use**: Skills feed career matching, resume building
+
+### RankingGrid
+**Purpose**: Compare items pairwise to determine true preferences
+- More accurate than direct ranking
+- Shows final order after comparisons
+- **Connection use**: Ranked values inform decision-making
+
+### FlowTracker
+**Purpose**: Log daily energy and engagement
+- Energy scale (-2 to +2)
+- Focus/Captivation (1-5)
+- Pattern analysis over time
+- **Connection use**: Flow patterns inform career fit
+
+### LifeDashboard
+**Purpose**: Gauge balance across life domains
+- Work, Play, Love, Health
+- Each rated 1-10
+- Visual gauge display
+- **Connection use**: Balance informs priorities
+
+### FailureReframer
+**Purpose**: Transform setbacks into learning
+- Guided reflection prompts
+- Reframe negative to growth mindset
+- **Connection use**: Reframed stories support resilience
+
+### BucketingTool
+**Purpose**: Sort items into categories
+- Configurable bucket labels
+- Drag items between buckets
+- **Connection use**: Categorized items feed filtering
+
+### MBTISelector
+**Purpose**: Capture personality type
+- 16 types with career-focused descriptions
+- Typeahead search by code or name
+- **Connection use**: Type informs work environment fit
+
+### BudgetCalculator
+**Purpose**: Plan financial needs
+- Income input (yearly or monthly)
+- Tax estimation by state
+- Expense categories
+- **Connection use**: Salary requirements for job filtering (encrypted)
+
+### IdeaTree
+**Purpose**: Branch ideas in tree structure
+- Central topic + branches
+- Expand infinitely
+- Collapse/expand navigation
+- **Connection use**: Career ideas branch into paths
+
+### MindsetProfiles
+**Purpose**: Assess design thinking mindsets
+- 5 mindsets from Stanford d.school
+- Character selection for each
+- **Connection use**: Mindset awareness for job search
+
+### CareerTimeline
+**Purpose**: Map career arc visually
+- Past milestones
+- Future projections
+- Gap analysis
+- **Connection use**: Timeline informs networking narrative
+
+### CareerAssessment
+**Purpose**: Evaluate career options systematically
+- Multiple options side-by-side
+- Scoring on criteria
+- Weighted comparison
+- **Connection use**: Assessment feeds decision-making
+
+### CompetencyAssessment
+**Purpose**: Self-rate on 15 OECD competencies
+- Clear level descriptors
+- Category averages
+- Strength/improvement identification
+- **Connection use**: Competencies inform development planning
 
 ---
 
@@ -55,17 +237,18 @@ This area owns the 15 interactive tool components used throughout the workbook.
 ### Tool Component Structure
 ```tsx
 interface ToolProps {
-  data?: HydratedData;      // Pre-populated data from connections
-  onSave: (data: ToolData) => void;
-  readOnly?: boolean;
+  data?: ToolData;              // Pre-populated from connections
+  onChange: (data: ToolData) => void;  // For auto-save
+  disabled?: boolean;
 }
 
-export function MyTool({ data, onSave, readOnly }: ToolProps) {
+export function MyTool({ data, onChange, disabled }: ToolProps) {
   const [localState, setLocalState] = useState(data || defaultState);
 
-  const handleSave = () => {
-    onSave(localState);
-  };
+  // Auto-save on change
+  useEffect(() => {
+    onChange(localState);
+  }, [localState, onChange]);
 
   return (/* UI */);
 }
@@ -76,7 +259,7 @@ Tools receive pre-populated data via the connections system:
 ```tsx
 // In workbook:
 const connectionData = await resolver.resolve({ userId, connectionId });
-<SOAREDForm data={connectionData.data} onSave={handleSave} />
+<SOAREDForm data={connectionData.data} onChange={handleChange} />
 ```
 
 ### Reference Data Loading
@@ -97,33 +280,30 @@ useEffect(() => {
 - `/api/data/competencies` - All competencies from competencies table
 - `/api/data/connection?connectionId=N` - User data via ConnectionResolver
 
-### Save Flow
-1. User interacts with tool
-2. Tool calls `onSave(data)` on user action
-3. Parent (Workbook) persists to database
-4. SaveIndicator shows status
-
 ---
 
 ## Common Tasks
 
 ### Adding a New Tool
 1. Create component in `src/components/tools/`
-2. Follow the standard props pattern (data, onSave, readOnly)
+2. Follow the standard props pattern (data, onChange, disabled)
 3. Add types to `types.ts`
 4. Add CSS classes to globals.css
 5. Export from index.ts
-6. Register in Workbook tool renderer
+6. Add to ToolEmbed switch statement
+7. **Document the tool's PURPOSE in this file**
 
 ### Implementing Data Hydration
 1. Check if `data` prop is provided
 2. Initialize local state from `data` or defaults
 3. Handle partial data gracefully
+4. **Test with real connection data**
 
 ### Adding Tool Validation
-1. Validate locally before calling `onSave`
-2. Show inline error messages
+1. Validate locally before allowing Continue
+2. Show inline error messages (not toasts)
 3. Prevent save until valid
+4. **Don't over-validate — let users explore**
 
 ---
 
@@ -132,7 +312,7 @@ useEffect(() => {
 ### Component Testing
 - Renders correctly with/without data
 - User interactions update state
-- `onSave` called with correct data structure
+- `onChange` called with correct data structure
 
 ### Data Hydration Testing
 - Pre-populated data displays correctly
@@ -143,6 +323,7 @@ useEffect(() => {
 - Keyboard navigation works
 - Screen reader announces changes
 - Focus management for lists/grids
+- Drag-and-drop has keyboard alternative
 
 ---
 
@@ -153,14 +334,14 @@ useEffect(() => {
 - Drag-and-drop updates array position
 - Empty items should be filtered on save
 
-### RankingGrid Matrix
-- Items ranked across multiple dimensions
-- Cells may be exclusive (one item per cell)
-- Or non-exclusive (multiple per cell)
+### RankingGrid Algorithm
+- Pairwise comparison, not direct ranking
+- Items compared until order determined
+- Shows final order after all comparisons
 
 ### SOAREDForm Fields
-- Six required fields: Situation, Obstacle, Action, Result, Evaluation, Discovery
-- Each field has min/max character limits
+- Six required fields
+- Action field should be longest (4+ rows)
 - Linked to `user_stories` table
 
 ### SkillTagger Search
@@ -199,35 +380,13 @@ useEffect(() => {
 ```typescript
 interface BaseToolProps<T> {
   data?: T;
-  onSave: (data: T) => void;
-  readOnly?: boolean;
-  connectionId?: number;
+  onChange: (data: T) => void;
+  disabled?: boolean;
 }
 ```
 
 ### Tool Data Types
-```typescript
-// ListBuilder
-interface ListData {
-  items: string[];
-  ordered: boolean;
-}
-
-// SOAREDForm
-interface SOAREDData {
-  situation: string;
-  obstacle: string;
-  action: string;
-  result: string;
-  evaluation: string;
-  discovery: string;
-}
-
-// RankingGrid
-interface RankingData {
-  items: Array<{ id: string; content: string; position: [number, number] }>;
-}
-```
+See `src/components/tools/types.ts` for full definitions.
 
 ### ToolInstanceCard Props
 ```typescript

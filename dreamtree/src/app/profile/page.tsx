@@ -11,7 +11,9 @@ import {
   RankedList,
   DataControls,
 } from '@/components/profile';
-import type { BackgroundColorId, FontFamilyId } from '@/components/dashboard';
+import { VisualsStep } from '@/components/onboarding/VisualsStep';
+import type { BackgroundColorId, TextColorId, FontFamilyId } from '@/components/onboarding/types';
+import { getValidTextColors } from '@/components/onboarding/types';
 
 interface ProfileApiResponse {
   profile: {
@@ -58,9 +60,14 @@ export default function ProfilePage() {
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState('User');
   const [backgroundColor, setBackgroundColor] = useState<BackgroundColorId>('ivory');
+  const [textColor, setTextColor] = useState<TextColorId>('charcoal');
   const [font, setFont] = useState<FontFamilyId>('inter');
   const [skills, setSkills] = useState<SkillDisplay[]>([]);
   const [values, setValues] = useState<RankedItem[]>([]);
+
+  // Appearance editing state
+  const [isEditingAppearance, setIsEditingAppearance] = useState(false);
+  const [isSavingAppearance, setIsSavingAppearance] = useState(false);
 
   // Fetch profile data from API
   useEffect(() => {
@@ -74,7 +81,9 @@ export default function ProfilePage() {
 
         // Set profile data
         setDisplayName(data.profile.displayName || 'User');
-        setBackgroundColor((data.settings.backgroundColor || 'ivory') as BackgroundColorId);
+        const bgColor = (data.settings.backgroundColor || 'ivory') as BackgroundColorId;
+        setBackgroundColor(bgColor);
+        setTextColor((data.settings.textColor || getValidTextColors(bgColor)[0]) as TextColorId);
         setFont((data.settings.font || 'inter') as FontFamilyId);
 
         // Transform skills for display
@@ -151,14 +160,45 @@ export default function ProfilePage() {
       )
     ) {
       try {
-        // Logout and delete data
-        await fetch('/api/auth/logout', { method: 'POST' });
+        // Delete account (cascades to all user data)
+        const response = await fetch('/api/profile', { method: 'DELETE' });
+        if (!response.ok) {
+          const data = await response.json();
+          throw new Error(data.error || 'Failed to delete account');
+        }
+        // Redirect to login page (session already cleared by DELETE handler)
         router.push('/login');
       } catch (error) {
-        console.error('Error deleting data:', error);
+        console.error('Error deleting account:', error);
+        alert('Failed to delete account. Please try again.');
       }
     }
   };
+
+  // Save appearance changes to API
+  const handleSaveAppearance = useCallback(async () => {
+    setIsSavingAppearance(true);
+    try {
+      const response = await fetch('/api/profile', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          backgroundColor,
+          textColor,
+          font,
+        }),
+      });
+      if (!response.ok) {
+        throw new Error('Failed to save appearance');
+      }
+      setIsEditingAppearance(false);
+    } catch (error) {
+      console.error('Error saving appearance:', error);
+      alert('Failed to save appearance. Please try again.');
+    } finally {
+      setIsSavingAppearance(false);
+    }
+  }, [backgroundColor, textColor, font]);
 
   if (loading) {
     return (
@@ -182,7 +222,40 @@ export default function ProfilePage() {
           name={displayName}
           backgroundColor={backgroundColor}
           fontFamily={font}
+          onEditAppearance={() => setIsEditingAppearance(true)}
         />
+
+        {/* Inline Appearance Editor */}
+        {isEditingAppearance && (
+          <ProfileSection title="Edit Appearance">
+            <VisualsStep
+              backgroundColor={backgroundColor}
+              textColor={textColor}
+              font={font}
+              onBackgroundChange={setBackgroundColor}
+              onTextColorChange={setTextColor}
+              onFontChange={setFont}
+            />
+            <div className="profile-appearance-actions">
+              <button
+                type="button"
+                className="button button-secondary"
+                onClick={() => setIsEditingAppearance(false)}
+                disabled={isSavingAppearance}
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                className="button button-primary"
+                onClick={handleSaveAppearance}
+                disabled={isSavingAppearance}
+              >
+                {isSavingAppearance ? 'Saving...' : 'Save Changes'}
+              </button>
+            </div>
+          </ProfileSection>
+        )}
 
         <ProfileSection title="Top Skills">
           {skills.length > 0 ? (

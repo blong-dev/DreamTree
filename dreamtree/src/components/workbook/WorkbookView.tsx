@@ -1,12 +1,16 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+
+// Debounce delay for auto-save (ms)
+const AUTO_SAVE_DELAY = 1500;
 import { useRouter } from 'next/navigation';
 import { AppShell } from '../shell/AppShell';
 import { ConversationThread } from '../conversation/ConversationThread';
 import { PromptInput } from './PromptInput';
 import { ToolEmbed } from './ToolEmbed';
-import { useToast } from '../feedback';
+import { useToast, SaveIndicator } from '../feedback';
+import type { SaveStatus } from '../feedback/types';
 import type { ExerciseContent, ExerciseBlock, SavedResponse, PromptData, ToolData, ContentData } from './types';
 import type { Message, ContentBlock, UserResponseContent } from '../conversation/types';
 import type { BreadcrumbLocation, InputType } from '../shell/types';
@@ -108,57 +112,117 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   const [inputValue, setInputValue] = useState('');
   const [inputType, setInputType] = useState<InputType>('none');
   const [isSaving, setIsSaving] = useState(false);
+  const [autoSaveStatus, setAutoSaveStatus] = useState<SaveStatus>('idle');
+  const autoSaveTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const savedIndicatorTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const lastSavedValueRef = useRef<string>('');
 
-  // Build messages array from blocks and responses
-  const messages: Message[] = [];
-  let messageId = 0;
+  // Edit state - tracks which prompt is being edited (null = not editing)
+  const [editingPromptId, setEditingPromptId] = useState<number | null>(null);
 
-  for (let i = 0; i < displayedBlockIndex && i < exercise.blocks.length; i++) {
-    const block = exercise.blocks[i];
+  // Track which message IDs have been animated (ink permanence - never re-animate)
+  // For returning users, pre-populate with IDs of messages they've already seen
+  const animatedMessageIdsRef = useRef<Set<string>>(new Set());
+  const isInitializedRef = useRef(false);
 
-    if (block.blockType === 'content') {
-      messages.push({
-        id: `msg-${messageId++}`,
-        type: 'content',
-        data: blockToConversationContent(block),
-        timestamp: new Date(),
-      });
-    } else if (block.blockType === 'prompt') {
-      // Show the prompt text as content
-      const promptData = block.content as PromptData;
-      messages.push({
-        id: `msg-${messageId++}`,
-        type: 'content',
-        data: [{ type: 'paragraph', text: promptData.promptText || 'Please respond:' }],
-        timestamp: new Date(),
-      });
+  // Initialize on first render for returning users
+  if (!isInitializedRef.current && savedResponses.length > 0) {
+    isInitializedRef.current = true;
+    // Mark all blocks that would be shown at initial displayedBlockIndex as already animated
+    const interactiveBlocks = exercise.blocks.filter(b => b.blockType === 'prompt' || b.blockType === 'tool');
+    const firstUnanswered = interactiveBlocks.findIndex(b => {
+      if (b.blockType === 'prompt') {
+        const promptData = b.content as PromptData;
+        const promptId = promptData.id;
+        if (promptId === undefined) return true;
+        return !promptResponseMap.has(promptId);
+      } else if (b.blockType === 'tool') {
+        const toolData = b.content as ToolData;
+        const toolId = toolData.id;
+        if (toolId === undefined) return true;
+        return !toolResponseMap.has(toolId);
+      }
+      return false;
+    });
+    const initialDisplayIndex = firstUnanswered === -1
+      ? exercise.blocks.length
+      : exercise.blocks.indexOf(interactiveBlocks[firstUnanswered]) + 1;
 
-      // Check if user has responded to this prompt
-      const promptId = promptData.id;
-      if (promptId !== undefined) {
-        const savedResponse = promptResponseMap.get(promptId);
-        if (savedResponse) {
-          messages.push({
-            id: `msg-${messageId++}`,
-            type: 'user',
-            data: { type: 'text', value: savedResponse } as UserResponseContent,
-            timestamp: new Date(),
-          });
+    // Add all message IDs that would be built for blocks 0 to initialDisplayIndex-1
+    for (let i = 0; i < initialDisplayIndex && i < exercise.blocks.length; i++) {
+      const block = exercise.blocks[i];
+      if (block.blockType === 'content') {
+        animatedMessageIdsRef.current.add(`block-${block.id}`);
+      } else if (block.blockType === 'prompt') {
+        animatedMessageIdsRef.current.add(`prompt-${block.id}`);
+        const promptData = block.content as PromptData;
+        if (promptData.id !== undefined && promptResponseMap.has(promptData.id)) {
+          animatedMessageIdsRef.current.add(`response-${block.id}`);
         }
       }
-    } else if (block.blockType === 'tool') {
-      // Tools are rendered inline by ToolEmbed - don't duplicate in messages
-      // Just track that we've passed this block for history purposes
-      const toolData = block.content as ToolData;
-      const toolId = toolData.id;
+    }
+  } else if (!isInitializedRef.current) {
+    isInitializedRef.current = true;
+  }
 
-      // Only show a minimal marker if the tool has been completed (for history)
-      if (toolId !== undefined && toolResponseMap.has(toolId)) {
-        // Tool was completed - the response is stored, but we don't show a message
-        // The tool component will re-render with saved data if user scrolls back
+  // Callback when a message animation completes - add to the permanent set
+  const handleMessageAnimated = useCallback((messageId: string) => {
+    animatedMessageIdsRef.current.add(messageId);
+  }, []);
+
+  // Build messages array from blocks and responses - with stable IDs
+  const messages = useMemo(() => {
+    const result: Message[] = [];
+
+    for (let i = 0; i < displayedBlockIndex && i < exercise.blocks.length; i++) {
+      const block = exercise.blocks[i];
+
+      if (block.blockType === 'content') {
+        result.push({
+          id: `block-${block.id}`,
+          type: 'content',
+          data: blockToConversationContent(block),
+          timestamp: new Date(),
+        });
+      } else if (block.blockType === 'prompt') {
+        // Show the prompt text as content
+        const promptData = block.content as PromptData;
+        result.push({
+          id: `prompt-${block.id}`,
+          type: 'content',
+          data: [{ type: 'paragraph', text: promptData.promptText || 'Please respond:' }],
+          timestamp: new Date(),
+        });
+
+        // Check if user has responded to this prompt
+        const promptId = promptData.id;
+        if (promptId !== undefined) {
+          const savedResponse = promptResponseMap.get(promptId);
+          if (savedResponse) {
+            result.push({
+              id: `response-${block.id}`,
+              type: 'user',
+              data: { type: 'text', value: savedResponse } as UserResponseContent,
+              timestamp: new Date(),
+            });
+          }
+        }
+      } else if (block.blockType === 'tool') {
+        // Tools are rendered inline by ToolEmbed - don't duplicate in messages
+        // Just track that we've passed this block for history purposes
+        const toolData = block.content as ToolData;
+        const toolId = toolData.id;
+
+        // Only show a minimal marker if the tool has been completed (for history)
+        if (toolId !== undefined && toolResponseMap.has(toolId)) {
+          // Tool was completed - the response is stored, but we don't show a message
+          // The tool component will re-render with saved data if user scrolls back
+        }
       }
     }
-  }
+
+    return result;
+  }, [displayedBlockIndex, exercise.blocks, promptResponseMap, toolResponseMap]);
 
   // Track if we're waiting for user to click Continue on a content block
   const [waitingForContinue, setWaitingForContinue] = useState(false);
@@ -266,16 +330,105 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [waitingForContinue, handleContinue]);
 
-  // Save a response
+  // Silent auto-save (doesn't advance to next block)
+  const autoSave = useCallback(async (responseText: string) => {
+    if (!activePrompt || !responseText.trim()) return;
+    if (responseText === lastSavedValueRef.current) return; // No changes
+
+    const promptData = activePrompt.content as PromptData;
+    const isEditing = editingPromptId !== null;
+
+    setAutoSaveStatus('saving');
+    try {
+      const response = await fetch('/api/workbook/response', {
+        method: isEditing ? 'PUT' : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          promptId: promptData.id,
+          exerciseId: exercise.exerciseId,
+          activityId: activePrompt.activityId?.toString(),
+          responseText,
+        }),
+      });
+
+      if (response.ok) {
+        lastSavedValueRef.current = responseText;
+        // Update local state silently
+        if (promptData.id !== undefined) {
+          promptResponseMap.set(promptData.id, responseText);
+        }
+        setAutoSaveStatus('saved');
+        // Clear the "saved" indicator after 2 seconds
+        if (savedIndicatorTimerRef.current) {
+          clearTimeout(savedIndicatorTimerRef.current);
+        }
+        savedIndicatorTimerRef.current = setTimeout(() => {
+          setAutoSaveStatus('idle');
+        }, 2000);
+      } else {
+        setAutoSaveStatus('error');
+      }
+    } catch (error) {
+      console.error('Auto-save failed:', error);
+      setAutoSaveStatus('error');
+    }
+  }, [activePrompt, editingPromptId, exercise.exerciseId, promptResponseMap]);
+
+  // Debounced auto-save effect for text inputs
+  useEffect(() => {
+    // Only auto-save for text input types
+    if (inputType !== 'text' && inputType !== 'textarea') return;
+    if (!inputValue.trim()) return;
+
+    // Clear existing timer
+    if (autoSaveTimerRef.current) {
+      clearTimeout(autoSaveTimerRef.current);
+    }
+
+    // Set new timer
+    autoSaveTimerRef.current = setTimeout(() => {
+      autoSave(inputValue);
+    }, AUTO_SAVE_DELAY);
+
+    // Cleanup
+    return () => {
+      if (autoSaveTimerRef.current) {
+        clearTimeout(autoSaveTimerRef.current);
+      }
+    };
+  }, [inputValue, inputType, autoSave]);
+
+  // Save a response (handles both new and edited responses)
   const handleSaveResponse = useCallback(async (responseText: string) => {
     if (!activePrompt || isSaving) return;
 
+    // Clear any pending auto-save timer
+    if (autoSaveTimerRef.current) {
+      clearTimeout(autoSaveTimerRef.current);
+      autoSaveTimerRef.current = null;
+    }
+
     const promptData = activePrompt.content as PromptData;
+    const isEditing = editingPromptId !== null;
+
+    // Skip save if content unchanged and already saved
+    if (responseText === lastSavedValueRef.current && !isEditing) {
+      // Just advance without re-saving
+      setInputValue('');
+      setActivePrompt(null);
+      setEditingPromptId(null);
+      setInputType('none');
+      lastSavedValueRef.current = '';
+      setTimeout(() => {
+        setDisplayedBlockIndex(prev => prev + 1);
+      }, 300);
+      return;
+    }
 
     setIsSaving(true);
     try {
       const response = await fetch('/api/workbook/response', {
-        method: 'POST',
+        method: isEditing ? 'PUT' : 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           promptId: promptData.id,
@@ -294,14 +447,19 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         promptResponseMap.set(promptData.id, responseText);
       }
 
-      // Clear input and advance
+      // Clear input and editing state
       setInputValue('');
       setActivePrompt(null);
+      setEditingPromptId(null);
+      setInputType('none');
+      lastSavedValueRef.current = '';
 
-      // Advance to next block after a short delay
-      setTimeout(() => {
-        setDisplayedBlockIndex(prev => prev + 1);
-      }, 300);
+      // Only advance to next block if this was a new response (not an edit)
+      if (!isEditing) {
+        setTimeout(() => {
+          setDisplayedBlockIndex(prev => prev + 1);
+        }, 300);
+      }
 
     } catch (error) {
       console.error('Error saving response:', error);
@@ -309,7 +467,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     } finally {
       setIsSaving(false);
     }
-  }, [activePrompt, exercise.exerciseId, isSaving, showToast, promptResponseMap]);
+  }, [activePrompt, exercise.exerciseId, isSaving, showToast, promptResponseMap, editingPromptId]);
 
   // Handle tool completion
   const handleToolComplete = useCallback(() => {
@@ -325,6 +483,40 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       setDisplayedBlockIndex(prev => prev + 1);
     }, 300);
   }, [activeTool, toolResponseMap]);
+
+  // Handle editing a past response
+  const handleEditMessage = useCallback((messageId: string) => {
+    // Message IDs for user responses follow format: "response-{blockId}"
+    if (!messageId.startsWith('response-')) return;
+
+    const blockId = messageId.replace('response-', '');
+    const block = exercise.blocks.find(b => String(b.id) === blockId);
+
+    if (!block || block.blockType !== 'prompt') return;
+
+    const promptData = block.content as PromptData;
+    const promptId = promptData.id;
+    if (promptId === undefined) return;
+
+    const currentValue = promptResponseMap.get(promptId) || '';
+
+    // Set up editing state
+    setEditingPromptId(promptId);
+    setInputValue(currentValue);
+    setActivePrompt(block);
+
+    // Set input type based on prompt type
+    switch (promptData.inputType) {
+      case 'text_input':
+        setInputType('text');
+        break;
+      case 'textarea':
+        setInputType('textarea');
+        break;
+      default:
+        setInputType('none'); // Structured inputs handled by PromptInput
+    }
+  }, [exercise.blocks, promptResponseMap]);
 
   // Handle navigation
   const handleNavigate = (id: string) => {
@@ -375,7 +567,17 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         <ConversationThread
           messages={messages}
           autoScrollOnNew={true}
+          onEditMessage={handleEditMessage}
+          animatedMessageIds={animatedMessageIdsRef.current}
+          onMessageAnimated={handleMessageAnimated}
         />
+
+        {/* Auto-save indicator for text inputs */}
+        {(inputType === 'text' || inputType === 'textarea') && autoSaveStatus !== 'idle' && (
+          <div className="workbook-autosave">
+            <SaveIndicator status={autoSaveStatus} />
+          </div>
+        )}
 
         {/* Structured prompt input (non-text types) */}
         {activePrompt && inputType === 'none' && (

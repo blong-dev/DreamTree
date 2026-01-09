@@ -2,6 +2,63 @@
 
 This area owns feature-specific components: dashboard, onboarding, and profile.
 
+---
+
+## Soul
+
+**The dashboard is a welcome mat, not a command center. Profile is a mirror, not a report card. Onboarding is your first conversation, not a registration form.**
+
+Each feature in this area serves a distinct emotional purpose in the user's journey:
+
+### Why Each Feature Exists
+
+| Feature | Emotional Purpose | What It Isn't |
+|---------|-------------------|---------------|
+| **Dashboard** | A calm welcome home. "Pick up where you left off." | Not a productivity dashboard with metrics and notifications |
+| **Onboarding** | The first conversation. Making the space feel like yours. | Not a wizard, not a registration form, not data collection |
+| **Profile** | A mirror showing what you've discovered about yourself. | Not a report card, not a resume, not a social profile |
+
+### The Dashboard Philosophy
+
+The dashboard should feel like walking into a quiet room where your work awaits. It acknowledges you, shows what's next, and gets out of the way.
+
+- **DashboardGreeting**: Warm, time-aware, personal ("Good morning, Sarah")
+- **TOCInline**: Quick orientation, not comprehensive navigation
+- **ProgressMetrics**: Gentle awareness of journey, NOT gamified progress bars
+- **DailyDoList**: Suggestions, not assignments
+
+### The Onboarding Philosophy
+
+Onboarding should feel like the FIRST conversation with DreamTree. The user is meeting their coach for the first time. By the end, they should feel:
+- "This app understands what I need"
+- "I've made this space my own"
+- "I'm ready to begin"
+
+The visual preferences (background + font) matter because they establish ownership: "This is YOUR workbook."
+
+### The Profile Philosophy
+
+Profile is a mirror, reflecting back what the user has discovered about themselves through the workbook. It's NOT:
+- A resume (that's what Part 3 builds toward)
+- A social profile (there's no social layer)
+- A report card (no grades, no scores)
+
+It IS:
+- "Here's what you've learned about yourself"
+- "Here's your data, which you own"
+- "Here's how to take it with you"
+
+### What a Soul Violation Looks Like
+
+- **Dashboard as command center** — Too many widgets, notifications, metrics
+- **Onboarding as form wizard** — Step indicators, required fields, no personality
+- **Profile as achievement wall** — Badges, completion percentages, comparison to others
+- **Gamified progress** — "You're 47% complete!" with colorful progress bars
+- **Guilt-inducing copy** — "You haven't logged in for 3 days" messaging
+- **Data collection feel** — Asking for information without explaining why
+
+---
+
 ## Ownership
 
 **Scope:**

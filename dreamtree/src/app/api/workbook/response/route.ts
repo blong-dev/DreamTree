@@ -125,6 +125,85 @@ export async function POST(request: NextRequest) {
   }
 }
 
+// PUT endpoint to update an existing response
+export async function PUT(request: NextRequest) {
+  try {
+    // Get session
+    const cookieHeader = request.headers.get('cookie');
+    const sessionId = getSessionIdFromCookie(cookieHeader);
+
+    if (!sessionId) {
+      return NextResponse.json(
+        { error: 'Not authenticated' },
+        { status: 401 }
+      );
+    }
+
+    const { env } = getCloudflareContext();
+    const db = createDb(env.DB);
+
+    const sessionData = await getSessionData(env.DB, sessionId);
+    if (!sessionData) {
+      return NextResponse.json(
+        { error: 'Invalid session' },
+        { status: 401 }
+      );
+    }
+
+    const userId = sessionData.user.id;
+
+    // Parse request body
+    const body: SaveResponseRequest = await request.json();
+    const { promptId, exerciseId, responseText } = body;
+
+    if (!promptId || !exerciseId || responseText === undefined) {
+      return NextResponse.json(
+        { error: 'Missing required fields: promptId, exerciseId, responseText' },
+        { status: 400 }
+      );
+    }
+
+    const now = new Date().toISOString();
+
+    // Check if response exists
+    const existing = await db.raw
+      .prepare(
+        `SELECT id FROM user_responses
+         WHERE user_id = ? AND prompt_id = ? AND exercise_id = ?`
+      )
+      .bind(userId, promptId, exerciseId)
+      .first<{ id: string }>();
+
+    if (!existing) {
+      return NextResponse.json(
+        { error: 'Response not found' },
+        { status: 404 }
+      );
+    }
+
+    // Update existing response
+    await db.raw
+      .prepare(
+        `UPDATE user_responses
+         SET response_text = ?, updated_at = ?
+         WHERE id = ?`
+      )
+      .bind(responseText, now, existing.id)
+      .run();
+
+    return NextResponse.json({
+      id: existing.id,
+      updated: true,
+    });
+  } catch (error) {
+    console.error('Error updating response:', error);
+    return NextResponse.json(
+      { error: 'Failed to update response' },
+      { status: 500 }
+    );
+  }
+}
+
 // GET endpoint to fetch previous responses for an exercise
 export async function GET(request: NextRequest) {
   try {

@@ -16,6 +16,7 @@ export function DataControls({ onDownload, onDelete }: DataControlsProps) {
           type="button"
           className="data-controls-button"
           onClick={onDownload}
+          data-testid="download-data-button"
         >
           <DownloadIcon width={18} height={18} />
           <span>Download All Data</span>
@@ -24,6 +25,7 @@ export function DataControls({ onDownload, onDelete }: DataControlsProps) {
           type="button"
           className="data-controls-button data-controls-button-danger"
           onClick={onDelete}
+          data-testid="delete-account-button"
         >
           <TrashIcon width={18} height={18} />
           <span>Delete Account</span>

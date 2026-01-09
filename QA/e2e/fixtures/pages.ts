@@ -90,30 +90,41 @@ export class OnboardingPage {
   }) {
     const { name = 'Test User', bgColor = 'ivory', textColor = 'brown', font = 'inter' } = options || {};
 
-    // Try to click through onboarding steps
+    // Helper to click if visible
+    const clickIfVisible = async (selector: string) => {
+      const element = this.page.locator(selector).first();
+      if (await element.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await element.click();
+        await this.page.waitForTimeout(500);
+      }
+    };
+
     // Step 1: Welcome
     await this.clickContinue();
 
     // Step 2: Name
     const nameInput = this.page.locator('[name="name"]');
-    if (await nameInput.isVisible()) {
+    if (await nameInput.isVisible({ timeout: 2000 }).catch(() => false)) {
       await nameInput.fill(name);
       await this.clickContinue();
     }
 
     // Step 3: Visual settings
-    await this.page.click(`[data-bg="${bgColor}"]`).catch(() => {});
-    await this.page.click(`[data-text="${textColor}"]`).catch(() => {});
-    await this.page.click(`[data-font="${font}"]`).catch(() => {});
+    await clickIfVisible(`[data-bg="${bgColor}"]`);
+    await clickIfVisible(`[data-text="${textColor}"]`);
+    await clickIfVisible(`[data-font="${font}"]`);
     await this.clickContinue();
 
     // Step 4: Complete
-    await this.page.click('button:has-text("Start"), button:has-text("Begin"), button:has-text("Finish")').catch(() => {});
+    await clickIfVisible('button:has-text("Start"), button:has-text("Begin"), button:has-text("Finish")');
   }
 
   private async clickContinue() {
-    await this.page.click('button:has-text("Continue"), button:has-text("Next"), button:has-text("Get Started")').catch(() => {});
-    await this.page.waitForTimeout(500);
+    const element = this.page.locator('button:has-text("Continue"), button:has-text("Next"), button:has-text("Get Started")').first();
+    if (await element.isVisible({ timeout: 2000 }).catch(() => false)) {
+      await element.click();
+      await this.page.waitForTimeout(500);
+    }
   }
 }
 

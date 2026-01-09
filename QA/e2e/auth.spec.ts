@@ -66,15 +66,23 @@ test.describe('Login Flow', () => {
     await signupPage.goto();
     await signupPage.signup(user.name, user.email, user.password);
 
-    // Complete onboarding quickly
+    // Complete onboarding quickly using explicit visibility checks
     await page.waitForURL(/\/onboarding/);
-    await page.click('button:has-text("Continue"), button:has-text("Get Started"), button:has-text("Next")').catch(() => {});
-    await page.waitForTimeout(500);
-    await page.click('button:has-text("Continue"), button:has-text("Next")').catch(() => {});
-    await page.waitForTimeout(500);
-    await page.click('button:has-text("Continue"), button:has-text("Next")').catch(() => {});
-    await page.waitForTimeout(500);
-    await page.click('button:has-text("Start"), button:has-text("Begin"), button:has-text("Finish")').catch(() => {});
+
+    // Helper to click if visible
+    async function clickIfVisible(selector: string) {
+      const element = page.locator(selector).first();
+      if (await element.isVisible({ timeout: 2000 }).catch(() => false)) {
+        await element.click();
+        await page.waitForTimeout(500);
+      }
+    }
+
+    // Step through onboarding screens
+    await clickIfVisible('button:has-text("Continue"), button:has-text("Get Started"), button:has-text("Next")');
+    await clickIfVisible('button:has-text("Continue"), button:has-text("Next")');
+    await clickIfVisible('button:has-text("Continue"), button:has-text("Next")');
+    await clickIfVisible('button:has-text("Start"), button:has-text("Begin"), button:has-text("Finish")');
 
     // Wait for redirect
     await page.waitForURL(/\/(workbook|\/)/, { timeout: 10000 });

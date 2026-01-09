@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import type { BackgroundColorId, FontFamilyId } from '../dashboard/types';
 
 const colorNames: Record<BackgroundColorId, string> = {
@@ -23,18 +22,26 @@ interface ProfileHeaderProps {
   name: string;
   backgroundColor: BackgroundColorId;
   fontFamily: FontFamilyId;
+  onEditAppearance?: () => void;
 }
 
-export function ProfileHeader({ name, backgroundColor, fontFamily }: ProfileHeaderProps) {
+export function ProfileHeader({ name, backgroundColor, fontFamily, onEditAppearance }: ProfileHeaderProps) {
   return (
     <header className="profile-header">
       <h1 className="profile-name">{name}</h1>
       <p className="profile-visual">
         {colorNames[backgroundColor]} + {fontNames[fontFamily]}
       </p>
-      <Link href="/settings" className="profile-settings-link">
-        Edit in Settings →
-      </Link>
+      {onEditAppearance && (
+        <button
+          type="button"
+          className="profile-settings-link"
+          onClick={onEditAppearance}
+          data-testid="edit-appearance-button"
+        >
+          Edit Appearance
+        </button>
+      )}
     </header>
   );
 }

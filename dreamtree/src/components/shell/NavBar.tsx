@@ -45,7 +45,7 @@ export function NavBar({
           />
         </li>
         {!hideContents && (
-          <li>
+          <li data-testid="nav-contents">
             <NavItem
               id="contents"
               icon={ListIcon}

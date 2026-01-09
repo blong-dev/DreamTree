@@ -129,3 +129,113 @@ export async function GET(_request: NextRequest) {
     );
   }
 }
+
+/**
+ * PATCH /api/profile
+ * Update user settings (appearance: background_color, text_color, font)
+ */
+export async function PATCH(request: NextRequest) {
+  try {
+    const cookieStore = await cookies();
+    const sessionId = cookieStore.get('dt_session')?.value;
+
+    if (!sessionId) {
+      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    }
+
+    const { env } = getCloudflareContext();
+    const sessionData = await getSessionData(env.DB, sessionId);
+
+    if (!sessionData) {
+      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
+    }
+
+    const userId = sessionData.user.id;
+    const body = await request.json();
+    const { backgroundColor, textColor, font } = body;
+
+    // Build update query dynamically based on provided fields
+    const updates: string[] = [];
+    const values: (string | null)[] = [];
+
+    if (backgroundColor !== undefined) {
+      updates.push('background_color = ?');
+      values.push(backgroundColor);
+    }
+    if (textColor !== undefined) {
+      updates.push('text_color = ?');
+      values.push(textColor);
+    }
+    if (font !== undefined) {
+      updates.push('font = ?');
+      values.push(font);
+    }
+
+    if (updates.length === 0) {
+      return NextResponse.json({ error: 'No fields to update' }, { status: 400 });
+    }
+
+    // Add userId for WHERE clause
+    values.push(userId);
+
+    await env.DB
+      .prepare(`UPDATE user_settings SET ${updates.join(', ')} WHERE user_id = ?`)
+      .bind(...values)
+      .run();
+
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error('Error updating settings:', error);
+    return NextResponse.json(
+      { error: 'Failed to update settings' },
+      { status: 500 }
+    );
+  }
+}
+
+/**
+ * DELETE /api/profile
+ * Delete user account and all associated data.
+ * All related tables have ON DELETE CASCADE, so deleting from users table
+ * will cascade to: auth, emails, sessions, user_settings, user_modules,
+ * user_profile, user_values, user_skills, user_experiences, user_stories,
+ * user_locations, user_career_options, user_budget, user_flow_logs,
+ * user_companies, user_contacts, user_jobs, user_idea_nodes, user_idea_trees,
+ * user_competency_scores, user_responses, user_lists, user_checklists
+ */
+export async function DELETE() {
+  try {
+    const cookieStore = await cookies();
+    const sessionId = cookieStore.get('dt_session')?.value;
+
+    if (!sessionId) {
+      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    }
+
+    const { env } = getCloudflareContext();
+    const sessionData = await getSessionData(env.DB, sessionId);
+
+    if (!sessionData) {
+      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
+    }
+
+    const userId = sessionData.user.id;
+
+    // Delete user - cascades to all related tables
+    await env.DB
+      .prepare('DELETE FROM users WHERE id = ?')
+      .bind(userId)
+      .run();
+
+    // Clear session cookie
+    cookieStore.delete('dt_session');
+
+    return NextResponse.json({ success: true, message: 'Account deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting account:', error);
+    return NextResponse.json(
+      { error: 'Failed to delete account' },
+      { status: 500 }
+    );
+  }
+}
