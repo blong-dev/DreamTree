@@ -3,12 +3,8 @@
  * Fetch tool instances for a specific tool type.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData } from '@/lib/auth';
-import '@/types/database'; // CloudflareEnv augmentation
-
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 
 interface ToolResponseRow {
   id: string;
@@ -20,23 +16,8 @@ interface ToolResponseRow {
   updated_at: string;
 }
 
-export async function GET(request: NextRequest) {
+export const GET = withAuth(async (request, { userId, db }) => {
   try {
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
-    const userId = sessionData.user.id;
     const { searchParams } = new URL(request.url);
     const toolType = searchParams.get('toolType');
 
@@ -48,7 +29,7 @@ export async function GET(request: NextRequest) {
     const normalizedToolType = toolType.toLowerCase().replace(/_/g, '-');
 
     // Get tool instances from user_responses joined with tools
-    const result = await env.DB
+    const result = await db
       .prepare(`
         SELECT ur.id, ur.tool_id, t.name as tool_name, ur.exercise_id, ur.response_text, ur.created_at, ur.updated_at
         FROM user_responses ur
@@ -78,8 +59,8 @@ export async function GET(request: NextRequest) {
             title = title.substring(0, 47) + '...';
           }
         }
-      } catch {
-        // Keep default title
+      } catch (err) {
+        console.error(`[Tools API] Failed to parse tool instance ${row.id}:`, err);
       }
 
       return {
@@ -99,4 +80,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

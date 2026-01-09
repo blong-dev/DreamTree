@@ -3,6 +3,7 @@ import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { createDb } from '@/lib/db';
 import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { encryptPII, decryptPII } from '@/lib/auth/pii';
+import { validateToolData } from '@/lib/validation';
 import { nanoid } from 'nanoid';
 import '@/types/database'; // CloudflareEnv augmentation
 
@@ -74,6 +75,33 @@ export async function POST(request: NextRequest) {
     const isToolResponse = !!toolId;
     const contentId = toolId || promptId;
     const idColumn = isToolResponse ? 'tool_id' : 'prompt_id';
+
+    // Validate tool response data (IMP-043)
+    if (isToolResponse && toolId) {
+      // Look up tool name
+      const toolRow = await db.raw
+        .prepare('SELECT name FROM tools WHERE id = ?')
+        .bind(toolId)
+        .first<{ name: string }>();
+
+      if (toolRow?.name) {
+        try {
+          const parsedData = JSON.parse(responseText);
+          const validation = validateToolData(toolRow.name, parsedData);
+          if (!validation.valid) {
+            return NextResponse.json(
+              { error: `Invalid tool data: ${validation.error}` },
+              { status: 400 }
+            );
+          }
+        } catch {
+          return NextResponse.json(
+            { error: 'Invalid JSON in responseText' },
+            { status: 400 }
+          );
+        }
+      }
+    }
 
     // Encrypt response for PII tools (IMP-048 Phase 2)
     let textToStore = responseText;

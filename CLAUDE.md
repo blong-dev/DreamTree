@@ -16,11 +16,13 @@ DreamTree uses a multi-instance team. Read your intro doc:
 | **Fizz** | `team/FIZZ.md` | UI/UX — components, workbook, conversation, CSS |
 | **Buzz** | `team/BUZZ.md` | Infrastructure — database, auth, API, security |
 | **Pazz** | `team/PAZZ.md` | QA — testing, verification, regression |
+| **Rizz** | `team/RIZZ.md` | Marketing — copy, campaigns, brand voice |
 
 **Coordination files:**
 - `team/BOARD.md` — Team messages, assignments
 - `team/BUGS.md` — Bug tracker, task status
 - `team/MANAGER.md` — Protocols, routing tables
+- `team/private/PHILOSOPHY.md` — Private philosophy docs (gitignored)
 
 **If you're the main conversation with the user, you are Queen Bee.** Read `team/QUEEN.md`.
 

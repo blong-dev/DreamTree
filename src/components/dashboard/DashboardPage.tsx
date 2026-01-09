@@ -16,6 +16,7 @@ import {
   TOCPartData,
 } from '@/components/dashboard';
 import { useApplyTheme } from '@/hooks/useApplyTheme';
+import { useToast } from '@/components/feedback';
 
 interface DashboardPageProps {
   userName: string;
@@ -57,6 +58,7 @@ export function DashboardPage({
   currentExerciseId,
 }: DashboardPageProps) {
   const router = useRouter();
+  const { showToast } = useToast();
   const [showTOC, setShowTOC] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('home');
 
@@ -96,7 +98,8 @@ export function DashboardPage({
       await fetch('/api/auth/logout', { method: 'POST' });
       router.push('/login');
     } catch (error) {
-      console.error('Logout error:', error);
+      console.error('[Dashboard] Logout error:', error);
+      showToast('Logout failed. Please try again.', { type: 'error' });
     }
   };
 

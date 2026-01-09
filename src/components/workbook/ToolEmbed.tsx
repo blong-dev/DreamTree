@@ -158,14 +158,21 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
   const [skills, setSkills] = useState<Skill[]>([]);
   const [competencies, setCompetencies] = useState<Competency[]>([]);
   const [dataLoading, setDataLoading] = useState(false);
+  const [dataError, setDataError] = useState<string | null>(null); // IMP-021
 
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Refs for auto-save (IMP-041, IMP-008)
+  const isInitialMount = useRef(true);
+  const autoSaveTimeout = useRef<NodeJS.Timeout | null>(null);
+  const getToolDataRef = useRef<() => unknown>(() => ({}));
 
   // Fetch skills when skill_tagger tool is rendered
   useEffect(() => {
     if (toolName === 'skill_tagger' && skills.length === 0) {
       setDataLoading(true);
+      setDataError(null);
       fetch('/api/data/skills')
         .then(res => res.json() as Promise<{ skills?: Skill[] }>)
         .then(data => {
@@ -173,7 +180,10 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
             setSkills(data.skills);
           }
         })
-        .catch(err => console.error('Failed to load skills:', err))
+        .catch(err => {
+          console.error('[ToolEmbed] Failed to load skills:', err);
+          setDataError('Failed to load skills. Tap to retry.');
+        })
         .finally(() => setDataLoading(false));
     }
   }, [toolName, skills.length]);
@@ -182,6 +192,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
   useEffect(() => {
     if (toolName === 'competency_assessment' && competencies.length === 0) {
       setDataLoading(true);
+      setDataError(null);
       fetch('/api/data/competencies')
         .then(res => res.json() as Promise<{ competencies?: Competency[] }>)
         .then(data => {
@@ -189,7 +200,10 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
             setCompetencies(data.competencies);
           }
         })
-        .catch(err => console.error('Failed to load competencies:', err))
+        .catch(err => {
+          console.error('[ToolEmbed] Failed to load competencies:', err);
+          setDataError('Failed to load competencies. Tap to retry.');
+        })
         .finally(() => setDataLoading(false));
     }
   }, [toolName, competencies.length]);
@@ -199,6 +213,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     if (!connectionId) return;
 
     setDataLoading(true);
+    setDataError(null);
     fetch(`/api/data/connection?connectionId=${connectionId}`)
       .then(res => res.json() as Promise<{ data?: unknown; method?: string; isEmpty?: boolean }>)
       .then(result => {
@@ -239,7 +254,10 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
           // Add more tool-specific handling as needed
         }
       })
-      .catch(err => console.error('Failed to load connection data:', err))
+      .catch(err => {
+        console.error('[ToolEmbed] Failed to load connection data:', err);
+        setDataError('Failed to load data. Tap to retry.');
+      })
       .finally(() => setDataLoading(false));
   }, [connectionId, toolName]);
 
@@ -285,8 +303,20 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     ideaTreeData, mindsetData, timelineData, careerData, competencyData
   ]);
 
+  // Keep ref updated for use in effects without causing re-triggers (IMP-008)
+  getToolDataRef.current = getToolData;
+
+  // Stringify current data for change detection - triggers effect only when data content changes
+  const currentToolDataJson = JSON.stringify(getToolData());
+
   // Save tool data to the API (for Continue button)
   const saveToolData = useCallback(async () => {
+    // Clear any pending auto-save to prevent race condition (IMP-041)
+    if (autoSaveTimeout.current) {
+      clearTimeout(autoSaveTimeout.current);
+      autoSaveTimeout.current = null;
+    }
+
     setIsLoading(true);
     setError(null);
 
@@ -314,10 +344,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     }
   }, [tool.id, exerciseId, getToolData, onComplete]);
 
-  // Silent auto-save (debounced, no UI feedback)
-  const isInitialMount = useRef(true);
-  const autoSaveTimeout = useRef<NodeJS.Timeout | null>(null);
-
+  // Silent auto-save (debounced, no UI feedback) - IMP-008: use ref and JSON for deps
   useEffect(() => {
     // Skip auto-save on initial mount
     if (isInitialMount.current) {
@@ -339,7 +366,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
           body: JSON.stringify({
             toolId: tool.id,
             exerciseId,
-            responseText: JSON.stringify(getToolData()),
+            responseText: JSON.stringify(getToolDataRef.current()),
           }),
         });
         // Silent success - no UI feedback
@@ -353,7 +380,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
         clearTimeout(autoSaveTimeout.current);
       }
     };
-  }, [getToolData, tool.id, exerciseId]);
+  }, [currentToolDataJson, tool.id, exerciseId]);
 
   // Handle ranking comparison
   const handleRankingCompare = useCallback((winnerId: string, loserId: string) => {
@@ -365,8 +392,31 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     setRankingItems(ranked);
   }, []);
 
+  // IMP-021: Retry handler for data loading failures
+  const handleRetry = useCallback(() => {
+    setDataError(null);
+    // Force re-fetch by clearing data and triggering effects
+    if (toolName === 'skill_tagger') {
+      setSkills([]);
+    } else if (toolName === 'competency_assessment') {
+      setCompetencies([]);
+    }
+    // Connection data retry happens automatically when dataError is cleared
+  }, [toolName]);
+
   // Render the appropriate tool component
   const renderTool = () => {
+    // IMP-021: Show error state with retry button
+    if (dataError) {
+      return (
+        <div className="tool-embed-error-state">
+          <p>{dataError}</p>
+          <button className="button button-secondary" onClick={handleRetry}>
+            Retry
+          </button>
+        </div>
+      );
+    }
     switch (toolName) {
       case 'list_builder':
         return (

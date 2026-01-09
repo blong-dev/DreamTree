@@ -1,0 +1,2 @@
+# This file ensures the private/ folder exists in git
+# Actual contents of this folder are gitignored

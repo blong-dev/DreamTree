@@ -1,9 +1,5 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { createDb } from '@/lib/db';
-import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
-import '@/types/database'; // CloudflareEnv augmentation
-
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 
 interface ProgressData {
   currentExerciseId: string;
@@ -12,33 +8,10 @@ interface ProgressData {
   percentComplete: number;
 }
 
-export async function GET(request: NextRequest) {
+export const GET = withAuth(async (_request, { userId, db }) => {
   try {
-    const cookieHeader = request.headers.get('cookie');
-    const sessionId = getSessionIdFromCookie(cookieHeader);
-
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json(
-        { error: 'Invalid session' },
-        { status: 401 }
-      );
-    }
-
-    const userId = sessionData.user.id;
-    const db = createDb(env.DB);
-
     // Get all unique exercises from stem
-    const allExercises = await db.raw
+    const allExercises = await db
       .prepare(
         `SELECT DISTINCT part || '.' || module || '.' || exercise as exercise_id
          FROM stem
@@ -50,7 +23,7 @@ export async function GET(request: NextRequest) {
     const totalExercises = allExercises.results?.length || 0;
 
     // Get exercises with at least one user response
-    const completedExercises = await db.raw
+    const completedExercises = await db
       .prepare(
         `SELECT DISTINCT exercise_id
          FROM user_responses
@@ -99,4 +72,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

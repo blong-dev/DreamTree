@@ -47,3 +47,7 @@ nul
 *.tsbuildinfo
 next-env.d.ts
 package-lock.json
+
+# private team docs
+team/private/*
+!team/private/.gitkeep

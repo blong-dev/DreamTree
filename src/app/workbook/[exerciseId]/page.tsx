@@ -96,8 +96,8 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
       if (content.type === 'heading') {
         title = content.text;
       }
-    } catch {
-      // Keep default title
+    } catch (err) {
+      console.error(`[Workbook Page] Failed to parse title for ${exerciseId}:`, err);
     }
   }
 
@@ -110,7 +110,8 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
       if (typeof (content as { inputConfig?: string }).inputConfig === 'string') {
         (content as { inputConfig: object }).inputConfig = JSON.parse((content as { inputConfig: string }).inputConfig);
       }
-    } catch {
+    } catch (err) {
+      console.error(`[Workbook Page] Failed to parse content for stem row ${row.id}:`, err);
       content = {};
     }
 

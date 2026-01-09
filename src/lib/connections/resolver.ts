@@ -25,7 +25,8 @@ export function parseConnectionParams(
 ): ParsedConnection['params'] {
   try {
     return JSON.parse(paramsJson);
-  } catch {
+  } catch (err) {
+    console.error('[ConnectionResolver] Failed to parse connection params:', err);
     return { instructions: [] };
   }
 }

@@ -6816,6 +6816,21 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   font-size: var(--text-sm);
 }
 
+/* IMP-021: Error state for data loading failures */
+.tool-embed-error-state {
+  padding: var(--space-6);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.tool-embed-error-state p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
 .tool-embed-actions {
   display: flex;
   justify-content: flex-end;
