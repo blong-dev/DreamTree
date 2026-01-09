@@ -336,20 +336,57 @@ export async function POST(request: NextRequest) {
 
 | Principle | How We Comply |
 |-----------|---------------|
-| **User owns their data** | Events linked by user_id can be exported/deleted |
-| **No PII in analytics** | Never store response content, only metadata |
-| **Aggregate by default** | Dashboard shows totals, not individuals |
-| **Transparency** | Privacy policy discloses operational metrics |
-| **Minimal collection** | Only collect what's actionable |
+| **User owns their data** | All data exportable/deletable on request |
+| **Encrypted PII** | Identity + personal reality protected |
+| **Career data analyzable** | Aspirational data drives product insights |
+| **Transparency** | Privacy policy discloses what's collected |
+| **Delete = gone** | Account deletion removes everything |
 
-### What We DON'T Track
+### Privacy Framework: WHO You Are vs. WHAT You Want
 
-- Response content (what users write)
-- Personal identifiers (name, email in events)
-- Detailed session replay
-- Third-party cookies
-- Cross-site tracking
-- IP addresses (beyond Cloudflare's basic logging)
+```
+┌─────────────────────────────────────────┐
+│  ENCRYPTED (personal reality)           │
+│  - Identity (name, email)               │
+│  - Current budget/expenses              │
+│  - Love content (Module 1.4)            │
+│  - Networking contacts (real people)    │
+├─────────────────────────────────────────┤
+│  ANALYZABLE (career aspirations)        │
+│  - Salary targets                       │
+│  - Geographic preferences               │
+│  - All career responses & tool outputs  │
+│  - Behavioral patterns                  │
+│  - Session/engagement data              │
+└─────────────────────────────────────────┘
+```
+
+### Rationale
+
+DreamTree is a **career development** tool. Career aspiration data IS the product insight:
+- What salary bands are users targeting?
+- Where do they want to work?
+- What career paths are they exploring?
+- Which exercises drive engagement?
+- What do successful completers have in common?
+
+But **personal reality** (current finances, love life, real identity) isn't our business — and users trust us more knowing that line exists.
+
+### What We CAN Analyze
+
+- **All exercise responses** (what users write about their careers)
+- **All tool outputs** (SOARED stories, skills, values, rankings)
+- **Salary targets** (career aspirations)
+- **Geographic preferences** (market data)
+- **Full behavioral data** (time, patterns, sequences)
+- **Response quality** (length, completeness, revisions)
+
+### What We CANNOT Access
+
+- Real identity (name, email — encrypted)
+- Current budget/expenses (encrypted)
+- Module 1.4 "Love" content (encrypted)
+- Networking contact details (encrypted)
 
 ### Data Retention
 

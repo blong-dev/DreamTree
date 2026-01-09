@@ -144,6 +144,7 @@ export function CompetencyAssessment({
 
             <div className="competency-assessment-list">
               {groupedCompetencies[category].map((competency) => {
+                if (!competency || !competency.id) return null;
                 const currentScore = getScore(competency.id);
                 return (
                   <div key={competency.id} className="competency-assessment-item">
@@ -158,7 +159,7 @@ export function CompetencyAssessment({
                       </span>
                     </div>
                     <p className="competency-assessment-item-def">
-                      {competency.definition}
+                      {competency.definition || ''}
                     </p>
                     <div className="competency-assessment-levels">
                       {PROFICIENCY_LEVELS.map((level) => (

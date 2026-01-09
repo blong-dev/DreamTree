@@ -41,7 +41,7 @@ export function ProfilePreview({ user }: ProfilePreviewProps) {
       )}
 
       <p className="profile-preview-visual">
-        {colorNames[user.backgroundColor]} + {fontNames[user.fontFamily]}
+        {colorNames[user.backgroundColor] || user.backgroundColor || 'Default'} + {fontNames[user.fontFamily] || user.fontFamily || 'Sans'}
       </p>
     </Link>
   );

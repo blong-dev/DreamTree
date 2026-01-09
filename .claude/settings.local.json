@@ -158,7 +158,10 @@
       "WebFetch(domain:npmjs.com)",
       "WebFetch(domain:stackoverflow.com)",
       "Bash(cmd /c \"rmdir /s /q .open-next\")",
-      "Bash(npx opennextjs-cloudflare build:*)"
+      "Bash(npx opennextjs-cloudflare build:*)",
+      "Bash(TEST_BASE_URL=https://dreamtree.org npm run test:api:*)",
+      "Bash(TEST_BASE_URL=https://dreamtree.org npx vitest run:*)",
+      "Bash(set +H)"
     ],
     "defaultMode": "acceptEdits"
   },

@@ -10,7 +10,10 @@ import { AppShell } from '../shell/AppShell';
 import { ConversationThread } from '../conversation/ConversationThread';
 import { PromptInput } from './PromptInput';
 import { ToolEmbed } from './ToolEmbed';
+import { WorkbookInputZone } from './WorkbookInputZone';
 import { useToast, SaveIndicator } from '../feedback';
+import { TextInput, TextArea } from '../forms';
+import { SendIcon } from '../icons';
 
 // Dynamic import HistoryZone to avoid SSR issues with @tanstack/react-virtual
 const HistoryZone = dynamic(() => import('./HistoryZone').then(mod => mod.HistoryZone), {
@@ -54,7 +57,6 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   const router = useRouter();
   const pathname = usePathname();
   const { showToast } = useToast();
-  const threadRef = useRef<HTMLDivElement>(null);
 
   // Track visible exercise for URL hash sync
   const handleVisibleExerciseChange = useCallback((exerciseId: string) => {
@@ -137,6 +139,10 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   // Edit state - tracks which prompt is being edited (null = not editing)
   const [editingPromptId, setEditingPromptId] = useState<number | null>(null);
 
+  // Scroll tracking for input zone collapse behavior
+  const [inputZoneCollapsed, setInputZoneCollapsed] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
   // Track which message IDs have been animated (ink permanence - never re-animate)
   // For returning users, pre-populate with IDs of messages they've already seen
   const animatedMessageIdsRef = useRef<Set<string>>(new Set());
@@ -185,13 +191,52 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   // Track if current content block animation is complete (for showing Continue)
   const [currentAnimationComplete, setCurrentAnimationComplete] = useState(false);
 
+  // Track if current prompt question animation is complete (for auto-revealing input)
+  // Initialized to true if returning user's current block is an already-animated prompt
+  const [promptAnimationComplete, setPromptAnimationComplete] = useState(() => {
+    if (savedResponses.length > 0) {
+      // Returning user - check if current block is an already-animated prompt
+      const interactiveBlocks = exercise.blocks.filter(b => b.blockType === 'prompt' || b.blockType === 'tool');
+      const firstUnanswered = interactiveBlocks.findIndex(b => {
+        if (b.blockType === 'prompt') {
+          const promptData = b.content as PromptData;
+          const promptId = promptData.id;
+          if (promptId === undefined) return true;
+          return !promptResponseMap.has(promptId);
+        } else if (b.blockType === 'tool') {
+          const toolData = b.content as ToolData;
+          const toolId = toolData.id;
+          if (toolId === undefined) return true;
+          return !toolResponseMap.has(toolId);
+        }
+        return false;
+      });
+      const initialDisplayIndex = firstUnanswered === -1
+        ? exercise.blocks.length
+        : exercise.blocks.indexOf(interactiveBlocks[firstUnanswered]) + 1;
+
+      const currentBlock = exercise.blocks[initialDisplayIndex - 1];
+      // If current block is prompt and would be pre-animated, start with true
+      if (currentBlock?.blockType === 'prompt') {
+        return true; // Returning user at prompt - show input immediately
+      }
+    }
+    return false;
+  });
+
   // Callback when a message animation completes - add to the permanent set
   const handleMessageAnimated = useCallback((messageId: string) => {
     animatedMessageIdsRef.current.add(messageId);
-    // Check if this is the current content block - if so, mark animation complete
     const currentBlock = exercise.blocks[displayedBlockIndex - 1];
+
+    // Content blocks - mark animation complete for Continue button
     if (currentBlock?.blockType === 'content' && messageId === `block-${currentBlock.id}`) {
       setCurrentAnimationComplete(true);
+    }
+
+    // Prompt blocks - when question text animation completes, auto-reveal input
+    if (currentBlock?.blockType === 'prompt' && messageId === `prompt-${currentBlock.id}`) {
+      setPromptAnimationComplete(true);
     }
   }, [exercise.blocks, displayedBlockIndex]);
 
@@ -200,8 +245,20 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   const prevDisplayedBlockIndexRef = useRef(displayedBlockIndex);
   useEffect(() => {
     if (displayedBlockIndex > prevDisplayedBlockIndexRef.current) {
-      // Reset animation complete for new block
+      // Reset animation states for new block
       setCurrentAnimationComplete(false);
+      setPromptAnimationComplete(false);
+
+      // Check if the NEW current block is a prompt that's already animated
+      const newCurrentBlock = exercise.blocks[displayedBlockIndex - 1];
+      if (newCurrentBlock?.blockType === 'prompt') {
+        const promptMsgId = `prompt-${newCurrentBlock.id}`;
+        if (animatedMessageIdsRef.current.has(promptMsgId)) {
+          // Already animated (returning user scrolled back) - show input immediately
+          setPromptAnimationComplete(true);
+        }
+      }
+
       // Mark all blocks BEFORE the new one as animated (they should be "inked")
       for (let i = 0; i < displayedBlockIndex - 1 && i < exercise.blocks.length; i++) {
         const block = exercise.blocks[i];
@@ -358,6 +415,32 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       setDisplayedBlockIndex(prev => prev + 1);
     }
   }, [displayedBlockIndex, exercise.blocks.length]);
+
+  // Scroll tracking for input zone collapse
+  useEffect(() => {
+    const container = scrollContainerRef.current;
+    if (!container) return;
+
+    const handleScroll = () => {
+      const scrollTop = container.scrollTop;
+      const viewportHeight = window.innerHeight;
+      // Collapse input zone after scrolling more than one viewport height
+      setInputZoneCollapsed(scrollTop > viewportHeight);
+    };
+
+    container.addEventListener('scroll', handleScroll);
+    return () => container.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Expand input zone (called from collapsed state)
+  const handleExpandInputZone = useCallback(() => {
+    setInputZoneCollapsed(false);
+    // Scroll to bottom to show the input in context
+    scrollContainerRef.current?.scrollTo({
+      top: scrollContainerRef.current.scrollHeight,
+      behavior: 'smooth',
+    });
+  }, []);
 
   // Global Enter key handler for continue
   useEffect(() => {
@@ -595,25 +678,35 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   const isExerciseComplete = displayedBlockIndex >= exercise.blocks.length &&
     !activePrompt && !activeTool;
 
+  // Determine what's active for input zone
+  const hasTextInput = (inputType === 'text' || inputType === 'textarea') && promptAnimationComplete;
+  const hasStructuredInput = !!(activePrompt && inputType === 'none' && promptAnimationComplete);
+  const hasToolInput = !!activeTool;
+  const hasContinue = !!(
+    (waitingForContinue && currentAnimationComplete) ||
+    (isExerciseComplete && exercise.nextExerciseId)
+  );
+  const hasActiveInput = hasTextInput || hasStructuredInput || hasToolInput || hasContinue;
+
+  // Get collapsed label based on current input type
+  const getCollapsedLabel = () => {
+    if (hasTextInput) return 'Tap to respond';
+    if (hasStructuredInput) return 'Tap to respond';
+    if (hasToolInput) return 'Tap to use tool';
+    if (hasContinue) return 'Tap to continue';
+    return 'Tap to continue';
+  };
+
   return (
     <AppShell
       currentLocation={breadcrumbLocation}
       showBreadcrumb={true}
-      showInput={inputType !== 'none' && !activeTool}
-      inputType={inputType}
-      inputValue={inputValue}
-      inputPlaceholder={
-        activePrompt
-          ? (activePrompt.content as PromptData).inputConfig?.placeholder || 'Type your response...'
-          : 'Type here...'
-      }
-      onInputChange={setInputValue}
-      onInputSubmit={handleSaveResponse}
+      showInput={false}
       activeNavItem="home"
       hideContents={true}
       onNavigate={handleNavigate}
     >
-      <div className="workbook-view" ref={threadRef}>
+      <div className="workbook-view" ref={scrollContainerRef}>
         {/* History zone: shows past exercises in a virtualized list */}
         <HistoryZone
           currentExerciseId={exercise.exerciseId}
@@ -634,35 +727,79 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
           onMessageAnimated={handleMessageAnimated}
           scrollTrigger={displayedBlockIndex}
         />
+      </div>
 
+      {/* Unified input zone - fixed at bottom */}
+      <WorkbookInputZone
+        collapsed={inputZoneCollapsed}
+        onExpand={handleExpandInputZone}
+        hasActiveInput={hasActiveInput}
+        collapsedLabel={getCollapsedLabel()}
+      >
         {/* Auto-save indicator for text inputs */}
-        {(inputType === 'text' || inputType === 'textarea') && autoSaveStatus !== 'idle' && (
+        {hasTextInput && autoSaveStatus !== 'idle' && (
           <div className="workbook-autosave">
             <SaveIndicator status={autoSaveStatus} />
           </div>
         )}
 
+        {/* Text input */}
+        {hasTextInput && (
+          <div className="workbook-input-zone-text">
+            {inputType === 'textarea' ? (
+              <TextArea
+                value={inputValue}
+                onChange={setInputValue}
+                placeholder={
+                  activePrompt
+                    ? (activePrompt.content as PromptData).inputConfig?.placeholder || 'Type your response...'
+                    : 'Type here...'
+                }
+                minRows={3}
+              />
+            ) : (
+              <TextInput
+                value={inputValue}
+                onChange={setInputValue}
+                onSubmit={() => handleSaveResponse(inputValue)}
+                placeholder={
+                  activePrompt
+                    ? (activePrompt.content as PromptData).inputConfig?.placeholder || 'Type your response...'
+                    : 'Type here...'
+                }
+              />
+            )}
+            <button
+              className="button button-primary"
+              onClick={() => handleSaveResponse(inputValue)}
+              disabled={isSaving || !inputValue.trim()}
+              aria-label="Send"
+            >
+              <SendIcon />
+            </button>
+          </div>
+        )}
+
         {/* Structured prompt input (non-text types) */}
-        {activePrompt && inputType === 'none' && (
+        {hasStructuredInput && (
           <PromptInput
-            prompt={activePrompt.content as PromptData}
+            prompt={activePrompt!.content as PromptData}
             onSubmit={handleSaveResponse}
             disabled={isSaving}
           />
         )}
 
         {/* Tool embed */}
-        {activeTool && (
+        {hasToolInput && (
           <ToolEmbed
-            tool={activeTool.content as ToolData}
+            tool={activeTool!.content as ToolData}
             exerciseId={exercise.exerciseId}
-            connectionId={activeTool.connectionId}
+            connectionId={activeTool!.connectionId}
             onComplete={handleToolComplete}
           />
         )}
 
         {/* Continue button for content blocks */}
-        {/* Only show Continue after animation completes - prevents click-to-skip from advancing */}
         {waitingForContinue && currentAnimationComplete && (
           <div className="workbook-continue">
             <button
@@ -685,7 +822,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
             </button>
           </div>
         )}
-      </div>
+      </WorkbookInputZone>
     </AppShell>
   );
 }
