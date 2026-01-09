@@ -631,7 +631,12 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
 
     } catch (error) {
       console.error('Error saving response:', error);
-      showToast('Failed to save your response. Please try again.', { type: 'error' });
+      // IMP-025: Differentiate error types
+      if (error instanceof TypeError && (error.message.includes('fetch') || error.message.includes('Failed to fetch'))) {
+        showToast('Unable to connect. Check your internet connection.', { type: 'error' });
+      } else {
+        showToast('Failed to save your response. Please try again.', { type: 'error' });
+      }
     } finally {
       setIsSaving(false);
     }

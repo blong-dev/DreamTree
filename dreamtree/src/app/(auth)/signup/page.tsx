@@ -40,8 +40,13 @@ export default function SignupPage() {
 
       // Redirect to onboarding to complete profile setup
       router.push('/onboarding');
-    } catch {
-      setError('An error occurred. Please try again.');
+    } catch (err) {
+      // IMP-025: Differentiate error types
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError('Unable to connect. Check your internet connection.');
+      } else {
+        setError('An unexpected error occurred. Please try again.');
+      }
     } finally {
       setIsLoading(false);
     }

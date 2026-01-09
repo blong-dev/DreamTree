@@ -210,3 +210,16 @@ export function isEncrypted(value: string | null): boolean {
     return false;
   }
 }
+
+/**
+ * Hash an email address for lookup (deterministic, non-reversible)
+ * Used for email lookup without storing plaintext email
+ */
+export async function hashEmail(email: string): Promise<string> {
+  const normalizedEmail = email.toLowerCase().trim();
+  const encoder = new TextEncoder();
+  const data = encoder.encode(normalizedEmail);
+  const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+}

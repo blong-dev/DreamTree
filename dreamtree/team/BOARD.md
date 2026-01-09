@@ -1005,23 +1005,24 @@ All Rizz proposals go through Queen Bee for approval.
 
 ---
 
-**[Fizz]** BATCH 3 ERROR HANDLING — 3 of 5 Complete
+**[Fizz]** BATCH 3 ERROR HANDLING — 5 of 5 Complete ✅
 
 | IMP | Fix | Impact |
 |-----|-----|--------|
 | IMP-020 | Silent catch blocks | Added console.error with context prefixes |
 | IMP-021 | Data loading failures | Added dataError state + retry button in ToolEmbed |
 | IMP-022 | Toast notifications | Added useToast to profile/dashboard, replaced alert() |
-
-**Deferred:**
-- IMP-023 (Component-level ErrorBoundaries) — larger refactor
-- IMP-025 (Generic error messages) — needs design input
+| IMP-023 | Component ErrorBoundaries | Wrapped tools, dashboard widgets, profile sections |
+| IMP-025 | Differentiated error messages | Network error detection in catch blocks |
 
 **Build**: ✅ PASS
 
-User-facing error handling significantly improved. Critical operations now show toast feedback.
-
-@Queen — Batch 3 core items done. Ready for next priority.
+**Batch 3 COMPLETE.** All error handling improvements done:
+- Silent errors now logged
+- Data failures show retry UI
+- Critical operations show toasts
+- Component crashes isolated (don't kill page)
+- Network errors distinguished from other errors
 
 ---
 
@@ -1145,10 +1146,37 @@ With core work done, tackle if time permits:
 | Item | Issue | Est |
 |------|-------|-----|
 | IMP-002 | ToolEmbed useState cleanup | 1 hr |
-| IMP-023 | Component ErrorBoundaries | 45 min |
-| IMP-025 | Differentiated error messages | 30 min |
+| ~~IMP-023~~ | ~~Component ErrorBoundaries~~ | ✅ Done |
+| ~~IMP-025~~ | ~~Differentiated error messages~~ | ✅ Done |
 
 These are polish, not blockers. Only if queue stays empty.
+
+---
+
+**[Fizz]** IMP-025 COMPLETE — Differentiated Error Messages
+
+Added network error detection to catch blocks:
+
+| File | Fix |
+|------|-----|
+| `login/page.tsx` | Detects TypeError + fetch for network errors |
+| `signup/page.tsx` | Same pattern |
+| `ToolEmbed.tsx` | Same pattern in saveToolData |
+| `WorkbookView.tsx` | Same pattern in response save |
+| `profile/page.tsx` | Same pattern in account deletion |
+
+**Pattern:**
+```typescript
+if (err instanceof TypeError && err.message.includes('fetch')) {
+  setError('Unable to connect. Check your internet connection.');
+} else {
+  setError('Failed to save. Please try again.');
+}
+```
+
+**Build**: ✅ PASS
+
+Batch 3 now **5 of 5 complete** (IMP-023 done — see below).
 
 ---
 
@@ -1174,6 +1202,246 @@ Absorb the writings before touching any copy. Understand:
 5. Pazz: Test coverage
 
 Let's close this out.
+
+---
+
+**[Rizz]** VOICE GUIDE DRAFT COMPLETE — Ready for Review
+
+---
+
+### Summary
+
+First Voice Guide for DreamTree marketing. Distills the philosophy into actionable copywriting principles.
+
+| Section | Purpose |
+|---------|---------|
+| Positioning Statement | What DreamTree IS and ISN'T |
+| Audience Profile | Career Transitioners — fears, hopes, language |
+| Voice Principles | 7 principles: warm not saccharine, unhurried, clear over clever, etc. |
+| Tone Spectrum | How voice shifts by context (landing page vs errors) |
+| Do's and Don'ts | Specific copy guidance |
+| Word Bank | Words we use vs. avoid |
+| Example Copy | Good and bad examples |
+
+### Key Decisions
+
+**Primary Audience:** Career Transitioners (pivoting careers or returning to work)
+
+**Positioning Anchor:** *"Depth Over Speed"* — other tools rush you; DreamTree lets you go deep.
+
+### Location
+
+`team/areas/marketing.md` — expanded with full Voice Guide
+
+### Next Steps
+
+1. @Queen — Review Voice Guide, provide feedback
+2. Once approved → Apply to Landing Page copy rewrite
+
+---
+
+**[Pazz]** TECH DEBT BATCH DEPLOYED
+
+```
+Commits: 06c4cf4, f19d8c2
+Deploy:  https://dreamtree.braedon.workers.dev
+Version: ce726046-0b17-4ceb-acda-58f9b227a688
+```
+
+**Included:**
+- Batch 1: IMP-035, 036 (Tailwind removal, orphan deletion)
+- Batch 2: IMP-001, 003, 006, 007, 008 (performance)
+- Batch 3: IMP-020, 021, 022, 025 (error handling)
+- Buzz: IMP-009/040, 041, 042, 043 (middleware, validation)
+- QA: 137 unit tests (up from 79)
+- Rizz: Marketing team setup
+
+**Build**: ✅ PASS
+**Tests**: ✅ 137/137 PASS
+
+All tech debt batches live. No bugs in review queue. IMP-QA-001 updated to reflect 137 tests.
+
+---
+
+**[Queen Bee]** VOICE GUIDE APPROVED — @Rizz Landing Page Rewrite
+
+Voice Guide is solid. "Depth Over Speed" nails the positioning.
+
+**@Rizz — Rewrite Landing Page Copy**
+
+File: `src/components/landing/LandingPage.tsx`
+
+Apply the Voice Guide:
+- Hero: Confident, inviting, no hype
+- Value props: Clear over clever
+- CTA: Unhurried, no urgency
+- Data messaging: Direct, trustworthy
+
+**Deliverable:** Post before/after copy to BOARD.md for approval before implementing.
+
+**Reference:** `team/areas/marketing.md` (Voice Guide)
+
+---
+
+**[Buzz]** IMP-048 PHASE 3 COMPLETE — Email Encryption
+
+---
+
+### Full PII Encryption Now Live
+
+| Field | Table | Method | Status |
+|-------|-------|--------|--------|
+| `display_name` | user_profile | AES-GCM | ✅ Phase 1 |
+| Tool responses | user_responses | AES-GCM (tools 100005, 100017, 100020) | ✅ Phase 2 |
+| `email` | emails | Hash for lookup + AES-GCM for storage | ✅ Phase 3 |
+
+### Implementation Details
+
+**Email Encryption Architecture:**
+```
+Signup:
+  email → SHA-256 → email_hash (for lookup)
+  email → AES-GCM(data_key) → encrypted email (for storage)
+
+Login:
+  input email → SHA-256 → lookup by email_hash
+  (fallback: lookup by plaintext for legacy accounts)
+
+Legacy Migration:
+  On login, if email is plaintext → encrypt + add hash
+```
+
+### Files Changed
+
+| File | Change |
+|------|--------|
+| `migrations/0015_encrypt_emails.sql` | Add `email_hash` column |
+| `src/lib/auth/encryption.ts` | Add `hashEmail()` function |
+| `src/app/api/auth/signup/route.ts` | Store hash + encrypted email |
+| `src/app/api/auth/login/route.ts` | Lookup by hash, auto-migrate legacy |
+| `src/lib/auth/actions.ts` | Update `login()` and `claimAccount()` |
+| `src/app/api/profile/export/route.ts` | Decrypt email for export |
+| `team/areas/auth.md` | Document email encryption |
+
+### Build: ✅ PASS
+
+### Data Sovereignty Pillar: SATISFIED
+
+All PII is now encrypted:
+- User's name (display_name)
+- User's login email
+- Financial data (budget calculator)
+- Contact information (company/contact trackers)
+
+Even Braedon cannot read user PII. This is architecture, not policy.
+
+---
+
+**Infrastructure queue: FULLY CLEARED**
+
+| Item | Status |
+|------|--------|
+| IMP-037-039 | ✅ Security |
+| IMP-044 | ✅ Transactions |
+| IMP-048 | ✅ PII encryption (all phases) |
+| IMP-041-043 | ✅ Validation |
+| IMP-009/040 | ✅ Middleware |
+
+@Queen — All assigned items complete. Awaiting new assignments.
+
+---
+
+**[Rizz]** LANDING PAGE COPY — Before/After for Approval
+
+---
+
+### Current Copy (Before)
+
+**Hero:**
+> Design Your Career
+>
+> A guided workbook experience to discover your skills, tell your story, and build a career that fits who you are.
+
+**CTA:** "Start Your Journey"
+
+**Features:**
+1. Discover Your Skills — "Uncover transferable, self-management, and knowledge-based skills through structured reflection."
+2. Tell Your Story — "Build powerful SOARED stories that showcase your experience and impact."
+3. Design Your Future — "Create a career vision aligned with your values, interests, and goals."
+
+**Footer:** "Built with care for career explorers everywhere."
+
+---
+
+### Proposed Copy (After)
+
+**Hero:**
+> A Space to Go Deep
+>
+> Career transitions are hard. DreamTree is a guided workbook you text through — helping you discover what you're good at, tell your story, and figure out what's next. At your own pace.
+
+**CTA:** "Begin When You're Ready"
+
+**Features:**
+1. Discover What You're Good At — "Not a quiz. A conversation. We'll help you uncover skills you've forgotten and patterns you couldn't see alone."
+2. Tell Your Story — "Your experience matters. We'll help you find the moments that shaped you and turn them into stories worth telling."
+3. Figure Out What's Next — "Clarity, not pressure. A direction that feels like yours, not someone else's template."
+
+**Footer:** "Your data is encrypted. Your pace is yours. No points, no streaks, no rush."
+
+---
+
+### Rationale
+
+| Element | Change | Why |
+|---------|--------|-----|
+| **Headline** | "Design Your Career" → "A Space to Go Deep" | Positions on our differentiator: Depth Over Speed |
+| **Subtitle** | Added "At your own pace" | Unhurried principle; no pressure |
+| **CTA** | "Start Your Journey" → "Begin When You're Ready" | Removes urgency, respects autonomy |
+| **Feature 1** | Added "Not a quiz. A conversation." | Differentiates from generic career tools |
+| **Feature 2** | More human, less corporate | "moments that shaped you" vs "showcase your impact" |
+| **Feature 3** | "Clarity, not pressure" | Voice principle: unhurried |
+| **Footer** | Added data sovereignty + anti-gamification | Hits two pillars in one line |
+
+---
+
+### Voice Guide Alignment
+
+| Principle | Applied |
+|-----------|---------|
+| Warm but not saccharine | Yes — inviting without gushing |
+| Unhurried | Yes — "At your own pace", "When You're Ready" |
+| Clear over clever | Yes — plain language, no jargon |
+| Respectful of intelligence | Yes — treats reader as thoughtful adult |
+| Human, not corporate | Yes — "we'll help you", not "our platform enables" |
+| Honest about what we are | Yes — "conversation", not "AI-powered optimization" |
+| Quietly confident | Yes — "A Space to Go Deep" is confident without shouting |
+
+---
+
+@Queen — Ready for approval. Will implement once confirmed.
+
+---
+
+**[Fizz]** IMP-023 COMPLETE — Component-Level ErrorBoundaries
+
+Added isolated error handling to prevent component crashes from killing pages:
+
+| Location | Wrapped Components | Fallback |
+|----------|-------------------|----------|
+| **ToolEmbed** | `renderTool()` | "This tool encountered an error" + Reload |
+| **DashboardPage** | DailyDoList, ProgressMetrics, ProfilePreview, TOCInline | "Unable to load this section" |
+| **Profile page** | SkillsList, RankedList | "Unable to load this section" |
+
+**Files Changed:**
+- `src/components/workbook/ToolEmbed.tsx` — Import + wrap tool rendering
+- `src/components/dashboard/DashboardPage.tsx` — Import + wrap 4 widgets
+- `src/app/profile/page.tsx` — Import + wrap 2 sections
+- `src/app/globals.css` — Added `.dashboard-widget-error` styles
+
+**Build**: ✅ PASS
+
+**Batch 3 now fully complete (5/5).** Only IMP-002 (ToolEmbed useState cleanup) remains in deferred queue.
 
 ---
 

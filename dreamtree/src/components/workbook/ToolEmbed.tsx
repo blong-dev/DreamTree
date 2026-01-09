@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import type { ToolData } from './types';
+import { ErrorBoundary } from '../feedback';
 
 // Import all tool components
 import {
@@ -338,7 +339,12 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
       onComplete();
     } catch (err) {
       console.error('Error saving tool:', err);
-      setError('Failed to save. Please try again.');
+      // IMP-025: Differentiate error types
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        setError('Unable to connect. Check your internet connection.');
+      } else {
+        setError('Failed to save. Please try again.');
+      }
     } finally {
       setIsLoading(false);
     }
@@ -573,7 +579,22 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
       )}
 
       <div className="tool-embed-content">
-        {renderTool()}
+        {/* IMP-023: Isolate tool crashes from killing the workbook */}
+        <ErrorBoundary
+          fallback={
+            <div className="tool-embed-error-state">
+              <p>This tool encountered an error.</p>
+              <button
+                className="button button-secondary"
+                onClick={() => window.location.reload()}
+              >
+                Reload Page
+              </button>
+            </div>
+          }
+        >
+          {renderTool()}
+        </ErrorBoundary>
       </div>
 
       {error && (

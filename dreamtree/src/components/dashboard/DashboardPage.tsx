@@ -16,7 +16,16 @@ import {
   TOCPartData,
 } from '@/components/dashboard';
 import { useApplyTheme } from '@/hooks/useApplyTheme';
-import { useToast } from '@/components/feedback';
+import { useToast, ErrorBoundary } from '@/components/feedback';
+
+// IMP-023: Inline fallback for widget crashes
+function WidgetErrorFallback() {
+  return (
+    <div className="dashboard-widget-error">
+      <p>Unable to load this section.</p>
+    </div>
+  );
+}
 
 interface DashboardPageProps {
   userName: string;
@@ -127,26 +136,34 @@ export function DashboardPage({
           {dailyDos.length > 0 && (
             <section className="dashboard-section">
               <h2 className="dashboard-section-title">Daily Do&apos;s</h2>
-              <DailyDoList items={dailyDos} />
+              <ErrorBoundary fallback={<WidgetErrorFallback />}>
+                <DailyDoList items={dailyDos} />
+              </ErrorBoundary>
             </section>
           )}
 
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Your Progress</h2>
-            <ProgressMetrics metrics={progressMetrics} />
+            <ErrorBoundary fallback={<WidgetErrorFallback />}>
+              <ProgressMetrics metrics={progressMetrics} />
+            </ErrorBoundary>
           </section>
 
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Profile Preview</h2>
-            <ProfilePreview user={userPreview} />
+            <ErrorBoundary fallback={<WidgetErrorFallback />}>
+              <ProfilePreview user={userPreview} />
+            </ErrorBoundary>
           </section>
 
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Workbook</h2>
-            <TOCInline
-              parts={tocParts}
-              onNavigate={handleTOCNavigate}
-            />
+            <ErrorBoundary fallback={<WidgetErrorFallback />}>
+              <TOCInline
+                parts={tocParts}
+                onNavigate={handleTOCNavigate}
+              />
+            </ErrorBoundary>
             <button
               className="button button-ghost button-sm"
               style={{ marginTop: 'var(--space-4)' }}

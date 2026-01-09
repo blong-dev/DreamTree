@@ -18,6 +18,8 @@ import {
   generateSalt,
   encodeSalt,
   storeDataKeyInSession,
+  hashEmail,
+  encryptField,
 } from '@/lib/auth';
 import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
@@ -78,10 +80,13 @@ export async function POST(request: NextRequest) {
     }
     const normalizedEmail = email.toLowerCase().trim();
 
-    // Check if email is already taken
+    // Hash email for lookup (IMP-048 Phase 3)
+    const emailHash = await hashEmail(normalizedEmail);
+
+    // Check if email is already taken (lookup by hash)
     const existingEmail = await db
-      .prepare('SELECT id FROM emails WHERE email = ?')
-      .bind(normalizedEmail)
+      .prepare('SELECT id FROM emails WHERE email_hash = ?')
+      .bind(emailHash)
       .first();
 
     if (existingEmail) {
@@ -109,6 +114,9 @@ export async function POST(request: NextRequest) {
     const wrappedDataKey = await wrapDataKey(dataKey, wrappingKey);
     const storedKey = `${encodeSalt(salt)}:${wrappedDataKey}`;
 
+    // Encrypt email for storage (IMP-048 Phase 3)
+    const encryptedEmail = await encryptField(normalizedEmail, dataKey);
+
     // Execute all 7 inserts as a batch transaction (IMP-044)
     // If any insert fails, none persist — no orphan records
     await db.batch([
@@ -128,13 +136,13 @@ export async function POST(request: NextRequest) {
         )
         .bind(authId, userId, passwordHash, storedKey, now, now),
 
-      // 3. Create email record
+      // 3. Create email record with hash for lookup, encrypted for privacy (IMP-048)
       db
         .prepare(
-          `INSERT INTO emails (id, user_id, email, is_active, added_at)
-           VALUES (?, ?, ?, 1, ?)`
+          `INSERT INTO emails (id, user_id, email, email_hash, is_active, added_at)
+           VALUES (?, ?, ?, ?, 1, ?)`
         )
-        .bind(emailId, userId, normalizedEmail, now),
+        .bind(emailId, userId, encryptedEmail, emailHash, now),
 
       // 4. Create session
       db

@@ -193,7 +193,7 @@
 - **SQL injection** (IMP-037, IMP-038) — **DONE** via input validation
 - **Rate limiting** (IMP-039) — **DONE** via Cloudflare WAF
 - **Transaction rollback** (IMP-044) — **DONE** via db.batch() atomic transactions
-- **PII encryption** (IMP-048) — **DONE** for tool responses (budget, contacts)
+- **PII encryption** (IMP-048) — **FULLY DONE**: display_name, emails (hash+encrypted), tool responses (budget, contacts, company)
 - **BUG-009 is a soul violation** — prioritize highly
 - **Batching by specialty** keeps context consistent
 - **Fizz owns UI** — workbook, conversation, components, error UX

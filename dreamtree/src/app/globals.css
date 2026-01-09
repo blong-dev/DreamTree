@@ -4765,6 +4765,16 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   text-decoration: underline;
 }
 
+/* IMP-023: Dashboard widget error fallback */
+.dashboard-widget-error {
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+}
+
 /* Dashboard Greeting */
 .dashboard-greeting {
   font-size: var(--text-2xl);
