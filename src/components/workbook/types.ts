@@ -53,7 +53,8 @@ export interface ExerciseContent {
 
 export interface SavedResponse {
   id: string;
-  prompt_id: number;
+  prompt_id: number | null;
+  tool_id: number | null;
   exercise_id: string;
   activity_id: string | null;
   response_text: string | null;

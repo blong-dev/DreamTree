@@ -1,291 +1,221 @@
-'use client';
-
-import { useState, useEffect, useCallback } from 'react';
-import { useRouter } from 'next/navigation';
-import { OnboardingFlow, OnboardingData } from '@/components/onboarding';
-import { AppShell, NavItemId } from '@/components/shell';
-import { TOCPanel, WorkbookProgress } from '@/components/overlays';
+import { cookies } from 'next/headers';
+import { redirect } from 'next/navigation';
+import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getSessionData } from '@/lib/auth';
+import { createDb } from '@/lib/db';
 import {
-  DashboardGreeting,
-  DailyDoList,
-  ProgressMetrics,
-  ProfilePreview,
-  TOCInline,
+  DashboardPage,
   DailyDo,
   ProgressMetricData,
-  UserPreview,
   TOCPartData,
+  UserPreview,
   BackgroundColorId,
   FontFamilyId,
 } from '@/components/dashboard';
+import { LandingPage } from '@/components/landing';
+import type { Env } from '@/types/database';
 
-// Mock data for development - will be replaced with real data fetching
-const MOCK_DAILY_DOS: DailyDo[] = [
-  {
-    id: '1',
-    type: 'flow-tracking',
-    title: 'Track Your Flow State',
-    subtitle: 'Log an activity where you lost track of time',
-    action: { label: 'Log Flow', href: '/tools/flow-tracker' },
-  },
-  {
-    id: '2',
-    type: 'soared-prompt',
-    title: 'SOARED Story Prompt',
-    subtitle: 'Think of a time you helped someone solve a problem',
-    action: { label: 'Write Story', href: '/tools/soared-form' },
-  },
-];
+export const runtime = 'edge';
 
-const MOCK_PROGRESS: ProgressMetricData[] = [
-  { value: '32%', label: 'Workbook Complete' },
-  { value: 12, label: 'SOARED Stories' },
-  { value: 47, label: 'Skills Tagged' },
-  { value: 5, label: 'Day Streak' },
-];
+// Get user's current exercise (first uncompleted)
+async function getCurrentExerciseId(db: ReturnType<typeof createDb>, userId: string): Promise<string> {
+  try {
+    const allExercises = await db.raw
+      .prepare(
+        `SELECT DISTINCT part || '.' || module || '.' || exercise as exercise_id
+         FROM stem
+         WHERE part <= 2
+         ORDER BY part, module, exercise`
+      )
+      .all<{ exercise_id: string }>();
 
-const MOCK_TOC: TOCPartData[] = [
-  {
-    id: '1',
-    title: 'Part 1: Roots',
-    progress: 65,
-    status: 'in-progress',
-    modules: [
-      {
-        id: '1.1',
-        title: 'Module 1: Your Story',
-        status: 'complete',
-        exercises: [
-          { id: '1.1.1', title: 'Introduction', status: 'complete' },
-          { id: '1.1.2', title: 'Life Timeline', status: 'complete' },
-        ],
-      },
-      {
-        id: '1.2',
-        title: 'Module 2: Values',
-        status: 'in-progress',
-        exercises: [
-          { id: '1.2.1', title: 'Values Sort', status: 'complete' },
-          { id: '1.2.2', title: 'Values in Action', status: 'in-progress' },
-          { id: '1.2.3', title: 'Values Statement', status: 'available' },
-        ],
-      },
-    ],
-  },
-  {
-    id: '2',
-    title: 'Part 2: Trunk',
-    progress: 0,
-    status: 'locked',
-    modules: [],
-  },
-  {
-    id: '3',
-    title: 'Part 3: Branches',
-    progress: 0,
-    status: 'locked',
-    modules: [],
-  },
-];
+    const completedExercises = await db.raw
+      .prepare(
+        `SELECT DISTINCT exercise_id
+         FROM user_responses
+         WHERE user_id = ?`
+      )
+      .bind(userId)
+      .all<{ exercise_id: string }>();
 
-// Convert TOCPartData to WorkbookProgress format for TOCPanel
-function toWorkbookProgress(parts: TOCPartData[]): WorkbookProgress {
-  return {
-    parts: parts.map((part) => ({
-      id: part.id,
-      title: part.title,
-      status: part.status,
-      percentComplete: part.progress,
-      modules: part.modules.map((mod) => ({
-        id: mod.id,
-        title: mod.title,
-        status: mod.status,
-        exercises: mod.exercises.map((ex) => ({
-          id: ex.id,
-          title: ex.title,
-          status: ex.status,
-        })),
-      })),
-    })),
-  };
+    const completedIds = new Set(
+      completedExercises.results?.map(r => r.exercise_id) || []
+    );
+
+    if (allExercises.results) {
+      for (const ex of allExercises.results) {
+        if (!completedIds.has(ex.exercise_id)) {
+          return ex.exercise_id;
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Error getting current exercise:', error);
+  }
+
+  return '1.1.1';
 }
 
-export default function Home() {
-  const router = useRouter();
-  const [needsOnboarding, setNeedsOnboarding] = useState<boolean | null>(null);
-  const [userData, setUserData] = useState<OnboardingData | null>(null);
-  const [showTOC, setShowTOC] = useState(false);
-  const [activeNavItem, setActiveNavItem] = useState<NavItemId>('home');
+// Get progress metrics for dashboard
+async function getProgressMetrics(db: ReturnType<typeof createDb>, userId: string): Promise<ProgressMetricData[]> {
+  try {
+    // Get total exercises and completed count
+    const totalExercises = await db.raw
+      .prepare(
+        `SELECT COUNT(DISTINCT part || '.' || module || '.' || exercise) as count
+         FROM stem WHERE part <= 2`
+      )
+      .first<{ count: number }>();
 
-  useEffect(() => {
-    // Check if user has completed onboarding
-    const savedData = localStorage.getItem('dreamtree_user');
-    if (savedData) {
-      try {
-        const parsed = JSON.parse(savedData);
-        setUserData(parsed);
-        setNeedsOnboarding(false);
-        // Apply saved theme
-        applyTheme(parsed);
-      } catch {
-        setNeedsOnboarding(true);
-      }
-    } else {
-      setNeedsOnboarding(true);
-    }
-  }, []);
+    const completedExercises = await db.raw
+      .prepare(
+        `SELECT COUNT(DISTINCT exercise_id) as count
+         FROM user_responses WHERE user_id = ?`
+      )
+      .bind(userId)
+      .first<{ count: number }>();
 
-  const handleOnboardingComplete = (data: OnboardingData) => {
-    localStorage.setItem('dreamtree_user', JSON.stringify(data));
-    setUserData(data);
-    setNeedsOnboarding(false);
-    applyTheme(data);
-  };
+    const total = totalExercises?.count || 100;
+    const completed = completedExercises?.count || 0;
+    const percentage = Math.round((completed / total) * 100);
 
-  const handleNavigate = useCallback(
-    (id: NavItemId) => {
-      setActiveNavItem(id);
-      if (id === 'contents') {
-        setShowTOC(true);
-      } else if (id === 'profile') {
-        router.push('/profile');
-      } else if (id === 'tools') {
-        router.push('/tools');
-      }
+    // Get SOARED story count
+    const soaredCount = await db.raw
+      .prepare(
+        `SELECT COUNT(*) as count FROM user_responses ur
+         JOIN prompts p ON ur.prompt_id = p.id
+         WHERE ur.user_id = ? AND p.input_type = 'textarea'`
+      )
+      .bind(userId)
+      .first<{ count: number }>();
+
+    return [
+      { value: `${percentage}%`, label: 'Workbook Complete' },
+      { value: soaredCount?.count || 0, label: 'SOARED Stories' },
+      { value: completed, label: 'Exercises Done' },
+      { value: 1, label: 'Day Streak' },
+    ];
+  } catch (error) {
+    console.error('Error getting progress metrics:', error);
+    return [
+      { value: '0%', label: 'Workbook Complete' },
+      { value: 0, label: 'SOARED Stories' },
+      { value: 0, label: 'Exercises Done' },
+      { value: 0, label: 'Day Streak' },
+    ];
+  }
+}
+
+// Get TOC data for dashboard
+async function getTOCData(): Promise<TOCPartData[]> {
+  // TODO: Fetch real TOC structure from database
+  // For now, return minimal structure
+  return [
+    {
+      id: '1',
+      title: 'Part 1: Roots',
+      progress: 0,
+      status: 'in-progress',
+      modules: [
+        {
+          id: '1.1',
+          title: 'Module 1: Your Story',
+          status: 'in-progress',
+          exercises: [
+            { id: '1.1.1', title: 'Introduction', status: 'available' },
+            { id: '1.1.2', title: 'Life Timeline', status: 'locked' },
+          ],
+        },
+      ],
     },
-    [router]
-  );
-
-  const handleTOCNavigate = useCallback(
-    (location: import('@/components/overlays').BreadcrumbLocation) => {
-      setShowTOC(false);
-      // Navigate to exercise - will be implemented with full routing
-      if (location.exerciseId) {
-        router.push(`/exercise/${location.exerciseId}`);
-      }
+    {
+      id: '2',
+      title: 'Part 2: Trunk',
+      progress: 0,
+      status: 'locked',
+      modules: [],
     },
-    [router]
-  );
+  ];
+}
 
-  // Loading state
-  if (needsOnboarding === null) {
-    return (
-      <div className="onboarding-flow">
-        <div className="onboarding-content" />
-      </div>
-    );
+// Get daily do items
+function getDailyDos(): DailyDo[] {
+  return [
+    {
+      id: '1',
+      type: 'flow-tracking',
+      title: 'Track Your Flow State',
+      subtitle: 'Log an activity where you lost track of time',
+      action: { label: 'Log Flow', href: '/tools/flow-tracker' },
+    },
+    {
+      id: '2',
+      type: 'soared-prompt',
+      title: 'SOARED Story Prompt',
+      subtitle: 'Think of a time you helped someone solve a problem',
+      action: { label: 'Write Story', href: '/tools/soared-form' },
+    },
+  ];
+}
+
+export default async function HomePage() {
+  // Get session from cookie
+  const cookieStore = await cookies();
+  const sessionId = cookieStore.get('dt_session')?.value;
+
+  // Show landing page for unauthenticated users
+  if (!sessionId) {
+    return <LandingPage />;
   }
 
-  // Show onboarding for new users
-  if (needsOnboarding) {
-    return <OnboardingFlow onComplete={handleOnboardingComplete} />;
+  const { env } = getRequestContext() as unknown as { env: Env };
+  const sessionData = await getSessionData(env.DB, sessionId);
+
+  // Show landing page if session is invalid
+  if (!sessionData) {
+    return <LandingPage />;
   }
 
-  // Build user preview for ProfilePreview component
+  // Check if user has completed onboarding (has display name)
+  const profile = await env.DB
+    .prepare('SELECT display_name FROM user_profile WHERE user_id = ?')
+    .bind(sessionData.user.id)
+    .first<{ display_name: string | null }>();
+
+  if (!profile?.display_name) {
+    redirect('/onboarding');
+  }
+
+  const db = createDb(env.DB);
+  const userId = sessionData.user.id;
+
+  // Fetch data in parallel
+  const [currentExerciseId, progressMetrics, tocParts] = await Promise.all([
+    getCurrentExerciseId(db, userId),
+    getProgressMetrics(db, userId),
+    getTOCData(),
+  ]);
+
+  // Build user preview
   const userPreview: UserPreview = {
-    name: userData?.name || 'User',
+    name: profile.display_name,
     topSkills: {
       transferable: null,
       selfManagement: null,
       knowledge: null,
     },
-    backgroundColor: (userData?.backgroundColor || 'ivory') as BackgroundColorId,
-    fontFamily: (userData?.font || 'inter') as FontFamilyId,
+    backgroundColor: (sessionData.settings.background_color || 'ivory') as BackgroundColorId,
+    fontFamily: (sessionData.settings.font || 'inter') as FontFamilyId,
   };
 
   return (
-    <>
-      <AppShell
-        activeNavItem={activeNavItem}
-        onNavigate={handleNavigate}
-        showBreadcrumb={false}
-        showInput={false}
-      >
-        <div className="dashboard">
-          <DashboardGreeting name={userData?.name || 'User'} />
-
-          <section className="dashboard-section">
-            <h2 className="dashboard-section-title">Daily Do&apos;s</h2>
-            <DailyDoList items={MOCK_DAILY_DOS} />
-          </section>
-
-          <section className="dashboard-section">
-            <h2 className="dashboard-section-title">Your Progress</h2>
-            <ProgressMetrics metrics={MOCK_PROGRESS} />
-          </section>
-
-          <section className="dashboard-section">
-            <h2 className="dashboard-section-title">Profile Preview</h2>
-            <ProfilePreview user={userPreview} />
-          </section>
-
-          <section className="dashboard-section">
-            <h2 className="dashboard-section-title">Workbook</h2>
-            <TOCInline
-              parts={MOCK_TOC}
-              onNavigate={handleTOCNavigate}
-            />
-            <button
-              className="button button-ghost button-sm"
-              style={{ marginTop: 'var(--space-4)' }}
-              onClick={() => setShowTOC(true)}
-            >
-              View All
-            </button>
-          </section>
-
-          {/* Dev reset button */}
-          <button
-            className="button button-ghost button-sm"
-            style={{ marginTop: 'var(--space-8)' }}
-            onClick={() => {
-              localStorage.removeItem('dreamtree_user');
-              localStorage.removeItem('dreamtree_onboarding');
-              setNeedsOnboarding(true);
-              document.documentElement.style.removeProperty('--color-bg');
-              document.documentElement.style.removeProperty('--color-text');
-              document.documentElement.style.removeProperty('--font-body');
-              document.documentElement.removeAttribute('data-theme');
-            }}
-          >
-            Reset Onboarding (Dev)
-          </button>
-        </div>
-      </AppShell>
-
-      <TOCPanel
-        open={showTOC}
-        onClose={() => setShowTOC(false)}
-        progress={toWorkbookProgress(MOCK_TOC)}
-        onNavigate={handleTOCNavigate}
-      />
-    </>
+    <DashboardPage
+      userName={profile.display_name}
+      userPreview={userPreview}
+      dailyDos={getDailyDos()}
+      progressMetrics={progressMetrics}
+      tocParts={tocParts}
+      currentExerciseId={currentExerciseId}
+    />
   );
-}
-
-function applyTheme(data: OnboardingData) {
-  const colors: Record<string, { hex: string; isLight: boolean }> = {
-    'ivory': { hex: '#FAF8F5', isLight: true },
-    'creamy-tan': { hex: '#E8DCC4', isLight: true },
-    'brown': { hex: '#5C4033', isLight: false },
-    'charcoal': { hex: '#2C3E50', isLight: false },
-    'black': { hex: '#1A1A1A', isLight: false },
-  };
-
-  const fonts: Record<string, string> = {
-    'inter': "'Inter', system-ui, sans-serif",
-    'lora': "'Lora', Georgia, serif",
-    'courier-prime': "'Courier Prime', monospace",
-    'shadows-into-light': "'Shadows Into Light', cursive",
-    'manufacturing-consent': "'Manufacturing Consent', serif",
-  };
-
-  const bg = colors[data.backgroundColor];
-  const text = colors[data.textColor];
-  const font = fonts[data.font];
-
-  document.documentElement.style.setProperty('--color-bg', bg.hex);
-  document.documentElement.style.setProperty('--color-text', text.hex);
-  document.documentElement.style.setProperty('--font-body', font);
-  document.documentElement.setAttribute('data-theme', bg.isLight ? 'light' : 'dark');
 }

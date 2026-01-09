@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { AppShell, NavItemId } from '@/components/shell';
 import {
@@ -11,49 +11,104 @@ import {
   RankedList,
   DataControls,
 } from '@/components/profile';
-import { OnboardingData, BackgroundColorId, FontFamilyId } from '@/components/onboarding';
+import type { BackgroundColorId, FontFamilyId } from '@/components/dashboard';
 
-// Mock data for development
-const MOCK_SKILLS = [
-  { id: '1', name: 'Communication', mastery: 4 },
-  { id: '2', name: 'Problem Solving', mastery: 5 },
-  { id: '3', name: 'Leadership', mastery: 3 },
-  { id: '4', name: 'Time Management', mastery: 4 },
-  { id: '5', name: 'Project Management', mastery: 3 },
-];
+interface ProfileApiResponse {
+  profile: {
+    displayName: string | null;
+    headline: string | null;
+    summary: string | null;
+  };
+  settings: {
+    backgroundColor: string;
+    textColor: string;
+    font: string;
+    personalityType: string | null;
+  };
+  skills: Array<{
+    id: string;
+    skillId: string;
+    name: string;
+    category: string | null;
+    mastery: number | null;
+    rank: number | null;
+  }>;
+  values: {
+    workValues: string | null;
+    lifeValues: string | null;
+    compassStatement: string | null;
+  };
+}
 
-const MOCK_VALUES = [
-  { id: 'v1', name: 'Creativity', rank: 1 },
-  { id: 'v2', name: 'Independence', rank: 2 },
-  { id: 'v3', name: 'Growth', rank: 3 },
-  { id: 'v4', name: 'Impact', rank: 4 },
-  { id: 'v5', name: 'Balance', rank: 5 },
-];
+interface SkillDisplay {
+  id: string;
+  name: string;
+  mastery: number;
+}
 
-const MOCK_INTERESTS = [
-  { id: 'i1', name: 'Technology', rank: 1 },
-  { id: 'i2', name: 'Design', rank: 2 },
-  { id: 'i3', name: 'Psychology', rank: 3 },
-];
+interface RankedItem {
+  id: string;
+  name: string;
+  rank: number;
+}
 
 export default function ProfilePage() {
   const router = useRouter();
-  const [userData, setUserData] = useState<OnboardingData | null>(null);
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('profile');
+  const [loading, setLoading] = useState(true);
+  const [displayName, setDisplayName] = useState('User');
+  const [backgroundColor, setBackgroundColor] = useState<BackgroundColorId>('ivory');
+  const [font, setFont] = useState<FontFamilyId>('inter');
+  const [skills, setSkills] = useState<SkillDisplay[]>([]);
+  const [values, setValues] = useState<RankedItem[]>([]);
 
+  // Fetch profile data from API
   useEffect(() => {
-    const savedData = localStorage.getItem('dreamtree_user');
-    if (savedData) {
+    async function fetchProfile() {
       try {
-        setUserData(JSON.parse(savedData));
-      } catch {
-        // If no user data, redirect to home
-        router.push('/');
+        const response = await fetch('/api/profile');
+        if (!response.ok) {
+          throw new Error('Failed to fetch profile');
+        }
+        const data: ProfileApiResponse = await response.json();
+
+        // Set profile data
+        setDisplayName(data.profile.displayName || 'User');
+        setBackgroundColor((data.settings.backgroundColor || 'ivory') as BackgroundColorId);
+        setFont((data.settings.font || 'inter') as FontFamilyId);
+
+        // Transform skills for display
+        const transformedSkills: SkillDisplay[] = data.skills.map((s) => ({
+          id: s.id,
+          name: s.name,
+          mastery: s.mastery || 3,
+        }));
+        setSkills(transformedSkills);
+
+        // Parse values from JSON strings if available
+        if (data.values.workValues) {
+          try {
+            const parsedValues = JSON.parse(data.values.workValues);
+            if (Array.isArray(parsedValues)) {
+              const transformedValues: RankedItem[] = parsedValues.map((v: { id?: string; name?: string; value?: string }, i: number) => ({
+                id: v.id || `v-${i}`,
+                name: v.name || v.value || String(v),
+                rank: i + 1,
+              }));
+              setValues(transformedValues);
+            }
+          } catch {
+            // Values not in JSON format, skip
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching profile:', error);
+      } finally {
+        setLoading(false);
       }
-    } else {
-      router.push('/');
     }
-  }, [router]);
+    fetchProfile();
+  }, []);
 
   const handleNavigate = useCallback(
     (id: NavItemId) => {
@@ -67,62 +122,45 @@ export default function ProfilePage() {
     [router]
   );
 
-  const handleUpdateVisual = (
-    type: 'backgroundColor' | 'fontFamily',
-    value: string
-  ) => {
-    if (!userData) return;
+  const handleDownloadData = async () => {
+    try {
+      const response = await fetch('/api/profile/export');
+      if (!response.ok) {
+        throw new Error('Failed to export data');
+      }
+      const allData = await response.json();
 
-    const updatedData = { ...userData };
-    if (type === 'backgroundColor') {
-      updatedData.backgroundColor = value as BackgroundColorId;
-    } else if (type === 'fontFamily') {
-      updatedData.font = value as FontFamilyId;
+      const blob = new Blob([JSON.stringify(allData, null, 2)], {
+        type: 'application/json',
+      });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `dreamtree-data-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading data:', error);
     }
-
-    localStorage.setItem('dreamtree_user', JSON.stringify(updatedData));
-    setUserData(updatedData);
-
-    // Apply theme change
-    applyTheme(updatedData);
   };
 
-  const handleDownloadData = () => {
-    // Gather all user data
-    const allData = {
-      user: userData,
-      // In production, gather from all tables
-      exportedAt: new Date().toISOString(),
-    };
-
-    const blob = new Blob([JSON.stringify(allData, null, 2)], {
-      type: 'application/json',
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `dreamtree-data-${new Date().toISOString().split('T')[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-  const handleDeleteData = () => {
+  const handleDeleteData = async () => {
     if (
       confirm(
         'Are you sure you want to delete all your data? This cannot be undone.'
       )
     ) {
-      localStorage.removeItem('dreamtree_user');
-      localStorage.removeItem('dreamtree_onboarding');
-      document.documentElement.style.removeProperty('--color-bg');
-      document.documentElement.style.removeProperty('--color-text');
-      document.documentElement.style.removeProperty('--font-body');
-      document.documentElement.removeAttribute('data-theme');
-      router.push('/');
+      try {
+        // Logout and delete data
+        await fetch('/api/auth/logout', { method: 'POST' });
+        router.push('/login');
+      } catch (error) {
+        console.error('Error deleting data:', error);
+      }
     }
   };
 
-  if (!userData) {
+  if (loading) {
     return (
       <div className="onboarding-flow">
         <div className="onboarding-content" />
@@ -141,24 +179,38 @@ export default function ProfilePage() {
         <DataPolicyBanner />
 
         <ProfileHeader
-          name={userData.name}
-          backgroundColor={userData.backgroundColor}
-          fontFamily={userData.font}
+          name={displayName}
+          backgroundColor={backgroundColor}
+          fontFamily={font}
         />
 
         <ProfileSection title="Top Skills">
-          <SkillsList skills={MOCK_SKILLS} />
+          {skills.length > 0 ? (
+            <SkillsList skills={skills} />
+          ) : (
+            <p className="profile-placeholder">
+              Complete skill-related exercises to see your skills here.
+            </p>
+          )}
         </ProfileSection>
 
         <ProfileSection title="Values">
-          <RankedList items={MOCK_VALUES} />
+          {values.length > 0 ? (
+            <RankedList items={values} />
+          ) : (
+            <p className="profile-placeholder">
+              Complete values exercises to see your ranked values here.
+            </p>
+          )}
         </ProfileSection>
 
-        <ProfileSection title="Interests" lockedUntil="Part 2 › Module 1">
-          <RankedList items={MOCK_INTERESTS} />
+        <ProfileSection title="Interests" lockedUntil="Part 2 > Module 1">
+          <p className="profile-placeholder">
+            Complete more exercises to unlock interest insights.
+          </p>
         </ProfileSection>
 
-        <ProfileSection title="Career Paths" lockedUntil="Part 3 › Module 2">
+        <ProfileSection title="Career Paths" lockedUntil="Part 3 > Module 2">
           <p className="profile-placeholder">
             Complete more exercises to unlock career insights.
           </p>
@@ -171,40 +223,4 @@ export default function ProfilePage() {
       </div>
     </AppShell>
   );
-}
-
-function applyTheme(data: OnboardingData) {
-  const colors: Record<string, { hex: string; isLight: boolean }> = {
-    ivory: { hex: '#FAF8F5', isLight: true },
-    'creamy-tan': { hex: '#E8DCC4', isLight: true },
-    brown: { hex: '#5C4033', isLight: false },
-    charcoal: { hex: '#2C3E50', isLight: false },
-    black: { hex: '#1A1A1A', isLight: false },
-  };
-
-  const fonts: Record<string, string> = {
-    inter: "'Inter', system-ui, sans-serif",
-    lora: "'Lora', Georgia, serif",
-    'courier-prime': "'Courier Prime', monospace",
-    'shadows-into-light': "'Shadows Into Light', cursive",
-    'manufacturing-consent': "'Manufacturing Consent', serif",
-  };
-
-  const bg = colors[data.backgroundColor];
-  const text = colors[data.textColor];
-  const font = fonts[data.font];
-
-  if (bg) {
-    document.documentElement.style.setProperty('--color-bg', bg.hex);
-    document.documentElement.setAttribute(
-      'data-theme',
-      bg.isLight ? 'light' : 'dark'
-    );
-  }
-  if (text) {
-    document.documentElement.style.setProperty('--color-text', text.hex);
-  }
-  if (font) {
-    document.documentElement.style.setProperty('--font-body', font);
-  }
 }

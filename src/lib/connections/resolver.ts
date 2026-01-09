@@ -4,7 +4,6 @@
 import type { D1Database } from '@cloudflare/workers-types';
 import type {
   ParsedConnection,
-  ConnectionMethod,
   ConnectionResult,
   FetchConnectionOptions,
   AutoPopulateParams,
@@ -45,18 +44,18 @@ export class ConnectionResolver {
   ): Promise<ConnectionResult<T>> {
     const { userId, connectionId } = options;
 
-    // Fetch connection definition
+    // Fetch connection definition using actual schema columns
     const connection = await this.db
       .prepare(
-        `SELECT id, name, method, params, implementation_notes
+        `SELECT id, connection_type, data_object, transform, implementation_notes
          FROM connections WHERE id = ?`
       )
       .bind(connectionId)
       .first<{
         id: number;
-        name: string;
-        method: string;
-        params: string;
+        connection_type: string;
+        data_object: string;
+        transform: string;
         implementation_notes: string;
       }>();
 
@@ -71,25 +70,32 @@ export class ConnectionResolver {
       };
     }
 
-    const method = connection.method as ConnectionMethod;
-    const params = parseConnectionParams(method, connection.params);
+    const connectionType = connection.connection_type;
+    const params = parseConnectionParams(connectionType, connection.transform);
 
-    // Route to appropriate handler based on method
-    switch (method) {
-      case 'auto_populate':
-      case 'hydrate':
+    // Route to appropriate handler based on connection_type
+    // Map DB connection_type to resolver methods:
+    // - 'forward' → fetch and pass user data forward
+    // - 'resource' → link to reference data
+    // - 'internal' → same-module data reuse (treat as forward)
+    // - 'backward' → reverse lookup (treat as forward)
+    // - 'framework' → framework reference (treat as custom)
+    switch (connectionType) {
+      case 'forward':
+      case 'internal':
+      case 'backward':
         return this.resolveAutoPopulate<T>(
           userId,
           connectionId,
           params as AutoPopulateParams
         );
 
-      case 'reference_link':
+      case 'resource':
         return this.resolveReferenceLink<T>(connectionId, params);
 
-      case 'custom':
+      case 'framework':
       default:
-        // Custom connections return params for tool-specific handling
+        // Custom/framework connections return params for tool-specific handling
         return {
           connectionId,
           method: 'custom',
@@ -171,10 +177,19 @@ export class ConnectionResolver {
       case 'soft_skills':
         return this.fetchSoftSkills(userId);
 
+      case 'all_skills':
+        return this.fetchAllSkills(userId);
+
+      case 'knowledge_skills':
+        return this.fetchKnowledgeSkills(userId);
+
       case 'soared_stories':
         return this.fetchSOAREDStories(userId);
 
       case 'experiences':
+      case 'all_experiences':
+        return this.fetchExperiences(userId);
+
       case 'employment_history':
         return this.fetchExperiences(userId, 'job');
 
@@ -187,8 +202,17 @@ export class ConnectionResolver {
       case 'values_compass':
         return this.fetchValuesCompass(userId);
 
+      case 'work_values':
+        return this.fetchWorkValues(userId);
+
+      case 'life_values':
+        return this.fetchLifeValues(userId);
+
       case 'career_options':
         return this.fetchCareerOptions(userId);
+
+      case 'locations':
+        return this.fetchLocations(userId);
 
       case 'budget':
         return this.fetchBudget(userId);
@@ -198,6 +222,18 @@ export class ConnectionResolver {
 
       case 'life_dashboard':
         return this.fetchLifeDashboard(userId);
+
+      case 'competency_scores':
+        return this.fetchCompetencyScores(userId);
+
+      case 'idea_trees':
+        return this.fetchIdeaTrees(userId);
+
+      case 'lists':
+        return this.fetchUserLists(userId, params.filter);
+
+      case 'profile_text':
+        return this.fetchProfileText(userId, params.filter);
 
       default:
         return null;
@@ -431,6 +467,253 @@ export class ConnectionResolver {
       play: result.life_dashboard_play || 0,
       love: result.life_dashboard_love || 0,
       health: result.life_dashboard_health || 0,
+    };
+  }
+
+  private async fetchAllSkills(userId: string): Promise<RankedSkill[]> {
+    const result = await this.db
+      .prepare(
+        `SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
+         FROM user_skills us
+         JOIN skills s ON us.skill_id = s.id
+         WHERE us.user_id = ?
+         ORDER BY us.category, us.rank ASC`
+      )
+      .bind(userId)
+      .all();
+
+    return result.results.map((row) => ({
+      id: row.id as string,
+      skillId: row.skill_id as string,
+      name: row.name as string,
+      category: row.category as 'transferable' | 'self_management' | 'knowledge',
+      mastery: row.mastery as 1 | 2 | 3 | 4 | 5,
+      rank: row.rank as number,
+    }));
+  }
+
+  private async fetchKnowledgeSkills(userId: string): Promise<RankedSkill[]> {
+    const result = await this.db
+      .prepare(
+        `SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
+         FROM user_skills us
+         JOIN skills s ON us.skill_id = s.id
+         WHERE us.user_id = ? AND us.category = 'knowledge'
+         ORDER BY us.rank ASC`
+      )
+      .bind(userId)
+      .all();
+
+    return result.results.map((row) => ({
+      id: row.id as string,
+      skillId: row.skill_id as string,
+      name: row.name as string,
+      category: 'knowledge' as const,
+      mastery: row.mastery as 1 | 2 | 3 | 4 | 5,
+      rank: row.rank as number,
+    }));
+  }
+
+  private async fetchWorkValues(userId: string): Promise<string | null> {
+    const result = await this.db
+      .prepare(`SELECT work_values FROM user_values WHERE user_id = ?`)
+      .bind(userId)
+      .first<{ work_values: string | null }>();
+
+    return result?.work_values || null;
+  }
+
+  private async fetchLifeValues(userId: string): Promise<string | null> {
+    const result = await this.db
+      .prepare(`SELECT life_values FROM user_values WHERE user_id = ?`)
+      .bind(userId)
+      .first<{ life_values: string | null }>();
+
+    return result?.life_values || null;
+  }
+
+  private async fetchLocations(userId: string): Promise<Array<{ id: string; name: string; rank: number }>> {
+    const result = await this.db
+      .prepare(
+        `SELECT id, location_name, rank
+         FROM user_locations
+         WHERE user_id = ?
+         ORDER BY rank ASC`
+      )
+      .bind(userId)
+      .all();
+
+    return result.results.map((row) => ({
+      id: row.id as string,
+      name: row.location_name as string,
+      rank: row.rank as number,
+    }));
+  }
+
+  private async fetchCompetencyScores(
+    userId: string
+  ): Promise<Array<{ competencyId: number; level: number; notes: string | null }>> {
+    const result = await this.db
+      .prepare(
+        `SELECT competency_id, level, notes
+         FROM user_competency_scores
+         WHERE user_id = ?
+         ORDER BY competency_id ASC`
+      )
+      .bind(userId)
+      .all();
+
+    return result.results.map((row) => ({
+      competencyId: row.competency_id as number,
+      level: row.level as number,
+      notes: row.notes as string | null,
+    }));
+  }
+
+  private async fetchIdeaTrees(
+    userId: string
+  ): Promise<Array<{ id: string; title: string; nodes: unknown[]; edges: unknown[] }>> {
+    // Fetch trees
+    const trees = await this.db
+      .prepare(
+        `SELECT id, title, created_at
+         FROM user_idea_trees
+         WHERE user_id = ?
+         ORDER BY created_at ASC`
+      )
+      .bind(userId)
+      .all();
+
+    // For each tree, fetch nodes and edges
+    const result = await Promise.all(
+      trees.results.map(async (tree) => {
+        const treeId = tree.id as string;
+
+        const nodes = await this.db
+          .prepare(
+            `SELECT id, label, x, y, parent_id
+             FROM user_idea_nodes
+             WHERE tree_id = ?`
+          )
+          .bind(treeId)
+          .all();
+
+        const edges = await this.db
+          .prepare(
+            `SELECT id, source_node_id, target_node_id
+             FROM user_idea_edges
+             WHERE tree_id = ?`
+          )
+          .bind(treeId)
+          .all();
+
+        return {
+          id: treeId,
+          title: tree.title as string,
+          nodes: nodes.results,
+          edges: edges.results,
+        };
+      })
+    );
+
+    return result;
+  }
+
+  private async fetchUserLists(
+    userId: string,
+    listType?: string
+  ): Promise<Array<{ id: string; name: string; type: string; items: Array<{ id: string; content: string; rank: number }> }>> {
+    let query = `
+      SELECT id, name, list_type
+      FROM user_lists
+      WHERE user_id = ?
+    `;
+
+    if (listType) {
+      query += ` AND list_type = '${listType}'`;
+    }
+
+    query += ` ORDER BY created_at ASC`;
+
+    const lists = await this.db.prepare(query).bind(userId).all();
+
+    // For each list, fetch items
+    const result = await Promise.all(
+      lists.results.map(async (list) => {
+        const listId = list.id as string;
+
+        const items = await this.db
+          .prepare(
+            `SELECT id, content, rank
+             FROM user_list_items
+             WHERE list_id = ?
+             ORDER BY rank ASC`
+          )
+          .bind(listId)
+          .all();
+
+        return {
+          id: listId,
+          name: list.name as string,
+          type: list.list_type as string,
+          items: items.results.map((item) => ({
+            id: item.id as string,
+            content: item.content as string,
+            rank: item.rank as number,
+          })),
+        };
+      })
+    );
+
+    return result;
+  }
+
+  private async fetchProfileText(
+    userId: string,
+    field?: string
+  ): Promise<Record<string, string | null> | string | null> {
+    // If specific field requested, return just that
+    if (field) {
+      const validFields = [
+        'identity_story',
+        'allegory',
+        'headline',
+        'summary',
+        'value_proposition',
+      ];
+      if (!validFields.includes(field)) return null;
+
+      const result = await this.db
+        .prepare(`SELECT ${field} FROM user_profile WHERE user_id = ?`)
+        .bind(userId)
+        .first<Record<string, string | null>>();
+
+      return result?.[field] || null;
+    }
+
+    // Otherwise return all profile text fields
+    const result = await this.db
+      .prepare(
+        `SELECT identity_story, allegory, headline, summary, value_proposition
+         FROM user_profile WHERE user_id = ?`
+      )
+      .bind(userId)
+      .first<{
+        identity_story: string | null;
+        allegory: string | null;
+        headline: string | null;
+        summary: string | null;
+        value_proposition: string | null;
+      }>();
+
+    if (!result) return null;
+
+    return {
+      identityStory: result.identity_story,
+      allegory: result.allegory,
+      headline: result.headline,
+      summary: result.summary,
+      valueProposition: result.value_proposition,
     };
   }
 }

@@ -4,11 +4,12 @@ import { createDb } from '@/lib/db';
 import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { nanoid } from 'nanoid';
 import type { Env } from '@/types/database';
+
 export const runtime = 'edge';
 
-
 interface SaveResponseRequest {
-  promptId: number;
+  promptId?: number;
+  toolId?: number;
   exerciseId: string;
   activityId?: string;
   responseText: string;
@@ -42,11 +43,19 @@ export async function POST(request: NextRequest) {
 
     // Parse request body
     const body: SaveResponseRequest = await request.json();
-    const { promptId, exerciseId, activityId, responseText } = body;
+    const { promptId, toolId, exerciseId, activityId, responseText } = body;
 
-    if (!promptId || !exerciseId || responseText === undefined) {
+    // Validate: must have exactly one of promptId or toolId
+    if ((!promptId && !toolId) || (promptId && toolId)) {
       return NextResponse.json(
-        { error: 'Missing required fields: promptId, exerciseId, responseText' },
+        { error: 'Must provide exactly one of promptId or toolId' },
+        { status: 400 }
+      );
+    }
+
+    if (!exerciseId || responseText === undefined) {
+      return NextResponse.json(
+        { error: 'Missing required fields: exerciseId, responseText' },
         { status: 400 }
       );
     }
@@ -54,13 +63,18 @@ export async function POST(request: NextRequest) {
     const now = new Date().toISOString();
     const responseId = nanoid();
 
-    // Check if response already exists for this user/prompt/exercise
+    // Determine which column to use for lookup and insert
+    const isToolResponse = !!toolId;
+    const contentId = toolId || promptId;
+    const idColumn = isToolResponse ? 'tool_id' : 'prompt_id';
+
+    // Check if response already exists for this user/content/exercise
     const existing = await db.raw
       .prepare(
         `SELECT id FROM user_responses
-         WHERE user_id = ? AND prompt_id = ? AND exercise_id = ?`
+         WHERE user_id = ? AND ${idColumn} = ? AND exercise_id = ?`
       )
-      .bind(userId, promptId, exerciseId)
+      .bind(userId, contentId, exerciseId)
       .first<{ id: string }>();
 
     if (existing) {
@@ -79,14 +93,24 @@ export async function POST(request: NextRequest) {
         updated: true,
       });
     } else {
-      // Insert new response
-      await db.raw
-        .prepare(
-          `INSERT INTO user_responses (id, user_id, prompt_id, exercise_id, activity_id, response_text, created_at, updated_at)
-           VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
-        )
-        .bind(responseId, userId, promptId, exerciseId, activityId || null, responseText, now, now)
-        .run();
+      // Insert new response with correct column
+      if (isToolResponse) {
+        await db.raw
+          .prepare(
+            `INSERT INTO user_responses (id, user_id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at)
+             VALUES (?, ?, NULL, ?, ?, ?, ?, ?, ?)`
+          )
+          .bind(responseId, userId, toolId, exerciseId, activityId || null, responseText, now, now)
+          .run();
+      } else {
+        await db.raw
+          .prepare(
+            `INSERT INTO user_responses (id, user_id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at)
+             VALUES (?, ?, ?, NULL, ?, ?, ?, ?, ?)`
+          )
+          .bind(responseId, userId, promptId, exerciseId, activityId || null, responseText, now, now)
+          .run();
+      }
 
       return NextResponse.json({
         id: responseId,
@@ -139,7 +163,7 @@ export async function GET(request: NextRequest) {
     const db = createDb(env.DB);
     const responses = await db.raw
       .prepare(
-        `SELECT id, prompt_id, exercise_id, activity_id, response_text, created_at, updated_at
+        `SELECT id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at
          FROM user_responses
          WHERE user_id = ? AND exercise_id = ?
          ORDER BY created_at`

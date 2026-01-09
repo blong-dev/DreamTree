@@ -33,3 +33,12 @@ export {
   isEncrypted,
   type EncryptedField,
 } from './encryption';
+
+export {
+  login,
+  claimAccount,
+  changePassword,
+  getDataKey,
+  type ClaimAccountResult,
+  type LoginResult,
+} from './actions';

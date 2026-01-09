@@ -48,24 +48,39 @@ export type ConnectionParams =
  * Data sources that can be referenced in connections
  */
 export type DataSourceType =
+  // Skills
   | 'transferable_skills'
   | 'soft_skills'
   | 'all_skills'
+  | 'knowledge_skills'
+  // Stories and Experiences
   | 'soared_stories'
   | 'experiences'
+  | 'all_experiences'
   | 'employment_history'
   | 'education_history'
+  // Flow and Energy
   | 'flow_tracking'
+  // Values
   | 'values_compass'
   | 'work_values'
   | 'life_values'
+  // Career Planning
   | 'career_options'
   | 'locations'
   | 'budget'
+  // Personality
   | 'mbti_code'
+  // Dashboard and Profile
   | 'life_dashboard'
+  | 'profile_text'
+  // Assessments
   | 'competency_scores'
+  // Brainstorming
   | 'idea_trees'
+  // Generic Storage
+  | 'lists'
+  // Reference Data
   | 'skills_master';
 
 /**

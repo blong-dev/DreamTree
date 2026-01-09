@@ -87,10 +87,16 @@ export function CompetencyAssessment({
       strategic: null,
     };
 
+    // Inline score lookup to satisfy ESLint exhaustive-deps
+    const lookupScore = (competencyId: string): number | null => {
+      const found = data.scores.find((s) => s.competencyId === competencyId);
+      return found?.score ?? null;
+    };
+
     CATEGORY_ORDER.forEach((category) => {
       const categoryCompetencies = groupedCompetencies[category];
       const categoryScores = categoryCompetencies
-        .map((c) => getScore(c.id))
+        .map((c) => lookupScore(c.id))
         .filter((s): s is number => s !== null);
 
       if (categoryScores.length > 0) {

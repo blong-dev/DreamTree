@@ -25,6 +25,11 @@ This area owns the 15 interactive tool components used throughout the workbook.
   - `ToolPage.tsx` - Tool detail page layout
   - `types.ts` - Tool type definitions
 
+**Also owns:**
+- `src/app/tools/` - Tool pages
+  - `page.tsx` - Tools index showing all tool categories
+  - `[toolType]/page.tsx` - Individual tool type page with instances
+
 **Does NOT own:**
 - Tool embedding logic (owned by Workbook)
 - Data storage (owned by Database)
@@ -73,6 +78,24 @@ Tools receive pre-populated data via the connections system:
 const connectionData = await resolver.resolve({ userId, connectionId });
 <SOAREDForm data={connectionData.data} onSave={handleSave} />
 ```
+
+### Reference Data Loading
+Some tools need reference data (skills list, competencies):
+```tsx
+// ToolEmbed fetches on mount:
+useEffect(() => {
+  if (toolName === 'skill_tagger') {
+    fetch('/api/data/skills')
+      .then(res => res.json())
+      .then(data => setSkills(data.skills));
+  }
+}, [toolName]);
+```
+
+**Data API endpoints:**
+- `/api/data/skills` - All skills from skills table
+- `/api/data/competencies` - All competencies from competencies table
+- `/api/data/connection?connectionId=N` - User data via ConnectionResolver
 
 ### Save Flow
 1. User interacts with tool

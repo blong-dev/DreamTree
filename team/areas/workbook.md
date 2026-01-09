@@ -50,14 +50,21 @@ This area owns the exercise delivery system - the core content experience of Dre
 
 ### Content Flow
 ```
-1. User navigates to /workbook/[exerciseId]
-2. Page fetches exercise from API
-3. WorkbookView renders content blocks
-4. User responds to prompts
-5. Response saved via API
-6. Progress updated
-7. User advances to next exercise
+1. User must be authenticated (middleware checks session)
+2. User navigates to /workbook/[exerciseId]
+3. Page fetches exercise from API (server component)
+4. WorkbookView renders content blocks
+5. ToolEmbed fetches reference data (skills, competencies) if needed
+6. User responds to prompts
+7. Response saved via API
+8. Progress updated
+9. User advances to next exercise
 ```
+
+### Auth Requirements
+- Workbook pages are protected by middleware
+- Unauthenticated users redirected to `/login`
+- New users go: `/signup` → `/onboarding` → `/workbook`
 
 ### Content Types
 ```typescript

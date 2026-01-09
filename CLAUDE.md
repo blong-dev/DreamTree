@@ -38,7 +38,7 @@ npx wrangler pages deploy .next  # Deploy to Cloudflare
 
 **CSS Strategy**: CSS custom properties only (no Tailwind utilities in components). All design tokens live in `globals.css`.
 
-**Auth Model**: Anonymous users get sessions; "claim account" adds email/password. PII fields use AES-GCM encryption with user-derived keys.
+**Auth Model**: Accounts required. Users sign up → onboarding → workbook. D1 sessions with cookies. PII fields use AES-GCM encryption with user-derived keys.
 
 ### Content Flow
 
@@ -136,6 +136,11 @@ This applies to: new features, bug fixes, refactors, tool implementations, and s
 | 4 | Navigation (Dashboard, TOC, Profile) | **Complete** |
 | 5 | Polish (Feedback, A11y, Performance) | **Complete** |
 | 6 | Workbook Content Delivery | **Complete** |
+| 7 | Auth System (Required accounts) | **Complete** |
+| 8 | Data APIs & Tool Integration | **Complete** |
+| 9 | Tool Response Storage Fix | **Complete** |
+| 10 | Profile & Tools Pages | **Complete** |
+| 11 | Connections System Repair | **Complete** |
 
 ## Reference
 
@@ -172,8 +177,11 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 - Resolve connections BEFORE rendering tools, not during
 
 ### Auth
-- All users start anonymous - full workbook access without account
+- Accounts now required - no anonymous access
 - Session cookie: HttpOnly, Secure (prod), SameSite=Lax
+- Use `cookies().set()` in Server Components, not `new Headers()`
+- Login redirects: existing user → dashboard, new user → onboarding
+- Onboarding redirects to `/workbook` (skips dashboard on first login)
 
 ---
 
@@ -230,3 +238,48 @@ Mistakes and patterns discovered during development. Add new learnings as they o
   - Added `AcornIcon` component (`src/components/icons/`)
   - Added brand lockup (acorn + "dreamtree" wordmark) to NavBar
   - CSS variables updated in `globals.css`
+- **Phase 7 Complete**: Auth system requiring accounts
+  - Auth API routes: `/api/auth/login`, `/api/auth/signup`, `/api/auth/logout`
+  - Auth pages: `/login`, `/signup` with forms
+  - Middleware for route protection (`src/middleware.ts`)
+  - Session cookie fix: use `cookies().set()` not `new Headers()`
+  - LandingPage component for unauthenticated visitors
+  - Dashboard server component with DashboardPage client wrapper
+  - Onboarding saves to D1 via `/api/onboarding`
+  - Onboarding redirects directly to `/workbook` (skips dashboard)
+- **Phase 8 Complete**: Data APIs and tool integration
+  - Data API: `/api/data/skills` - fetch skills for SkillTagger
+  - Data API: `/api/data/competencies` - fetch competencies for CompetencyAssessment
+  - Data API: `/api/data/connection` - fetch user data via ConnectionResolver
+  - ToolEmbed updated to fetch skills/competencies on mount
+  - ToolEmbed uses connectionId to pre-populate tools with user data
+  - Fixed React hook warnings (useMemo for responseMap, inlined getScore)
+  - Fixed MBTISelector a11y (added role="combobox")
+  - Added missing CSS classes (`.tool-embed-loading`, `.tool-embed-header`, etc.)
+- **Phase 9 Complete**: Tool response storage fix
+  - Migration `0003_add_tool_id_to_responses.sql` adds `tool_id` column
+  - `prompt_id` now nullable (response is for prompt OR tool, not both)
+  - CHECK constraint ensures exactly one of prompt_id/tool_id is set
+  - Response API updated to accept `toolId` parameter
+  - ToolEmbed sends `toolId` instead of misusing `promptId`
+  - WorkbookView now tracks tool and prompt responses separately
+- **Phase 10 Complete**: Profile & Tools pages connected to D1
+  - Migration `0004_add_display_name.sql` adds missing `display_name` column to `user_profile`
+  - Profile API: `/api/profile` - fetches user profile, settings, skills, values from D1
+  - Profile Export API: `/api/profile/export` - exports all user data for download
+  - Tool Counts API: `/api/tools/counts` - fetches entry counts per tool type
+  - Tool Instances API: `/api/tools/instances` - fetches tool instances for a tool type
+  - Profile page now displays real user data (name, skills, values) from D1
+  - Tools index page now shows real entry counts per tool
+  - New `/tools/[toolType]` page integrates ToolPage and ToolInstanceCard components
+  - Empty state messages shown when user has no data yet
+
+### 2026-01-09
+- **Phase 11 Complete**: Connections system fully functional
+  - Fixed ConnectionResolver to query correct columns (`connection_type`, `data_object`, `transform`)
+  - Added 10+ new data source fetchers: `fetchAllSkills`, `fetchKnowledgeSkills`, `fetchWorkValues`, `fetchLifeValues`, `fetchLocations`, `fetchCompetencyScores`, `fetchIdeaTrees`, `fetchUserLists`, `fetchProfileText`
+  - Updated DataSourceType with all new source types
+  - Migration `0005_refine_connections.sql`: Converted 12 vague "internal" connections (100000-100011) to proper forward connections with source/filter params
+  - Migration `0006_add_connections.sql`: Added 16 new connections (100018-100033) for data flow between exercises
+  - Migration `0007_update_stem_connections.sql`: Set connection_id on tool rows that need prior data
+  - 34 total connections now properly configured for Parts 1-2
