@@ -1023,13 +1023,13 @@ Input field (AppShell input and PromptInput) was rendered immediately when promp
 
 ---
 
-### IMP-001: Mutable Map in render path
+### IMP-001: Mutable Map in render path ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz (2026-01-09)
 **Phase**: 1
 **Impact**: `medium`
 **Area**: workbook
 **Status**: `done`
-**Fixed by**: Fizz (2026-01-09)
 **Files**:
 - `src/components/workbook/WorkbookView.tsx`
 

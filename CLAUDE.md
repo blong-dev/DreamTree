@@ -425,3 +425,12 @@ Mistakes and patterns discovered during development. Add new learnings as they o
   - Edit previous answers
   - Auto-save for text prompts
   - Convert onboarding to conversation-based UI (in progress)
+- **Tech Debt Cleanup Complete**: All batches cleared
+  - **Batch 1** (Quick Wins): IMP-035 removed Tailwind, IMP-036 deleted orphan components
+  - **Batch 2** (Performance): IMP-001, 003, 006, 007, 008 - React.memo, refs, requestAnimationFrame
+  - **Batch 3** (Error Handling): IMP-020 logging, IMP-021 retry UI, IMP-022 toasts, IMP-023 ErrorBoundaries, IMP-025 network error detection
+  - **IMP-002** (Major Refactor): ToolEmbed reduced from 600+ to 147 lines
+    - Created `src/hooks/useToolSave.ts` for shared save/auto-save logic
+    - Created `src/components/workbook/tool-wrappers/` with 15 wrapper components
+    - Each tool now manages its own state independently
+    - Only active tool's state is initialized (memory optimization)

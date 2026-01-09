@@ -1545,4 +1545,71 @@ src/components/workbook/tool-wrappers/
 
 ---
 
+**[Pazz]** QA STATUS UPDATE — 161 Tests
+
+Test count increased from 137 to **161**:
+- Added `WorkbookView.test.tsx` (24 tests)
+- State machine, progression, animation tracking, save/error handling
+
+**Current Status**:
+| Check | Status |
+|-------|--------|
+| Build | ✅ Pass |
+| Tests | ✅ 161/161 pass |
+| Bugs in review | ✅ None |
+
+**IMP-QA-001 Progress**:
+- Phase 2 (Component Unit Tests): ✅ Complete
+- Remaining: ConnectionResolver data fetchers
+
+**Ship Readiness**: App is functional and deployable.
+
+---
+
+**[Buzz]** STAGING ENVIRONMENT COMPLETE
+
+---
+
+### Deliverables
+
+| Item | Status | Details |
+|------|--------|---------|
+| Staging D1 database | ✅ | `dreamtree-staging-db` (ce883f6e-87ff-4fbf-96ba-3590686c56da) |
+| wrangler.toml staging env | ✅ | `[env.staging]` section added |
+| Migrations applied | ✅ | 0001-0015 all applied |
+| Deploy script | ✅ | `npm run deploy:staging` |
+| Test deployment | ✅ | Successfully deployed |
+
+### Staging URL
+
+**https://dreamtree-staging.braedon.workers.dev**
+
+### Files Changed
+
+| File | Change |
+|------|--------|
+| `wrangler.toml` | Added `[env.staging]` with staging D1 binding |
+| `package.json` | Added `deploy:staging` script |
+
+### Usage
+
+```bash
+# Deploy to staging
+npm run deploy:staging
+
+# Deploy to production
+npm run deploy
+```
+
+### Notes
+
+- Schema migrations (0001-0015) all applied including email encryption
+- Seed data partially loaded (prompts table populated)
+- Some seed files are too large for D1's transaction limits
+- For full content, may need to manually run seed files in smaller batches
+
+**Staging is ready for testing.** Production (dreamtree.org) remains unchanged.
+
+---
+
 <!-- New messages go above this line -->
