@@ -74,13 +74,21 @@ Sensitive PII fields are encrypted with keys derived from user credentials:
 ```
 
 **What's Encrypted (PII):**
+- `user_profile.display_name` — User's chosen display name
+- `emails.email` — Login email (with hash for lookup)
 - Module 1.4 "Love" content (deeply personal reflections)
-- Budget Calculator data (financial)
-- Networking Prep data (contacts/relationships)
-- Geographic/address data
+- Budget Calculator tool data (financial)
+- Company Tracker tool data (employer details)
+- Contact Tracker tool data (networking contacts)
+
+**Email Encryption Architecture:**
+Emails use hash-based lookup + encryption:
+- `email_hash` column stores SHA-256 of normalized email for login lookup
+- `email` column stores encrypted email for privacy
+- Legacy plaintext emails are auto-migrated on next login
 
 **What's NOT Encrypted:**
-- Exercise responses (needed for connections system)
+- Exercise responses (needed for connections system, except PII tools above)
 - Skills and competencies (surfaced across exercises)
 - Progress tracking data
 

@@ -31,6 +31,7 @@ export {
   encodeSalt,
   decodeSalt,
   isEncrypted,
+  hashEmail,
   type EncryptedField,
 } from './encryption';
 

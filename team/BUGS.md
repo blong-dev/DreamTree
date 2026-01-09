@@ -1232,7 +1232,7 @@ Consolidate keyboard handling in a single location or use a keyboard event manag
 **Phase**: QA Audit
 **Impact**: `high`
 **Area**: testing
-**Status**: `in-progress` (79 tests, was 0)
+**Status**: `in-progress` (137 tests, was 0)
 **Files**:
 - All 86 components in `src/components/`
 
@@ -1240,18 +1240,19 @@ Consolidate keyboard handling in a single location or use a keyboard event manag
 No unit tests exist for any React components. Critical business logic in WorkbookView (628 lines), ConnectionResolver (720 lines), and auth functions (286 lines) has zero test coverage. Refactoring or bug fixes are flying blind.
 
 **Progress** (2026-01-09):
-Unit test infrastructure added. 79 tests now exist:
+Unit test infrastructure added. 137 tests now exist:
 - `WorkbookInputZone.test.tsx` (9 tests)
 - `HistoryZone.test.tsx` (9 tests)
 - `DailyDoList.test.tsx` (7 tests)
 - `DailyDoCard.test.tsx` (16 tests)
 - `dailyDos.test.ts` (25 tests)
 - `NavItem.test.tsx` (13 tests) — pre-existing
+- `PromptInput.test.tsx` (24 tests) — all 5 input types
+- `MessageContent.test.tsx` (19 tests) — block types, animation, a11y
+- `TypingEffect.test.tsx` (15 tests) — animation, skip, reduced motion
 
 **Remaining**:
 - WorkbookView state machine
-- ConversationThread animation logic
-- PromptInput form validation
 - ConnectionResolver data fetchers
 
 **Recommendation**:
@@ -1408,23 +1409,29 @@ Added `useToast` to profile page and dashboard. Profile operations (load, downlo
 
 ---
 
-### IMP-023: Single global ErrorBoundary, no component isolation
+### IMP-023: Single global ErrorBoundary, no component isolation ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz (2026-01-09)
 **Phase**: 2
 **Impact**: `medium`
 **Area**: error-handling
+**Status**: `done`
 **Files**:
-- `src/components/Providers.tsx:13-17` - Single ErrorBoundary wrapping entire app
-- `src/components/feedback/ErrorBoundary.tsx` - Implementation
+- `src/components/workbook/ToolEmbed.tsx` - Wrapped tool rendering
+- `src/components/dashboard/DashboardPage.tsx` - Wrapped 4 widgets
+- `src/app/profile/page.tsx` - Wrapped 2 sections
+- `src/app/globals.css` - Added .dashboard-widget-error styles
 
 **Finding**:
-One ErrorBoundary at the root level. If any component throws, the entire app shows the error screen. No isolation for independent features (tools, profile, dashboard could each have their own boundary).
+One ErrorBoundary at the root level. If any component throws, the entire app shows the error screen. No isolation for independent features.
 
-**Recommendation**:
-Add ErrorBoundary around:
-- Each tool in ToolEmbed (tool crash shouldn't kill workbook)
-- Dashboard widgets (one widget crash shouldn't kill dashboard)
-- Profile sections (one section crash shouldn't kill profile page)
+**Fix Applied**:
+Added component-level ErrorBoundaries with inline fallbacks:
+- **ToolEmbed**: Wraps `renderTool()` - tool crash shows "This tool encountered an error" with reload button
+- **DashboardPage**: Wraps DailyDoList, ProgressMetrics, ProfilePreview, TOCInline - widget crash shows "Unable to load this section"
+- **Profile page**: Wraps SkillsList and RankedList - section crash shows "Unable to load this section"
+
+Each component failure is now isolated — one widget/tool crash doesn't kill the whole page.
 
 ---
 
@@ -1443,21 +1450,25 @@ Integrate error monitoring service (Sentry recommended). Capture: JS errors, unh
 
 ---
 
-### IMP-025: Generic error messages hide root cause
+### IMP-025: Generic error messages hide root cause ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz (2026-01-09)
 **Phase**: 2
 **Impact**: `low`
 **Area**: ux
+**Status**: `done`
 **Files**:
-- `src/app/(auth)/login/page.tsx:40` - "An error occurred. Please try again."
-- `src/app/(auth)/signup/page.tsx:44` - "An error occurred. Please try again."
-- `src/components/workbook/ToolEmbed.tsx:311` - "Failed to save. Please try again."
+- `src/app/(auth)/login/page.tsx` - Differentiated network vs other errors
+- `src/app/(auth)/signup/page.tsx` - Differentiated network vs other errors
+- `src/components/workbook/ToolEmbed.tsx` - Differentiated network vs other errors
+- `src/components/workbook/WorkbookView.tsx` - Differentiated network vs other errors
+- `src/app/profile/page.tsx` - Differentiated network vs other errors
 
 **Finding**:
-User-facing error messages are generic. Network error, server error, validation error all show the same message. User can't self-diagnose (is it their connection? their input? the server?).
+User-facing error messages were generic. Network error, server error, validation error all showed the same message. User couldn't self-diagnose (is it their connection? their input? the server?).
 
-**Recommendation**:
-Differentiate error types: network errors ("Check your connection"), validation errors (specific field), server errors ("Our servers are having issues"). Preserve original error in dev mode.
+**Fix Applied**:
+Added `TypeError` + `fetch` message detection in catch blocks to differentiate network errors ("Unable to connect. Check your internet connection.") from other errors (keeps generic message). Pattern applied to login, signup, ToolEmbed save, WorkbookView response save, and profile delete account.
 
 ---
 

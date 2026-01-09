@@ -32,17 +32,18 @@ export function LandingPage() {
       <main className="landing-main">
         <section className="landing-hero">
           <div className="landing-hero-content">
-            <h1>Design Your Career</h1>
+            <h1>A Space to Go Deep</h1>
             <p className="landing-hero-subtitle">
-              A guided workbook experience to discover your skills, tell your story,
-              and build a career that fits who you are.
+              Career transitions are hard. DreamTree is a guided workbook you text through —
+              helping you discover what you&apos;re good at, tell your story, and figure out what&apos;s next.
+              At your own pace.
             </p>
             <div className="landing-hero-actions">
               <button
                 className="button button-primary button-lg"
                 onClick={() => router.push('/signup')}
               >
-                Start Your Journey
+                Begin When You&apos;re Ready
               </button>
             </div>
           </div>
@@ -51,24 +52,24 @@ export function LandingPage() {
         <section className="landing-features">
           <div className="landing-feature">
             <div className="landing-feature-icon">1</div>
-            <h3>Discover Your Skills</h3>
-            <p>Uncover transferable, self-management, and knowledge-based skills through structured reflection.</p>
+            <h3>Discover What You&apos;re Good At</h3>
+            <p>Not a quiz. A conversation. We&apos;ll help you uncover skills you&apos;ve forgotten and patterns you couldn&apos;t see alone.</p>
           </div>
           <div className="landing-feature">
             <div className="landing-feature-icon">2</div>
             <h3>Tell Your Story</h3>
-            <p>Build powerful SOARED stories that showcase your experience and impact.</p>
+            <p>Your experience matters. We&apos;ll help you find the moments that shaped you and turn them into stories worth telling.</p>
           </div>
           <div className="landing-feature">
             <div className="landing-feature-icon">3</div>
-            <h3>Design Your Future</h3>
-            <p>Create a career vision aligned with your values, interests, and goals.</p>
+            <h3>Figure Out What&apos;s Next</h3>
+            <p>Clarity, not pressure. A direction that feels like yours, not someone else&apos;s template.</p>
           </div>
         </section>
       </main>
 
       <footer className="landing-footer">
-        <p>Built with care for career explorers everywhere.</p>
+        <p>Your data is encrypted. Your pace is yours. No points, no streaks, no rush.</p>
       </footer>
     </div>
   );

@@ -17,6 +17,8 @@ import {
   generateSalt,
   encodeSalt,
   decodeSalt,
+  hashEmail,
+  encryptField,
 } from './index';
 import type { Auth, Email } from '@/types/database';
 
@@ -52,10 +54,13 @@ export async function claimAccount(
     };
   }
 
-  // Check if email is already taken
+  // Hash email for lookup (IMP-048 Phase 3)
+  const emailHash = await hashEmail(email);
+
+  // Check if email is already taken (by hash or legacy plaintext)
   const existingEmail = await db
-    .prepare('SELECT id FROM emails WHERE email = ?')
-    .bind(email.toLowerCase().trim())
+    .prepare('SELECT id FROM emails WHERE email_hash = ? OR email = ?')
+    .bind(emailHash, email.toLowerCase().trim())
     .first();
 
   if (existingEmail) {
@@ -92,6 +97,10 @@ export async function claimAccount(
   // Store salt with wrapped key (salt:wrappedKey)
   const storedKey = `${encodeSalt(salt)}:${wrappedDataKey}`;
 
+  // Encrypt email for storage (IMP-048 Phase 3)
+  const normalizedEmail = email.toLowerCase().trim();
+  const encryptedEmail = await encryptField(normalizedEmail, dataKey);
+
   // Create auth record
   await db
     .prepare(
@@ -101,13 +110,13 @@ export async function claimAccount(
     .bind(nanoid(), userId, passwordHash, storedKey, now, now)
     .run();
 
-  // Create email record
+  // Create email record with hash for lookup, encrypted for privacy (IMP-048)
   await db
     .prepare(
-      `INSERT INTO emails (id, user_id, email, is_active, added_at)
-       VALUES (?, ?, ?, 1, ?)`
+      `INSERT INTO emails (id, user_id, email, email_hash, is_active, added_at)
+       VALUES (?, ?, ?, ?, 1, ?)`
     )
-    .bind(nanoid(), userId, email.toLowerCase().trim(), now)
+    .bind(nanoid(), userId, encryptedEmail, emailHash, now)
     .run();
 
   // Update user to claimed
@@ -130,11 +139,22 @@ export async function login(
   email: string,
   password: string
 ): Promise<LoginResult> {
-  // Find email
-  const emailRecord = await db
-    .prepare('SELECT * FROM emails WHERE email = ? AND is_active = 1')
-    .bind(email.toLowerCase().trim())
+  // Hash email for lookup (IMP-048 Phase 3)
+  const emailHash = await hashEmail(email);
+
+  // Find email by hash (supports both legacy plaintext and encrypted emails)
+  let emailRecord = await db
+    .prepare('SELECT * FROM emails WHERE email_hash = ? AND is_active = 1')
+    .bind(emailHash)
     .first<Email>();
+
+  // Fallback: check plaintext email for legacy accounts (pre-encryption migration)
+  if (!emailRecord) {
+    emailRecord = await db
+      .prepare('SELECT * FROM emails WHERE email = ? AND is_active = 1')
+      .bind(email.toLowerCase().trim())
+      .first<Email>();
+  }
 
   if (!emailRecord) {
     return {

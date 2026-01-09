@@ -13,9 +13,14 @@ import {
 } from '@/components/profile';
 import { VisualsStep } from '@/components/onboarding/VisualsStep';
 import { applyTheme } from '@/lib/theme';
-import { useToast } from '@/components/feedback';
+import { useToast, ErrorBoundary } from '@/components/feedback';
 import type { BackgroundColorId, TextColorId, FontFamilyId } from '@/components/onboarding/types';
 import { getValidTextColors } from '@/components/onboarding/types';
+
+// IMP-023: Inline fallback for section crashes
+function SectionErrorFallback() {
+  return <p className="profile-placeholder">Unable to load this section.</p>;
+}
 
 interface ProfileApiResponse {
   profile: {
@@ -182,7 +187,12 @@ export default function ProfilePage() {
         router.push('/login');
       } catch (error) {
         console.error('[Profile] Error deleting account:', error);
-        showToast('Failed to delete account. Please try again.', { type: 'error' });
+        // IMP-025: Differentiate error types
+        if (error instanceof TypeError && (error.message.includes('fetch') || error.message.includes('Failed to fetch'))) {
+          showToast('Unable to connect. Check your internet connection.', { type: 'error' });
+        } else {
+          showToast('Failed to delete account. Please try again.', { type: 'error' });
+        }
       }
     }
   };
@@ -271,23 +281,27 @@ export default function ProfilePage() {
         )}
 
         <ProfileSection title="Top Skills">
-          {skills.length > 0 ? (
-            <SkillsList skills={skills} />
-          ) : (
-            <p className="profile-placeholder">
-              Complete skill-related exercises to see your skills here.
-            </p>
-          )}
+          <ErrorBoundary fallback={<SectionErrorFallback />}>
+            {skills.length > 0 ? (
+              <SkillsList skills={skills} />
+            ) : (
+              <p className="profile-placeholder">
+                Complete skill-related exercises to see your skills here.
+              </p>
+            )}
+          </ErrorBoundary>
         </ProfileSection>
 
         <ProfileSection title="Values">
-          {values.length > 0 ? (
-            <RankedList items={values} />
-          ) : (
-            <p className="profile-placeholder">
-              Complete values exercises to see your ranked values here.
-            </p>
-          )}
+          <ErrorBoundary fallback={<SectionErrorFallback />}>
+            {values.length > 0 ? (
+              <RankedList items={values} />
+            ) : (
+              <p className="profile-placeholder">
+                Complete values exercises to see your ranked values here.
+              </p>
+            )}
+          </ErrorBoundary>
         </ProfileSection>
 
         <ProfileSection title="Interests" lockedUntil="Part 2 > Module 1">

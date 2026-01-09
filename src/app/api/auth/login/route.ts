@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { login, unwrapDataKeyFromAuth, storeDataKeyInSession } from '@/lib/auth';
+import { login, unwrapDataKeyFromAuth, storeDataKeyInSession, hashEmail, encryptField, isEncrypted } from '@/lib/auth';
 import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
 
@@ -68,6 +68,25 @@ export async function POST(request: NextRequest) {
     const dataKey = await unwrapDataKeyFromAuth(db, result.userId!, password);
     if (dataKey && result.sessionId) {
       await storeDataKeyInSession(db, result.sessionId, dataKey);
+
+      // Migrate legacy plaintext email to encrypted (IMP-048 Phase 3)
+      // Check if user's email is still plaintext (no email_hash)
+      const emailRow = await db
+        .prepare('SELECT id, email, email_hash FROM emails WHERE user_id = ? AND is_active = 1')
+        .bind(result.userId)
+        .first<{ id: string; email: string; email_hash: string | null }>();
+
+      if (emailRow && !emailRow.email_hash && !isEncrypted(emailRow.email)) {
+        // Legacy plaintext email - migrate it
+        const normalizedEmail = emailRow.email.toLowerCase().trim();
+        const emailHash = await hashEmail(normalizedEmail);
+        const encryptedEmail = await encryptField(normalizedEmail, dataKey);
+
+        await db
+          .prepare('UPDATE emails SET email = ?, email_hash = ? WHERE id = ?')
+          .bind(encryptedEmail, emailHash, emailRow.id)
+          .run();
+      }
     }
 
     // Set session cookie using next/headers
