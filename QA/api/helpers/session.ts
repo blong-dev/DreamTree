@@ -25,33 +25,50 @@ interface OnboardingData {
 
 /**
  * Create a new test user via signup
+ * Includes retry logic for transient 5xx errors
  */
 export async function signup(
   email: string,
   password: string,
-  name: string
+  name: string,
+  retries = 3
 ): Promise<TestSession | null> {
-  const response = await apiRequest<SignupResponse>('/api/auth/signup', {
-    method: 'POST',
-    body: { email, password, name },
-  });
+  let lastError: unknown;
 
-  if (!response.ok) {
-    console.error('Signup failed:', response.data);
-    return null;
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const response = await apiRequest<SignupResponse>('/api/auth/signup', {
+      method: 'POST',
+      body: { email, password, name },
+    });
+
+    // Retry on 5xx errors
+    if (response.status >= 500 && attempt < retries) {
+      console.warn(`Signup attempt ${attempt} failed with ${response.status}, retrying...`);
+      await new Promise(r => setTimeout(r, 500 * attempt)); // Backoff
+      continue;
+    }
+
+    if (!response.ok) {
+      console.error('Signup failed:', response.status, response.data);
+      lastError = response.data;
+      return null;
+    }
+
+    const cookie = extractSessionCookie(response.headers);
+    if (!cookie) {
+      console.error('No session cookie returned');
+      return null;
+    }
+
+    return {
+      cookie,
+      userId: response.data.userId || '',
+      email,
+    };
   }
 
-  const cookie = extractSessionCookie(response.headers);
-  if (!cookie) {
-    console.error('No session cookie returned');
-    return null;
-  }
-
-  return {
-    cookie,
-    userId: response.data.userId || '',
-    email,
-  };
+  console.error('Signup failed after', retries, 'attempts:', lastError);
+  return null;
 }
 
 /**

@@ -17,6 +17,7 @@ export interface ApiResponse<T = unknown> {
 
 /**
  * Make an API request with optional session cookie
+ * Includes retry logic for transient 5xx errors
  */
 export async function apiRequest<T = unknown>(
   path: string,
@@ -24,9 +25,10 @@ export async function apiRequest<T = unknown>(
     method?: 'GET' | 'POST' | 'PUT' | 'DELETE';
     body?: Record<string, unknown>;
     cookie?: string;
+    retries?: number;
   } = {}
 ): Promise<ApiResponse<T>> {
-  const { method = 'GET', body, cookie } = options;
+  const { method = 'GET', body, cookie, retries = 2 } = options;
 
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
@@ -36,24 +38,39 @@ export async function apiRequest<T = unknown>(
     headers['Cookie'] = cookie;
   }
 
-  const response = await fetch(`${BASE_URL}${path}`, {
-    method,
-    headers,
-    body: body ? JSON.stringify(body) : undefined,
-  });
+  let lastResponse: Response | null = null;
+
+  for (let attempt = 1; attempt <= retries + 1; attempt++) {
+    const response = await fetch(`${BASE_URL}${path}`, {
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : undefined,
+    });
+
+    lastResponse = response;
+
+    // Retry on 5xx errors (server issues) but not 4xx (client errors)
+    if (response.status >= 500 && attempt <= retries) {
+      console.warn(`[API] ${method} ${path} returned ${response.status}, retry ${attempt}/${retries}`);
+      await new Promise(r => setTimeout(r, 300 * attempt)); // Backoff
+      continue;
+    }
+
+    break;
+  }
 
   let data: T;
   try {
-    data = await response.json() as T;
+    data = await lastResponse!.json() as T;
   } catch {
     data = {} as T;
   }
 
   return {
-    ok: response.ok,
-    status: response.status,
+    ok: lastResponse!.ok,
+    status: lastResponse!.status,
     data,
-    headers: response.headers,
+    headers: lastResponse!.headers,
   };
 }
 

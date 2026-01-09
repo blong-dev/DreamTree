@@ -153,7 +153,7 @@ describe('POST /api/auth/login', () => {
   it('should login with valid credentials', async () => {
     // First create a user
     const user = createTestUserData();
-    const signup = await apiRequest<{ success: boolean; userId: string }>(
+    const signupResult = await apiRequest<{ success: boolean; userId: string }>(
       '/api/auth/signup',
       {
         method: 'POST',
@@ -161,11 +161,15 @@ describe('POST /api/auth/login', () => {
       }
     );
 
-    const signupCookie = extractSessionCookie(signup.headers);
-    if (signupCookie && signup.data.userId) {
+    // Verify signup succeeded before testing login
+    expect(signupResult.ok).toBe(true);
+    expect(signupResult.data.success).toBe(true);
+
+    const signupCookie = extractSessionCookie(signupResult.headers);
+    if (signupCookie && signupResult.data.userId) {
       createdSessions.push({
         cookie: signupCookie,
-        userId: signup.data.userId,
+        userId: signupResult.data.userId,
         email: user.email,
       });
     }
@@ -193,7 +197,7 @@ describe('POST /api/auth/login', () => {
   it('should reject wrong password', async () => {
     // First create a user
     const user = createTestUserData();
-    const signup = await apiRequest<{ success: boolean; userId: string }>(
+    const signupResult = await apiRequest<{ success: boolean; userId: string }>(
       '/api/auth/signup',
       {
         method: 'POST',
@@ -201,11 +205,15 @@ describe('POST /api/auth/login', () => {
       }
     );
 
-    const signupCookie = extractSessionCookie(signup.headers);
-    if (signupCookie && signup.data.userId) {
+    // Verify signup succeeded before testing login
+    expect(signupResult.ok).toBe(true);
+    expect(signupResult.data.success).toBe(true);
+
+    const signupCookie = extractSessionCookie(signupResult.headers);
+    if (signupCookie && signupResult.data.userId) {
       createdSessions.push({
         cookie: signupCookie,
-        userId: signup.data.userId,
+        userId: signupResult.data.userId,
         email: user.email,
       });
     }

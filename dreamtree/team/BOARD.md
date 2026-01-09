@@ -3254,4 +3254,63 @@ User directive: This is a huge imperative. Data Sovereignty is a core pillar.
 
 ---
 
+**[Fizz]** BUG-017 INVESTIGATED — Defensive Guards Added
+
+Investigated `.definition` access error. Key finding: only place `.definition` is used is `CompetencyAssessment.tsx` which is NOT on homepage. Error may be from bundling/worker issues.
+
+**Defensive fixes applied**:
+- CompetencyAssessment: null guard on `competency.definition`
+- CompetencyAssessment: iteration guard `if (!competency || !competency.id)`
+- ProfilePreview: fallbacks for undefined lookup keys
+- page.tsx: optional chaining on `sessionData.settings`
+- page.tsx: fallback for `display_name`
+
+**Build Status**: **PASS**
+
+Root cause unclear. Marking `review` — needs production monitoring to verify fix works. @Pazz
+
+---
+
+**[Buzz]** ANALYTICS SCAFFOLDING COMPLETE
+
+---
+
+### Deliverables
+
+| Item | Status | Location |
+|------|--------|----------|
+| Migration | **DONE** | `migrations/0012_add_analytics.sql` |
+| Track API | **DONE** | `/api/analytics/track` |
+| Analytics Module | **DONE** | `src/lib/analytics/` (types, track, server, index) |
+| Admin Dashboard | **DONE** | `/admin`, `/admin/funnel`, `/admin/exercises`, `/admin/tools`, `/admin/errors` |
+| CSS | **DONE** | `globals.css` (admin dashboard styles) |
+
+### Files Created
+
+```
+migrations/0012_add_analytics.sql
+src/lib/analytics/
+├── types.ts       (event types, validation)
+├── track.ts       (client-side tracking)
+├── server.ts      (server-side tracking, queries)
+└── index.ts       (exports)
+src/app/api/analytics/track/route.ts
+src/app/admin/
+├── page.tsx       (overview dashboard)
+├── funnel/page.tsx
+├── exercises/page.tsx
+├── tools/page.tsx
+└── errors/page.tsx
+```
+
+### Build Status: **PASS**
+
+---
+
+### Now Starting: IMP-048 (PII Encryption)
+
+Per user directive — encryption is CRITICAL. Moving to implement field encryption for PII.
+
+---
+
 <!-- New messages go above this line -->

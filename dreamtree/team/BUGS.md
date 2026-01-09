@@ -479,7 +479,8 @@ Encryption infrastructure exists in `src/lib/auth/encryption.ts` but is **NEVER 
 ---
 
 ### BUG-017: Homepage CPU limit exceeded — undefined 'definition'
-**Status**: `monitoring`
+**Status**: `review`
+**Assigned**: Fizz
 **Priority**: `medium`
 **Area**: features
 **Found by**: Production logs
@@ -494,23 +495,30 @@ Error: Worker exceeded CPU time limit.
 
 **Impact**: Site returns 1102 error, blocking all users.
 
-**Root Cause Hypothesis**:
-Something on dashboard is accessing `.definition` on undefined data. Possibly:
-- ConnectionResolver returning undefined
-- Database query returning null where object expected
-- Component trying to render undefined data
+**Investigation Results**:
+- Only place `.definition` is used: `CompetencyAssessment.tsx:161` accessing `competency.definition`
+- CompetencyAssessment is used in ToolEmbed → WorkbookView (workbook pages, NOT homepage)
+- Error may be: (1) misreported route, (2) bundling/import issue, (3) worker crash cascading
 
-**Files Likely Involved**:
-- `src/app/page.tsx` — Dashboard server component
-- `src/components/dashboard/DashboardPage.tsx` — Client component
-- `src/lib/connections/resolver.ts` — May return undefined
-- Any component using `.definition` property
+**Defensive Fixes Applied**:
+1. `CompetencyAssessment.tsx` — Added null guard: `{competency.definition || ''}`
+2. `CompetencyAssessment.tsx` — Added iteration guard: `if (!competency || !competency.id) return null`
+3. `ProfilePreview.tsx` — Added fallbacks for undefined colorNames/fontNames lookup
+4. `page.tsx` — Added optional chaining: `sessionData.settings?.background_color`
+5. `page.tsx` — Added fallbacks: `profile.display_name || 'User'`
+
+**Files Changed**:
+- `src/components/tools/CompetencyAssessment.tsx`
+- `src/components/dashboard/ProfilePreview.tsx`
+- `src/app/page.tsx`
+
+**Note**: Root cause unclear since `.definition` isn't accessed on homepage. Defensive guards added throughout. Need production monitoring to verify fix.
 
 **Acceptance Criteria**:
-- [ ] Identify source of `.definition` access
-- [ ] Add null checks / guards
-- [ ] No CPU limit errors on homepage
-- [ ] Build passes
+- [x] Identify source of `.definition` access — found in CompetencyAssessment
+- [x] Add null checks / guards — added to multiple components
+- [ ] No CPU limit errors on homepage — **NEEDS MONITORING**
+- [x] Build passes
 
 ---
 

@@ -6,7 +6,10 @@
 
 import bcrypt from 'bcryptjs';
 
-const SALT_ROUNDS = 12;
+// Cloudflare Workers have limited CPU time (~10-50ms)
+// Salt rounds of 10 provides good security while staying within limits
+// Existing hashes with higher rounds will still verify (cost stored in hash)
+const SALT_ROUNDS = 10;
 
 /**
  * Hash a password using bcrypt
