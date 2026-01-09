@@ -195,21 +195,21 @@ export default async function HomePage() {
     getTOCData(),
   ]);
 
-  // Build user preview
+  // Build user preview with safe defaults
   const userPreview: UserPreview = {
-    name: profile.display_name,
+    name: profile.display_name || 'User',
     topSkills: {
       transferable: null,
       selfManagement: null,
       knowledge: null,
     },
-    backgroundColor: (sessionData.settings.background_color || 'ivory') as BackgroundColorId,
-    fontFamily: (sessionData.settings.font || 'inter') as FontFamilyId,
+    backgroundColor: (sessionData.settings?.background_color || 'ivory') as BackgroundColorId,
+    fontFamily: (sessionData.settings?.font || 'inter') as FontFamilyId,
   };
 
   return (
     <DashboardPage
-      userName={profile.display_name}
+      userName={profile.display_name || 'User'}
       userPreview={userPreview}
       dailyDos={getDailyDos()}
       progressMetrics={progressMetrics}

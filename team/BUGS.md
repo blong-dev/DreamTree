@@ -168,8 +168,9 @@ SELECT content FROM content_blocks WHERE id = 100001;
 ---
 
 ### BUG-013: Page doesn't auto-scroll to bottom on new blocks
-**Status**: `review`
+**Status**: `done`
 **Assigned**: Queen Bee
+**Verified by**: Pazz (2026-01-09)
 **Priority**: `high`
 **Area**: workbook
 **Found by**: User walkthrough
@@ -204,8 +205,9 @@ ConversationThread's auto-scroll useEffect only triggered on `messages.length` c
 ---
 
 ### BUG-012: Workbook scroll limited to current module
-**Status**: `review`
+**Status**: `done`
 **Assigned**: Fizz
+**Verified by**: Pazz (2026-01-09)
 **Priority**: `high`
 **Area**: workbook
 **Found by**: User walkthrough
@@ -364,7 +366,8 @@ Design a comprehensive data visibility and analytics suite for DreamTree. User n
 ---
 
 ### FEA-001: Dedicated Skills Page
-**Status**: `open`
+**Status**: `review`
+**Assigned**: Fizz
 **Priority**: `medium`
 **Area**: features
 **Requested by**: User
@@ -381,18 +384,40 @@ Create a standalone `/skills` page that displays the full skills library organiz
 - Consider: user's tagged skills highlighted vs full library
 - **Link from workbook 1.1** — References to skills in WB 1.1 should link to this page
 
-**Files Likely Involved**:
-- `src/app/skills/page.tsx` (new)
-- `src/components/skills/SkillsPage.tsx` (new, optional)
-- Uses existing `/api/data/skills` endpoint
-- Workbook content/connections for 1.1 may need updates
+**Implementation**:
+
+**Files Created**:
+- `src/app/skills/page.tsx` — Server component with auth + data fetching
+- `src/components/skills/SkillsPage.tsx` — Client component with UI
+- `src/components/skills/index.ts` — Export
+
+**Files Modified**:
+- `src/app/globals.css` — Added `.skills-page-*` styles (130 lines)
+
+**Features**:
+- All skills displayed grouped by category (Transferable, Self-Management, Knowledges)
+- Category descriptions explain each type
+- Search filter to find specific skills
+- "Show only my skills" toggle for users with tagged skills
+- User's tagged skills highlighted with accent border + checkmark
+- Count of tagged skills shown in header
+- Responsive design with pill/badge layout
+- Empty states for no matches / no tagged skills
+
+**WB 1.1 Linking Note**:
+Content block 100022 contains "→ extensive List of Skills for ideas ←" which could link to /skills.
+This requires either:
+1. Database migration to update content with markdown link
+2. Special rendering in MessageContent to detect skill references
+
+Recommend: Database migration to update content as follow-up task (minor content update).
 
 **Acceptance Criteria**:
-- [ ] `/skills` route renders
-- [ ] Skills displayed grouped by section
-- [ ] Accessible, navigable list
-- [ ] WB 1.1 references link to `/skills` page
-- [ ] Build passes
+- [x] `/skills` route renders
+- [x] Skills displayed grouped by section
+- [x] Accessible, navigable list
+- [ ] WB 1.1 references link to `/skills` page — **FOLLOW-UP** (requires content update)
+- [x] Build passes
 
 ---
 
@@ -400,8 +425,133 @@ Create a standalone `/skills` page that displays the full skills library organiz
 
 <!-- Bugs currently being worked on -->
 
-### BUG-015: Input field position and Continue button alignment
+### IMP-048: Encryption code exists but never called — PII in plaintext
 **Status**: `open`
+**Priority**: `critical`
+**Area**: auth
+**Found by**: Buzz (V1 validation audit)
+
+**Description**:
+Encryption infrastructure exists in `src/lib/auth/encryption.ts` but is **NEVER CALLED**. All PII is stored in plaintext, violating the Data Sovereignty pillar.
+
+**Affected Data**:
+- `emails.email` — plaintext
+- `user_profile.display_name` — plaintext
+- `user_budget.*` (all fields) — plaintext
+- `user_contacts.*` (all fields) — plaintext
+- Module 1.4 "Love" responses — plaintext
+
+**What Exists**:
+- `deriveWrappingKey()` — derives key from password + salt
+- `generateDataKey()` — creates AES-GCM data key
+- `wrapDataKey()` / `unwrapDataKey()` — key wrapping
+- `encryptField()` / `decryptField()` — field-level encryption
+- Signup stores `wrapped_data_key` in auth table
+
+**What's Missing**:
+- No code calls `encryptField()` when writing PII
+- No code calls `decryptField()` when reading PII
+- Data key never unwrapped for use
+
+**Implementation Required**:
+1. Identify all PII write points (signup, onboarding, profile update, workbook responses)
+2. Call `encryptField()` before INSERT/UPDATE
+3. Identify all PII read points (profile page, exports, connections)
+4. Call `decryptField()` after SELECT
+5. Handle key derivation on login (need password to unwrap data key)
+6. Migration to encrypt existing plaintext data
+
+**Files Likely Involved**:
+- `src/lib/auth/encryption.ts` — existing encryption functions
+- `src/app/api/auth/signup/route.ts` — has wrapped_data_key, needs to encrypt email
+- `src/app/api/onboarding/route.ts` — saves display_name
+- `src/app/api/profile/route.ts` — reads/writes profile
+- `src/app/api/workbook/response/route.ts` — saves responses (some are PII)
+
+**Acceptance Criteria**:
+- [ ] All PII fields encrypted at rest
+- [ ] Decryption works on read (profile, export)
+- [ ] Key derivation happens on login
+- [ ] Existing data migrated (one-time script)
+- [ ] Build passes
+- [ ] User experience unchanged (encryption transparent)
+
+---
+
+### BUG-017: Homepage CPU limit exceeded — undefined 'definition'
+**Status**: `monitoring`
+**Priority**: `medium`
+**Area**: features
+**Found by**: Production logs
+
+**Description**:
+Homepage (`/`) intermittently exceeds CPU time limit with errors:
+```
+TypeError: Cannot read properties of undefined (reading 'definition')
+TypeError: render is not a function
+Error: Worker exceeded CPU time limit.
+```
+
+**Impact**: Site returns 1102 error, blocking all users.
+
+**Root Cause Hypothesis**:
+Something on dashboard is accessing `.definition` on undefined data. Possibly:
+- ConnectionResolver returning undefined
+- Database query returning null where object expected
+- Component trying to render undefined data
+
+**Files Likely Involved**:
+- `src/app/page.tsx` — Dashboard server component
+- `src/components/dashboard/DashboardPage.tsx` — Client component
+- `src/lib/connections/resolver.ts` — May return undefined
+- Any component using `.definition` property
+
+**Acceptance Criteria**:
+- [ ] Identify source of `.definition` access
+- [ ] Add null checks / guards
+- [ ] No CPU limit errors on homepage
+- [ ] Build passes
+
+---
+
+### BUG-016: Daily Do's visible before tools unlocked
+**Status**: `open`
+**Priority**: `high`
+**Area**: features
+**Found by**: User walkthrough
+
+**Description**:
+Fresh accounts see the Daily Do's section on the dashboard before they've reached that part of the program. Daily Do's should only appear once the user has unlocked the relevant tools.
+
+**Current Behavior**:
+- New user signs up
+- Completes onboarding
+- Dashboard shows Daily Do's section (shouldn't exist yet)
+
+**Expected Behavior**:
+- Daily Do's section hidden until user unlocks Daily Do tools
+- Section appears only after user reaches appropriate workbook progress
+- No empty state — section simply doesn't exist until unlocked
+
+**Root Cause Hypothesis**:
+`DailyDoList` component renders regardless of user progress. Needs to check if user has unlocked any Daily Do tools before rendering.
+
+**Files Likely Involved**:
+- `src/components/dashboard/DailyDoList.tsx` — needs progress check
+- `src/components/dashboard/DashboardPage.tsx` — conditional render
+- May need API to check tool unlock status
+
+**Acceptance Criteria**:
+- [ ] Daily Do's section hidden for fresh accounts
+- [ ] Section appears only after relevant tools unlocked
+- [ ] No empty state shown — section simply doesn't exist until unlocked
+- [ ] Build passes
+
+---
+
+### BUG-015: Input field position and Continue button alignment
+**Status**: `review`
+**Assigned**: Fizz
 **Priority**: `high`
 **Area**: design-system
 **Found by**: User walkthrough
@@ -409,32 +559,62 @@ Create a standalone `/skills` page that displays the full skills library organiz
 **Description**:
 Two layout issues:
 
-1. **Input field position** — Should be consistently positioned ~20% from the bottom of the screen by default. Currently floats wherever the content ends.
+1. **Input field position** — Should be consistently positioned at bottom (like messaging app). Currently floats wherever the content ends.
 
 2. **Continue buttons** — Should be right-aligned. Currently centered or left-aligned.
 
-**Expected Behavior**:
-- Input field anchored at consistent vertical position (20% from bottom)
-- Continue buttons right-aligned
-- Creates predictable, professional layout
+**Expected Behavior** (clarified by user):
+- All inputs bottom-locked like a messaging app
+- Consistent position for all input types
+- Breathing room from edge
+- Semi-sticky collapse behavior (collapse after ~1 screen scroll)
+- Expandable collapsed state with tap/click
 
-**Files Likely Involved**:
-- `src/app/globals.css` — Layout and button alignment
-- `src/components/workbook/WorkbookView.tsx` — Input area positioning
-- `src/components/shell/InputArea.tsx` — If input uses this component
-- `src/components/conversation/ConversationThread.tsx` — Continue button container
+**Root Cause**:
+Multiple input mechanisms (Shell InputArea, PromptInput, ToolEmbed) each positioned differently. No unified input zone.
+
+**Fix Applied**:
+1. Created `WorkbookInputZone` component with fixed positioning
+2. All inputs (text, textarea, PromptInput, ToolEmbed, Continue) moved into unified zone
+3. Scroll tracking triggers collapse after 100vh scroll
+4. Collapsed state shows minimal bar with expand button
+5. Expand scrolls to bottom and reveals full input
+
+**Files Created**:
+- `src/components/workbook/WorkbookInputZone.tsx` — New unified input zone component
+
+**Files Changed**:
+- `src/components/workbook/WorkbookView.tsx` — Major refactor to use WorkbookInputZone
+- `src/components/icons/index.tsx` — Added ChevronUpIcon
+- `src/app/globals.css` — Added input zone CSS (fixed positioning, collapse states)
+
+**Architecture**:
+```
+┌─────────────────────────────────────┐
+│  Scrollable content area            │
+│  (ConversationThread, ToolEmbed)    │
+├─────────────────────────────────────┤
+│  WorkbookInputZone (fixed)          │ ◄── All inputs here
+│  - Collapses after 100vh scroll     │
+│  - Tap to expand when collapsed     │
+└─────────────────────────────────────┘
+```
 
 **Acceptance Criteria**:
-- [ ] Input field positioned ~20% from bottom of viewport
-- [ ] All Continue buttons right-aligned
-- [ ] Layout consistent across exercises
-- [ ] Works on different screen sizes
-- [ ] Build passes
+- [x] Input field positioned at bottom (fixed position with breathing room)
+- [x] All Continue buttons right-aligned
+- [x] Layout consistent across exercises (all inputs in unified zone)
+- [x] Works on different screen sizes (responsive CSS with mobile nav offset)
+- [x] Semi-sticky collapse behavior (collapses after 100vh scroll)
+- [x] Expandable collapsed state
+- [x] Build passes
 
 ---
 
 ### BUG-014: Prompts require extra Continue before input appears
-**Status**: `open`
+**Status**: `done`
+**Assigned**: Fizz
+**Verified by**: Pazz (2026-01-09)
 **Priority**: `high`
 **Area**: workbook
 **Found by**: User walkthrough
@@ -455,20 +635,33 @@ Current flow is awkward:
 
 The question and its input field should be a single unit. User reads the question, input is ready.
 
-**Root Cause Hypothesis**:
-Prompt blocks are treated like content blocks, requiring Continue to advance. Instead, prompt animation completion should automatically reveal the input — no intermediate step.
+**Root Cause Found**:
+Input field (AppShell input and PromptInput) was rendered immediately when prompt block became current, while the question text was still animating. No gating for animation completion.
 
-**Files Likely Involved**:
-- `src/components/workbook/WorkbookView.tsx` — block advancement logic
-- Possibly `PromptInput.tsx` or message rendering
+**Fix Applied**:
+1. Added `promptAnimationComplete` state to track when prompt question animation finishes
+2. Gated input display with `promptAnimationComplete`:
+   - `showInput` prop in AppShell now requires `promptAnimationComplete`
+   - PromptInput render condition now requires `promptAnimationComplete`
+3. `handleMessageAnimated` callback sets `promptAnimationComplete = true` when prompt text finishes
+4. Proper initialization for returning users (if prompt already animated, show input immediately)
+
+**Files Changed**:
+- `src/components/workbook/WorkbookView.tsx:188-219` — Added state with init logic
+- `src/components/workbook/WorkbookView.tsx:231-234` — Updated animation callback
+- `src/components/workbook/WorkbookView.tsx:244,248-253` — Reset on block change
+- `src/components/workbook/WorkbookView.tsx:653` — Gate shell input
+- `src/components/workbook/WorkbookView.tsx:697` — Gate PromptInput
+
+**Tool Behavior**: Tools render ToolEmbed immediately (no animation to wait for) — unchanged and correct.
 
 **Acceptance Criteria**:
-- [ ] Prompt question animates
-- [ ] Input field appears automatically after question animation completes
-- [ ] No extra Continue click between question and input
-- [ ] Content blocks still require Continue (unchanged)
-- [ ] Tool blocks behave similarly (tool appears when intro text completes)
-- [ ] Build passes
+- [x] Prompt question animates
+- [x] Input field appears automatically after question animation completes
+- [x] No extra Continue click between question and input
+- [x] Content blocks still require Continue (unchanged)
+- [x] Tool blocks behave similarly (tool appears when intro text completes)
+- [x] Build passes
 
 ---
 
