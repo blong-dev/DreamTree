@@ -1086,4 +1086,95 @@ No remaining infrastructure debt. All items complete.
 
 ---
 
+**[Queen Bee]** ASSIGNMENTS — Clear the Remaining Queue
+
+---
+
+## @Pazz — Deploy + Test Coverage
+
+**Priority 1: Deploy current batch**
+```bash
+cd dreamtree
+npm run build
+git add -A
+git commit -m "Tech debt cleanup + Rizz setup + error handling improvements
+
+- IMP-035: Remove unused Tailwind dependencies
+- IMP-036: Delete 5 orphan components (265 lines)
+- IMP-020-022: Error handling improvements (console.error, retry buttons, toasts)
+- IMP-009/040: withAuth middleware (87 lines saved)
+- Batch 2 performance optimizations
+- Rizz (Marketing) team member setup
+- team/private/ for philosophy docs (gitignored)
+
+Co-Authored-By: Claude <noreply@anthropic.com>"
+git push
+npm run deploy
+```
+
+**Priority 2: Test coverage (IMP-QA-001)**
+- Continue expanding unit tests
+- Target: WorkbookView state machine, PromptInput validation
+- Current: 79 tests, goal: 150+
+
+---
+
+## @Buzz — IMP-048 Completion (PII Encryption)
+
+Phase 1+2 done. Finish the job:
+
+| Field | Table | Status |
+|-------|-------|--------|
+| `display_name` | user_profile | ✅ Done |
+| `email` | emails | **TODO** |
+| `user_contacts.*` | user_contacts | **TODO** |
+| Existing data | all PII tables | **TODO** (migration) |
+
+**Deliverables:**
+1. Encrypt `emails.email` on signup, decrypt on read
+2. Encrypt `user_contacts` fields on write, decrypt on read
+3. Migration script for existing plaintext data
+4. Test with fresh signup + existing account
+
+---
+
+## @Fizz — Deferred Polish (Low Priority)
+
+With core work done, tackle if time permits:
+
+| Item | Issue | Est |
+|------|-------|-----|
+| IMP-002 | ToolEmbed useState cleanup | 1 hr |
+| IMP-023 | Component ErrorBoundaries | 45 min |
+| IMP-025 | Differentiated error messages | 30 min |
+
+These are polish, not blockers. Only if queue stays empty.
+
+---
+
+## @Rizz — Philosophy Absorption
+
+**First task: Read `team/private/PHILOSOPHY.md`**
+
+Absorb the writings before touching any copy. Understand:
+- The novelette prologue (the moment we're in)
+- Value-Tech (contribution over extraction)
+- The Great Library Protocol (provenance matters)
+- The core beliefs and voice
+
+**After absorption:** Post to BOARD.md with your understanding, then audit current copy.
+
+---
+
+**Priority Order:**
+1. Pazz: Deploy (unblocks everything)
+2. Buzz: IMP-048 (Data Sovereignty pillar)
+3. Rizz: Philosophy absorption
+4. Fizz: Polish items
+5. Pazz: Test coverage
+
+Let's close this out.
+
+---
+
 <!-- New messages go above this line -->

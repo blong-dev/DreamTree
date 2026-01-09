@@ -50,6 +50,8 @@ If a user loses their password, their encrypted PII is **permanently unrecoverab
 | `src/lib/auth/session.ts` | Session creation, validation |
 | `src/lib/auth/password.ts` | bcrypt hashing with 10 salt rounds |
 | `src/lib/auth/encryption.ts` | User-derived AES-GCM encryption |
+| `src/lib/auth/pii.ts` | PII encryption/decryption helpers |
+| `src/lib/auth/with-auth.ts` | `withAuth` middleware for API routes |
 | `src/lib/auth/actions.ts` | Login, signup action handlers |
 | `src/lib/auth/index.ts` | Public API exports |
 
@@ -131,14 +133,31 @@ const decrypted = await decryptPII(encrypted, key);
 
 ## Common Tasks
 
-### Adding Auth to an API Route
+### Adding Auth to an API Route (Preferred)
+Use `withAuth` middleware to eliminate boilerplate:
 ```typescript
-import { getOrCreateSession } from '@/lib/auth';
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 
-export async function POST(request: Request, { env }) {
-  const session = await getOrCreateSession(request, env.DB);
-  const userId = session.userId;
-  // ... use userId
+export const GET = withAuth(async (_request, { userId, db, sessionId }) => {
+  const result = await db.prepare('SELECT * FROM table WHERE user_id = ?')
+    .bind(userId).all();
+  return NextResponse.json(result);
+});
+```
+
+### Alternative: Manual Auth Check
+For routes needing custom error handling:
+```typescript
+import { getAuthContext } from '@/lib/auth';
+
+export async function POST(request: Request) {
+  const auth = await getAuthContext();
+  if (!auth.ok) {
+    return NextResponse.json({ error: auth.error }, { status: 401 });
+  }
+  const { userId, db, sessionId } = auth;
+  // ... custom logic
 }
 ```
 
