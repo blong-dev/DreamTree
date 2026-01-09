@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { createDb } from '@/lib/db';
-import type { Env } from '@/types/database';
+import '@/types/database'; // CloudflareEnv augmentation
 
-export const runtime = 'edge';
 
 interface StemRow {
   id: number;
@@ -77,7 +76,7 @@ export async function GET(
     }
 
     // Get D1 database
-    const { env } = getRequestContext() as unknown as { env: Env };
+    const { env } = getCloudflareContext();
     const db = createDb(env.DB);
 
     // Fetch all stem rows for this exercise with content joined

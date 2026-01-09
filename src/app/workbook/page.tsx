@@ -1,11 +1,10 @@
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
 import type { Env } from '@/types/database';
 
-export const runtime = 'edge';
 
 export default async function WorkbookPage() {
   // Get session from cookie (middleware ensures user is authenticated)
@@ -16,7 +15,7 @@ export default async function WorkbookPage() {
     redirect('/login');
   }
 
-  const { env } = getRequestContext() as unknown as { env: Env };
+  const { env } = getCloudflareContext();
   const sessionData = await getSessionData(env.DB, sessionId);
 
   if (!sessionData) {

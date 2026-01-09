@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { createDb } from '@/lib/db';
 import { ConnectionResolver } from '@/lib/connections/resolver';
-import type { Env } from '@/types/database';
+import '@/types/database'; // CloudflareEnv augmentation
 
-export const runtime = 'edge';
 
 export async function GET(request: NextRequest) {
   try {
@@ -30,7 +29,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { env } = getRequestContext() as unknown as { env: Env };
+    const { env } = getCloudflareContext();
     const db = createDb(env.DB);
 
     // Get user from session

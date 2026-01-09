@@ -1,11 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { createDb } from '@/lib/db';
 import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { nanoid } from 'nanoid';
-import type { Env } from '@/types/database';
+import '@/types/database'; // CloudflareEnv augmentation
 
-export const runtime = 'edge';
 
 interface SaveResponseRequest {
   promptId?: number;
@@ -28,7 +27,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { env } = getRequestContext() as unknown as { env: Env };
+    const { env } = getCloudflareContext();
     const db = createDb(env.DB);
 
     const sessionData = await getSessionData(env.DB, sessionId);
@@ -139,7 +138,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const { env } = getRequestContext() as unknown as { env: Env };
+    const { env } = getCloudflareContext();
     const sessionData = await getSessionData(env.DB, sessionId);
 
     if (!sessionData) {

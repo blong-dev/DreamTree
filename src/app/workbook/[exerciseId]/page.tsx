@@ -1,13 +1,12 @@
 import { cookies } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
 import { WorkbookView } from '@/components/workbook';
 import type { ExerciseContent, SavedResponse } from '@/components/workbook/types';
 import type { Env } from '@/types/database';
 
-export const runtime = 'edge';
 
 interface PageProps {
   params: Promise<{ exerciseId: string }>;
@@ -27,7 +26,7 @@ interface StemRow {
 }
 
 async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null> {
-  const { env } = getRequestContext() as unknown as { env: Env };
+  const { env } = getCloudflareContext();
   const db = createDb(env.DB);
 
   // Parse exercise ID
@@ -162,7 +161,7 @@ async function fetchExercise(exerciseId: string): Promise<ExerciseContent | null
 }
 
 async function fetchSavedResponses(userId: string, exerciseId: string): Promise<SavedResponse[]> {
-  const { env } = getRequestContext() as unknown as { env: Env };
+  const { env } = getCloudflareContext();
   const db = createDb(env.DB);
 
   const responses = await db.raw
@@ -180,7 +179,7 @@ async function fetchSavedResponses(userId: string, exerciseId: string): Promise<
 
 export default async function WorkbookExercisePage({ params }: PageProps) {
   const { exerciseId } = await params;
-  const { env } = getRequestContext() as unknown as { env: Env };
+  const { env } = getCloudflareContext();
 
   // Get session from cookie (middleware ensures user is authenticated)
   const cookieStore = await cookies();

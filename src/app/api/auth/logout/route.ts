@@ -6,11 +6,10 @@
 
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { deleteSession } from '@/lib/auth';
-import type { Env } from '@/types/database';
+import '@/types/database'; // CloudflareEnv augmentation
 
-export const runtime = 'edge';
 
 export async function POST() {
   try {
@@ -19,7 +18,7 @@ export async function POST() {
 
     if (sessionId) {
       // Delete session from database
-      const { env } = getRequestContext() as unknown as { env: Env };
+      const { env } = getCloudflareContext();
       await deleteSession(env.DB, sessionId);
     }
 

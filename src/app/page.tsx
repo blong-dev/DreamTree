@@ -1,6 +1,6 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth';
 import { createDb } from '@/lib/db';
 import {
@@ -15,7 +15,6 @@ import {
 import { LandingPage } from '@/components/landing';
 import type { Env } from '@/types/database';
 
-export const runtime = 'edge';
 
 // Get user's current exercise (first uncompleted)
 async function getCurrentExerciseId(db: ReturnType<typeof createDb>, userId: string): Promise<string> {
@@ -168,7 +167,7 @@ export default async function HomePage() {
     return <LandingPage />;
   }
 
-  const { env } = getRequestContext() as unknown as { env: Env };
+  const { env } = getCloudflareContext();
   const sessionData = await getSessionData(env.DB, sessionId);
 
   // Show landing page if session is invalid

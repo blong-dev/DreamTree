@@ -6,7 +6,7 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { nanoid } from 'nanoid';
 import {
   hashPassword,
@@ -17,9 +17,8 @@ import {
   generateSalt,
   encodeSalt,
 } from '@/lib/auth';
-import type { Env } from '@/types/database';
+import '@/types/database'; // CloudflareEnv augmentation
 
-export const runtime = 'edge';
 
 interface SignupBody {
   email: string;
@@ -58,7 +57,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { env } = getRequestContext() as unknown as { env: Env };
+    const { env } = getCloudflareContext();
     const db = env.DB;
     const normalizedEmail = email.toLowerCase().trim();
 
