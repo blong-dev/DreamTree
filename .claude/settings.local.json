@@ -161,7 +161,11 @@
       "Bash(npx opennextjs-cloudflare build:*)",
       "Bash(TEST_BASE_URL=https://dreamtree.org npm run test:api:*)",
       "Bash(TEST_BASE_URL=https://dreamtree.org npx vitest run:*)",
-      "Bash(set +H)"
+      "Bash(set +H)",
+      "Bash(git check-ignore:*)",
+      "Bash(for file in migrations/0003_add_tool_id_to_responses.sql migrations/0004_add_display_name.sql migrations/0005_refine_connections.sql migrations/0006_add_connections.sql migrations/0007_update_stem_connections.sql migrations/0008_fix_roots_overview.sql migrations/0009_add_missing_tables.sql migrations/0010_add_rate_limiting.sql migrations/0011_add_life_dashboard_notes.sql migrations/0012_add_analytics.sql migrations/0013_add_session_data_key.sql migrations/0014_add_overview_headers.sql migrations/0015_encrypt_emails.sql)",
+      "Bash(do echo \"Running $file...\")",
+      "Bash(npm run deploy:staging:*)"
     ],
     "defaultMode": "acceptEdits"
   },

@@ -32,18 +32,18 @@ export function LandingPage() {
       <main className="landing-main">
         <section className="landing-hero">
           <div className="landing-hero-content">
-            <h1>A Space to Go Deep</h1>
+            <h1>Go Deep</h1>
             <p className="landing-hero-subtitle">
-              Career transitions are hard. DreamTree is a guided workbook you text through —
-              helping you discover what you&apos;re good at, tell your story, and figure out what&apos;s next.
-              At your own pace.
+              Most career tools give you a quiz and a label. DreamTree is different —
+              a guided workbook that helps you actually understand what you&apos;re good at,
+              build stories worth telling, and figure out what&apos;s next.
             </p>
             <div className="landing-hero-actions">
               <button
                 className="button button-primary button-lg"
                 onClick={() => router.push('/signup')}
               >
-                Begin When You&apos;re Ready
+                Get Started
               </button>
             </div>
           </div>
@@ -52,24 +52,24 @@ export function LandingPage() {
         <section className="landing-features">
           <div className="landing-feature">
             <div className="landing-feature-icon">1</div>
-            <h3>Discover What You&apos;re Good At</h3>
-            <p>Not a quiz. A conversation. We&apos;ll help you uncover skills you&apos;ve forgotten and patterns you couldn&apos;t see alone.</p>
+            <h3>Know What You&apos;re Good At</h3>
+            <p>Not a 5-minute quiz. A real conversation about your skills, patterns, and what makes you tick.</p>
           </div>
           <div className="landing-feature">
             <div className="landing-feature-icon">2</div>
-            <h3>Tell Your Story</h3>
-            <p>Your experience matters. We&apos;ll help you find the moments that shaped you and turn them into stories worth telling.</p>
+            <h3>Build Your Story</h3>
+            <p>Your experience is raw material. We help you shape it into something you can use.</p>
           </div>
           <div className="landing-feature">
             <div className="landing-feature-icon">3</div>
             <h3>Figure Out What&apos;s Next</h3>
-            <p>Clarity, not pressure. A direction that feels like yours, not someone else&apos;s template.</p>
+            <p>Clarity without the bullshit. A direction that&apos;s actually yours.</p>
           </div>
         </section>
       </main>
 
       <footer className="landing-footer">
-        <p>Your data is encrypted. Your pace is yours. No points, no streaks, no rush.</p>
+        <p>Your personal data is encrypted. We can&apos;t read it. That&apos;s the point.</p>
       </footer>
     </div>
   );

@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "eslint",
     "deploy": "npm run build:pages && npx wrangler deploy",
+    "deploy:staging": "npm run build:pages && npx wrangler deploy --env staging",
     "test": "vitest",
     "test:run": "vitest run",
     "test:coverage": "vitest run --coverage"

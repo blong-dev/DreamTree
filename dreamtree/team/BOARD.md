@@ -1139,17 +1139,15 @@ Phase 1+2 done. Finish the job:
 
 ---
 
-## @Fizz — Deferred Polish (Low Priority)
+## @Fizz — Deferred Polish (Low Priority) ✅ ALL COMPLETE
 
-With core work done, tackle if time permits:
-
-| Item | Issue | Est |
-|------|-------|-----|
-| IMP-002 | ToolEmbed useState cleanup | 1 hr |
+| Item | Issue | Status |
+|------|-------|--------|
+| ~~IMP-002~~ | ~~ToolEmbed useState cleanup~~ | ✅ Done |
 | ~~IMP-023~~ | ~~Component ErrorBoundaries~~ | ✅ Done |
 | ~~IMP-025~~ | ~~Differentiated error messages~~ | ✅ Done |
 
-These are polish, not blockers. Only if queue stays empty.
+**All deferred items complete.** Tech debt queue cleared.
 
 ---
 
@@ -1442,6 +1440,108 @@ Added isolated error handling to prevent component crashes from killing pages:
 **Build**: ✅ PASS
 
 **Batch 3 now fully complete (5/5).** Only IMP-002 (ToolEmbed useState cleanup) remains in deferred queue.
+
+---
+
+**[Queen Bee]** @Buzz — Set Up Staging Environment
+
+Before launch, we need a sandbox. Production (dreamtree.org) can't be used for testing.
+
+**Deliverables:**
+
+1. **Create staging D1 database**
+   ```bash
+   wrangler d1 create dreamtree-staging-db
+   ```
+
+2. **Update wrangler.toml with staging environment**
+   ```toml
+   # Staging environment
+   [env.staging]
+   name = "dreamtree-staging"
+   [[env.staging.d1_databases]]
+   binding = "DB"
+   database_name = "dreamtree-staging-db"
+   database_id = "<new-db-id>"
+   ```
+
+3. **Run all migrations on staging DB**
+   ```bash
+   wrangler d1 execute dreamtree-staging-db --file=migrations/0001_initial.sql
+   # ... through 0015
+   ```
+
+4. **Add deploy scripts to package.json**
+   ```json
+   "deploy:staging": "npm run build:pages && wrangler deploy --env staging"
+   ```
+
+5. **Test deployment**
+   ```bash
+   npm run deploy:staging
+   ```
+
+**Expected result:** `dreamtree-staging.braedon.workers.dev` with isolated database.
+
+**Priority:** High — needed before launch.
+
+---
+
+**[Queen Bee]** RIZZ LANDING PAGE COPY — APPROVED
+
+The before/after is excellent. "A Space to Go Deep" is the right positioning.
+
+Key wins:
+- "Begin When You're Ready" — perfect CTA
+- "Not a quiz. A conversation." — clear differentiation
+- Footer hits data sovereignty + anti-gamification in one line
+
+**@Rizz — Implement the copy changes to `LandingPage.tsx`**
+
+Build must pass. Post when done.
+
+---
+
+**[Fizz]** IMP-002 COMPLETE — ToolEmbed Refactored
+
+Extracted 15 useState declarations into individual wrapper components.
+
+**Before:**
+- `ToolEmbed.tsx`: 600+ lines, 15 useState declarations
+- All tool states initialized on every render (memory waste)
+
+**After:**
+- `ToolEmbed.tsx`: 147 lines (simple dispatcher)
+- `tool-wrappers/`: 15 wrapper components, each managing its own state
+- `useToolSave.ts`: Shared hook for save/auto-save logic
+- Only active tool's state initialized
+
+**Files Created:**
+```
+src/hooks/useToolSave.ts
+src/components/workbook/tool-wrappers/
+├── types.ts
+├── index.ts
+├── ListBuilderWrapper.tsx
+├── SOAREDFormWrapper.tsx
+├── SkillTaggerWrapper.tsx
+├── RankingGridWrapper.tsx
+├── FlowTrackerWrapper.tsx
+├── LifeDashboardWrapper.tsx
+├── FailureReframerWrapper.tsx
+├── BucketingToolWrapper.tsx
+├── MBTISelectorWrapper.tsx
+├── BudgetCalculatorWrapper.tsx
+├── IdeaTreeWrapper.tsx
+├── MindsetProfilesWrapper.tsx
+├── CareerTimelineWrapper.tsx
+├── CareerAssessmentWrapper.tsx
+└── CompetencyAssessmentWrapper.tsx
+```
+
+**Build**: ✅ PASS
+
+**Tech debt queue: CLEARED** — All Batch 1, 2, 3 items complete.
 
 ---
 

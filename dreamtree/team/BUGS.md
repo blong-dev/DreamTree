@@ -1043,19 +1043,31 @@ Input field (AppShell input and PromptInput) was rendered immediately when promp
 
 ---
 
-### IMP-002: ToolEmbed has 15 useState declarations
+### IMP-002: ToolEmbed has 15 useState declarations ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz (2026-01-09)
 **Phase**: 1
 **Impact**: `medium`
 **Area**: workbook
+**Status**: `done`
 **Files**:
-- `src/components/workbook/ToolEmbed.tsx:96-155`
+- `src/components/workbook/ToolEmbed.tsx` — Refactored from 600+ to 147 lines
+- `src/components/workbook/tool-wrappers/` — 15 new wrapper components
+- `src/hooks/useToolSave.ts` — Shared save/auto-save hook
 
 **Finding**:
-ToolEmbed maintains separate useState for each tool type's data (listItems, soaredData, rankingItems, etc.). This creates 15+ state variables regardless of which tool is actually rendered, wasting memory and making the component hard to maintain.
+ToolEmbed maintained separate useState for each tool type's data. This created 15+ state variables regardless of which tool was rendered, wasting memory and making the component hard to maintain.
 
-**Recommendation**:
-Use a discriminated union pattern with a single `toolData` state, or extract each tool's state into custom hooks (`useListBuilder`, `useSOARED`, etc.).
+**Fix Applied**:
+Extracted each tool into its own wrapper component in `tool-wrappers/`:
+- Each wrapper manages its own state independently
+- Shared `useToolSave` hook handles save/auto-save logic
+- ToolEmbed is now a simple dispatcher (~147 lines vs 600+)
+- Only the active tool's state is initialized (no wasted memory)
+
+**Files Created**:
+- `src/hooks/useToolSave.ts`
+- `src/components/workbook/tool-wrappers/` (15 wrapper components + index + types)
 
 ---
 
@@ -1232,7 +1244,7 @@ Consolidate keyboard handling in a single location or use a keyboard event manag
 **Phase**: QA Audit
 **Impact**: `high`
 **Area**: testing
-**Status**: `in-progress` (137 tests, was 0)
+**Status**: `in-progress` (161 tests, was 0)
 **Files**:
 - All 86 components in `src/components/`
 
@@ -1240,7 +1252,7 @@ Consolidate keyboard handling in a single location or use a keyboard event manag
 No unit tests exist for any React components. Critical business logic in WorkbookView (628 lines), ConnectionResolver (720 lines), and auth functions (286 lines) has zero test coverage. Refactoring or bug fixes are flying blind.
 
 **Progress** (2026-01-09):
-Unit test infrastructure added. 137 tests now exist:
+Unit test infrastructure added. 161 tests now exist:
 - `WorkbookInputZone.test.tsx` (9 tests)
 - `HistoryZone.test.tsx` (9 tests)
 - `DailyDoList.test.tsx` (7 tests)
@@ -1250,13 +1262,13 @@ Unit test infrastructure added. 137 tests now exist:
 - `PromptInput.test.tsx` (24 tests) — all 5 input types
 - `MessageContent.test.tsx` (19 tests) — block types, animation, a11y
 - `TypingEffect.test.tsx` (15 tests) — animation, skip, reduced motion
+- `WorkbookView.test.tsx` (24 tests) — state machine, progression, animation tracking, save/error
 
 **Remaining**:
-- WorkbookView state machine
 - ConnectionResolver data fetchers
 
 **Recommendation**:
-Add Vitest + React Testing Library to main package. Prioritize tests for WorkbookView state machine, ConnectionResolver data fetchers, and auth encryption logic.
+Add Vitest + React Testing Library to main package. Prioritize tests for ConnectionResolver data fetchers and auth encryption logic.
 
 ---
 
