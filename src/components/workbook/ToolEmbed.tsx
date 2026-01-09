@@ -1,49 +1,32 @@
 'use client';
 
-import { useState, useCallback, useEffect, useRef } from 'react';
+/**
+ * ToolEmbed - Dispatcher for tool wrapper components
+ * IMP-002: Refactored from 600+ lines with 15 useState to simple dispatcher
+ *
+ * Each tool now manages its own state in a dedicated wrapper component.
+ * This component just dispatches to the right wrapper.
+ */
+
 import type { ToolData } from './types';
 import { ErrorBoundary } from '../feedback';
-
-// Import all tool components
 import {
-  ListBuilder,
-  SOAREDForm,
-  SkillTagger,
-  RankingGrid,
-  FlowTracker,
-  LifeDashboard,
-  FailureReframer,
-  BucketingTool,
-  MBTISelector,
-  BudgetCalculator,
-  IdeaTree,
-  MindsetProfiles,
-  CareerTimeline,
-  CareerAssessment,
-  CompetencyAssessment,
-  getDefaultIdeaTreeData,
-  DEFAULT_EXPENSES,
-} from '../tools';
-
-import type {
-  ListItem,
-  SOAREDStoryData,
-  RankingItem,
-  Comparison,
-  FlowTrackerData,
-  LifeDashboardData,
-  FailureReframerData,
-  BucketingToolData,
-  BudgetCalculatorData,
-  IdeaTreeData,
-  MindsetProfilesData,
-  CareerTimelineData,
-  CareerAssessmentData,
-  CompetencyAssessmentData,
-  MBTIType,
-  Skill,
-  Competency,
-} from '../tools';
+  ListBuilderWrapper,
+  SOAREDFormWrapper,
+  SkillTaggerWrapper,
+  RankingGridWrapper,
+  FlowTrackerWrapper,
+  LifeDashboardWrapper,
+  FailureReframerWrapper,
+  BucketingToolWrapper,
+  MBTISelectorWrapper,
+  BudgetCalculatorWrapper,
+  IdeaTreeWrapper,
+  MindsetProfilesWrapper,
+  CareerTimelineWrapper,
+  CareerAssessmentWrapper,
+  CompetencyAssessmentWrapper,
+} from './tool-wrappers';
 
 interface ToolEmbedProps {
   tool: ToolData;
@@ -52,7 +35,6 @@ interface ToolEmbedProps {
   onComplete: () => void;
 }
 
-// Map database tool names to component keys
 type ToolName =
   | 'list_builder'
   | 'soared_form'
@@ -70,496 +52,60 @@ type ToolName =
   | 'career_assessment'
   | 'competency_assessment';
 
-// Standard MBTI types for the selector
-const MBTI_TYPES: MBTIType[] = [
-  { code: 'INTJ', name: 'The Architect' },
-  { code: 'INTP', name: 'The Logician' },
-  { code: 'ENTJ', name: 'The Commander' },
-  { code: 'ENTP', name: 'The Debater' },
-  { code: 'INFJ', name: 'The Advocate' },
-  { code: 'INFP', name: 'The Mediator' },
-  { code: 'ENFJ', name: 'The Protagonist' },
-  { code: 'ENFP', name: 'The Campaigner' },
-  { code: 'ISTJ', name: 'The Logistician' },
-  { code: 'ISFJ', name: 'The Defender' },
-  { code: 'ESTJ', name: 'The Executive' },
-  { code: 'ESFJ', name: 'The Consul' },
-  { code: 'ISTP', name: 'The Virtuoso' },
-  { code: 'ISFP', name: 'The Adventurer' },
-  { code: 'ESTP', name: 'The Entrepreneur' },
-  { code: 'ESFP', name: 'The Entertainer' },
-];
-
 export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEmbedProps) {
   const toolName = (tool.name || '').toLowerCase().replace(/-/g, '_') as ToolName;
 
-  // State for different tool types
-  const [listItems, setListItems] = useState<ListItem[]>([]);
-  const [soaredData, setSoaredData] = useState<SOAREDStoryData>({
-    title: '',
-    situation: '',
-    obstacle: '',
-    action: '',
-    result: '',
-    evaluation: '',
-    discovery: '',
-    storyType: 'challenge',
-  });
-  const [selectedSkillIds, setSelectedSkillIds] = useState<string[]>([]);
-  const [rankingItems, setRankingItems] = useState<RankingItem[]>([]);
-  const [rankingComparisons, setRankingComparisons] = useState<Comparison[]>([]);
-  const [flowData, setFlowData] = useState<FlowTrackerData>({ entries: [] });
-  const [lifeDashboardData, setLifeDashboardData] = useState<LifeDashboardData>({
-    work: null,
-    play: null,
-    love: null,
-    health: null,
-  });
-  const [failureData, setFailureData] = useState<FailureReframerData>({
-    situation: '',
-    initialFeelings: '',
-    whatLearned: '',
-    whatWouldChange: '',
-    silverLining: '',
-    nextStep: '',
-    reframedStatement: '',
-  });
-  const [bucketingData, setBucketingData] = useState<BucketingToolData>({
-    items: [],
-    bucketLabels: ['Most Used', 'Often Used', 'Sometimes', 'Rarely', 'Least Used'],
-  });
-  const [mbtiValue, setMbtiValue] = useState<string | null>(null);
-  const [budgetData, setBudgetData] = useState<BudgetCalculatorData>({
-    grossMonthlyIncome: 0,
-    grossYearlyIncome: 0,
-    incomeInputMode: 'yearly',
-    filingStatus: 'single',
-    stateCode: null,
-    expenses: DEFAULT_EXPENSES,
-    notes: '',
-  });
-  const [ideaTreeData, setIdeaTreeData] = useState<IdeaTreeData>(getDefaultIdeaTreeData());
-  const [mindsetData, setMindsetData] = useState<MindsetProfilesData>({
-    selectedCharacters: {
-      'curiosity': '',
-      'bias-to-action': '',
-      'reframing': '',
-      'awareness': '',
-      'radical-collaboration': '',
-    },
-  });
-  const [timelineData, setTimelineData] = useState<CareerTimelineData>({
-    milestones: [],
-    startYear: new Date().getFullYear() - 10,
-  });
-  const [careerData, setCareerData] = useState<CareerAssessmentData>({ options: [] });
-  const [competencyData, setCompetencyData] = useState<CompetencyAssessmentData>({ scores: [] });
-
-  // Reference data for tools
-  const [skills, setSkills] = useState<Skill[]>([]);
-  const [competencies, setCompetencies] = useState<Competency[]>([]);
-  const [dataLoading, setDataLoading] = useState(false);
-  const [dataError, setDataError] = useState<string | null>(null); // IMP-021
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-
-  // Refs for auto-save (IMP-041, IMP-008)
-  const isInitialMount = useRef(true);
-  const autoSaveTimeout = useRef<NodeJS.Timeout | null>(null);
-  const getToolDataRef = useRef<() => unknown>(() => ({}));
-
-  // Fetch skills when skill_tagger tool is rendered
-  useEffect(() => {
-    if (toolName === 'skill_tagger' && skills.length === 0) {
-      setDataLoading(true);
-      setDataError(null);
-      fetch('/api/data/skills')
-        .then(res => res.json() as Promise<{ skills?: Skill[] }>)
-        .then(data => {
-          if (data.skills) {
-            setSkills(data.skills);
-          }
-        })
-        .catch(err => {
-          console.error('[ToolEmbed] Failed to load skills:', err);
-          setDataError('Failed to load skills. Tap to retry.');
-        })
-        .finally(() => setDataLoading(false));
-    }
-  }, [toolName, skills.length]);
-
-  // Fetch competencies when competency_assessment tool is rendered
-  useEffect(() => {
-    if (toolName === 'competency_assessment' && competencies.length === 0) {
-      setDataLoading(true);
-      setDataError(null);
-      fetch('/api/data/competencies')
-        .then(res => res.json() as Promise<{ competencies?: Competency[] }>)
-        .then(data => {
-          if (data.competencies) {
-            setCompetencies(data.competencies);
-          }
-        })
-        .catch(err => {
-          console.error('[ToolEmbed] Failed to load competencies:', err);
-          setDataError('Failed to load competencies. Tap to retry.');
-        })
-        .finally(() => setDataLoading(false));
-    }
-  }, [toolName, competencies.length]);
-
-  // Fetch connected data when connectionId is provided
-  useEffect(() => {
-    if (!connectionId) return;
-
-    setDataLoading(true);
-    setDataError(null);
-    fetch(`/api/data/connection?connectionId=${connectionId}`)
-      .then(res => res.json() as Promise<{ data?: unknown; method?: string; isEmpty?: boolean }>)
-      .then(result => {
-        if (result.isEmpty || !result.data) return;
-
-        // Apply connected data based on tool type
-        switch (toolName) {
-          case 'skill_tagger':
-            // Connected skills to pre-select
-            if (Array.isArray(result.data)) {
-              const skillIds = result.data.map((s: { skillId?: string; id?: string }) =>
-                s.skillId || s.id || ''
-              ).filter(Boolean);
-              setSelectedSkillIds(skillIds);
-            }
-            break;
-          case 'list_builder':
-            // Pre-populate list with connected items
-            if (Array.isArray(result.data)) {
-              const items = result.data.map((item: { id?: string; value?: string; name?: string }, i: number) => ({
-                id: item.id || `connected-${i}`,
-                value: item.value || item.name || '',
-              }));
-              setListItems(items);
-            }
-            break;
-          case 'ranking_grid':
-            // Pre-populate ranking items
-            if (Array.isArray(result.data)) {
-              const items = result.data.map((item: { id?: string; value?: string; name?: string; rank?: number }, i: number) => ({
-                id: item.id || `connected-${i}`,
-                value: item.value || item.name || '',
-                rank: item.rank,
-              }));
-              setRankingItems(items);
-            }
-            break;
-          // Add more tool-specific handling as needed
-        }
-      })
-      .catch(err => {
-        console.error('[ToolEmbed] Failed to load connection data:', err);
-        setDataError('Failed to load data. Tap to retry.');
-      })
-      .finally(() => setDataLoading(false));
-  }, [connectionId, toolName]);
-
-  // Get the current data for the active tool
-  const getToolData = useCallback(() => {
-    switch (toolName) {
-      case 'list_builder':
-        return listItems;
-      case 'soared_form':
-        return soaredData;
-      case 'skill_tagger':
-        return { selectedSkillIds };
-      case 'ranking_grid':
-        return { items: rankingItems, comparisons: rankingComparisons };
-      case 'flow_tracker':
-        return flowData;
-      case 'life_dashboard':
-        return lifeDashboardData;
-      case 'failure_reframer':
-        return failureData;
-      case 'bucketing_tool':
-        return bucketingData;
-      case 'mbti_selector':
-        return { selectedCode: mbtiValue };
-      case 'budget_calculator':
-        return budgetData;
-      case 'idea_tree':
-        return ideaTreeData;
-      case 'mindset_profiles':
-        return mindsetData;
-      case 'career_timeline':
-        return timelineData;
-      case 'career_assessment':
-        return careerData;
-      case 'competency_assessment':
-        return competencyData;
-      default:
-        return {};
-    }
-  }, [
-    toolName, listItems, soaredData, selectedSkillIds, rankingItems, rankingComparisons,
-    flowData, lifeDashboardData, failureData, bucketingData, mbtiValue, budgetData,
-    ideaTreeData, mindsetData, timelineData, careerData, competencyData
-  ]);
-
-  // Keep ref updated for use in effects without causing re-triggers (IMP-008)
-  getToolDataRef.current = getToolData;
-
-  // Stringify current data for change detection - triggers effect only when data content changes
-  const currentToolDataJson = JSON.stringify(getToolData());
-
-  // Save tool data to the API (for Continue button)
-  const saveToolData = useCallback(async () => {
-    // Clear any pending auto-save to prevent race condition (IMP-041)
-    if (autoSaveTimeout.current) {
-      clearTimeout(autoSaveTimeout.current);
-      autoSaveTimeout.current = null;
-    }
-
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      const response = await fetch('/api/workbook/response', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          toolId: tool.id,
-          exerciseId,
-          responseText: JSON.stringify(getToolData()),
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to save tool data');
-      }
-
-      onComplete();
-    } catch (err) {
-      console.error('Error saving tool:', err);
-      // IMP-025: Differentiate error types
-      if (err instanceof TypeError && err.message.includes('fetch')) {
-        setError('Unable to connect. Check your internet connection.');
-      } else {
-        setError('Failed to save. Please try again.');
-      }
-    } finally {
-      setIsLoading(false);
-    }
-  }, [tool.id, exerciseId, getToolData, onComplete]);
-
-  // Silent auto-save (debounced, no UI feedback) - IMP-008: use ref and JSON for deps
-  useEffect(() => {
-    // Skip auto-save on initial mount
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-      return;
-    }
-
-    // Clear any pending auto-save
-    if (autoSaveTimeout.current) {
-      clearTimeout(autoSaveTimeout.current);
-    }
-
-    // Debounce auto-save by 1.5 seconds
-    autoSaveTimeout.current = setTimeout(async () => {
-      try {
-        await fetch('/api/workbook/response', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            toolId: tool.id,
-            exerciseId,
-            responseText: JSON.stringify(getToolDataRef.current()),
-          }),
-        });
-        // Silent success - no UI feedback
-      } catch {
-        // Silent failure - user will save manually with Continue
-      }
-    }, 1500);
-
-    return () => {
-      if (autoSaveTimeout.current) {
-        clearTimeout(autoSaveTimeout.current);
-      }
-    };
-  }, [currentToolDataJson, tool.id, exerciseId]);
-
-  // Handle ranking comparison
-  const handleRankingCompare = useCallback((winnerId: string, loserId: string) => {
-    setRankingComparisons(prev => [...prev, { winnerId, loserId }]);
-  }, []);
-
-  // Handle ranking complete
-  const handleRankingComplete = useCallback((ranked: RankingItem[]) => {
-    setRankingItems(ranked);
-  }, []);
-
-  // IMP-021: Retry handler for data loading failures
-  const handleRetry = useCallback(() => {
-    setDataError(null);
-    // Force re-fetch by clearing data and triggering effects
-    if (toolName === 'skill_tagger') {
-      setSkills([]);
-    } else if (toolName === 'competency_assessment') {
-      setCompetencies([]);
-    }
-    // Connection data retry happens automatically when dataError is cleared
-  }, [toolName]);
-
-  // Render the appropriate tool component
-  const renderTool = () => {
-    // IMP-021: Show error state with retry button
-    if (dataError) {
-      return (
+  // Guard: tool.id is required for saving
+  if (!tool.id) {
+    return (
+      <div className="tool-embed">
         <div className="tool-embed-error-state">
-          <p>{dataError}</p>
-          <button className="button button-secondary" onClick={handleRetry}>
-            Retry
-          </button>
+          <p>Tool configuration error: missing ID.</p>
         </div>
-      );
-    }
+      </div>
+    );
+  }
+
+  const commonProps = {
+    toolId: tool.id,
+    exerciseId,
+    connectionId,
+    instructions: tool.instructions,
+    onComplete,
+  };
+
+  const renderTool = () => {
     switch (toolName) {
       case 'list_builder':
-        return (
-          <ListBuilder
-            items={listItems}
-            onChange={setListItems}
-            placeholder="Add an item..."
-            reorderable
-          />
-        );
-
+        return <ListBuilderWrapper {...commonProps} />;
       case 'soared_form':
-        return (
-          <SOAREDForm
-            data={soaredData}
-            onChange={setSoaredData}
-          />
-        );
-
+        return <SOAREDFormWrapper {...commonProps} />;
       case 'skill_tagger':
-        if (dataLoading) {
-          return <div className="tool-embed-loading">Loading skills...</div>;
-        }
-        return (
-          <SkillTagger
-            skills={skills}
-            selectedSkillIds={selectedSkillIds}
-            onChange={setSelectedSkillIds}
-            storyTitle="Tag skills for this story"
-          />
-        );
-
+        return <SkillTaggerWrapper {...commonProps} />;
       case 'ranking_grid':
-        return (
-          <RankingGrid
-            items={rankingItems}
-            comparisons={rankingComparisons}
-            onCompare={handleRankingCompare}
-            onComplete={handleRankingComplete}
-            label="Rank these items"
-          />
-        );
-
+        return <RankingGridWrapper {...commonProps} />;
       case 'flow_tracker':
-        return (
-          <FlowTracker
-            data={flowData}
-            onChange={setFlowData}
-          />
-        );
-
+        return <FlowTrackerWrapper {...commonProps} />;
       case 'life_dashboard':
-        return (
-          <LifeDashboard
-            data={lifeDashboardData}
-            onChange={setLifeDashboardData}
-          />
-        );
-
+        return <LifeDashboardWrapper {...commonProps} />;
       case 'failure_reframer':
-        return (
-          <FailureReframer
-            data={failureData}
-            onChange={setFailureData}
-          />
-        );
-
+        return <FailureReframerWrapper {...commonProps} />;
       case 'bucketing_tool':
-        return (
-          <BucketingTool
-            data={bucketingData}
-            onChange={setBucketingData}
-          />
-        );
-
+        return <BucketingToolWrapper {...commonProps} />;
       case 'mbti_selector':
-        return (
-          <MBTISelector
-            value={mbtiValue}
-            onChange={setMbtiValue}
-            types={MBTI_TYPES}
-            label="Select your MBTI type"
-          />
-        );
-
+        return <MBTISelectorWrapper {...commonProps} />;
       case 'budget_calculator':
-        return (
-          <BudgetCalculator
-            data={budgetData}
-            onChange={setBudgetData}
-          />
-        );
-
+        return <BudgetCalculatorWrapper {...commonProps} />;
       case 'idea_tree':
-        return (
-          <IdeaTree
-            data={ideaTreeData}
-            onChange={setIdeaTreeData}
-          />
-        );
-
+        return <IdeaTreeWrapper {...commonProps} />;
       case 'mindset_profiles':
-        return (
-          <MindsetProfiles
-            data={mindsetData}
-            onChange={setMindsetData}
-          />
-        );
-
+        return <MindsetProfilesWrapper {...commonProps} />;
       case 'career_timeline':
-        return (
-          <CareerTimeline
-            data={timelineData}
-            onChange={setTimelineData}
-          />
-        );
-
+        return <CareerTimelineWrapper {...commonProps} />;
       case 'career_assessment':
-        return (
-          <CareerAssessment
-            data={careerData}
-            onChange={setCareerData}
-          />
-        );
-
+        return <CareerAssessmentWrapper {...commonProps} />;
       case 'competency_assessment':
-        if (dataLoading) {
-          return <div className="tool-embed-loading">Loading competencies...</div>;
-        }
-        return (
-          <CompetencyAssessment
-            data={competencyData}
-            onChange={setCompetencyData}
-            competencies={competencies}
-          />
-        );
-
+        return <CompetencyAssessmentWrapper {...commonProps} />;
       default:
         return (
           <div className="tool-embed-placeholder">
@@ -595,22 +141,6 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
         >
           {renderTool()}
         </ErrorBoundary>
-      </div>
-
-      {error && (
-        <div className="tool-embed-error">
-          <p>{error}</p>
-        </div>
-      )}
-
-      <div className="tool-embed-actions">
-        <button
-          className="button button-primary"
-          onClick={saveToolData}
-          disabled={isLoading}
-        >
-          {isLoading ? 'Saving...' : 'Continue'}
-        </button>
       </div>
     </div>
   );
