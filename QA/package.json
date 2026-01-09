@@ -1,0 +1,22 @@
+{
+  "name": "dreamtree-qa",
+  "version": "1.0.0",
+  "description": "QA tests for DreamTree app",
+  "type": "module",
+  "scripts": {
+    "test:api": "vitest run api/",
+    "test:api:watch": "vitest watch api/",
+    "test:smoke": "playwright test --config=e2e/playwright-smoke.config.ts",
+    "test:e2e": "playwright test --config=e2e/playwright.config.ts",
+    "test:e2e:ui": "playwright test --config=e2e/playwright.config.ts --ui",
+    "test:e2e:headed": "playwright test --config=e2e/playwright.config.ts --headed",
+    "test:all": "npm run test:smoke && npm run test:api && npm run test:e2e",
+    "playwright:install": "playwright install"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vitest": "^1.0.0"
+  }
+}

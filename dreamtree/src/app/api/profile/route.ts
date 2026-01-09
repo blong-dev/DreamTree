@@ -5,11 +5,10 @@
 
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { getRequestContext } from '@cloudflare/next-on-pages';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth';
-import type { Env } from '@/types/database';
+import '@/types/database'; // CloudflareEnv augmentation
 
-export const runtime = 'edge';
 
 interface UserProfile {
   displayName: string | null;
@@ -48,7 +47,7 @@ export async function GET(_request: NextRequest) {
       return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
     }
 
-    const { env } = getRequestContext() as unknown as { env: Env };
+    const { env } = getCloudflareContext();
     const sessionData = await getSessionData(env.DB, sessionId);
 
     if (!sessionData) {

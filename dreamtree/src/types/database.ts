@@ -458,3 +458,10 @@ export interface Env {
   DB: D1Database;
   [key: string]: unknown;
 }
+
+// Augment global CloudflareEnv for OpenNext
+declare global {
+  interface CloudflareEnv {
+    DB: D1Database;
+  }
+}
