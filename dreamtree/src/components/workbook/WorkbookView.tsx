@@ -63,9 +63,17 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     [savedResponses]
   );
 
-  // Track which block we're currently displaying (for typing effect progression)
+  // Track which block we're currently displaying (for one-at-a-time progression)
   const [displayedBlockIndex, setDisplayedBlockIndex] = useState(() => {
-    // Start from the first unanswered prompt or tool, or show all if all answered
+    // Check if user has ANY saved responses (returning user)
+    const hasAnyResponses = savedResponses.length > 0;
+
+    if (!hasAnyResponses) {
+      // New user - start with first block only, they'll click through
+      return 1;
+    }
+
+    // Returning user - find the first unanswered prompt or tool
     const interactiveBlocks = exercise.blocks.filter(b => b.blockType === 'prompt' || b.blockType === 'tool');
     const firstUnanswered = interactiveBlocks.findIndex(b => {
       if (b.blockType === 'prompt') {
@@ -87,7 +95,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       return exercise.blocks.length;
     }
 
-    // Find the index in the full blocks array of this block
+    // Show all blocks up to and including the first unanswered prompt/tool
     const firstUnansweredBlock = interactiveBlocks[firstUnanswered];
     return exercise.blocks.indexOf(firstUnansweredBlock) + 1;
   });
@@ -139,31 +147,21 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         }
       }
     } else if (block.blockType === 'tool') {
-      // Tools are handled specially - just show a placeholder message
+      // Tools are rendered inline by ToolEmbed - don't duplicate in messages
+      // Just track that we've passed this block for history purposes
       const toolData = block.content as ToolData;
-      messages.push({
-        id: `msg-${messageId++}`,
-        type: 'content',
-        data: [{
-          type: 'activity-header',
-          title: toolData.name || 'Tool',
-          description: toolData.description,
-        }],
-        timestamp: new Date(),
-      });
-
-      // Check if user has saved tool data
       const toolId = toolData.id;
+
+      // Only show a minimal marker if the tool has been completed (for history)
       if (toolId !== undefined && toolResponseMap.has(toolId)) {
-        messages.push({
-          id: `msg-${messageId++}`,
-          type: 'user',
-          data: { type: 'text', value: '[Tool data saved]' } as UserResponseContent,
-          timestamp: new Date(),
-        });
+        // Tool was completed - the response is stored, but we don't show a message
+        // The tool component will re-render with saved data if user scrolls back
       }
     }
   }
+
+  // Track if we're waiting for user to click Continue on a content block
+  const [waitingForContinue, setWaitingForContinue] = useState(false);
 
   // Determine what input to show
   useEffect(() => {
@@ -174,6 +172,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       setInputType('none');
       setActivePrompt(null);
       setActiveTool(null);
+      setWaitingForContinue(false);
       return;
     }
 
@@ -185,6 +184,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       if (!hasResponse) {
         setActivePrompt(currentBlock);
         setActiveTool(null);
+        setWaitingForContinue(false);
 
         // Set input type based on prompt type
         switch (promptData.inputType) {
@@ -199,6 +199,10 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         }
         return;
       }
+      // Prompt already answered - advance to show next block
+      if (displayedBlockIndex < exercise.blocks.length) {
+        setDisplayedBlockIndex(prev => prev + 1);
+      }
     } else if (currentBlock.blockType === 'tool') {
       const toolData = currentBlock.content as ToolData;
       const toolId = toolData.id;
@@ -208,24 +212,59 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         setActiveTool(currentBlock);
         setActivePrompt(null);
         setInputType('none');
+        setWaitingForContinue(false);
         return;
       }
+      // Tool already completed - advance to show next block
+      if (displayedBlockIndex < exercise.blocks.length) {
+        setDisplayedBlockIndex(prev => prev + 1);
+      }
+    } else if (currentBlock.blockType === 'content') {
+      // Content block - wait for user to click Continue
+      setActivePrompt(null);
+      setActiveTool(null);
+      setInputType('none');
+      setWaitingForContinue(true);
+      return;
     }
 
-    // If we get here, advance to next block
-    if (displayedBlockIndex < exercise.blocks.length) {
-      // Small delay for typing effect
-      const timer = setTimeout(() => {
-        setDisplayedBlockIndex(prev => prev + 1);
-      }, 500);
-      return () => clearTimeout(timer);
-    } else {
-      // We've reached the end of the exercise
+    // We've reached the end of the exercise
+    if (displayedBlockIndex >= exercise.blocks.length) {
       setInputType('none');
       setActivePrompt(null);
       setActiveTool(null);
+      setWaitingForContinue(false);
     }
   }, [displayedBlockIndex, exercise.blocks, promptResponseMap, toolResponseMap]);
+
+  // Handle Continue button click for content blocks
+  const handleContinue = useCallback(() => {
+    setWaitingForContinue(false);
+    if (displayedBlockIndex < exercise.blocks.length) {
+      setDisplayedBlockIndex(prev => prev + 1);
+    }
+  }, [displayedBlockIndex, exercise.blocks.length]);
+
+  // Global Enter key handler for continue
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Only handle Enter when waiting for continue and no input is focused
+      if (e.key === 'Enter' && waitingForContinue) {
+        const activeElement = document.activeElement;
+        const isInputFocused = activeElement?.tagName === 'INPUT' ||
+          activeElement?.tagName === 'TEXTAREA' ||
+          activeElement?.tagName === 'SELECT';
+
+        if (!isInputFocused) {
+          e.preventDefault();
+          handleContinue();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [waitingForContinue, handleContinue]);
 
   // Save a response
   const handleSaveResponse = useCallback(async (responseText: string) => {
@@ -328,7 +367,8 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       }
       onInputChange={setInputValue}
       onInputSubmit={handleSaveResponse}
-      activeNavItem="contents"
+      activeNavItem="home"
+      hideContents={true}
       onNavigate={handleNavigate}
     >
       <div className="workbook-view" ref={threadRef}>
@@ -356,22 +396,27 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
           />
         )}
 
-        {/* Exercise complete message */}
-        {isExerciseComplete && (
-          <div className="workbook-complete">
-            <div className="workbook-complete-message">
-              <h3>Exercise Complete</h3>
-              {exercise.nextExerciseId ? (
-                <button
-                  className="button button-primary"
-                  onClick={() => router.push(`/workbook/${exercise.nextExerciseId}`)}
-                >
-                  Continue to Next Exercise
-                </button>
-              ) : (
-                <p>You&apos;ve completed this exercise!</p>
-              )}
-            </div>
+        {/* Continue button for content blocks */}
+        {waitingForContinue && (
+          <div className="workbook-continue">
+            <button
+              className="button button-primary"
+              onClick={handleContinue}
+            >
+              Continue
+            </button>
+          </div>
+        )}
+
+        {/* Continue to next exercise when complete */}
+        {isExerciseComplete && exercise.nextExerciseId && (
+          <div className="workbook-continue">
+            <button
+              className="button button-primary"
+              onClick={() => router.push(`/workbook/${exercise.nextExerciseId}`)}
+            >
+              Continue
+            </button>
           </div>
         )}
       </div>
