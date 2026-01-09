@@ -6,7 +6,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData } from '@/lib/auth';
+import { getSessionData, decryptPII } from '@/lib/auth';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
@@ -87,8 +87,11 @@ export async function GET(_request: NextRequest) {
       .bind(userId)
       .first<{ work_values: string | null; life_values: string | null; compass_statement: string | null }>();
 
+    // Decrypt display_name if it's encrypted (IMP-048)
+    const decryptedName = await decryptPII(env.DB, sessionId, profile?.display_name || null);
+
     const profileData: UserProfile = {
-      displayName: profile?.display_name || null,
+      displayName: decryptedName,
       headline: profile?.headline || null,
       summary: profile?.summary || null,
     };

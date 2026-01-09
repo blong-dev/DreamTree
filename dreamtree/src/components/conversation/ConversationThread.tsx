@@ -14,8 +14,8 @@ interface ConversationThreadProps {
   onEditMessage?: (messageId: string) => void;
   /** Set of message IDs that have already been animated (should not re-animate) */
   animatedMessageIds?: Set<string>;
-  /** Callback when a message animation completes */
-  onMessageAnimated?: (messageId: string) => void;
+  /** Callback when a message animation completes. wasSkipped is true if user clicked to skip. */
+  onMessageAnimated?: (messageId: string, wasSkipped: boolean) => void;
   /** Trigger value that forces scroll to bottom when changed (e.g., displayedBlockIndex) */
   scrollTrigger?: number;
 }
@@ -29,7 +29,7 @@ function MessageRenderer({
   message: Message;
   onEdit?: () => void;
   animate?: boolean;
-  onAnimationComplete?: () => void;
+  onAnimationComplete?: (wasSkipped: boolean) => void;
 }) {
   switch (message.type) {
     case 'content':
@@ -118,7 +118,7 @@ export function ConversationThread({
             animate={shouldAnimate}
             onAnimationComplete={
               shouldAnimate && onMessageAnimated
-                ? () => onMessageAnimated(message.id)
+                ? (wasSkipped: boolean) => onMessageAnimated(message.id, wasSkipped)
                 : undefined
             }
             onEdit={

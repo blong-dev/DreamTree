@@ -1,6 +1,21 @@
 # DreamTree Team Manager
 
-This file orchestrates task delegation across the DreamTree codebase. When working on this project, use this document to route tasks to the appropriate area owner.
+This file contains coordination protocols and routing tables for the DreamTree team.
+
+---
+
+## Team Intro Docs
+
+**Each team member has a dedicated intro doc. Read yours first:**
+
+| Role | Intro Doc | Owns |
+|------|-----------|------|
+| **Queen Bee** | `QUEEN.md` | Coordination, user communication, bug filing |
+| **Fizz** | `FIZZ.md` | UI/UX, components, CSS, workbook, conversation |
+| **Buzz** | `BUZZ.md` | Database, auth, API, security, connections |
+| **Pazz** | `PAZZ.md` | QA, testing, verification |
+
+**Area deep-dives:** See `areas/*.md` for technical patterns and gotchas.
 
 ---
 

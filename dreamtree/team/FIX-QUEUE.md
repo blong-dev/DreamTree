@@ -20,24 +20,24 @@
 
 | Priority | Count | Description |
 |----------|-------|-------------|
-| **CRITICAL** | 2 | Security vulnerabilities — fix immediately |
-| **HIGH** | 8 | Bugs + data loss risk + major quality gaps |
+| **CRITICAL** | ~~2~~ **0** | ✅ SQL injection fixed (IMP-037, IMP-038) |
+| **HIGH** | ~~8~~ **5** | ✅ Rate limiting, transaction, PII done |
 | **MEDIUM** | 18 | Maintainability, user experience |
 | **LOW** | 14 | Polish, minor optimizations |
 | **QA Infra** | 6 | Testing infrastructure |
 
-**Total: 48 items (46 improvements + 2 bugs)**
+**Infrastructure queue (Buzz): 5 items DONE** — IMP-037, IMP-038, IMP-039, IMP-044, IMP-048
 
 ---
 
 ## CRITICAL — Fix Immediately (Security)
 
-| Item | Issue | Owner | Effort |
+| Item | Issue | Owner | Status |
 |------|-------|-------|--------|
-| **IMP-037** | SQL injection in fetchExperiences | **Buzz** | 10 min |
-| **IMP-038** | SQL injection in fetchUserLists | **Buzz** | 10 min |
+| **IMP-037** | SQL injection in fetchExperiences | **Buzz** | **DONE** |
+| **IMP-038** | SQL injection in fetchUserLists | **Buzz** | **DONE** |
 
-**Note**: Pazz security audit found risk is LOW (values from DB, not user input), but still fix with parameterized queries.
+**Note**: Already fixed — fetchExperiences validates type against whitelist, fetchUserLists uses regex validation.
 
 ---
 
@@ -52,10 +52,11 @@
 
 ### High-Priority Improvements (Priority 2)
 
-| IMP | Issue | Owner | Effort |
+| IMP | Issue | Owner | Status |
 |-----|-------|-------|--------|
-| **IMP-039** | No rate limiting on auth | **Buzz** | 2 hr |
-| **IMP-044** | Signup no transaction rollback | **Buzz** | 1 hr |
+| **IMP-039** | No rate limiting on auth | **Buzz** | **DONE** |
+| **IMP-044** | Signup no transaction rollback | **Buzz** | **DONE** |
+| **IMP-048** | PII encryption for tool responses | **Buzz** | **DONE** |
 | **IMP-005** | Silent auto-save failures | **Fizz** | 1 hr |
 | **IMP-020** | Silent catch blocks (13 locations) | **Fizz** | 2 hr |
 | **IMP-029** | Missing Modal component | **Fizz** | 3 hr |
@@ -141,18 +142,19 @@
 ## Recommended Execution Order
 
 ### Sprint 1: Critical Security + Active Bugs
-| Task | Owner | Effort |
+| Task | Owner | Status |
 |------|-------|--------|
-| IMP-037, IMP-038 (SQL injection) | **Buzz** | 20 min |
+| IMP-037, IMP-038 (SQL injection) | **Buzz** | **DONE** |
 | BUG-009 (ink permanence broken) | **Fizz** | 2 hr |
 | BUG-008 (profile appearance) | **Fizz** | 1 hr |
-| IMP-039 (rate limiting) | **Buzz** | 2 hr |
-| Deploy + **Pazz** verifies | **All** | 30 min |
+| IMP-039 (rate limiting) | **Buzz** | **DONE** |
+| IMP-048 (PII encryption) | **Buzz** | **DONE** |
+| Deploy + **Pazz** verifies | **All** | Pending |
 
 ### Sprint 2: Data Safety
-| Task | Owner | Effort |
+| Task | Owner | Status |
 |------|-------|--------|
-| IMP-044 (signup transaction) | **Buzz** | 1 hr |
+| IMP-044 (signup transaction) | **Buzz** | **DONE** |
 | IMP-005 (silent auto-save) | **Fizz** | 1 hr |
 | IMP-020 (silent catch blocks) | **Fizz** | 2 hr |
 | IMP-042 (profile validation) | **Buzz** | 1 hr |
@@ -186,7 +188,10 @@
 
 ## Notes
 
-- **SQL injection risk is LOW** (Pazz audit) — values from DB, not user input. Still fix.
+- **SQL injection** (IMP-037, IMP-038) — **DONE** via input validation
+- **Rate limiting** (IMP-039) — **DONE** via Cloudflare WAF
+- **Transaction rollback** (IMP-044) — **DONE** via db.batch() atomic transactions
+- **PII encryption** (IMP-048) — **DONE** for tool responses (budget, contacts)
 - **BUG-009 is a soul violation** — prioritize highly
 - **Batching by specialty** keeps context consistent
 - **Fizz owns UI** — workbook, conversation, components, error UX

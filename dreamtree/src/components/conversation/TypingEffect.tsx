@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 interface TypingEffectProps {
   text: string;
@@ -20,20 +20,29 @@ export function TypingEffect({
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
 
-  const completeAnimation = useCallback(() => {
-    setDisplayedText(text);
-    setIsComplete(true);
-    onComplete?.();
-  }, [text, onComplete]);
+  // Use ref for callback to avoid restarting animation when callback changes
+  const onCompleteRef = useRef(onComplete);
+  onCompleteRef.current = onComplete;
+
+  // Track if this effect has already completed (to prevent double-fire)
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
+    // Reset completion tracking when text changes
+    hasCompletedRef.current = false;
+
     // Check for reduced motion preference
     const prefersReducedMotion = window.matchMedia(
       '(prefers-reduced-motion: reduce)'
     ).matches;
 
     if (skipToEnd || prefersReducedMotion) {
-      completeAnimation();
+      setDisplayedText(text);
+      setIsComplete(true);
+      if (!hasCompletedRef.current) {
+        hasCompletedRef.current = true;
+        onCompleteRef.current?.();
+      }
       return;
     }
 
@@ -50,12 +59,15 @@ export function TypingEffect({
       } else {
         setIsComplete(true);
         clearInterval(interval);
-        onComplete?.();
+        if (!hasCompletedRef.current) {
+          hasCompletedRef.current = true;
+          onCompleteRef.current?.();
+        }
       }
     }, speed);
 
     return () => clearInterval(interval);
-  }, [text, speed, paused, skipToEnd, onComplete, completeAnimation]);
+  }, [text, speed, paused, skipToEnd]); // Removed onComplete from deps - using ref instead
 
   return (
     <span className="typing-effect">

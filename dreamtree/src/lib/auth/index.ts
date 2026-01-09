@@ -48,3 +48,13 @@ export {
   type AuthContext,
   type AuthenticatedHandler,
 } from './with-auth';
+
+export {
+  getDataKeyFromSession,
+  storeDataKeyInSession,
+  unwrapDataKeyFromAuth,
+  encryptPII,
+  decryptPII,
+  decryptPIIBatch,
+  PII_FIELDS,
+} from './pii';

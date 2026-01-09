@@ -3,6 +3,7 @@ import { notFound, redirect } from 'next/navigation';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
+import { parseThemeSettings } from '@/lib/theme';
 import { WorkbookView } from '@/components/workbook';
 import type { ExerciseContent, SavedResponse } from '@/components/workbook/types';
 import type { Env } from '@/types/database';
@@ -207,5 +208,12 @@ export default async function WorkbookExercisePage({ params }: PageProps) {
   // Fetch user's saved responses for this exercise
   const savedResponses = await fetchSavedResponses(sessionData.user.id, exerciseId);
 
-  return <WorkbookView exercise={exercise} savedResponses={savedResponses} />;
+  // Build theme settings from user session
+  const theme = parseThemeSettings(
+    sessionData.settings.background_color,
+    sessionData.settings.text_color,
+    sessionData.settings.font
+  );
+
+  return <WorkbookView exercise={exercise} savedResponses={savedResponses} theme={theme} />;
 }

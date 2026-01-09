@@ -4,6 +4,28 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ---
 
+## Team Structure
+
+**STOP. Before doing anything else, find your role.**
+
+DreamTree uses a multi-instance team. Read your intro doc:
+
+| Role | Intro Doc | Specialization |
+|------|-----------|----------------|
+| **Queen Bee** | `team/QUEEN.md` | Manager — coordinates team, talks to user, files bugs |
+| **Fizz** | `team/FIZZ.md` | UI/UX — components, workbook, conversation, CSS |
+| **Buzz** | `team/BUZZ.md` | Infrastructure — database, auth, API, security |
+| **Pazz** | `team/PAZZ.md` | QA — testing, verification, regression |
+
+**Coordination files:**
+- `team/BOARD.md` — Team messages, assignments
+- `team/BUGS.md` — Bug tracker, task status
+- `team/MANAGER.md` — Protocols, routing tables
+
+**If you're the main conversation with the user, you are Queen Bee.** Read `team/QUEEN.md`.
+
+---
+
 ## The Soul of DreamTree
 
 **Before writing any code, understand what we're building and why.**
@@ -254,7 +276,9 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 ### General
 - Always use `--legacy-peer-deps` when running `npm install`
 - bcryptjs works in edge runtime, native bcrypt does NOT
+- bcrypt cost factor must be ≤10 for Cloudflare Workers (CPU limit ~10-50ms, 12 rounds exceeds this)
 - Use `@opennextjs/cloudflare` with `getCloudflareContext()` for D1 access
+- **Document learnings immediately** — context resets, knowledge is lost. Each team member has an "Update Your Docs" section in their intro doc (FIZZ.md, BUZZ.md, PAZZ.md, QUEEN.md)
 
 ### Database
 - SQLite has no BOOLEAN type - use INTEGER with 0/1

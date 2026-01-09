@@ -6417,6 +6417,42 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   overflow: hidden;
 }
 
+/* Mobile: tap-anywhere-to-continue visual feedback */
+@media (max-width: 768px) {
+  .workbook-view[data-tap-to-continue="true"] {
+    cursor: pointer;
+  }
+
+  .workbook-view[data-tap-to-continue="true"]::after {
+    content: "Tap anywhere to continue";
+    position: fixed;
+    bottom: calc(var(--nav-height-mobile) + 100px);
+    left: 50%;
+    transform: translateX(-50%);
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface);
+    border: var(--border-thin) solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-secondary);
+    opacity: 0.8;
+    z-index: var(--z-raised);
+    pointer-events: none;
+    animation: fadeIn var(--duration-normal) var(--ease-default);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+  to {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
 .workbook-view .conversation-thread {
   flex: 1;
   overflow-y: auto;
@@ -6468,6 +6504,8 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   background: var(--color-surface);
   border-top: var(--border-thin) solid var(--color-border);
   transition: all var(--duration-normal) var(--ease-default);
+  /* Fixed height prevents content jumping when inputs appear/change */
+  min-height: 80px;
 }
 
 /* Account for desktop nav */
@@ -6542,6 +6580,19 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   margin: 0;
   border: none;
   border-radius: 0;
+}
+
+/* Placeholder when no active input - reserves space to prevent content jumping */
+.workbook-input-zone-placeholder {
+  min-height: 80px;
+}
+
+/* Ensure all input zone content aligns consistently */
+.workbook-input-zone-content {
+  min-height: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Text input inside zone */

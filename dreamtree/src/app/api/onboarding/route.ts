@@ -7,7 +7,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData } from '@/lib/auth';
+import { getSessionData, encryptPII } from '@/lib/auth';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
@@ -49,12 +49,15 @@ export async function POST(request: NextRequest) {
     const now = new Date().toISOString();
     const userId = sessionData.user.id;
 
-    // Update user_profile with name
+    // Encrypt display_name before storing (IMP-048)
+    const encryptedName = await encryptPII(env.DB, sessionId, name.trim());
+
+    // Update user_profile with encrypted name
     await env.DB
       .prepare(
         'UPDATE user_profile SET display_name = ?, updated_at = ? WHERE user_id = ?'
       )
-      .bind(name.trim(), now, userId)
+      .bind(encryptedName, now, userId)
       .run();
 
     // Update user_settings with visual preferences

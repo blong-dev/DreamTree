@@ -366,7 +366,8 @@ Design a comprehensive data visibility and analytics suite for DreamTree. User n
 ---
 
 ### FEA-001: Dedicated Skills Page
-**Status**: `review`
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
 **Assigned**: Fizz
 **Priority**: `medium`
 **Area**: features
@@ -479,7 +480,8 @@ Encryption infrastructure exists in `src/lib/auth/encryption.ts` but is **NEVER 
 ---
 
 ### BUG-017: Homepage CPU limit exceeded — undefined 'definition'
-**Status**: `review`
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
 **Assigned**: Fizz
 **Priority**: `medium`
 **Area**: features
@@ -522,8 +524,345 @@ Error: Worker exceeded CPU time limit.
 
 ---
 
+### BUG-018: Headers double-presenting / typing repeatedly
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
+**Assigned**: Queen Bee
+**Priority**: `high`
+**Area**: workbook
+**Found by**: User walkthrough
+
+**Description**:
+Headers are showing twice. In Module 1 specifically, the header types out over and over again.
+
+**Expected Behavior**:
+- Headers should display once
+- No repeated typing animation for the same header
+
+**Root Cause Found**:
+WorkbookView had two sources of headers:
+1. A static `exercise-divider` component showing `exercise.title` (no animation)
+2. Content blocks of type 'heading' from the database (with typing animation)
+
+Both were rendering, causing double headers. The "typing over and over" was the content heading animating while the static divider was also visible.
+
+**Fix Applied**:
+Removed the redundant `exercise-divider` from WorkbookView. Headers now come solely from content blocks, which provides the proper typing animation and consistent flow. The divider was originally added for visual separation from history zone but is unnecessary since content blocks provide natural structure.
+
+**Files Changed**:
+- `src/components/workbook/WorkbookView.tsx` — Removed exercise-divider render block (lines 716-719)
+
+**Acceptance Criteria**:
+- [x] Headers display only once (from content blocks)
+- [x] No repeated typing animation (single source of truth)
+- [x] Build passes
+
+---
+
+### BUG-019: Reserve space for input bar to prevent content jumping
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
+**Assigned**: Queen Bee
+**Priority**: `high`
+**Area**: workbook
+**Found by**: User walkthrough
+
+**Description**:
+Text jumps around when the continue button / input bar appears. Need to reserve space at the bottom of the screen at all times for the input zone, even when it's not yet visible.
+
+**Expected Behavior**:
+- Bottom area always reserved for input zone
+- Content doesn't shift when input appears
+- Smoother, more predictable experience
+
+**Root Cause Found**:
+`WorkbookInputZone` was returning `null` when `hasActiveInput` was false. This meant the fixed-position element disappeared entirely when no input was active, causing layout shifts when it reappeared.
+
+**Fix Applied**:
+1. `WorkbookInputZone` now ALWAYS renders (never returns null)
+2. When no active input, renders an empty placeholder div
+3. Added `data-has-input` attribute for CSS styling differentiation
+4. Added consistent `min-height: 80px` to the input zone itself (prevents height changes)
+5. Updated `.workbook-input-zone-placeholder` to match the 80px min-height
+6. Added flexbox centering to `.workbook-input-zone-content` for consistent vertical alignment
+
+This ensures the bottom space is always reserved at a consistent height, preventing content from jumping when inputs appear/change/disappear.
+
+**Files Changed**:
+- `src/components/workbook/WorkbookInputZone.tsx` — Always render, add placeholder when no input
+- `src/app/globals.css` — Added `min-height: 80px` to zone, placeholder, and content wrapper with flex centering
+
+**Acceptance Criteria**:
+- [x] Bottom space always reserved (via consistent min-height)
+- [x] No content jumping when input appears
+- [x] Build passes
+
+---
+
+### BUG-024: Bespoke themes inconsistent — full audit needed
+**Status**: `done`
+**Assigned**: Fizz
+**Verified by**: Pazz (2026-01-09)
+**Priority**: `high`
+**Area**: design-system
+**Found by**: User walkthrough
+**Type**: investigation
+
+**Description**:
+User-selected themes (colors, fonts from onboarding/profile) are not applying consistently. This is a recurring issue that needs a comprehensive solution.
+
+**Root Cause Found**:
+Theme CSS variables were only being applied in two locations (`OnboardingFlow` and `profile/page.tsx`) but NOT on the Dashboard or Workbook pages. When users navigated away from onboarding or profile, CSS variables reverted to defaults defined in `:root`.
+
+**Audit Findings**:
+| Location | READS Theme | WRITES Theme | APPLIED CSS Vars (before fix) |
+|----------|-------------|--------------|------------------------------|
+| `globals.css` | - | - | Sets defaults only |
+| `OnboardingFlow.tsx` | Local state | Via `/api/onboarding` | YES |
+| `profile/page.tsx` | Via `/api/profile` | Via PATCH | YES |
+| `page.tsx` (dashboard) | Via `sessionData.settings` | - | **NO** |
+| `DashboardPage.tsx` | Via `userPreview` prop | - | **NO** |
+| `[exerciseId]/page.tsx` | - | - | **NO** |
+
+**Fix Applied**:
+Created a unified theme system with single source of truth:
+
+1. **New shared utilities** (`src/lib/theme/index.ts`):
+   - `applyTheme(settings)` — Sets CSS variables on `document.documentElement`
+   - `parseThemeSettings(bg, text, font)` — Safe parsing with defaults
+   - `getDefaultTheme()` — Returns default theme settings
+
+2. **New hook** (`src/hooks/useApplyTheme.ts`):
+   - `useApplyTheme({ backgroundColor, textColor, font })` — Applies theme on mount and when values change
+
+3. **Updated pages to apply theme**:
+   - `DashboardPage.tsx` — Now calls `useApplyTheme` with `userPreview` settings
+   - `WorkbookView.tsx` — Accepts `theme` prop and calls `useApplyTheme`
+   - `[exerciseId]/page.tsx` — Passes theme to WorkbookView from session data
+
+4. **Added `textColor` to `UserPreview` type**:
+   - `src/components/dashboard/types.ts` — Added `TextColorId` type and `textColor` field
+   - `src/app/page.tsx` — Now passes `textColor` from session settings
+
+5. **Refactored existing theme logic**:
+   - `profile/page.tsx` — Uses shared `applyTheme()` instead of inline logic
+   - `OnboardingFlow.tsx` — Uses shared `applyTheme()` instead of inline logic
+
+**Files Created**:
+- `src/lib/theme/index.ts` — Theme utilities
+- `src/hooks/useApplyTheme.ts` — Theme application hook
+
+**Files Modified**:
+- `src/components/dashboard/types.ts` — Added TextColorId, textColor to UserPreview
+- `src/components/dashboard/DashboardPage.tsx` — Added useApplyTheme hook
+- `src/components/workbook/types.ts` — Re-exported ThemeSettings
+- `src/components/workbook/WorkbookView.tsx` — Added theme prop and useApplyTheme
+- `src/app/page.tsx` — Pass textColor to userPreview
+- `src/app/profile/page.tsx` — Use shared applyTheme
+- `src/app/workbook/[exerciseId]/page.tsx` — Pass theme to WorkbookView
+- `src/components/onboarding/OnboardingFlow.tsx` — Use shared applyTheme
+
+**Architecture**:
+```
+Server (page.tsx)                    Client Component
+┌─────────────────┐                  ┌─────────────────────┐
+│ getSessionData  │──theme props───> │ useApplyTheme()     │
+│ parseThemeSettings │               │ - Sets CSS vars     │
+└─────────────────┘                  │ - Sets data-theme   │
+                                     └─────────────────────┘
+                                              │
+                                              ▼
+                                     document.documentElement
+                                     --color-bg, --color-text, --font-body
+```
+
+**Acceptance Criteria**:
+- [x] Theme selection in onboarding applies immediately
+- [x] Theme changes in profile apply immediately
+- [x] Themes persist across page navigation (dashboard, workbook)
+- [x] Themes persist across sessions (logout/login)
+- [ ] No flash of wrong theme on page load (minor flash may occur during hydration)
+- [x] Single source of truth for theme state (`src/lib/theme`)
+- [x] Build passes
+
+---
+
+### BUG-020: Multiple Continue buttons on rapid tap-through
+**Status**: `resolved`
+**Assigned**: Fizz
+**Reviewed by**: Queen Bee (2026-01-09)
+**Priority**: `high`
+**Area**: workbook
+**Found by**: User walkthrough
+
+**Description**:
+When user taps rapidly through text blocks (click-to-skip), multiple Continue buttons appear stacked. Each tap-through should act as a Continue, automatically advancing to the next block.
+
+**Root Cause Found**:
+Click-to-skip was only completing the animation, not auto-advancing to the next block. The Continue button would still appear after each animation, requiring an extra tap.
+
+**Fix Applied**:
+Added `wasSkipped: boolean` parameter through the animation callback chain:
+1. `ContentBlockRenderer` tracks if user clicked vs natural animation completion
+2. `MessageContent` passes `wasSkipped` through `onAnimationComplete(wasSkipped)`
+3. `ConversationThread` passes `wasSkipped` to `onMessageAnimated(messageId, wasSkipped)`
+4. `WorkbookView.handleMessageAnimated` now auto-advances if `wasSkipped=true` for content blocks
+
+When user clicks to skip:
+- Animation completes immediately
+- Block auto-advances to next (like pressing Continue)
+- No Continue button shown for that block
+
+When animation completes naturally:
+- Continue button appears as before (fallback for users who want to read)
+
+Also reduced transition delay from 200ms to 50ms when user is tapping through (for faster rapid progression).
+
+**Files Changed**:
+- `src/components/conversation/MessageContent.tsx` — Track and pass `wasSkipped` flag
+- `src/components/conversation/ConversationThread.tsx` — Pass `wasSkipped` through callback
+- `src/components/workbook/WorkbookView.tsx` — Auto-advance on skip
+
+**Acceptance Criteria**:
+- [x] Tap-through advances to next block automatically
+- [x] No stacked/multiple Continue buttons
+- [x] Can tap through content rapidly to reach input
+- [x] Cannot skip past required inputs (prompts/tools)
+- [x] Build passes
+
+---
+
+### BUG-021: Overview sections have wrong headers
+**Status**: `resolved`
+**Priority**: `high`
+**Area**: database
+**Found by**: User walkthrough
+**Resolved by**: Buzz (2026-01-09)
+
+**Description**:
+The Part overview sections (Part 1: Roots overview, Part 3: Branches overview) are showing wrong headers. They display "Mod 1" content when they should show "Part X: [Name]" and "Overview".
+
+Module 1 content should NOT appear until Skills and Talents (the first actual module).
+
+**Current (Wrong)**:
+- Shows Mod 1 headers in overview section
+
+**Expected**:
+- Part 1: Roots
+- Overview
+- [overview content]
+- THEN Module 1: Skills and Talents starts
+
+**Acceptance Criteria**:
+- [x] Part overviews show "Part X: [Name]" header
+- [x] Part overviews show "Overview" subheader
+- [x] Module 1 content only appears at Skills and Talents
+- [x] Same pattern for Part 3: Branches (Part 3 not yet in DB; Part 2 already has Overview)
+- [x] Build passes
+
+**Resolution**:
+Added "Overview" heading content block (ID 100615) and inserted into stem table at sequence 2
+for Part 1 overview (1.0.0). API now returns correct header structure:
+1. "Part 1: Roots" (heading)
+2. "Overview" (heading)
+3. Content instructions...
+
+Migration: `0014_add_overview_headers.sql` (applied directly via wrangler d1 execute)
+
+**Files Involved**:
+- `migrations/0014_add_overview_headers.sql` — Migration file
+- Database: content_blocks ID 100615, stem ID 100843
+
+---
+
+### BUG-022: Repeated render block at Skills and Talents
+**Status**: `resolved`
+**Assigned**: Fizz
+**Reviewed by**: Queen Bee (2026-01-09)
+**Priority**: `high`
+**Area**: workbook
+**Found by**: User walkthrough
+
+**Description**:
+At the start of Module 1 (Skills and Talents), there's a block that renders over and over again. The user sees:
+1. Title (roots)
+2. **Repeated render block** ← problematic
+3. Header mod 1 - work factors
+4. Header (skills and talents)
+5. Module content etc.
+
+Something is causing a content block to render multiple times or loop.
+
+**Root Cause Found**:
+The `TypingEffect` component had `onComplete` in its useEffect dependency array. When the parent component re-rendered (for any reason), a new function reference was passed, causing the useEffect to restart the animation. Additionally, `ContentBlockRenderer` created new callback functions on each render, exacerbating the issue.
+
+**Fix Applied**:
+1. **TypingEffect.tsx**:
+   - Use `useRef` to store the `onComplete` callback (avoids re-triggering effect)
+   - Added `hasCompletedRef` to prevent double-fire of completion callback
+   - Removed `onComplete` from useEffect dependencies
+
+2. **MessageContent.tsx**:
+   - Wrapped `handleClick` and `handleNaturalComplete` with `useCallback`
+   - Added `hasCompletedRef` to prevent double-fire of completion callback
+
+These changes ensure:
+- Animation only runs once per mount (unless text changes)
+- Callback changes don't restart animation
+- Completion callback only fires once
+
+**Files Changed**:
+- `src/components/conversation/TypingEffect.tsx` — Use ref for callback, add completion guard
+- `src/components/conversation/MessageContent.tsx` — Memoize callbacks, add completion guard
+
+**Acceptance Criteria**:
+- [x] No repeated/looping content blocks (animation stable)
+- [x] Clean header progression at module start
+- [x] Build passes
+
+---
+
+### BUG-023: Continue button click radius too small on mobile
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
+**Assigned**: Fizz
+**Priority**: `medium`
+**Area**: workbook
+**Found by**: User walkthrough
+
+**Description**:
+On mobile, the Continue button has a small tap target. Users should be able to tap almost anywhere on the content area to advance (like tapping through a story on Instagram).
+
+**Fix Applied**:
+1. **WorkbookView.tsx**:
+   - Added `handleContentAreaClick` callback that triggers `handleContinue()` on mobile (screen width ≤768px)
+   - Only activates when `waitingForContinue && currentAnimationComplete`
+   - Ignores clicks on interactive elements (buttons, inputs, links)
+   - Added `data-tap-to-continue` attribute for CSS styling
+
+2. **globals.css**:
+   - Added mobile-only styles when `data-tap-to-continue="true"`
+   - Shows "Tap anywhere to continue" hint positioned above the input zone
+   - Hint uses subtle fade-in animation
+
+This creates an Instagram-story-like experience where the entire content area becomes tappable to advance on mobile.
+
+**Files Changed**:
+- `src/components/workbook/WorkbookView.tsx` — Tap-to-continue click handler
+- `src/app/globals.css` — Mobile visual feedback styles
+
+**Acceptance Criteria**:
+- [x] Mobile: tap anywhere on content advances
+- [x] Large tap target area (entire content viewport)
+- [x] Desktop: button still works normally (width check)
+- [x] Build passes
+
+---
+
 ### BUG-016: Daily Do's visible before tools unlocked
-**Status**: `open`
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
+**Assigned**: Fizz
 **Priority**: `high`
 **Area**: features
 **Found by**: User walkthrough
@@ -531,34 +870,31 @@ Error: Worker exceeded CPU time limit.
 **Description**:
 Fresh accounts see the Daily Do's section on the dashboard before they've reached that part of the program. Daily Do's should only appear once the user has unlocked the relevant tools.
 
-**Current Behavior**:
-- New user signs up
-- Completes onboarding
-- Dashboard shows Daily Do's section (shouldn't exist yet)
+**Root Cause**:
+`getDailyDos()` in page.tsx was hardcoded to always return Daily Do items, regardless of user progress.
 
-**Expected Behavior**:
-- Daily Do's section hidden until user unlocks Daily Do tools
-- Section appears only after user reaches appropriate workbook progress
-- No empty state — section simply doesn't exist until unlocked
+**Fix Applied**:
+Modified `getDailyDos()` to check user's current exercise and only return Daily Do items for tools that have been introduced:
+- SOARED form → shown only after user reaches exercise 1.1.3
+- Flow tracker → shown only after user reaches module 1.2
 
-**Root Cause Hypothesis**:
-`DailyDoList` component renders regardless of user progress. Needs to check if user has unlocked any Daily Do tools before rendering.
+Also updated `DashboardPage.tsx` to not render the Daily Do's section at all when the list is empty (no empty state).
 
-**Files Likely Involved**:
-- `src/components/dashboard/DailyDoList.tsx` — needs progress check
-- `src/components/dashboard/DashboardPage.tsx` — conditional render
-- May need API to check tool unlock status
+**Files Changed**:
+- `src/app/page.tsx` — `getDailyDos()` now takes `currentExerciseId` and checks progress
+- `src/components/dashboard/DashboardPage.tsx` — Conditional render: `{dailyDos.length > 0 && ...}`
 
 **Acceptance Criteria**:
-- [ ] Daily Do's section hidden for fresh accounts
-- [ ] Section appears only after relevant tools unlocked
-- [ ] No empty state shown — section simply doesn't exist until unlocked
-- [ ] Build passes
+- [x] Daily Do's section hidden for fresh accounts (at 1.1.1, 1.1.2)
+- [x] Section appears only after relevant tools unlocked (progressive unlock)
+- [x] No empty state shown — section simply doesn't exist until unlocked
+- [x] Build passes
 
 ---
 
 ### BUG-015: Input field position and Continue button alignment
-**Status**: `review`
+**Status**: `done`
+**Verified by**: Pazz (2026-01-09)
 **Assigned**: Fizz
 **Priority**: `high`
 **Area**: design-system
@@ -888,11 +1224,27 @@ Consolidate keyboard handling in a single location or use a keyboard event manag
 **Phase**: QA Audit
 **Impact**: `high`
 **Area**: testing
+**Status**: `in-progress` (79 tests, was 0)
 **Files**:
 - All 86 components in `src/components/`
 
 **Finding**:
 No unit tests exist for any React components. Critical business logic in WorkbookView (628 lines), ConnectionResolver (720 lines), and auth functions (286 lines) has zero test coverage. Refactoring or bug fixes are flying blind.
+
+**Progress** (2026-01-09):
+Unit test infrastructure added. 79 tests now exist:
+- `WorkbookInputZone.test.tsx` (9 tests)
+- `HistoryZone.test.tsx` (9 tests)
+- `DailyDoList.test.tsx` (7 tests)
+- `DailyDoCard.test.tsx` (16 tests)
+- `dailyDos.test.ts` (25 tests)
+- `NavItem.test.tsx` (13 tests) — pre-existing
+
+**Remaining**:
+- WorkbookView state machine
+- ConversationThread animation logic
+- PromptInput form validation
+- ConnectionResolver data fetchers
 
 **Recommendation**:
 Add Vitest + React Testing Library to main package. Prioritize tests for WorkbookView state machine, ConnectionResolver data fetchers, and auth encryption logic.
