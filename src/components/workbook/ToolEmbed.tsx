@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect, useRef } from 'react';
 import type { ToolData } from './types';
 
 // Import all tool components
@@ -285,7 +285,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     ideaTreeData, mindsetData, timelineData, careerData, competencyData
   ]);
 
-  // Save tool data to the API
+  // Save tool data to the API (for Continue button)
   const saveToolData = useCallback(async () => {
     setIsLoading(true);
     setError(null);
@@ -314,6 +314,47 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     }
   }, [tool.id, exerciseId, getToolData, onComplete]);
 
+  // Silent auto-save (debounced, no UI feedback)
+  const isInitialMount = useRef(true);
+  const autoSaveTimeout = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    // Skip auto-save on initial mount
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+
+    // Clear any pending auto-save
+    if (autoSaveTimeout.current) {
+      clearTimeout(autoSaveTimeout.current);
+    }
+
+    // Debounce auto-save by 1.5 seconds
+    autoSaveTimeout.current = setTimeout(async () => {
+      try {
+        await fetch('/api/workbook/response', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            toolId: tool.id,
+            exerciseId,
+            responseText: JSON.stringify(getToolData()),
+          }),
+        });
+        // Silent success - no UI feedback
+      } catch {
+        // Silent failure - user will save manually with Continue
+      }
+    }, 1500);
+
+    return () => {
+      if (autoSaveTimeout.current) {
+        clearTimeout(autoSaveTimeout.current);
+      }
+    };
+  }, [getToolData, tool.id, exerciseId]);
+
   // Handle ranking comparison
   const handleRankingCompare = useCallback((winnerId: string, loserId: string) => {
     setRankingComparisons(prev => [...prev, { winnerId, loserId }]);
@@ -332,7 +373,6 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
           <ListBuilder
             items={listItems}
             onChange={setListItems}
-            label={tool.description || 'Add items to your list'}
             placeholder="Add an item..."
             reorderable
           />
@@ -355,7 +395,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
             skills={skills}
             selectedSkillIds={selectedSkillIds}
             onChange={setSelectedSkillIds}
-            storyTitle={tool.description || 'Tag skills for this story'}
+            storyTitle="Tag skills for this story"
           />
         );
 
@@ -366,7 +406,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
             comparisons={rankingComparisons}
             onCompare={handleRankingCompare}
             onComplete={handleRankingComplete}
-            label={tool.description || 'Rank these items'}
+            label="Rank these items"
           />
         );
 
@@ -408,7 +448,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
             value={mbtiValue}
             onChange={setMbtiValue}
             types={MBTI_TYPES}
-            label={tool.description || 'Select your MBTI type'}
+            label="Select your MBTI type"
           />
         );
 
@@ -474,18 +514,8 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     }
   };
 
-  // Format tool name for display
-  const displayName = tool.name
-    ?.replace(/_/g, ' ')
-    .replace(/\b\w/g, c => c.toUpperCase()) || 'Tool';
-
   return (
     <div className="tool-embed">
-      <div className="tool-embed-header">
-        <h3>{displayName}</h3>
-        {tool.description && <p>{tool.description}</p>}
-      </div>
-
       {tool.instructions && (
         <div className="tool-embed-instructions">
           <p>{tool.instructions}</p>
@@ -508,7 +538,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
           onClick={saveToolData}
           disabled={isLoading}
         >
-          {isLoading ? 'Saving...' : 'Save & Continue'}
+          {isLoading ? 'Saving...' : 'Continue'}
         </button>
       </div>
     </div>

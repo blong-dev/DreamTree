@@ -8,6 +8,7 @@ interface NavBarProps {
   position?: 'left' | 'bottom';
   activeItem?: NavItemId;
   toolsUnlocked?: number;
+  hideContents?: boolean;
   onNavigate: (id: NavItemId) => void;
   onExpandTools?: () => void;
 }
@@ -16,6 +17,7 @@ export function NavBar({
   position = 'left',
   activeItem,
   toolsUnlocked = 0,
+  hideContents = false,
   onNavigate,
   onExpandTools,
 }: NavBarProps) {
@@ -42,15 +44,17 @@ export function NavBar({
             onClick={() => onNavigate('home')}
           />
         </li>
-        <li>
-          <NavItem
-            id="contents"
-            icon={ListIcon}
-            label="Contents"
-            isActive={activeItem === 'contents'}
-            onClick={() => onNavigate('contents')}
-          />
-        </li>
+        {!hideContents && (
+          <li>
+            <NavItem
+              id="contents"
+              icon={ListIcon}
+              label="Contents"
+              isActive={activeItem === 'contents'}
+              onClick={() => onNavigate('contents')}
+            />
+          </li>
+        )}
         <li>
           <NavItem
             id="tools"

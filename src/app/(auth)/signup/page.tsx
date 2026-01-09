@@ -6,7 +6,6 @@ import { TextInput } from '@/components/forms';
 
 export default function SignupPage() {
   const router = useRouter();
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -29,7 +28,7 @@ export default function SignupPage() {
       const response = await fetch('/api/auth/signup', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password, name: name.trim() || undefined }),
+        body: JSON.stringify({ email, password }),
       });
 
       const data: { success?: boolean; error?: string; needsOnboarding?: boolean } = await response.json();
@@ -64,20 +63,12 @@ export default function SignupPage() {
           )}
 
           <TextInput
-            label="Your name"
-            value={name}
-            onChange={setName}
-            placeholder="What should we call you?"
-            disabled={isLoading}
-            autoFocus
-          />
-
-          <TextInput
             label="Email"
             value={email}
             onChange={setEmail}
             placeholder="you@example.com"
             disabled={isLoading}
+            autoFocus
           />
 
           <div className="auth-password-field">
