@@ -48,25 +48,39 @@ export function TypingEffect({
 
     if (paused) return;
 
-    let index = 0;
+    // IMP-007: Use requestAnimationFrame with elapsed time for smoother animation
+    let startTime: number | null = null;
+    let lastCharIndex = -1;
+    let animationFrameId: number;
+
     setDisplayedText('');
     setIsComplete(false);
 
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setDisplayedText(text.slice(0, index + 1));
-        index++;
-      } else {
+    const animate = (timestamp: number) => {
+      if (startTime === null) startTime = timestamp;
+      const elapsed = timestamp - startTime;
+      const charIndex = Math.min(Math.floor(elapsed / speed), text.length);
+
+      // Only update state when character index changes
+      if (charIndex !== lastCharIndex) {
+        lastCharIndex = charIndex;
+        setDisplayedText(text.slice(0, charIndex));
+      }
+
+      if (charIndex >= text.length) {
         setIsComplete(true);
-        clearInterval(interval);
         if (!hasCompletedRef.current) {
           hasCompletedRef.current = true;
           onCompleteRef.current?.();
         }
+      } else {
+        animationFrameId = requestAnimationFrame(animate);
       }
-    }, speed);
+    };
 
-    return () => clearInterval(interval);
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animationFrameId);
   }, [text, speed, paused, skipToEnd]); // Removed onComplete from deps - using ref instead
 
   return (

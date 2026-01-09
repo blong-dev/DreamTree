@@ -45,6 +45,7 @@ export {
 
 export {
   withAuth,
+  getAuthContext,
   type AuthContext,
   type AuthenticatedHandler,
 } from './with-auth';

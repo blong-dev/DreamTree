@@ -279,7 +279,8 @@ export async function getDataKey(
     const salt = decodeSalt(saltBase64);
     const wrappingKey = await deriveWrappingKey(password, salt);
     return await unwrapDataKey(wrappedKey, wrappingKey);
-  } catch {
+  } catch (err) {
+    console.error('[Auth] Failed to unwrap data key:', err);
     return null;
   }
 }

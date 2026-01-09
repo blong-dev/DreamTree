@@ -1028,14 +1028,18 @@ Input field (AppShell input and PromptInput) was rendered immediately when promp
 **Phase**: 1
 **Impact**: `medium`
 **Area**: workbook
+**Status**: `done`
+**Fixed by**: Fizz (2026-01-09)
 **Files**:
-- `src/components/workbook/WorkbookView.tsx:358`
+- `src/components/workbook/WorkbookView.tsx`
 
 **Finding**:
-`promptResponseMap.set()` is called during save handlers, mutating a `useMemo` result. While functionally working, this violates React's immutability principles and could cause subtle bugs with stale closures or missed re-renders.
+`promptResponseMap.set()` was called during save handlers, mutating a `useMemo` result. This violated React's immutability principles.
 
-**Recommendation**:
-Use `useState` for response maps, or create a new Map on updates to trigger proper re-renders.
+**Fix Applied**:
+- Changed `promptResponseMap` and `toolResponseMap` from `useMemo` to `useState`
+- Updated all `.set()` calls to use immutable updates: `setPromptResponseMap(prev => new Map(prev).set(...))`
+- Proper re-renders now triggered when maps are updated
 
 ---
 
@@ -1055,8 +1059,9 @@ Use a discriminated union pattern with a single `toolData` state, or extract eac
 
 ---
 
-### IMP-003: Expensive messages rebuild on every displayedBlockIndex change
+### IMP-003: Expensive messages rebuild on every displayedBlockIndex change ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 1
 **Impact**: `medium`
 **Area**: workbook
@@ -1066,8 +1071,8 @@ Use a discriminated union pattern with a single `toolData` state, or extract eac
 **Finding**:
 The `messages` useMemo rebuilds the entire messages array when `displayedBlockIndex` changes. This includes re-parsing content for ALL blocks 0 to N, not just the new one.
 
-**Recommendation**:
-Consider incremental message building — keep previous messages stable and only compute the new one, or use a more efficient data structure.
+**Fix Applied**:
+Added `blockContentCache` ref to cache computed content per block.id. Now `blockToConversationContent` results are only computed once per block and reused on subsequent renders. Combined with IMP-006 (React.memo on MessageRenderer), this significantly reduces render work.
 
 ---
 
@@ -1104,8 +1109,9 @@ Track consecutive auto-save failures. After N failures (e.g., 3), show a warning
 
 ---
 
-### IMP-006: ConversationThread re-renders on every message array change
+### IMP-006: ConversationThread re-renders on every message array change ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 1
 **Impact**: `low`
 **Area**: conversation
@@ -1115,13 +1121,14 @@ Track consecutive auto-save failures. After N failures (e.g., 3), show a warning
 **Finding**:
 The message list is mapped on every render without React.memo on MessageRenderer. If messages array reference changes (even with same content), all message components re-render.
 
-**Recommendation**:
-Wrap MessageRenderer in React.memo with proper comparison, or ensure messages array has stable references for unchanged messages.
+**Fix Applied**:
+Wrapped MessageRenderer in `React.memo` with custom comparison function. Compares `message.id`, `message.type`, `animate`, and existence of `onEdit`. Messages won't re-render when parent re-renders with unchanged data.
 
 ---
 
-### IMP-007: TypingEffect creates interval per character
+### IMP-007: TypingEffect creates interval per character ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 1
 **Impact**: `low`
 **Area**: conversation
@@ -1131,13 +1138,14 @@ Wrap MessageRenderer in React.memo with proper comparison, or ensure messages ar
 **Finding**:
 TypingEffect uses `setInterval` with state updates for each character. For long text, this creates many rapid state updates. Effect is minor due to 30ms interval, but not optimal.
 
-**Recommendation**:
-Consider using CSS animation for cursor blink, and `requestAnimationFrame` batch approach for text reveal, or simpler: pre-compute timing and use a single timeout chain.
+**Fix Applied**:
+Switched to `requestAnimationFrame` with elapsed-time calculation. Added `lastCharIndex` tracking to only update state when character index changes. Benefits: better browser sync, auto-pause when tab hidden, no interval drift.
 
 ---
 
-### IMP-008: getToolData recreated on every state change
+### IMP-008: getToolData recreated on every state change ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 1
 **Impact**: `low`
 **Area**: workbook
@@ -1147,8 +1155,8 @@ Consider using CSS animation for cursor blink, and `requestAnimationFrame` batch
 **Finding**:
 `getToolData` useCallback has all 15 tool state variables in its dependency array. Any tool state change recreates this function, which triggers the auto-save effect unnecessarily.
 
-**Recommendation**:
-Structure so auto-save only watches the relevant tool's state, not all tool states. Or use a ref for getToolData.
+**Fix Applied**:
+Used ref pattern: `getToolDataRef` holds latest function, auto-save effect depends on `currentToolDataJson` (stringified data) instead of function reference. Effect now triggers only when actual data content changes, not when function is recreated.
 
 ---
 
@@ -1332,8 +1340,9 @@ Add Zod schemas for all API responses. Validate full response shapes in tests. S
 
 ---
 
-### IMP-020: Silent catch blocks without error logging
+### IMP-020: Silent catch blocks without error logging ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 2
 **Impact**: `high`
 **Area**: error-handling
@@ -1349,13 +1358,19 @@ Add Zod schemas for all API responses. Validate full response shapes in tests. S
 **Finding**:
 13 catch blocks swallow errors completely — no console.error, no telemetry, no user notification. When these fail, developers have no visibility and users see unexpected behavior (empty data, wrong defaults).
 
-**Recommendation**:
-At minimum: add console.error to all catch blocks. Better: add error telemetry service. Critical paths (auth, encryption) should surface failures more explicitly.
+**Fix Applied**:
+Added `console.error` with context prefix to critical catch blocks:
+- `[ConnectionResolver]` for connection parsing
+- `[Auth]` for data key unwrapping
+- `[Workbook API]` and `[Workbook Page]` for content/title parsing
+- `[Tools API]` for tool instance parsing
+Left `isEncrypted` silent (expected behavior for non-encrypted values) and localStorage check (transient).
 
 ---
 
-### IMP-021: Data loading failures only console.error (no user feedback)
+### IMP-021: Data loading failures only console.error (no user feedback) ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 2
 **Impact**: `medium`
 **Area**: workbook
@@ -1367,13 +1382,14 @@ At minimum: add console.error to all catch blocks. Better: add error telemetry s
 **Finding**:
 When skills, competencies, or connection data fail to load, the only feedback is a console.error. The user sees either eternal loading state or an empty/broken tool with no indication of what went wrong.
 
-**Recommendation**:
-Set error state and show user-friendly message: "Failed to load [X]. Tap to retry." Consider a retry button or automatic retry with backoff.
+**Fix Applied**:
+Added `dataError` state and `handleRetry` callback. Each fetch now sets error state on failure. `renderTool` shows error message with Retry button when `dataError` is set. Added `.tool-embed-error-state` CSS class for styling.
 
 ---
 
-### IMP-022: Most errors only console.error (no user notification)
+### IMP-022: Most errors only console.error (no user notification) ✅ FIXED
 **Found by**: Fizz
+**Fixed by**: Fizz
 **Phase**: 2
 **Impact**: `medium`
 **Area**: all
@@ -1387,8 +1403,8 @@ Set error state and show user-friendly message: "Failed to load [X]. Tap to retr
 **Finding**:
 37 locations use `console.error()` as the only error handling. User has no idea something failed. This is especially problematic for data-saving operations (onboarding, profile) where the user thinks their changes are saved.
 
-**Recommendation**:
-Add toast notifications for user-initiated actions that fail. Use `showToast('Failed to save', { type: 'error' })` pattern already in WorkbookView.
+**Fix Applied**:
+Added `useToast` to profile page and dashboard. Profile operations (load, download, delete, save appearance) now show toast notifications on success/failure. Dashboard logout shows error toast on failure. Replaced `alert()` calls with toasts for consistent UX.
 
 ---
 
@@ -1603,6 +1619,8 @@ Add optional props if customization needed, or simplify spec to match implementa
 **Phase**: 2
 **Impact**: `low`
 **Area**: infrastructure
+**Status**: `done`
+**Fixed by**: Fizz (2026-01-09)
 **Files**:
 - `package.json`
 - `postcss.config.mjs`
@@ -1610,8 +1628,9 @@ Add optional props if customization needed, or simplify spec to match implementa
 **Finding**:
 Tailwind CSS (`tailwindcss`, `@tailwindcss/postcss`) is in devDependencies and configured in PostCSS, but never used. Zero `@tailwind` or `@apply` directives in any CSS file. The codebase uses pure CSS custom properties as intended by the design system.
 
-**Recommendation**:
-Remove `tailwindcss` and `@tailwindcss/postcss` from package.json. Remove or update postcss.config.mjs.
+**Fix Applied**:
+- Removed `tailwindcss` and `@tailwindcss/postcss` from package.json devDependencies
+- Deleted `postcss.config.mjs` (only contained Tailwind plugin)
 
 ---
 
@@ -1620,7 +1639,9 @@ Remove `tailwindcss` and `@tailwindcss/postcss` from package.json. Remove or upd
 **Phase**: 2
 **Impact**: `medium`
 **Area**: components
-**Files**:
+**Status**: `done`
+**Fixed by**: Fizz (2026-01-09)
+**Files deleted**:
 - `src/components/onboarding/CompleteStep.tsx` (35 lines)
 - `src/components/onboarding/NameStep.tsx` (43 lines)
 - `src/components/onboarding/WelcomeStep.tsx` (32 lines)
@@ -1628,10 +1649,12 @@ Remove `tailwindcss` and `@tailwindcss/postcss` from package.json. Remove or upd
 - `src/components/feedback/Tooltip.tsx` (127 lines)
 
 **Finding**:
-5 components are exported from index.ts but never imported or used anywhere in the codebase. The 4 onboarding components are remnants of the old multi-step flow that was replaced with a simplified OnboardingFlow. Tooltip was built but never instantiated.
+5 components were exported from index.ts but never imported or used anywhere in the codebase. The 4 onboarding components were remnants of the old multi-step flow that was replaced with a simplified OnboardingFlow. Tooltip was built but never instantiated.
 
-**Recommendation**:
-Delete the 5 orphan files. Remove exports from `onboarding/index.ts` and `feedback/index.ts`.
+**Fix Applied**:
+- Deleted all 5 orphan component files (265 lines removed)
+- Updated `onboarding/index.ts` to remove 4 exports
+- Updated `feedback/index.ts` to remove Tooltip export
 
 ---
 

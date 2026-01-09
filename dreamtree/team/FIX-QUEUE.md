@@ -75,11 +75,11 @@
 | IMP-003 | Expensive messages rebuild | 2 hr |
 
 ### API & Auth — **Buzz**
-| IMP | Issue | Effort |
+| IMP | Issue | Status |
 |-----|-------|--------|
-| IMP-009 | Session validation duplicated | 2 hr |
-| IMP-040 | withAuth middleware (same as IMP-009) | (combined) |
-| IMP-042 | Profile PATCH lacks input validation | 1 hr |
+| IMP-009 | Session validation duplicated | **DONE** |
+| IMP-040 | withAuth middleware (same as IMP-009) | **DONE** |
+| IMP-042 | Profile PATCH lacks input validation | **DONE** |
 
 ### Error Handling — **Fizz**
 | IMP | Issue | Effort |
@@ -132,10 +132,11 @@
 | IMP-034 | Backdrop missing props | 30 min |
 
 ### Infrastructure — **Buzz**
-| IMP | Issue | Effort |
+| IMP | Issue | Status |
 |-----|-------|--------|
-| IMP-041 | Auto-save race condition | Monitor only |
-| IMP-043 | Tool data no schema validation | 2 hr |
+| IMP-041 | Auto-save race condition | **DONE** |
+| IMP-042 | Profile PATCH validation | **DONE** |
+| IMP-043 | Tool data schema validation | **DONE** |
 
 ---
 
@@ -155,9 +156,10 @@
 | Task | Owner | Status |
 |------|-------|--------|
 | IMP-044 (signup transaction) | **Buzz** | **DONE** |
+| IMP-041 (auto-save race) | **Buzz** | **DONE** |
+| IMP-042 (profile validation) | **Buzz** | **DONE** |
 | IMP-005 (silent auto-save) | **Fizz** | 1 hr |
 | IMP-020 (silent catch blocks) | **Fizz** | 2 hr |
-| IMP-042 (profile validation) | **Buzz** | 1 hr |
 
 ### Sprint 3: Error Handling
 | Task | Owner | Effort |
@@ -167,11 +169,11 @@
 | IMP-QA-004 (a11y testing) | **Pazz** | 3 hr |
 
 ### Sprint 4: Cleanup + Middleware
-| Task | Owner | Effort |
+| Task | Owner | Status |
 |------|-------|--------|
-| IMP-036 (delete orphans) | **Fizz** | 30 min |
-| IMP-035 (remove Tailwind) | **Buzz** | 15 min |
-| IMP-009/040 (withAuth middleware) | **Buzz** | 2 hr |
+| IMP-036 (delete orphans) | **Fizz** | **DONE** |
+| IMP-035 (remove Tailwind) | **Fizz** | **DONE** |
+| IMP-009/040 (withAuth middleware) | **Buzz** | **DONE** |
 
 ### Sprint 5: Workbook Refactor
 | Task | Owner | Effort |

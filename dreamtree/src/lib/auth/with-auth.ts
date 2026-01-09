@@ -5,28 +5,32 @@
  *
  * Usage:
  * ```typescript
- * import { withAuth, AuthenticatedHandler } from '@/lib/auth/with-auth';
+ * import { withAuth } from '@/lib/auth';
  *
- * const handler: AuthenticatedHandler = async (request, { userId, db }) => {
- *   // userId and db are already validated and available
- *   return NextResponse.json({ success: true });
- * };
- *
- * export const GET = withAuth(handler);
- * export const POST = withAuth(handler);
+ * export const GET = withAuth(async (request, { userId, db }) => {
+ *   const data = await db.prepare('SELECT * FROM table WHERE user_id = ?')
+ *     .bind(userId).all();
+ *   return NextResponse.json(data);
+ * });
  * ```
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import type { D1Database } from '@cloudflare/workers-types';
-import { getSessionIdFromCookie, getSessionData } from './session';
+import { getSessionData, type SessionData } from './session';
 import '@/types/database';
 
 export interface AuthContext {
+  /** Current user's ID */
   userId: string;
+  /** Raw D1 database binding */
   db: D1Database;
+  /** Session ID (for PII encryption/decryption) */
   sessionId: string;
+  /** Full session data including user and settings */
+  session: SessionData;
 }
 
 export type AuthenticatedHandler = (
@@ -42,9 +46,9 @@ export type AuthenticatedHandler = (
 export function withAuth(handler: AuthenticatedHandler) {
   return async (request: NextRequest): Promise<NextResponse> => {
     try {
-      // Extract session from cookie
-      const cookieHeader = request.headers.get('cookie');
-      const sessionId = getSessionIdFromCookie(cookieHeader);
+      // Get session from cookies
+      const cookieStore = await cookies();
+      const sessionId = cookieStore.get('dt_session')?.value;
 
       if (!sessionId) {
         return NextResponse.json(
@@ -71,6 +75,7 @@ export function withAuth(handler: AuthenticatedHandler) {
         userId: sessionData.user.id,
         db,
         sessionId,
+        session: sessionData,
       });
     } catch (error) {
       console.error('Auth middleware error:', error);
@@ -79,5 +84,48 @@ export function withAuth(handler: AuthenticatedHandler) {
         { status: 500 }
       );
     }
+  };
+}
+
+/**
+ * Get auth context without wrapping the handler.
+ * Use when you need more control over error handling.
+ *
+ * @example
+ * ```ts
+ * export async function GET(request: NextRequest) {
+ *   const auth = await getAuthContext();
+ *   if (!auth.ok) {
+ *     return NextResponse.json({ error: auth.error }, { status: 401 });
+ *   }
+ *   const { userId, db } = auth;
+ *   // ... rest of handler
+ * }
+ * ```
+ */
+export async function getAuthContext(): Promise<
+  | ({ ok: true } & AuthContext)
+  | { ok: false; error: string }
+> {
+  const cookieStore = await cookies();
+  const sessionId = cookieStore.get('dt_session')?.value;
+
+  if (!sessionId) {
+    return { ok: false, error: 'Not authenticated' };
+  }
+
+  const { env } = getCloudflareContext();
+  const sessionData = await getSessionData(env.DB, sessionId);
+
+  if (!sessionData) {
+    return { ok: false, error: 'Invalid session' };
+  }
+
+  return {
+    ok: true,
+    userId: sessionData.user.id,
+    sessionId,
+    session: sessionData,
+    db: env.DB,
   };
 }

@@ -13,6 +13,7 @@ import {
 } from '@/components/profile';
 import { VisualsStep } from '@/components/onboarding/VisualsStep';
 import { applyTheme } from '@/lib/theme';
+import { useToast } from '@/components/feedback';
 import type { BackgroundColorId, TextColorId, FontFamilyId } from '@/components/onboarding/types';
 import { getValidTextColors } from '@/components/onboarding/types';
 
@@ -57,6 +58,7 @@ interface RankedItem {
 
 export default function ProfilePage() {
   const router = useRouter();
+  const { showToast } = useToast();
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('profile');
   const [loading, setLoading] = useState(true);
   const [displayName, setDisplayName] = useState('User');
@@ -112,13 +114,14 @@ export default function ProfilePage() {
           }
         }
       } catch (error) {
-        console.error('Error fetching profile:', error);
+        console.error('[Profile] Error fetching profile:', error);
+        showToast('Failed to load profile', { type: 'error' });
       } finally {
         setLoading(false);
       }
     }
     fetchProfile();
-  }, []);
+  }, [showToast]);
 
   // Update CSS variables when appearance settings change
   useEffect(() => {
@@ -157,7 +160,8 @@ export default function ProfilePage() {
       a.click();
       URL.revokeObjectURL(url);
     } catch (error) {
-      console.error('Error downloading data:', error);
+      console.error('[Profile] Error downloading data:', error);
+      showToast('Failed to download data', { type: 'error' });
     }
   };
 
@@ -177,8 +181,8 @@ export default function ProfilePage() {
         // Redirect to login page (session already cleared by DELETE handler)
         router.push('/login');
       } catch (error) {
-        console.error('Error deleting account:', error);
-        alert('Failed to delete account. Please try again.');
+        console.error('[Profile] Error deleting account:', error);
+        showToast('Failed to delete account. Please try again.', { type: 'error' });
       }
     }
   };
@@ -200,13 +204,14 @@ export default function ProfilePage() {
         throw new Error('Failed to save appearance');
       }
       setIsEditingAppearance(false);
+      showToast('Appearance saved', { type: 'success' });
     } catch (error) {
-      console.error('Error saving appearance:', error);
-      alert('Failed to save appearance. Please try again.');
+      console.error('[Profile] Error saving appearance:', error);
+      showToast('Failed to save appearance', { type: 'error' });
     } finally {
       setIsSavingAppearance(false);
     }
-  }, [backgroundColor, textColor, font]);
+  }, [backgroundColor, textColor, font, showToast]);
 
   if (loading) {
     return (

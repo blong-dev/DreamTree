@@ -3,40 +3,20 @@
  * Export all user data for download.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData } from '@/lib/auth';
-import '@/types/database'; // CloudflareEnv augmentation
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 
-
-export async function GET(_request: NextRequest) {
+export const GET = withAuth(async (_request, { userId, db }) => {
   try {
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
-    const userId = sessionData.user.id;
-
     // Fetch all user data
     const [profile, settings, values, skills, responses, stories, experiences] = await Promise.all([
-      env.DB.prepare('SELECT * FROM user_profile WHERE user_id = ?').bind(userId).first(),
-      env.DB.prepare('SELECT * FROM user_settings WHERE user_id = ?').bind(userId).first(),
-      env.DB.prepare('SELECT * FROM user_values WHERE user_id = ?').bind(userId).first(),
-      env.DB.prepare('SELECT us.*, s.name as skill_name FROM user_skills us JOIN skills s ON us.skill_id = s.id WHERE us.user_id = ?').bind(userId).all(),
-      env.DB.prepare('SELECT * FROM user_responses WHERE user_id = ?').bind(userId).all(),
-      env.DB.prepare('SELECT * FROM user_stories WHERE user_id = ?').bind(userId).all(),
-      env.DB.prepare('SELECT * FROM user_experiences WHERE user_id = ?').bind(userId).all(),
+      db.prepare('SELECT * FROM user_profile WHERE user_id = ?').bind(userId).first(),
+      db.prepare('SELECT * FROM user_settings WHERE user_id = ?').bind(userId).first(),
+      db.prepare('SELECT * FROM user_values WHERE user_id = ?').bind(userId).first(),
+      db.prepare('SELECT us.*, s.name as skill_name FROM user_skills us JOIN skills s ON us.skill_id = s.id WHERE us.user_id = ?').bind(userId).all(),
+      db.prepare('SELECT * FROM user_responses WHERE user_id = ?').bind(userId).all(),
+      db.prepare('SELECT * FROM user_stories WHERE user_id = ?').bind(userId).all(),
+      db.prepare('SELECT * FROM user_experiences WHERE user_id = ?').bind(userId).all(),
     ]);
 
     const exportData = {
@@ -58,4 +38,4 @@ export async function GET(_request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

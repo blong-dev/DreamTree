@@ -3,34 +3,13 @@
  * Fetch counts of tool responses per tool type for the current user.
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData } from '@/lib/auth';
-import '@/types/database'; // CloudflareEnv augmentation
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 
-
-export async function GET(_request: NextRequest) {
+export const GET = withAuth(async (_request, { userId, db }) => {
   try {
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
-    const userId = sessionData.user.id;
-
     // Get counts of tool responses grouped by tool name
-    // We need to join user_responses with tools table to get tool names
-    const result = await env.DB
+    const result = await db
       .prepare(`
         SELECT t.name as tool_name, COUNT(ur.id) as count
         FROM user_responses ur
@@ -57,4 +36,4 @@ export async function GET(_request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

@@ -76,24 +76,26 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
     }
   }, [pathname]);
 
-  // Build maps of saved responses by prompt ID and tool ID (memoized to prevent stale closures)
-  const promptResponseMap = useMemo(
+  // Build maps of saved responses by prompt ID and tool ID
+  // Using useState instead of useMemo to allow proper immutable updates
+  const [promptResponseMap, setPromptResponseMap] = useState(
     () => new Map(
       savedResponses
         .filter(r => r.prompt_id !== null)
         .map(r => [r.prompt_id as number, r.response_text || ''])
-    ),
-    [savedResponses]
+    )
   );
 
-  const toolResponseMap = useMemo(
+  const [toolResponseMap, setToolResponseMap] = useState(
     () => new Map(
       savedResponses
         .filter(r => r.tool_id !== null)
         .map(r => [r.tool_id as number, r.response_text || ''])
-    ),
-    [savedResponses]
+    )
   );
+
+  // IMP-003: Cache content per block.id to avoid recomputing on every render
+  const blockContentCache = useRef<Map<number, ContentBlock[]>>(new Map());
 
   // Track which block we're currently displaying (for one-at-a-time progression)
   const [displayedBlockIndex, setDisplayedBlockIndex] = useState(() => {
@@ -297,26 +299,40 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
   }, [displayedBlockIndex, exercise.blocks, promptResponseMap]);
 
   // Build messages array from blocks and responses - with stable IDs
+  // IMP-003: Use cached content per block to reduce object allocations
   const messages = useMemo(() => {
     const result: Message[] = [];
+    const cache = blockContentCache.current;
 
     for (let i = 0; i < displayedBlockIndex && i < exercise.blocks.length; i++) {
       const block = exercise.blocks[i];
 
       if (block.blockType === 'content') {
+        // Use cached content or compute and cache it
+        let content = cache.get(block.id);
+        if (!content) {
+          content = blockToConversationContent(block);
+          cache.set(block.id, content);
+        }
         result.push({
           id: `block-${block.id}`,
           type: 'content',
-          data: blockToConversationContent(block),
+          data: content,
           timestamp: new Date(),
         });
       } else if (block.blockType === 'prompt') {
-        // Show the prompt text as content
+        // Show the prompt text as content (cache prompt text content too)
         const promptData = block.content as PromptData;
+        const promptCacheKey = block.id + 10000000; // Offset to avoid collision with content blocks
+        let promptContent = cache.get(promptCacheKey);
+        if (!promptContent) {
+          promptContent = [{ type: 'paragraph' as const, text: promptData.promptText || 'Please respond:' }];
+          cache.set(promptCacheKey, promptContent);
+        }
         result.push({
           id: `prompt-${block.id}`,
           type: 'content',
-          data: [{ type: 'paragraph', text: promptData.promptText || 'Please respond:' }],
+          data: promptContent,
           timestamp: new Date(),
         });
 
@@ -505,9 +521,9 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
 
       if (response.ok) {
         lastSavedValueRef.current = responseText;
-        // Update local state silently
+        // Update local state immutably
         if (promptData.id !== undefined) {
-          promptResponseMap.set(promptData.id, responseText);
+          setPromptResponseMap(prev => new Map(prev).set(promptData.id!, responseText));
         }
         setAutoSaveStatus('saved');
         // Clear the "saved" indicator after 2 seconds
@@ -594,9 +610,9 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
         throw new Error('Failed to save response');
       }
 
-      // Update local state
+      // Update local state immutably
       if (promptData.id !== undefined) {
-        promptResponseMap.set(promptData.id, responseText);
+        setPromptResponseMap(prev => new Map(prev).set(promptData.id!, responseText));
       }
 
       // Clear input and editing state
@@ -623,11 +639,11 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
 
   // Handle tool completion
   const handleToolComplete = useCallback(() => {
-    // Update local state to mark tool as completed
+    // Update local state immutably to mark tool as completed
     if (activeTool) {
       const toolData = activeTool.content as ToolData;
       if (toolData.id !== undefined) {
-        toolResponseMap.set(toolData.id, '[saved]');
+        setToolResponseMap(prev => new Map(prev).set(toolData.id!, '[saved]'));
       }
     }
     setActiveTool(null);

@@ -137,8 +137,8 @@ export async function GET(
         if (content.type === 'heading') {
           title = content.text;
         }
-      } catch {
-        // Keep default title
+      } catch (err) {
+        console.error(`[Workbook API] Failed to parse title for ${exerciseId}:`, err);
       }
     }
 
@@ -151,7 +151,8 @@ export async function GET(
         if (typeof (content as { inputConfig?: string }).inputConfig === 'string') {
           (content as { inputConfig: object }).inputConfig = JSON.parse((content as { inputConfig: string }).inputConfig);
         }
-      } catch {
+      } catch (err) {
+        console.error(`[Workbook API] Failed to parse content for stem row ${row.id}:`, err);
         content = {};
       }
 

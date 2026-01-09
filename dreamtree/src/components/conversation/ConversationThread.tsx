@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, memo } from 'react';
 import { Message, ContentBlock, UserResponseContent, DividerData, ScrollState } from './types';
 import { MessageContent } from './MessageContent';
 import { MessageUser } from './MessageUser';
@@ -20,7 +20,8 @@ interface ConversationThreadProps {
   scrollTrigger?: number;
 }
 
-function MessageRenderer({
+// IMP-006: Memoize MessageRenderer to prevent re-renders when messages array changes
+const MessageRenderer = memo(function MessageRenderer({
   message,
   onEdit,
   animate,
@@ -57,7 +58,16 @@ function MessageRenderer({
     default:
       return null;
   }
-}
+}, (prevProps, nextProps) => {
+  // Custom comparison: only re-render if key props change
+  return (
+    prevProps.message.id === nextProps.message.id &&
+    prevProps.message.type === nextProps.message.type &&
+    prevProps.animate === nextProps.animate &&
+    // For user messages, check if onEdit callback exists (not the reference)
+    !!prevProps.onEdit === !!nextProps.onEdit
+  );
+});
 
 export function ConversationThread({
   messages,

@@ -133,6 +133,10 @@ export async function GET(_request: NextRequest) {
   }
 }
 
+// Valid theme values (IMP-042)
+const VALID_COLORS = new Set(['ivory', 'creamy-tan', 'brown', 'charcoal', 'black', 'sage', 'rust']);
+const VALID_FONTS = new Set(['inter', 'lora', 'courier-prime', 'shadows-into-light', 'jacquard-24']);
+
 /**
  * PATCH /api/profile
  * Update user settings (appearance: background_color, text_color, font)
@@ -156,6 +160,17 @@ export async function PATCH(request: NextRequest) {
     const userId = sessionData.user.id;
     const body = await request.json();
     const { backgroundColor, textColor, font } = body;
+
+    // Validate inputs (IMP-042)
+    if (backgroundColor !== undefined && !VALID_COLORS.has(backgroundColor)) {
+      return NextResponse.json({ error: 'Invalid background color' }, { status: 400 });
+    }
+    if (textColor !== undefined && !VALID_COLORS.has(textColor)) {
+      return NextResponse.json({ error: 'Invalid text color' }, { status: 400 });
+    }
+    if (font !== undefined && !VALID_FONTS.has(font)) {
+      return NextResponse.json({ error: 'Invalid font' }, { status: 400 });
+    }
 
     // Build update query dynamically based on provided fields
     const updates: string[] = [];

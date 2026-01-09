@@ -14,6 +14,7 @@ This file contains coordination protocols and routing tables for the DreamTree t
 | **Fizz** | `FIZZ.md` | UI/UX, components, CSS, workbook, conversation |
 | **Buzz** | `BUZZ.md` | Database, auth, API, security, connections |
 | **Pazz** | `PAZZ.md` | QA, testing, verification |
+| **Rizz** | `RIZZ.md` | Marketing, copy, campaigns, brand voice |
 
 **Area deep-dives:** See `areas/*.md` for technical patterns and gotchas.
 
