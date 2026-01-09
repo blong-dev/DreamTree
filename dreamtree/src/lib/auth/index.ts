@@ -42,3 +42,9 @@ export {
   type ClaimAccountResult,
   type LoginResult,
 } from './actions';
+
+export {
+  withAuth,
+  type AuthContext,
+  type AuthenticatedHandler,
+} from './with-auth';

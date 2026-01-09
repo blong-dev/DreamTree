@@ -1,15 +1,22 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import dynamic from 'next/dynamic';
 
 // Debounce delay for auto-save (ms)
 const AUTO_SAVE_DELAY = 1500;
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 import { AppShell } from '../shell/AppShell';
 import { ConversationThread } from '../conversation/ConversationThread';
 import { PromptInput } from './PromptInput';
 import { ToolEmbed } from './ToolEmbed';
 import { useToast, SaveIndicator } from '../feedback';
+
+// Dynamic import HistoryZone to avoid SSR issues with @tanstack/react-virtual
+const HistoryZone = dynamic(() => import('./HistoryZone').then(mod => mod.HistoryZone), {
+  ssr: false,
+  loading: () => null,
+});
 import type { SaveStatus } from '../feedback/types';
 import type { ExerciseContent, ExerciseBlock, SavedResponse, PromptData, ToolData, ContentData } from './types';
 import type { Message, ContentBlock, UserResponseContent } from '../conversation/types';
@@ -45,8 +52,18 @@ function blockToConversationContent(block: ExerciseBlock): ContentBlock[] {
 
 export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   const router = useRouter();
+  const pathname = usePathname();
   const { showToast } = useToast();
   const threadRef = useRef<HTMLDivElement>(null);
+
+  // Track visible exercise for URL hash sync
+  const handleVisibleExerciseChange = useCallback((exerciseId: string) => {
+    // Update URL hash without navigation (for bookmarking scroll position)
+    if (typeof window !== 'undefined') {
+      const newUrl = `${pathname}#${exerciseId}`;
+      window.history.replaceState(null, '', newUrl);
+    }
+  }, [pathname]);
 
   // Build maps of saved responses by prompt ID and tool ID (memoized to prevent stale closures)
   const promptResponseMap = useMemo(
@@ -165,10 +182,43 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     isInitializedRef.current = true;
   }
 
+  // Track if current content block animation is complete (for showing Continue)
+  const [currentAnimationComplete, setCurrentAnimationComplete] = useState(false);
+
   // Callback when a message animation completes - add to the permanent set
   const handleMessageAnimated = useCallback((messageId: string) => {
     animatedMessageIdsRef.current.add(messageId);
-  }, []);
+    // Check if this is the current content block - if so, mark animation complete
+    const currentBlock = exercise.blocks[displayedBlockIndex - 1];
+    if (currentBlock?.blockType === 'content' && messageId === `block-${currentBlock.id}`) {
+      setCurrentAnimationComplete(true);
+    }
+  }, [exercise.blocks, displayedBlockIndex]);
+
+  // When displayedBlockIndex changes, immediately mark all PREVIOUS blocks as animated
+  // This ensures ink permanence even if user advances before animation completes
+  const prevDisplayedBlockIndexRef = useRef(displayedBlockIndex);
+  useEffect(() => {
+    if (displayedBlockIndex > prevDisplayedBlockIndexRef.current) {
+      // Reset animation complete for new block
+      setCurrentAnimationComplete(false);
+      // Mark all blocks BEFORE the new one as animated (they should be "inked")
+      for (let i = 0; i < displayedBlockIndex - 1 && i < exercise.blocks.length; i++) {
+        const block = exercise.blocks[i];
+        if (block.blockType === 'content') {
+          animatedMessageIdsRef.current.add(`block-${block.id}`);
+        } else if (block.blockType === 'prompt') {
+          animatedMessageIdsRef.current.add(`prompt-${block.id}`);
+          // Also mark the response message if it exists
+          const promptData = block.content as PromptData;
+          if (promptData.id !== undefined && promptResponseMap.has(promptData.id)) {
+            animatedMessageIdsRef.current.add(`response-${block.id}`);
+          }
+        }
+      }
+    }
+    prevDisplayedBlockIndexRef.current = displayedBlockIndex;
+  }, [displayedBlockIndex, exercise.blocks, promptResponseMap]);
 
   // Build messages array from blocks and responses - with stable IDs
   const messages = useMemo(() => {
@@ -312,8 +362,8 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   // Global Enter key handler for continue
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Only handle Enter when waiting for continue and no input is focused
-      if (e.key === 'Enter' && waitingForContinue) {
+      // Only handle Enter when waiting for continue, animation is done, and no input is focused
+      if (e.key === 'Enter' && waitingForContinue && currentAnimationComplete) {
         const activeElement = document.activeElement;
         const isInputFocused = activeElement?.tagName === 'INPUT' ||
           activeElement?.tagName === 'TEXTAREA' ||
@@ -328,7 +378,7 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [waitingForContinue, handleContinue]);
+  }, [waitingForContinue, currentAnimationComplete, handleContinue]);
 
   // Silent auto-save (doesn't advance to next block)
   const autoSave = useCallback(async (responseText: string) => {
@@ -564,12 +614,25 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       onNavigate={handleNavigate}
     >
       <div className="workbook-view" ref={threadRef}>
+        {/* History zone: shows past exercises in a virtualized list */}
+        <HistoryZone
+          currentExerciseId={exercise.exerciseId}
+          onVisibleExerciseChange={handleVisibleExerciseChange}
+        />
+
+        {/* Current exercise divider */}
+        <div className="exercise-divider">
+          <span className="exercise-divider-label">{exercise.title}</span>
+        </div>
+
+        {/* Current exercise: interactive with typing effects */}
         <ConversationThread
           messages={messages}
           autoScrollOnNew={true}
           onEditMessage={handleEditMessage}
           animatedMessageIds={animatedMessageIdsRef.current}
           onMessageAnimated={handleMessageAnimated}
+          scrollTrigger={displayedBlockIndex}
         />
 
         {/* Auto-save indicator for text inputs */}
@@ -599,7 +662,8 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
         )}
 
         {/* Continue button for content blocks */}
-        {waitingForContinue && (
+        {/* Only show Continue after animation completes - prevents click-to-skip from advancing */}
+        {waitingForContinue && currentAnimationComplete && (
           <div className="workbook-continue">
             <button
               className="button button-primary"

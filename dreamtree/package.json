@@ -8,10 +8,14 @@
     "build:pages": "npx opennextjs-cloudflare build",
     "start": "next start",
     "lint": "eslint",
-    "deploy": "npm run build:pages && npx wrangler deploy"
+    "deploy": "npm run build:pages && npx wrangler deploy",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.14.8",
+    "@tanstack/react-virtual": "^3.13.18",
     "bcryptjs": "^3.0.3",
     "nanoid": "^5.1.6",
     "next": "15.1.6",
@@ -21,17 +25,23 @@
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20260107.1",
-    "lightningcss": "^1.29.0",
     "@eslint/eslintrc": "^3.3.3",
     "@tailwindcss/postcss": "^4",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
     "@types/bcryptjs": "^2.4.6",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9",
     "eslint-config-next": "15.1.6",
+    "jsdom": "^26.0.0",
+    "lightningcss": "^1.29.0",
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^3.0.4"
   }
 }
