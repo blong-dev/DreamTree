@@ -39,6 +39,13 @@ export type FontFamilyId =
   | 'shadows-into-light'
   | 'manufacturing-consent';
 
+export type TextColorId =
+  | 'ivory'
+  | 'creamy-tan'
+  | 'brown'
+  | 'charcoal'
+  | 'black';
+
 export type UserPreview = {
   name: string;
   topSkills: {
@@ -47,6 +54,7 @@ export type UserPreview = {
     knowledge: string | null;
   };
   backgroundColor: BackgroundColorId;
+  textColor: TextColorId;
   fontFamily: FontFamilyId;
 };
 

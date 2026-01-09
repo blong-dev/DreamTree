@@ -23,6 +23,9 @@ interface WorkbookInputZoneProps {
  *
  * This replaces the multiple input mechanisms (AppShell InputArea, inline PromptInput,
  * inline Continue button) with a single, consistent input zone.
+ *
+ * ALWAYS renders to reserve space at bottom - prevents content jumping when
+ * inputs appear/disappear. Shows an empty placeholder when no active input.
  */
 export function WorkbookInputZone({
   collapsed,
@@ -31,29 +34,30 @@ export function WorkbookInputZone({
   collapsedLabel = 'Tap to continue',
   hasActiveInput,
 }: WorkbookInputZoneProps) {
-  // Don't render if there's no active input
-  if (!hasActiveInput) {
-    return null;
-  }
-
   return (
     <div
       className="workbook-input-zone"
       data-collapsed={collapsed}
+      data-has-input={hasActiveInput}
     >
-      {collapsed ? (
-        <button
-          className="workbook-input-zone-expand"
-          onClick={onExpand}
-          aria-label="Expand input area"
-        >
-          <ChevronUpIcon />
-          <span>{collapsedLabel}</span>
-        </button>
+      {hasActiveInput ? (
+        collapsed ? (
+          <button
+            className="workbook-input-zone-expand"
+            onClick={onExpand}
+            aria-label="Expand input area"
+          >
+            <ChevronUpIcon />
+            <span>{collapsedLabel}</span>
+          </button>
+        ) : (
+          <div className="workbook-input-zone-content">
+            {children}
+          </div>
+        )
       ) : (
-        <div className="workbook-input-zone-content">
-          {children}
-        </div>
+        /* Empty placeholder to reserve space and prevent content jumping */
+        <div className="workbook-input-zone-placeholder" aria-hidden="true" />
       )}
     </div>
   );

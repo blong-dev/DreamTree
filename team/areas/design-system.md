@@ -58,6 +58,9 @@ DreamTree's visual design serves two masters: accessibility and ownership. Every
 | File | Purpose |
 |------|---------|
 | `src/app/globals.css` | 6,000+ lines of CSS |
+| `src/lib/theme/index.ts` | Theme utilities (applyTheme, parseThemeSettings) |
+| `src/hooks/useApplyTheme.ts` | React hook to apply theme on mount |
+| `src/components/onboarding/types.ts` | Color/font type definitions and helpers |
 | `/planning/DreamTree_Design_System.md` | Design specifications (read-only reference) |
 
 ---
@@ -176,6 +179,52 @@ Components use prefixed class names:
 
 ---
 
+## Theme System
+
+### Architecture
+```
+Server (page.tsx)                    Client Component
+┌─────────────────┐                  ┌─────────────────────┐
+│ getSessionData  │──theme props───> │ useApplyTheme()     │
+│ parseThemeSettings │               │ - Sets CSS vars     │
+└─────────────────┘                  │ - Sets data-theme   │
+                                     └─────────────────────┘
+                                              │
+                                              ▼
+                                     document.documentElement
+                                     --color-bg, --color-text, --font-body
+```
+
+### Key Functions
+
+**`applyTheme(settings: ThemeSettings)`** — Sets CSS variables on document
+```typescript
+import { applyTheme } from '@/lib/theme';
+applyTheme({ backgroundColor: 'charcoal', textColor: 'ivory', font: 'lora' });
+```
+
+**`useApplyTheme(options)`** — React hook for components
+```typescript
+import { useApplyTheme } from '@/hooks/useApplyTheme';
+useApplyTheme({ backgroundColor, textColor, font });
+```
+
+**`parseThemeSettings(bg, text, font)`** — Safe parsing with defaults
+```typescript
+import { parseThemeSettings } from '@/lib/theme';
+const theme = parseThemeSettings(settings?.background_color, settings?.text_color, settings?.font);
+```
+
+### Where Themes Are Applied
+| Page | Component | How |
+|------|-----------|-----|
+| Dashboard | `DashboardPage.tsx` | `useApplyTheme` with `userPreview` props |
+| Workbook | `WorkbookView.tsx` | `useApplyTheme` with `theme` prop |
+| Profile | `profile/page.tsx` | `applyTheme()` in useEffect |
+| Onboarding | `OnboardingFlow.tsx` | `applyTheme()` in useEffect (live preview) |
+
+---
+
 ## Common Tasks
 
 ### Adding a Color
@@ -230,8 +279,10 @@ Components use prefixed class names:
 
 ### User-Owned Aesthetic
 - Users choose background/text/font at onboarding
-- Stored in user_settings
-- Applied via CSS class on body
+- Stored in `user_settings` table (background_color, text_color, font)
+- Applied via `useApplyTheme()` hook in client components
+- Hook sets CSS variables: `--color-bg`, `--color-text`, `--font-body`
+- Pages with themes: Dashboard, Workbook, Profile, Onboarding
 
 ### Reduced Motion
 - All animations must check `prefers-reduced-motion`

@@ -1,13 +1,14 @@
 'use client';
 
-import { useState, useId } from 'react';
+import { useState, useId, useCallback, useRef } from 'react';
 import { ContentBlock } from './types';
 import { TypingEffect } from './TypingEffect';
 
 interface MessageContentProps {
   content: ContentBlock[];
   animate?: boolean;
-  onAnimationComplete?: () => void;
+  /** Called when animation completes. wasSkipped is true if user clicked to skip. */
+  onAnimationComplete?: (wasSkipped: boolean) => void;
   id?: string;
 }
 
@@ -18,16 +19,28 @@ function ContentBlockRenderer({
 }: {
   block: ContentBlock;
   animate: boolean;
-  onComplete?: () => void;
+  /** Called with wasSkipped=true if user clicked, false if animation completed naturally */
+  onComplete?: (wasSkipped: boolean) => void;
 }) {
   const [isSkipped, setIsSkipped] = useState(false);
+  // Use ref to track completion state to avoid stale closures
+  const hasCompletedRef = useRef(false);
 
-  const handleClick = () => {
-    if (animate && !isSkipped) {
+  const handleClick = useCallback(() => {
+    if (animate && !isSkipped && !hasCompletedRef.current) {
+      hasCompletedRef.current = true;
       setIsSkipped(true);
-      onComplete?.();
+      onComplete?.(true); // User clicked to skip
     }
-  };
+  }, [animate, isSkipped, onComplete]);
+
+  // Memoize to prevent TypingEffect useEffect from restarting
+  const handleNaturalComplete = useCallback(() => {
+    if (!hasCompletedRef.current) {
+      hasCompletedRef.current = true;
+      onComplete?.(false); // Animation completed naturally
+    }
+  }, [onComplete]);
 
   const renderText = (text: string) => {
     if (animate && !isSkipped) {
@@ -35,7 +48,7 @@ function ContentBlockRenderer({
         <TypingEffect
           text={text}
           speed={30}
-          onComplete={onComplete}
+          onComplete={handleNaturalComplete}
           skipToEnd={isSkipped}
         />
       );
@@ -121,14 +134,21 @@ export function MessageContent({
   const generatedId = useId();
   const messageId = id || generatedId;
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
+  // Track if user skipped any block in this message (for passing to completion callback)
+  const [userSkippedAny, setUserSkippedAny] = useState(false);
 
-  const handleBlockComplete = () => {
+  const handleBlockComplete = (wasSkipped: boolean) => {
+    if (wasSkipped) {
+      setUserSkippedAny(true);
+    }
+
     if (currentBlockIndex < content.length - 1) {
       setTimeout(() => {
         setCurrentBlockIndex((prev) => prev + 1);
-      }, 200); // 200ms pause between blocks
+      }, wasSkipped ? 50 : 200); // Faster transition when user is tapping through
     } else {
-      onAnimationComplete?.();
+      // Pass through whether user skipped (any block in this message)
+      onAnimationComplete?.(wasSkipped || userSkippedAny);
     }
   };
 

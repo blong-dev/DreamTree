@@ -2,8 +2,16 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { createDb } from '@/lib/db';
 import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
+import { encryptPII, decryptPII } from '@/lib/auth/pii';
 import { nanoid } from 'nanoid';
 import '@/types/database'; // CloudflareEnv augmentation
+
+// Tool IDs that contain PII and should be encrypted (IMP-048 Phase 2)
+const PII_TOOL_IDS = new Set([
+  100005, // budget_calculator (monthly_expenses, annual_needs, hourly_batna)
+  100017, // company_tracker (company details)
+  100020, // contact_tracker (name, email, phone, etc.)
+]);
 
 
 interface SaveResponseRequest {
@@ -67,6 +75,15 @@ export async function POST(request: NextRequest) {
     const contentId = toolId || promptId;
     const idColumn = isToolResponse ? 'tool_id' : 'prompt_id';
 
+    // Encrypt response for PII tools (IMP-048 Phase 2)
+    let textToStore = responseText;
+    if (isToolResponse && toolId && PII_TOOL_IDS.has(toolId)) {
+      const encrypted = await encryptPII(env.DB, sessionId, responseText);
+      if (encrypted) {
+        textToStore = encrypted;
+      }
+    }
+
     // Check if response already exists for this user/content/exercise
     const existing = await db.raw
       .prepare(
@@ -84,7 +101,7 @@ export async function POST(request: NextRequest) {
            SET response_text = ?, updated_at = ?
            WHERE id = ?`
         )
-        .bind(responseText, now, existing.id)
+        .bind(textToStore, now, existing.id)
         .run();
 
       return NextResponse.json({
@@ -99,7 +116,7 @@ export async function POST(request: NextRequest) {
             `INSERT INTO user_responses (id, user_id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at)
              VALUES (?, ?, NULL, ?, ?, ?, ?, ?, ?)`
           )
-          .bind(responseId, userId, toolId, exerciseId, activityId || null, responseText, now, now)
+          .bind(responseId, userId, toolId, exerciseId, activityId || null, textToStore, now, now)
           .run();
       } else {
         await db.raw
@@ -107,7 +124,7 @@ export async function POST(request: NextRequest) {
             `INSERT INTO user_responses (id, user_id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at)
              VALUES (?, ?, ?, NULL, ?, ?, ?, ?, ?)`
           )
-          .bind(responseId, userId, promptId, exerciseId, activityId || null, responseText, now, now)
+          .bind(responseId, userId, promptId, exerciseId, activityId || null, textToStore, now, now)
           .run();
       }
 
@@ -247,11 +264,31 @@ export async function GET(request: NextRequest) {
          ORDER BY created_at`
       )
       .bind(userId, exerciseId)
-      .all();
+      .all<{
+        id: string;
+        prompt_id: number | null;
+        tool_id: number | null;
+        exercise_id: string;
+        activity_id: string | null;
+        response_text: string;
+        created_at: string;
+        updated_at: string;
+      }>();
+
+    // Decrypt PII tool responses (IMP-048 Phase 2)
+    const decryptedResponses = await Promise.all(
+      (responses.results || []).map(async (response) => {
+        if (response.tool_id && PII_TOOL_IDS.has(response.tool_id)) {
+          const decrypted = await decryptPII(env.DB, sessionId, response.response_text);
+          return { ...response, response_text: decrypted || response.response_text };
+        }
+        return response;
+      })
+    );
 
     return NextResponse.json({
       exerciseId,
-      responses: responses.results || [],
+      responses: decryptedResponses,
     });
   } catch (error) {
     console.error('Error fetching responses:', error);

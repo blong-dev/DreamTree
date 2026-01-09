@@ -17,6 +17,7 @@ import {
   wrapDataKey,
   generateSalt,
   encodeSalt,
+  storeDataKeyInSession,
 } from '@/lib/auth';
 import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
@@ -170,6 +171,9 @@ export async function POST(request: NextRequest) {
 
     // Clear rate limit on successful signup
     await clearRateLimit(db, normalizedEmail, 'signup');
+
+    // Store data key in session for PII encryption (IMP-048)
+    await storeDataKeyInSession(db, sessionId, dataKey);
 
     // Set session cookie using next/headers
     const cookieStore = await cookies();

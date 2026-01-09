@@ -3,17 +3,17 @@ import { redirect } from 'next/navigation';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth';
 import { createDb } from '@/lib/db';
+import { getDailyDos } from '@/lib/dailyDos';
 import {
   DashboardPage,
-  DailyDo,
   ProgressMetricData,
   TOCPartData,
   UserPreview,
   BackgroundColorId,
+  TextColorId,
   FontFamilyId,
 } from '@/components/dashboard';
 import { LandingPage } from '@/components/landing';
-import type { Env } from '@/types/database';
 
 
 // Get user's current exercise (first uncompleted)
@@ -137,26 +137,6 @@ async function getTOCData(): Promise<TOCPartData[]> {
   ];
 }
 
-// Get daily do items
-function getDailyDos(): DailyDo[] {
-  return [
-    {
-      id: '1',
-      type: 'flow-tracking',
-      title: 'Track Your Flow State',
-      subtitle: 'Log an activity where you lost track of time',
-      action: { label: 'Log Flow', href: '/tools/flow-tracker' },
-    },
-    {
-      id: '2',
-      type: 'soared-prompt',
-      title: 'SOARED Story Prompt',
-      subtitle: 'Think of a time you helped someone solve a problem',
-      action: { label: 'Write Story', href: '/tools/soared-form' },
-    },
-  ];
-}
-
 export default async function HomePage() {
   // Get session from cookie
   const cookieStore = await cookies();
@@ -204,6 +184,7 @@ export default async function HomePage() {
       knowledge: null,
     },
     backgroundColor: (sessionData.settings?.background_color || 'ivory') as BackgroundColorId,
+    textColor: (sessionData.settings?.text_color || 'charcoal') as TextColorId,
     fontFamily: (sessionData.settings?.font || 'inter') as FontFamilyId,
   };
 
@@ -211,7 +192,7 @@ export default async function HomePage() {
     <DashboardPage
       userName={profile.display_name || 'User'}
       userPreview={userPreview}
-      dailyDos={getDailyDos()}
+      dailyDos={getDailyDos(currentExerciseId)}
       progressMetrics={progressMetrics}
       tocParts={tocParts}
       currentExerciseId={currentExerciseId}

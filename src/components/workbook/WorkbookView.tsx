@@ -20,14 +20,16 @@ const HistoryZone = dynamic(() => import('./HistoryZone').then(mod => mod.Histor
   ssr: false,
   loading: () => null,
 });
+import { useApplyTheme } from '@/hooks/useApplyTheme';
 import type { SaveStatus } from '../feedback/types';
-import type { ExerciseContent, ExerciseBlock, SavedResponse, PromptData, ToolData, ContentData } from './types';
+import type { ExerciseContent, ExerciseBlock, SavedResponse, PromptData, ToolData, ContentData, ThemeSettings } from './types';
 import type { Message, ContentBlock, UserResponseContent } from '../conversation/types';
 import type { BreadcrumbLocation, InputType } from '../shell/types';
 
 interface WorkbookViewProps {
   exercise: ExerciseContent;
   savedResponses: SavedResponse[];
+  theme?: ThemeSettings;
 }
 
 // Convert exercise content blocks to conversation messages
@@ -53,10 +55,17 @@ function blockToConversationContent(block: ExerciseBlock): ContentBlock[] {
   }
 }
 
-export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
+export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewProps) {
   const router = useRouter();
   const pathname = usePathname();
   const { showToast } = useToast();
+
+  // Apply user's theme on mount (if provided)
+  useApplyTheme({
+    backgroundColor: theme?.backgroundColor,
+    textColor: theme?.textColor,
+    font: theme?.font,
+  });
 
   // Track visible exercise for URL hash sync
   const handleVisibleExerciseChange = useCallback((exerciseId: string) => {
@@ -225,13 +234,23 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
   });
 
   // Callback when a message animation completes - add to the permanent set
-  const handleMessageAnimated = useCallback((messageId: string) => {
+  // If user clicked to skip (wasSkipped=true), auto-advance content blocks
+  const handleMessageAnimated = useCallback((messageId: string, wasSkipped: boolean) => {
     animatedMessageIdsRef.current.add(messageId);
     const currentBlock = exercise.blocks[displayedBlockIndex - 1];
 
-    // Content blocks - mark animation complete for Continue button
+    // Content blocks - either auto-advance (if skipped) or show Continue button
     if (currentBlock?.blockType === 'content' && messageId === `block-${currentBlock.id}`) {
-      setCurrentAnimationComplete(true);
+      if (wasSkipped) {
+        // User tapped to skip - auto-advance to next block (like pressing Continue)
+        setWaitingForContinue(false);
+        if (displayedBlockIndex < exercise.blocks.length) {
+          setDisplayedBlockIndex(prev => prev + 1);
+        }
+      } else {
+        // Natural animation completion - show Continue button
+        setCurrentAnimationComplete(true);
+      }
     }
 
     // Prompt blocks - when question text animation completes, auto-reveal input
@@ -697,6 +716,35 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
     return 'Tap to continue';
   };
 
+  // Handle tap-anywhere-to-continue on mobile
+  const handleContentAreaClick = useCallback(
+    (e: React.MouseEvent) => {
+      // Only on mobile (check screen width or touch capability)
+      if (window.innerWidth > 768) return;
+
+      // Only when waiting for continue and animation is complete
+      if (!waitingForContinue || !currentAnimationComplete) return;
+
+      // Don't trigger if clicking on interactive elements
+      const target = e.target as HTMLElement;
+      if (
+        target.tagName === 'BUTTON' ||
+        target.tagName === 'INPUT' ||
+        target.tagName === 'TEXTAREA' ||
+        target.tagName === 'A' ||
+        target.closest('button') ||
+        target.closest('input') ||
+        target.closest('textarea') ||
+        target.closest('a')
+      ) {
+        return;
+      }
+
+      handleContinue();
+    },
+    [waitingForContinue, currentAnimationComplete, handleContinue]
+  );
+
   return (
     <AppShell
       currentLocation={breadcrumbLocation}
@@ -706,19 +754,20 @@ export function WorkbookView({ exercise, savedResponses }: WorkbookViewProps) {
       hideContents={true}
       onNavigate={handleNavigate}
     >
-      <div className="workbook-view" ref={scrollContainerRef}>
+      <div
+        className="workbook-view"
+        ref={scrollContainerRef}
+        onClick={handleContentAreaClick}
+        data-tap-to-continue={waitingForContinue && currentAnimationComplete ? 'true' : 'false'}
+      >
         {/* History zone: shows past exercises in a virtualized list */}
         <HistoryZone
           currentExerciseId={exercise.exerciseId}
           onVisibleExerciseChange={handleVisibleExerciseChange}
         />
 
-        {/* Current exercise divider */}
-        <div className="exercise-divider">
-          <span className="exercise-divider-label">{exercise.title}</span>
-        </div>
-
         {/* Current exercise: interactive with typing effects */}
+        {/* Note: Exercise title comes from content blocks (type='heading'), not a separate divider */}
         <ConversationThread
           messages={messages}
           autoScrollOnNew={true}

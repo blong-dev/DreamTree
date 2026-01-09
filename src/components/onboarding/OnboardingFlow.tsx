@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { ConversationThread } from '../conversation/ConversationThread';
 import { AcornIcon } from '../icons';
+import { applyTheme } from '@/lib/theme';
 import {
   OnboardingData,
   BackgroundColorId,
@@ -10,8 +11,6 @@ import {
   FontFamilyId,
   COLORS,
   FONTS,
-  getColorById,
-  getFontById,
   getValidTextColors,
   isValidPairing,
 } from './types';
@@ -111,18 +110,12 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 
   // Apply live theme preview
   useEffect(() => {
-    if (data.backgroundColor) {
-      const bg = getColorById(data.backgroundColor);
-      document.documentElement.style.setProperty('--color-bg', bg.hex);
-      document.documentElement.setAttribute('data-theme', bg.isLight ? 'light' : 'dark');
-    }
-    if (data.textColor) {
-      const text = getColorById(data.textColor);
-      document.documentElement.style.setProperty('--color-text', text.hex);
-    }
-    if (data.font) {
-      const font = getFontById(data.font);
-      document.documentElement.style.setProperty('--font-body', font.family);
+    if (data.backgroundColor && data.textColor && data.font) {
+      applyTheme({
+        backgroundColor: data.backgroundColor,
+        textColor: data.textColor,
+        font: data.font,
+      });
     }
   }, [data.backgroundColor, data.textColor, data.font]);
 

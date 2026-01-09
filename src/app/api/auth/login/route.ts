@@ -8,7 +8,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { login } from '@/lib/auth';
+import { login, unwrapDataKeyFromAuth, storeDataKeyInSession } from '@/lib/auth';
 import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
 
@@ -64,6 +64,12 @@ export async function POST(request: NextRequest) {
     // Clear rate limit on successful login
     await clearRateLimit(db, email, 'login');
 
+    // Unwrap and store data key in session for PII encryption (IMP-048)
+    const dataKey = await unwrapDataKeyFromAuth(db, result.userId!, password);
+    if (dataKey && result.sessionId) {
+      await storeDataKeyInSession(db, result.sessionId, dataKey);
+    }
+
     // Set session cookie using next/headers
     const cookieStore = await cookies();
     cookieStore.set('dt_session', result.sessionId!, {
@@ -75,15 +81,19 @@ export async function POST(request: NextRequest) {
     });
 
     // Check if user has completed onboarding (has settings with name)
+    // Note: display_name may be encrypted, so we just check if it exists (not null)
     const profile = await db
       .prepare('SELECT display_name FROM user_profile WHERE user_id = ?')
       .bind(result.userId)
       .first<{ display_name: string | null }>();
 
+    // Check if display_name exists (encrypted or not)
+    const hasName = profile?.display_name !== null && profile?.display_name !== '';
+
     return NextResponse.json({
       success: true,
       userId: result.userId,
-      needsOnboarding: !profile?.display_name,
+      needsOnboarding: !hasName,
     });
   } catch (error) {
     console.error('Login error:', error);

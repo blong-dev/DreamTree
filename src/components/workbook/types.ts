@@ -1,7 +1,12 @@
 // Workbook component types
 
+import type { ThemeSettings } from '@/lib/theme';
+
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type BlockContent = Record<string, any>;
+
+// Re-export ThemeSettings for convenience
+export type { ThemeSettings };
 
 export interface ExerciseBlock {
   id: number;

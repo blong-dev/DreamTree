@@ -15,6 +15,7 @@ import {
   UserPreview,
   TOCPartData,
 } from '@/components/dashboard';
+import { useApplyTheme } from '@/hooks/useApplyTheme';
 
 interface DashboardPageProps {
   userName: string;
@@ -58,6 +59,13 @@ export function DashboardPage({
   const router = useRouter();
   const [showTOC, setShowTOC] = useState(false);
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('home');
+
+  // Apply user's theme on mount
+  useApplyTheme({
+    backgroundColor: userPreview.backgroundColor,
+    textColor: userPreview.textColor,
+    font: userPreview.fontFamily,
+  });
 
   const handleNavigate = useCallback(
     (id: NavItemId) => {
@@ -113,10 +121,12 @@ export function DashboardPage({
             </button>
           </section>
 
-          <section className="dashboard-section">
-            <h2 className="dashboard-section-title">Daily Do&apos;s</h2>
-            <DailyDoList items={dailyDos} />
-          </section>
+          {dailyDos.length > 0 && (
+            <section className="dashboard-section">
+              <h2 className="dashboard-section-title">Daily Do&apos;s</h2>
+              <DailyDoList items={dailyDos} />
+            </section>
+          )}
 
           <section className="dashboard-section">
             <h2 className="dashboard-section-title">Your Progress</h2>
