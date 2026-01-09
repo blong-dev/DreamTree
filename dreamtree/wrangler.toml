@@ -9,7 +9,7 @@ pages_build_output_dir = ".open-next"
 main = ".open-next/worker.js"
 
 # Assets directory for static files
-assets = { directory = ".open-next/assets", binding = "ASSETS" }
+assets = { directory = ".open-next/assets" }
 
 [[d1_databases]]
 binding = "DB"
