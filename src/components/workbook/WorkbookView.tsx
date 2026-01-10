@@ -14,6 +14,8 @@ import { WorkbookInputZone } from './WorkbookInputZone';
 import { useToast, SaveIndicator } from '../feedback';
 import { TextInput, TextArea } from '../forms';
 import { SendIcon } from '../icons';
+import { TOCPanel } from '../overlays/TOCPanel';
+import type { WorkbookProgress, BreadcrumbLocation as TOCLocation } from '../overlays/types';
 
 // Dynamic import HistoryZone to avoid SSR issues with @tanstack/react-virtual
 const HistoryZone = dynamic(() => import('./HistoryZone').then(mod => mod.HistoryZone), {
@@ -153,6 +155,9 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
   // Scroll tracking for input zone collapse behavior
   const [inputZoneCollapsed, setInputZoneCollapsed] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // TOC panel state
+  const [tocOpen, setTocOpen] = useState(false);
 
   // Track which message IDs have been animated (ink permanence - never re-animate)
   // For returning users, pre-populate with IDs of messages they've already seen
@@ -696,13 +701,47 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
     if (id === 'home') {
       router.push('/');
     } else if (id === 'contents') {
-      // TODO: Open TOC panel
+      setTocOpen(true);
     } else if (id === 'tools') {
       router.push('/tools');
     } else if (id === 'profile') {
       router.push('/profile');
     }
   };
+
+  // Handle TOC navigation
+  const handleTocNavigate = (location: TOCLocation) => {
+    if (location.exerciseId) {
+      router.push(`/workbook/${location.exerciseId}`);
+      setTocOpen(false);
+    }
+  };
+
+  // Build minimal TOC progress for current exercise
+  const tocProgress: WorkbookProgress = useMemo(() => ({
+    parts: [
+      {
+        id: exercise.part.toString(),
+        title: `Part ${exercise.part}: ${exercise.part === 1 ? 'Roots' : exercise.part === 2 ? 'Trunk' : 'Branches'}`,
+        status: 'in-progress',
+        percentComplete: 0,
+        modules: [
+          {
+            id: `${exercise.part}.${exercise.module}`,
+            title: `Module ${exercise.module}`,
+            status: 'in-progress',
+            exercises: [
+              {
+                id: exercise.exerciseId,
+                title: exercise.title,
+                status: 'in-progress',
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  }), [exercise]);
 
   // Build breadcrumb location
   const breadcrumbLocation: BreadcrumbLocation = {
@@ -893,6 +932,22 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
           </div>
         )}
       </WorkbookInputZone>
+
+      {/* Table of Contents panel */}
+      <TOCPanel
+        open={tocOpen}
+        onClose={() => setTocOpen(false)}
+        currentLocation={{
+          partId: breadcrumbLocation.partId,
+          partTitle: breadcrumbLocation.partTitle,
+          moduleId: breadcrumbLocation.moduleId,
+          moduleTitle: breadcrumbLocation.moduleTitle,
+          exerciseId: breadcrumbLocation.exerciseId,
+          exerciseTitle: breadcrumbLocation.exerciseTitle,
+        }}
+        progress={tocProgress}
+        onNavigate={handleTocNavigate}
+      />
     </AppShell>
   );
 }

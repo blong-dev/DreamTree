@@ -1,7 +1,12 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
+/**
+ * Workbook response API routes
+ *
+ * B2: Standardized to use withAuth pattern (AUDIT-001)
+ */
+
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 import { createDb } from '@/lib/db';
-import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import { encryptPII, decryptPII } from '@/lib/auth/pii';
 import { validateToolData } from '@/lib/validation';
 import { nanoid } from 'nanoid';
@@ -23,31 +28,9 @@ interface SaveResponseRequest {
   responseText: string;
 }
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) => {
   try {
-    // Get session
-    const cookieHeader = request.headers.get('cookie');
-    const sessionId = getSessionIdFromCookie(cookieHeader);
-
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const { env } = getCloudflareContext();
-    const db = createDb(env.DB);
-
-    const sessionData = await getSessionData(env.DB, sessionId);
-    if (!sessionData) {
-      return NextResponse.json(
-        { error: 'Invalid session' },
-        { status: 401 }
-      );
-    }
-
-    const userId = sessionData.user.id;
+    const db = createDb(rawDb);
 
     // Parse request body
     const body: SaveResponseRequest = await request.json();
@@ -106,7 +89,7 @@ export async function POST(request: NextRequest) {
     // Encrypt response for PII tools (IMP-048 Phase 2)
     let textToStore = responseText;
     if (isToolResponse && toolId && PII_TOOL_IDS.has(toolId)) {
-      const encrypted = await encryptPII(env.DB, sessionId, responseText);
+      const encrypted = await encryptPII(rawDb, sessionId, responseText);
       if (encrypted) {
         textToStore = encrypted;
       }
@@ -168,34 +151,12 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
 
 // PUT endpoint to update an existing response
-export async function PUT(request: NextRequest) {
+export const PUT = withAuth(async (request, { userId, db: rawDb }) => {
   try {
-    // Get session
-    const cookieHeader = request.headers.get('cookie');
-    const sessionId = getSessionIdFromCookie(cookieHeader);
-
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const { env } = getCloudflareContext();
-    const db = createDb(env.DB);
-
-    const sessionData = await getSessionData(env.DB, sessionId);
-    if (!sessionData) {
-      return NextResponse.json(
-        { error: 'Invalid session' },
-        { status: 401 }
-      );
-    }
-
-    const userId = sessionData.user.id;
+    const db = createDb(rawDb);
 
     // Parse request body
     const body: SaveResponseRequest = await request.json();
@@ -247,32 +208,11 @@ export async function PUT(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
 
 // GET endpoint to fetch previous responses for an exercise
-export async function GET(request: NextRequest) {
+export const GET = withAuth(async (request, { userId, db: rawDb, sessionId }) => {
   try {
-    const cookieHeader = request.headers.get('cookie');
-    const sessionId = getSessionIdFromCookie(cookieHeader);
-
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json(
-        { error: 'Invalid session' },
-        { status: 401 }
-      );
-    }
-
-    const userId = sessionData.user.id;
     const { searchParams } = new URL(request.url);
     const exerciseId = searchParams.get('exerciseId');
 
@@ -283,7 +223,7 @@ export async function GET(request: NextRequest) {
       );
     }
 
-    const db = createDb(env.DB);
+    const db = createDb(rawDb);
     const responses = await db.raw
       .prepare(
         `SELECT id, prompt_id, tool_id, exercise_id, activity_id, response_text, created_at, updated_at
@@ -307,7 +247,7 @@ export async function GET(request: NextRequest) {
     const decryptedResponses = await Promise.all(
       (responses.results || []).map(async (response) => {
         if (response.tool_id && PII_TOOL_IDS.has(response.tool_id)) {
-          const decrypted = await decryptPII(env.DB, sessionId, response.response_text);
+          const decrypted = await decryptPII(rawDb, sessionId, response.response_text);
           return { ...response, response_text: decrypted || response.response_text };
         }
         return response;
@@ -325,4 +265,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
