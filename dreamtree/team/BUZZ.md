@@ -29,7 +29,7 @@ You own these area docs — read them for patterns, gotchas, and technical detai
 src/lib/
 ├── db/                ← Database utilities
 ├── auth/              ← Auth helpers, encryption, PII
-├── connections/       ← ConnectionResolver, data sources
+├── connections/       ← ConnectionResolver (resolver.ts), data fetchers (data-fetchers.ts)
 └── analytics/         ← Event tracking, metrics
 
 src/app/api/

@@ -152,7 +152,7 @@ export function VirtualizedConversation({
             animate={shouldAnimate}
             onAnimationComplete={
               shouldAnimate && onBlockAnimated
-                ? (_wasSkipped: boolean) => onBlockAnimated(block.id)
+                ? () => onBlockAnimated(block.id)
                 : undefined
             }
             id={`history-${block.id}`}

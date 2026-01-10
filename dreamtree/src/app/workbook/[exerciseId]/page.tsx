@@ -6,7 +6,6 @@ import { createDb } from '@/lib/db';
 import { parseThemeSettings } from '@/lib/theme';
 import { WorkbookView } from '@/components/workbook';
 import type { ExerciseContent, SavedResponse } from '@/components/workbook/types';
-import type { Env } from '@/types/database';
 
 
 interface PageProps {
