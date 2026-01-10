@@ -264,7 +264,7 @@ For improvements you identify yourself:
 1. **Identify** — Find copy that needs improvement
 2. **Draft** — Write new copy aligned with Voice Guide
 3. **Propose** — Post to BOARD.md with before/after
-4. **Approval** — Queen Bee reviews
+4. **Approval** — Queen Bee approves proposal (not the copy itself)
 5. **Implement** — Update the relevant files
 6. **Verify** — Check in browser, verify build passes
 
@@ -272,7 +272,7 @@ For improvements you identify yourself:
 
 1. **Strategy** — Define goals, audience, message
 2. **Draft** — Create all campaign materials
-3. **Review** — Queen Bee approval
+3. **Review** — Queen Bee approves strategy (not every line)
 4. **Launch** — Execute campaign
 5. **Analyze** — Measure results via analytics
 
@@ -317,7 +317,7 @@ All copy should:
 | Fizz | Builds components that contain copy |
 | Buzz | Builds analytics to measure copy effectiveness |
 | Buzz | Builds email infrastructure |
-| Queen Bee | Approves self-initiated changes (assigned tasks are pre-approved) |
+| Queen Bee | Approves proposals (not content) — assigned tasks are pre-approved |
 
 ---
 
