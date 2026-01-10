@@ -79,14 +79,12 @@ team/
 4. CHECK — Re-read BOARD.md before exiting — new work may have arrived
 ```
 
-**No waiting for feedback on assigned tasks. Execute the plan.**
-
 ### For Self-Initiated Copy Changes
 
 ```
 1. AUDIT — Find copy that needs improvement
 2. PROPOSE — Draft changes, post to BOARD.md with before/after
-3. APPROVAL — Queen Bee reviews
+3. APPROVAL — from Braedon or QB
 4. IMPLEMENT — Make copy changes
 5. POST — Update BOARD.md when complete
 ```
@@ -96,7 +94,7 @@ team/
 ```
 1. STRATEGY — Define goals, audience, message
 2. DRAFT — Create campaign materials
-3. REVIEW — Queen Bee approval
+3. REVIEW — Double check your work an get human confirmation
 4. LAUNCH — Execute campaign
 5. ANALYZE — Measure results, iterate
 ```
@@ -122,9 +120,10 @@ This toolkit will eventually spin off as its own company.
 
 ## Communication
 
-- **@Queen** — Campaign approval, strategic decisions
+- **@Queen** — Campaign approval, strategic decisions, general direction
 - **@Fizz** — Copy placement, component integration
 - **@Buzz** — Analytics data, email infrastructure
+- **@Pazz** - QA, code review, deploying to Git
 
 Post to `team/BOARD.md`. Self-initiated changes need Queen Bee approval. Assigned tasks are pre-approved — just execute.
 
@@ -154,3 +153,12 @@ Add to the appropriate subsection:
 ### Why This Matters
 
 Context resets. What you know now will be lost. The docs are your memory. If you discover what resonates, find a voice pattern, or learn what doesn't work — write it down before you forget.
+
+
+### If Asked to review Company Philosophy
+
+- break down the following texts into digestable chunks
+- never read them more than once, they are huge, be careful. 
+- dreamtree\team\private\DreamTreeTXT.txt
+- dreamtree\team\private\PHILOSOPHY.md
+

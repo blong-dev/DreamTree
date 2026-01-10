@@ -1,9 +1,32 @@
 # DreamTree Data & Analytics Plan
 
-> **Status**: Draft
+> **Status**: Implementation Ready
 > **Author**: Buzz
-> **Date**: 2026-01-09
+> **Date**: 2026-01-09 (Updated 2026-01-10)
 > **Deliverable for**: PLAN-001
+
+---
+
+## Current Implementation Status
+
+| Component | Status | Location |
+|-----------|--------|----------|
+| `analytics_events` table | ✅ Built | `migrations/0012_add_analytics.sql` |
+| `analytics_aggregates` table | ✅ Built | `migrations/0012_add_analytics.sql` |
+| Client tracker (`track.ts`) | ✅ Built | `src/lib/analytics/track.ts` |
+| Server tracker (`server.ts`) | ✅ Built | `src/lib/analytics/server.ts` |
+| Event types (9 types) | ✅ Built | `src/lib/analytics/types.ts` |
+| API endpoint | ✅ Built | `src/app/api/analytics/track/route.ts` |
+| Admin dashboard (5 pages) | ✅ Built | `src/app/admin/*` |
+| **Event firing in WorkbookView** | ❌ Not wired | Need to add |
+| **Session tracking** | ❌ Not wired | Need to add |
+| **Admin auth check** | ❌ Not enforced | Need to add |
+
+### Remaining Work
+
+1. **Wire event firing** in `WorkbookView.tsx` (call existing `track*` functions)
+2. **Add session_start tracking** in middleware or layout
+3. **Enforce admin auth** in admin pages
 
 ---
 

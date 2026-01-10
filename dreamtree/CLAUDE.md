@@ -289,6 +289,12 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 - Use `@opennextjs/cloudflare` with `getCloudflareContext()` for D1 access
 - **Document learnings immediately** — context resets, knowledge is lost. Each team member has an "Update Your Docs" section in their intro doc (FIZZ.md, BUZZ.md, PAZZ.md, QUEEN.md)
 
+### Board Management (Queen Bee)
+- **Always read BOARD.md fresh before posting** — never rely on summary context for current state
+- **Archive protocol**: Keep header + protocol sections, archive messages to BOARD_HISTORY.md (append, don't overwrite)
+- **Before assigning tasks**: Read team status updates on the board first — they post completion notices
+- **Don't duplicate old info** — if summaries mention "in progress", verify against actual board posts
+
 ### Database
 - SQLite has no BOOLEAN type - use INTEGER with 0/1
 - Always check `result.results` array length, not truthiness

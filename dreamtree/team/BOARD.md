@@ -19,127 +19,69 @@
 | Name | Role | Instance ID |
 |------|------|-------------|
 | Queen Bee | Manager, docs, coordination | — |
-| Fizz | Worker | fizzy-kindling-hearth |
-| Buzz | Worker | synthetic-hopping-dongarra |
-| Pazz | QA | (pending) |
-| Rizz | Marketing | (pending) |
+| Fizz | UI/UX | — |
+| Buzz | Infrastructure | — |
+| Pazz | QA | — |
+| Rizz | Marketing | — |
 
 ---
 
 ## Messages
 
-**Archive**: Older messages moved to `BOARD_HISTORY.md` (archived 2026-01-10)
+**Archive**: Open Source Launch Prep moved to `BOARD_HISTORY.md` (2026-01-10)
 
 ---
 
-## [Queen Bee] Open Source Launch Prep — Team Assignments
+## [Queen Bee] Current Assignments — 2026-01-10
 
-**Date:** 2026-01-10
+**Open Source Launch: COMPLETE.** LICENSE, CONTRIBUTING.md, About page, E2E tests all done.
 
-**AUDIT-001 is COMPLETE.** Great work team. 290 tests, resolver refactored (747→262 lines), all CSS classes added, TOC panel working, auth standardized.
+### Current Status
 
-**New Focus:** Finalize materials for open source launch.
+| Team Member | Status | Notes |
+|-------------|--------|-------|
+| Fizz | ✅ Available | About page complete, ready for new work |
+| Buzz | 🔄 PLAN-001 | Starting analytics suite planning |
+| Pazz | ✅ Available | IMP-QA-001 complete (290 tests) |
+| Rizz | ✅ Available | R3 (LICENSE) complete |
 
-### Gap Analysis
+### Next Priorities
 
-| Gap | Owner | Priority |
-|-----|-------|----------|
-| CONTRIBUTING.md missing | Rizz | High |
-| About page unstyled | Fizz | Medium |
-| E2E test for /about | Pazz | Medium |
-| README D1 note | Rizz | Low |
-| LICENSE (AGPL-3.0) | Rizz | High |
-
-### Phase 1 Assignments (Parallel)
-
-**@Rizz (R1, R2, R3):**
-- Create `CONTRIBUTING.md` (how to contribute, dev setup, code style, PR process)
-- Update `github_readme.md` with D1 note per Buzz's feedback
-- Create `LICENSE` file with AGPL-3.0 text
-
-**@Fizz (F1):**
-- Style the About page (`.about-page`, `.about-main`, `.about-content`, etc.)
-- Use design system tokens (no hardcoded values)
-
-**@Pazz (P1):**
-- Create E2E smoke test for `/about` page
-- Verify h1 "Why DreamTree Exists" and key h2 sections render
-
-### Phase 2: Review
-After Phase 1 complete:
-- Queen Bee reviews all materials
-- Pazz runs full verification (build, tests, E2E)
-
-### Phase 3: Launch Prep
-- Rizz swaps READMEs (github_readme.md → README.md)
-- Board cleanup and team sign-off
-
-**Post updates as you complete. Let's ship this.**
+Awaiting direction from Braedon.
 
 ---
 
-### [Queen Bee] Unblocking Phase 1
+### [Pazz] Status Update — QA Complete
 
-**@Fizz:** YES — proceed with About page CSS now. Content is already reviewed and approved.
+**IMP-QA-001 Status:** ✅ COMPLETE (not in progress)
 
-**@Rizz:** You're up. Tasks:
-1. Create `CONTRIBUTING.md` (plan file has content)
-2. Add D1 note to `github_readme.md`
-3. Create `LICENSE` file with AGPL-3.0 text
+Test count is now **290 tests** (was 161 at last board archive):
 
-No feedback needed — execute all three.
+| Phase | Tests Added | Files |
+|-------|-------------|-------|
+| P1: ConnectionResolver | 27 | `resolver.test.ts` |
+| P2: ConversationThread | 25 | `ConversationThread.test.tsx` |
+| P3: ToolEmbed | 29 | `ToolEmbed.test.tsx` |
+| P4: Form components | 48 | `forms.test.tsx` |
+| Open Source: About E2E | 15 | `QA/e2e/about.spec.ts` |
 
-**Phase 1 Status:**
-| Task | Owner | Status |
-|------|-------|--------|
-| P1: E2E test | Pazz | ✅ Done (15 tests) |
-| F1: About CSS | Fizz | ✅ Done |
-| R1: CONTRIBUTING.md | Rizz | 🔄 Execute now |
-| R2: README D1 note | Rizz | 🔄 Execute now |
-| R3: LICENSE (AGPL-3.0) | Rizz | 🔄 Execute now |
+**Current verification:**
+- **Build:** ✅ PASS
+- **Unit Tests:** ✅ 290/290 PASS
 
-**No waiting for feedback. Execute the plan.**
+**Awaiting new assignments.** All AUDIT-001 and Open Source Launch QA tasks complete.
 
 ---
 
-### [Pazz] P1 COMPLETE — About Page E2E Tests
+### [Rizz] R3 COMPLETE — LICENSE File
 
-**Created:** `QA/e2e/about.spec.ts`
+Created `dreamtree/LICENSE` with:
+- DreamTree copyright header (Copyright (C) 2026 DreamTree)
+- Full AGPL-3.0 license text from GNU
 
-**15 tests added:**
+**Build:** ✅ PASS
 
-| Category | Tests | Coverage |
-|----------|-------|----------|
-| Page Loading | 5 | Status 200, h1, section h2s, key beliefs, footer |
-| Navigation | 6 | Header logo, Sign In/Get Started buttons, click navigation |
-| Footer Links | 3 | About, Principles, GitHub (with target="_blank") |
-| Accessibility | 2 | Heading hierarchy (1 h1, 4+ h2s), no console errors |
-
-**Ready for Phase 2 verification** once Rizz completes R3.
-
----
-
-### [Queen Bee] Phase 1 Status Update
-
-| Task | Owner | Status |
-|------|-------|--------|
-| P1: E2E test | Pazz | ✅ Done (15 tests) |
-| F1: About CSS | Fizz | ✅ Done |
-| R1: CONTRIBUTING.md | Rizz | ✅ Done |
-| R2: README D1 note | Rizz | ✅ Done |
-| R3: LICENSE (AGPL-3.0) | Rizz | ❌ Missing |
-
-**@Rizz — One task remaining:**
-
-Create `dreamtree/LICENSE` with the AGPL-3.0 license text.
-
-1. Create file `LICENSE` at project root
-2. Use standard AGPL-3.0 text (GNU Affero General Public License v3.0)
-3. Copyright line: `Copyright (C) 2026 DreamTree`
-4. Verify build passes
-5. Post completion to BOARD.md
-
-**This is already approved. No feedback needed. Just do it.**
+Standing by for copy/campaign work.
 
 ---
 
@@ -150,16 +92,45 @@ Create `dreamtree/LICENSE` with the AGPL-3.0 license text.
 | Class | Purpose |
 |-------|---------|
 | `.landing-footer-nav` | Footer navigation links (flexbox centered) |
-| `.landing-footer-nav a` | Link styling with hover effect |
 | `.about-page` | Page container (matches landing page structure) |
 | `.about-main` | Content area with centered layout |
 | `.about-content` | Article container (680px max-width for readability) |
-| `.about-content h1/h2` | Heading typography |
-| `.about-content p` | Paragraph styling (1.7 line-height) |
-| `.about-content hr` | Section dividers |
-| `.about-content a` | Link styling with underline |
+| Typography (h1, h2, p, hr, a) | Consistent with design system |
 
-**Build:** ✅ PASS — `/about` route included (3.46 kB)
+**Verified:**
+- Build: ✅ PASS — `/about` route included (3.46 kB)
+- About page renders correctly with proper spacing and typography
+
+**Ready for Phase 12 (onboarding conversion).**
+
+---
+
+### [Buzz] PLAN-001 Status — Analytics Suite
+
+**Discovery complete.** Most infrastructure already built:
+
+| Component | Status |
+|-----------|--------|
+| Database tables (analytics_events, analytics_aggregates) | ✅ Built |
+| Client tracker (track.ts) | ✅ Built |
+| Server tracker (server.ts) | ✅ Built |
+| API endpoint (/api/analytics/track) | ✅ Built |
+| Admin dashboard (5 pages) | ✅ Built |
+| Event firing in WorkbookView | ❌ Not wired |
+| Session tracking | ❌ Not wired |
+| Admin auth enforcement | ❌ Not enforced |
+
+**Plan updated:** `team/plans/DATA-ANALYTICS-PLAN.md`
+
+### Remaining Work (3 tasks)
+
+1. **Wire event firing** — Call existing `track*()` functions in WorkbookView
+2. **Add session tracking** — Fire `session_start` in middleware
+3. **Enforce admin auth** — Add role check to admin pages
+
+**Estimated effort:** ~4 hours total
+
+**Ready to implement upon approval.**
 
 ---
 
