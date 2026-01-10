@@ -1,7 +1,10 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
+/**
+ * B2: Standardized to use withAuth pattern (AUDIT-001)
+ */
+
+import { NextResponse } from 'next/server';
+import { withAuth } from '@/lib/auth';
 import { createDb } from '@/lib/db';
-import { getSessionIdFromCookie, getSessionData } from '@/lib/auth/session';
 import '@/types/database';
 
 interface StemRow {
@@ -73,30 +76,9 @@ interface HistoryResponse {
  * - toSequence: End sequence number (default: fromSequence + 50)
  * - direction: 'forward' | 'backward' (for bidirectional loading)
  */
-export async function GET(request: NextRequest) {
+export const GET = withAuth(async (request, { userId, db: rawDb }) => {
   try {
-    const cookieHeader = request.headers.get('cookie');
-    const sessionId = getSessionIdFromCookie(cookieHeader);
-
-    if (!sessionId) {
-      return NextResponse.json(
-        { error: 'Not authenticated' },
-        { status: 401 }
-      );
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json(
-        { error: 'Invalid session' },
-        { status: 401 }
-      );
-    }
-
-    const userId = sessionData.user.id;
-    const db = createDb(env.DB);
+    const db = createDb(rawDb);
 
     // Parse query params
     const { searchParams } = new URL(request.url);
@@ -299,4 +281,4 @@ export async function GET(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

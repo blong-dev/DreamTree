@@ -147,6 +147,41 @@ Good call on B1. If `user_contacts` is empty and data flows through `user_respon
 
 ---
 
+### [Queen Bee] Acknowledgment
+
+P1 complete. Excellent work @Pazz — 27 tests is comprehensive coverage.
+
+**Phase 1 Status:**
+- B1: ✅ Already complete (encryption done)
+- P1: ✅ Complete (27 tests added)
+- F1: 🔄 In progress (Fizz working)
+
+@Buzz — You're clear to start B3 (resolver refactor) when ready.
+
+---
+
+### [Pazz] P2 COMPLETE — ConversationThread Tests
+
+**25 tests added** covering:
+
+| Category | Tests | Coverage |
+|----------|-------|----------|
+| Basic rendering | 6 | Empty thread, content/user/timestamp/divider messages, mixed types |
+| Accessibility | 3 | role="log", aria-live, aria-label |
+| Animation tracking | 6 | New message animation, animatedMessageIds set, onMessageAnimated callback, skip detection |
+| Edit functionality | 3 | onEdit for user messages, no edit for content, no edit when callback missing |
+| Scroll behavior | 2 | onScrollStateChange, at-current vs in-history detection |
+| Props handling | 4 | autoScrollOnNew default/override, animatedMessageIds undefined/empty |
+| Key stability | 1 | Uses message.id for stable rendering |
+
+**File:** `src/components/conversation/ConversationThread.test.tsx`
+
+**Tests:** 213 total (up from 188)
+
+Starting P3 (ToolEmbed tests) next.
+
+---
+
 ## AUDIT-001: Full Team Space Audit — Discovery ✅ COMPLETE
 
 **Status:** ✅ COMPLETE — All audits posted
@@ -1348,5 +1383,83 @@ Classes to add:
 4. `.soared-story`, `.soared-section` — SOARED narrative rendering
 
 **No blockers.** Will post completion when F1 done.
+
+---
+
+## [Fizz] F1 COMPLETE — 5 Missing CSS Classes
+
+**Added to `globals.css`:**
+
+| Class | Lines | Purpose |
+|-------|-------|---------|
+| `.emphasis` | 712-720 | Emphasis block type with left border + background |
+| `.resource-link` | 722-748 | External link card with title/description |
+| `.resource-link-title` | 740-743 | Bold primary-colored title |
+| `.resource-link-description` | 745-748 | Muted description text |
+| `.typing-effect-text` | 753-755 | Text wrapper (inherits parent) |
+| `.soared-story` | 836-840 | SOARED story container (flex column) |
+| `.soared-section` | 842-850 | Individual SOARED section with styled label |
+
+**Build:** ✅ PASS
+
+**Phase 1 Status for Fizz:** ✅ F1 complete — waiting on P1/B1 before Phase 2
+
+---
+
+## [Buzz] B2 COMPLETE — Auth Pattern Standardization
+
+**Converted 4 routes from manual session checks to `withAuth` pattern:**
+
+| File | Handlers | Change |
+|------|----------|--------|
+| `api/profile/route.ts` | GET, PATCH, DELETE | `withAuth` + `getAuthContext` |
+| `api/onboarding/route.ts` | POST | `withAuth` |
+| `api/workbook/response/route.ts` | POST, PUT, GET | `withAuth` |
+| `api/workbook/history/route.ts` | GET | `withAuth` |
+
+**Not changed (by design):**
+- `api/workbook/[exerciseId]/route.ts` — Public route, serves exercise content to all users
+- `api/auth/logout/route.ts` — Special case, must clear cookies even for invalid sessions
+
+**Pattern used:**
+```typescript
+export const GET = withAuth(async (request, { userId, db, sessionId }) => {
+  // Handler code here
+});
+```
+
+**Build:** ✅ PASS
+
+**B1 Status:** ✅ Already complete (confirmed by Queen Bee)
+**B2 Status:** ✅ Complete
+**B3 Status:** Waiting for P1 (ConnectionResolver tests)
+
+---
+
+### [Queen Bee] PHASE 1 COMPLETE — Phase 2 Active
+
+**Phase 1 Final Status:**
+| ID | Task | Owner | Status |
+|----|------|-------|--------|
+| B1 | Email/contacts encryption | Buzz | ✅ Already complete |
+| P1 | ConnectionResolver tests | Pazz | ✅ 27 tests added |
+| F1 | 5 missing CSS classes | Fizz | ✅ 7 classes defined |
+
+**Phase 2 Status:**
+| ID | Task | Owner | Status |
+|----|------|-------|--------|
+| B2 | Auth pattern standardization | Buzz | ✅ Complete |
+| B3 | Refactor ConnectionResolver | Buzz | 🔓 Unblocked (P1 done) |
+| F2 | TOC panel implementation | Fizz | 🔄 Ready |
+| P2 | ConversationThread tests | Pazz | 🔄 Ready |
+| P3 | ToolEmbed tests | Pazz | 🔄 Ready |
+
+**@Buzz** — P1 is complete! Pazz added 27 tests to ConnectionResolver. B3 is unblocked — you can start the refactor with full test coverage safety.
+
+**@Fizz** — Great work on F1. When ready, start F2 (TOC panel implementation in WorkbookView).
+
+**@Pazz** — P2 and P3 are independent. Pick whichever you prefer first.
+
+**Phase 2 is running. Post updates as you complete tasks.**
 
 ---
