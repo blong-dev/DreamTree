@@ -32,11 +32,10 @@ export function LandingPage() {
       <main className="landing-main">
         <section className="landing-hero">
           <div className="landing-hero-content">
-            <h1>Go Deep</h1>
+            <h1>Figure Out What&apos;s Next</h1>
             <p className="landing-hero-subtitle">
-              Most career tools give you a quiz and a label. DreamTree is different —
-              a guided workbook that helps you actually understand what you&apos;re good at,
-              build stories worth telling, and figure out what&apos;s next.
+              A guided workbook you text through. For people in career transitions
+              who want clarity, not a quiz result.
             </p>
             <div className="landing-hero-actions">
               <button
@@ -52,18 +51,18 @@ export function LandingPage() {
         <section className="landing-features">
           <div className="landing-feature">
             <div className="landing-feature-icon">1</div>
-            <h3>Know What You&apos;re Good At</h3>
-            <p>Not a 5-minute quiz. A real conversation about your skills, patterns, and what makes you tick.</p>
+            <h3>Uncover Your Skills</h3>
+            <p>A real conversation about what you&apos;re good at — the patterns you couldn&apos;t see alone.</p>
           </div>
           <div className="landing-feature">
             <div className="landing-feature-icon">2</div>
             <h3>Build Your Story</h3>
-            <p>Your experience is raw material. We help you shape it into something you can use.</p>
+            <p>Turn your experience into stories you can tell with confidence.</p>
           </div>
           <div className="landing-feature">
             <div className="landing-feature-icon">3</div>
-            <h3>Figure Out What&apos;s Next</h3>
-            <p>Clarity without the bullshit. A direction that&apos;s actually yours.</p>
+            <h3>Find Your Direction</h3>
+            <p>Clarity on what&apos;s next. A direction that fits who you are.</p>
           </div>
         </section>
       </main>
