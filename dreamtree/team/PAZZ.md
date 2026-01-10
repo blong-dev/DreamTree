@@ -98,6 +98,7 @@ playwright.config.ts   ← Playwright configuration
 5. VERDICT:
    - PASS → Move to `done`, add verification note
    - FAIL → Back to `in-progress`, tag worker in BOARD.md
+6. CHECK: Re-read BOARD.md before exiting — new work may have arrived
 ```
 
 ### Verification Checklist

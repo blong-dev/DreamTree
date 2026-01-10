@@ -426,6 +426,52 @@ Recommend: Database migration to update content as follow-up task (minor content
 
 <!-- Bugs currently being worked on -->
 
+### BUG-026: Signup broken — "An error occurred during signup"
+**Status**: `done`
+**Priority**: `P0` (critical)
+**Area**: auth
+**Assigned**: Buzz
+**Found by**: User report
+
+**Description**:
+Users see "An error occurred during signup" when trying to create an account. This is a blocking issue preventing all new signups.
+
+**Root Cause**:
+The signup route was updated to use the new email encryption system (IMP-048 Phase 3) which requires:
+1. `email_hash` column in `emails` table (migration 0015)
+2. `data_key` column in `sessions` table (migration 0013)
+
+However, these migrations were not applied to production. The signup route's SQL queries for non-existent columns caused SQLite errors ("no such column: email_hash"), which were caught and returned as the generic error.
+
+**Fix Applied**:
+Made signup route resilient to schema version differences:
+1. Added schema version detection — checks if `email_hash` column exists before using it
+2. Email duplicate check now tries `email_hash` first, falls back to plaintext lookup
+3. Email INSERT uses appropriate schema (encrypted or plaintext) based on column availability
+4. `storeDataKeyInSession` wrapped in try/catch for graceful degradation
+
+This allows signup to work on both:
+- **Legacy schema** (pre-0013/0015): stores plaintext email, skips session data key
+- **New schema** (post-0013/0015): stores encrypted email with hash for lookup
+
+**Files Changed**:
+- `src/app/api/auth/signup/route.ts` — Schema-aware email handling
+
+**Follow-up Required**:
+Apply migrations 0013 and 0015 to production database:
+```bash
+npx wrangler d1 execute dreamtree-db --remote --file=migrations/0013_add_session_data_key.sql
+npx wrangler d1 execute dreamtree-db --remote --file=migrations/0015_encrypt_emails.sql
+```
+
+**Acceptance Criteria**:
+- [x] Signup works on databases without email_hash column
+- [x] Signup works on databases with email_hash column
+- [x] Existing users can still log in (login route already had fallback)
+- [x] Build passes
+
+---
+
 ### IMP-048: Encryption code exists but never called — PII in plaintext
 **Status**: `open`
 **Priority**: `critical`

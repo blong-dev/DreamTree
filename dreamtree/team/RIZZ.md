@@ -88,6 +88,7 @@ team/
 4. APPROVAL — Queen Bee reviews
 5. IMPLEMENT — Make copy changes
 6. MEASURE — Track impact via analytics
+7. CHECK — Re-read BOARD.md before exiting — new work may have arrived
 ```
 
 ### For Campaigns
@@ -98,6 +99,7 @@ team/
 3. REVIEW — Queen Bee approval
 4. LAUNCH — Execute campaign
 5. ANALYZE — Measure results, iterate
+6. CHECK — Re-read BOARD.md before exiting — new work may have arrived
 ```
 
 ---

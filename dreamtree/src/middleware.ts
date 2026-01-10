@@ -2,9 +2,11 @@
  * DreamTree Middleware
  *
  * Handles session validation and route protection.
+ * BUG-025: Validates sessions before redirecting to prevent stale cookie loops.
  */
 
 import { NextRequest, NextResponse } from 'next/server';
+import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 // Routes that don't require authentication
 const PUBLIC_ROUTES = ['/', '/login', '/signup', '/api/auth/login', '/api/auth/signup'];
@@ -25,12 +27,12 @@ export const config = {
   ],
 };
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // Get session cookie
   const sessionId = request.cookies.get('dt_session')?.value;
-  const isAuthenticated = !!sessionId;
+  const hasSessionCookie = !!sessionId;
 
   // Check if this is a public route
   const isPublicRoute = PUBLIC_ROUTES.some(
@@ -48,13 +50,38 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  // Authenticated users accessing login/signup should redirect to dashboard
-  if (isAuthenticated && (pathname === '/login' || pathname === '/signup')) {
-    return NextResponse.redirect(new URL('/', request.url));
+  // Users with session cookie accessing login/signup - validate session first (BUG-025)
+  if (hasSessionCookie && (pathname === '/login' || pathname === '/signup')) {
+    try {
+      const { env } = getCloudflareContext();
+      const db = env.DB;
+
+      // Validate session exists in database
+      // Note: sessions table doesn't have expires_at column, so just check existence
+      const session = await db
+        .prepare('SELECT id, user_id FROM sessions WHERE id = ?')
+        .bind(sessionId)
+        .first<{ id: string; user_id: string }>();
+
+      if (!session) {
+        // Session doesn't exist - clear the stale cookie and let them through
+        const response = NextResponse.next();
+        response.cookies.delete('dt_session');
+        return response;
+      }
+
+      // Valid session - redirect to workbook (not /)
+      return NextResponse.redirect(new URL('/workbook', request.url));
+    } catch {
+      // If DB query fails, clear cookie to be safe and let them through
+      const response = NextResponse.next();
+      response.cookies.delete('dt_session');
+      return response;
+    }
   }
 
   // Unauthenticated users accessing protected routes should redirect to login
-  if (!isAuthenticated && isProtectedRoute && !isPublicRoute) {
+  if (!hasSessionCookie && isProtectedRoute && !isPublicRoute) {
     const loginUrl = new URL('/login', request.url);
     // Preserve the original URL to redirect back after login
     loginUrl.searchParams.set('redirect', pathname);
