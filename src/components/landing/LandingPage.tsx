@@ -69,6 +69,11 @@ export function LandingPage() {
 
       <footer className="landing-footer">
         <p>Your personal data is encrypted. We can&apos;t read it. That&apos;s the point.</p>
+        <nav className="landing-footer-nav">
+          <a href="/about">About</a>
+          <a href="/principles">Principles</a>
+          <a href="https://github.com/dreamtree-org/dreamtree" target="_blank" rel="noopener noreferrer">GitHub</a>
+        </nav>
       </footer>
     </div>
   );
