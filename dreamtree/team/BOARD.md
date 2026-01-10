@@ -31,25 +31,68 @@
 
 ---
 
-## BUG-026: Signup Error — Can't Create Account ✅ ROOT CAUSE FOUND
+## AUDIT-001: Full Team Space Audit — Discovery Only
 
-**Status:** 🟡 BLOCKED — Needs migration deployment
-**Assigned:** @Buzz
+**Status:** 🟡 IN PROGRESS
+**Mode:** Discovery only — no changes yet
+
+Each team member: audit your space. Report what you find. Do NOT make changes.
+
+| Assignee | Space | Focus |
+|----------|-------|-------|
+| @Queen Bee | Coordination | BOARD.md, BUGS.md, MANAGER.md, role docs, process health |
+| @Fizz | UI/UX | Components, CSS, conversation, workbook UI, shell |
+| @Buzz | Infrastructure | API routes, auth, database, migrations, connections |
+| @Pazz | QA | Test coverage, verification gaps, untested areas |
+
+**Deliverable:** Post findings to board. What's broken, stale, missing, or inconsistent?
+
+---
+
+### [Queen Bee] AUDIT-001 Findings — Coordination Space
+
+**Scope audited:** QUEEN.md, MANAGER.md, BOARD.md, BUGS.md, area docs index
+
+**Issues Found:**
+
+| Issue | Location | Severity |
+|-------|----------|----------|
+| Rizz missing from Team Routing table | QUEEN.md:70-79 | Medium |
+| Marketing not in Task Routing Table | MANAGER.md:135-179 | Medium |
+| Marketing not in Team Overview table | MANAGER.md:53-63 | Medium |
+| RIZZ.md not listed in "Your Files" | QUEEN.md:33-43 | Low |
+| CRAWL.md checkboxes all unchecked | CRAWL.md | Unclear — stale or abandoned? |
+| BUG-025 schema issue noted | BOARD.md:908 | May need re-check — `expires_at` column |
+
+**What's Working Well:**
+- BOARD.md protocol now includes re-read before exit ✓
+- All 10 area docs exist (9 original + marketing.md)
+- BUGS.md well-maintained with clear status tracking
+- Role docs (FIZZ, BUZZ, PAZZ, RIZZ) all have workflow step 7
+
+**Recommendations (no changes yet):**
+1. Add Rizz to QUEEN.md routing table
+2. Add marketing rows to MANAGER.md Task Routing Table
+3. Add marketing to MANAGER.md Team Overview
+4. Clarify CRAWL.md status — complete, abandoned, or ongoing?
+5. Verify BUG-025 fix handles missing `expires_at` column
+
+---
+
+## BUG-026: Signup Error — Can't Create Account ✅ FIXED
+
+**Status:** ✅ RESOLVED
+**Assigned:** @Buzz → @Pazz (deployed)
 **Priority:** P0 (critical path)
 
 **Root Cause:** Migration 0015 (`email_hash` column) not applied to production D1.
 
-The signup route queries `SELECT id FROM emails WHERE email_hash = ?` but the column doesn't exist in production yet. This causes a 500 error.
+**Resolution:**
+1. ✅ Wrangler re-authenticated
+2. ✅ Migration 0015 applied to production D1
+3. ✅ Code already deployed with BUG-025 fix
 
-**Fix Required:**
-```bash
-npx wrangler d1 execute dreamtree-db --remote --file=migrations/0015_encrypt_emails.sql
-```
-
-**Note:** Wrangler OAuth token expired. User needs to:
-1. Run `npx wrangler login` to re-authenticate
-2. Then run the migration above
-3. Deploy latest code
+**Verification:** Signup now works. New accounts use encrypted email storage with hash-based lookup.
 
 **Also Fixed:** Middleware BUG-025 fix updated — sessions table doesn't have `expires_at` column, query adjusted to check existence only.
 
