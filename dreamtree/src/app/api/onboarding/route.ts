@@ -2,12 +2,12 @@
  * POST /api/onboarding
  *
  * Save user onboarding preferences (name, colors, font).
+ *
+ * B2: Standardized to use withAuth pattern (AUDIT-001)
  */
 
-import { NextRequest, NextResponse } from 'next/server';
-import { cookies } from 'next/headers';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData, encryptPII } from '@/lib/auth';
+import { NextResponse } from 'next/server';
+import { withAuth, encryptPII } from '@/lib/auth';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
@@ -18,23 +18,8 @@ interface OnboardingBody {
   font: string;
 }
 
-export async function POST(request: NextRequest) {
+export const POST = withAuth(async (request, { userId, db, sessionId }) => {
   try {
-    // Get session
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
     const body: OnboardingBody = await request.json();
     const { name, backgroundColor, textColor, font } = body;
 
@@ -47,13 +32,12 @@ export async function POST(request: NextRequest) {
     }
 
     const now = new Date().toISOString();
-    const userId = sessionData.user.id;
 
     // Encrypt display_name before storing (IMP-048)
-    const encryptedName = await encryptPII(env.DB, sessionId, name.trim());
+    const encryptedName = await encryptPII(db, sessionId, name.trim());
 
     // Update user_profile with encrypted name
-    await env.DB
+    await db
       .prepare(
         'UPDATE user_profile SET display_name = ?, updated_at = ? WHERE user_id = ?'
       )
@@ -61,7 +45,7 @@ export async function POST(request: NextRequest) {
       .run();
 
     // Update user_settings with visual preferences
-    await env.DB
+    await db
       .prepare(
         `UPDATE user_settings
          SET background_color = ?, text_color = ?, font = ?, updated_at = ?
@@ -78,4 +62,4 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});

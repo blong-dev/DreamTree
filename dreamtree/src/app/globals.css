@@ -709,6 +709,51 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   margin: var(--space-1) 0 0 0;
 }
 
+/* Emphasis block type - important callouts */
+.message-content .emphasis {
+  font-style: italic;
+  color: var(--color-primary);
+  margin: var(--space-4) 0;
+  padding: var(--space-3) var(--space-4);
+  border-left: 3px solid var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+/* Resource link - external link cards */
+.resource-link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  margin: var(--space-3) 0;
+  border: var(--border-thin) solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition-base);
+}
+
+.resource-link:hover {
+  border-color: var(--color-primary);
+}
+
+.resource-link-title {
+  font-weight: var(--font-semibold);
+  color: var(--color-primary);
+}
+
+.resource-link-description {
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   TYPING EFFECT
+   ============================================================ */
+.typing-effect-text {
+  /* Text wrapper - inherits parent font styles */
+}
+
 /* ============================================================
    MESSAGE USER (User Response)
    ============================================================ */
@@ -785,6 +830,23 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* SOARED Story - structured user response format */
+.soared-story {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.soared-section {
+  display: block;
+}
+
+.soared-section strong {
+  color: var(--color-primary);
+  font-weight: var(--font-semibold);
+  margin-right: var(--space-1);
 }
 
 /* ============================================================

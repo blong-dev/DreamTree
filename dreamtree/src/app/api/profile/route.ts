@@ -1,12 +1,13 @@
 /**
  * GET /api/profile
  * Fetch user profile data including settings, skills, and values.
+ *
+ * B2: Standardized to use withAuth pattern (AUDIT-001)
  */
 
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData, decryptPII } from '@/lib/auth';
+import { withAuth, getAuthContext, decryptPII } from '@/lib/auth';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
@@ -38,38 +39,22 @@ interface UserValue {
   compassStatement: string | null;
 }
 
-export async function GET(_request: NextRequest) {
+export const GET = withAuth(async (_request, { userId, db, sessionId }) => {
   try {
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
-    const userId = sessionData.user.id;
-
     // Fetch profile
-    const profile = await env.DB
+    const profile = await db
       .prepare('SELECT display_name, headline, summary FROM user_profile WHERE user_id = ?')
       .bind(userId)
       .first<{ display_name: string | null; headline: string | null; summary: string | null }>();
 
     // Fetch settings
-    const settings = await env.DB
+    const settings = await db
       .prepare('SELECT background_color, text_color, font, personality_type FROM user_settings WHERE user_id = ?')
       .bind(userId)
       .first<{ background_color: string; text_color: string; font: string; personality_type: string | null }>();
 
     // Fetch skills with skill names (join with skills table)
-    const skillsResult = await env.DB
+    const skillsResult = await db
       .prepare(`
         SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
         FROM user_skills us
@@ -82,13 +67,13 @@ export async function GET(_request: NextRequest) {
       .all<{ id: string; skill_id: string; name: string; category: string | null; mastery: number | null; rank: number | null }>();
 
     // Fetch values
-    const values = await env.DB
+    const values = await db
       .prepare('SELECT work_values, life_values, compass_statement FROM user_values WHERE user_id = ?')
       .bind(userId)
       .first<{ work_values: string | null; life_values: string | null; compass_statement: string | null }>();
 
     // Decrypt display_name if it's encrypted (IMP-048)
-    const decryptedName = await decryptPII(env.DB, sessionId, profile?.display_name || null);
+    const decryptedName = await decryptPII(db, sessionId, profile?.display_name || null);
 
     const profileData: UserProfile = {
       displayName: decryptedName,
@@ -131,7 +116,7 @@ export async function GET(_request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
 
 // Valid theme values (IMP-042)
 const VALID_COLORS = new Set(['ivory', 'creamy-tan', 'brown', 'charcoal', 'black', 'sage', 'rust']);
@@ -141,23 +126,8 @@ const VALID_FONTS = new Set(['inter', 'lora', 'courier-prime', 'shadows-into-lig
  * PATCH /api/profile
  * Update user settings (appearance: background_color, text_color, font)
  */
-export async function PATCH(request: NextRequest) {
+export const PATCH = withAuth(async (request, { userId, db }) => {
   try {
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
-    }
-
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
-    const userId = sessionData.user.id;
     const body = await request.json();
     const { backgroundColor, textColor, font } = body;
 
@@ -196,7 +166,7 @@ export async function PATCH(request: NextRequest) {
     // Add userId for WHERE clause
     values.push(userId);
 
-    await env.DB
+    await db
       .prepare(`UPDATE user_settings SET ${updates.join(', ')} WHERE user_id = ?`)
       .bind(...values)
       .run();
@@ -209,7 +179,7 @@ export async function PATCH(request: NextRequest) {
       { status: 500 }
     );
   }
-}
+});
 
 /**
  * DELETE /api/profile
@@ -220,32 +190,27 @@ export async function PATCH(request: NextRequest) {
  * user_locations, user_career_options, user_budget, user_flow_logs,
  * user_companies, user_contacts, user_jobs, user_idea_nodes, user_idea_trees,
  * user_competency_scores, user_responses, user_lists, user_checklists
+ *
+ * Uses getAuthContext() instead of withAuth because we need cookie access
+ * to clear the session after deletion.
  */
 export async function DELETE() {
   try {
-    const cookieStore = await cookies();
-    const sessionId = cookieStore.get('dt_session')?.value;
-
-    if (!sessionId) {
-      return NextResponse.json({ error: 'Not authenticated' }, { status: 401 });
+    const auth = await getAuthContext();
+    if (!auth.ok) {
+      return NextResponse.json({ error: auth.error }, { status: 401 });
     }
 
-    const { env } = getCloudflareContext();
-    const sessionData = await getSessionData(env.DB, sessionId);
-
-    if (!sessionData) {
-      return NextResponse.json({ error: 'Invalid session' }, { status: 401 });
-    }
-
-    const userId = sessionData.user.id;
+    const { userId, db } = auth;
 
     // Delete user - cascades to all related tables
-    await env.DB
+    await db
       .prepare('DELETE FROM users WHERE id = ?')
       .bind(userId)
       .run();
 
     // Clear session cookie
+    const cookieStore = await cookies();
     cookieStore.delete('dt_session');
 
     return NextResponse.json({ success: true, message: 'Account deleted successfully' });
