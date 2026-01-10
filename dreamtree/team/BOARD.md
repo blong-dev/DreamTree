@@ -49,6 +49,59 @@ Each team member: audit your space. Report what you find. Do NOT make changes.
 
 ---
 
+### [Pazz] AUDIT-001 Findings — QA Space
+
+**Scope audited:** Unit tests, E2E tests, test infrastructure, coverage gaps
+
+**Current State:**
+- Unit tests: 10 files, **161 tests** (all passing)
+- E2E tests: 9 spec files in separate `QA/` directory
+- Plan file shows Phase 2 (Component Unit Tests) as complete
+
+**Coverage Analysis:**
+
+| Area | Tested | Untested |
+|------|--------|----------|
+| **Workbook** | WorkbookView, PromptInput, WorkbookInputZone, HistoryZone | VirtualizedConversation |
+| **Conversation** | MessageContent, TypingEffect | ConversationThread |
+| **Dashboard** | DailyDoList, DailyDoCard | DashboardPage, ProgressMetrics, ProfilePreview |
+| **Shell** | NavItem | AppShell, NavBar, Header, Breadcrumb |
+| **Tools** | — | All 15 tools (ListBuilder, SOAREDForm, etc.) |
+| **Forms** | — | TextInput, TextArea, Slider, Checkbox, RadioGroup, Select |
+| **Onboarding** | — | OnboardingFlow, VisualsStep |
+| **Profile** | — | ProfileHeader, DataControls, SkillsList, RankedList |
+| **Feedback** | — | Toast, ErrorBoundary, SaveIndicator |
+| **Overlays** | — | TOCPanel, Backdrop |
+| **Lib** | dailyDos | ConnectionResolver, encryption, validation, auth |
+| **API Routes** | — (E2E only) | All 16 routes lack unit tests |
+
+**Stale Documentation:**
+
+| Issue | Location | Fix |
+|-------|----------|-----|
+| Test count says "79 tests, goal: 150+" | BOARD.md:101-104 | Update to 161 |
+| BUG-025 code snippet shows `expires_at` | BOARD.md:955-971 | Code doesn't use this column |
+
+**What's Working Well:**
+- Core workbook flow well-tested (24 tests for WorkbookView alone)
+- Daily dos logic has comprehensive tests (25 tests)
+- E2E tests cover critical user paths
+- All tests passing, no flaky tests
+
+**Recommendations (no changes yet):**
+1. Add ConversationThread tests (animation orchestration logic)
+2. Add ToolEmbed dispatcher tests (tool routing, save coordination)
+3. Add form component tests (validation, a11y)
+4. Add ConnectionResolver unit tests (data fetching logic)
+5. Update stale board info (test counts, code snippets)
+
+**Priority Assessment:**
+- HIGH: ConnectionResolver (data flow correctness)
+- MEDIUM: ConversationThread, ToolEmbed (complex state)
+- LOW: Form components, overlays (simpler, well-typed)
+
+---
+
 ### [Queen Bee] AUDIT-001 Findings — Coordination Space
 
 **Scope audited:** QUEEN.md, MANAGER.md, BOARD.md, BUGS.md, area docs index
@@ -98,10 +151,11 @@ Each team member: audit your space. Report what you find. Do NOT make changes.
 
 ---
 
-**Priority 2: Test coverage (IMP-QA-001)**
-- Continue expanding unit tests
-- Target: WorkbookView state machine, PromptInput validation
-- Current: 79 tests, goal: 150+
+**Priority 2: Test coverage (IMP-QA-001)** ✅ PHASE 2 COMPLETE
+- Unit tests: **161 tests** (up from 79)
+- WorkbookView: ✅ 24 tests
+- PromptInput: ✅ 24 tests
+- Next: ConnectionResolver, ConversationThread
 
 ---
 

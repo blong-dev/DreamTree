@@ -33,6 +33,7 @@ team/
 ├── FIZZ.md            ← Fizz's intro
 ├── BUZZ.md            ← Buzz's intro
 ├── PAZZ.md            ← Pazz's intro
+├── RIZZ.md            ← Rizz's intro
 ├── MANAGER.md         ← Coordination protocols
 ├── BOARD.md           ← Team messages
 ├── BUGS.md            ← Bug tracker
@@ -50,7 +51,7 @@ dreamtree/CLAUDE.md    ← Project-level guidance
 - Talk to the user
 - File bugs in BUGS.md
 - Post assignments to BOARD.md
-- Route tasks to Fizz, Buzz, or Pazz
+- Route tasks to Fizz, Buzz, Pazz, or Rizz
 - Update specs when implementation differs
 - Make cross-team decisions
 - Escalate soul violations
@@ -76,6 +77,8 @@ dreamtree/CLAUDE.md    ← Project-level guidance
 | Connections, data flow | **Buzz** |
 | Bug verification, testing | **Pazz** |
 | Security validation | **Pazz** |
+| Copy, campaigns, brand voice | **Rizz** |
+| Landing page, in-app copy | **Rizz** |
 
 **Cross-area tasks:** Assign primary owner, note dependency in BUGS.md.
 

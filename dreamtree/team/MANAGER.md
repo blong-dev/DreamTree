@@ -61,6 +61,7 @@ DreamTree is a **trusted companion** that guides users through self-discovery vi
 | Features | `areas/features.md` | `src/components/dashboard/`, `onboarding/`, `profile/` | Dashboard, onboarding, profile |
 | Workbook | `areas/workbook.md` | `src/app/workbook/`, `src/components/workbook/`, `api/workbook/` | Exercise delivery, responses |
 | Design System | `areas/design-system.md` | `src/app/globals.css` | CSS tokens, theming, a11y |
+| Marketing | `areas/marketing.md` | `src/components/landing/`, in-app copy | Copy, campaigns, brand voice |
 
 ---
 
@@ -176,6 +177,12 @@ Use this table to quickly identify which area owns a task.
 | Connection resolution | Database | Workbook |
 | Auth middleware | Auth | - |
 | Login/signup pages | Features | Auth |
+| Landing page copy | Marketing | Features (component) |
+| In-app microcopy | Marketing | Relevant UI area |
+| Error message copy | Marketing | UI Primitives |
+| Email templates | Marketing | Database (infra) |
+| Campaign materials | Marketing | - |
+| Brand voice/tone | Marketing | All areas |
 
 ---
 
