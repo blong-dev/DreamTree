@@ -87,6 +87,7 @@ src/app/
 4. WORK: Read relevant area doc first, then implement
 5. UPDATE: Add fix details to BUGS.md, mark as review
 6. POST: Summary to BOARD.md when done
+7. CHECK: Re-read BOARD.md before exiting — new work may have arrived
 ```
 
 ---

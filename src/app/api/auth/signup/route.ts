@@ -83,11 +83,21 @@ export async function POST(request: NextRequest) {
     // Hash email for lookup (IMP-048 Phase 3)
     const emailHash = await hashEmail(normalizedEmail);
 
-    // Check if email is already taken (lookup by hash)
-    const existingEmail = await db
+    // Check if email is already taken
+    // First try by email_hash (new encrypted system), then fallback to plaintext (legacy)
+    let existingEmail = await db
       .prepare('SELECT id FROM emails WHERE email_hash = ?')
       .bind(emailHash)
-      .first();
+      .first()
+      .catch(() => null); // Handle case where email_hash column doesn't exist yet
+
+    // Fallback: check plaintext email for legacy/pre-migration databases
+    if (!existingEmail) {
+      existingEmail = await db
+        .prepare('SELECT id FROM emails WHERE email = ?')
+        .bind(normalizedEmail)
+        .first();
+    }
 
     if (existingEmail) {
       // Record failed attempt (someone may be probing for existing emails)
@@ -114,8 +124,37 @@ export async function POST(request: NextRequest) {
     const wrappedDataKey = await wrapDataKey(dataKey, wrappingKey);
     const storedKey = `${encodeSalt(salt)}:${wrappedDataKey}`;
 
-    // Encrypt email for storage (IMP-048 Phase 3)
-    const encryptedEmail = await encryptField(normalizedEmail, dataKey);
+    // Check if email_hash column exists (migration 0015)
+    // This determines whether to use encrypted or plaintext email storage
+    let hasEmailHashColumn = false;
+    try {
+      await db.prepare("SELECT email_hash FROM emails LIMIT 0").all();
+      hasEmailHashColumn = true;
+    } catch {
+      // Column doesn't exist - use legacy schema
+      hasEmailHashColumn = false;
+    }
+
+    // Prepare email record based on schema version
+    let emailInsert;
+    if (hasEmailHashColumn) {
+      // New schema: store encrypted email with hash for lookup (IMP-048 Phase 3)
+      const encryptedEmail = await encryptField(normalizedEmail, dataKey);
+      emailInsert = db
+        .prepare(
+          `INSERT INTO emails (id, user_id, email, email_hash, is_active, added_at)
+           VALUES (?, ?, ?, ?, 1, ?)`
+        )
+        .bind(emailId, userId, encryptedEmail, emailHash, now);
+    } else {
+      // Legacy schema: store plaintext email (pre-migration 0015)
+      emailInsert = db
+        .prepare(
+          `INSERT INTO emails (id, user_id, email, is_active, added_at)
+           VALUES (?, ?, ?, 1, ?)`
+        )
+        .bind(emailId, userId, normalizedEmail, now);
+    }
 
     // Execute all 7 inserts as a batch transaction (IMP-044)
     // If any insert fails, none persist — no orphan records
@@ -136,13 +175,8 @@ export async function POST(request: NextRequest) {
         )
         .bind(authId, userId, passwordHash, storedKey, now, now),
 
-      // 3. Create email record with hash for lookup, encrypted for privacy (IMP-048)
-      db
-        .prepare(
-          `INSERT INTO emails (id, user_id, email, email_hash, is_active, added_at)
-           VALUES (?, ?, ?, ?, 1, ?)`
-        )
-        .bind(emailId, userId, encryptedEmail, emailHash, now),
+      // 3. Create email record (encrypted or plaintext based on schema version)
+      emailInsert,
 
       // 4. Create session
       db
@@ -181,7 +215,13 @@ export async function POST(request: NextRequest) {
     await clearRateLimit(db, normalizedEmail, 'signup');
 
     // Store data key in session for PII encryption (IMP-048)
-    await storeDataKeyInSession(db, sessionId, dataKey);
+    // This may fail if migration 0013 hasn't been applied yet - graceful fallback
+    try {
+      await storeDataKeyInSession(db, sessionId, dataKey);
+    } catch {
+      // Session doesn't have data_key column yet - non-fatal
+      console.warn('[Signup] Could not store data key in session (migration 0013 not applied)');
+    }
 
     // Set session cookie using next/headers
     const cookieStore = await cookies();

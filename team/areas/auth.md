@@ -224,6 +224,9 @@ export async function POST(request: Request) {
 - `src/middleware.ts` protects routes
 - Check `dt_session` cookie for auth
 - Redirect unauthenticated to `/login`
+- **BUG-025 fix**: Validates session in DB before redirecting from auth pages
+- Stale/invalid cookies are automatically cleared
+- Valid sessions redirect to `/workbook`, not `/`
 
 ### Never Log Sensitive Data
 - Do not console.log passwords, even hashed

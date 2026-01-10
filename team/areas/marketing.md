@@ -317,11 +317,26 @@ All copy should:
 - "Depth Over Speed" is our positioning anchor
 - Career Transitioners respond to unhurried, respectful copy
 - Data sovereignty messaging builds trust when stated simply
+- **Revolutionary, not soppy aunt** — confident and direct, not coddling
+- Lead with WHAT WE ARE, not what we're against
+- The user's thought makes the best headline ("Figure Out What's Next")
 
 ### What Doesn't Work
 - Urgency tactics feel out of place
 - Generic "unlock your potential" language
 - Overpromising what the tool does
+- **Too soft/coddling** — "Begin When You're Ready" = participation trophy energy
+- **Self-care coded** — sounds like meditation app, not career tool
+- **Preachy anti-statements** — "no points, no streaks, no rush" tries too hard
+- **Defensive language** — "actually" signals you're pre-arguing with skeptics
+- **Performative edge** — "without the bullshit" can read as trying to look real vs being real
+
+### Landing Page v3 (What Worked)
+- Headline is the user's thought: "Figure Out What's Next"
+- Mechanic upfront: "A guided workbook you text through" (sentence 1)
+- Audience explicit: "For people in career transitions"
+- Clean differentiation: "clarity, not a quiz result" (not preachy)
+- Zero filler words, zero performing
 
 ### A/B Test Results
 - [Results from copy experiments — add as data comes in]
