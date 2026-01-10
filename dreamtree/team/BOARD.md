@@ -182,6 +182,27 @@ Starting P3 (ToolEmbed tests) next.
 
 ---
 
+### [Pazz] P3 COMPLETE — ToolEmbed Tests
+
+**29 tests added** covering:
+
+| Category | Tests | Coverage |
+|----------|-------|----------|
+| Error handling | 2 | Missing tool.id, id=0 |
+| Tool routing | 15 | All 15 tool types dispatch to correct wrapper |
+| Name normalization | 3 | Hyphens to underscores, lowercase, mixed case |
+| Unknown tools | 3 | Placeholder display, tool name shown, empty name |
+| Instructions | 3 | Shown when provided, hidden when not, in dedicated container |
+| Props passing | 3 | toolId passed, containers present |
+
+**File:** `src/components/workbook/ToolEmbed.test.tsx`
+
+**Tests:** 242 total (up from 213)
+
+**Phase 2 QA tasks complete (P2 + P3).** Only P4 (form component tests) remains in Phase 3.
+
+---
+
 ## AUDIT-001: Full Team Space Audit — Discovery ✅ COMPLETE
 
 **Status:** ✅ COMPLETE — All audits posted
@@ -1461,5 +1482,76 @@ export const GET = withAuth(async (request, { userId, db, sessionId }) => {
 **@Pazz** — P2 and P3 are independent. Pick whichever you prefer first.
 
 **Phase 2 is running. Post updates as you complete tasks.**
+
+---
+
+### [Queen Bee] Coffee Room — Team Check-In
+
+Hey team, nice work on Phase 1. Wrapped up faster than expected.
+
+**Quick status check — how's Phase 2 going?**
+
+- @Buzz — B3 is the big one (600+ lines to refactor). Any architectural decisions you're weighing? The test suite from Pazz should give you confidence to make bold moves.
+
+- @Fizz — F2 (TOC panel) is a UX-critical piece. The current TODO on line 699 says "Open TOC panel" — do you have everything you need? The TOCPanel component already exists in overlays.
+
+- @Pazz — P2/P3 (ConversationThread + ToolEmbed tests) — both have interesting state machines. Let us know if you hit any edge cases worth discussing.
+
+**Reminder:** DreamTree's soul is "conversational intimacy" — every feature should feel like texting with a thoughtful coach. If anything in your work feels form-like or wizard-y, flag it.
+
+**End of day goal:** Phase 2 complete, ready for Phase 3 cleanup.
+
+---
+
+## [Fizz] F2, F3 COMPLETE — Phase 2 & 3 Done
+
+### F2: TOC Panel in Workbook ✅
+
+**Changes to `WorkbookView.tsx`:**
+- Added `TOCPanel` import from overlays
+- Added `tocOpen` state
+- Updated `handleNavigate('contents')` to open TOC
+- Added `handleTocNavigate` for exercise navigation
+- Added `tocProgress` memoized data structure
+- Rendered `TOCPanel` with current location
+
+**Feature:** Clicking "Contents" in workbook nav now opens TOC overlay.
+
+### F3: Remove Duplicate .sr-only ✅
+
+Removed duplicate definition at lines 2155-2168 in `globals.css`. First definition at line 196 remains.
+
+### F4: Rename icons index — SKIPPED (Correct as-is)
+
+The audit flagged `index.tsx` vs `index.ts`. However, `icons/index.tsx` contains JSX (React SVG elements), so `.tsx` is **correct**. This is not a pattern break — files with JSX require `.tsx`.
+
+**Build:** ✅ PASS
+
+**All Fizz tasks complete:**
+- Phase 1: F1 ✅
+- Phase 2: F2 ✅
+- Phase 3: F3 ✅, F4 ✅ (skipped - correct)
+
+---
+
+### [Queen Bee] Acknowledgment — @Fizz Done
+
+Excellent work @Fizz. All tasks complete:
+- F1: 7 CSS classes ✅
+- F2: TOC panel functional ✅
+- F3: Duplicate CSS removed ✅
+- F4: Correctly identified as not needed ✅
+
+Good call on F4 — JSX files need `.tsx`. That's not tech debt, that's correct typing.
+
+**Updated Status:**
+
+| Team | Phase 1 | Phase 2 | Phase 3 |
+|------|---------|---------|---------|
+| Fizz | ✅ F1 | ✅ F2 | ✅ F3, F4 |
+| Buzz | ✅ B1 | ✅ B2, 🔄 B3 | B4 |
+| Pazz | ✅ P1 | 🔄 P2, P3 | P4 |
+
+@Buzz, @Pazz — How are B3 and P2/P3 coming?
 
 ---
