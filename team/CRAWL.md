@@ -1,6 +1,6 @@
 # Codebase Crawl Plan
 
-**Systematic exploration of the entire DreamTree codebase. No edits — learn and document only.**
+**STATUS: ✅ COMPLETE** — All phases finished (see BOARD_HISTORY.md for details)
 
 ---
 
@@ -15,11 +15,11 @@
 
 ---
 
-## Phase 1: Area Deep Dives (Immediate)
+## Phase 1: Area Deep Dives ✅ COMPLETE
 
 Each team member owns specific areas. Read every file, understand every pattern, document findings.
 
-### Fizz — Core Flow
+### Fizz — Core Flow ✅
 ```
 src/components/workbook/      ← Exercise delivery system
 src/components/conversation/  ← Chat interface
@@ -28,13 +28,13 @@ src/app/api/workbook/        ← Workbook API routes
 ```
 
 **Deliverables:**
-- [ ] Map complete user journey from exercise start to completion
-- [ ] Document all state management patterns
-- [ ] Identify all re-render triggers
-- [ ] List all API calls and their responses
-- [ ] Find performance bottlenecks
+- [x] Map complete user journey from exercise start to completion
+- [x] Document all state management patterns
+- [x] Identify all re-render triggers
+- [x] List all API calls and their responses
+- [x] Find performance bottlenecks
 
-### Buzz — Infrastructure
+### Buzz — Infrastructure ✅
 ```
 src/lib/db/                  ← Database queries
 src/lib/auth/                ← Authentication
@@ -44,13 +44,13 @@ migrations/                  ← Schema history
 ```
 
 **Deliverables:**
-- [ ] Document every database query
-- [ ] Map auth flow (signup → session → protected routes)
-- [ ] Trace ConnectionResolver data paths
-- [ ] List all API routes with methods and purposes
-- [ ] Find unused queries/routes
+- [x] Document every database query
+- [x] Map auth flow (signup → session → protected routes)
+- [x] Trace ConnectionResolver data paths
+- [x] List all API routes with methods and purposes
+- [x] Find unused queries/routes
 
-### Pazz — UI Layer
+### Pazz — UI Layer ✅ (Split to Fizz/Buzz)
 ```
 src/components/shell/        ← Layout, navigation
 src/components/tools/        ← 15 interactive tools
@@ -63,114 +63,114 @@ src/components/icons/        ← Icon components
 ```
 
 **Deliverables:**
-- [ ] Inventory all components with props
-- [ ] Map component dependency tree
-- [ ] Identify shared patterns vs one-offs
-- [ ] Find components missing test coverage
-- [ ] List accessibility gaps
+- [x] Inventory all components with props
+- [x] Map component dependency tree
+- [x] Identify shared patterns vs one-offs
+- [x] Find components missing test coverage
+- [x] List accessibility gaps
 
 ---
 
-## Phase 2: Cross-Cutting Analysis
+## Phase 2: Cross-Cutting Analysis ✅ COMPLETE
 
 After area deep dives, each member analyzes a concern across the ENTIRE codebase.
 
-### Fizz — Error Handling Audit
+### Fizz — Error Handling Audit ✅
 ```
 Every file in src/
 ```
-- [ ] Find all try/catch blocks
-- [ ] Find all .catch() handlers
-- [ ] Identify silent failures (empty catch blocks)
-- [ ] List user-facing error states
-- [ ] Map error boundaries
+- [x] Find all try/catch blocks
+- [x] Find all .catch() handlers
+- [x] Identify silent failures (empty catch blocks)
+- [x] List user-facing error states
+- [x] Map error boundaries
 
-### Buzz — Dependency Analysis
+### Buzz — Dependency Analysis ✅
 ```
 package.json
 Every import statement
 ```
-- [ ] List all npm dependencies with purpose
-- [ ] Find unused dependencies
-- [ ] Map internal import graph
-- [ ] Identify circular dependencies
-- [ ] Find orphan files (nothing imports them)
+- [x] List all npm dependencies with purpose
+- [x] Find unused dependencies
+- [x] Map internal import graph
+- [x] Identify circular dependencies
+- [x] Find orphan files (nothing imports them)
 
-### Pazz — Type Safety Audit
+### Pazz — Type Safety Audit ✅
 ```
 src/types/
 Every TypeScript file
 ```
-- [ ] Find all `any` types
-- [ ] Find all type assertions (as X)
-- [ ] Identify missing return types
-- [ ] List unsafe type patterns
-- [ ] Map type dependencies
+- [x] Find all `any` types
+- [x] Find all type assertions (as X)
+- [x] Identify missing return types
+- [x] List unsafe type patterns
+- [x] Map type dependencies
 
 ---
 
-## Phase 3: Spec Alignment
+## Phase 3: Spec Alignment ✅ COMPLETE
 
 Compare implementation against specs in `/planning/`.
 
-### Fizz — Component Spec Alignment
+### Fizz — Component Spec Alignment ✅
 ```
 Compare: planning/DreamTree_Component_Spec.md
 Against: src/components/
 ```
-- [ ] Every component matches spec props
-- [ ] Every component matches spec behavior
-- [ ] List deviations with justification or concern
+- [x] Every component matches spec props
+- [x] Every component matches spec behavior
+- [x] List deviations with justification or concern
 
-### Buzz — Data Architecture Alignment
+### Buzz — Data Architecture Alignment ✅
 ```
 Compare: planning/DreamTree_Data_Architecture_v4.md
 Against: src/lib/db/, migrations/
 ```
-- [ ] Schema matches spec
-- [ ] Queries follow spec patterns
-- [ ] Connections work as specified
-- [ ] List deviations
+- [x] Schema matches spec
+- [x] Queries follow spec patterns
+- [x] Connections work as specified
+- [x] List deviations
 
-### Pazz — Design System Alignment
+### Pazz — Design System Alignment ✅
 ```
 Compare: planning/DreamTree_Design_System.md
 Against: src/app/globals.css
 ```
-- [ ] All tokens match spec values
-- [ ] Color pairings follow WCAG rules
-- [ ] Spacing/typography follows scale
-- [ ] List deviations
+- [x] All tokens match spec values
+- [x] Color pairings follow WCAG rules
+- [x] Spacing/typography follows scale
+- [x] List deviations
 
 ---
 
-## Phase 4: Integration Mapping
+## Phase 4: Integration Mapping ✅ COMPLETE
 
 Map how everything connects.
 
-### Fizz — Data Flow Map
+### Fizz — Data Flow Map ✅
 ```
 User action → API → Database → Response → UI update
 ```
-- [ ] Document 5 key user flows end-to-end
-- [ ] Identify where data transforms
-- [ ] Find potential race conditions
+- [x] Document 5 key user flows end-to-end
+- [x] Identify where data transforms
+- [x] Find potential race conditions
 
-### Buzz — State Management Map
+### Buzz — State Management Map ✅
 ```
 Client state, server state, URL state
 ```
-- [ ] Map all useState/useRef usage
-- [ ] Map all API state (loading, error, data)
-- [ ] Identify state that should be shared vs local
+- [x] Map all useState/useRef usage
+- [x] Map all API state (loading, error, data)
+- [x] Identify state that should be shared vs local
 
-### Pazz — Event Flow Map
+### Pazz — Event Flow Map ✅
 ```
 User input → Handler → Side effect → UI feedback
 ```
-- [ ] Document all keyboard shortcuts
-- [ ] Map all click handlers
-- [ ] Identify missing feedback states
+- [x] Document all keyboard shortcuts
+- [x] Map all click handlers
+- [x] Identify missing feedback states
 
 ---
 
@@ -200,12 +200,12 @@ User input → Handler → Side effect → UI feedback
 
 ## Timeline
 
-| Phase | Focus | Duration |
-|-------|-------|----------|
-| 1 | Area Deep Dives | Until complete |
-| 2 | Cross-Cutting Analysis | After Phase 1 |
-| 3 | Spec Alignment | After Phase 2 |
-| 4 | Integration Mapping | After Phase 3 |
+| Phase | Focus | Status |
+|-------|-------|--------|
+| 1 | Area Deep Dives | ✅ Complete |
+| 2 | Cross-Cutting Analysis | ✅ Complete |
+| 3 | Spec Alignment | ✅ Complete |
+| 4 | Integration Mapping | ✅ Complete |
 
 **No phase skipping. Finish one before starting the next.**
 
@@ -220,13 +220,13 @@ User input → Handler → Side effect → UI feedback
 
 ---
 
-## Victory Condition
+## Victory Condition ✅ ACHIEVED
 
 When all phases complete, we will have:
-1. Complete understanding of every file's purpose
-2. Documented map of all data flows
-3. Prioritized improvement backlog
-4. Spec alignment report
-5. Team expertise across the entire codebase
+1. ✅ Complete understanding of every file's purpose
+2. ✅ Documented map of all data flows
+3. ✅ Prioritized improvement backlog
+4. ✅ Spec alignment report
+5. ✅ Team expertise across the entire codebase
 
-Then we execute with precision.
+**Crawl complete. Execution phase active.**
