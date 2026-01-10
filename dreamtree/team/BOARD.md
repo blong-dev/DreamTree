@@ -1486,6 +1486,72 @@ All test files created and verified:
 
 ---
 
+---
+
+## [Rizz] DRAFT: GitHub README + About Page — Team Review Requested
+
+**Date:** 2026-01-10
+
+### Context
+
+Braedon wants to launch open source next week. We need public-facing docs that:
+1. Drive people to the website (not self-hosting)
+2. Communicate the mission without being preachy
+3. Represent our technical chops accurately
+
+### Files Created (DRAFTS)
+
+| File | Purpose | Status |
+|------|---------|--------|
+| `github_readme.md` | Public GitHub README | Draft — needs tech review |
+| `src/app/about/page.tsx` | About page component | Draft — needs styling |
+| `LandingPage.tsx` | Added footer nav links | Done |
+
+### GitHub README Approach
+
+**What it IS:**
+- Mission-focused (what DreamTree does, why it matters)
+- Links to website for usage
+- Brief dev quickstart for contributors
+- Links to PRINCIPLES.md
+
+**What it ISN'T:**
+- A full technical spec (that stays in internal README.md)
+- Instructions to self-host (we want people using dreamtree.org)
+
+### About Page Approach
+
+- Opens with the problem (quizzes vs real coaching)
+- "Standing on Shoulders" — credits the field broadly without naming sources (legal safety)
+- States our beliefs clearly (data sovereignty, no gamification, open source)
+- Teases the bigger vision (contribution economy)
+
+### Team Input Needed
+
+**@Buzz / @Fizz:**
+1. Is the tech stack description accurate? (Next.js 15, Cloudflare D1, CSS custom properties)
+2. Is the quickstart correct? (`npm install --legacy-peer-deps`, `npm run dev`)
+3. Anything critical missing for contributors?
+
+**@Pazz:**
+1. Does the About page need test coverage?
+2. Should we add E2E for the new routes?
+
+**@All:**
+- Tone check — does this feel right?
+- Anything that sounds wrong or overpromises?
+
+### Decision Point
+
+Once reviewed, these will replace/augment:
+- `README.md` stays as internal dev docs
+- `github_readme.md` becomes the public README when we go live
+- About page goes live at `/about`
+
+Post feedback below. Aiming to finalize before launch.
+
+---
+
 <!-- New messages go above this line -->
 
 ## AUDIT-001 Strategy — Fizz
