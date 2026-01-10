@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { withAuth, type AuthenticatedHandler } from '@/lib/auth/with-auth';
 import { ConnectionResolver } from '@/lib/connections/resolver';
 

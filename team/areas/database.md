@@ -72,7 +72,8 @@ The database isn't just storage — it's the memory that makes DreamTree feel li
 | File | Purpose |
 |------|---------|
 | `src/lib/db/index.ts` | Main database client with typed queries |
-| `src/lib/connections/resolver.ts` | ConnectionResolver class for data hydration |
+| `src/lib/connections/resolver.ts` | ConnectionResolver class for data hydration (262 lines) |
+| `src/lib/connections/data-fetchers.ts` | 18 exported data fetcher functions (~450 lines) |
 | `src/lib/connections/types.ts` | Connection method types and data structures |
 | `migrations/0001_initial.sql` | 40-table schema definition |
 | `migrations/seed_*.sql` | Content seed data (3,221+ rows) |
@@ -193,9 +194,10 @@ const result = await resolver.resolve({
 
 ### Adding a Data Source
 1. Add type to `DataSourceType` in `src/lib/connections/types.ts`
-2. Add case to `fetchDataSource()` in resolver.ts
-3. Implement fetch method with proper type mapping
-4. **Document what exercises use this source**
+2. Add fetcher function to `src/lib/connections/data-fetchers.ts`
+3. Export from data-fetchers.ts and import in resolver.ts
+4. Add case to `fetchDataSource()` in resolver.ts calling your new fetcher
+5. **Document what exercises use this source**
 
 ### Adding a Connection
 1. Insert row in `connections` table

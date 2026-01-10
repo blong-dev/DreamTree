@@ -293,6 +293,7 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 - SQLite has no BOOLEAN type - use INTEGER with 0/1
 - Always check `result.results` array length, not truthiness
 - D1 has max 100KB result size per query
+- ConnectionResolver data fetchers live in `data-fetchers.ts`, resolver logic in `resolver.ts` (B3 refactor)
 
 ### CSS/Styling
 - NO box-shadows anywhere - use borders for elevation

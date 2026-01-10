@@ -141,6 +141,12 @@ These moments are why the connections system exists. They transform the workbook
 - Unauthenticated users redirected to `/login`
 - New users go: `/signup` → `/onboarding` → `/workbook`
 
+### TOC Navigation
+- Clicking "Contents" in nav opens TOC panel overlay
+- TOC shows current part/module/exercise hierarchy
+- Users can navigate to any unlocked exercise
+- Panel closes on selection or backdrop click
+
 ### Content Types
 ```typescript
 type ContentType =

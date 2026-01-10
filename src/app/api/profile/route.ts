@@ -5,7 +5,7 @@
  * B2: Standardized to use withAuth pattern (AUDIT-001)
  */
 
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { withAuth, getAuthContext, decryptPII } from '@/lib/auth';
 import '@/types/database'; // CloudflareEnv augmentation

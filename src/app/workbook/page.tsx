@@ -3,7 +3,6 @@ import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import { getSessionData } from '@/lib/auth/session';
 import { createDb } from '@/lib/db';
-import type { Env } from '@/types/database';
 
 
 export default async function WorkbookPage() {

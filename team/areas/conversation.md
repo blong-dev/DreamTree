@@ -229,8 +229,9 @@ Content blocks from the database are rendered as messages:
 - `paragraph` - Standard body text
 - `instruction` - Action prompt (may have emphasis)
 - `quote` - Quoted/attributed content
-- `emphasis` - Highlighted text
+- `emphasis` - Highlighted text (italic, primary color, left border)
 - `activity-header` - Section header for tools
+- `resource-link` - External link card with title and description
 
 ---
 
