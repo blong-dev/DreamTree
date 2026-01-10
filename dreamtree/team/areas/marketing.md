@@ -8,13 +8,13 @@
 
 The marketing area covers all user-facing copy and communication strategy. This includes landing pages, in-app microcopy, email templates, and campaign materials.
 
-**Philosophy first:** All marketing work must align with `team/private/PHILOSOPHY.md`.
+**Reference:** Voice Guide below.
 
 ---
 
 ## Voice Guide
 
-This is the foundation for all DreamTree copy. Before writing anything, absorb these principles.
+Reference for all DreamTree copy. Use as a guide, not a gate.
 
 ### Positioning Statement
 
@@ -226,7 +226,6 @@ src/components/               ← Copy lives in components
 
 team/
 ├── RIZZ.md                   ← Role definition
-├── private/PHILOSOPHY.md     ← Source of truth for voice
 └── areas/marketing.md        ← This file
 ```
 
@@ -247,7 +246,20 @@ team/
 
 ## Workflow
 
-### Copy Change Process
+### Assigned Tasks (From Board)
+
+If Queen Bee assigned it, it's already approved. Execute directly:
+
+1. **Read** — Check BOARD.md for assignments
+2. **Execute** — Do the work
+3. **Verify** — Build passes, looks correct
+4. **Post** — Update BOARD.md when complete
+
+**No waiting for feedback on assigned tasks.**
+
+### Self-Initiated Copy Changes
+
+For improvements you identify yourself:
 
 1. **Identify** — Find copy that needs improvement
 2. **Draft** — Write new copy aligned with Voice Guide
@@ -305,7 +317,7 @@ All copy should:
 | Fizz | Builds components that contain copy |
 | Buzz | Builds analytics to measure copy effectiveness |
 | Buzz | Builds email infrastructure |
-| Queen Bee | Approves all copy changes |
+| Queen Bee | Approves self-initiated changes (assigned tasks are pre-approved) |
 
 ---
 

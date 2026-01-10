@@ -168,7 +168,8 @@
       "Bash(npm run deploy:staging:*)",
       "Bash(for dir in \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\conversation\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\dashboard\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\feedback\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\forms\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\icons\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\landing\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\onboarding\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\overlays\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\profile\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\shell\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\skills\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\tools\" \"C:\\\\dreamtree\\\\dreamtree\\\\src\\\\components\\\\workbook\")",
       "Bash(do test -f \"$dir/index.ts\")",
-      "WebFetch(domain:www.mozilla.org)"
+      "WebFetch(domain:www.mozilla.org)",
+      "Skill(commit)"
     ],
     "defaultMode": "acceptEdits"
   },
