@@ -8,7 +8,19 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { login, unwrapDataKeyFromAuth, storeDataKeyInSession, hashEmail, encryptField, isEncrypted } from '@/lib/auth';
+import {
+  login,
+  unwrapDataKeyFromAuth,
+  storeDataKeyInSession,
+  hashEmail,
+  encryptField,
+  isEncrypted,
+  generateDataKey,
+  deriveWrappingKey,
+  wrapDataKey,
+  generateSalt,
+  encodeSalt,
+} from '@/lib/auth';
 import { checkRateLimit, recordFailedAttempt, clearRateLimit } from '@/lib/auth/rate-limiter';
 import '@/types/database'; // CloudflareEnv augmentation
 
@@ -65,7 +77,24 @@ export async function POST(request: NextRequest) { // code_id:102
     await clearRateLimit(db, email, 'login');
 
     // Unwrap and store data key in session for PII encryption (IMP-048)
-    const dataKey = await unwrapDataKeyFromAuth(db, result.userId!, password);
+    let dataKey = await unwrapDataKeyFromAuth(db, result.userId!, password);
+
+    // If no data key exists (legacy user), generate one now
+    if (!dataKey) {
+      // Generate encryption keys for legacy user
+      const salt = generateSalt();
+      const wrappingKey = await deriveWrappingKey(password, salt);
+      dataKey = await generateDataKey();
+      const wrappedDataKey = await wrapDataKey(dataKey, wrappingKey);
+      const storedKey = `${encodeSalt(salt)}:${wrappedDataKey}`;
+
+      // Store wrapped key in auth table
+      await db
+        .prepare('UPDATE auth SET wrapped_data_key = ? WHERE user_id = ?')
+        .bind(storedKey, result.userId)
+        .run();
+    }
+
     if (dataKey && result.sessionId) {
       await storeDataKeyInSession(db, result.sessionId, dataKey);
 

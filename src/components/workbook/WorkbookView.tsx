@@ -411,51 +411,30 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     [currentBlock, isSaving, editingBlockId, showToast]
   );
 
-  // Handle tool completion
-  const handleToolComplete = useCallback(async () => {
-    if (!currentBlock || currentBlock.blockType !== 'tool') return;
+  // Handle tool completion - receives data from useToolSave
+  const handleToolComplete = useCallback(
+    (data: { id: string; updated: boolean; newProgress: number; nextBlock: unknown | null; hasMore: boolean }) => {
+      if (!currentBlock || currentBlock.blockType !== 'tool') return;
 
-    // Fetch next block after tool completion
-    try {
-      const response = await fetch('/api/workbook/response', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          toolId: currentBlock.content.id,
-          exerciseId: currentBlock.exerciseId,
-          activityId: currentBlock.activityId?.toString(),
-          responseText: '[tool-completed]',
-        }),
-      });
+      // Mark tool as completed
+      setBlocks((prev) =>
+        prev.map((b) => (b.id === currentBlock.id ? { ...b, response: '[tool-completed]' } : b))
+      );
 
-      if (response.ok) {
-        const data = await response.json();
-
-        // Mark tool as completed
-        setBlocks((prev) =>
-          prev.map((b) => (b.id === currentBlock.id ? { ...b, response: '[tool-completed]' } : b))
-        );
-
-        // Append next block
-        if (data.nextBlock) {
-          setBlocks((prev) => [...prev, data.nextBlock]);
-        }
-
-        if (data.newProgress !== undefined) {
-          setProgress(data.newProgress);
-        }
-        if (data.hasMore !== undefined) {
-          setHasMore(data.hasMore);
-        }
-
-        setTimeout(() => {
-          setDisplayedBlockIndex((prev) => prev + 1);
-        }, 300);
+      // Append next block if available
+      if (data.nextBlock) {
+        setBlocks((prev) => [...prev, data.nextBlock as BlockWithResponse]);
       }
-    } catch (error) {
-      console.error('Error completing tool:', error);
-    }
-  }, [currentBlock]);
+
+      setProgress(data.newProgress);
+      setHasMore(data.hasMore);
+
+      setTimeout(() => {
+        setDisplayedBlockIndex((prev) => prev + 1);
+      }, 300);
+    },
+    [currentBlock]
+  );
 
   // Handle editing a past response
   const handleEditMessage = useCallback(

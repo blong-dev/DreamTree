@@ -93,6 +93,11 @@ def extract_nested_functions(
     arrow_pattern = r'const\s+(\w+)\s*=\s*(?:\([^)]*\)|[a-zA-Z_]\w*)\s*=>\s*\{'
     for match in re.finditer(arrow_pattern, body):
         name = match.group(1)
+
+        # Skip if this is the parent function itself (prevents self-referencing)
+        if name == parent.name:
+            continue
+
         # Skip if it's a useCallback (already captured)
         if f'useCallback' in body[max(0, match.start()-20):match.start()]:
             continue
@@ -134,6 +139,11 @@ def extract_nested_functions(
     handler_pattern = r'(?:const\s+)?(on[A-Z]\w+|handle[A-Z]\w+)\s*=\s*(?:\([^)]*\)|[a-zA-Z_]\w*)?\s*=>\s*\{'
     for match in re.finditer(handler_pattern, body):
         name = match.group(1)
+
+        # Skip if this is the parent function itself (prevents self-referencing)
+        if name == parent.name:
+            continue
+
         # Check if already captured
         if any(n.name == name for n in nested):
             continue

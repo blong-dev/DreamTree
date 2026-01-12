@@ -28,11 +28,19 @@ import {
   CompetencyAssessmentWrapper,
 } from './tool-wrappers';
 
+interface ToolSaveResponse {
+  id: string;
+  updated: boolean;
+  newProgress: number;
+  nextBlock: unknown | null;
+  hasMore: boolean;
+}
+
 interface ToolEmbedProps {
   tool: ToolData;
   exerciseId: string;
   connectionId: number | null;
-  onComplete: () => void;
+  onComplete: (data: ToolSaveResponse) => void;
 }
 
 type ToolName =

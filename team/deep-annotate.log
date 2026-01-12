@@ -1,0 +1,1658 @@
+Annotating C:\dreamtree\dreamtree\src
+
+Loading code_docs from database...
+Loaded 465 code_docs across 149 files
+
+Found 184 files to process
+
+src\app\(auth)\login\page.tsx
+  = LoginPage (component) -> already annotated
+  = handleSubmit (function) -> already annotated
+
+src\app\(auth)\signup\page.tsx
+  = SignupPage (component) -> already annotated
+  = handleSubmit (function) -> already annotated
+
+src\app\about\page.tsx
+  = AboutPage (component) -> already annotated
+
+src\app\admin\errors\page.tsx
+  = ErrorsPage (component) -> already annotated
+
+src\app\admin\exercises\page.tsx
+  = ExercisesPage (component) -> already annotated
+
+src\app\admin\funnel\page.tsx
+  = FunnelPage (component) -> already annotated
+
+src\app\admin\page.tsx
+  = AdminPage (component) -> already annotated
+
+src\app\admin\tools\page.tsx
+  = ToolsPage (component) -> already annotated
+
+src\app\api\analytics\track\route.ts
+  = POST (function) -> already annotated
+
+src\app\api\auth\login\route.ts
+  = POST (function) -> already annotated
+  - LoginBody (interface) -> skipped (no body)
+
+src\app\api\auth\logout\route.ts
+  = POST (function) -> already annotated
+
+src\app\api\auth\signup\route.ts
+  = POST (function) -> already annotated
+  - SignupBody (interface) -> skipped (no body)
+
+src\app\api\data\competencies\route.ts
+  = GET (function) -> already annotated
+
+src\app\api\data\connection\route.ts
+  - GET (constant) -> skipped (no body)
+
+src\app\api\data\skills\route.ts
+  = GET (function) -> already annotated
+
+src\app\api\onboarding\route.ts
+  - OnboardingBody (interface) -> skipped (no body)
+  - POST (constant) -> skipped (no body)
+
+src\app\api\profile\export\route.ts
+  - GET (constant) -> skipped (no body)
+
+src\app\api\profile\route.ts
+  = DELETE (function) -> already annotated
+  - UserProfile (interface) -> skipped (no body)
+  - UserSettings (interface) -> skipped (no body)
+  - UserSkill (interface) -> skipped (no body)
+  - UserValue (interface) -> skipped (no body)
+  - GET (constant) -> skipped (no body)
+  - PATCH (constant) -> skipped (no body)
+
+src\app\api\tools\counts\route.ts
+  - GET (constant) -> skipped (no body)
+
+src\app\api\tools\instances\route.ts
+  - ToolResponseRow (interface) -> skipped (no body)
+  - GET (constant) -> skipped (no body)
+
+src\app\api\workbook\progress\route.ts
+  - ProgressData (interface) -> skipped (no body)
+  - GET (constant) -> skipped (no body)
+
+src\app\api\workbook\response\route.ts
+  - StemRow (interface) -> skipped (no body)
+  - BlockWithResponse (interface) -> skipped (no body)
+  - SaveResponseRequest (interface) -> skipped (no body)
+  - POST (constant) -> skipped (no body)
+  - PUT (constant) -> skipped (no body)
+  - GET (constant) -> skipped (no body)
+
+src\app\api\workbook\route.ts
+  - StemRow (interface) -> skipped (no body)
+  - BlockWithResponse (interface) -> skipped (no body)
+  - GET (constant) -> skipped (no body)
+
+src\app\layout.tsx
+  = RootLayout (component) -> already annotated
+
+src\app\onboarding\page.tsx
+  = OnboardingPage (component) -> already annotated
+  = handleComplete (function) -> already annotated
+
+src\app\page.tsx
+  = HomePage (component) -> already annotated
+  = getCurrentExerciseId (function) -> already annotated
+  = getProgressMetrics (function) -> already annotated
+  = getTOCData (function) -> already annotated
+
+src\app\profile\page.tsx
+  = ProfilePage (component) -> already annotated
+  = handleDownloadData (function) -> already annotated
+  = handleDeleteData (function) -> already annotated
+  = SectionErrorFallback (component) -> already annotated
+  = fetchProfile (component) -> already annotated
+  - ProfileApiResponse (interface) -> skipped (no body)
+  - SkillDisplay (interface) -> skipped (no body)
+  - RankedItem (interface) -> skipped (no body)
+
+src\app\skills\page.tsx
+  = SkillsRoute (component) -> already annotated
+  - SkillRow (interface) -> skipped (no body)
+  - UserSkillRow (interface) -> skipped (no body)
+
+src\app\tools\[toolType]\page.tsx
+  = ToolTypePage (component) -> already annotated
+  = handleBack (function) -> already annotated
+  = handleCreateNew (function) -> already annotated
+  = handleSelectInstance (function) -> already annotated
+  = fetchInstances (component) -> already annotated
+  - ToolInstanceData (interface) -> skipped (no body)
+  - ToolInstancesResponse (interface) -> skipped (no body)
+
+src\app\tools\page.tsx
+  = ToolsIndexPage (component) -> already annotated
+  = handleToolClick (function) -> already annotated
+  = fetchCounts (component) -> already annotated
+
+src\app\workbook\[exerciseId]\page.tsx
+  = WorkbookExercisePage (component) -> already annotated
+  - PageProps (interface) -> skipped (no body)
+
+src\app\workbook\page.tsx
+  = WorkbookPage (component) -> already annotated
+  - StemRow (interface) -> skipped (no body)
+
+src\app\workbook\WorkbookClient.tsx
+  = WorkbookClient (component) -> already annotated
+  - WorkbookClientProps (interface) -> skipped (no body)
+
+src\components\conversation\ConversationThread.test.tsx
+  ? createContentMessage (function) -> couldn't find declaration
+  ? createUserMessage (function) -> couldn't find declaration
+  = createTimestampMessage (function) -> already annotated
+  = createDividerMessage (function) -> already annotated
+
+src\components\conversation\ConversationThread.tsx
+  = ConversationThread (component) -> already annotated
+  = handleScroll (function) -> already annotated
+  = MessageRenderer (component) -> already annotated
+  - ConversationThreadProps (interface) -> skipped (no body)
+
+src\components\conversation\Divider.tsx
+  = Divider (component) -> already annotated
+  - DividerProps (interface) -> skipped (no body)
+
+src\components\conversation\index.ts
+
+src\components\conversation\MessageContent.test.tsx
+
+src\components\conversation\MessageContent.tsx
+  = MessageContent (component) -> already annotated
+  = renderText (function) -> already annotated
+  = handleBlockComplete (function) -> already annotated
+  = getPlainText (function) -> already annotated
+  = ContentBlockRenderer (component) -> already annotated
+  - MessageContentProps (interface) -> skipped (no body)
+
+src\components\conversation\MessageUser.tsx
+  = MessageUser (component) -> already annotated
+  = handleClick (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  = formatTime (function) -> already annotated
+  = UserContentRenderer (component) -> already annotated
+  = SOAREDRenderer (component) -> already annotated
+  - MessageUserProps (interface) -> skipped (no body)
+
+src\components\conversation\Timestamp.tsx
+  = Timestamp (component) -> already annotated
+  = formatTimestamp (function) -> already annotated
+  - TimestampProps (interface) -> skipped (no body)
+
+src\components\conversation\types.ts
+  - ContentBlock (type) -> skipped (no body)
+  - SOAREDStory (type) -> skipped (no body)
+  - UserResponseContent (type) -> skipped (no body)
+  - DividerData (type) -> skipped (no body)
+  - Message (type) -> skipped (no body)
+  - ScrollState (type) -> skipped (no body)
+
+src\components\conversation\TypingEffect.test.tsx
+  = advanceFrames (function) -> already annotated
+
+src\components\conversation\TypingEffect.tsx
+  = TypingEffect (component) -> already annotated
+  = animate (function) -> already annotated
+  - TypingEffectProps (interface) -> skipped (no body)
+
+src\components\dashboard\DailyDoCard.test.tsx
+  = for (class) -> already annotated
+  = on (class) -> already annotated
+
+src\components\dashboard\DailyDoCard.tsx
+  = DailyDoCard (component) -> already annotated
+  - DailyDoCardProps (interface) -> skipped (no body)
+
+src\components\dashboard\DailyDoList.test.tsx
+
+src\components\dashboard\DailyDoList.tsx
+  = DailyDoList (component) -> already annotated
+  - DailyDoListProps (interface) -> skipped (no body)
+
+src\components\dashboard\DashboardGreeting.tsx
+  = DashboardGreeting (component) -> already annotated
+  - DashboardGreetingProps (interface) -> skipped (no body)
+
+src\components\dashboard\DashboardPage.tsx
+  = DashboardPage (component) -> already annotated
+  = handleLogout (function) -> already annotated
+  = WidgetErrorFallback (component) -> already annotated
+  = toWorkbookProgress (component) -> already annotated
+  - DashboardPageProps (interface) -> skipped (no body)
+
+src\components\dashboard\index.ts
+
+src\components\dashboard\ProfilePreview.tsx
+  = ProfilePreview (component) -> already annotated
+  - ProfilePreviewProps (interface) -> skipped (no body)
+
+src\components\dashboard\ProgressMetric.tsx
+  = ProgressMetric (component) -> already annotated
+  - ProgressMetricProps (interface) -> skipped (no body)
+
+src\components\dashboard\ProgressMetrics.tsx
+  = ProgressMetrics (component) -> already annotated
+  - ProgressMetricsProps (interface) -> skipped (no body)
+
+src\components\dashboard\TOCInline.tsx
+  = TOCInline (component) -> already annotated
+  = togglePart (function) -> already annotated
+  - TOCInlineProps (interface) -> skipped (no body)
+
+src\components\dashboard\TOCInlineExercise.tsx
+  = TOCInlineExercise (component) -> already annotated
+  = handleClick (function) -> already annotated
+  - TOCInlineExerciseProps (interface) -> skipped (no body)
+
+src\components\dashboard\TOCInlineModule.tsx
+  = TOCInlineModule (component) -> already annotated
+  - TOCInlineModuleProps (interface) -> skipped (no body)
+
+src\components\dashboard\TOCInlinePart.tsx
+  = TOCInlinePart (component) -> already annotated
+  - TOCInlinePartProps (interface) -> skipped (no body)
+
+src\components\dashboard\types.ts
+  - DailyDoType (type) -> skipped (no body)
+  - DailyDo (type) -> skipped (no body)
+  - ProgressMetricData (type) -> skipped (no body)
+  - BackgroundColorId (type) -> skipped (no body)
+  - FontFamilyId (type) -> skipped (no body)
+  - TextColorId (type) -> skipped (no body)
+  - UserPreview (type) -> skipped (no body)
+  - TOCExerciseData (type) -> skipped (no body)
+  - TOCModuleData (type) -> skipped (no body)
+  - TOCPartData (type) -> skipped (no body)
+
+src\components\feedback\EmptyState.tsx
+  = EmptyState (component) -> already annotated
+  - EmptyStateProps (interface) -> skipped (no body)
+
+src\components\feedback\ErrorBoundary.tsx
+  = ErrorBoundary (class) -> already annotated
+  - ErrorBoundaryProps (interface) -> skipped (no body)
+  - ErrorBoundaryState (interface) -> skipped (no body)
+
+src\components\feedback\index.ts
+
+src\components\feedback\SaveIndicator.tsx
+  = SaveIndicator (component) -> already annotated
+  - SaveIndicatorProps (interface) -> skipped (no body)
+
+src\components\feedback\Toast.tsx
+  = Toast (component) -> already annotated
+  - ToastProps (interface) -> skipped (no body)
+
+src\components\feedback\ToastContainer.tsx
+  = ToastContainer (component) -> already annotated
+  - ToastContainerProps (interface) -> skipped (no body)
+
+src\components\feedback\ToastContext.tsx
+  = ToastProvider (component) -> already annotated
+  = useToast (component) -> already annotated
+  - ToastOptions (interface) -> skipped (no body)
+  - ToastContextValue (interface) -> skipped (no body)
+  - ToastProviderProps (interface) -> skipped (no body)
+
+src\components\feedback\types.ts
+  - ToastType (type) -> skipped (no body)
+  - ToastAction (type) -> skipped (no body)
+  - Toast (type) -> skipped (no body)
+  - ToastPosition (type) -> skipped (no body)
+  - TooltipPosition (type) -> skipped (no body)
+  - SaveStatus (type) -> skipped (no body)
+  - EmptyStateAction (type) -> skipped (no body)
+
+src\components\forms\Checkbox.tsx
+  = Checkbox (component) -> already annotated
+  - CheckboxProps (interface) -> skipped (no body)
+
+src\components\forms\CheckboxGroup.tsx
+  = CheckboxGroup (component) -> already annotated
+  = handleChange (function) -> already annotated
+  - CheckboxOption (interface) -> skipped (no body)
+  - CheckboxGroupProps (interface) -> skipped (no body)
+
+src\components\forms\forms.test.tsx
+
+src\components\forms\index.ts
+
+src\components\forms\RadioGroup.tsx
+  = RadioGroup (component) -> already annotated
+  - RadioOption (interface) -> skipped (no body)
+  - RadioGroupProps (interface) -> skipped (no body)
+
+src\components\forms\Select.tsx
+  = Select (component) -> already annotated
+  = handleClickOutside (function) -> already annotated
+  = handleSelect (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  - SelectOption (interface) -> skipped (no body)
+  - SelectProps (interface) -> skipped (no body)
+
+src\components\forms\Slider.tsx
+  = Slider (component) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  - SliderProps (interface) -> skipped (no body)
+
+src\components\forms\TextArea.tsx
+  = TextArea (component) -> already annotated
+  - TextAreaProps (interface) -> skipped (no body)
+
+src\components\forms\TextInput.tsx
+  = TextInput (component) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  - TextInputProps (interface) -> skipped (no body)
+
+src\components\icons\index.tsx
+  = AcornIcon (component) -> already annotated
+  = HomeIcon (component) -> already annotated
+  = ListIcon (component) -> already annotated
+  = WrenchIcon (component) -> already annotated
+  = UserIcon (component) -> already annotated
+  = ChevronDownIcon (component) -> already annotated
+  = ChevronUpIcon (component) -> already annotated
+  = ChevronRightIcon (component) -> already annotated
+  = SendIcon (component) -> already annotated
+  = CheckIcon (component) -> already annotated
+  = XIcon (component) -> already annotated
+  = LockIcon (component) -> already annotated
+  = ActivityIcon (component) -> already annotated
+  = RefreshIcon (component) -> already annotated
+  = SearchIcon (component) -> already annotated
+  = UsersIcon (component) -> already annotated
+  = CalculatorIcon (component) -> already annotated
+  = BookOpenIcon (component) -> already annotated
+  = PlayIcon (component) -> already annotated
+  = ShieldIcon (component) -> already annotated
+  = ArrowLeftIcon (component) -> already annotated
+  = PlusIcon (component) -> already annotated
+  = DownloadIcon (component) -> already annotated
+  = TrashIcon (component) -> already annotated
+  = InfoIcon (component) -> already annotated
+  = AlertTriangleIcon (component) -> already annotated
+  = LoaderIcon (component) -> already annotated
+  - IconProps (type) -> skipped (no body)
+
+src\components\landing\index.ts
+
+src\components\landing\LandingPage.tsx
+  = LandingPage (component) -> already annotated
+
+src\components\onboarding\index.ts
+
+src\components\onboarding\OnboardingFlow.tsx
+  = OnboardingFlow (component) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  = saveProgress (function) -> already annotated
+  = loadProgress (function) -> already annotated
+  = clearProgress (function) -> already annotated
+  = CheckIcon (component) -> already annotated
+  - OnboardingFlowProps (interface) -> skipped (no body)
+  - StoredProgress (interface) -> skipped (no body)
+  - StepType (type) -> skipped (no body)
+
+src\components\onboarding\types.ts
+  = getColorById (function) -> already annotated
+  = getFontById (function) -> already annotated
+  = getTextColorForBackground (function) -> already annotated
+  = getValidTextColors (function) -> already annotated
+  = isValidPairing (function) -> already annotated
+  = getFontStyle (function) -> already annotated
+  - OnboardingData (interface) -> skipped (no body)
+  - ColorOption (interface) -> skipped (no body)
+  - FontOption (interface) -> skipped (no body)
+  - BackgroundColorId (type) -> skipped (no body)
+  - TextColorId (type) -> skipped (no body)
+  - FontFamilyId (type) -> skipped (no body)
+
+src\components\onboarding\VisualsStep.tsx
+  = VisualsStep (component) -> already annotated
+  = CheckIcon (component) -> already annotated
+  - VisualsStepProps (interface) -> skipped (no body)
+
+src\components\overlays\Backdrop.tsx
+  = Backdrop (component) -> already annotated
+  - BackdropProps (interface) -> skipped (no body)
+
+src\components\overlays\index.ts
+
+src\components\overlays\ProgressMarker.tsx
+  = ProgressMarker (component) -> already annotated
+  - ProgressMarkerProps (interface) -> skipped (no body)
+
+src\components\overlays\TOCExercise.tsx
+  = TOCExercise (component) -> already annotated
+  = handleClick (function) -> already annotated
+  - TOCExerciseProps (interface) -> skipped (no body)
+
+src\components\overlays\TOCModule.tsx
+  = TOCModule (component) -> already annotated
+  - TOCModuleProps (interface) -> skipped (no body)
+
+src\components\overlays\TOCPanel.tsx
+  = TOCPanel (component) -> already annotated
+  - TOCPanelProps (interface) -> skipped (no body)
+
+src\components\overlays\TOCPart.tsx
+  = TOCPart (component) -> already annotated
+  - TOCPartProps (interface) -> skipped (no body)
+
+src\components\overlays\types.ts
+  - ProgressStatus (type) -> skipped (no body)
+  - BreadcrumbLocation (type) -> skipped (no body)
+  - ExerciseProgress (type) -> skipped (no body)
+  - ModuleProgress (type) -> skipped (no body)
+  - PartProgress (type) -> skipped (no body)
+  - WorkbookProgress (type) -> skipped (no body)
+
+src\components\profile\DataControls.tsx
+  = DataControls (component) -> already annotated
+  - DataControlsProps (interface) -> skipped (no body)
+
+src\components\profile\DataPolicyBanner.tsx
+  = DataPolicyBanner (component) -> already annotated
+
+src\components\profile\index.ts
+
+src\components\profile\ProfileHeader.tsx
+  = ProfileHeader (component) -> already annotated
+  - ProfileHeaderProps (interface) -> skipped (no body)
+
+src\components\profile\ProfileSection.tsx
+  = ProfileSection (component) -> already annotated
+  - ProfileSectionProps (interface) -> skipped (no body)
+
+src\components\profile\RankedList.tsx
+  = RankedList (component) -> already annotated
+  - RankedItem (interface) -> skipped (no body)
+  - RankedListProps (interface) -> skipped (no body)
+
+src\components\profile\SkillsList.tsx
+  = SkillsList (component) -> already annotated
+  - Skill (interface) -> skipped (no body)
+  - SkillsListProps (interface) -> skipped (no body)
+
+src\components\Providers.tsx
+  = Providers (component) -> already annotated
+  - ProvidersProps (interface) -> skipped (no body)
+
+src\components\shell\AppShell.tsx
+  = AppShell (component) -> already annotated
+  = checkMobile (function) -> already annotated
+  = handleNavigate (function) -> already annotated
+  - AppShellProps (interface) -> skipped (no body)
+
+src\components\shell\Breadcrumb.tsx
+  = Breadcrumb (component) -> already annotated
+  - BreadcrumbProps (interface) -> skipped (no body)
+
+src\components\shell\Header.tsx
+  = Header (component) -> already annotated
+  = handleScroll (function) -> already annotated
+  = handleMouseEnter (function) -> already annotated
+  - HeaderProps (interface) -> skipped (no body)
+
+src\components\shell\index.ts
+
+src\components\shell\InputArea.tsx
+  = InputArea (component) -> already annotated
+  = handleChange (function) -> already annotated
+  = handleSubmit (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  - InputAreaProps (interface) -> skipped (no body)
+
+src\components\shell\NavBar.tsx
+  = NavBar (component) -> already annotated
+  - NavBarProps (interface) -> skipped (no body)
+
+src\components\shell\NavItem.test.tsx
+
+src\components\shell\NavItem.tsx
+  = NavItem (component) -> already annotated
+  - NavItemProps (interface) -> skipped (no body)
+
+src\components\shell\types.ts
+  - NavItemId (type) -> skipped (no body)
+  - InputType (type) -> skipped (no body)
+  - BreadcrumbLocation (type) -> skipped (no body)
+  - ScrollState (type) -> skipped (no body)
+
+src\components\skills\index.ts
+
+src\components\skills\SkillsPage.tsx
+  = SkillsPage (component) -> already annotated
+  - Skill (interface) -> skipped (no body)
+  - SkillsPageProps (interface) -> skipped (no body)
+  - SkillCategory (type) -> skipped (no body)
+
+src\components\tools\BucketingTool.tsx
+  = BucketingTool (component) -> already annotated
+  = handleDragStart (function) -> already annotated
+  = handleDragEnd (function) -> already annotated
+  = handleDrop (function) -> already annotated
+  = handleDragOver (function) -> already annotated
+  = moveItemToBucket (function) -> already annotated
+  = BucketItemRow (component) -> already annotated
+  = XIcon (component) -> already annotated
+  - BucketingToolProps (interface) -> skipped (no body)
+  - BucketItemRowProps (interface) -> skipped (no body)
+
+src\components\tools\BudgetCalculator.tsx
+  = BudgetCalculator (component) -> already annotated
+  = updateIncome (function) -> already annotated
+  = updateYearlyIncome (function) -> already annotated
+  = updateExpense (function) -> already annotated
+  = addExpense (function) -> already annotated
+  = removeExpense (function) -> already annotated
+  = formatCurrency (function) -> already annotated
+  = XIcon (component) -> already annotated
+  - BudgetCalculatorProps (interface) -> skipped (no body)
+  - TaxBreakdown (interface) -> skipped (no body)
+
+src\components\tools\CareerAssessment.tsx
+  = CareerAssessment (component) -> already annotated
+  = addOption (function) -> already annotated
+  = setRank (function) -> already annotated
+  = updateOption (function) -> already annotated
+  = removeOption (function) -> already annotated
+  = calculateOverallScore (function) -> already annotated
+  - CareerAssessmentProps (interface) -> skipped (no body)
+
+src\components\tools\CareerTimeline.tsx
+  = CareerTimeline (component) -> already annotated
+  = getMilestonesForYearQuarter (function) -> already annotated
+  = addMilestone (function) -> already annotated
+  = removeMilestone (function) -> already annotated
+  = _updateMilestone (function) -> already annotated
+  - CareerTimelineProps (interface) -> skipped (no body)
+
+src\components\tools\CompetencyAssessment.tsx
+  = CompetencyAssessment (component) -> already annotated
+  = getScore (function) -> already annotated
+  = setScore (function) -> already annotated
+  = lookupScore (function) -> already annotated
+  - CompetencyAssessmentProps (interface) -> skipped (no body)
+
+src\components\tools\FailureReframer.tsx
+  = FailureReframer (component) -> already annotated
+  = updateField (function) -> already annotated
+  - FailureReframerProps (interface) -> skipped (no body)
+
+src\components\tools\FlowTracker.tsx
+  = FlowTracker (component) -> already annotated
+  = generateId (function) -> already annotated
+  = handleAddEntry (function) -> already annotated
+  = handleRemoveEntry (function) -> already annotated
+  = FlowTrackerEntry (component) -> already annotated
+  = XIcon (component) -> already annotated
+  - FlowTrackerProps (interface) -> skipped (no body)
+  - FormData (interface) -> skipped (no body)
+  - FlowTrackerEntryProps (interface) -> skipped (no body)
+
+src\components\tools\IdeaTree.tsx
+  = IdeaTree (component) -> already annotated
+  = getPromptWord (function) -> already annotated
+  = handleContinue (function) -> already annotated
+  = handleStartNew (function) -> already annotated
+  = calculateCurrentStep (function) -> already annotated
+  - IdeaTreeProps (interface) -> skipped (no body)
+  - IdeaTreeStep (type) -> skipped (no body)
+
+src\components\tools\index.ts
+
+src\components\tools\LifeDashboard.tsx
+  = LifeDashboard (component) -> already annotated
+  = updateField (function) -> already annotated
+  - LifeDashboardProps (interface) -> skipped (no body)
+
+src\components\tools\ListBuilder.tsx
+  = ListBuilder (component) -> already annotated
+  = generateId (function) -> already annotated
+  = addItem (function) -> already annotated
+  = updateItem (function) -> already annotated
+  = removeItem (function) -> already annotated
+  = moveItem (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  = handleDragStart (function) -> already annotated
+  = handleDragOver (function) -> already annotated
+  = handleDrop (function) -> already annotated
+  = handleDragEnd (function) -> already annotated
+  = saveEdit (function) -> already annotated
+  = ListBuilderItem (component) -> already annotated
+  = GripVerticalIcon (component) -> already annotated
+  = ChevronUpIcon (component) -> already annotated
+  = ChevronDownIcon (component) -> already annotated
+  = XIcon (component) -> already annotated
+  - ListBuilderProps (interface) -> skipped (no body)
+  - ListBuilderItemProps (interface) -> skipped (no body)
+
+src\components\tools\MBTISelector.tsx
+  = MBTISelector (component) -> already annotated
+  = MBTIResultDisplay (component) -> already annotated
+  = handleInputChange (function) -> already annotated
+  = handleSelect (function) -> already annotated
+  = handleClickOutside (function) -> already annotated
+  - MBTISelectorProps (interface) -> skipped (no body)
+  - MBTIResultDisplayProps (interface) -> skipped (no body)
+
+src\components\tools\MindsetProfiles.tsx
+  = MindsetProfiles (component) -> already annotated
+  = updateCharacter (function) -> already annotated
+  - MindsetProfilesProps (interface) -> skipped (no body)
+
+src\components\tools\RankingGrid.tsx
+  = RankingGrid (component) -> already annotated
+  = handleSelect (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  = RankingPair (component) -> already annotated
+  = CheckIcon (component) -> already annotated
+  - RankingGridProps (interface) -> skipped (no body)
+  - RankingPairProps (interface) -> skipped (no body)
+
+src\components\tools\SkillTagger.tsx
+  = SkillTagger (component) -> already annotated
+  = toggleSkill (function) -> already annotated
+  = CheckIcon (component) -> already annotated
+  - SkillTaggerProps (interface) -> skipped (no body)
+
+src\components\tools\SOAREDForm.tsx
+  = SOAREDForm (component) -> already annotated
+  = updateField (function) -> already annotated
+  - SOAREDFormProps (interface) -> skipped (no body)
+
+src\components\tools\ToolInstanceCard.tsx
+  = ToolInstanceCard (component) -> already annotated
+  = formatRelativeTime (function) -> already annotated
+  - ToolInstanceCardProps (interface) -> skipped (no body)
+
+src\components\tools\ToolPage.tsx
+  = ToolPage (component) -> already annotated
+  - ToolPageProps (interface) -> skipped (no body)
+  - ToolType (type) -> skipped (no body)
+  - ToolInstance (type) -> skipped (no body)
+
+src\components\tools\types.ts
+  = isHighFlowActivity (function) -> already annotated
+  ? bucketIndexToMastery (function) -> couldn't find declaration
+  ? masteryToBucketIndex (function) -> couldn't find declaration
+  = toBudgetData (function) -> already annotated
+  = toIdeaTreeDB (function) -> already annotated
+  = fromIdeaTreeDB (function) -> already annotated
+  = getDefaultIdeaTreeData (function) -> already annotated
+  = createNode (function) -> already annotated
+  ? getContent (function) -> couldn't find declaration
+  ? getChildren (function) -> couldn't find declaration
+  ? getLayer3 (function) -> couldn't find declaration
+  - BaseToolProps (interface) -> skipped (no body)
+  - ToolInstance (interface) -> skipped (no body)
+  - ListItem (interface) -> skipped (no body)
+  - ListBuilderData (interface) -> skipped (no body)
+  - RankingItem (interface) -> skipped (no body)
+  - Comparison (interface) -> skipped (no body)
+  - RankingGridData (interface) -> skipped (no body)
+  - SOAREDStoryData (interface) -> skipped (no body)
+  - FlowEntry (interface) -> skipped (no body)
+  - FlowTrackerData (interface) -> skipped (no body)
+  - LifeDashboardData (interface) -> skipped (no body)
+  - FailureReframerData (interface) -> skipped (no body)
+  - BucketItem (interface) -> skipped (no body)
+  - BucketingToolData (interface) -> skipped (no body)
+  - Skill (interface) -> skipped (no body)
+  - SkillTaggerData (interface) -> skipped (no body)
+  - MBTIType (interface) -> skipped (no body)
+  - MBTISelectorData (interface) -> skipped (no body)
+  - ExpenseItem (interface) -> skipped (no body)
+  - BudgetCalculatorData (interface) -> skipped (no body)
+  - BudgetData (interface) -> skipped (no body)
+  - MindsetProfile (interface) -> skipped (no body)
+  - MindsetProfilesData (interface) -> skipped (no body)
+  - IdeaTreeData (interface) -> skipped (no body)
+  - IdeaTreeNode (interface) -> skipped (no body)
+  - IdeaTreeEdge (interface) -> skipped (no body)
+  - IdeaTreeDBData (interface) -> skipped (no body)
+  - TimelineMilestone (interface) -> skipped (no body)
+  - CareerTimelineData (interface) -> skipped (no body)
+  - CareerOption (interface) -> skipped (no body)
+  - CareerAssessmentData (interface) -> skipped (no body)
+  - Competency (interface) -> skipped (no body)
+  - CompetencyScore (interface) -> skipped (no body)
+  - CompetencyAssessmentData (interface) -> skipped (no body)
+  - ToolType (type) -> skipped (no body)
+  - WorkbookSource (type) -> skipped (no body)
+  - UserCreated (type) -> skipped (no body)
+  - ToolSource (type) -> skipped (no body)
+  - StoryType (type) -> skipped (no body)
+  - SkillCategory (type) -> skipped (no body)
+  - FilingStatus (type) -> skipped (no body)
+  - MindsetType (type) -> skipped (no body)
+  - CompetencyCategory (type) -> skipped (no body)
+
+src\components\workbook\index.ts
+
+src\components\workbook\PromptInput.test.tsx
+
+src\components\workbook\PromptInput.tsx
+  = PromptInput (component) -> already annotated
+  = renderInput (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  - PromptInputProps (interface) -> skipped (no body)
+
+src\components\workbook\tool-wrappers\BucketingToolWrapper.tsx
+  = BucketingToolWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\BudgetCalculatorWrapper.tsx
+  = BudgetCalculatorWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\CareerAssessmentWrapper.tsx
+  = CareerAssessmentWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\CareerTimelineWrapper.tsx
+  = CareerTimelineWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\CompetencyAssessmentWrapper.tsx
+  = CompetencyAssessmentWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\FailureReframerWrapper.tsx
+  = FailureReframerWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\FlowTrackerWrapper.tsx
+  = FlowTrackerWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\IdeaTreeWrapper.tsx
+  = IdeaTreeWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\index.ts
+
+src\components\workbook\tool-wrappers\LifeDashboardWrapper.tsx
+  = LifeDashboardWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\ListBuilderWrapper.tsx
+  = ListBuilderWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\MBTISelectorWrapper.tsx
+  = MBTISelectorWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\MindsetProfilesWrapper.tsx
+  = MindsetProfilesWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\RankingGridWrapper.tsx
+  = RankingGridWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\SkillTaggerWrapper.tsx
+  = SkillTaggerWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\SOAREDFormWrapper.tsx
+  = SOAREDFormWrapper (component) -> already annotated
+
+src\components\workbook\tool-wrappers\types.ts
+  - for (interface) -> skipped (no body)
+  - ToolWrapperProps (interface) -> skipped (no body)
+
+src\components\workbook\ToolEmbed.test.tsx
+  = createTool (function) -> already annotated
+  - for (interface) -> skipped (no body)
+
+src\components\workbook\ToolEmbed.tsx
+  = ToolEmbed (component) -> already annotated
+  = renderTool (function) -> already annotated
+  - ToolEmbedProps (interface) -> skipped (no body)
+  - for (interface) -> skipped (no body)
+  - ToolName (type) -> skipped (no body)
+
+src\components\workbook\types.ts
+  - ExerciseBlock (interface) -> skipped (no body)
+  - ContentData (interface) -> skipped (no body)
+  - PromptData (interface) -> skipped (no body)
+  - ToolData (interface) -> skipped (no body)
+  - ExerciseContent (interface) -> skipped (no body)
+  - SavedResponse (interface) -> skipped (no body)
+  - WorkbookMessage (interface) -> skipped (no body)
+  - BlockWithResponse (interface) -> skipped (no body)
+  - BlockContent (type) -> skipped (no body)
+
+src\components\workbook\WorkbookInputZone.test.tsx
+
+src\components\workbook\WorkbookInputZone.tsx
+  = WorkbookInputZone (component) -> already annotated
+  - WorkbookInputZoneProps (interface) -> skipped (no body)
+
+src\components\workbook\WorkbookView.test.tsx
+  = createBlocks (function) -> already annotated
+
+src\components\workbook\WorkbookView.tsx
+  = WorkbookView (component) -> already annotated
+  = handleScroll (function) -> already annotated
+  = handleKeyDown (function) -> already annotated
+  = handleNavigate (function) -> already annotated
+  = handleTocNavigate (function) -> already annotated
+  = getCollapsedLabel (function) -> already annotated
+  = blockToConversationContent (function) -> already annotated
+  - WorkbookViewProps (interface) -> skipped (no body)
+
+src\hooks\useApplyTheme.ts
+  = useApplyTheme (hook) -> already annotated
+  - UseApplyThemeOptions (interface) -> skipped (no body)
+
+src\hooks\useToolSave.ts
+  = useToolSave (hook) -> already annotated
+  - UseToolSaveOptions (interface) -> skipped (no body)
+  - UseToolSaveResult (interface) -> skipped (no body)
+
+src\lib\analytics\index.ts
+
+src\lib\analytics\server.ts
+  = trackServer (function) -> already annotated
+  = queryEvents (function) -> already annotated
+  = countEventsByType (function) -> already annotated
+  = countUniqueUsers (function) -> already annotated
+  ? getExerciseFunnel (function) -> couldn't find declaration
+  ? getToolUsage (function) -> couldn't find declaration
+  = purgeOldEvents (function) -> already annotated
+  - TrackServerOptions (interface) -> skipped (no body)
+
+src\lib\analytics\track.ts
+  = track (function) -> already annotated
+  = trackPageView (function) -> already annotated
+  = trackExerciseStart (function) -> already annotated
+  = trackExerciseComplete (function) -> already annotated
+  = trackToolOpen (function) -> already annotated
+  = trackToolSubmit (function) -> already annotated
+  = trackPromptSubmit (function) -> already annotated
+  = trackError (function) -> already annotated
+  - TrackOptions (interface) -> skipped (no body)
+
+src\lib\analytics\types.ts
+  ? validateEventData (function) -> couldn't find declaration
+  - EventData (interface) -> skipped (no body)
+  - export (interface) -> skipped (no body)
+  - TrackRequest (interface) -> skipped (no body)
+  - TrackResponse (interface) -> skipped (no body)
+  - AnalyticsEvent (interface) -> skipped (no body)
+  - AnalyticsAggregate (interface) -> skipped (no body)
+  - AnalyticsEventType (type) -> skipped (no body)
+  - AnalyticsTargetType (type) -> skipped (no body)
+  - AllowedEventDataKey (type) -> skipped (no body)
+  - ALLOWED_EVENT_DATA_KEYS (constant) -> skipped (no body)
+
+src\lib\auth\actions.ts
+  = claimAccount (function) -> already annotated
+  = login (function) -> already annotated
+  = changePassword (function) -> already annotated
+  = getDataKey (function) -> already annotated
+  - ClaimAccountResult (interface) -> skipped (no body)
+  - LoginResult (interface) -> skipped (no body)
+
+src\lib\auth\encryption.ts
+  = deriveWrappingKey (function) -> already annotated
+  = generateDataKey (function) -> already annotated
+  = wrapDataKey (function) -> already annotated
+  = unwrapDataKey (function) -> already annotated
+  = encryptField (function) -> already annotated
+  = decryptField (function) -> already annotated
+  = generateSalt (function) -> already annotated
+  = encodeSalt (function) -> already annotated
+  = decodeSalt (function) -> already annotated
+  = isEncrypted (function) -> already annotated
+  = hashEmail (function) -> already annotated
+  - EncryptedField (interface) -> skipped (no body)
+
+src\lib\auth\index.ts
+
+src\lib\auth\password.ts
+  = hashPassword (function) -> already annotated
+  = verifyPassword (function) -> already annotated
+  = validatePasswordStrength (function) -> already annotated
+
+src\lib\auth\pii.ts
+  = getDataKeyFromSession (function) -> already annotated
+  = storeDataKeyInSession (function) -> already annotated
+  = unwrapDataKeyFromAuth (function) -> already annotated
+  = encryptPII (function) -> already annotated
+  = decryptPII (function) -> already annotated
+  = decryptPIIBatch (function) -> already annotated
+  - PII_FIELDS (constant) -> skipped (no body)
+
+src\lib\auth\rate-limiter.ts
+  = checkRateLimit (function) -> already annotated
+  = recordFailedAttempt (function) -> already annotated
+  = clearRateLimit (function) -> already annotated
+  - RateLimitResult (interface) -> skipped (no body)
+
+src\lib\auth\session.ts
+  = createAnonymousSession (function) -> already annotated
+  ? getSessionData (function) -> couldn't find declaration
+  = deleteSession (function) -> already annotated
+  = createSessionCookie (function) -> already annotated
+  = clearSessionCookie (function) -> already annotated
+  = getSessionIdFromCookie (function) -> already annotated
+  - SessionData (interface) -> skipped (no body)
+
+src\lib\auth\with-auth.ts
+  = withAuth (function) -> already annotated
+  = GET (function) -> already annotated
+  = getAuthContext (function) -> already annotated
+  - AuthContext (interface) -> skipped (no body)
+  - AuthenticatedHandler (type) -> skipped (no body)
+
+src\lib\connections\data-fetchers.ts
+  = fetchTransferableSkills (function) -> already annotated
+  = fetchSoftSkills (function) -> already annotated
+  = fetchAllSkills (function) -> already annotated
+  = fetchKnowledgeSkills (function) -> already annotated
+  = fetchSOAREDStories (function) -> already annotated
+  = fetchExperiences (function) -> already annotated
+  = fetchFlowActivities (function) -> already annotated
+  ? fetchValuesCompass (function) -> couldn't find declaration
+  ? fetchWorkValues (function) -> couldn't find declaration
+  = fetchLifeValues (function) -> already annotated
+  = fetchCareerOptions (function) -> already annotated
+  ? fetchBudget (function) -> couldn't find declaration
+  ? fetchLocations (function) -> couldn't find declaration
+  ? fetchMBTICode (function) -> couldn't find declaration
+  ? fetchLifeDashboard (function) -> couldn't find declaration
+  = fetchProfileText (function) -> already annotated
+  ? fetchCompetencyScores (function) -> couldn't find declaration
+  = fetchIdeaTrees (function) -> already annotated
+  = fetchUserLists (function) -> already annotated
+
+src\lib\connections\index.ts
+
+src\lib\connections\resolver.test.ts
+  = createMockDb (function) -> already annotated
+
+src\lib\connections\resolver.ts
+  = parseConnectionParams (function) -> already annotated
+  = for (class) -> already annotated
+  = ConnectionResolver (class) -> already annotated
+
+src\lib\connections\types.ts
+  - AutoPopulateParams (interface) -> skipped (no body)
+  - ReferenceLinkParams (interface) -> skipped (no body)
+  - CustomParams (interface) -> skipped (no body)
+  - ParsedConnection (interface) -> skipped (no body)
+  - CriticalDataObjects (interface) -> skipped (no body)
+  - HighPriorityDataObjects (interface) -> skipped (no body)
+  - SOAREDStory (interface) -> skipped (no body)
+  - RankedSkill (interface) -> skipped (no body)
+  - CareerOption (interface) -> skipped (no body)
+  - Experience (interface) -> skipped (no body)
+  - FlowActivity (interface) -> skipped (no body)
+  - RankedItem (interface) -> skipped (no body)
+  - BudgetData (interface) -> skipped (no body)
+  - ConnectionResult (interface) -> skipped (no body)
+  - FetchConnectionOptions (interface) -> skipped (no body)
+  - CascadeUpdate (interface) -> skipped (no body)
+  - ConnectionMethod (type) -> skipped (no body)
+  - ConnectionParams (type) -> skipped (no body)
+  - DataSourceType (type) -> skipped (no body)
+  - DataTier (type) -> skipped (no body)
+
+src\lib\dailyDos.test.ts
+
+src\lib\dailyDos.ts
+  = getDailyDos (function) -> already annotated
+  = isDailyDoUnlocked (function) -> already annotated
+
+src\lib\db\index.ts
+  = createDb (function) -> already annotated
+  - Database (type) -> skipped (no body)
+
+src\lib\theme\index.ts
+  = applyTheme (function) -> already annotated
+  = getDefaultTheme (function) -> already annotated
+  = parseThemeSettings (function) -> already annotated
+  - ThemeSettings (interface) -> skipped (no body)
+
+src\lib\validation\index.ts
+
+src\lib\validation\tools.ts
+  = validateToolData (function) -> already annotated
+  ? isObject (function) -> couldn't find declaration
+  ? isArray (function) -> couldn't find declaration
+  ? isString (function) -> couldn't find declaration
+  = isNumber (function) -> already annotated
+  = isBoolean (function) -> already annotated
+  = isStringOrNull (function) -> already annotated
+  = isNumberOrNull (function) -> already annotated
+  = validateListBuilder (function) -> already annotated
+  = validateSOAREDForm (function) -> already annotated
+  = validateSkillTagger (function) -> already annotated
+  = validateRankingGrid (function) -> already annotated
+  = validateFlowTracker (function) -> already annotated
+  = validateLifeDashboard (function) -> already annotated
+  = validateFailureReframer (function) -> already annotated
+  = validateBucketingTool (function) -> already annotated
+  = validateMBTISelector (function) -> already annotated
+  = validateBudgetCalculator (function) -> already annotated
+  = validateIdeaTree (function) -> already annotated
+  = validateMindsetProfiles (function) -> already annotated
+  = validateCareerTimeline (function) -> already annotated
+  = validateCareerAssessment (function) -> already annotated
+  = validateCompetencyAssessment (function) -> already annotated
+  - ValidationResult (type) -> skipped (no body)
+
+src\middleware.ts
+  = middleware (function) -> already annotated
+
+src\test\setup.ts
+  = MockIntersectionObserver (class) -> already annotated
+  = MockResizeObserver (class) -> already annotated
+
+src\types\database.ts
+  - User (interface) -> skipped (no body)
+  - Auth (interface) -> skipped (no body)
+  - Email (interface) -> skipped (no body)
+  - Session (interface) -> skipped (no body)
+  - UserSettings (interface) -> skipped (no body)
+  - UserModule (interface) -> skipped (no body)
+  - UserProfile (interface) -> skipped (no body)
+  - UserValues (interface) -> skipped (no body)
+  - UserSkill (interface) -> skipped (no body)
+  - UserStory (interface) -> skipped (no body)
+  - UserExperience (interface) -> skipped (no body)
+  - UserExperienceSkill (interface) -> skipped (no body)
+  - UserLocation (interface) -> skipped (no body)
+  - UserCareerOption (interface) -> skipped (no body)
+  - UserBudget (interface) -> skipped (no body)
+  - UserFlowLog (interface) -> skipped (no body)
+  - UserCompany (interface) -> skipped (no body)
+  - UserContact (interface) -> skipped (no body)
+  - UserJob (interface) -> skipped (no body)
+  - UserIdeaTree (interface) -> skipped (no body)
+  - UserIdeaNode (interface) -> skipped (no body)
+  - UserIdeaEdge (interface) -> skipped (no body)
+  - UserCompetencyScore (interface) -> skipped (no body)
+  - UserResponse (interface) -> skipped (no body)
+  - UserList (interface) -> skipped (no body)
+  - UserListItem (interface) -> skipped (no body)
+  - UserChecklist (interface) -> skipped (no body)
+  - Stem (interface) -> skipped (no body)
+  - ContentBlock (interface) -> skipped (no body)
+  - Prompt (interface) -> skipped (no body)
+  - Tool (interface) -> skipped (no body)
+  - Connection (interface) -> skipped (no body)
+  - DataObject (interface) -> skipped (no body)
+  - OngoingPractice (interface) -> skipped (no body)
+  - PersonalityType (interface) -> skipped (no body)
+  - Competency (interface) -> skipped (no body)
+  - CompetencyLevel (interface) -> skipped (no body)
+  - Skill (interface) -> skipped (no body)
+  - Reference (interface) -> skipped (no body)
+  - ContentSource (interface) -> skipped (no body)
+  - Env (interface) -> skipped (no body)
+  - CloudflareEnv (interface) -> skipped (no body)
+  - SkillCategory (type) -> skipped (no body)
+  - StoryType (type) -> skipped (no body)
+  - ExperienceType (type) -> skipped (no body)
+  - BlockType (type) -> skipped (no body)
+  - ContentType (type) -> skipped (no body)
+  - InputType (type) -> skipped (no body)
+  - ReminderFrequency (type) -> skipped (no body)
+  - ConnectionType (type) -> skipped (no body)
+  - CompetencyCategory (type) -> skipped (no body)
+  - ReviewStatus (type) -> skipped (no body)
+  - UsageType (type) -> skipped (no body)
+
+Summary: 184 files, 0 annotated, 0 created, 711 skipped
+
+=== Deep Annotation ===
+Deep annotating 184 files...
+
+src\app\(auth)\login\page.tsx
+
+src\app\(auth)\signup\page.tsx
+
+src\app\about\page.tsx
+
+src\app\admin\errors\page.tsx
+
+src\app\admin\exercises\page.tsx
+
+src\app\admin\funnel\page.tsx
+
+src\app\admin\page.tsx
+
+src\app\admin\tools\page.tsx
+
+src\app\api\analytics\track\route.ts
+
+src\app\api\auth\login\route.ts
+
+src\app\api\auth\logout\route.ts
+
+src\app\api\auth\signup\route.ts
+
+src\app\api\data\competencies\route.ts
+
+src\app\api\data\connection\route.ts
+src\app\api\data\skills\route.ts
+
+src\app\api\onboarding\route.ts
+src\app\api\profile\export\route.ts
+src\app\api\profile\route.ts
+
+src\app\api\tools\counts\route.ts
+src\app\api\tools\instances\route.ts
+src\app\api\workbook\progress\route.ts
+src\app\api\workbook\response\route.ts
+src\app\api\workbook\route.ts
+src\app\layout.tsx
+
+src\app\onboarding\page.tsx
+
+src\app\page.tsx
+
+src\app\profile\page.tsx
+    + nested: handleNavigate (callback) -> code_id:494
+
+src\app\skills\page.tsx
+
+src\app\tools\[toolType]\page.tsx
+    + nested: handleNavigate (callback) -> code_id:495
+    + nested: handleBack (arrow) -> code_id:0
+    + nested: handleCreateNew (arrow) -> code_id:0
+    + nested: handleSelectInstance (arrow) -> code_id:0
+    + nested: handleBack (arrow) -> code_id:0
+    + nested: handleCreateNew (arrow) -> code_id:0
+    + nested: handleSelectInstance (arrow) -> code_id:0
+
+src\app\tools\page.tsx
+    + nested: handleNavigate (callback) -> code_id:502
+    + nested: handleToolClick (arrow) -> code_id:0
+    + nested: handleToolClick (arrow) -> code_id:0
+
+src\app\workbook\[exerciseId]\page.tsx
+
+src\app\workbook\page.tsx
+
+src\app\workbook\WorkbookClient.tsx
+
+src\components\conversation\ConversationThread.test.tsx
+
+src\components\conversation\ConversationThread.tsx
+    + nested: handleScroll (arrow) -> code_id:0
+    + nested: handleScroll (arrow) -> code_id:0
+
+src\components\conversation\Divider.tsx
+
+src\components\conversation\index.ts
+src\components\conversation\MessageContent.test.tsx
+src\components\conversation\MessageContent.tsx
+    + nested: handleBlockComplete (arrow) -> code_id:0
+    + nested: renderText (arrow) -> code_id:0
+    + nested: handleBlockComplete (arrow) -> code_id:0
+    + nested: handleClick (callback) -> code_id:510
+    + nested: handleNaturalComplete (callback) -> code_id:511
+    + nested: renderText (arrow) -> code_id:0
+
+src\components\conversation\MessageUser.tsx
+    + nested: handleClick (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleClick (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\conversation\Timestamp.tsx
+
+src\components\conversation\types.ts
+src\components\conversation\TypingEffect.test.tsx
+    + nested: advanceFrames (arrow) -> code_id:0
+
+src\components\conversation\TypingEffect.tsx
+    + nested: animate (arrow) -> code_id:0
+    + nested: animate (arrow) -> code_id:0
+
+src\components\dashboard\DailyDoCard.test.tsx
+
+src\components\dashboard\DailyDoCard.tsx
+
+src\components\dashboard\DailyDoList.test.tsx
+src\components\dashboard\DailyDoList.tsx
+
+src\components\dashboard\DashboardGreeting.tsx
+
+src\components\dashboard\DashboardPage.tsx
+    + nested: handleNavigate (callback) -> code_id:520
+    + nested: handleTOCNavigate (callback) -> code_id:521
+
+src\components\dashboard\index.ts
+src\components\dashboard\ProfilePreview.tsx
+
+src\components\dashboard\ProgressMetric.tsx
+
+src\components\dashboard\ProgressMetrics.tsx
+
+src\components\dashboard\TOCInline.tsx
+    + nested: togglePart (arrow) -> code_id:0
+    + nested: togglePart (arrow) -> code_id:0
+
+src\components\dashboard\TOCInlineExercise.tsx
+    + nested: handleClick (arrow) -> code_id:0
+    + nested: handleClick (arrow) -> code_id:0
+
+src\components\dashboard\TOCInlineModule.tsx
+
+src\components\dashboard\TOCInlinePart.tsx
+
+src\components\dashboard\types.ts
+src\components\feedback\EmptyState.tsx
+
+src\components\feedback\ErrorBoundary.tsx
+    + nested: handleRetry (handler) -> code_id:526
+
+src\components\feedback\index.ts
+src\components\feedback\SaveIndicator.tsx
+
+src\components\feedback\Toast.tsx
+    + nested: startTimer (callback) -> code_id:0
+    + nested: pauseTimer (callback) -> code_id:0
+    + nested: resumeTimer (callback) -> code_id:0
+
+src\components\feedback\ToastContainer.tsx
+
+src\components\feedback\ToastContext.tsx
+    + nested: showToast (callback) -> code_id:530
+    + nested: dismissToast (callback) -> code_id:531
+    + nested: clearAllToasts (callback) -> code_id:532
+
+src\components\feedback\types.ts
+src\components\forms\Checkbox.tsx
+
+src\components\forms\CheckboxGroup.tsx
+    + nested: handleChange (arrow) -> code_id:0
+    + nested: handleChange (arrow) -> code_id:0
+
+src\components\forms\forms.test.tsx
+src\components\forms\index.ts
+src\components\forms\RadioGroup.tsx
+
+src\components\forms\Select.tsx
+    + nested: handleClickOutside (arrow) -> code_id:0
+    + nested: handleSelect (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleClickOutside (arrow) -> code_id:0
+    + nested: handleSelect (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\forms\Slider.tsx
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\forms\TextArea.tsx
+
+src\components\forms\TextInput.tsx
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\icons\index.tsx
+
+src\components\landing\index.ts
+src\components\landing\LandingPage.tsx
+
+src\components\onboarding\index.ts
+src\components\onboarding\OnboardingFlow.tsx
+    + nested: handleNameSubmit (callback) -> code_id:545
+    + nested: handleBackgroundSelect (callback) -> code_id:546
+    + nested: handleTextSelect (callback) -> code_id:547
+    + nested: handleFontSelect (callback) -> code_id:548
+    + nested: handleComplete (callback) -> code_id:549
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\onboarding\types.ts
+
+src\components\onboarding\VisualsStep.tsx
+
+src\components\overlays\Backdrop.tsx
+
+src\components\overlays\index.ts
+src\components\overlays\ProgressMarker.tsx
+
+src\components\overlays\TOCExercise.tsx
+    + nested: handleClick (arrow) -> code_id:0
+    + nested: handleClick (arrow) -> code_id:0
+
+src\components\overlays\TOCModule.tsx
+
+src\components\overlays\TOCPanel.tsx
+    + nested: handleKeyDown (callback) -> code_id:554
+
+src\components\overlays\TOCPart.tsx
+
+src\components\overlays\types.ts
+src\components\profile\DataControls.tsx
+
+src\components\profile\DataPolicyBanner.tsx
+
+src\components\profile\index.ts
+src\components\profile\ProfileHeader.tsx
+
+src\components\profile\ProfileSection.tsx
+
+src\components\profile\RankedList.tsx
+
+src\components\profile\SkillsList.tsx
+
+src\components\Providers.tsx
+
+src\components\shell\AppShell.tsx
+    + nested: checkMobile (arrow) -> code_id:0
+    + nested: handleNavigate (arrow) -> code_id:0
+    + nested: checkMobile (arrow) -> code_id:0
+    + nested: handleNavigate (arrow) -> code_id:0
+
+src\components\shell\Breadcrumb.tsx
+
+src\components\shell\Header.tsx
+    + nested: resetHideTimer (callback) -> code_id:559
+    + nested: handleScroll (arrow) -> code_id:0
+    + nested: handleMouseEnter (arrow) -> code_id:0
+    + nested: handleScroll (arrow) -> code_id:0
+    + nested: handleMouseEnter (arrow) -> code_id:0
+
+src\components\shell\index.ts
+src\components\shell\InputArea.tsx
+    + nested: handleChange (arrow) -> code_id:0
+    + nested: handleSubmit (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleChange (arrow) -> code_id:0
+    + nested: handleSubmit (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\shell\NavBar.tsx
+
+src\components\shell\NavItem.test.tsx
+src\components\shell\NavItem.tsx
+
+src\components\shell\types.ts
+src\components\skills\index.ts
+src\components\skills\SkillsPage.tsx
+    + nested: filteredSkills (callback) -> code_id:570
+    + nested: groupedSkills (callback) -> code_id:571
+
+src\components\tools\BucketingTool.tsx
+    + nested: handleDragStart (arrow) -> code_id:0
+    + nested: handleDragEnd (arrow) -> code_id:0
+    + nested: handleDrop (arrow) -> code_id:0
+    + nested: handleDragOver (arrow) -> code_id:0
+    + nested: moveItemToBucket (arrow) -> code_id:0
+    + nested: handleDragStart (arrow) -> code_id:0
+    + nested: handleDragEnd (arrow) -> code_id:0
+    + nested: handleDrop (arrow) -> code_id:0
+    + nested: handleDragOver (arrow) -> code_id:0
+    + nested: moveItemToBucket (arrow) -> code_id:0
+
+src\components\tools\BudgetCalculator.tsx
+    + nested: estimateTaxes (callback) -> code_id:582
+    + nested: updateIncome (arrow) -> code_id:0
+    + nested: updateYearlyIncome (arrow) -> code_id:0
+    + nested: updateExpense (arrow) -> code_id:0
+    + nested: addExpense (arrow) -> code_id:0
+    + nested: removeExpense (arrow) -> code_id:0
+    + nested: formatCurrency (arrow) -> code_id:0
+    + nested: updateIncome (arrow) -> code_id:0
+    + nested: updateYearlyIncome (arrow) -> code_id:0
+    + nested: updateExpense (arrow) -> code_id:0
+    + nested: addExpense (arrow) -> code_id:0
+    + nested: removeExpense (arrow) -> code_id:0
+    + nested: formatCurrency (arrow) -> code_id:0
+
+src\components\tools\CareerAssessment.tsx
+    + nested: addOption (arrow) -> code_id:0
+    + nested: setRank (arrow) -> code_id:0
+    + nested: updateOption (arrow) -> code_id:0
+    + nested: removeOption (arrow) -> code_id:0
+    + nested: addOption (arrow) -> code_id:0
+    + nested: setRank (arrow) -> code_id:0
+    + nested: updateOption (arrow) -> code_id:0
+    + nested: removeOption (arrow) -> code_id:0
+
+src\components\tools\CareerTimeline.tsx
+    + nested: getMilestonesForYearQuarter (arrow) -> code_id:0
+    + nested: addMilestone (arrow) -> code_id:0
+    + nested: removeMilestone (arrow) -> code_id:0
+    + nested: _updateMilestone (arrow) -> code_id:0
+    + nested: getMilestonesForYearQuarter (arrow) -> code_id:0
+    + nested: addMilestone (arrow) -> code_id:0
+    + nested: removeMilestone (arrow) -> code_id:0
+    + nested: _updateMilestone (arrow) -> code_id:0
+
+src\components\tools\CompetencyAssessment.tsx
+    + nested: groupedCompetencies (callback) -> code_id:611
+    + nested: averageByCategory (callback) -> code_id:612
+    + nested: setScore (arrow) -> code_id:0
+    + nested: setScore (arrow) -> code_id:0
+
+src\components\tools\FailureReframer.tsx
+    + nested: updateField (arrow) -> code_id:0
+    + nested: updateField (arrow) -> code_id:0
+
+src\components\tools\FlowTracker.tsx
+    + nested: todayEntries (callback) -> code_id:617
+    + nested: handleAddEntry (arrow) -> code_id:0
+    + nested: handleRemoveEntry (arrow) -> code_id:0
+    + nested: handleAddEntry (arrow) -> code_id:0
+    + nested: handleRemoveEntry (arrow) -> code_id:0
+
+src\components\tools\IdeaTree.tsx
+    + nested: currentStepIndex (callback) -> code_id:622
+    + nested: handleContinue (arrow) -> code_id:0
+    + nested: handleStartNew (arrow) -> code_id:0
+    + nested: handleContinue (arrow) -> code_id:0
+    + nested: handleStartNew (arrow) -> code_id:0
+
+src\components\tools\index.ts
+src\components\tools\LifeDashboard.tsx
+    + nested: updateField (arrow) -> code_id:0
+    + nested: updateField (arrow) -> code_id:0
+
+src\components\tools\ListBuilder.tsx
+    + nested: addItem (arrow) -> code_id:0
+    + nested: updateItem (arrow) -> code_id:0
+    + nested: removeItem (arrow) -> code_id:0
+    + nested: moveItem (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleDragStart (arrow) -> code_id:0
+    + nested: handleDragOver (arrow) -> code_id:0
+    + nested: handleDrop (arrow) -> code_id:0
+    + nested: handleDragEnd (arrow) -> code_id:0
+    + nested: addItem (arrow) -> code_id:0
+    + nested: updateItem (arrow) -> code_id:0
+    + nested: removeItem (arrow) -> code_id:0
+    + nested: moveItem (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleDragStart (arrow) -> code_id:0
+    + nested: handleDragOver (arrow) -> code_id:0
+    + nested: handleDrop (arrow) -> code_id:0
+    + nested: handleDragEnd (arrow) -> code_id:0
+    + nested: saveEdit (arrow) -> code_id:0
+    + nested: saveEdit (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:649
+
+src\components\tools\MBTISelector.tsx
+    + nested: filteredTypes (callback) -> code_id:650
+    + nested: handleInputChange (arrow) -> code_id:0
+    + nested: handleSelect (arrow) -> code_id:0
+    + nested: handleClickOutside (arrow) -> code_id:0
+    + nested: handleInputChange (arrow) -> code_id:0
+    + nested: handleSelect (arrow) -> code_id:0
+    + nested: handleClickOutside (arrow) -> code_id:0
+
+src\components\tools\MindsetProfiles.tsx
+    + nested: updateCharacter (arrow) -> code_id:0
+    + nested: updateCharacter (arrow) -> code_id:0
+
+src\components\tools\RankingGrid.tsx
+    + nested: getCurrentRanking (callback) -> code_id:659
+    + nested: getNextPair (callback) -> code_id:660
+    + nested: handleSelect (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleSelect (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\tools\SkillTagger.tsx
+    + nested: filteredSkills (callback) -> code_id:665
+    + nested: groupedSkills (callback) -> code_id:666
+    + nested: toggleSkill (arrow) -> code_id:0
+    + nested: toggleSkill (arrow) -> code_id:0
+
+src\components\tools\SOAREDForm.tsx
+    + nested: updateField (arrow) -> code_id:0
+    + nested: updateField (arrow) -> code_id:0
+
+src\components\tools\ToolInstanceCard.tsx
+
+src\components\tools\ToolPage.tsx
+
+src\components\tools\types.ts
+
+src\components\workbook\index.ts
+src\components\workbook\PromptInput.test.tsx
+src\components\workbook\PromptInput.tsx
+    + nested: handleSubmit (callback) -> code_id:671
+    + nested: isValid (callback) -> code_id:672
+    + nested: renderInput (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: renderInput (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+
+src\components\workbook\tool-wrappers\BucketingToolWrapper.tsx
+    + nested: getData (callback) -> code_id:677
+
+src\components\workbook\tool-wrappers\BudgetCalculatorWrapper.tsx
+    + nested: getData (callback) -> code_id:678
+
+src\components\workbook\tool-wrappers\CareerAssessmentWrapper.tsx
+    + nested: getData (callback) -> code_id:679
+
+src\components\workbook\tool-wrappers\CareerTimelineWrapper.tsx
+    + nested: getData (callback) -> code_id:680
+
+src\components\workbook\tool-wrappers\CompetencyAssessmentWrapper.tsx
+    + nested: getData (callback) -> code_id:681
+    + nested: handleRetry (callback) -> code_id:682
+
+src\components\workbook\tool-wrappers\FailureReframerWrapper.tsx
+    + nested: getData (callback) -> code_id:683
+
+src\components\workbook\tool-wrappers\FlowTrackerWrapper.tsx
+    + nested: getData (callback) -> code_id:684
+
+src\components\workbook\tool-wrappers\IdeaTreeWrapper.tsx
+    + nested: getData (callback) -> code_id:685
+
+src\components\workbook\tool-wrappers\index.ts
+src\components\workbook\tool-wrappers\LifeDashboardWrapper.tsx
+    + nested: getData (callback) -> code_id:686
+
+src\components\workbook\tool-wrappers\ListBuilderWrapper.tsx
+    + nested: getData (callback) -> code_id:687
+
+src\components\workbook\tool-wrappers\MBTISelectorWrapper.tsx
+    + nested: getData (callback) -> code_id:688
+
+src\components\workbook\tool-wrappers\MindsetProfilesWrapper.tsx
+    + nested: getData (callback) -> code_id:689
+
+src\components\workbook\tool-wrappers\RankingGridWrapper.tsx
+    + nested: handleCompare (callback) -> code_id:690
+    + nested: handleComplete (callback) -> code_id:691
+    + nested: getData (callback) -> code_id:692
+
+src\components\workbook\tool-wrappers\SkillTaggerWrapper.tsx
+    + nested: getData (callback) -> code_id:693
+    + nested: handleRetry (callback) -> code_id:694
+
+src\components\workbook\tool-wrappers\SOAREDFormWrapper.tsx
+    + nested: getData (callback) -> code_id:695
+
+src\components\workbook\tool-wrappers\types.ts
+src\components\workbook\ToolEmbed.test.tsx
+src\components\workbook\ToolEmbed.tsx
+    + nested: renderTool (arrow) -> code_id:0
+    + nested: renderTool (arrow) -> code_id:0
+
+src\components\workbook\types.ts
+src\components\workbook\WorkbookInputZone.test.tsx
+src\components\workbook\WorkbookInputZone.tsx
+
+src\components\workbook\WorkbookView.test.tsx
+
+src\components\workbook\WorkbookView.tsx
+    + nested: messages (callback) -> code_id:698
+    + nested: handleMessageAnimated (callback) -> code_id:699
+    + nested: handleContinue (callback) -> code_id:700
+    + nested: handleEditMessage (callback) -> code_id:701
+    + nested: handleExpandInputZone (callback) -> code_id:702
+    + nested: handleContentAreaClick (callback) -> code_id:703
+    + nested: handleScroll (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleNavigate (arrow) -> code_id:0
+    + nested: handleTocNavigate (arrow) -> code_id:0
+    + nested: getCollapsedLabel (arrow) -> code_id:0
+    + nested: handleScroll (arrow) -> code_id:0
+    + nested: handleKeyDown (arrow) -> code_id:0
+    + nested: handleNavigate (arrow) -> code_id:0
+    + nested: handleTocNavigate (arrow) -> code_id:0
+    + nested: getCollapsedLabel (arrow) -> code_id:0
+
+src\hooks\useApplyTheme.ts
+
+src\hooks\useToolSave.ts
+
+src\lib\analytics\index.ts
+src\lib\analytics\server.ts
+
+src\lib\analytics\track.ts
+
+src\lib\analytics\types.ts
+
+src\lib\auth\actions.ts
+
+src\lib\auth\encryption.ts
+
+src\lib\auth\index.ts
+src\lib\auth\password.ts
+
+src\lib\auth\pii.ts
+
+src\lib\auth\rate-limiter.ts
+
+src\lib\auth\session.ts
+
+src\lib\auth\with-auth.ts
+
+src\lib\connections\data-fetchers.ts
+
+src\lib\connections\index.ts
+src\lib\connections\resolver.test.ts
+
+src\lib\connections\resolver.ts
+
+src\lib\connections\types.ts
+src\lib\dailyDos.test.ts
+src\lib\dailyDos.ts
+
+src\lib\db\index.ts
+
+src\lib\theme\index.ts
+
+src\lib\validation\index.ts
+src\lib\validation\tools.ts
+
+src\middleware.ts
+
+src\test\setup.ts
+src\types\database.ts
+Deep: 220 nested, 3229 calls

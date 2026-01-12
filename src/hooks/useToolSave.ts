@@ -2,11 +2,19 @@
 
 import { useState, useRef, useEffect, useCallback } from 'react';
 
+interface ToolSaveResponse {
+  id: string;
+  updated: boolean;
+  newProgress: number;
+  nextBlock: unknown | null;
+  hasMore: boolean;
+}
+
 interface UseToolSaveOptions {
   toolId: number;
   exerciseId: string;
   getData: () => unknown;
-  onComplete: () => void;
+  onComplete: (data: ToolSaveResponse) => void;
 }
 
 interface UseToolSaveResult {
@@ -65,7 +73,8 @@ export function useToolSave({
         throw new Error('Failed to save tool data');
       }
 
-      onComplete();
+      const data: ToolSaveResponse = await response.json();
+      onComplete(data);
     } catch (err) {
       console.error('Error saving tool:', err);
       // IMP-025: Differentiate error types

@@ -503,8 +503,10 @@ def cmd_tree(args: argparse.Namespace) -> int:
 
 def print_tree(node: Dict[str, Any], direction: str, prefix: str = "", is_last: bool = True) -> None:
     """Recursively print a call tree."""
-    # Print current node
-    connector = "└── " if is_last else "├── "
+    # Use ASCII characters for compatibility
+    connector = "`-- " if is_last else "|-- "
+    continuation = "    " if is_last else "|   "
+
     if prefix == "":
         # Root node
         ext = f" ({node.get('type', '?')})" if node.get('type') else ""
@@ -517,7 +519,7 @@ def print_tree(node: Dict[str, Any], direction: str, prefix: str = "", is_last: 
 
     # Print children
     children = node.get('children', [])
-    new_prefix = prefix + ("    " if is_last else "│   ")
+    new_prefix = prefix + continuation
     for i, child in enumerate(children):
         is_child_last = i == len(children) - 1
         print_tree(child, direction, new_prefix, is_child_last)
