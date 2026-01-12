@@ -111,7 +111,7 @@ export interface FlowTrackerData {
 }
 
 // Helper to determine if an activity is "high flow"
-export function isHighFlowActivity(entry: FlowEntry): boolean {
+export function isHighFlowActivity(entry: FlowEntry): boolean { // code_id:354
   return entry.energy >= 1 && entry.focus >= 4;
 }
 
@@ -235,7 +235,7 @@ export interface BudgetData {
  * This is used when persisting budget data to the database or passing to connections.
  * All monetary values are stored as cents (integers) to avoid floating point precision issues.
  */
-export function toBudgetData(calculatorData: BudgetCalculatorData): BudgetData {
+export function toBudgetData(calculatorData: BudgetCalculatorData): BudgetData { // code_id:357
   const monthlyExpenses = calculatorData.expenses.reduce((sum, e) => sum + e.amount, 0);
   const annualNeeds = monthlyExpenses * 12;
   // Standard work year: 52 weeks × 40 hours = 2080 hours
@@ -313,7 +313,7 @@ export interface IdeaTreeDBData {
 /**
  * Convert flat IdeaTreeData (UI format) to IdeaTreeDBData (database format)
  */
-export function toIdeaTreeDB(data: IdeaTreeData, treeId: string, treeName: string): IdeaTreeDBData {
+export function toIdeaTreeDB(data: IdeaTreeData, treeId: string, treeName: string): IdeaTreeDBData { // code_id:358
   const nodes: IdeaTreeNode[] = [];
   const edges: IdeaTreeEdge[] = [];
 
@@ -327,7 +327,7 @@ export function toIdeaTreeDB(data: IdeaTreeData, treeId: string, treeName: strin
 
   // Root node
   const rootId = createNode(data.rootIdea, 'root', 0);
-  if (!rootId) {
+  if (!rootId) { // code_id:361
     return { treeId, treeName, nodes: [], edges: [], rootNodeId: '' };
   }
 
@@ -376,7 +376,7 @@ export function toIdeaTreeDB(data: IdeaTreeData, treeId: string, treeName: strin
 /**
  * Convert IdeaTreeDBData (database format) to flat IdeaTreeData (UI format)
  */
-export function fromIdeaTreeDB(dbData: IdeaTreeDBData): IdeaTreeData {
+export function fromIdeaTreeDB(dbData: IdeaTreeDBData): IdeaTreeData { // code_id:359
   const emptyData = getDefaultIdeaTreeData();
 
   if (!dbData.rootNodeId || dbData.nodes.length === 0) {
@@ -447,7 +447,7 @@ export function fromIdeaTreeDB(dbData: IdeaTreeDBData): IdeaTreeData {
 }
 
 // Helper to create empty IdeaTreeData
-export function getDefaultIdeaTreeData(): IdeaTreeData {
+export function getDefaultIdeaTreeData(): IdeaTreeData { // code_id:360
   return {
     rootIdea: '',
     layer1: ['', '', ''],

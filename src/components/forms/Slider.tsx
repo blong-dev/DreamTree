@@ -24,12 +24,12 @@ export function Slider({
   label,
   disabled = false,
   id,
-}: SliderProps) {
+}: SliderProps) { // code_id:211
   const generatedId = useId();
   const sliderId = id || generatedId;
   const labelId = `${sliderId}-label`;
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => { // code_id:212
     if (disabled) return;
 
     const currentValue = value ?? min;

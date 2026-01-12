@@ -46,8 +46,8 @@ export function LifeDashboard({
   onChange,
   disabled = false,
   readOnly = false,
-}: LifeDashboardProps) {
-  const updateField = (key: keyof LifeDashboardData, value: number | string | null) => {
+}: LifeDashboardProps) { // code_id:75
+  const updateField = (key: keyof LifeDashboardData, value: number | string | null) => { // code_id:322
     onChange({ ...data, [key]: value });
   };
 

@@ -9,7 +9,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import { ConnectionResolver, parseConnectionParams } from './resolver';
 
 // Mock D1 database
-function createMockDb() {
+function createMockDb() { // code_id:457
   const mockFirst = vi.fn();
   const mockAll = vi.fn();
   const mockBind = vi.fn();

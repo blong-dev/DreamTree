@@ -28,7 +28,7 @@ export async function getDataKeyFromSession(
     .bind(sessionId)
     .first();
 
-  if (!session?.data_key) {
+  if (!session?.data_key) { // code_id:425
     return null;
   }
 
@@ -55,7 +55,7 @@ export async function storeDataKeyInSession(
   db: D1Database,
   sessionId: string,
   dataKey: CryptoKey
-): Promise<void> {
+): Promise<void> { // code_id:426
   // Export the key to raw bytes
   const keyBytes = await crypto.subtle.exportKey('raw', dataKey);
   const keyBase64 = btoa(String.fromCharCode(...new Uint8Array(keyBytes)));
@@ -80,7 +80,7 @@ export async function unwrapDataKeyFromAuth(
     .bind(userId)
     .first();
 
-  if (!auth?.wrapped_data_key) {
+  if (!auth?.wrapped_data_key) { // code_id:427
     return null;
   }
 
@@ -108,7 +108,7 @@ export async function encryptPII(
   if (!plaintext) return null;
 
   const dataKey = await getDataKeyFromSession(db, sessionId);
-  if (!dataKey) {
+  if (!dataKey) { // code_id:428
     // No data key - return plaintext (graceful degradation)
     console.warn('No data key in session, storing plaintext');
     return plaintext;
@@ -129,7 +129,7 @@ export async function decryptPII(
   if (!encryptedOrPlain) return null;
 
   // Check if it's actually encrypted
-  if (!isEncrypted(encryptedOrPlain)) {
+  if (!isEncrypted(encryptedOrPlain)) { // code_id:429
     return encryptedOrPlain; // Return as-is (legacy plaintext)
   }
 
@@ -154,7 +154,7 @@ export async function decryptPIIBatch(
   const dataKey = await getDataKeyFromSession(db, sessionId);
   const result: Record<string, string | null> = {};
 
-  for (const [key, value] of Object.entries(fields)) {
+  for (const [key, value] of Object.entries(fields)) { // code_id:430
     if (!value) {
       result[key] = null;
       continue;

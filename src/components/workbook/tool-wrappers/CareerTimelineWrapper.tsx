@@ -9,7 +9,7 @@ export function CareerTimelineWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:370
   const [data, setData] = useState<CareerTimelineData>({
     milestones: [],
     startYear: new Date().getFullYear() - 10,

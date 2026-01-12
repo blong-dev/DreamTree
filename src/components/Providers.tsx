@@ -8,7 +8,7 @@ interface ProvidersProps {
   children: ReactNode;
 }
 
-export function Providers({ children }: ProvidersProps) {
+export function Providers({ children }: ProvidersProps) { // code_id:271
   return (
     <ErrorBoundary>
       <ToastProvider position="bottom-right">

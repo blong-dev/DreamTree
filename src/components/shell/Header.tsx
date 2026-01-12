@@ -12,7 +12,7 @@ export function Header({
   children,
   autoHide = true,
   hideDelay = 20000,
-}: HeaderProps) {
+}: HeaderProps) { // code_id:276
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
   const hideTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -32,7 +32,7 @@ export function Header({
   useEffect(() => {
     if (!autoHide) return;
 
-    const handleScroll = () => {
+    const handleScroll = () => { // code_id:277
       const currentScrollY = window.scrollY;
 
       if (currentScrollY < lastScrollY.current) {
@@ -57,7 +57,7 @@ export function Header({
     };
   }, [autoHide, resetHideTimer]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = () => { // code_id:278
     if (autoHide) {
       setIsVisible(true);
       resetHideTimer();

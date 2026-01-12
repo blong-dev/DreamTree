@@ -15,7 +15,7 @@ interface ErrorBoundaryState {
 }
 
 export class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
-  constructor(props: ErrorBoundaryProps) {
+  constructor(props: ErrorBoundaryProps) { // code_id:198
     super(props);
     this.state = { hasError: false, error: null };
   }

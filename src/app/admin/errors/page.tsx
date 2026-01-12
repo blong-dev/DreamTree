@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
  *
  * Recent error events for debugging.
  */
-export default async function ErrorsPage() {
+export default async function ErrorsPage() { // code_id:128
   const { env } = await getCloudflareContext();
   const db = env.DB;
 

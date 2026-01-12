@@ -28,7 +28,7 @@ export function RadioGroup({
   disabled = false,
   orientation = 'vertical',
   id,
-}: RadioGroupProps) {
+}: RadioGroupProps) { // code_id:206
   const generatedId = useId();
   const groupId = id || generatedId;
 

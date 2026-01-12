@@ -37,7 +37,7 @@ export function CareerTimeline({
   onChange,
   disabled = false,
   readOnly = false,
-}: CareerTimelineProps) {
+}: CareerTimelineProps) { // code_id:89
   const [isAddingMilestone, setIsAddingMilestone] = useState(false);
   const [newMilestone, setNewMilestone] = useState<Partial<TimelineMilestone>>({
     year: data.startYear,
@@ -47,13 +47,13 @@ export function CareerTimeline({
 
   const years = Array.from({ length: 5 }, (_, i) => data.startYear + i);
 
-  const getMilestonesForYearQuarter = (year: number, quarter: 1 | 2 | 3 | 4) => {
+  const getMilestonesForYearQuarter = (year: number, quarter: 1 | 2 | 3 | 4) => { // code_id:305
     return data.milestones.filter(
       (m) => m.year === year && m.quarter === quarter
     );
   };
 
-  const addMilestone = () => {
+  const addMilestone = () => { // code_id:306
     if (!newMilestone.title?.trim() || disabled || readOnly) return;
 
     const milestone: TimelineMilestone = {
@@ -80,7 +80,7 @@ export function CareerTimeline({
     setIsAddingMilestone(false);
   };
 
-  const removeMilestone = (id: string) => {
+  const removeMilestone = (id: string) => { // code_id:307
     onChange({
       ...data,
       milestones: data.milestones.filter((m) => m.id !== id),
@@ -88,7 +88,7 @@ export function CareerTimeline({
   };
 
   // Reserved for future inline editing feature
-  const _updateMilestone = (id: string, updates: Partial<TimelineMilestone>) => {
+  const _updateMilestone = (id: string, updates: Partial<TimelineMilestone>) => { // code_id:308
     onChange({
       ...data,
       milestones: data.milestones.map((m) =>

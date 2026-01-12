@@ -19,7 +19,7 @@ export function ProfileSection({
   editLink,
   lockedUntil,
   children,
-}: ProfileSectionProps) {
+}: ProfileSectionProps) { // code_id:268
   const isLocked = !!lockedUntil;
 
   return (

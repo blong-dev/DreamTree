@@ -31,7 +31,7 @@ const VALID_TARGET_TYPES = ['exercise', 'prompt', 'tool', 'page', 'api'];
  * Track an analytics event. Accepts events from authenticated and
  * unauthenticated users. Privacy-enforced: no content, metadata only.
  */
-export async function POST(request: NextRequest): Promise<NextResponse> {
+export async function POST(request: NextRequest): Promise<NextResponse> { // code_id:133
   try {
     const { env } = await getCloudflareContext();
     const db = env.DB;

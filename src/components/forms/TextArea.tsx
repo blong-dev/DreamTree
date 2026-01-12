@@ -32,7 +32,7 @@ export function TextArea({
   maxLength,
   showCount = false,
   id,
-}: TextAreaProps) {
+}: TextAreaProps) { // code_id:213
   const generatedId = useId();
   const textareaId = id || generatedId;
   const helperId = `${textareaId}-helper`;

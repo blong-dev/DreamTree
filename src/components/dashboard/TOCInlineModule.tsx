@@ -21,7 +21,7 @@ export function TOCInlineModule({
   partTitle,
   currentLocation,
   onNavigate,
-}: TOCInlineModuleProps) {
+}: TOCInlineModuleProps) { // code_id:195
   const isCurrentModule =
     currentLocation?.partId === partId &&
     currentLocation?.moduleId === module.id;

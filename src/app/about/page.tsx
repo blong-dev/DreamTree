@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { AcornIcon } from '@/components/icons';
 
-export default function AboutPage() {
+export default function AboutPage() { // code_id:127
   const router = useRouter();
 
   return (

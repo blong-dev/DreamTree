@@ -10,7 +10,7 @@ interface PromptInputProps {
   disabled?: boolean;
 }
 
-export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputProps) {
+export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputProps) { // code_id:11
   const [sliderValue, setSliderValue] = useState(
     prompt.inputConfig?.min !== undefined
       ? Math.floor((prompt.inputConfig.min + (prompt.inputConfig.max || 10)) / 2)
@@ -49,7 +49,7 @@ export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputP
     }
   }, [prompt.inputType, sliderValue, checkboxValue, checkboxGroupValue, radioValue, selectValue, onSubmit]);
 
-  const renderInput = () => {
+  const renderInput = () => { // code_id:365
     const config = prompt.inputConfig || {};
 
     switch (prompt.inputType) {
@@ -161,7 +161,7 @@ export function PromptInput({ prompt, onSubmit, disabled = false }: PromptInputP
 
   // Enter key to submit
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => { // code_id:366
       if (e.key === 'Enter' && !disabled && isValid()) {
         e.preventDefault();
         handleSubmit();

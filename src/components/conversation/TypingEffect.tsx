@@ -16,7 +16,7 @@ export function TypingEffect({
   onComplete,
   paused = false,
   skipToEnd = false,
-}: TypingEffectProps) {
+}: TypingEffectProps) { // code_id:38
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
 
@@ -56,7 +56,7 @@ export function TypingEffect({
     setDisplayedText('');
     setIsComplete(false);
 
-    const animate = (timestamp: number) => {
+    const animate = (timestamp: number) => { // code_id:178
       if (startTime === null) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const charIndex = Math.min(Math.floor(elapsed / speed), text.length);

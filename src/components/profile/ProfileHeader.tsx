@@ -25,7 +25,7 @@ interface ProfileHeaderProps {
   onEditAppearance?: () => void;
 }
 
-export function ProfileHeader({ name, backgroundColor, fontFamily, onEditAppearance }: ProfileHeaderProps) {
+export function ProfileHeader({ name, backgroundColor, fontFamily, onEditAppearance }: ProfileHeaderProps) { // code_id:267
   return (
     <header className="profile-header">
       <h1 className="profile-name">{name}</h1>

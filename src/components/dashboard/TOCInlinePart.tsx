@@ -19,7 +19,7 @@ export function TOCInlinePart({
   onToggle,
   currentLocation,
   onNavigate,
-}: TOCInlinePartProps) {
+}: TOCInlinePartProps) { // code_id:196
   const isLocked = part.status === 'locked';
 
   return (

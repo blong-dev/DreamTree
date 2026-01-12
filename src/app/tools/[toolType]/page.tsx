@@ -17,7 +17,7 @@ interface ToolInstancesResponse {
   instances: ToolInstanceData[];
 }
 
-export default function ToolTypePage() {
+export default function ToolTypePage() { // code_id:152
   const router = useRouter();
   const params = useParams();
   const toolType = params.toolType as ToolType;
@@ -28,7 +28,7 @@ export default function ToolTypePage() {
 
   // Fetch instances for this tool type
   useEffect(() => {
-    async function fetchInstances() {
+    async function fetchInstances() { // code_id:156
       try {
         const response = await fetch(`/api/tools/instances?toolType=${toolType}`);
         if (response.ok) {
@@ -63,16 +63,16 @@ export default function ToolTypePage() {
     [router]
   );
 
-  const handleBack = () => {
+  const handleBack = () => { // code_id:153
     router.push('/tools');
   };
 
-  const handleCreateNew = () => {
+  const handleCreateNew = () => { // code_id:154
     // For now, just show a message - creating new standalone tools would require additional UI
     alert('Creating new standalone tools is coming soon. For now, complete exercises in the workbook to create entries.');
   };
 
-  const handleSelectInstance = (id: string) => {
+  const handleSelectInstance = (id: string) => { // code_id:155
     // Navigate to view/edit the specific instance
     router.push(`/tools/${toolType}/${id}`);
   };

@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
  *
  * Detailed exercise metrics with sorting.
  */
-export default async function ExercisesPage() {
+export default async function ExercisesPage() { // code_id:129
   const { env } = await getCloudflareContext();
   const db = env.DB;
 

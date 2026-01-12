@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic';
  *
  * Shows completion funnel by part/module/exercise.
  */
-export default async function FunnelPage() {
+export default async function FunnelPage() { // code_id:130
   const { env } = await getCloudflareContext();
   const db = env.DB;
 

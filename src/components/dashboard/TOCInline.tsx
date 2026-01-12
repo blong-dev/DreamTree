@@ -11,7 +11,7 @@ interface TOCInlineProps {
   onNavigate: (location: BreadcrumbLocation) => void;
 }
 
-export function TOCInline({ parts, currentLocation, onNavigate }: TOCInlineProps) {
+export function TOCInline({ parts, currentLocation, onNavigate }: TOCInlineProps) { // code_id:191
   // Track which parts are expanded
   const [expandedParts, setExpandedParts] = useState<string[]>(() => {
     // Auto-expand current part or in-progress parts
@@ -24,7 +24,7 @@ export function TOCInline({ parts, currentLocation, onNavigate }: TOCInlineProps
       .map((p) => p.id);
   });
 
-  const togglePart = (partId: string) => {
+  const togglePart = (partId: string) => { // code_id:192
     setExpandedParts((prev) =>
       prev.includes(partId)
         ? prev.filter((id) => id !== partId)

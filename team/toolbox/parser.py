@@ -198,16 +198,17 @@ def migrate_bugs(bugs_md_path: str, dry_run: bool = False) -> Tuple[int, List[st
 # BOARD.MD PARSER
 # =============================================================================
 
-def parse_board_md(file_path: str, archived: bool = False) -> List[Dict[str, Any]]:
+def parse_board_md(file_path: str) -> List[Dict[str, Any]]:
     """
     Parse BOARD.md and extract messages.
 
     Messages format:
     ### [Author] Message Title — Date
     or
-    [timestamp] [author]: message
+    **[Author]** TOPIC
 
-    Returns list of dicts ready for messages table.
+    Returns list of dicts matching new messages schema:
+    - author, message_type, content, refs, mentions
     """
     content = Path(file_path).read_text(encoding="utf-8")
     messages = []
@@ -227,7 +228,6 @@ def parse_board_md(file_path: str, archived: bool = False) -> List[Dict[str, Any
         if header_match:
             author = header_match.group(1).strip()
             title = header_match.group(2).strip()
-            timestamp = header_match.group(3).strip() if header_match.group(3) else ""
 
             # Extract content (everything after header until next section)
             content_start = header_match.end()
@@ -236,74 +236,124 @@ def parse_board_md(file_path: str, archived: bool = False) -> List[Dict[str, Any
             # Clean up content - remove separator lines
             message_content = re.sub(r"^---+\s*$", "", message_content, flags=re.MULTILINE).strip()
 
-            if message_content:
+            if message_content or title:
+                full_content = f"**{title}**\n\n{message_content}" if title and message_content else title or message_content
+
+                # Extract mentions (@Name)
+                mentions = extract_mentions(full_content)
+
+                # Infer message type from content
+                message_type = infer_message_type(title, full_content)
+
+                # Extract refs (BUG-XXX, IMP-XXX references)
+                refs = extract_refs(full_content)
+
                 messages.append({
-                    "timestamp": timestamp or datetime.now().strftime("%Y-%m-%d"),
                     "author": normalize_author(author),
-                    "content": f"**{title}**\n\n{message_content}" if title else message_content,
-                    "tags": extract_tags(message_content),
-                    "archived": archived,
-                    "source_file": Path(file_path).name,
+                    "message_type": message_type,
+                    "content": full_content,
+                    "refs": refs,
+                    "mentions": mentions,
                 })
 
     return messages
 
 
 def normalize_author(author: str) -> str:
-    """Normalize author name to valid owner."""
+    """Normalize author name to valid VALID_AUTHORS."""
     author_map = {
         "fizz": "Fizz",
         "buzz": "Buzz",
         "pazz": "Pazz",
         "rizz": "Rizz",
-        "queen bee": "Queen Bee",
-        "queen": "Queen Bee",
+        "queen bee": "Queen",
+        "queen": "Queen",
     }
-    return author_map.get(author.lower(), author)
+    return author_map.get(author.lower(), "Queen")  # Default to Queen if unknown
 
 
-def extract_tags(content: str) -> List[str]:
+def extract_mentions(content: str) -> List[str]:
     """Extract @mentions from content."""
-    return re.findall(r"@(\w+)", content)
+    mentions = re.findall(r"@(\w+)", content)
+    # Normalize to @Name format
+    return [f"@{m.capitalize()}" for m in mentions]
+
+
+def infer_message_type(title: str, content: str) -> str:
+    """Infer message type from title and content patterns."""
+    title_lower = (title or "").lower()
+    content_lower = content.lower()
+
+    # Check for keywords indicating type
+    if any(word in title_lower for word in ["assign", "please", "fix", "implement", "add"]):
+        return "assignment"
+    if any(word in title_lower for word in ["question", "should we", "how do", "?"]):
+        return "question"
+    if any(word in title_lower for word in ["complete", "done", "fixed", "finished", "status"]):
+        return "status"
+    if any(word in title_lower for word in ["blocked", "blocker", "stuck", "waiting"]):
+        return "blocker"
+    if any(word in title_lower for word in ["review", "pr", "check"]):
+        return "review_request"
+    if any(word in title_lower for word in ["approved", "lgtm", "looks good"]):
+        return "approval"
+    if any(word in title_lower for word in ["correction", "actually", "update:"]):
+        return "correction"
+    if any(word in title_lower for word in ["announce", "fyi", "note", "heads up"]):
+        return "announcement"
+
+    # Check content for question marks
+    if "?" in content_lower[:200]:
+        return "question"
+
+    # Default to status for general updates
+    return "status"
+
+
+def extract_refs(content: str) -> Optional[Dict[str, Any]]:
+    """Extract bug/task references from content."""
+    refs = {}
+
+    # Find BUG-XXX or IMP-XXX references
+    bug_match = re.search(r"(BUG|IMP)-(\d+)", content)
+    if bug_match:
+        refs["bug_id"] = f"{bug_match.group(1)}-{bug_match.group(2)}"
+
+    # Find TASK-XXX references
+    task_match = re.search(r"TASK-(\d+)", content)
+    if task_match:
+        refs["task_id"] = f"TASK-{task_match.group(1)}"
+
+    return refs if refs else None
 
 
 def migrate_board(board_md_path: str, dry_run: bool = False) -> Tuple[int, List[str]]:
     """
-    Migrate messages from BOARD.md to the database.
+    Migrate messages from BOARD.md to the database using new schema.
     """
-    archived = "HISTORY" in board_md_path.upper()
-    messages = parse_board_md(board_md_path, archived=archived)
+    from .storage import store_message
+
+    messages = parse_board_md(board_md_path)
     stored_ids = []
 
-    conn = get_connection()
-    try:
-        for msg in messages:
-            if dry_run:
-                print(f"Would store message from {msg['author']}: {msg['content'][:50]}...")
-                stored_ids.append(str(len(stored_ids) + 1))
-            else:
-                import json
-                cursor = conn.execute(
-                    """
-                    INSERT INTO messages (timestamp, author, content, tags, archived, source_file)
-                    VALUES (?, ?, ?, ?, ?, ?)
-                    """,
-                    (
-                        msg["timestamp"],
-                        msg["author"],
-                        msg["content"],
-                        json.dumps(msg["tags"]),
-                        1 if msg["archived"] else 0,
-                        msg["source_file"],
-                    ),
+    for msg in messages:
+        if dry_run:
+            content_preview = msg['content'][:50].encode('ascii', 'replace').decode('ascii')
+            print(f"Would store [{msg['message_type']}] from {msg['author']}: {content_preview}...")
+            stored_ids.append(str(len(stored_ids) + 1))
+        else:
+            try:
+                msg_id = store_message(
+                    author=msg["author"],
+                    message_type=msg["message_type"],
+                    content=msg["content"],
+                    refs=msg["refs"],
+                    mentions=msg["mentions"],
                 )
-                stored_ids.append(str(cursor.lastrowid))
-                print(f"Stored message {cursor.lastrowid} from {msg['author']}")
-
-        if not dry_run:
-            conn.commit()
-    finally:
-        conn.close()
+                stored_ids.append(str(msg_id))
+                print(f"Stored message {msg_id} [{msg['message_type']}] from {msg['author']}")
+            except Exception as e:
+                print(f"Error storing message: {e}")
 
     return len(stored_ids), stored_ids
 

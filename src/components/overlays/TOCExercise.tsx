@@ -23,10 +23,10 @@ export function TOCExercise({
   isCurrent,
   onNavigate,
   onClose,
-}: TOCExerciseProps) {
+}: TOCExerciseProps) { // code_id:260
   const isLocked = exercise.status === 'locked';
 
-  const handleClick = () => {
+  const handleClick = () => { // code_id:261
     if (isLocked) return;
 
     onNavigate({

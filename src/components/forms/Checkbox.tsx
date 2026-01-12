@@ -19,7 +19,7 @@ export function Checkbox({
   description,
   disabled = false,
   id,
-}: CheckboxProps) {
+}: CheckboxProps) { // code_id:203
   const generatedId = useId();
   const checkboxId = id || generatedId;
 

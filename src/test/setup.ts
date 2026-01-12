@@ -24,7 +24,7 @@ Object.defineProperty(window, 'matchMedia', {
 
 // Mock IntersectionObserver for components that use it
 class MockIntersectionObserver {
-  observe = () => {};
+  observe = () => {}; // code_id:489
   unobserve = () => {};
   disconnect = () => {};
 }
@@ -36,7 +36,7 @@ Object.defineProperty(window, 'IntersectionObserver', {
 
 // Mock ResizeObserver for components that use it
 class MockResizeObserver {
-  observe = () => {};
+  observe = () => {}; // code_id:490
   unobserve = () => {};
   disconnect = () => {};
 }

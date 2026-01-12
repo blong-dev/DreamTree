@@ -21,7 +21,7 @@ function ContentBlockRenderer({
   animate: boolean;
   /** Called with wasSkipped=true if user clicked, false if animation completed naturally */
   onComplete?: (wasSkipped: boolean) => void;
-}) {
+}) { // code_id:32
   const [isSkipped, setIsSkipped] = useState(false);
   // Use ref to track completion state to avoid stale closures
   const hasCompletedRef = useRef(false);
@@ -42,7 +42,7 @@ function ContentBlockRenderer({
     }
   }, [onComplete]);
 
-  const renderText = (text: string) => {
+  const renderText = (text: string) => { // code_id:169
     if (animate && !isSkipped) {
       return (
         <TypingEffect
@@ -130,14 +130,14 @@ export function MessageContent({
   animate = true,
   onAnimationComplete,
   id,
-}: MessageContentProps) {
+}: MessageContentProps) { // code_id:31
   const generatedId = useId();
   const messageId = id || generatedId;
   const [currentBlockIndex, setCurrentBlockIndex] = useState(0);
   // Track if user skipped any block in this message (for passing to completion callback)
   const [userSkippedAny, setUserSkippedAny] = useState(false);
 
-  const handleBlockComplete = (wasSkipped: boolean) => {
+  const handleBlockComplete = (wasSkipped: boolean) => { // code_id:170
     if (wasSkipped) {
       setUserSkippedAny(true);
     }
@@ -154,7 +154,7 @@ export function MessageContent({
 
   // Get plain text for screen readers
   const getPlainText = (block: ContentBlock): string => {
-    switch (block.type) {
+    switch (block.type) { // code_id:171
       case 'paragraph':
       case 'heading':
       case 'emphasis':

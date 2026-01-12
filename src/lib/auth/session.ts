@@ -20,7 +20,7 @@ export interface SessionData {
 /**
  * Create a new anonymous user with session
  */
-export async function createAnonymousSession(db: D1Database): Promise<SessionData> {
+export async function createAnonymousSession(db: D1Database): Promise<SessionData> { // code_id:434
   const userId = nanoid();
   const sessionId = nanoid();
   const now = new Date().toISOString();
@@ -139,21 +139,21 @@ export async function getSessionData(
 /**
  * Delete a session (logout)
  */
-export async function deleteSession(db: D1Database, sessionId: string): Promise<void> {
+export async function deleteSession(db: D1Database, sessionId: string): Promise<void> { // code_id:436
   await db.prepare('DELETE FROM sessions WHERE id = ?').bind(sessionId).run();
 }
 
 /**
  * Create session cookie header
  */
-export function createSessionCookie(sessionId: string): string {
+export function createSessionCookie(sessionId: string): string { // code_id:437
   return `${SESSION_COOKIE_NAME}=${sessionId}; Path=/; HttpOnly; SameSite=Lax; Max-Age=${SESSION_MAX_AGE}; Secure`;
 }
 
 /**
  * Clear session cookie header
  */
-export function clearSessionCookie(): string {
+export function clearSessionCookie(): string { // code_id:438
   return `${SESSION_COOKIE_NAME}=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0; Secure`;
 }
 
@@ -164,7 +164,7 @@ export function getSessionIdFromCookie(cookieHeader: string | null): string | nu
   if (!cookieHeader) return null;
 
   const cookies = cookieHeader.split(';').reduce(
-    (acc, cookie) => {
+    (acc, cookie) => { // code_id:439
       const [key, value] = cookie.trim().split('=');
       acc[key] = value;
       return acc;

@@ -37,11 +37,11 @@ export function AppShell({
   hideContents = false,
   onNavigate,
   onBreadcrumbNavigate,
-}: AppShellProps) {
+}: AppShellProps) { // code_id:272
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    const checkMobile = () => {
+    const checkMobile = () => { // code_id:273
       setIsMobile(window.innerWidth < 1024);
     };
 
@@ -51,7 +51,7 @@ export function AppShell({
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  const handleNavigate = (id: NavItemId) => {
+  const handleNavigate = (id: NavItemId) => { // code_id:274
     onNavigate?.(id);
   };
 

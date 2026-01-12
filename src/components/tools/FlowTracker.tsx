@@ -48,14 +48,14 @@ export function FlowTracker({
   date = new Date(),
   disabled = false,
   readOnly = false,
-}: FlowTrackerProps) {
+}: FlowTrackerProps) { // code_id:73
   const [formData, setFormData] = useState<FormData>(initialFormData);
 
   const generateId = () => `flow-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 
   const todayStr = date.toISOString().split('T')[0];
 
-  const todayEntries = useMemo(() => {
+  const todayEntries = useMemo(() => { // code_id:313
     return data.entries.filter((entry) => entry.date === todayStr);
   }, [data.entries, todayStr]);
 
@@ -64,7 +64,7 @@ export function FlowTracker({
     formData.energy !== null &&
     formData.focus !== null;
 
-  const handleAddEntry = (e: React.FormEvent) => {
+  const handleAddEntry = (e: React.FormEvent) => { // code_id:314
     e.preventDefault();
     if (!isFormValid || disabled || readOnly) return;
 
@@ -85,7 +85,7 @@ export function FlowTracker({
     setFormData(initialFormData);
   };
 
-  const handleRemoveEntry = (entryId: string) => {
+  const handleRemoveEntry = (entryId: string) => { // code_id:315
     if (disabled || readOnly) return;
     onChange({
       ...data,
@@ -213,7 +213,7 @@ interface FlowTrackerEntryProps {
   disabled: boolean;
 }
 
-function FlowTrackerEntry({ entry, onRemove, disabled }: FlowTrackerEntryProps) {
+function FlowTrackerEntry({ entry, onRemove, disabled }: FlowTrackerEntryProps) { // code_id:316
   const isHighFlow = isHighFlowActivity(entry);
   const energyOption = ENERGY_OPTIONS.find((o) => o.value === entry.energy);
   const focusOption = FOCUS_OPTIONS.find((o) => o.value === entry.focus);
@@ -247,7 +247,7 @@ function FlowTrackerEntry({ entry, onRemove, disabled }: FlowTrackerEntryProps) 
   );
 }
 
-function XIcon() {
+function XIcon() { // code_id:317
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="18" y1="6" x2="6" y2="18" />

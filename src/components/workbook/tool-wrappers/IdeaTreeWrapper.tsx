@@ -9,7 +9,7 @@ export function IdeaTreeWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:374
   const [data, setData] = useState<IdeaTreeData>(getDefaultIdeaTreeData());
 
   const getData = useCallback(() => data, [data]);

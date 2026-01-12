@@ -37,7 +37,7 @@ const MessageRenderer = memo(function MessageRenderer({
   onEdit?: () => void;
   animate?: boolean;
   onAnimationComplete?: (wasSkipped: boolean) => void;
-}) {
+}) { // code_id:29
   switch (message.type) {
     case 'content':
       return (
@@ -86,7 +86,7 @@ export function ConversationThread({
   onLoadMore,
   hasMoreHistory = false,
   isLoadingHistory = false,
-}: ConversationThreadProps) {
+}: ConversationThreadProps) { // code_id:28
   const threadRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState<ScrollState>('at-current');
 
@@ -94,7 +94,7 @@ export function ConversationThread({
   const prevMessageCountRef = useRef(messages.length);
   const prevScrollHeightRef = useRef(0);
 
-  const handleScroll = () => {
+  const handleScroll = () => { // code_id:167
     if (!threadRef.current) return;
 
     const { scrollTop, scrollHeight, clientHeight } = threadRef.current;

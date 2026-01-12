@@ -30,7 +30,7 @@ interface SignupBody {
   password: string;
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(request: NextRequest) { // code_id:135
   try {
     const body: SignupBody = await request.json();
     const { email, password } = body;

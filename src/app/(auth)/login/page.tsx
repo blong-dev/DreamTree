@@ -4,14 +4,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { TextInput } from '@/components/forms';
 
-export default function LoginPage() {
+export default function LoginPage() { // code_id:123
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => { // code_id:124
     e.preventDefault();
     setError(null);
     setIsLoading(true);

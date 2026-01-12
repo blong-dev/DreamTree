@@ -38,7 +38,7 @@ export function CompetencyAssessment({
   competencies,
   disabled = false,
   readOnly = false,
-}: CompetencyAssessmentProps) {
+}: CompetencyAssessmentProps) { // code_id:93
   const groupedCompetencies = useMemo(() => {
     const groups: Record<CompetencyCategory, Competency[]> = {
       delivery: [],
@@ -58,7 +58,7 @@ export function CompetencyAssessment({
     return found?.score ?? null;
   };
 
-  const setScore = (competencyId: string, score: number) => {
+  const setScore = (competencyId: string, score: number) => { // code_id:309
     if (disabled || readOnly) return;
 
     const existingIndex = data.scores.findIndex(
@@ -93,7 +93,7 @@ export function CompetencyAssessment({
       return found?.score ?? null;
     };
 
-    CATEGORY_ORDER.forEach((category) => {
+    CATEGORY_ORDER.forEach((category) => { // code_id:311
       const categoryCompetencies = groupedCompetencies[category];
       const categoryScores = categoryCompetencies
         .map((c) => lookupScore(c.id))

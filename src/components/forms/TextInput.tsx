@@ -28,12 +28,12 @@ export function TextInput({
   autoFocus = false,
   maxLength,
   id,
-}: TextInputProps) {
+}: TextInputProps) { // code_id:214
   const generatedId = useId();
   const inputId = id || generatedId;
   const helperId = `${inputId}-helper`;
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => { // code_id:215
     if (e.key === 'Enter') {
       onSubmit?.();
     }

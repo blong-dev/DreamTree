@@ -10,7 +10,7 @@ export function ListBuilderWrapper({
   exerciseId,
   connectionId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:376
   const [items, setItems] = useState<ListItem[]>([]);
 
   // Fetch connected data if provided

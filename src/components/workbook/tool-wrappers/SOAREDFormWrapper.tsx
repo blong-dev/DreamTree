@@ -20,7 +20,7 @@ export function SOAREDFormWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:381
   const [data, setData] = useState<SOAREDStoryData>(DEFAULT_SOARED_DATA);
 
   const getData = useCallback(() => data, [data]);

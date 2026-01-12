@@ -33,7 +33,7 @@ export function Select({
   disabled = false,
   searchable = false,
   id,
-}: SelectProps) {
+}: SelectProps) { // code_id:207
   const generatedId = useId();
   const selectId = id || generatedId;
   const labelId = `${selectId}-label`;
@@ -53,7 +53,7 @@ export function Select({
 
   // Close on outside click
   useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
+    const handleClickOutside = (e: MouseEvent) => { // code_id:208
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setIsOpen(false);
         setSearchQuery('');
@@ -71,13 +71,13 @@ export function Select({
     }
   }, [isOpen, searchable]);
 
-  const handleSelect = (optionValue: string) => {
+  const handleSelect = (optionValue: string) => { // code_id:209
     onChange(optionValue);
     setIsOpen(false);
     setSearchQuery('');
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent) => { // code_id:210
     switch (e.key) {
       case 'Enter':
       case ' ':

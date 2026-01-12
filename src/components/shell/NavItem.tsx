@@ -22,7 +22,7 @@ export function NavItem({
   badge,
   hasExpansion = false,
   onClick,
-}: NavItemProps) {
+}: NavItemProps) { // code_id:284
   void _id; // Used for external tracking/analytics
   return (
     <button

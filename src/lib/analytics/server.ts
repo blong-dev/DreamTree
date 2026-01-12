@@ -33,7 +33,7 @@ export async function trackServer(
   db: D1Database,
   eventType: AnalyticsEventType,
   options: TrackServerOptions = {}
-): Promise<string> {
+): Promise<string> { // code_id:391
   // Validate event data (privacy enforcement)
   if (options.data && !validateEventData(options.data)) {
     throw new Error('Invalid event data: contains disallowed keys');
@@ -81,7 +81,7 @@ export async function queryEvents(
     limit?: number;
     offset?: number;
   } = {}
-): Promise<AnalyticsEvent[]> {
+): Promise<AnalyticsEvent[]> { // code_id:392
   const conditions: string[] = [];
   const params: (string | number)[] = [];
 
@@ -155,7 +155,7 @@ export async function countEventsByType(
     .all();
 
   const counts: Record<string, number> = {};
-  for (const row of result.results || []) {
+  for (const row of result.results || []) { // code_id:393
     const r = row as { event_type: string; count: number };
     counts[r.event_type] = r.count;
   }
@@ -169,7 +169,7 @@ export async function countUniqueUsers(
   db: D1Database,
   startDate: string,
   endDate: string
-): Promise<number> {
+): Promise<number> { // code_id:394
   const result = await db
     .prepare(
       `
@@ -268,7 +268,7 @@ export async function getToolUsage(
 export async function purgeOldEvents(
   db: D1Database,
   retentionDays: number = 90
-): Promise<number> {
+): Promise<number> { // code_id:397
   const cutoffDate = new Date();
   cutoffDate.setDate(cutoffDate.getDate() - retentionDays);
   const cutoffIso = cutoffDate.toISOString();

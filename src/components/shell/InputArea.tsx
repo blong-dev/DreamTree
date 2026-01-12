@@ -24,22 +24,22 @@ export function InputArea({
   collapsed = false,
   onExpand,
   disabled = false,
-}: InputAreaProps) {
+}: InputAreaProps) { // code_id:279
   const [localValue, setLocalValue] = useState(value);
 
-  const handleChange = (newValue: string) => {
+  const handleChange = (newValue: string) => { // code_id:280
     setLocalValue(newValue);
     onChange?.(newValue);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = () => { // code_id:281
     if (localValue.trim() && !disabled) {
       onSubmit?.(localValue);
       setLocalValue('');
     }
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => { // code_id:282
     if (e.key === 'Enter' && !e.shiftKey && type === 'text') {
       e.preventDefault();
       handleSubmit();

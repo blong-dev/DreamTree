@@ -18,7 +18,7 @@ import type { BackgroundColorId, TextColorId, FontFamilyId } from '@/components/
 import { getValidTextColors } from '@/components/onboarding/types';
 
 // IMP-023: Inline fallback for section crashes
-function SectionErrorFallback() {
+function SectionErrorFallback() { // code_id:149
   return <p className="profile-placeholder">Unable to load this section.</p>;
 }
 
@@ -61,7 +61,7 @@ interface RankedItem {
   rank: number;
 }
 
-export default function ProfilePage() {
+export default function ProfilePage() { // code_id:146
   const router = useRouter();
   const { showToast } = useToast();
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('profile');
@@ -79,7 +79,7 @@ export default function ProfilePage() {
 
   // Fetch profile data from API
   useEffect(() => {
-    async function fetchProfile() {
+    async function fetchProfile() { // code_id:150
       try {
         const response = await fetch('/api/profile');
         if (!response.ok) {
@@ -147,7 +147,7 @@ export default function ProfilePage() {
     [router]
   );
 
-  const handleDownloadData = async () => {
+  const handleDownloadData = async () => { // code_id:147
     try {
       const response = await fetch('/api/profile/export');
       if (!response.ok) {
@@ -170,7 +170,7 @@ export default function ProfilePage() {
     }
   };
 
-  const handleDeleteData = async () => {
+  const handleDeleteData = async () => { // code_id:148
     if (
       confirm(
         'Are you sure you want to delete all your data? This cannot be undone.'

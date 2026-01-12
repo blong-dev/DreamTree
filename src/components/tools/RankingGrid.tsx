@@ -21,7 +21,7 @@ export function RankingGrid({
   label,
   description,
   disabled = false,
-}: RankingGridProps) {
+}: RankingGridProps) { // code_id:71
   const [focusedSide, setFocusedSide] = useState<'left' | 'right'>('left');
   const [animatingPair, setAnimatingPair] = useState(false);
 
@@ -88,7 +88,7 @@ export function RankingGrid({
     }
   }, [isComplete, currentRanking, items.length, onComplete]);
 
-  const handleSelect = (winnerId: string, loserId: string) => {
+  const handleSelect = (winnerId: string, loserId: string) => { // code_id:344
     if (disabled || isComplete) return;
 
     setAnimatingPair(true);
@@ -98,7 +98,7 @@ export function RankingGrid({
     }, 200);
   };
 
-  const handleKeyDown = (e: KeyboardEvent) => {
+  const handleKeyDown = (e: KeyboardEvent) => { // code_id:345
     if (disabled || isComplete || !currentPair) return;
 
     switch (e.key) {
@@ -220,7 +220,7 @@ interface RankingPairProps {
   disabled: boolean;
 }
 
-function RankingPair({ item, onSelect, position, focused, disabled }: RankingPairProps) {
+function RankingPair({ item, onSelect, position, focused, disabled }: RankingPairProps) { // code_id:346
   return (
     <div className="ranking-pair" data-position={position}>
       <div className="ranking-pair-card" data-focused={focused}>
@@ -239,7 +239,7 @@ function RankingPair({ item, onSelect, position, focused, disabled }: RankingPai
   );
 }
 
-function CheckIcon() {
+function CheckIcon() { // code_id:347
   return (
     <svg
       width="24"

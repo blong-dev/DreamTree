@@ -17,7 +17,7 @@ import {
  * Shows key metrics: DAU, WAU, MAU, completion funnel, top drop-offs, tool usage.
  * Protected route - requires admin access.
  */
-export default async function AdminPage() {
+export default async function AdminPage() { // code_id:131
   const { env } = await getCloudflareContext();
   const db = env.DB;
 

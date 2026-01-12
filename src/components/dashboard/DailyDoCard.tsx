@@ -32,7 +32,7 @@ interface DailyDoCardProps {
   };
 }
 
-export function DailyDoCard({ type, title, subtitle, action }: DailyDoCardProps) {
+export function DailyDoCard({ type, title, subtitle, action }: DailyDoCardProps) { // code_id:181
   const Icon = dailyDoIcons[type];
 
   return (

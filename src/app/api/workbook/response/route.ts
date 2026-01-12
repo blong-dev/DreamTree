@@ -2,6 +2,7 @@
  * Workbook response API routes
  *
  * B2: Standardized to use withAuth pattern (AUDIT-001)
+ * Single Page Architecture: POST returns next block after save
  */
 
 import { NextResponse } from 'next/server';
@@ -19,6 +20,40 @@ const PII_TOOL_IDS = new Set([
   100020, // contact_tracker (name, email, phone, etc.)
 ]);
 
+interface StemRow {
+  id: number;
+  part: number;
+  module: number;
+  exercise: number;
+  activity: number;
+  sequence: number;
+  block_type: string;
+  content_id: number;
+  connection_id: number | null;
+  content_json: string;
+}
+
+interface BlockWithResponse {
+  id: number;
+  sequence: number;
+  exerciseId: string;
+  blockType: 'content' | 'prompt' | 'tool';
+  activityId: number;
+  connectionId: number | null;
+  content: {
+    id?: number;
+    type?: string;
+    text?: string;
+    promptText?: string;
+    inputType?: string;
+    inputConfig?: object;
+    name?: string;
+    description?: string;
+    instructions?: string;
+  };
+  response?: string | null;
+  responseId?: string | null;
+}
 
 interface SaveResponseRequest {
   promptId?: number;
@@ -104,6 +139,8 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
       .bind(userId, contentId, exerciseId)
       .first<{ id: string }>();
 
+    let finalResponseId: string;
+
     if (existing) {
       // Update existing response
       await db.raw
@@ -115,10 +152,7 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
         .bind(textToStore, now, existing.id)
         .run();
 
-      return NextResponse.json({
-        id: existing.id,
-        updated: true,
-      });
+      finalResponseId = existing.id;
     } else {
       // Insert new response with correct column
       if (isToolResponse) {
@@ -139,11 +173,108 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
           .run();
       }
 
-      return NextResponse.json({
-        id: responseId,
-        updated: false,
-      });
+      finalResponseId = responseId;
     }
+
+    // Find the sequence of the block that was just answered
+    const currentBlockResult = await db.raw
+      .prepare(`
+        SELECT sequence FROM stem
+        WHERE block_type = ? AND content_id = ? AND part <= 2
+        LIMIT 1
+      `)
+      .bind(isToolResponse ? 'tool' : 'prompt', contentId)
+      .first<{ sequence: number }>();
+
+    const currentSequence = currentBlockResult?.sequence || 0;
+
+    // Get total blocks count
+    const totalResult = await db.raw
+      .prepare('SELECT MAX(sequence) as total FROM stem WHERE part <= 2')
+      .first<{ total: number }>();
+    const totalBlocks = totalResult?.total || 0;
+
+    // If there's a next block, fetch it
+    let nextBlock: BlockWithResponse | null = null;
+    const nextSequence = currentSequence + 1;
+
+    if (nextSequence <= totalBlocks) {
+      const nextStemRow = await db.raw
+        .prepare(`
+          SELECT
+            s.id,
+            s.part,
+            s.module,
+            s.exercise,
+            s.activity,
+            s.sequence,
+            s.block_type,
+            s.content_id,
+            s.connection_id,
+            CASE s.block_type
+              WHEN 'content' THEN json_object(
+                'id', cb.id,
+                'type', cb.content_type,
+                'text', cb.content
+              )
+              WHEN 'prompt' THEN json_object(
+                'id', p.id,
+                'promptText', p.prompt_text,
+                'inputType', p.input_type,
+                'inputConfig', p.input_config
+              )
+              WHEN 'tool' THEN json_object(
+                'id', t.id,
+                'name', t.name,
+                'description', t.description,
+                'instructions', t.instructions
+              )
+            END as content_json
+          FROM stem s
+          LEFT JOIN content_blocks cb ON s.block_type = 'content' AND s.content_id = cb.id AND cb.is_active = 1
+          LEFT JOIN prompts p ON s.block_type = 'prompt' AND s.content_id = p.id AND p.is_active = 1
+          LEFT JOIN tools t ON s.block_type = 'tool' AND s.content_id = t.id AND t.is_active = 1
+          WHERE s.sequence = ? AND s.part <= 2
+        `)
+        .bind(nextSequence)
+        .first<StemRow>();
+
+      if (nextStemRow) {
+        let content: BlockWithResponse['content'] = {};
+        try {
+          content = JSON.parse(nextStemRow.content_json);
+          // Parse nested inputConfig if it's a string (from SQLite JSON)
+          const contentAny = content as Record<string, unknown>;
+          if (typeof contentAny.inputConfig === 'string') {
+            contentAny.inputConfig = JSON.parse(contentAny.inputConfig);
+          }
+        } catch {
+          content = {};
+        }
+
+        const nextExerciseId = `${nextStemRow.part}.${nextStemRow.module}.${nextStemRow.exercise}`;
+
+        nextBlock = {
+          id: nextStemRow.id,
+          sequence: nextStemRow.sequence,
+          exerciseId: nextExerciseId,
+          blockType: nextStemRow.block_type as 'content' | 'prompt' | 'tool',
+          activityId: nextStemRow.activity,
+          connectionId: nextStemRow.connection_id,
+          content,
+          response: null,
+          responseId: null,
+        };
+      }
+    }
+
+    return NextResponse.json({
+      id: finalResponseId,
+      updated: !!existing,
+      newProgress: currentSequence,
+      nextBlock,
+      hasMore: nextSequence < totalBlocks,
+    });
   } catch (error) {
     console.error('Error saving response:', error);
     return NextResponse.json(

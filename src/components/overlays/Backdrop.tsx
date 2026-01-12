@@ -5,7 +5,7 @@ interface BackdropProps {
   onClick: () => void;
 }
 
-export function Backdrop({ visible, onClick }: BackdropProps) {
+export function Backdrop({ visible, onClick }: BackdropProps) { // code_id:258
   if (!visible) return null;
 
   return (

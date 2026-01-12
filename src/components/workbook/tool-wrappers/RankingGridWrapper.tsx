@@ -10,7 +10,7 @@ export function RankingGridWrapper({
   exerciseId,
   connectionId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:379
   const [items, setItems] = useState<RankingItem[]>([]);
   const [comparisons, setComparisons] = useState<Comparison[]>([]);
 

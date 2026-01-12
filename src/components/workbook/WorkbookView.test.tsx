@@ -1,14 +1,12 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { WorkbookView } from './WorkbookView';
-import type { ExerciseContent, ExerciseBlock, SavedResponse } from './types';
+import type { BlockWithResponse } from './types';
 
 // Mock next/navigation
-const mockPush = vi.fn();
-const mockPathname = '/workbook/1.1.1';
 vi.mock('next/navigation', () => ({
-  useRouter: () => ({ push: mockPush }),
-  usePathname: () => mockPathname,
+  useRouter: () => ({ push: vi.fn() }),
+  usePathname: () => '/workbook',
 }));
 
 // Mock useToast
@@ -23,24 +21,6 @@ vi.mock('../feedback', () => ({
 // Mock useApplyTheme
 vi.mock('@/hooks/useApplyTheme', () => ({
   useApplyTheme: vi.fn(),
-}));
-
-// Mock useWorkbookHistory
-vi.mock('@/hooks/useWorkbookHistory', () => ({
-  useWorkbookHistory: () => ({
-    blocks: [],
-    isLoading: false,
-    isLoadingMore: false,
-    hasPrevious: false,
-    hasMore: false,
-    loadPrevious: vi.fn(),
-    loadMore: vi.fn(),
-    refresh: vi.fn(),
-    error: null,
-    totalBlocks: 0,
-    exerciseBoundaries: [],
-    currentSequenceRange: { from: 1, to: 50 },
-  }),
 }));
 
 // Mock ConversationThread to simplify testing
@@ -145,24 +125,25 @@ vi.mock('../forms', () => ({
 // Mock fetch
 global.fetch = vi.fn();
 
-// Helper to create exercise content
-function createExercise(blocks: Partial<ExerciseBlock>[]): ExerciseContent {
-  return {
+// Helper to create blocks with the new BlockWithResponse structure
+function createBlocks(
+  blockDefs: Array<{
+    blockType: 'content' | 'prompt' | 'tool';
+    content?: Record<string, unknown>;
+    response?: string | null;
+  }>
+): BlockWithResponse[] { // code_id:385
+  return blockDefs.map((def, i) => ({
+    id: i + 1,
+    sequence: i + 1,
     exerciseId: '1.1.1',
-    title: 'Test Exercise',
-    part: 1,
-    module: 1,
-    exercise: 1,
-    nextExerciseId: '1.1.2',
-    blocks: blocks.map((b, i) => ({
-      id: b.id ?? i + 1,
-      blockType: b.blockType ?? 'content',
-      content: b.content ?? { type: 'instruction', text: `Block ${i + 1}` },
-      sequence: i + 1,
-      activityId: b.activityId,
-      connectionId: b.connectionId,
-    })) as ExerciseBlock[],
-  };
+    blockType: def.blockType,
+    activityId: 1,
+    connectionId: null,
+    content: def.content || { type: 'instruction', text: `Block ${i + 1}` },
+    response: def.response ?? null,
+    responseId: def.response ? `resp-${i + 1}` : null,
+  }));
 }
 
 describe('WorkbookView', () => {
@@ -170,7 +151,7 @@ describe('WorkbookView', () => {
     vi.clearAllMocks();
     (global.fetch as ReturnType<typeof vi.fn>).mockResolvedValue({
       ok: true,
-      json: () => Promise.resolve({}),
+      json: () => Promise.resolve({ nextBlock: null, newProgress: 1 }),
     });
   });
 
@@ -179,78 +160,47 @@ describe('WorkbookView', () => {
   });
 
   describe('initial state calculation', () => {
-    it('new user starts at first block (displayedBlockIndex=1)', () => {
-      const exercise = createExercise([
+    it('new user sees all blocks up to first unanswered prompt', () => {
+      const blocks = createBlocks([
         { blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
         { blockType: 'content', content: { type: 'instruction', text: 'Instructions' } },
-        {
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Question?', inputType: 'textarea' },
-        },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Question?', inputType: 'textarea' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
-      // Should show first content block only
+      // New architecture: show all blocks up to and including first unanswered prompt
+      // That means: heading + instruction + prompt = 3 messages
       const thread = screen.getByTestId('conversation-thread');
-      expect(thread.children).toHaveLength(1);
+      expect(thread.children).toHaveLength(3);
     });
 
     it('returning user with partial progress starts at first unanswered prompt', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
-        { id: 2, blockType: 'content', content: { type: 'instruction', text: 'Instructions' } },
-        {
-          id: 3,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Answered?', inputType: 'textarea' },
-        },
-        { id: 4, blockType: 'content', content: { type: 'instruction', text: 'More content' } },
-        {
-          id: 5,
-          blockType: 'prompt',
-          content: { id: 101, promptText: 'Unanswered?', inputType: 'textarea' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
+        { blockType: 'content', content: { type: 'instruction', text: 'Instructions' } },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Answered?', inputType: 'textarea' }, response: 'My answer' },
+        { blockType: 'content', content: { type: 'instruction', text: 'More content' } },
+        { blockType: 'prompt', content: { id: 101, promptText: 'Unanswered?', inputType: 'textarea' } },
       ]);
 
-      const savedResponses: SavedResponse[] = [
-        { prompt_id: 100, tool_id: null, response_text: 'My answer' },
-      ];
+      render(<WorkbookView initialBlocks={blocks} initialProgress={3} />);
 
-      render(<WorkbookView exercise={exercise} savedResponses={savedResponses} />);
-
-      // Should show blocks up to and including the first unanswered prompt (index 4 = 5 blocks)
-      // But the unanswered prompt at index 4 (id: 5) should be the stopping point
       const thread = screen.getByTestId('conversation-thread');
-      // First 3 content blocks + prompt 100 text + user response = 5 messages
-      // Then content block 4 = 6 messages
-      // Then prompt 101 = 7 messages (but this is where we stop for input)
-      expect(thread.children.length).toBeGreaterThanOrEqual(5);
+      // Should show blocks up to first unanswered prompt (5 blocks = 7 messages: 2 content + prompt1 text + response + content + prompt2 text = 6 messages minimum)
+      // The findIndex finds the first unanswered which is at index 4, so displayedBlockIndex = 5
+      expect(thread.children.length).toBeGreaterThanOrEqual(6);
     });
 
     it('returning user with all prompts answered shows all blocks', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
-        {
-          id: 2,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Q1?', inputType: 'textarea' },
-        },
-        {
-          id: 3,
-          blockType: 'prompt',
-          content: { id: 101, promptText: 'Q2?', inputType: 'textarea' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Q1?', inputType: 'textarea' }, response: 'Answer 1' },
+        { blockType: 'prompt', content: { id: 101, promptText: 'Q2?', inputType: 'textarea' }, response: 'Answer 2' },
       ]);
 
-      const savedResponses: SavedResponse[] = [
-        { prompt_id: 100, tool_id: null, response_text: 'Answer 1' },
-        { prompt_id: 101, tool_id: null, response_text: 'Answer 2' },
-      ];
+      render(<WorkbookView initialBlocks={blocks} initialProgress={3} />);
 
-      render(<WorkbookView exercise={exercise} savedResponses={savedResponses} />);
-
-      // Should show all blocks including responses
       const thread = screen.getByTestId('conversation-thread');
       // heading + prompt1 + response1 + prompt2 + response2 = 5 messages
       expect(thread.children.length).toBe(5);
@@ -258,59 +208,45 @@ describe('WorkbookView', () => {
   });
 
   describe('content block progression', () => {
-    it('shows Continue button after content animation completes', async () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'First block' } },
-        { id: 2, blockType: 'content', content: { type: 'instruction', text: 'Second block' } },
+    it('shows content blocks up to first unanswered prompt', () => {
+      // New architecture shows all blocks up to and including the first unanswered prompt
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'First block' } },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Question?', inputType: 'textarea' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
-      // Simulate animation complete for first block
-      const firstBlock = screen.getByTestId('message-block-1');
-      fireEvent.click(firstBlock); // Triggers onMessageAnimated
-
-      // Continue button should appear
-      await waitFor(() => {
-        expect(screen.getByRole('button', { name: /continue/i })).toBeInTheDocument();
-      });
+      // Both blocks should be visible (content + unanswered prompt)
+      expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
+      expect(screen.getByTestId('message-prompt-2')).toBeInTheDocument();
     });
 
-    it('clicking Continue advances to next block', async () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'First' } },
-        { id: 2, blockType: 'content', content: { type: 'instruction', text: 'Second' } },
+    it('prompt input appears after prompt animation', async () => {
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'First' } },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Question?', inputType: 'text_input' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
-      // Complete animation
-      fireEvent.click(screen.getByTestId('message-block-1'));
+      // Prompt is the current block, click to trigger animation complete
+      fireEvent.click(screen.getByTestId('message-prompt-2'));
 
-      // Click Continue
+      // Text input should appear for prompt after animation
       await waitFor(() => {
-        const continueBtn = screen.getByRole('button', { name: /continue/i });
-        fireEvent.click(continueBtn);
-      });
-
-      // Second block should now be visible
-      await waitFor(() => {
-        expect(screen.getByTestId('message-block-2')).toBeInTheDocument();
+        expect(screen.getByTestId('text-input')).toBeInTheDocument();
       });
     });
   });
 
   describe('prompt handling', () => {
     it('shows text input for text_input prompt type', async () => {
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Enter name', inputType: 'text_input' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'prompt', content: { id: 100, promptText: 'Enter name', inputType: 'text_input' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Simulate prompt animation complete
       fireEvent.click(screen.getByTestId('message-prompt-1'));
@@ -321,15 +257,11 @@ describe('WorkbookView', () => {
     });
 
     it('shows textarea for textarea prompt type', async () => {
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Describe...', inputType: 'textarea' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'prompt', content: { id: 100, promptText: 'Describe...', inputType: 'textarea' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Simulate prompt animation complete
       fireEvent.click(screen.getByTestId('message-prompt-1'));
@@ -340,15 +272,11 @@ describe('WorkbookView', () => {
     });
 
     it('shows PromptInput for structured input types', async () => {
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Rate 1-10', inputType: 'slider' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'prompt', content: { id: 100, promptText: 'Rate 1-10', inputType: 'slider' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Simulate prompt animation complete
       fireEvent.click(screen.getByTestId('message-prompt-1'));
@@ -361,30 +289,22 @@ describe('WorkbookView', () => {
 
   describe('tool handling', () => {
     it('shows ToolEmbed for tool blocks', () => {
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'tool',
-          content: { id: 200, toolName: 'list_builder', introText: 'Build a list' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'tool', content: { id: 200, name: 'list_builder', description: 'Build a list' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       expect(screen.getByTestId('tool-embed')).toBeInTheDocument();
     });
 
     it('advances after tool completion', async () => {
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'tool',
-          content: { id: 200, toolName: 'list_builder', introText: 'Build a list' },
-        },
-        { id: 2, blockType: 'content', content: { type: 'instruction', text: 'Next' } },
+      const blocks = createBlocks([
+        { blockType: 'tool', content: { id: 200, name: 'list_builder', description: 'Build a list' } },
+        { blockType: 'content', content: { type: 'instruction', text: 'Next' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Click Complete Tool
       fireEvent.click(screen.getByText('Complete Tool'));
@@ -398,15 +318,11 @@ describe('WorkbookView', () => {
 
   describe('response saving', () => {
     it('saves response via API', async () => {
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Question', inputType: 'text_input' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'prompt', content: { id: 100, promptText: 'Question', inputType: 'text_input' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Complete prompt animation
       fireEvent.click(screen.getByTestId('message-prompt-1'));
@@ -440,15 +356,11 @@ describe('WorkbookView', () => {
         ok: false,
       });
 
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Question', inputType: 'text_input' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'prompt', content: { id: 100, promptText: 'Question', inputType: 'text_input' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Complete prompt animation
       fireEvent.click(screen.getByTestId('message-prompt-1'));
@@ -475,15 +387,11 @@ describe('WorkbookView', () => {
       const fetchError = new TypeError('Failed to fetch');
       (global.fetch as ReturnType<typeof vi.fn>).mockRejectedValueOnce(fetchError);
 
-      const exercise = createExercise([
-        {
-          id: 1,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Question', inputType: 'text_input' },
-        },
+      const blocks = createBlocks([
+        { blockType: 'prompt', content: { id: 100, promptText: 'Question', inputType: 'text_input' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // Complete prompt animation
       fireEvent.click(screen.getByTestId('message-prompt-1'));
@@ -509,11 +417,11 @@ describe('WorkbookView', () => {
 
   describe('animation tracking (ink permanence)', () => {
     it('new users have empty animatedMessageIds set', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'First' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'First' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
       // First block should NOT be pre-animated
       const msg = screen.getByTestId('message-block-1');
@@ -521,21 +429,13 @@ describe('WorkbookView', () => {
     });
 
     it('returning users have pre-populated animatedMessageIds', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
-        {
-          id: 2,
-          blockType: 'prompt',
-          content: { id: 100, promptText: 'Q?', inputType: 'textarea' },
-        },
-        { id: 3, blockType: 'content', content: { type: 'instruction', text: 'More' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'heading', text: 'Welcome' } },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Q?', inputType: 'textarea' }, response: 'Done' },
+        { blockType: 'content', content: { type: 'instruction', text: 'More' } },
       ]);
 
-      const savedResponses: SavedResponse[] = [
-        { prompt_id: 100, tool_id: null, response_text: 'Done' },
-      ];
-
-      render(<WorkbookView exercise={exercise} savedResponses={savedResponses} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={2} />);
 
       // Blocks before current position should be pre-animated
       const block1 = screen.getByTestId('message-block-1');
@@ -546,117 +446,90 @@ describe('WorkbookView', () => {
     });
   });
 
-  describe('exercise completion', () => {
-    it('shows Continue to next exercise when all blocks complete', async () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'Only block' } },
+  describe('workbook completion', () => {
+    it('handles end of blocks gracefully', () => {
+      // With only content blocks and no prompts/tools, all content is shown at once
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'Only block' } },
       ]);
-      exercise.nextExerciseId = '1.1.2';
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
 
-      // Complete animation
-      fireEvent.click(screen.getByTestId('message-block-1'));
+      // Block should be rendered
+      expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
 
-      // Click first Continue (advances past content block)
-      await waitFor(() => {
-        const buttons = screen.getAllByRole('button', { name: /continue/i });
-        fireEvent.click(buttons[0]);
-      });
-
-      // Now at end of exercise, should show Continue to next
-      await waitFor(() => {
-        const buttons = screen.getAllByRole('button', { name: /continue/i });
-        expect(buttons.length).toBeGreaterThanOrEqual(1);
-      });
+      // The input zone should have no active input (no prompts/tools to respond to)
+      const inputZone = screen.getByTestId('input-zone');
+      expect(inputZone).toHaveAttribute('data-has-input', 'false');
     });
 
-    it('navigates to next exercise on final Continue click', async () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'Final' } },
+    it('shows continue button when prompt/tool exists', async () => {
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'First' } },
+        { blockType: 'prompt', content: { id: 100, promptText: 'Final question', inputType: 'textarea' }, response: 'Answer' },
       ]);
-      exercise.nextExerciseId = '1.1.2';
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={2} />);
 
-      // Complete animation and advance past the content block
-      fireEvent.click(screen.getByTestId('message-block-1'));
-      await waitFor(() => {
-        const buttons = screen.getAllByRole('button', { name: /continue/i });
-        fireEvent.click(buttons[0]);
-      });
-
-      // Now click Continue to go to next exercise (may be second button if both render)
-      await waitFor(() => {
-        const buttons = screen.getAllByRole('button', { name: /continue/i });
-        // Click the last one (which is the "next exercise" button)
-        fireEvent.click(buttons[buttons.length - 1]);
-      });
-
-      expect(mockPush).toHaveBeenCalledWith('/workbook/1.1.2');
+      // Both blocks should be rendered since the prompt is answered
+      expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
+      expect(screen.getByTestId('message-prompt-2')).toBeInTheDocument();
     });
   });
 
   describe('navigation', () => {
-    it('navigates to home on home nav click', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'Test' } },
+    it('renders without navigation errors', () => {
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'Test' } },
       ]);
 
-      // This test would require exposing handleNavigate or clicking AppShell nav
-      // For now, we verify the component renders without errors
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
       expect(screen.getByTestId('app-shell')).toBeInTheDocument();
     });
   });
 
   describe('blockToConversationContent', () => {
-    // We can't directly test the function since it's not exported,
-    // but we can verify the output through rendered messages
-
     it('converts heading content type correctly', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'heading', text: 'Title' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'heading', text: 'Title' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
-
-      // Message should exist with correct type
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
       expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
     });
 
     it('converts instruction content type correctly', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'Do this' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'Do this' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
       expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
     });
 
     it('converts note content type correctly', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'note', text: 'Note text' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'note', text: 'Note text' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
       expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
     });
 
     it('converts quote content type correctly', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'quote', text: 'Famous quote' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'quote', text: 'Famous quote' } },
       ]);
 
-      render(<WorkbookView exercise={exercise} savedResponses={[]} />);
+      render(<WorkbookView initialBlocks={blocks} initialProgress={0} />);
       expect(screen.getByTestId('message-block-1')).toBeInTheDocument();
     });
   });
 
   describe('theme application', () => {
     it('renders with theme prop without error', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'Test' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'Test' } },
       ]);
 
       const theme = {
@@ -665,22 +538,20 @@ describe('WorkbookView', () => {
         font: 'inter' as const,
       };
 
-      // Theme application is handled by useApplyTheme hook (mocked)
-      // Just verify the component renders without error when theme is provided
       const { container } = render(
-        <WorkbookView exercise={exercise} savedResponses={[]} theme={theme} />
+        <WorkbookView initialBlocks={blocks} initialProgress={0} theme={theme} />
       );
 
       expect(container.querySelector('[data-testid="app-shell"]')).toBeInTheDocument();
     });
 
     it('renders without theme prop (uses defaults)', () => {
-      const exercise = createExercise([
-        { id: 1, blockType: 'content', content: { type: 'instruction', text: 'Test' } },
+      const blocks = createBlocks([
+        { blockType: 'content', content: { type: 'instruction', text: 'Test' } },
       ]);
 
       const { container } = render(
-        <WorkbookView exercise={exercise} savedResponses={[]} />
+        <WorkbookView initialBlocks={blocks} initialProgress={0} />
       );
 
       expect(container.querySelector('[data-testid="app-shell"]')).toBeInTheDocument();

@@ -46,8 +46,8 @@ export function CareerAssessment({
   onChange,
   disabled = false,
   readOnly = false,
-}: CareerAssessmentProps) {
-  const addOption = () => {
+}: CareerAssessmentProps) { // code_id:91
+  const addOption = () => { // code_id:300
     const newOption: CareerOption = {
       id: `option-${Date.now()}`,
       title: '',
@@ -62,7 +62,7 @@ export function CareerAssessment({
     onChange({ ...data, options: [...data.options, newOption] });
   };
 
-  const setRank = (optionId: string, rank: 1 | 2 | 3) => {
+  const setRank = (optionId: string, rank: 1 | 2 | 3) => { // code_id:301
     // Remove this rank from any other option, then set it on this one
     onChange({
       ...data,
@@ -73,7 +73,7 @@ export function CareerAssessment({
     });
   };
 
-  const updateOption = (id: string, updates: Partial<CareerOption>) => {
+  const updateOption = (id: string, updates: Partial<CareerOption>) => { // code_id:302
     onChange({
       ...data,
       options: data.options.map((opt) =>
@@ -82,7 +82,7 @@ export function CareerAssessment({
     });
   };
 
-  const removeOption = (id: string) => {
+  const removeOption = (id: string) => { // code_id:303
     onChange({
       ...data,
       options: data.options.filter((opt) => opt.id !== id),
@@ -101,7 +101,7 @@ export function CareerAssessment({
     return scores.reduce((a, b) => a + b, 0) / scores.length;
   };
 
-  const sortedOptions = [...data.options].sort((a, b) => {
+  const sortedOptions = [...data.options].sort((a, b) => { // code_id:304
     const scoreA = calculateOverallScore(a);
     const scoreB = calculateOverallScore(b);
     if (scoreA === null && scoreB === null) return 0;

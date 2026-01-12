@@ -9,7 +9,7 @@ export function MindsetProfilesWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:378
   const [data, setData] = useState<MindsetProfilesData>({
     selectedCharacters: {
       'curiosity': '',

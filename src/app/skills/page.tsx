@@ -16,7 +16,7 @@ interface UserSkillRow {
   skill_id: string;
 }
 
-export default async function SkillsRoute() {
+export default async function SkillsRoute() { // code_id:151
   const cookieStore = await cookies();
   const sessionId = cookieStore.get('dt_session')?.value;
 

@@ -4,7 +4,7 @@ interface TimestampProps {
   date: Date;
 }
 
-function formatTimestamp(date: Date): string {
+function formatTimestamp(date: Date): string { // code_id:176
   const now = new Date();
   const dayMs = 24 * 60 * 60 * 1000;
   const diff = now.getTime() - date.getTime();
@@ -28,7 +28,7 @@ function formatTimestamp(date: Date): string {
   });
 }
 
-export function Timestamp({ date }: TimestampProps) {
+export function Timestamp({ date }: TimestampProps) { // code_id:175
   return (
     <div className="timestamp" role="separator">
       <time dateTime={date.toISOString()}>{formatTimestamp(date)}</time>

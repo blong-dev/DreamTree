@@ -11,7 +11,7 @@ interface RankedListProps {
   emptyMessage?: string;
 }
 
-export function RankedList({ items, emptyMessage = 'No items yet' }: RankedListProps) {
+export function RankedList({ items, emptyMessage = 'No items yet' }: RankedListProps) { // code_id:269
   if (items.length === 0) {
     return <p className="ranked-list-empty">{emptyMessage}</p>;
   }

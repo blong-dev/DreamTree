@@ -22,7 +22,7 @@ export function TOCModule({
   currentLocation,
   onNavigate,
   onClose,
-}: TOCModuleProps) {
+}: TOCModuleProps) { // code_id:262
   const isCurrentModule =
     currentLocation?.partId === partId &&
     currentLocation?.moduleId === module.id;

@@ -28,7 +28,7 @@ interface UseApplyThemeOptions {
  *   font: userPreview.fontFamily,
  * });
  */
-export function useApplyTheme(options: UseApplyThemeOptions): void {
+export function useApplyTheme(options: UseApplyThemeOptions): void { // code_id:110
   const { backgroundColor, textColor, font } = options;
 
   useEffect(() => {

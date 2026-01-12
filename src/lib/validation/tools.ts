@@ -29,7 +29,7 @@ const TOOL_VALIDATORS: Record<string, (data: unknown) => ValidationResult> = {
 /**
  * Validate tool response data against schema
  */
-export function validateToolData(toolName: string, data: unknown): ValidationResult {
+export function validateToolData(toolName: string, data: unknown): ValidationResult { // code_id:465
   const validator = TOOL_VALIDATORS[toolName.toLowerCase().replace(/-/g, '_')];
 
   if (!validator) {
@@ -70,7 +70,7 @@ function isNumberOrNull(val: unknown): val is number | null {
 }
 
 // ListBuilder: { items: [{ id: string, value: string }] } or just array
-function validateListBuilder(data: unknown): ValidationResult {
+function validateListBuilder(data: unknown): ValidationResult { // code_id:469
   // Can be array directly or object with items property
   const items = isArray(data) ? data : (isObject(data) ? data.items : null);
 
@@ -95,7 +95,7 @@ function validateListBuilder(data: unknown): ValidationResult {
 }
 
 // SOAREDForm: { title, situation, obstacle, action, result, evaluation, discovery, storyType }
-function validateSOAREDForm(data: unknown): ValidationResult {
+function validateSOAREDForm(data: unknown): ValidationResult { // code_id:474
   if (!isObject(data)) {
     return { valid: false, error: 'SOAREDForm: expected object' };
   }
@@ -115,7 +115,7 @@ function validateSOAREDForm(data: unknown): ValidationResult {
 }
 
 // SkillTagger: { selectedSkillIds: string[] }
-function validateSkillTagger(data: unknown): ValidationResult {
+function validateSkillTagger(data: unknown): ValidationResult { // code_id:475
   if (!isObject(data)) {
     return { valid: false, error: 'SkillTagger: expected object' };
   }
@@ -134,7 +134,7 @@ function validateSkillTagger(data: unknown): ValidationResult {
 }
 
 // RankingGrid: { items: [...], comparisons: [...] }
-function validateRankingGrid(data: unknown): ValidationResult {
+function validateRankingGrid(data: unknown): ValidationResult { // code_id:476
   if (!isObject(data)) {
     return { valid: false, error: 'RankingGrid: expected object' };
   }
@@ -168,7 +168,7 @@ function validateRankingGrid(data: unknown): ValidationResult {
 }
 
 // FlowTracker: { entries: [{ id, date, activity, energy, focus, notes? }] }
-function validateFlowTracker(data: unknown): ValidationResult {
+function validateFlowTracker(data: unknown): ValidationResult { // code_id:477
   if (!isObject(data)) {
     return { valid: false, error: 'FlowTracker: expected object' };
   }
@@ -197,7 +197,7 @@ function validateFlowTracker(data: unknown): ValidationResult {
 }
 
 // LifeDashboard: { work, play, love, health } (1-10 or null)
-function validateLifeDashboard(data: unknown): ValidationResult {
+function validateLifeDashboard(data: unknown): ValidationResult { // code_id:478
   if (!isObject(data)) {
     return { valid: false, error: 'LifeDashboard: expected object' };
   }
@@ -217,7 +217,7 @@ function validateLifeDashboard(data: unknown): ValidationResult {
 }
 
 // FailureReframer: all string fields
-function validateFailureReframer(data: unknown): ValidationResult {
+function validateFailureReframer(data: unknown): ValidationResult { // code_id:479
   if (!isObject(data)) {
     return { valid: false, error: 'FailureReframer: expected object' };
   }
@@ -233,7 +233,7 @@ function validateFailureReframer(data: unknown): ValidationResult {
 }
 
 // BucketingTool: { items: [...], bucketLabels: [5 strings] }
-function validateBucketingTool(data: unknown): ValidationResult {
+function validateBucketingTool(data: unknown): ValidationResult { // code_id:480
   if (!isObject(data)) {
     return { valid: false, error: 'BucketingTool: expected object' };
   }
@@ -260,7 +260,7 @@ function validateBucketingTool(data: unknown): ValidationResult {
 }
 
 // MBTISelector: { selectedCode: string | null }
-function validateMBTISelector(data: unknown): ValidationResult {
+function validateMBTISelector(data: unknown): ValidationResult { // code_id:481
   if (!isObject(data)) {
     return { valid: false, error: 'MBTISelector: expected object' };
   }
@@ -273,7 +273,7 @@ function validateMBTISelector(data: unknown): ValidationResult {
 }
 
 // BudgetCalculator: complex object with expenses array
-function validateBudgetCalculator(data: unknown): ValidationResult {
+function validateBudgetCalculator(data: unknown): ValidationResult { // code_id:482
   if (!isObject(data)) {
     return { valid: false, error: 'BudgetCalculator: expected object' };
   }
@@ -306,7 +306,7 @@ function validateBudgetCalculator(data: unknown): ValidationResult {
 }
 
 // IdeaTree: { rootIdea, layer1: [3], layer2A-C: [3], layer3*: [3], isComplete }
-function validateIdeaTree(data: unknown): ValidationResult {
+function validateIdeaTree(data: unknown): ValidationResult { // code_id:483
   if (!isObject(data)) {
     return { valid: false, error: 'IdeaTree: expected object' };
   }
@@ -334,7 +334,7 @@ function validateIdeaTree(data: unknown): ValidationResult {
 }
 
 // MindsetProfiles: { selectedCharacters: { type: string } }
-function validateMindsetProfiles(data: unknown): ValidationResult {
+function validateMindsetProfiles(data: unknown): ValidationResult { // code_id:484
   if (!isObject(data)) {
     return { valid: false, error: 'MindsetProfiles: expected object' };
   }
@@ -354,7 +354,7 @@ function validateMindsetProfiles(data: unknown): ValidationResult {
 }
 
 // CareerTimeline: { milestones: [...], startYear }
-function validateCareerTimeline(data: unknown): ValidationResult {
+function validateCareerTimeline(data: unknown): ValidationResult { // code_id:485
   if (!isObject(data)) {
     return { valid: false, error: 'CareerTimeline: expected object' };
   }
@@ -385,7 +385,7 @@ function validateCareerTimeline(data: unknown): ValidationResult {
 }
 
 // CareerAssessment: { options: [...] }
-function validateCareerAssessment(data: unknown): ValidationResult {
+function validateCareerAssessment(data: unknown): ValidationResult { // code_id:486
   if (!isObject(data)) {
     return { valid: false, error: 'CareerAssessment: expected object' };
   }
@@ -413,7 +413,7 @@ function validateCareerAssessment(data: unknown): ValidationResult {
 }
 
 // CompetencyAssessment: { scores: [{ competencyId, score }] }
-function validateCompetencyAssessment(data: unknown): ValidationResult {
+function validateCompetencyAssessment(data: unknown): ValidationResult { // code_id:487
   if (!isObject(data)) {
     return { valid: false, error: 'CompetencyAssessment: expected object' };
   }

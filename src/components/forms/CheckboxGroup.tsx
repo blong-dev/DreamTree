@@ -29,11 +29,11 @@ export function CheckboxGroup({
   disabled = false,
   columns = 1,
   id,
-}: CheckboxGroupProps) {
+}: CheckboxGroupProps) { // code_id:204
   const generatedId = useId();
   const groupId = id || generatedId;
 
-  const handleChange = (optionId: string, checked: boolean) => {
+  const handleChange = (optionId: string, checked: boolean) => { // code_id:205
     if (checked) {
       onChange([...selected, optionId]);
     } else {

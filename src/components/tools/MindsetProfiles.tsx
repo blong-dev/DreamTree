@@ -58,8 +58,8 @@ export function MindsetProfiles({
   onChange,
   disabled = false,
   readOnly = false,
-}: MindsetProfilesProps) {
-  const updateCharacter = (type: MindsetType, character: string) => {
+}: MindsetProfilesProps) { // code_id:87
+  const updateCharacter = (type: MindsetType, character: string) => { // code_id:343
     onChange({
       ...data,
       selectedCharacters: {

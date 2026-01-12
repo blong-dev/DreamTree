@@ -7,7 +7,7 @@ interface DataControlsProps {
   onDelete?: () => void;
 }
 
-export function DataControls({ onDownload, onDelete }: DataControlsProps) {
+export function DataControls({ onDownload, onDelete }: DataControlsProps) { // code_id:265
   return (
     <div className="data-controls">
       <h2 className="data-controls-title">Your Data</h2>

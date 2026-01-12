@@ -52,7 +52,7 @@ type ToolName =
   | 'career_assessment'
   | 'competency_assessment';
 
-export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEmbedProps) {
+export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEmbedProps) { // code_id:13
   const toolName = (tool.name || '').toLowerCase().replace(/-/g, '_') as ToolName;
 
   // Guard: tool.id is required for saving
@@ -74,7 +74,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     onComplete,
   };
 
-  const renderTool = () => {
+  const renderTool = () => { // code_id:383
     switch (toolName) {
       case 'list_builder':
         return <ListBuilderWrapper {...commonProps} />;

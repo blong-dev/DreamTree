@@ -59,8 +59,8 @@ export function SOAREDForm({
   onChange,
   disabled = false,
   readOnly = false,
-}: SOAREDFormProps) {
-  const updateField = (key: keyof SOAREDStoryData, value: string) => {
+}: SOAREDFormProps) { // code_id:67
+  const updateField = (key: keyof SOAREDStoryData, value: string) => { // code_id:350
     onChange({ ...data, [key]: value });
   };
 

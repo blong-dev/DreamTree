@@ -54,8 +54,8 @@ export function FailureReframer({
   onChange,
   disabled = false,
   readOnly = false,
-}: FailureReframerProps) {
-  const updateField = (key: keyof FailureReframerData, value: string) => {
+}: FailureReframerProps) { // code_id:79
+  const updateField = (key: keyof FailureReframerData, value: string) => { // code_id:312
     onChange({ ...data, [key]: value });
   };
 

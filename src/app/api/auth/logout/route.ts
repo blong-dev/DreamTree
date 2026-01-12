@@ -11,7 +11,7 @@ import { deleteSession } from '@/lib/auth';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
-export async function POST() {
+export async function POST() { // code_id:134
   try {
     const cookieStore = await cookies();
     const sessionId = cookieStore.get('dt_session')?.value;

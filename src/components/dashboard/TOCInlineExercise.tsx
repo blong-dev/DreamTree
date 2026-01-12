@@ -22,10 +22,10 @@ export function TOCInlineExercise({
   moduleTitle,
   isCurrent,
   onNavigate,
-}: TOCInlineExerciseProps) {
+}: TOCInlineExerciseProps) { // code_id:193
   const isLocked = exercise.status === 'locked';
 
-  const handleClick = () => {
+  const handleClick = () => { // code_id:194
     if (isLocked) return;
 
     onNavigate({

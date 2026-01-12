@@ -115,14 +115,14 @@ const TOOL_CATEGORIES = [
   },
 ];
 
-export default function ToolsIndexPage() {
+export default function ToolsIndexPage() { // code_id:157
   const router = useRouter();
   const [activeNavItem, setActiveNavItem] = useState<NavItemId>('tools');
   const [counts, setCounts] = useState<Record<string, number>>({});
 
   // Fetch tool counts on mount
   useEffect(() => {
-    async function fetchCounts() {
+    async function fetchCounts() { // code_id:159
       try {
         const response = await fetch('/api/tools/counts');
         if (response.ok) {
@@ -148,7 +148,7 @@ export default function ToolsIndexPage() {
     [router]
   );
 
-  const handleToolClick = (toolType: ToolType) => {
+  const handleToolClick = (toolType: ToolType) => { // code_id:158
     router.push(`/tools/${toolType}`);
   };
 

@@ -17,7 +17,7 @@ export function MBTISelector({
   types,
   disabled = false,
   label = 'Your Personality Type',
-}: MBTISelectorProps) {
+}: MBTISelectorProps) { // code_id:81
   const [inputValue, setInputValue] = useState(value || '');
   const [isOpen, setIsOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -32,12 +32,12 @@ export function MBTISelector({
     );
   }, [types, inputValue]);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => { // code_id:340
     setInputValue(e.target.value);
     setIsOpen(true);
   };
 
-  const handleSelect = (code: string) => {
+  const handleSelect = (code: string) => { // code_id:341
     const selected = types.find((t) => t.code === code);
     if (selected) {
       setInputValue(selected.code);
@@ -48,7 +48,7 @@ export function MBTISelector({
 
   // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: MouseEvent) => { // code_id:342
       if (wrapperRef.current && !wrapperRef.current.contains(event.target as Node)) {
         setIsOpen(false);
       }
@@ -115,7 +115,7 @@ interface MBTIResultDisplayProps {
   summary: string;
 }
 
-export function MBTIResultDisplay({ code, name, summary }: MBTIResultDisplayProps) {
+export function MBTIResultDisplay({ code, name, summary }: MBTIResultDisplayProps) { // code_id:339
   return (
     <div className="mbti-result">
       <div className="mbti-result-header">

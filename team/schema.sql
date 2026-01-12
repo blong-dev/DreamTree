@@ -18,16 +18,19 @@ CREATE TABLE IF NOT EXISTS code_docs (
     why TEXT,                             -- Design rationale
     connections TEXT,                     -- JSON array: what it interacts with
     area TEXT NOT NULL,                   -- workbook, auth, database, etc.
+    parent_id INTEGER,                    -- Parent function for nested symbols
     last_verified TEXT,                   -- When accuracy was confirmed
     created_at TEXT DEFAULT CURRENT_TIMESTAMP,
     updated_at TEXT DEFAULT CURRENT_TIMESTAMP,
 
-    UNIQUE(file_path, symbol_name, line_start)  -- Prevent duplicates
+    UNIQUE(file_path, symbol_name, line_start),  -- Prevent duplicates
+    FOREIGN KEY (parent_id) REFERENCES code_docs(id)
 );
 
 CREATE INDEX IF NOT EXISTS idx_code_docs_file ON code_docs(file_path);
 CREATE INDEX IF NOT EXISTS idx_code_docs_area ON code_docs(area);
 CREATE INDEX IF NOT EXISTS idx_code_docs_type ON code_docs(symbol_type);
+CREATE INDEX IF NOT EXISTS idx_code_docs_parent ON code_docs(parent_id);
 
 -- =============================================================================
 -- BUG TRACKING
@@ -150,23 +153,26 @@ CREATE INDEX IF NOT EXISTS idx_decisions_date ON decisions(date);
 CREATE INDEX IF NOT EXISTS idx_decisions_area ON decisions(related_area);
 
 -- =============================================================================
--- MESSAGES (Synced from BOARD.md)
+-- MESSAGES (DB is Source of Truth - Append Only)
 -- =============================================================================
 
+-- Board messages - agents write here via store_message()
+-- APPEND-ONLY: No edits, post corrections as new messages with type='correction'
 CREATE TABLE IF NOT EXISTS messages (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    timestamp TEXT NOT NULL,
-    author TEXT NOT NULL,                   -- Queen Bee, Fizz, Buzz, etc.
+    author TEXT NOT NULL,                   -- Queen, Fizz, Buzz, Pazz, Rizz
+    message_type TEXT NOT NULL,             -- assignment, question, answer, status, etc.
     content TEXT NOT NULL,
-    tags TEXT,                              -- JSON array: mentioned @names
-    archived INTEGER DEFAULT 0,             -- 1 = moved to history
-    source_file TEXT,                       -- BOARD.md or BOARD_HISTORY.md
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    refs TEXT,                              -- JSON: {bug_id, task_id, code_doc_id, reply_to}
+    mentions TEXT,                          -- JSON array: ["@Fizz", "@Buzz"]
+    resolved INTEGER DEFAULT 0,             -- 1 = addressed/no longer active
+    created_at TEXT DEFAULT (datetime('now'))  -- Auto-timestamp on insert
 );
 
 CREATE INDEX IF NOT EXISTS idx_messages_author ON messages(author);
-CREATE INDEX IF NOT EXISTS idx_messages_timestamp ON messages(timestamp);
-CREATE INDEX IF NOT EXISTS idx_messages_archived ON messages(archived);
+CREATE INDEX IF NOT EXISTS idx_messages_type ON messages(message_type);
+CREATE INDEX IF NOT EXISTS idx_messages_resolved ON messages(resolved);
+CREATE INDEX IF NOT EXISTS idx_messages_created ON messages(created_at);
 
 -- =============================================================================
 -- REFERENCE TABLES (Connecting Code to Everything)
@@ -213,3 +219,21 @@ CREATE TABLE IF NOT EXISTS learning_code_refs (
 
 CREATE INDEX IF NOT EXISTS idx_learning_code_refs_learning ON learning_code_refs(learning_id);
 CREATE INDEX IF NOT EXISTS idx_learning_code_refs_code ON learning_code_refs(code_doc_id);
+
+-- Track function call relationships (dependency tree)
+CREATE TABLE IF NOT EXISTS code_calls (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    caller_id INTEGER NOT NULL,             -- code_doc that makes the call
+    callee_id INTEGER,                      -- code_doc being called (NULL if external)
+    callee_name TEXT NOT NULL,              -- function name being called
+    call_type TEXT DEFAULT 'direct',        -- direct, hook, callback, import
+    line_number INTEGER,                    -- where the call happens
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (caller_id) REFERENCES code_docs(id),
+    FOREIGN KEY (callee_id) REFERENCES code_docs(id)
+);
+
+CREATE INDEX IF NOT EXISTS idx_code_calls_caller ON code_calls(caller_id);
+CREATE INDEX IF NOT EXISTS idx_code_calls_callee ON code_calls(callee_id);
+CREATE INDEX IF NOT EXISTS idx_code_calls_name ON code_calls(callee_name);

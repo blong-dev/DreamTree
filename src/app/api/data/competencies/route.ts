@@ -4,7 +4,7 @@ import { createDb } from '@/lib/db';
 import '@/types/database'; // CloudflareEnv augmentation
 
 
-export async function GET() {
+export async function GET() { // code_id:136
   try {
     const { env } = getCloudflareContext();
     const db = createDb(env.DB);

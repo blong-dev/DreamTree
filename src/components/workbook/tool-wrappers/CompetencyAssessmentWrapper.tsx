@@ -9,7 +9,7 @@ export function CompetencyAssessmentWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:371
   const [data, setData] = useState<CompetencyAssessmentData>({ scores: [] });
   const [competencies, setCompetencies] = useState<Competency[]>([]);
   const [dataLoading, setDataLoading] = useState(false);

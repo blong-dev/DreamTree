@@ -43,7 +43,7 @@ export type AuthenticatedHandler = (
  * Extracts and validates session, passing userId and db to the handler.
  * Returns 401 if not authenticated or session invalid.
  */
-export function withAuth(handler: AuthenticatedHandler) {
+export function withAuth(handler: AuthenticatedHandler) { // code_id:440
   return async (request: NextRequest): Promise<NextResponse> => {
     try {
       // Get session from cookies
@@ -93,7 +93,7 @@ export function withAuth(handler: AuthenticatedHandler) {
  *
  * @example
  * ```ts
- * export async function GET(request: NextRequest) {
+ * export async function GET(request: NextRequest) { // code_id:441
  *   const auth = await getAuthContext();
  *   if (!auth.ok) {
  *     return NextResponse.json({ error: auth.error }, { status: 401 });
@@ -110,7 +110,7 @@ export async function getAuthContext(): Promise<
   const cookieStore = await cookies();
   const sessionId = cookieStore.get('dt_session')?.value;
 
-  if (!sessionId) {
+  if (!sessionId) { // code_id:442
     return { ok: false, error: 'Not authenticated' };
   }
 

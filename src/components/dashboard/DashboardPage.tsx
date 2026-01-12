@@ -19,7 +19,7 @@ import { useApplyTheme } from '@/hooks/useApplyTheme';
 import { useToast, ErrorBoundary } from '@/components/feedback';
 
 // IMP-023: Inline fallback for widget crashes
-function WidgetErrorFallback() {
+function WidgetErrorFallback() { // code_id:186
   return (
     <div className="dashboard-widget-error">
       <p>Unable to load this section.</p>
@@ -37,7 +37,7 @@ interface DashboardPageProps {
 }
 
 // Convert TOCPartData to WorkbookProgress format for TOCPanel
-function toWorkbookProgress(parts: TOCPartData[]): WorkbookProgress {
+function toWorkbookProgress(parts: TOCPartData[]): WorkbookProgress { // code_id:187
   return {
     parts: parts.map((part) => ({
       id: part.id,
@@ -65,7 +65,7 @@ export function DashboardPage({
   progressMetrics,
   tocParts,
   currentExerciseId,
-}: DashboardPageProps) {
+}: DashboardPageProps) { // code_id:184
   const router = useRouter();
   const { showToast } = useToast();
   const [showTOC, setShowTOC] = useState(false);
@@ -102,7 +102,7 @@ export function DashboardPage({
     [router]
   );
 
-  const handleLogout = async () => {
+  const handleLogout = async () => { // code_id:185
     try {
       await fetch('/api/auth/logout', { method: 'POST' });
       router.push('/login');

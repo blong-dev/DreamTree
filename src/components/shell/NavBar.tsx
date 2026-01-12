@@ -20,7 +20,7 @@ export function NavBar({
   hideContents = false,
   onNavigate,
   onExpandTools,
-}: NavBarProps) {
+}: NavBarProps) { // code_id:283
   return (
     <nav
       className="nav-bar"

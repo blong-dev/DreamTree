@@ -19,7 +19,7 @@ export async function fetchTransferableSkills(
   db: D1Database,
   userId: string,
   filter?: string
-): Promise<RankedSkill[]> {
+): Promise<RankedSkill[]> { // code_id:117
   let query = `
     SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
     FROM user_skills us
@@ -48,7 +48,7 @@ export async function fetchTransferableSkills(
 export async function fetchSoftSkills(
   db: D1Database,
   userId: string
-): Promise<RankedSkill[]> {
+): Promise<RankedSkill[]> { // code_id:443
   const result = await db
     .prepare(
       `SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
@@ -73,7 +73,7 @@ export async function fetchSoftSkills(
 export async function fetchAllSkills(
   db: D1Database,
   userId: string
-): Promise<RankedSkill[]> {
+): Promise<RankedSkill[]> { // code_id:444
   const result = await db
     .prepare(
       `SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
@@ -98,7 +98,7 @@ export async function fetchAllSkills(
 export async function fetchKnowledgeSkills(
   db: D1Database,
   userId: string
-): Promise<RankedSkill[]> {
+): Promise<RankedSkill[]> { // code_id:445
   const result = await db
     .prepare(
       `SELECT us.id, us.skill_id, s.name, us.category, us.mastery, us.rank
@@ -127,7 +127,7 @@ export async function fetchKnowledgeSkills(
 export async function fetchSOAREDStories(
   db: D1Database,
   userId: string
-): Promise<SOAREDStory[]> {
+): Promise<SOAREDStory[]> { // code_id:118
   const result = await db
     .prepare(
       `SELECT id, experience_id, title, situation, obstacle, action,
@@ -156,7 +156,7 @@ export async function fetchExperiences(
   db: D1Database,
   userId: string,
   type?: 'job' | 'education'
-): Promise<Experience[]> {
+): Promise<Experience[]> { // code_id:446
   // Use parameterized query to prevent SQL injection (IMP-037)
   // Type is validated to only allow 'job' or 'education'
   const validTypes = ['job', 'education'] as const;
@@ -204,7 +204,7 @@ export async function fetchFlowActivities(
   db: D1Database,
   userId: string,
   filter?: string
-): Promise<FlowActivity[]> {
+): Promise<FlowActivity[]> { // code_id:119
   let query = `
     SELECT id, activity, energy, focus, logged_date
     FROM user_flow_logs
@@ -276,7 +276,7 @@ export async function fetchLifeValues(
 export async function fetchCareerOptions(
   db: D1Database,
   userId: string
-): Promise<CareerOption[]> {
+): Promise<CareerOption[]> { // code_id:449
   const result = await db
     .prepare(
       `SELECT id, title, description, rank, coherence_score,
@@ -402,7 +402,7 @@ export async function fetchProfileText(
   field?: string
 ): Promise<Record<string, string | null> | string | null> {
   // If specific field requested, return just that
-  if (field) {
+  if (field) { // code_id:454
     const validFields = [
       'identity_story',
       'allegory',
@@ -488,7 +488,7 @@ export async function fetchIdeaTrees(
 
   // For each tree, fetch nodes and edges
   const result = await Promise.all(
-    trees.results.map(async (tree) => {
+    trees.results.map(async (tree) => { // code_id:456
       const treeId = tree.id as string;
 
       const nodes = await db
@@ -535,7 +535,7 @@ export async function fetchUserLists(
   const safeListType = listType && /^[a-zA-Z0-9_]+$/.test(listType) ? listType : null;
 
   let lists;
-  if (safeListType) {
+  if (safeListType) { // code_id:121
     lists = await db
       .prepare(
         `SELECT id, name, list_type

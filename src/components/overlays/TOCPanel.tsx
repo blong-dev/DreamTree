@@ -21,7 +21,7 @@ export function TOCPanel({
   currentLocation,
   progress,
   onNavigate,
-}: TOCPanelProps) {
+}: TOCPanelProps) { // code_id:263
   // Handle escape key
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {

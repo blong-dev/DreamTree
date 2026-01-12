@@ -8,7 +8,7 @@ interface ToolInstanceCardProps {
   onClick: () => void;
 }
 
-function formatRelativeTime(date: Date): string {
+function formatRelativeTime(date: Date): string { // code_id:352
   const now = new Date();
   const diffMs = now.getTime() - date.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
@@ -22,7 +22,7 @@ function formatRelativeTime(date: Date): string {
   return `${Math.floor(diffDays / 30)} months ago`;
 }
 
-export function ToolInstanceCard({ instance, onClick }: ToolInstanceCardProps) {
+export function ToolInstanceCard({ instance, onClick }: ToolInstanceCardProps) { // code_id:351
   return (
     <button className="tool-instance-card" onClick={onClick}>
       <div className="tool-instance-content">

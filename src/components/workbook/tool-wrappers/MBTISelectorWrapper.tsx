@@ -28,7 +28,7 @@ export function MBTISelectorWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:377
   const [value, setValue] = useState<string | null>(null);
 
   const getData = useCallback(() => ({ selectedCode: value }), [value]);

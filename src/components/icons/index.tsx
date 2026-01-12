@@ -6,7 +6,7 @@ type IconProps = SVGProps<SVGSVGElement>;
 
 // Brand icon - the Acorn
 // Uses brand colors: sage (#7D9471) for cap/stem, rust (#A0522D) for body
-export function AcornIcon(props: IconProps) {
+export function AcornIcon(props: IconProps) { // code_id:216
   return (
     <svg
       viewBox="0 0 60 62"
@@ -23,7 +23,7 @@ export function AcornIcon(props: IconProps) {
   );
 }
 
-export function HomeIcon(props: IconProps) {
+export function HomeIcon(props: IconProps) { // code_id:217
   return (
     <svg
       viewBox="0 0 24 24"
@@ -40,7 +40,7 @@ export function HomeIcon(props: IconProps) {
   );
 }
 
-export function ListIcon(props: IconProps) {
+export function ListIcon(props: IconProps) { // code_id:218
   return (
     <svg
       viewBox="0 0 24 24"
@@ -61,7 +61,7 @@ export function ListIcon(props: IconProps) {
   );
 }
 
-export function WrenchIcon(props: IconProps) {
+export function WrenchIcon(props: IconProps) { // code_id:219
   return (
     <svg
       viewBox="0 0 24 24"
@@ -77,7 +77,7 @@ export function WrenchIcon(props: IconProps) {
   );
 }
 
-export function UserIcon(props: IconProps) {
+export function UserIcon(props: IconProps) { // code_id:220
   return (
     <svg
       viewBox="0 0 24 24"
@@ -94,7 +94,7 @@ export function UserIcon(props: IconProps) {
   );
 }
 
-export function ChevronDownIcon(props: IconProps) {
+export function ChevronDownIcon(props: IconProps) { // code_id:221
   return (
     <svg
       viewBox="0 0 24 24"
@@ -110,7 +110,7 @@ export function ChevronDownIcon(props: IconProps) {
   );
 }
 
-export function ChevronUpIcon(props: IconProps) {
+export function ChevronUpIcon(props: IconProps) { // code_id:222
   return (
     <svg
       viewBox="0 0 24 24"
@@ -126,7 +126,7 @@ export function ChevronUpIcon(props: IconProps) {
   );
 }
 
-export function ChevronRightIcon(props: IconProps) {
+export function ChevronRightIcon(props: IconProps) { // code_id:223
   return (
     <svg
       viewBox="0 0 24 24"
@@ -142,7 +142,7 @@ export function ChevronRightIcon(props: IconProps) {
   );
 }
 
-export function SendIcon(props: IconProps) {
+export function SendIcon(props: IconProps) { // code_id:224
   return (
     <svg
       viewBox="0 0 24 24"
@@ -159,7 +159,7 @@ export function SendIcon(props: IconProps) {
   );
 }
 
-export function CheckIcon(props: IconProps) {
+export function CheckIcon(props: IconProps) { // code_id:225
   return (
     <svg
       viewBox="0 0 24 24"
@@ -175,7 +175,7 @@ export function CheckIcon(props: IconProps) {
   );
 }
 
-export function XIcon(props: IconProps) {
+export function XIcon(props: IconProps) { // code_id:226
   return (
     <svg
       viewBox="0 0 24 24"
@@ -192,7 +192,7 @@ export function XIcon(props: IconProps) {
   );
 }
 
-export function LockIcon(props: IconProps) {
+export function LockIcon(props: IconProps) { // code_id:227
   return (
     <svg
       viewBox="0 0 24 24"
@@ -209,7 +209,7 @@ export function LockIcon(props: IconProps) {
   );
 }
 
-export function ActivityIcon(props: IconProps) {
+export function ActivityIcon(props: IconProps) { // code_id:228
   return (
     <svg
       viewBox="0 0 24 24"
@@ -225,7 +225,7 @@ export function ActivityIcon(props: IconProps) {
   );
 }
 
-export function RefreshIcon(props: IconProps) {
+export function RefreshIcon(props: IconProps) { // code_id:229
   return (
     <svg
       viewBox="0 0 24 24"
@@ -243,7 +243,7 @@ export function RefreshIcon(props: IconProps) {
   );
 }
 
-export function SearchIcon(props: IconProps) {
+export function SearchIcon(props: IconProps) { // code_id:230
   return (
     <svg
       viewBox="0 0 24 24"
@@ -260,7 +260,7 @@ export function SearchIcon(props: IconProps) {
   );
 }
 
-export function UsersIcon(props: IconProps) {
+export function UsersIcon(props: IconProps) { // code_id:231
   return (
     <svg
       viewBox="0 0 24 24"
@@ -279,7 +279,7 @@ export function UsersIcon(props: IconProps) {
   );
 }
 
-export function CalculatorIcon(props: IconProps) {
+export function CalculatorIcon(props: IconProps) { // code_id:232
   return (
     <svg
       viewBox="0 0 24 24"
@@ -305,7 +305,7 @@ export function CalculatorIcon(props: IconProps) {
   );
 }
 
-export function BookOpenIcon(props: IconProps) {
+export function BookOpenIcon(props: IconProps) { // code_id:233
   return (
     <svg
       viewBox="0 0 24 24"
@@ -322,7 +322,7 @@ export function BookOpenIcon(props: IconProps) {
   );
 }
 
-export function PlayIcon(props: IconProps) {
+export function PlayIcon(props: IconProps) { // code_id:234
   return (
     <svg
       viewBox="0 0 24 24"
@@ -338,7 +338,7 @@ export function PlayIcon(props: IconProps) {
   );
 }
 
-export function ShieldIcon(props: IconProps) {
+export function ShieldIcon(props: IconProps) { // code_id:235
   return (
     <svg
       viewBox="0 0 24 24"
@@ -354,7 +354,7 @@ export function ShieldIcon(props: IconProps) {
   );
 }
 
-export function ArrowLeftIcon(props: IconProps) {
+export function ArrowLeftIcon(props: IconProps) { // code_id:236
   return (
     <svg
       viewBox="0 0 24 24"
@@ -371,7 +371,7 @@ export function ArrowLeftIcon(props: IconProps) {
   );
 }
 
-export function PlusIcon(props: IconProps) {
+export function PlusIcon(props: IconProps) { // code_id:237
   return (
     <svg
       viewBox="0 0 24 24"
@@ -388,7 +388,7 @@ export function PlusIcon(props: IconProps) {
   );
 }
 
-export function DownloadIcon(props: IconProps) {
+export function DownloadIcon(props: IconProps) { // code_id:238
   return (
     <svg
       viewBox="0 0 24 24"
@@ -406,7 +406,7 @@ export function DownloadIcon(props: IconProps) {
   );
 }
 
-export function TrashIcon(props: IconProps) {
+export function TrashIcon(props: IconProps) { // code_id:239
   return (
     <svg
       viewBox="0 0 24 24"
@@ -423,7 +423,7 @@ export function TrashIcon(props: IconProps) {
   );
 }
 
-export function InfoIcon(props: IconProps) {
+export function InfoIcon(props: IconProps) { // code_id:240
   return (
     <svg
       viewBox="0 0 24 24"
@@ -441,7 +441,7 @@ export function InfoIcon(props: IconProps) {
   );
 }
 
-export function AlertTriangleIcon(props: IconProps) {
+export function AlertTriangleIcon(props: IconProps) { // code_id:241
   return (
     <svg
       viewBox="0 0 24 24"
@@ -459,7 +459,7 @@ export function AlertTriangleIcon(props: IconProps) {
   );
 }
 
-export function LoaderIcon(props: IconProps) {
+export function LoaderIcon(props: IconProps) { // code_id:242
   return (
     <svg
       viewBox="0 0 24 24"

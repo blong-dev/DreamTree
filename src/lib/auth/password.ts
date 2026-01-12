@@ -14,14 +14,14 @@ const SALT_ROUNDS = 10;
 /**
  * Hash a password using bcrypt
  */
-export async function hashPassword(password: string): Promise<string> {
+export async function hashPassword(password: string): Promise<string> { // code_id:422
   return bcrypt.hash(password, SALT_ROUNDS);
 }
 
 /**
  * Verify a password against a hash
  */
-export async function verifyPassword(password: string, hash: string): Promise<boolean> {
+export async function verifyPassword(password: string, hash: string): Promise<boolean> { // code_id:423
   return bcrypt.compare(password, hash);
 }
 
@@ -39,7 +39,7 @@ export function validatePasswordStrength(password: string): {
 } {
   const errors: string[] = [];
 
-  if (password.length < 8) {
+  if (password.length < 8) { // code_id:424
     errors.push('Password must be at least 8 characters');
   }
   if (!/[a-z]/.test(password)) {

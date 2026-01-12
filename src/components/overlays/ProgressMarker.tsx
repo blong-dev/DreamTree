@@ -8,7 +8,7 @@ interface ProgressMarkerProps {
   size?: 'xs' | 'sm' | 'md';
 }
 
-export function ProgressMarker({ status, size = 'md' }: ProgressMarkerProps) {
+export function ProgressMarker({ status, size = 'md' }: ProgressMarkerProps) { // code_id:259
   const sizeMap = {
     xs: 12,
     sm: 14,

@@ -78,7 +78,7 @@ describe('ToolEmbed', () => {
     onComplete: vi.fn(),
   };
 
-  beforeEach(() => {
+  beforeEach(() => { // code_id:382
     vi.clearAllMocks();
   });
 

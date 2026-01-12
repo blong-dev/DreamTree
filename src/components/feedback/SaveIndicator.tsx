@@ -9,7 +9,7 @@ interface SaveIndicatorProps {
   onRetry?: () => void;
 }
 
-export function SaveIndicator({ status, onRetry }: SaveIndicatorProps) {
+export function SaveIndicator({ status, onRetry }: SaveIndicatorProps) { // code_id:199
   return (
     <div className="save-indicator" data-status={status} aria-live="polite">
       {status === 'saving' && (

@@ -20,7 +20,7 @@ export interface ThemeSettings {
  *
  * @param settings - Theme settings (background, text, font)
  */
-export function applyTheme(settings: ThemeSettings): void {
+export function applyTheme(settings: ThemeSettings): void { // code_id:462
   if (typeof document === 'undefined') return;
 
   const { backgroundColor, textColor, font } = settings;
@@ -42,7 +42,7 @@ export function applyTheme(settings: ThemeSettings): void {
 /**
  * Get default theme settings.
  */
-export function getDefaultTheme(): ThemeSettings {
+export function getDefaultTheme(): ThemeSettings { // code_id:463
   return {
     backgroundColor: 'ivory',
     textColor: 'charcoal',
@@ -57,7 +57,7 @@ export function parseThemeSettings(
   backgroundColor?: string | null,
   textColor?: string | null,
   font?: string | null
-): ThemeSettings {
+): ThemeSettings { // code_id:464
   const defaults = getDefaultTheme();
 
   return {

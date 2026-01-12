@@ -126,6 +126,57 @@ VALID_LEARNING_CATEGORIES = [
     *VALID_AREAS,      # Area-specific learnings
 ]
 
+# Board message authors (short names for DB)
+VALID_AUTHORS = [
+    "Queen",           # Manager, coordination
+    "Fizz",            # UI/UX
+    "Buzz",            # Infrastructure
+    "Pazz",            # QA
+    "Rizz",            # Marketing
+]
+
+AuthorType = Literal["Queen", "Fizz", "Buzz", "Pazz", "Rizz"]
+
+# Board message types
+VALID_MESSAGE_TYPES = [
+    "assignment",      # Task delegation: "@Fizz please fix BUG-026"
+    "question",        # Asking for input: "Should we use X or Y?"
+    "answer",          # Response to question
+    "status",          # Progress update: "BUG-026 fix complete"
+    "blocker",         # Blocked on something: "Need DB access"
+    "announcement",    # General info: "New pattern for..."
+    "review_request",  # Asking for review: "Please review PR #123"
+    "approval",        # Approving something: "Looks good"
+    "correction",      # Fixing a previous message (append-only)
+]
+
+MessageType = Literal[
+    "assignment", "question", "answer", "status", "blocker",
+    "announcement", "review_request", "approval", "correction"
+]
+
+# Function call types for code_calls table
+VALID_CALL_TYPES = [
+    "direct",          # Direct function call: foo()
+    "hook",            # React hook call: useEffect(), useState()
+    "method",          # Method call: obj.method()
+    "callback",        # Callback invocation: callback()
+    "import",          # Imported function usage
+    "internal",        # Call to function defined in same scope
+]
+
+CallType = Literal["direct", "hook", "method", "callback", "import", "internal"]
+
+# Nested symbol types (for sub-functions)
+VALID_NESTED_TYPES = [
+    "callback",        # useCallback, useMemo wrapped
+    "arrow",           # Arrow function: const x = () => {}
+    "function",        # Function expression: const x = function() {}
+    "handler",         # Event handler: onX = () => {}, handleX = () => {}
+]
+
+NestedType = Literal["callback", "arrow", "function", "handler"]
+
 # Database file path (relative to team/)
 DB_FILENAME = "team.db"
 SCHEMA_FILENAME = "schema.sql"

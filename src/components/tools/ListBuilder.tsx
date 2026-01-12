@@ -29,7 +29,7 @@ export function ListBuilder({
   itemType = 'text',
   disabled = false,
   id,
-}: ListBuilderProps) {
+}: ListBuilderProps) { // code_id:65
   const generatedId = useId();
   const listId = id || generatedId;
   const [newItemValue, setNewItemValue] = useState('');
@@ -37,7 +37,7 @@ export function ListBuilder({
 
   const generateId = () => `item-${Date.now()}-${Math.random().toString(36).slice(2, 9)}`;
 
-  const addItem = () => {
+  const addItem = () => { // code_id:323
     if (!newItemValue.trim() || disabled) return;
     if (maxItems && items.length >= maxItems) return;
 
@@ -50,16 +50,16 @@ export function ListBuilder({
     setNewItemValue('');
   };
 
-  const updateItem = (itemId: string, value: string) => {
+  const updateItem = (itemId: string, value: string) => { // code_id:325
     onChange(items.map((item) => (item.id === itemId ? { ...item, value } : item)));
   };
 
-  const removeItem = (itemId: string) => {
+  const removeItem = (itemId: string) => { // code_id:326
     if (items.length <= minItems) return;
     onChange(items.filter((item) => item.id !== itemId));
   };
 
-  const moveItem = (fromIndex: number, toIndex: number) => {
+  const moveItem = (fromIndex: number, toIndex: number) => { // code_id:327
     if (toIndex < 0 || toIndex >= items.length) return;
 
     const newItems = [...items];
@@ -68,7 +68,7 @@ export function ListBuilder({
     onChange(newItems);
   };
 
-  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => {
+  const handleKeyDown = (e: KeyboardEvent<HTMLInputElement>) => { // code_id:328
     if (e.key === 'Enter') {
       e.preventDefault();
       addItem();
@@ -76,17 +76,17 @@ export function ListBuilder({
   };
 
   // Drag-drop handlers
-  const handleDragStart = (index: number) => {
+  const handleDragStart = (index: number) => { // code_id:329
     setDragSourceIndex(index);
   };
 
-  const handleDragOver = (e: React.DragEvent, targetIndex: number) => {
+  const handleDragOver = (e: React.DragEvent, targetIndex: number) => { // code_id:330
     e.preventDefault();
     if (dragSourceIndex === null || dragSourceIndex === targetIndex) return;
     // Visual feedback is handled by data-drag-over attribute
   };
 
-  const handleDrop = (targetIndex: number) => {
+  const handleDrop = (targetIndex: number) => { // code_id:331
     if (dragSourceIndex === null || dragSourceIndex === targetIndex) {
       setDragSourceIndex(null);
       return;
@@ -95,7 +95,7 @@ export function ListBuilder({
     setDragSourceIndex(null);
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = () => { // code_id:332
     setDragSourceIndex(null);
   };
 
@@ -209,11 +209,11 @@ function ListBuilderItem({
   canMoveDown,
   canRemove,
   isDragSource,
-}: ListBuilderItemProps) {
+}: ListBuilderItemProps) { // code_id:334
   const [isEditing, setIsEditing] = useState(false);
   const [editValue, setEditValue] = useState(item.value);
 
-  const saveEdit = () => {
+  const saveEdit = () => { // code_id:333
     if (editValue.trim()) {
       onUpdate(editValue.trim());
     } else {
@@ -326,7 +326,7 @@ function ListBuilderItem({
 }
 
 // Icon components
-function GripVerticalIcon() {
+function GripVerticalIcon() { // code_id:335
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <circle cx="9" cy="6" r="1" />
@@ -339,7 +339,7 @@ function GripVerticalIcon() {
   );
 }
 
-function ChevronUpIcon() {
+function ChevronUpIcon() { // code_id:336
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <polyline points="18 15 12 9 6 15" />
@@ -347,7 +347,7 @@ function ChevronUpIcon() {
   );
 }
 
-function ChevronDownIcon() {
+function ChevronDownIcon() { // code_id:337
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <polyline points="6 9 12 15 18 9" />
@@ -355,7 +355,7 @@ function ChevronDownIcon() {
   );
 }
 
-function XIcon() {
+function XIcon() { // code_id:338
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="18" y1="6" x2="6" y2="18" />

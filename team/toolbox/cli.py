@@ -34,8 +34,26 @@ from .storage import (
     get_bugs_for_code,
     get_code_for_bug,
     get_stats,
+    store_message,
+    query_messages,
+    resolve_message,
+    get_open_messages,
+    render_board_md,
+    query_calls,
+    get_calls_from,
+    get_calls_to,
+    get_call_tree,
+    get_code_doc_by_name,
+    get_nested_functions,
 )
-from .constants import VALID_AREAS, VALID_BUG_STATUSES, VALID_PRIORITIES, VALID_OWNERS
+from .constants import (
+    VALID_AREAS,
+    VALID_BUG_STATUSES,
+    VALID_PRIORITIES,
+    VALID_OWNERS,
+    VALID_AUTHORS,
+    VALID_MESSAGE_TYPES,
+)
 
 
 def format_table(rows: List[Dict[str, Any]], columns: List[str], max_width: int = 50) -> str:
@@ -68,9 +86,9 @@ def format_table(rows: List[Dict[str, Any]], columns: List[str], max_width: int 
 
 
 def cmd_init(args: argparse.Namespace) -> int:
-    """Initialize the database."""
+    """Initialize the database (safe - only creates missing tables)."""
     try:
-        init_db(force=args.force)
+        init_db()
         return 0
     except Exception as e:
         print(f"Error: {e}", file=sys.stderr)
@@ -263,6 +281,80 @@ def cmd_learn(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_board(args: argparse.Namespace) -> int:
+    """Post to or query the board."""
+    if args.action == "post":
+        if not all([args.author, args.type, args.content]):
+            print("Error: --author, --type, and --content are required for posting", file=sys.stderr)
+            return 1
+
+        refs = {}
+        if args.bug:
+            refs["bug_id"] = args.bug
+        if args.task:
+            refs["task_id"] = args.task
+        if args.reply_to:
+            refs["reply_to"] = args.reply_to
+
+        mentions = []
+        if args.mentions:
+            mentions = [m.strip() for m in args.mentions.split(",")]
+
+        msg_id = store_message(
+            author=args.author,
+            message_type=args.type,
+            content=args.content,
+            refs=refs if refs else None,
+            mentions=mentions,
+        )
+        print(f"Posted message: {msg_id}")
+
+    elif args.action == "resolve":
+        if not args.id:
+            print("Error: message ID is required for resolve", file=sys.stderr)
+            return 1
+
+        success = resolve_message(int(args.id))
+        if success:
+            print(f"Resolved message: {args.id}")
+        else:
+            print(f"Message not found: {args.id}", file=sys.stderr)
+            return 1
+
+    elif args.action == "render":
+        md = render_board_md()
+        print(md)
+
+    else:  # list (default)
+        # Parse resolved flag
+        resolved = None
+        if args.resolved is not None:
+            resolved = args.resolved == "1" or args.resolved.lower() == "true"
+
+        # Check for --today shortcut
+        after = args.after
+        if args.today:
+            from datetime import datetime
+            after = datetime.now().strftime("%Y-%m-%d")
+
+        results = query_messages(
+            author=args.author,
+            message_type=args.type,
+            resolved=resolved,
+            after=after,
+            mentions=args.mentions,
+            limit=args.limit,
+        )
+
+        if args.json:
+            print(json.dumps(results, indent=2))
+        else:
+            columns = ["id", "created_at", "author", "message_type", "content", "resolved"]
+            print(format_table(results, columns))
+
+    return 0
+
+
 def cmd_stats(args: argparse.Namespace) -> int:
     """Show statistics."""
     stats = get_stats()
@@ -298,6 +390,12 @@ def cmd_crawl(args: argparse.Namespace) -> int:
     return crawl_for_cli(args.path, args.output)
 
 
+def cmd_annotate(args: argparse.Namespace) -> int:
+    """Add code_id annotations to source files."""
+    from .annotator import annotate_cli
+    return annotate_cli(args)
+
+
 def cmd_migrate(args: argparse.Namespace) -> int:
     """Migrate historical data from markdown files."""
     from .parser import migrate_all, migrate_bugs, migrate_board, migrate_learnings, link_bugs_to_code
@@ -323,6 +421,108 @@ def cmd_migrate(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_calls(args: argparse.Namespace) -> int:
+    """Query function call relationships."""
+    # Handle --from and --to arguments
+    from_name = getattr(args, 'from_name', None)
+    to_name = getattr(args, 'to_name', None)
+
+    if from_name:
+        # Get calls FROM a function
+        doc = get_code_doc_by_name(from_name)
+        if not doc:
+            print(f"Function not found: {from_name}", file=sys.stderr)
+            return 1
+
+        results = get_calls_from(doc['id'])
+        print(f"Functions called by {from_name} (code_id:{doc['id']}):")
+        print()
+
+        if args.json:
+            print(json.dumps(results, indent=2))
+        else:
+            for call in results:
+                ext = "" if call.get('callee_id') else " [external]"
+                print(f"  -> {call['callee_name']} ({call['call_type']}) @ line {call['line_number']}{ext}")
+
+    elif to_name:
+        # Get calls TO a function
+        doc = get_code_doc_by_name(to_name)
+        if not doc:
+            print(f"Function not found: {to_name}", file=sys.stderr)
+            return 1
+
+        results = get_calls_to(doc['id'])
+        print(f"Functions that call {to_name} (code_id:{doc['id']}):")
+        print()
+
+        if args.json:
+            print(json.dumps(results, indent=2))
+        else:
+            for call in results:
+                print(f"  <- {call['caller_name']} ({call['call_type']}) @ {call['caller_file']}:{call['line_number']}")
+
+    else:
+        # General query
+        results = query_calls(
+            callee_name=args.name,
+            call_type=args.type,
+            limit=args.limit,
+        )
+
+        if args.json:
+            print(json.dumps(results, indent=2))
+        else:
+            columns = ["caller_name", "callee_name", "call_type", "line_number"]
+            print(format_table(results, columns))
+
+    return 0
+
+
+def cmd_tree(args: argparse.Namespace) -> int:
+    """Show call tree for a function."""
+    name = args.name
+    depth = args.depth
+
+    # Find the function
+    doc = get_code_doc_by_name(name)
+    if not doc:
+        print(f"Function not found: {name}", file=sys.stderr)
+        return 1
+
+    direction = "up" if args.callers else "down"
+    tree = get_call_tree(doc['id'], depth=depth, direction=direction)
+
+    if args.json:
+        print(json.dumps(tree, indent=2))
+    else:
+        print_tree(tree, direction)
+
+    return 0
+
+
+def print_tree(node: Dict[str, Any], direction: str, prefix: str = "", is_last: bool = True) -> None:
+    """Recursively print a call tree."""
+    # Print current node
+    connector = "└── " if is_last else "├── "
+    if prefix == "":
+        # Root node
+        ext = f" ({node.get('type', '?')})" if node.get('type') else ""
+        print(f"{node.get('name', '?')}{ext} code_id:{node.get('id', '?')}")
+    else:
+        ext_marker = " [external]" if node.get('external') else ""
+        type_marker = f" ({node.get('type', '')})" if node.get('type') else ""
+        line_marker = f" @ line {node.get('line', '')}" if node.get('line') else ""
+        print(f"{prefix}{connector}{node.get('name', '?')}{type_marker}{line_marker}{ext_marker}")
+
+    # Print children
+    children = node.get('children', [])
+    new_prefix = prefix + ("    " if is_last else "│   ")
+    for i, child in enumerate(children):
+        is_child_last = i == len(children) - 1
+        print_tree(child, direction, new_prefix, is_child_last)
+
+
 def main() -> int:
     """Main entry point."""
     parser = argparse.ArgumentParser(
@@ -331,9 +531,8 @@ def main() -> int:
     )
     subparsers = parser.add_subparsers(dest="command", help="Available commands")
 
-    # init
-    init_parser = subparsers.add_parser("init", help="Initialize the database")
-    init_parser.add_argument("--force", action="store_true", help="Force recreation")
+    # init (safe - only creates missing tables, never destroys data)
+    init_parser = subparsers.add_parser("init", help="Initialize database (safe - only adds missing tables)")
 
     # docs
     docs_parser = subparsers.add_parser("docs", help="Query code documentation")
@@ -393,6 +592,23 @@ def main() -> int:
     stats_parser = subparsers.add_parser("stats", help="Show statistics")
     stats_parser.add_argument("--json", action="store_true", help="Output JSON")
 
+    # board
+    board_parser = subparsers.add_parser("board", help="Post to or query the board")
+    board_parser.add_argument("action", nargs="?", choices=["list", "post", "resolve", "render"])
+    board_parser.add_argument("--id", help="Message ID (for resolve)")
+    board_parser.add_argument("--author", choices=VALID_AUTHORS, help="Author filter or value (for post)")
+    board_parser.add_argument("--type", choices=VALID_MESSAGE_TYPES, help="Message type filter or value (for post)")
+    board_parser.add_argument("--content", help="Message content (for post)")
+    board_parser.add_argument("--bug", help="Related bug ID (for post)")
+    board_parser.add_argument("--task", help="Related task ID (for post)")
+    board_parser.add_argument("--reply-to", type=int, help="Reply to message ID (for post)")
+    board_parser.add_argument("--mentions", help="Comma-separated @mentions (for post) or filter (for list)")
+    board_parser.add_argument("--resolved", help="Filter by resolved status: 0, 1, true, false")
+    board_parser.add_argument("--after", help="Filter messages after date YYYY-MM-DD")
+    board_parser.add_argument("--today", action="store_true", help="Filter to today's messages")
+    board_parser.add_argument("--limit", type=int, default=50, help="Max results")
+    board_parser.add_argument("--json", action="store_true", help="Output JSON")
+
     # crawl
     crawl_parser = subparsers.add_parser("crawl", help="Run AST crawler")
     crawl_parser.add_argument("path", help="Path to crawl")
@@ -406,6 +622,28 @@ def main() -> int:
     migrate_parser.add_argument("--team-dir", help="Team directory (for 'all')")
     migrate_parser.add_argument("--dry-run", action="store_true", help="Don't actually store")
 
+    # annotate
+    annotate_parser = subparsers.add_parser("annotate", help="Add code_id annotations to source files")
+    annotate_parser.add_argument("path", nargs="?", help="File path or filter pattern (optional)")
+    annotate_parser.add_argument("--dry-run", action="store_true", help="Show what would be annotated")
+    annotate_parser.add_argument("--deep", action="store_true", help="Also extract nested functions and call relationships")
+
+    # calls
+    calls_parser = subparsers.add_parser("calls", help="Query function call relationships")
+    calls_parser.add_argument("--from", dest="from_name", help="Show functions called BY this function")
+    calls_parser.add_argument("--to", dest="to_name", help="Show functions that CALL this function")
+    calls_parser.add_argument("--name", help="Filter by callee name (partial match)")
+    calls_parser.add_argument("--type", help="Filter by call type (direct, hook, method, etc.)")
+    calls_parser.add_argument("--limit", type=int, default=100, help="Max results")
+    calls_parser.add_argument("--json", action="store_true", help="Output JSON")
+
+    # tree
+    tree_parser = subparsers.add_parser("tree", help="Show call tree for a function")
+    tree_parser.add_argument("name", help="Function name to show tree for")
+    tree_parser.add_argument("--depth", type=int, default=3, help="Max tree depth (default: 3)")
+    tree_parser.add_argument("--callers", action="store_true", help="Show callers (up) instead of callees (down)")
+    tree_parser.add_argument("--json", action="store_true", help="Output JSON")
+
     args = parser.parse_args()
 
     if args.command is None:
@@ -418,9 +656,13 @@ def main() -> int:
         "bugs": cmd_bugs,
         "history": cmd_history,
         "learn": cmd_learn,
+        "board": cmd_board,
         "stats": cmd_stats,
         "crawl": cmd_crawl,
         "migrate": cmd_migrate,
+        "annotate": cmd_annotate,
+        "calls": cmd_calls,
+        "tree": cmd_tree,
     }
 
     return commands[args.command](args)

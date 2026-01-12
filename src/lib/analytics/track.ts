@@ -27,7 +27,7 @@ interface TrackOptions {
 export async function track(
   eventType: AnalyticsEventType,
   options?: TrackOptions
-): Promise<void> {
+): Promise<void> { // code_id:398
   // Skip in development
   if (process.env.NODE_ENV !== 'production') {
     // eslint-disable-next-line no-console
@@ -54,7 +54,7 @@ export async function track(
 /**
  * Helper: Track page view
  */
-export function trackPageView(pathname: string): void {
+export function trackPageView(pathname: string): void { // code_id:399
   track('page_view', {
     targetType: 'page',
     targetId: pathname,
@@ -65,7 +65,7 @@ export function trackPageView(pathname: string): void {
 /**
  * Helper: Track exercise start
  */
-export function trackExerciseStart(exerciseId: string): void {
+export function trackExerciseStart(exerciseId: string): void { // code_id:400
   track('exercise_start', {
     targetType: 'exercise',
     targetId: exerciseId,
@@ -79,7 +79,7 @@ export function trackExerciseComplete(
   exerciseId: string,
   durationMs: number,
   promptsAnswered: number
-): void {
+): void { // code_id:401
   track('exercise_complete', {
     targetType: 'exercise',
     targetId: exerciseId,
@@ -93,7 +93,7 @@ export function trackExerciseComplete(
 /**
  * Helper: Track tool open
  */
-export function trackToolOpen(toolId: string): void {
+export function trackToolOpen(toolId: string): void { // code_id:402
   track('tool_open', {
     targetType: 'tool',
     targetId: toolId,
@@ -103,7 +103,7 @@ export function trackToolOpen(toolId: string): void {
 /**
  * Helper: Track tool submit
  */
-export function trackToolSubmit(toolId: string, itemsCount?: number): void {
+export function trackToolSubmit(toolId: string, itemsCount?: number): void { // code_id:403
   track('tool_submit', {
     targetType: 'tool',
     targetId: toolId,
@@ -114,7 +114,7 @@ export function trackToolSubmit(toolId: string, itemsCount?: number): void {
 /**
  * Helper: Track prompt submit (NO CONTENT)
  */
-export function trackPromptSubmit(promptId: string): void {
+export function trackPromptSubmit(promptId: string): void { // code_id:404
   track('prompt_submit', {
     targetType: 'prompt',
     targetId: promptId,
@@ -124,7 +124,7 @@ export function trackPromptSubmit(promptId: string): void {
 /**
  * Helper: Track error
  */
-export function trackError(endpoint: string, status: number): void {
+export function trackError(endpoint: string, status: number): void { // code_id:405
   track('error', {
     targetType: 'api',
     targetId: endpoint,

@@ -90,23 +90,34 @@ dreamtree/CLAUDE.md    ← Project-level guidance
 
 ```
 1. UNDERSTAND — Ask clarifying questions if needed
-2. FILE — Create entry in BUGS.md with:
-   - Clear description
-   - Expected behavior
-   - Acceptance criteria (checkboxes)
-   - Area assignment
-3. ROUTE — Post assignment to BOARD.md with @mention
-4. CONFIRM — Tell user it's filed and assigned
+2. RECORD — Store bug in team.db:
+   python -m toolbox.cli bugs add --title "..." --area workbook --priority high
+3. RESEARCH — Query related code and past bugs:
+   python -m toolbox.cli docs --area workbook
+   python -m toolbox.cli bugs --area workbook --status done
+   python -m toolbox.cli learn --category workbook
+4. PLAN — Update bug with root cause and fix approach:
+   python -m toolbox.cli bugs update BUG-XXX --root-cause "..."
+5. DELEGATE — Post assignment to board:
+   python -m toolbox.cli board post --author Queen --type assignment \
+     --content "Fix BUG-XXX: ..." --bug BUG-XXX --mentions "@Fizz"
+6. CONFIRM — Tell user it's filed and assigned
 ```
 
 ### When Worker Completes a Task
 
 ```
-1. READ — Check their BUGS.md update
-2. VERIFY — Ensure acceptance criteria are addressed
+1. READ — Query bug status:
+   python -m toolbox.cli bugs --id BUG-XXX
+2. VERIFY — Check acceptance criteria addressed
 3. ROUTE — If `review` status, Pazz will verify
-4. UPDATE — Post status to BOARD.md
-5. REPORT — Tell user when fix is ready
+4. UPDATE — Mark bug done and post to board:
+   python -m toolbox.cli bugs update BUG-XXX --status done --verified-by Pazz
+   python -m toolbox.cli board post --author Queen --type status \
+     --content "BUG-XXX fixed and verified" --bug BUG-XXX
+5. LOG — Record in changelog:
+   python -m toolbox.cli history add --title "..." --what-changed "..." --why "..."
+6. REPORT — Tell user when fix is ready
 ```
 
 ### When Priorities Conflict
@@ -264,3 +275,58 @@ Add to the appropriate subsection:
 When you notice learnings not being captured, remind the team:
 - Check their intro docs for the "Update Your Docs" section
 - Knowledge compounds — write it down or lose it
+
+---
+
+## Team Toolbox (team.db)
+
+The team uses a SQLite database for coordination. Query it with the CLI:
+
+```bash
+cd dreamtree/team
+
+# Initialize database (first time only)
+python -m toolbox.cli init
+
+# Query code documentation
+python -m toolbox.cli docs --area workbook           # What code is in workbook?
+python -m toolbox.cli docs WorkbookView.tsx          # What does this file do?
+python -m toolbox.cli docs --symbol handleClick      # Find a function
+
+# Bug management
+python -m toolbox.cli bugs --status open             # Open bugs
+python -m toolbox.cli bugs --area workbook           # Bugs in an area
+python -m toolbox.cli bugs add --title "..." --area workbook --priority high
+
+# Board messages (DB is source of truth, append-only)
+python -m toolbox.cli board                          # Recent messages
+python -m toolbox.cli board --type assignment --resolved 0  # Open assignments
+python -m toolbox.cli board post --author Queen --type assignment \
+  --content "..." --mentions "@Fizz"
+python -m toolbox.cli board resolve --id 123         # Mark resolved
+
+# Research
+python -m toolbox.cli learn --category database      # What we learned
+python -m toolbox.cli history --days 7               # Recent changes
+
+# Statistics
+python -m toolbox.cli stats
+```
+
+### Message Types
+
+| Type | When to Use |
+|------|-------------|
+| `assignment` | Delegating work: "@Fizz please fix BUG-026" |
+| `question` | Asking for input: "Should we use X or Y?" |
+| `answer` | Response to question |
+| `status` | Progress update: "BUG-026 fix complete" |
+| `blocker` | Blocked on something: "Need DB access" |
+| `announcement` | General info: "New pattern for..." |
+| `review_request` | Asking for review: "Please review PR #123" |
+| `approval` | Approving something: "Looks good" |
+| `correction` | Fixing a previous message |
+
+### Valid Authors
+
+`Queen`, `Fizz`, `Buzz`, `Pazz`, `Rizz`

@@ -7,7 +7,7 @@ interface ProgressMetricsProps {
   metrics: ProgressMetricData[];
 }
 
-export function ProgressMetrics({ metrics }: ProgressMetricsProps) {
+export function ProgressMetrics({ metrics }: ProgressMetricsProps) { // code_id:190
   return (
     <div className="progress-metrics">
       {metrics.map((metric, index) => (

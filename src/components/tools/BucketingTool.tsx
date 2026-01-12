@@ -23,7 +23,7 @@ export function BucketingTool({
   onChange,
   disabled = false,
   readOnly = false,
-}: BucketingToolProps) {
+}: BucketingToolProps) { // code_id:77
   const [draggedItem, setDraggedItem] = useState<string | null>(null);
 
   const bucketLabels = data.bucketLabels || DEFAULT_BUCKET_LABELS;
@@ -33,16 +33,16 @@ export function BucketingTool({
     data.items.filter((item) => item.bucketIndex === index)
   );
 
-  const handleDragStart = (itemId: string) => {
+  const handleDragStart = (itemId: string) => { // code_id:286
     if (disabled || readOnly) return;
     setDraggedItem(itemId);
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = () => { // code_id:287
     setDraggedItem(null);
   };
 
-  const handleDrop = (bucketIndex: number | null) => {
+  const handleDrop = (bucketIndex: number | null) => { // code_id:288
     if (!draggedItem || disabled || readOnly) return;
 
     const newItems = data.items.map((item) =>
@@ -53,11 +53,11 @@ export function BucketingTool({
     setDraggedItem(null);
   };
 
-  const handleDragOver = (e: React.DragEvent) => {
+  const handleDragOver = (e: React.DragEvent) => { // code_id:289
     e.preventDefault();
   };
 
-  const moveItemToBucket = (itemId: string, bucketIndex: number | null) => {
+  const moveItemToBucket = (itemId: string, bucketIndex: number | null) => { // code_id:290
     if (disabled || readOnly) return;
 
     const newItems = data.items.map((item) =>
@@ -165,7 +165,7 @@ function BucketItemRow({
   isDragging,
   disabled,
   onRemove,
-}: BucketItemRowProps) {
+}: BucketItemRowProps) { // code_id:291
   return (
     <li
       className="bucket-item"
@@ -189,7 +189,7 @@ function BucketItemRow({
   );
 }
 
-function XIcon() {
+function XIcon() { // code_id:292
   return (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="18" y1="6" x2="6" y2="18" />

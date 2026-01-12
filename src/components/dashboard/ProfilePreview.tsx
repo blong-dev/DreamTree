@@ -23,7 +23,7 @@ interface ProfilePreviewProps {
   user: UserPreview;
 }
 
-export function ProfilePreview({ user }: ProfilePreviewProps) {
+export function ProfilePreview({ user }: ProfilePreviewProps) { // code_id:188
   const skills = [
     user.topSkills.transferable,
     user.topSkills.selfManagement,

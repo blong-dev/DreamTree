@@ -17,7 +17,7 @@ export function TOCPart({
   currentLocation,
   onNavigate,
   onClose,
-}: TOCPartProps) {
+}: TOCPartProps) { // code_id:264
   const isLocked = part.status === 'locked';
   const isCurrentPart = currentLocation?.partId === part.id;
   const isInProgress = part.status === 'in-progress';

@@ -9,7 +9,7 @@ export function BudgetCalculatorWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:368
   const [data, setData] = useState<BudgetCalculatorData>({
     grossMonthlyIncome: 0,
     grossYearlyIncome: 0,

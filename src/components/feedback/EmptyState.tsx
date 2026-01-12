@@ -17,7 +17,7 @@ export function EmptyState({
   description,
   action,
   children,
-}: EmptyStateProps) {
+}: EmptyStateProps) { // code_id:197
   return (
     <div className="empty-state">
       {Icon && (

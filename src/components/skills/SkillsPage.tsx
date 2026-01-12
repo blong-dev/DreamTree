@@ -30,7 +30,7 @@ const CATEGORY_DESCRIPTIONS: Record<SkillCategory, string> = {
   knowledge: 'Domain-specific expertise — industry knowledge, technical skills, certifications.',
 };
 
-export function SkillsPage({ skills, userSkillIds }: SkillsPageProps) {
+export function SkillsPage({ skills, userSkillIds }: SkillsPageProps) { // code_id:285
   const [searchQuery, setSearchQuery] = useState('');
   const [showOnlyTagged, setShowOnlyTagged] = useState(false);
 

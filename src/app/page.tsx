@@ -17,7 +17,7 @@ import { LandingPage } from '@/components/landing';
 
 
 // Get user's current exercise (first uncompleted)
-async function getCurrentExerciseId(db: ReturnType<typeof createDb>, userId: string): Promise<string> {
+async function getCurrentExerciseId(db: ReturnType<typeof createDb>, userId: string): Promise<string> { // code_id:143
   try {
     const allExercises = await db.raw
       .prepare(
@@ -56,7 +56,7 @@ async function getCurrentExerciseId(db: ReturnType<typeof createDb>, userId: str
 }
 
 // Get progress metrics for dashboard
-async function getProgressMetrics(db: ReturnType<typeof createDb>, userId: string): Promise<ProgressMetricData[]> {
+async function getProgressMetrics(db: ReturnType<typeof createDb>, userId: string): Promise<ProgressMetricData[]> { // code_id:144
   try {
     // Get total exercises and completed count
     const totalExercises = await db.raw
@@ -106,7 +106,7 @@ async function getProgressMetrics(db: ReturnType<typeof createDb>, userId: strin
 }
 
 // Get TOC data for dashboard
-async function getTOCData(): Promise<TOCPartData[]> {
+async function getTOCData(): Promise<TOCPartData[]> { // code_id:145
   // TODO: Fetch real TOC structure from database
   // For now, return minimal structure
   return [
@@ -137,7 +137,7 @@ async function getTOCData(): Promise<TOCPartData[]> {
   ];
 }
 
-export default async function HomePage() {
+export default async function HomePage() { // code_id:142
   // Get session from cookie
   const cookieStore = await cookies();
   const sessionId = cookieStore.get('dt_session')?.value;

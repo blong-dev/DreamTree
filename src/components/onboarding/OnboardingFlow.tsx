@@ -38,7 +38,7 @@ interface StoredProgress {
 // Simple 3-step flow: welcome → name → visuals (all together)
 type StepType = 'welcome' | 'name' | 'visuals';
 
-function saveProgress(step: number, data: StoredProgress['data']) {
+function saveProgress(step: number, data: StoredProgress['data']) { // code_id:246
   if (typeof window === 'undefined') return;
   localStorage.setItem(
     STORAGE_KEY,
@@ -53,7 +53,7 @@ function loadProgress(): StoredProgress | null {
 
   try {
     const parsed: StoredProgress = JSON.parse(saved);
-    if (Date.now() - parsed.timestamp > STORAGE_EXPIRY) {
+    if (Date.now() - parsed.timestamp > STORAGE_EXPIRY) { // code_id:247
       localStorage.removeItem(STORAGE_KEY);
       return null;
     }
@@ -63,12 +63,12 @@ function loadProgress(): StoredProgress | null {
   }
 }
 
-function clearProgress() {
+function clearProgress() { // code_id:248
   if (typeof window === 'undefined') return;
   localStorage.removeItem(STORAGE_KEY);
 }
 
-export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
+export function OnboardingFlow({ onComplete }: OnboardingFlowProps) { // code_id:244
   const [step, setStep] = useState<StepType>('welcome');
   const [data, setData] = useState<{
     name: string;
@@ -202,7 +202,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 
   // Global Enter key handler
   useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
+    const handleKeyDown = (e: KeyboardEvent) => { // code_id:245
       if (e.key === 'Enter') {
         if (step === 'welcome') {
           e.preventDefault();
@@ -383,7 +383,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) {
 }
 
 // Simple check icon
-function CheckIcon({ color = 'currentColor', className = '' }: { color?: string; className?: string }) {
+function CheckIcon({ color = 'currentColor', className = '' }: { color?: string; className?: string }) { // code_id:249
   return (
     <svg
       className={`color-swatch-check ${className}`}

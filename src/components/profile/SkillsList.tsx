@@ -11,7 +11,7 @@ interface SkillsListProps {
   emptyMessage?: string;
 }
 
-export function SkillsList({ skills, emptyMessage = 'No skills yet' }: SkillsListProps) {
+export function SkillsList({ skills, emptyMessage = 'No skills yet' }: SkillsListProps) { // code_id:270
   if (skills.length === 0) {
     return <p className="skills-list-empty">{emptyMessage}</p>;
   }

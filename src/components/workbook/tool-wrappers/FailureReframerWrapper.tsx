@@ -9,7 +9,7 @@ export function FailureReframerWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:372
   const [data, setData] = useState<FailureReframerData>({
     situation: '',
     initialFeelings: '',

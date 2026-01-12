@@ -7,7 +7,7 @@ interface BreadcrumbProps {
   onNavigate?: (location: Partial<BreadcrumbLocation>) => void;
 }
 
-export function Breadcrumb({ location, onNavigate }: BreadcrumbProps) {
+export function Breadcrumb({ location, onNavigate }: BreadcrumbProps) { // code_id:275
   return (
     <nav className="breadcrumb" aria-label="Breadcrumb">
       <ol className="breadcrumb-list">

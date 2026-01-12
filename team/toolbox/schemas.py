@@ -4,7 +4,7 @@ Pydantic models for validating inputs to the Team Knowledge Base.
 These models ensure consistent data structure before database insertion.
 """
 
-from typing import Optional, List
+from typing import Optional, List, Dict, Any
 from datetime import datetime
 from pydantic import BaseModel, Field, field_validator
 import json
@@ -13,6 +13,8 @@ from .constants import (
     VALID_AREAS,
     VALID_SYMBOL_TYPES,
     VALID_OWNERS,
+    VALID_AUTHORS,
+    VALID_MESSAGE_TYPES,
     VALID_BUG_STATUSES,
     VALID_PRIORITIES,
     VALID_TASK_STATUSES,
@@ -20,6 +22,8 @@ from .constants import (
     VALID_CHANGE_TYPES,
     VALID_DOC_CATEGORIES,
     VALID_LEARNING_CATEGORIES,
+    VALID_CALL_TYPES,
+    VALID_NESTED_TYPES,
 )
 
 
@@ -189,24 +193,33 @@ class TaskInput(BaseModel):
 
 
 class MessageInput(BaseModel):
-    """Input model for board messages."""
+    """Input model for board messages (append-only, DB is source of truth)."""
 
-    timestamp: str = Field(..., description="Message timestamp")
-    author: str = Field(..., description="Message author")
+    author: str = Field(..., description="Message author (Queen, Fizz, Buzz, Pazz, Rizz)")
+    message_type: str = Field(..., description="Type of message")
     content: str = Field(..., min_length=1, description="Message content")
-    tags: List[str] = Field(default_factory=list, description="Mentioned @names")
-    archived: bool = Field(default=False, description="Is this archived")
-    source_file: str = Field(default="BOARD.md", description="Source file")
+    refs: Optional[Dict[str, Any]] = Field(default=None, description="References: {bug_id, task_id, reply_to}")
+    mentions: List[str] = Field(default_factory=list, description="Mentioned @names")
 
     @field_validator("author")
     @classmethod
     def validate_author(cls, v: str) -> str:
-        if v not in VALID_OWNERS:
-            raise ValueError(f"author must be one of {VALID_OWNERS}")
+        if v not in VALID_AUTHORS:
+            raise ValueError(f"author must be one of {VALID_AUTHORS}")
         return v
 
-    def tags_json(self) -> str:
-        return json.dumps(self.tags)
+    @field_validator("message_type")
+    @classmethod
+    def validate_message_type(cls, v: str) -> str:
+        if v not in VALID_MESSAGE_TYPES:
+            raise ValueError(f"message_type must be one of {VALID_MESSAGE_TYPES}")
+        return v
+
+    def refs_json(self) -> Optional[str]:
+        return json.dumps(self.refs) if self.refs else None
+
+    def mentions_json(self) -> str:
+        return json.dumps(self.mentions)
 
 
 class DocsIndexInput(BaseModel):
@@ -258,4 +271,49 @@ class ChangelogCodeRefInput(BaseModel):
     def validate_change_type(cls, v: str) -> str:
         if v not in VALID_CHANGE_TYPES:
             raise ValueError(f"change_type must be one of {VALID_CHANGE_TYPES}")
+        return v
+
+
+class CodeCallInput(BaseModel):
+    """Input model for function call relationships."""
+
+    caller_id: int = Field(..., ge=1, description="Code doc ID of the calling function")
+    callee_id: Optional[int] = Field(None, ge=1, description="Code doc ID of called function (None if external)")
+    callee_name: str = Field(..., min_length=1, description="Name of the called function")
+    call_type: str = Field(default="direct", description="Type of call")
+    line_number: Optional[int] = Field(None, ge=1, description="Line where the call occurs")
+
+    @field_validator("call_type")
+    @classmethod
+    def validate_call_type(cls, v: str) -> str:
+        if v not in VALID_CALL_TYPES:
+            raise ValueError(f"call_type must be one of {VALID_CALL_TYPES}")
+        return v
+
+
+class NestedCodeDocInput(BaseModel):
+    """Input model for nested/sub-function code documentation."""
+
+    file_path: str = Field(..., description="Path to the source file")
+    symbol_name: str = Field(..., min_length=1, description="Function name")
+    symbol_type: str = Field(..., description="Type of nested symbol")
+    parent_id: int = Field(..., ge=1, description="Code doc ID of parent function")
+    line_start: int = Field(..., ge=1, description="Starting line number")
+    line_end: Optional[int] = Field(None, ge=1, description="Ending line number")
+    signature: Optional[str] = Field(None, description="Function signature")
+    purpose: str = Field(default="TODO: Document", description="What the function does")
+    area: str = Field(..., description="Area that owns this code")
+
+    @field_validator("symbol_type")
+    @classmethod
+    def validate_symbol_type(cls, v: str) -> str:
+        if v not in VALID_NESTED_TYPES:
+            raise ValueError(f"symbol_type must be one of {VALID_NESTED_TYPES}")
+        return v
+
+    @field_validator("area")
+    @classmethod
+    def validate_area(cls, v: str) -> str:
+        if v not in VALID_AREAS:
+            raise ValueError(f"area must be one of {VALID_AREAS}")
         return v

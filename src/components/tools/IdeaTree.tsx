@@ -40,7 +40,7 @@ const STEP_ORDER: IdeaTreeStep[] = [
 
 const emptyTriple: [string, string, string] = ['', '', ''];
 
-function calculateCurrentStep(data: IdeaTreeData): number {
+function calculateCurrentStep(data: IdeaTreeData): number { // code_id:321
   if (data.isComplete) return STEP_ORDER.length - 1;
   if (!data.rootIdea) return 1; // root step
   if (data.layer1.some((v) => !v)) return 2; // layer1 step
@@ -64,7 +64,7 @@ export function IdeaTree({
   onChange,
   disabled = false,
   readOnly = false,
-}: IdeaTreeProps) {
+}: IdeaTreeProps) { // code_id:85
   const [localInputs, setLocalInputs] = useState<[string, string, string]>([...emptyTriple]);
   const [rootInput, setRootInput] = useState(data.rootIdea || '');
 
@@ -72,7 +72,7 @@ export function IdeaTree({
   const currentStep = STEP_ORDER[currentStepIndex];
 
   const getPromptWord = (): string => {
-    switch (currentStep.type) {
+    switch (currentStep.type) { // code_id:318
       case 'intro':
         return '';
       case 'root':
@@ -94,7 +94,7 @@ export function IdeaTree({
     }
   };
 
-  const handleContinue = () => {
+  const handleContinue = () => { // code_id:319
     if (disabled || readOnly) return;
 
     if (currentStep.type === 'intro') {
@@ -147,7 +147,7 @@ export function IdeaTree({
     }
   };
 
-  const handleStartNew = () => {
+  const handleStartNew = () => { // code_id:320
     onChange(getDefaultIdeaTreeData());
     setRootInput('');
     setLocalInputs([...emptyTriple]);

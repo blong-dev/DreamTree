@@ -64,7 +64,7 @@ export function ToolPage({
   onCreateNew,
   onSelectInstance,
   userTier = 'free',
-}: ToolPageProps) {
+}: ToolPageProps) { // code_id:353
   const [searchQuery, setSearchQuery] = useState('');
 
   const meta = toolMeta[toolType];

@@ -44,7 +44,7 @@ export async function claimAccount(
   userId: string,
   email: string,
   password: string
-): Promise<ClaimAccountResult> {
+): Promise<ClaimAccountResult> { // code_id:407
   // Validate password strength
   const passwordValidation = validatePasswordStrength(password);
   if (!passwordValidation.valid) {
@@ -138,7 +138,7 @@ export async function login(
   db: D1Database,
   email: string,
   password: string
-): Promise<LoginResult> {
+): Promise<LoginResult> { // code_id:408
   // Hash email for lookup (IMP-048 Phase 3)
   const emailHash = await hashEmail(email);
 
@@ -213,7 +213,7 @@ export async function changePassword(
   userId: string,
   oldPassword: string,
   newPassword: string
-): Promise<ClaimAccountResult> {
+): Promise<ClaimAccountResult> { // code_id:409
   // Validate new password strength
   const passwordValidation = validatePasswordStrength(newPassword);
   if (!passwordValidation.valid) {
@@ -299,7 +299,7 @@ export async function getDataKey(
     const salt = decodeSalt(saltBase64);
     const wrappingKey = await deriveWrappingKey(password, salt);
     return await unwrapDataKey(wrappedKey, wrappingKey);
-  } catch (err) {
+  } catch (err) { // code_id:410
     console.error('[Auth] Failed to unwrap data key:', err);
     return null;
   }

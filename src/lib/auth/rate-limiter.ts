@@ -29,7 +29,7 @@ export async function checkRateLimit(
   db: D1Database,
   identifier: string,  // email address
   endpoint: 'login' | 'signup'
-): Promise<RateLimitResult> {
+): Promise<RateLimitResult> { // code_id:431
   const now = new Date();
   const windowStart = new Date(now.getTime() - WINDOW_MINUTES * 60 * 1000);
 
@@ -105,7 +105,7 @@ export async function recordFailedAttempt(
   db: D1Database,
   identifier: string,  // email address
   endpoint: 'login' | 'signup'
-): Promise<RateLimitResult> {
+): Promise<RateLimitResult> { // code_id:432
   const now = new Date().toISOString();
   const windowStart = new Date(Date.now() - WINDOW_MINUTES * 60 * 1000);
 
@@ -195,7 +195,7 @@ export async function clearRateLimit(
   db: D1Database,
   identifier: string,
   endpoint: 'login' | 'signup'
-): Promise<void> {
+): Promise<void> { // code_id:433
   await db
     .prepare('DELETE FROM rate_limits WHERE identifier = ? AND endpoint = ?')
     .bind(identifier.toLowerCase(), endpoint)

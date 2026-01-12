@@ -36,7 +36,7 @@ describe('TypingEffect', () => {
   });
 
   // Helper to advance animation frames
-  const advanceFrames = (count: number, msPerFrame: number) => {
+  const advanceFrames = (count: number, msPerFrame: number) => { // code_id:177
     let time = 0;
     for (let i = 0; i < count; i++) {
       time += msPerFrame;

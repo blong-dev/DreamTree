@@ -94,13 +94,13 @@ describe('DailyDoCard', () => {
       expect(container.querySelector('.daily-do-card')).toBeInTheDocument();
     });
 
-    it('has daily-do-content class for content wrapper', () => {
+    it('has daily-do-content class for content wrapper', () => { // code_id:179
       const { container } = render(<DailyDoCard {...defaultProps} />);
 
       expect(container.querySelector('.daily-do-content')).toBeInTheDocument();
     });
 
-    it('has daily-do-action class on link', () => {
+    it('has daily-do-action class on link', () => { // code_id:180
       render(<DailyDoCard {...defaultProps} />);
 
       expect(screen.getByRole('link')).toHaveClass('daily-do-action');

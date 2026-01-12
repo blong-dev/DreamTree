@@ -7,7 +7,7 @@ interface DailyDoListProps {
   items: DailyDo[];
 }
 
-export function DailyDoList({ items }: DailyDoListProps) {
+export function DailyDoList({ items }: DailyDoListProps) { // code_id:182
   if (items.length === 0) {
     return (
       <div className="daily-do-list">

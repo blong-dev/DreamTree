@@ -97,7 +97,7 @@ export function BudgetCalculator({
   onChange,
   disabled = false,
   readOnly = false,
-}: BudgetCalculatorProps) {
+}: BudgetCalculatorProps) { // code_id:83
   const [taxes, setTaxes] = useState<TaxBreakdown>({
     federal: 0,
     state: 0,
@@ -170,7 +170,7 @@ export function BudgetCalculator({
     return () => clearTimeout(timer);
   }, [data.grossYearlyIncome, data.filingStatus, data.stateCode, estimateTaxes]);
 
-  const updateIncome = (monthly: number) => {
+  const updateIncome = (monthly: number) => { // code_id:293
     onChange({
       ...data,
       grossMonthlyIncome: monthly,
@@ -178,7 +178,7 @@ export function BudgetCalculator({
     });
   };
 
-  const updateYearlyIncome = (yearly: number) => {
+  const updateYearlyIncome = (yearly: number) => { // code_id:294
     onChange({
       ...data,
       grossYearlyIncome: yearly,
@@ -186,7 +186,7 @@ export function BudgetCalculator({
     });
   };
 
-  const updateExpense = (id: string, updates: Partial<ExpenseItem>) => {
+  const updateExpense = (id: string, updates: Partial<ExpenseItem>) => { // code_id:295
     onChange({
       ...data,
       expenses: data.expenses.map((exp) =>
@@ -195,7 +195,7 @@ export function BudgetCalculator({
     });
   };
 
-  const addExpense = () => {
+  const addExpense = () => { // code_id:296
     const newExpense: ExpenseItem = {
       id: `expense-${Date.now()}`,
       name: '',
@@ -205,7 +205,7 @@ export function BudgetCalculator({
     onChange({ ...data, expenses: [...data.expenses, newExpense] });
   };
 
-  const removeExpense = (id: string) => {
+  const removeExpense = (id: string) => { // code_id:297
     onChange({
       ...data,
       expenses: data.expenses.filter((exp) => exp.id !== id),
@@ -218,7 +218,7 @@ export function BudgetCalculator({
     .reduce((sum, e) => sum + e.amount, 0);
   const netSavings = taxes.takeHome - totalExpenses;
 
-  const formatCurrency = (amount: number) => {
+  const formatCurrency = (amount: number) => { // code_id:298
     return new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
@@ -414,7 +414,7 @@ export function BudgetCalculator({
   );
 }
 
-function XIcon() {
+function XIcon() { // code_id:299
   return (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
       <line x1="18" y1="6" x2="6" y2="18" />

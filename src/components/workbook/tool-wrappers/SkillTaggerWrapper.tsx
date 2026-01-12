@@ -10,7 +10,7 @@ export function SkillTaggerWrapper({
   exerciseId,
   connectionId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:380
   const [skills, setSkills] = useState<Skill[]>([]);
   const [selectedSkillIds, setSelectedSkillIds] = useState<string[]>([]);
   const [dataLoading, setDataLoading] = useState(false);

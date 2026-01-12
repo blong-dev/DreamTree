@@ -194,7 +194,7 @@ export const PATCH = withAuth(async (request, { userId, db }) => {
  * Uses getAuthContext() instead of withAuth because we need cookie access
  * to clear the session after deletion.
  */
-export async function DELETE() {
+export async function DELETE() { // code_id:138
   try {
     const auth = await getAuthContext();
     if (!auth.ok) {

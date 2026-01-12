@@ -9,7 +9,7 @@ export function BucketingToolWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:367
   const [data, setData] = useState<BucketingToolData>({
     items: [],
     bucketLabels: ['Most Used', 'Often Used', 'Sometimes', 'Rarely', 'Least Used'],

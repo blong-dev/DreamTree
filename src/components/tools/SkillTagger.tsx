@@ -21,7 +21,7 @@ export function SkillTagger({
   storyTitle,
   suggestedSkillIds = [],
   disabled = false,
-}: SkillTaggerProps) {
+}: SkillTaggerProps) { // code_id:69
   const [searchQuery, setSearchQuery] = useState('');
 
   const filteredSkills = useMemo(() => {
@@ -46,7 +46,7 @@ export function SkillTagger({
     return groups;
   }, [filteredSkills]);
 
-  const toggleSkill = (skillId: string) => {
+  const toggleSkill = (skillId: string) => { // code_id:348
     if (disabled) return;
 
     if (selectedSkillIds.includes(skillId)) {
@@ -113,7 +113,7 @@ export function SkillTagger({
   );
 }
 
-function CheckIcon() {
+function CheckIcon() { // code_id:349
   return (
     <svg
       width="14"

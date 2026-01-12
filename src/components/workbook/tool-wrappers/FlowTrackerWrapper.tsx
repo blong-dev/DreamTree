@@ -9,7 +9,7 @@ export function FlowTrackerWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:373
   const [data, setData] = useState<FlowTrackerData>({ entries: [] });
 
   const getData = useCallback(() => data, [data]);

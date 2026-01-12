@@ -21,7 +21,7 @@ interface VisualsStepProps {
   onFontChange: (font: FontFamilyId) => void;
 }
 
-function CheckIcon({ className, style }: { className?: string; style?: React.CSSProperties }) {
+function CheckIcon({ className, style }: { className?: string; style?: React.CSSProperties }) { // code_id:257
   return (
     <svg
       className={className}
@@ -45,7 +45,7 @@ export function VisualsStep({
   onBackgroundChange,
   onTextColorChange,
   onFontChange,
-}: VisualsStepProps) {
+}: VisualsStepProps) { // code_id:256
   const previewBg = backgroundColor ? getColorById(backgroundColor).hex : undefined;
   const previewText = textColor ? getColorById(textColor).hex : undefined;
   const previewFontStyle = font ? getFontStyle(font) : {};

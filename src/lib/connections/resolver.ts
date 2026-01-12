@@ -40,7 +40,7 @@ import {
 export function parseConnectionParams(
   method: string,
   paramsJson: string
-): ParsedConnection['params'] {
+): ParsedConnection['params'] { // code_id:115
   try {
     return JSON.parse(paramsJson);
   } catch (err) {
@@ -60,7 +60,7 @@ export class ConnectionResolver {
    */
   async resolve<T = unknown>(
     options: FetchConnectionOptions
-  ): Promise<ConnectionResult<T>> {
+  ): Promise<ConnectionResult<T>> { // code_id:458
     const { userId, connectionId } = options;
 
     // Fetch connection definition using actual schema columns

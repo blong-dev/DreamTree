@@ -9,7 +9,7 @@ export function CareerAssessmentWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:369
   const [data, setData] = useState<CareerAssessmentData>({ options: [] });
 
   const getData = useCallback(() => data, [data]);

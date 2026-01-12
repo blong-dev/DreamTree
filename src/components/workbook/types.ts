@@ -74,3 +74,37 @@ export interface WorkbookMessage {
   userResponse?: string;
   timestamp: Date;
 }
+
+/**
+ * Single Page Architecture: Block with response merged in
+ * Used by GET /api/workbook and POST /api/workbook/response
+ */
+export interface BlockWithResponse {
+  id: number;
+  sequence: number;
+  exerciseId: string;
+  blockType: 'content' | 'prompt' | 'tool';
+  activityId: number;
+  connectionId: number | null;
+  content: {
+    id?: number;
+    type?: string;
+    text?: string;
+    promptText?: string;
+    inputType?: string;
+    inputConfig?: {
+      min?: number;
+      max?: number;
+      step?: number;
+      minLabel?: string;
+      maxLabel?: string;
+      options?: Array<{ value: string; label: string }>;
+      placeholder?: string;
+    };
+    name?: string;
+    description?: string;
+    instructions?: string;
+  };
+  response?: string | null;
+  responseId?: string | null;
+}

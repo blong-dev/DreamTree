@@ -9,7 +9,7 @@ export function LifeDashboardWrapper({
   toolId,
   exerciseId,
   onComplete,
-}: ToolWrapperProps) {
+}: ToolWrapperProps) { // code_id:375
   const [data, setData] = useState<LifeDashboardData>({
     work: null,
     play: null,

@@ -361,6 +361,61 @@ Every task completion should pass these checks:
 
 ---
 
+## Team Toolbox (team.db)
+
+The team uses a local SQLite database (`team/team.db`) for structured coordination.
+
+### Key Tables
+
+| Table | Purpose |
+|-------|---------|
+| `code_docs` | Documentation for every file and function |
+| `bugs` | Bug tracking (replaces BUGS.md) |
+| `messages` | Board messages (append-only, DB is source of truth) |
+| `changelog` | What changed and why |
+| `learnings` | Engineering learnings |
+
+### Common CLI Commands
+
+```bash
+cd dreamtree/team
+
+# Query code documentation
+python -m toolbox.cli docs --area workbook
+python -m toolbox.cli docs --symbol handleClick
+
+# Bug management
+python -m toolbox.cli bugs --status open
+python -m toolbox.cli bugs add --title "..." --area workbook
+
+# Board messages (append-only)
+python -m toolbox.cli board --type assignment --resolved 0
+python -m toolbox.cli board post --author Queen --type assignment --content "..."
+
+# Research
+python -m toolbox.cli learn --category database
+python -m toolbox.cli history --days 7
+
+# Statistics
+python -m toolbox.cli stats
+```
+
+### Board Message Types
+
+| Type | Usage |
+|------|-------|
+| `assignment` | Task delegation |
+| `question` | Asking for input |
+| `answer` | Response to question |
+| `status` | Progress update |
+| `blocker` | Blocked on something |
+| `announcement` | General info |
+| `review_request` | Asking for review |
+| `approval` | Approving something |
+| `correction` | Fixing a previous message |
+
+---
+
 ## Quick Reference
 
 ### How to Use This System

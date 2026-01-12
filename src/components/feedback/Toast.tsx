@@ -26,7 +26,7 @@ export function Toast({
   duration = 4000,
   action,
   onDismiss,
-}: ToastProps) {
+}: ToastProps) { // code_id:122
   const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const startTimeRef = useRef<number>(0);
   const remainingRef = useRef<number>(duration);

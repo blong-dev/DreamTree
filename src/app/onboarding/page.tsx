@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation';
 import { OnboardingFlow, OnboardingData } from '@/components/onboarding';
 
-export default function OnboardingPage() {
+export default function OnboardingPage() { // code_id:140
   const router = useRouter();
 
-  const handleComplete = async (data: OnboardingData) => {
+  const handleComplete = async (data: OnboardingData) => { // code_id:141
     try {
       const response = await fetch('/api/onboarding', {
         method: 'POST',

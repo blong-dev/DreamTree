@@ -10,14 +10,14 @@ interface MessageUserProps {
   onEdit?: () => void;
 }
 
-function formatTime(date: Date): string {
+function formatTime(date: Date): string { // code_id:174
   return date.toLocaleTimeString('en-US', {
     hour: 'numeric',
     minute: '2-digit',
   });
 }
 
-function UserContentRenderer({ content }: { content: UserResponseContent }) {
+function UserContentRenderer({ content }: { content: UserResponseContent }) { // code_id:35
   switch (content.type) {
     case 'text':
       return <p>{content.value}</p>;
@@ -58,7 +58,7 @@ function UserContentRenderer({ content }: { content: UserResponseContent }) {
   }
 }
 
-function SOAREDRenderer({ story }: { story: SOAREDStory }) {
+function SOAREDRenderer({ story }: { story: SOAREDStory }) { // code_id:36
   const sections = [
     { label: 'Situation', value: story.situation },
     { label: 'Obstacle', value: story.obstacle },
@@ -79,17 +79,17 @@ function SOAREDRenderer({ story }: { story: SOAREDStory }) {
   );
 }
 
-export function MessageUser({ content, timestamp, id, onEdit }: MessageUserProps) {
+export function MessageUser({ content, timestamp, id, onEdit }: MessageUserProps) { // code_id:34
   const generatedId = useId();
   const messageId = id || generatedId;
 
-  const handleClick = () => {
+  const handleClick = () => { // code_id:172
     if (onEdit) {
       onEdit();
     }
   };
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const handleKeyDown = (e: React.KeyboardEvent) => { // code_id:173
     if (onEdit && (e.key === 'Enter' || e.key === ' ')) {
       e.preventDefault();
       onEdit();

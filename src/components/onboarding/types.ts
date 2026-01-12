@@ -41,21 +41,21 @@ export const FONTS: FontOption[] = [
   { id: 'manufacturing-consent', name: 'Vintage Display', family: "'Manufacturing Consent', serif", sampleText: 'The quick brown fox', baseSizePx: 20, letterSpacing: '0.02em' },
 ];
 
-export function getColorById(id: BackgroundColorId): ColorOption {
+export function getColorById(id: BackgroundColorId): ColorOption { // code_id:250
   return COLORS.find(c => c.id === id) || COLORS[0];
 }
 
-export function getFontById(id: FontFamilyId): FontOption {
+export function getFontById(id: FontFamilyId): FontOption { // code_id:251
   return FONTS.find(f => f.id === id) || FONTS[0];
 }
 
-export function getTextColorForBackground(bgId: BackgroundColorId): string {
+export function getTextColorForBackground(bgId: BackgroundColorId): string { // code_id:252
   const bg = getColorById(bgId);
   return bg.isLight ? '#2C3E50' : '#FAF8F5';
 }
 
 // Valid text/background pairings for WCAG AA contrast
-export function getValidTextColors(bgId: BackgroundColorId): TextColorId[] {
+export function getValidTextColors(bgId: BackgroundColorId): TextColorId[] { // code_id:253
   const lightBackgrounds: BackgroundColorId[] = ['ivory', 'creamy-tan'];
   if (lightBackgrounds.includes(bgId)) {
     return ['brown', 'charcoal', 'black'];
@@ -63,11 +63,11 @@ export function getValidTextColors(bgId: BackgroundColorId): TextColorId[] {
   return ['ivory', 'creamy-tan'];
 }
 
-export function isValidPairing(bgId: BackgroundColorId, textId: TextColorId): boolean {
+export function isValidPairing(bgId: BackgroundColorId, textId: TextColorId): boolean { // code_id:254
   return getValidTextColors(bgId).includes(textId);
 }
 
-export function getFontStyle(id: FontFamilyId): React.CSSProperties {
+export function getFontStyle(id: FontFamilyId): React.CSSProperties { // code_id:255
   const font = getFontById(id);
   return {
     fontFamily: font.family,

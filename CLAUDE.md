@@ -337,6 +337,7 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 - Always check `result.results` array length, not truthiness
 - D1 has max 100KB result size per query
 - ConnectionResolver data fetchers live in `data-fetchers.ts`, resolver logic in `resolver.ts` (B3 refactor)
+- **Data is precious** — NEVER run `rm team.db` or any command that deletes the database. For schema changes, use `ALTER TABLE` to add columns. The schema uses `IF NOT EXISTS` so `init` is always safe.
 
 ### CSS/Styling
 - NO box-shadows anywhere - use borders for elevation

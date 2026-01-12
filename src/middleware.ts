@@ -27,7 +27,7 @@ export const config = {
   ],
 };
 
-export async function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) { // code_id:488
   const { pathname } = request.nextUrl;
 
   // Get session cookie

@@ -32,7 +32,7 @@ interface ToastProviderProps {
 export function ToastProvider({
   children,
   position = 'bottom-right',
-}: ToastProviderProps) {
+}: ToastProviderProps) { // code_id:201
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const showToast = useCallback(
@@ -72,7 +72,7 @@ export function ToastProvider({
   );
 }
 
-export function useToast() {
+export function useToast() { // code_id:202
   const context = useContext(ToastContext);
   if (!context) {
     throw new Error('useToast must be used within a ToastProvider');

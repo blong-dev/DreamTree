@@ -33,7 +33,7 @@ export function WorkbookInputZone({
   children,
   collapsedLabel = 'Tap to continue',
   hasActiveInput,
-}: WorkbookInputZoneProps) {
+}: WorkbookInputZoneProps) { // code_id:384
   return (
     <div
       className="workbook-input-zone"

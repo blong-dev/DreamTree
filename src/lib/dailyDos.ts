@@ -6,7 +6,7 @@ import type { DailyDo, DailyDoType } from '@/components/dashboard/types';
  *
  * Exercise ID format: "part.module.exercise" (e.g., "1.1.3", "2.1.1")
  */
-export function getDailyDos(currentExerciseId: string): DailyDo[] {
+export function getDailyDos(currentExerciseId: string): DailyDo[] { // code_id:459
   // Parse current exercise to determine progress
   const segments = currentExerciseId.split('.');
   const partNum = parseInt(segments[0] || '1', 10);
@@ -45,7 +45,7 @@ export function getDailyDos(currentExerciseId: string): DailyDo[] {
 /**
  * Check if a specific Daily Do type is unlocked for a given exercise.
  */
-export function isDailyDoUnlocked(type: DailyDoType, currentExerciseId: string): boolean {
+export function isDailyDoUnlocked(type: DailyDoType, currentExerciseId: string): boolean { // code_id:460
   const segments = currentExerciseId.split('.');
   const partNum = parseInt(segments[0] || '1', 10);
   const moduleNum = parseInt(segments[1] || '1', 10);
