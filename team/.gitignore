@@ -1,0 +1,25 @@
+# Team Knowledge Base
+team.db
+team.db-journal
+team.db-wal
+team.db-shm
+
+# Crawler intermediate files
+crawl_queue.json
+crawl_progress.json
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.env
+.venv
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo

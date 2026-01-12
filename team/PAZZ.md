@@ -38,14 +38,16 @@ When Queen Bee or the user says "deploy":
 6. Report status
 
 ```bash
-# Deploy sequence
-cd dreamtree
-npm run build                    # Verify first
-git add -A
+# Deploy sequence (from repo root C:\dreamtree)
+cd dreamtree && npm run build    # Verify first
+cd ..                            # Back to repo root
+git add dreamtree/
 git commit -m "..."              # Include Co-Authored-By
-git push -u origin <branch>
-npm run deploy                   # To Cloudflare
+git pub                          # Pushes dreamtree/ to GitHub
+cd dreamtree && npm run deploy   # Deploy to Cloudflare
 ```
+
+**Important:** Use `git pub` (not `git push`) — this is an alias that pushes only the `dreamtree/` folder contents to GitHub. See `CLAUDE.md` → Git Workflow for details.
 
 **You can also use `/ship`** — the slash command that runs the full workflow.
 
@@ -218,6 +220,21 @@ Add to the appropriate subsection:
 ```
 
 **If a learning doesn't fit existing categories, create a new subsection.**
+
+---
+
+## Learnings
+
+### Test Patterns
+- JSDOM doesn't implement `scrollTo` on elements — mock with `Element.prototype.scrollTo = vi.fn()`
+- React's `autoFocus` prop results in actual focus, not an HTML attribute — test with `expect(document.activeElement).toBe(element)` not `toHaveAttribute('autofocus')`
+- Mock child components to isolate parent logic — prevents brittle tests tied to implementation details
+- Use `storageState: { cookies: [], origins: [] }` in Playwright for unauthenticated page tests
+
+### Test Coverage (as of 2026-01-10)
+- **290 unit tests** across 14 files
+- **15 E2E tests** for About page (`QA/e2e/about.spec.ts`)
+- Key test files: `resolver.test.ts`, `ConversationThread.test.tsx`, `ToolEmbed.test.tsx`, `forms.test.tsx`
 
 ### Why This Matters
 

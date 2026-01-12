@@ -18,6 +18,12 @@ interface ConversationThreadProps {
   onMessageAnimated?: (messageId: string, wasSkipped: boolean) => void;
   /** Trigger value that forces scroll to bottom when changed (e.g., displayedBlockIndex) */
   scrollTrigger?: number;
+  /** Called when user scrolls near top - use to load more history */
+  onLoadMore?: () => void;
+  /** Whether more history is available to load */
+  hasMoreHistory?: boolean;
+  /** Whether history is currently being loaded */
+  isLoadingHistory?: boolean;
 }
 
 // IMP-006: Memoize MessageRenderer to prevent re-renders when messages array changes
@@ -77,9 +83,16 @@ export function ConversationThread({
   animatedMessageIds,
   onMessageAnimated,
   scrollTrigger,
+  onLoadMore,
+  hasMoreHistory = false,
+  isLoadingHistory = false,
 }: ConversationThreadProps) {
   const threadRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState<ScrollState>('at-current');
+
+  // Track previous message count to preserve scroll position on prepend
+  const prevMessageCountRef = useRef(messages.length);
+  const prevScrollHeightRef = useRef(0);
 
   const handleScroll = () => {
     if (!threadRef.current) return;
@@ -94,6 +107,11 @@ export function ConversationThread({
       setScrollState(newState);
       onScrollStateChange?.(newState);
     }
+
+    // Lazy load: when user scrolls near top, load more history
+    if (scrollTop < 200 && hasMoreHistory && !isLoadingHistory && onLoadMore) {
+      onLoadMore();
+    }
   };
 
   // Auto-scroll on new message or when scrollTrigger changes
@@ -106,6 +124,29 @@ export function ConversationThread({
     }
   }, [messages.length, autoScrollOnNew, scrollState, scrollTrigger]);
 
+  // Preserve scroll position when history is prepended
+  useEffect(() => {
+    if (!threadRef.current) return;
+
+    const currentCount = messages.length;
+    const prevCount = prevMessageCountRef.current;
+
+    // If messages were prepended (count increased but we're not at bottom)
+    if (currentCount > prevCount && scrollState === 'in-history') {
+      const newScrollHeight = threadRef.current.scrollHeight;
+      const scrollDelta = newScrollHeight - prevScrollHeightRef.current;
+
+      // Adjust scroll position to maintain visual position
+      if (scrollDelta > 0) {
+        threadRef.current.scrollTop += scrollDelta;
+      }
+    }
+
+    // Update refs for next comparison
+    prevMessageCountRef.current = currentCount;
+    prevScrollHeightRef.current = threadRef.current.scrollHeight;
+  }, [messages.length, scrollState]);
+
   return (
     <div
       className="conversation-thread"
@@ -116,6 +157,13 @@ export function ConversationThread({
       onScroll={handleScroll}
       data-testid="conversation-thread"
     >
+      {/* Loading indicator for history */}
+      {isLoadingHistory && (
+        <div className="conversation-thread-loading" aria-label="Loading more history">
+          <span className="loading-spinner" />
+        </div>
+      )}
+
       {messages.map((message) => {
         // Only animate content messages that haven't been animated yet
         const shouldAnimate = message.type === 'content' &&

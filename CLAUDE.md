@@ -135,6 +135,43 @@ npm install --legacy-peer-deps  # Install dependencies (legacy-peer-deps require
 
 ---
 
+## Git Workflow
+
+**Important:** The local repo structure differs from GitHub. Only `dreamtree/` folder contents are pushed.
+
+```
+Local (C:\dreamtree):          GitHub repo root:
+├── .git/                      ├── src/
+├── dreamtree/  ──────────►    ├── package.json
+│   ├── src/                   ├── migrations/
+│   ├── package.json           └── ...
+│   └── ...
+├── planning/   (local only)
+├── QA/         (local only)
+└── .claude/    (local only)
+```
+
+### Pushing Changes
+
+Use the `git pub` alias (configured repo-wide):
+
+```bash
+# Standard workflow
+git add dreamtree/
+git commit -m "Your message"
+git pub                        # Pushes dreamtree/ contents to GitHub
+```
+
+**Why this structure?** Local folders like `planning/`, `QA/`, and `.claude/` contain internal docs and tests that don't belong in the open source repo.
+
+### Technical Details
+
+- `git pub` is an alias for `git subtree push --prefix=dreamtree origin master`
+- Commit history is preserved when pushing
+- Always work from `C:\dreamtree` (the repo root), not inside `dreamtree/`
+
+---
+
 ## Architecture
 
 **Stack**: Next.js 15 (App Router) → Cloudflare Workers, D1 (SQLite)

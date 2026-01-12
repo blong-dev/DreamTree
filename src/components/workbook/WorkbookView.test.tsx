@@ -25,9 +25,22 @@ vi.mock('@/hooks/useApplyTheme', () => ({
   useApplyTheme: vi.fn(),
 }));
 
-// Mock HistoryZone (dynamic import)
-vi.mock('./HistoryZone', () => ({
-  HistoryZone: () => <div data-testid="history-zone" />,
+// Mock useWorkbookHistory
+vi.mock('@/hooks/useWorkbookHistory', () => ({
+  useWorkbookHistory: () => ({
+    blocks: [],
+    isLoading: false,
+    isLoadingMore: false,
+    hasPrevious: false,
+    hasMore: false,
+    loadPrevious: vi.fn(),
+    loadMore: vi.fn(),
+    refresh: vi.fn(),
+    error: null,
+    totalBlocks: 0,
+    exerciseBoundaries: [],
+    currentSequenceRange: { from: 1, to: 50 },
+  }),
 }));
 
 // Mock ConversationThread to simplify testing

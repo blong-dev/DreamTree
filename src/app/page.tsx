@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
-import { getSessionData } from '@/lib/auth';
+import { getSessionData, decryptPII } from '@/lib/auth';
 import { createDb } from '@/lib/db';
 import { getDailyDos } from '@/lib/dailyDos';
 import {
@@ -165,6 +165,9 @@ export default async function HomePage() {
     redirect('/onboarding');
   }
 
+  // Decrypt display_name (it's encrypted PII)
+  const decryptedName = await decryptPII(env.DB, sessionId, profile.display_name);
+
   const db = createDb(env.DB);
   const userId = sessionData.user.id;
 
@@ -177,7 +180,7 @@ export default async function HomePage() {
 
   // Build user preview with safe defaults
   const userPreview: UserPreview = {
-    name: profile.display_name || 'User',
+    name: decryptedName || 'User',
     topSkills: {
       transferable: null,
       selfManagement: null,
@@ -190,7 +193,7 @@ export default async function HomePage() {
 
   return (
     <DashboardPage
-      userName={profile.display_name || 'User'}
+      userName={decryptedName || 'User'}
       userPreview={userPreview}
       dailyDos={getDailyDos(currentExerciseId)}
       progressMetrics={progressMetrics}

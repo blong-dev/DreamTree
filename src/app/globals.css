@@ -613,6 +613,26 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   scroll-behavior: smooth;
 }
 
+/* Loading indicator for lazy-loaded history */
+.conversation-thread-loading {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-4);
+}
+
+.loading-spinner {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--color-border);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
 .conversation-thread > * + * {
   margin-top: var(--space-8);
 }
@@ -4495,7 +4515,7 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
 }
 
 /* Desktop: slide from left */
-@media (min-width: 768px) {
+@media (min-width: 765px) {
   .toc-panel {
     top: 0;
     left: 0;
@@ -6564,7 +6584,7 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
 }
 
 /* Mobile: tap-anywhere-to-continue visual feedback */
-@media (max-width: 768px) {
+@media (max-width: 764px) {
   .workbook-view[data-tap-to-continue="true"] {
     cursor: pointer;
   }

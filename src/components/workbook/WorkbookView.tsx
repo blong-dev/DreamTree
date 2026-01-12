@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
-import dynamic from 'next/dynamic';
 
 // Debounce delay for auto-save (ms)
 const AUTO_SAVE_DELAY = 1500;
@@ -17,12 +16,8 @@ import { SendIcon } from '../icons';
 import { TOCPanel } from '../overlays/TOCPanel';
 import type { WorkbookProgress, BreadcrumbLocation as TOCLocation } from '../overlays/types';
 
-// Dynamic import HistoryZone to avoid SSR issues with @tanstack/react-virtual
-const HistoryZone = dynamic(() => import('./HistoryZone').then(mod => mod.HistoryZone), {
-  ssr: false,
-  loading: () => null,
-});
 import { useApplyTheme } from '@/hooks/useApplyTheme';
+import { useWorkbookHistory, type HistoryBlock } from '@/hooks/useWorkbookHistory';
 import type { SaveStatus } from '../feedback/types';
 import type { ExerciseContent, ExerciseBlock, SavedResponse, PromptData, ToolData, ContentData, ThemeSettings } from './types';
 import type { Message, ContentBlock, UserResponseContent } from '../conversation/types';
@@ -69,14 +64,75 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
     font: theme?.font,
   });
 
-  // Track visible exercise for URL hash sync
-  const handleVisibleExerciseChange = useCallback((exerciseId: string) => {
-    // Update URL hash without navigation (for bookmarking scroll position)
-    if (typeof window !== 'undefined') {
-      const newUrl = `${pathname}#${exerciseId}`;
-      window.history.replaceState(null, '', newUrl);
-    }
-  }, [pathname]);
+  // Fetch history for past exercises (lazy loaded on scroll up)
+  const {
+    blocks: historyBlocks,
+    isLoading: isLoadingHistory,
+    isLoadingMore: isLoadingMoreHistory,
+    hasPrevious: hasMoreHistory,
+    loadPrevious: loadMoreHistory,
+  } = useWorkbookHistory();
+
+  // Convert history blocks to conversation messages
+  const historyMessages = useMemo((): Message[] => {
+    // Filter out blocks from current exercise (we render those with typing effects)
+    const pastBlocks = historyBlocks.filter(b => b.exerciseId !== exercise.exerciseId);
+
+    return pastBlocks.map((block): Message | null => {
+      if (block.blockType === 'content') {
+        const contentType = block.content.type || 'paragraph';
+        let contentBlock: ContentBlock;
+
+        switch (contentType) {
+          case 'heading':
+            contentBlock = { type: 'heading', level: 2, text: block.content.text || '' };
+            break;
+          case 'instruction':
+          case 'transition':
+            contentBlock = { type: 'paragraph', text: block.content.text || '' };
+            break;
+          case 'note':
+            contentBlock = { type: 'emphasis', text: block.content.text || '' };
+            break;
+          case 'quote':
+            contentBlock = { type: 'quote', text: block.content.text || '' };
+            break;
+          default:
+            contentBlock = { type: 'paragraph', text: block.content.text || '' };
+        }
+
+        return {
+          id: `history-block-${block.id}`,
+          type: 'content',
+          data: [contentBlock],
+          timestamp: new Date(),
+        };
+      } else if (block.blockType === 'prompt') {
+        // Show the prompt question
+        const messages: Message[] = [];
+        messages.push({
+          id: `history-prompt-${block.id}`,
+          type: 'content',
+          data: [{ type: 'paragraph', text: block.content.promptText || 'Please respond:' }],
+          timestamp: new Date(),
+        });
+
+        // Show user's response if available
+        if (block.userResponse) {
+          messages.push({
+            id: `history-response-${block.id}`,
+            type: 'user',
+            data: { type: 'text', value: block.userResponse } as UserResponseContent,
+            timestamp: new Date(),
+          });
+        }
+
+        return messages as unknown as Message; // Will flatten below
+      }
+
+      return null;
+    }).flat().filter((m): m is Message => m !== null);
+  }, [historyBlocks, exercise.exerciseId]);
 
   // Build maps of saved responses by prompt ID and tool ID
   // Using useState instead of useMemo to allow proper immutable updates
@@ -303,9 +359,9 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
     prevDisplayedBlockIndexRef.current = displayedBlockIndex;
   }, [displayedBlockIndex, exercise.blocks, promptResponseMap]);
 
-  // Build messages array from blocks and responses - with stable IDs
+  // Build messages array from current exercise blocks and responses - with stable IDs
   // IMP-003: Use cached content per block to reduce object allocations
-  const messages = useMemo(() => {
+  const currentExerciseMessages = useMemo(() => {
     const result: Message[] = [];
     const cache = blockContentCache.current;
 
@@ -370,6 +426,11 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
 
     return result;
   }, [displayedBlockIndex, exercise.blocks, promptResponseMap, toolResponseMap]);
+
+  // Combine history messages (past exercises) + current exercise messages
+  const messages = useMemo(() => {
+    return [...historyMessages, ...currentExerciseMessages];
+  }, [historyMessages, currentExerciseMessages]);
 
   // Track if we're waiting for user to click Continue on a content block
   const [waitingForContinue, setWaitingForContinue] = useState(false);
@@ -776,12 +837,9 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
     return 'Tap to continue';
   };
 
-  // Handle tap-anywhere-to-continue on mobile
+  // Handle click-anywhere-to-continue (works on both mobile and desktop)
   const handleContentAreaClick = useCallback(
     (e: React.MouseEvent) => {
-      // Only on mobile (check screen width or touch capability)
-      if (window.innerWidth > 768) return;
-
       // Only when waiting for continue and animation is complete
       if (!waitingForContinue || !currentAnimationComplete) return;
 
@@ -820,13 +878,7 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
         onClick={handleContentAreaClick}
         data-tap-to-continue={waitingForContinue && currentAnimationComplete ? 'true' : 'false'}
       >
-        {/* History zone: shows past exercises in a virtualized list */}
-        <HistoryZone
-          currentExerciseId={exercise.exerciseId}
-          onVisibleExerciseChange={handleVisibleExerciseChange}
-        />
-
-        {/* Current exercise: interactive with typing effects */}
+        {/* Single conversation thread: history + current exercise */}
         {/* Note: Exercise title comes from content blocks (type='heading'), not a separate divider */}
         <ConversationThread
           messages={messages}
@@ -834,6 +886,9 @@ export function WorkbookView({ exercise, savedResponses, theme }: WorkbookViewPr
           onEditMessage={handleEditMessage}
           animatedMessageIds={animatedMessageIdsRef.current}
           onMessageAnimated={handleMessageAnimated}
+          onLoadMore={loadMoreHistory}
+          hasMoreHistory={hasMoreHistory}
+          isLoadingHistory={isLoadingMoreHistory}
           scrollTrigger={displayedBlockIndex}
         />
       </div>
