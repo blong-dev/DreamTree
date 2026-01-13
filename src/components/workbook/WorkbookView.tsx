@@ -582,26 +582,95 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     [currentBlock]
   );
 
-  // Handle editing a past response
+  // BUG-404: Handle tool edit completion
+  const handleToolEditComplete = useCallback(() => {
+    // Clear edit state - tool save is handled by useToolSave internally
+    setEditingBlockId(null);
+    showToast('Tool updated', { type: 'success' });
+  }, [showToast]);
+
+  // BUG-404: Detect if editing a tool
+  const editingBlock = editingBlockId ? blocks.find((b) => b.id === editingBlockId) : null;
+  const isEditingTool = editingBlock?.blockType === 'tool';
+
+  // BUG-404: State for fetched tool response (when marker is used)
+  const [fetchedToolResponse, setFetchedToolResponse] = useState<string | null>(null);
+
+  // BUG-404: Fetch saved response when editing a tool with marker response
+  useEffect(() => {
+    if (!isEditingTool || !editingBlock) {
+      setFetchedToolResponse(null);
+      return;
+    }
+
+    // If response is actual data (valid JSON), use it directly
+    if (editingBlock.response && editingBlock.response !== '[tool-completed]') {
+      try {
+        JSON.parse(editingBlock.response);
+        setFetchedToolResponse(null); // No need to fetch, use response directly
+        return;
+      } catch {
+        // Not valid JSON, need to fetch
+      }
+    }
+
+    // Fetch saved response from DB
+    const fetchResponse = async () => { // code_id:897
+      try {
+        const params = new URLSearchParams({
+          exerciseId: editingBlock.exerciseId,
+        });
+        const response = await fetch(`/api/workbook/response?${params}`);
+        if (response.ok) {
+          const data = await response.json();
+          const toolResponse = data.responses?.find(
+            (r: { tool_id: number | null }) => r.tool_id === editingBlock.content.id
+          );
+          if (toolResponse) {
+            setFetchedToolResponse(toolResponse.response_text);
+          }
+        }
+      } catch (err) {
+        console.error('Failed to fetch tool response:', err);
+      }
+    };
+
+    fetchResponse();
+  }, [isEditingTool, editingBlock]);
+
+  // Handle editing a past response (prompts or tools)
   const handleEditMessage = useCallback(
     (messageId: string) => {
-      if (!messageId.startsWith('response-')) return;
+      // Prompt response edit flow
+      if (messageId.startsWith('response-')) {
+        const blockId = parseInt(messageId.replace('response-', ''), 10);
+        const block = blocks.find((b) => b.id === blockId);
 
-      const blockId = parseInt(messageId.replace('response-', ''), 10);
-      const block = blocks.find((b) => b.id === blockId);
+        if (!block || block.blockType !== 'prompt') return;
 
-      if (!block || block.blockType !== 'prompt') return;
+        setEditingBlockId(blockId);
+        setInputValue(block.response || '');
 
-      setEditingBlockId(blockId);
-      setInputValue(block.response || '');
+        const inputTypeStr = block.content.inputType;
+        if (inputTypeStr === 'text_input') {
+          setInputType('text');
+        } else if (inputTypeStr === 'textarea') {
+          setInputType('textarea');
+        } else {
+          setInputType('none');
+        }
+        return;
+      }
 
-      const inputTypeStr = block.content.inputType;
-      if (inputTypeStr === 'text_input') {
-        setInputType('text');
-      } else if (inputTypeStr === 'textarea') {
-        setInputType('textarea');
-      } else {
-        setInputType('none');
+      // BUG-404: Tool edit flow
+      if (messageId.startsWith('tool-')) {
+        const blockId = parseInt(messageId.replace('tool-', ''), 10);
+        const block = blocks.find((b) => b.id === blockId);
+
+        if (!block || block.blockType !== 'tool') return;
+
+        setEditingBlockId(blockId);
+        // Tool will render in input zone with initialData from block.response
       }
     },
     [blocks]
@@ -758,9 +827,11 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     currentBlock.content.inputType !== 'textarea';
   const hasToolInput = isToolBlock && !hasResponse;
   const hasContinue = waitingForContinue && currentAnimationComplete;
-  const hasActiveInput = hasTextInput || hasStructuredInput || hasToolInput || hasContinue;
+  // BUG-404: Include tool editing in active input check
+  const hasActiveInput = hasTextInput || hasStructuredInput || hasToolInput || hasContinue || isEditingTool;
 
   const getCollapsedLabel = () => { // code_id:390
+    if (isEditingTool) return 'Tap to edit tool'; // BUG-404
     if (hasTextInput) return 'Tap to respond';
     if (hasStructuredInput) return 'Tap to respond';
     if (hasToolInput) return 'Tap to use tool';
@@ -769,7 +840,8 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
   };
 
   // BUG-380: Render completed tools in conversation history
-  const renderTool = useCallback((data: ToolMessageData) => {
+  // BUG-404: Added edit button for tool messages
+  const renderTool = useCallback((data: ToolMessageData, messageId: string) => {
     const toolData: ToolData = {
       id: data.toolId,
       name: data.name,
@@ -786,9 +858,16 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
           initialData={data.response}
           readOnly={true}
         />
+        <button
+          className="button button-text tool-edit-button"
+          onClick={() => handleEditMessage(messageId)}
+          aria-label={`Edit ${data.name}`}
+        >
+          Edit
+        </button>
       </div>
     );
-  }, []);
+  }, [handleEditMessage]);
 
   return (
     <AppShell
@@ -871,6 +950,30 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
             connectionId={currentBlock.connectionId}
             onComplete={handleToolComplete}
           />
+        )}
+
+        {/* BUG-404: Tool editing mode */}
+        {isEditingTool && editingBlock && (
+          <div className="workbook-tool-edit">
+            <div className="workbook-tool-edit-header">
+              <span>Editing: {editingBlock.content.name}</span>
+              <button
+                className="button button-text"
+                onClick={() => setEditingBlockId(null)}
+              >
+                Cancel
+              </button>
+            </div>
+            <ToolEmbed
+              tool={editingBlock.content as ToolData}
+              exerciseId={editingBlock.exerciseId}
+              activityId={editingBlock.activityId}
+              connectionId={editingBlock.connectionId}
+              initialData={fetchedToolResponse || editingBlock.response || undefined}
+              readOnly={false}
+              onComplete={handleToolEditComplete}
+            />
+          </div>
         )}
 
         {hasContinue && (

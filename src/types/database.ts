@@ -455,6 +455,33 @@ export interface ContentSource {
 }
 
 // ============================================================
+// AT PROTOCOL TABLES
+// ============================================================
+
+export interface UserAtpConnection {
+  id: string;
+  user_id: string;
+  did: string; // e.g., "did:plc:abc123..."
+  handle: string | null; // e.g., "alice.bsky.social"
+  pds_url: string; // e.g., "https://bsky.social"
+  session_data: string; // JSON serialized session
+  sync_enabled: number; // 0 or 1
+  last_sync_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface OAuthState {
+  id: string;
+  state: string;
+  code_verifier: string;
+  handle: string;
+  user_id: string;
+  created_at: string;
+  expires_at: string;
+}
+
+// ============================================================
 // D1 DATABASE BINDING
 // ============================================================
 

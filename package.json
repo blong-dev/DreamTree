@@ -15,12 +15,15 @@
     "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
+    "@atproto/api": "^0.18.14",
+    "@atproto/oauth-client": "^0.5.13",
     "@opennextjs/cloudflare": "^1.14.8",
     "bcryptjs": "^3.0.3",
     "nanoid": "^5.1.6",
     "next": "15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwindcss": "^4.1.18",
     "wrangler": "^4.57.0"
   },
   "devDependencies": {

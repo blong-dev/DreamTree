@@ -303,30 +303,78 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
 });
 
 // PUT endpoint to update an existing response
-export const PUT = withAuth(async (request, { userId, db: rawDb }) => {
+// BUG-404: Extended to support toolId for tool editing
+export const PUT = withAuth(async (request, { userId, db: rawDb, sessionId }) => {
   try {
     const db = createDb(rawDb);
 
     // Parse request body
     const body: SaveResponseRequest = await request.json();
-    const { promptId, exerciseId, responseText } = body;
+    const { promptId, toolId, exerciseId, activityId, responseText } = body;
 
-    if (!promptId || !exerciseId || responseText === undefined) {
+    // Validate: must have exactly one of promptId or toolId
+    if ((!promptId && !toolId) || (promptId && toolId)) {
       return NextResponse.json(
-        { error: 'Missing required fields: promptId, exerciseId, responseText' },
+        { error: 'Must provide exactly one of promptId or toolId' },
+        { status: 400 }
+      );
+    }
+
+    if (!exerciseId || responseText === undefined) {
+      return NextResponse.json(
+        { error: 'Missing required fields: exerciseId, responseText' },
         { status: 400 }
       );
     }
 
     const now = new Date().toISOString();
+    const isToolResponse = !!toolId;
+    const contentId = toolId || promptId;
+    const idColumn = isToolResponse ? 'tool_id' : 'prompt_id';
 
-    // Check if response exists
+    // Validate tool response data (IMP-043)
+    if (isToolResponse && toolId) {
+      const toolRow = await db.raw
+        .prepare('SELECT name FROM tools WHERE id = ?')
+        .bind(toolId)
+        .first<{ name: string }>();
+
+      if (toolRow?.name) {
+        try {
+          const parsedData = JSON.parse(responseText);
+          const validation = validateToolData(toolRow.name, parsedData);
+          if (!validation.valid) {
+            return NextResponse.json(
+              { error: `Invalid tool data: ${validation.error}` },
+              { status: 400 }
+            );
+          }
+        } catch {
+          return NextResponse.json(
+            { error: 'Invalid JSON in responseText' },
+            { status: 400 }
+          );
+        }
+      }
+    }
+
+    // Encrypt response for PII tools (IMP-048 Phase 2)
+    let textToStore = responseText;
+    if (isToolResponse && toolId && PII_TOOL_IDS.has(toolId)) {
+      const encrypted = await encryptPII(rawDb, sessionId, responseText);
+      if (encrypted) {
+        textToStore = encrypted;
+      }
+    }
+
+    // Check if response exists (include activityId in check for tools)
     const existing = await db.raw
       .prepare(
         `SELECT id FROM user_responses
-         WHERE user_id = ? AND prompt_id = ? AND exercise_id = ?`
+         WHERE user_id = ? AND ${idColumn} = ? AND exercise_id = ?
+         AND (activity_id = ? OR (activity_id IS NULL AND ? IS NULL))`
       )
-      .bind(userId, promptId, exerciseId)
+      .bind(userId, contentId, exerciseId, activityId || null, activityId || null)
       .first<{ id: string }>();
 
     if (!existing) {
@@ -343,7 +391,7 @@ export const PUT = withAuth(async (request, { userId, db: rawDb }) => {
          SET response_text = ?, updated_at = ?
          WHERE id = ?`
       )
-      .bind(responseText, now, existing.id)
+      .bind(textToStore, now, existing.id)
       .run();
 
     return NextResponse.json({

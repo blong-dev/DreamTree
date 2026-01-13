@@ -58,7 +58,7 @@ export function WorkbookInputZone({
     return () => observer.disconnect();
   }, [hasActiveInput]);
 
-  const scrollToInput = () => {
+  const scrollToInput = () => { // code_id:868
     inputZoneRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
   };
 
