@@ -337,6 +337,7 @@ Mistakes and patterns discovered during development. Add new learnings as they o
 - bcrypt cost factor must be ≤10 for Cloudflare Workers (CPU limit ~10-50ms, 12 rounds exceeds this)
 - Use `@opennextjs/cloudflare` with `getCloudflareContext()` for D1 access
 - **Document learnings immediately** — context resets, knowledge is lost. Each team member has an "Update Your Docs" section in their intro doc (FIZZ.md, BUZZ.md, PAZZ.md, QUEEN.md)
+- **WorkSession invocation**: Must run from `dreamtree/team` directory (`cd dreamtree/team && python -c "from toolbox.board import Board; ..."`). Do NOT bypass by directly manipulating SQLite - the guardrails exist for a reason.
 
 ### Board Management (Queen Bee)
 - **Always read BOARD.md fresh before posting** — never rely on summary context for current state

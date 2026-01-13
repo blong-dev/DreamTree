@@ -116,6 +116,14 @@ session.log_learning("Always check useEffect cleanup")
 session.request_review()
 ```
 
+**IMPORTANT: Run from `dreamtree/team` directory:**
+```bash
+cd dreamtree/team
+python -c "from toolbox.board import Board; board = Board('Fizz'); session = board.start_work('BUG-123')"
+```
+
+Running from other directories causes import errors. Do NOT work around this by directly manipulating SQLite - the guardrails exist for a reason.
+
 ---
 
 ## The Soul (Protect These)

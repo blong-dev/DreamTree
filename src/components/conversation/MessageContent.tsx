@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useId, useCallback, useRef } from 'react';
+import { useState, useId, useCallback, useRef, useEffect } from 'react';
 import { ContentBlock } from './types';
 import { TypingEffect } from './TypingEffect';
 
@@ -26,13 +26,39 @@ function ContentBlockRenderer({
   // Use ref to track completion state to avoid stale closures
   const hasCompletedRef = useRef(false);
 
-  const handleClick = useCallback(() => {
+  const handleSkip = useCallback(() => {
     if (animate && !isSkipped && !hasCompletedRef.current) {
       hasCompletedRef.current = true;
       setIsSkipped(true);
-      onComplete?.(true); // User clicked to skip
+      onComplete?.(true); // User skipped (click or Enter)
     }
   }, [animate, isSkipped, onComplete]);
+
+  // BUG-335: Enter key should skip typing effect (same as click)
+  useEffect(() => {
+    if (!animate || isSkipped || hasCompletedRef.current) return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        // Don't skip if user is focused on an input element
+        const activeEl = document.activeElement;
+        const isInputFocused = activeEl?.tagName === 'INPUT' ||
+          activeEl?.tagName === 'TEXTAREA' ||
+          activeEl?.tagName === 'SELECT';
+
+        if (!isInputFocused) {
+          e.preventDefault();
+          handleSkip();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [animate, isSkipped, handleSkip]);
+
+  // Keep handleClick as alias for backwards compatibility
+  const handleClick = handleSkip;
 
   // Memoize to prevent TypingEffect useEffect from restarting
   const handleNaturalComplete = useCallback(() => {
