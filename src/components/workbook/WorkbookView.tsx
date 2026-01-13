@@ -327,6 +327,30 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     }
   }, [currentBlock?.exerciseId]);
 
+  // Track position for workbook return (BUG-357)
+  // Debounced to avoid spam, one-way ratchet on server
+  const lastReportedSequenceRef = useRef<number>(0);
+  useEffect(() => {
+    const block = blocks[displayedBlockIndex - 1];
+    if (!block) return;
+
+    const sequence = block.sequence;
+    if (sequence <= lastReportedSequenceRef.current) return;
+
+    const timer = setTimeout(() => {
+      lastReportedSequenceRef.current = sequence;
+      fetch('/api/workbook/position', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ sequence }),
+      }).catch(() => {
+        // Silent fail - position tracking is best-effort
+      });
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [displayedBlockIndex, blocks]);
+
   // Handle continue button (guarded against rapid clicks)
   const handleContinue = useCallback(() => {
     if (isAdvancingRef.current) return;

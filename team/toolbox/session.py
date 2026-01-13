@@ -200,9 +200,10 @@ class WorkContext:
             lines.append("")
 
         if self.similar_bugs:
-            lines.append(f"SIMILAR PAST BUGS ({len(self.similar_bugs)} items):")
+            lines.append(f"REFERENCE ONLY - COMPLETED BUGS FOR CONTEXT ({len(self.similar_bugs)} items):")
+            lines.append("  (Do NOT work on these - they are already done. Use for patterns/learnings.)")
             for bug in self.similar_bugs[:5]:
-                lines.append(f"  - {bug.id}: {bug.title}")
+                lines.append(f"  - {bug.id} (DONE): {bug.title}")
                 if bug.root_cause:
                     lines.append(f"    Root cause: {bug.root_cause[:60]}...")
                 if bug.fix_applied:

@@ -181,6 +181,36 @@ python -m toolbox.cli bugs --status open | grep -i copy
 
 ---
 
+## WorkSession (Bug Fixing)
+
+For bug fixes, use the enforced workflow:
+
+```python
+from toolbox.board import Board
+
+board = Board("Rizz")
+session = board.start_work("BUG-XXX")
+
+# Context auto-surfaces
+print(session.context.summary())
+
+# Track files touched
+session.touch_file("path/to/file.tsx")
+
+# Complete with required fields
+session.complete(
+    summary="What was fixed",
+    root_cause="Why it was broken"
+)
+
+# Log learning (required)
+session.log_learning("What was learned")
+```
+
+**Gates:** Summary required, root cause required, files tracked, no test file modifications.
+
+---
+
 ## Communication
 
 - **@Queen** — Campaign approval, strategic decisions, general direction

@@ -138,7 +138,7 @@ export default function AboutPage() { // code_id:127
         <nav className="landing-footer-nav">
           <a href="/about">About</a>
           <a href="/principles">Principles</a>
-          <a href="https://github.com/dreamtree-org/dreamtree" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <a href="https://github.com/blong-dev/DreamTree" target="_blank" rel="noopener noreferrer">GitHub</a>
         </nav>
       </footer>
     </div>

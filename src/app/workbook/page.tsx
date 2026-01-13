@@ -54,13 +54,14 @@ export default async function WorkbookPage() { // code_id:161
   const db = createDb(env.DB);
   const userId = sessionData.user.id;
 
-  // Fetch user's theme settings
+  // Fetch user's theme settings and saved position (BUG-357)
   let theme = null;
+  let savedSequence = 0;
   try {
     const settingsRow = await db.raw
-      .prepare('SELECT background_color, text_color, font FROM user_settings WHERE user_id = ?')
+      .prepare('SELECT background_color, text_color, font, current_sequence FROM user_settings WHERE user_id = ?')
       .bind(userId)
-      .first<{ background_color: string; text_color: string; font: string }>();
+      .first<{ background_color: string; text_color: string; font: string; current_sequence: number | null }>();
 
     if (settingsRow) {
       theme = {
@@ -68,6 +69,7 @@ export default async function WorkbookPage() { // code_id:161
         textColor: settingsRow.text_color as TextColorId,
         font: settingsRow.font as FontFamilyId,
       };
+      savedSequence = settingsRow.current_sequence || 0;
     }
   } catch (error) {
     console.error('Error fetching theme:', error);
@@ -89,7 +91,10 @@ export default async function WorkbookPage() { // code_id:161
     .bind(userId)
     .first<{ max_sequence: number | null }>();
 
-  const progress = progressResult?.max_sequence || 0;
+  const responseProgress = progressResult?.max_sequence || 0;
+
+  // BUG-357: Use MAX of response progress and saved sequence position
+  const progress = Math.max(responseProgress, savedSequence);
 
   // Get total blocks count
   const totalResult = await db.raw
