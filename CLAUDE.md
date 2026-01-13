@@ -24,6 +24,18 @@ DreamTree uses a multi-instance team. Read your intro doc:
 - `team/MANAGER.md` — Protocols, routing tables
 - `team/private/PHILOSOPHY.md` — Private philosophy docs (gitignored)
 
+**Knowledge Base (`team.db`):**
+
+The team maintains a SQLite database with code documentation:
+
+| Table | Purpose |
+|-------|---------|
+| `code_docs` | Documentation for key functions/components with `code_id` tags |
+| `code_calls` | Maps which code calls which other code |
+| `bugs` | Bug tracker with status, root cause, and resolution |
+
+**How to use:** When investigating a problem, query the DB to find documented code and trace dependencies. Look for `// code_id:NNN` comments in source — these link to `code_docs` entries with detailed context about that code's purpose and behavior.
+
 **If you're the main conversation with the user, you are Queen Bee.** Read `team/QUEEN.md`.
 
 ---

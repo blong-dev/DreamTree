@@ -228,6 +228,32 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     }
   }, [currentBlock, displayedBlockIndex, blocks.length]);
 
+  // Fetch next block from server when we've exhausted loaded blocks
+  const fetchNextBlock = useCallback(async () => {
+    const lastBlock = blocks[blocks.length - 1];
+    if (!lastBlock) return;
+
+    try {
+      const response = await fetch(`/api/workbook/next?after=${lastBlock.sequence}`);
+      if (!response.ok) {
+        console.error('Failed to fetch next block');
+        return;
+      }
+
+      const data = await response.json();
+      if (data.nextBlock) {
+        setBlocks((prev) => [...prev, data.nextBlock]);
+        setDisplayedBlockIndex((prev) => prev + 1);
+      }
+      setHasMore(data.hasMore);
+    } catch (error) {
+      console.error('Error fetching next block:', error);
+    } finally {
+      isAdvancingRef.current = false;
+      setIsAdvancing(false);
+    }
+  }, [blocks]);
+
   // Handle animation completion
   const handleMessageAnimated = useCallback(
     (messageId: string, wasSkipped: boolean) => {
@@ -241,14 +267,24 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
           setIsAdvancing(true);
 
           setWaitingForContinue(false);
-          if (displayedBlockIndex < blocks.length) {
-            setDisplayedBlockIndex((prev) => prev + 1);
-          }
 
-          setTimeout(() => {
-            isAdvancingRef.current = false;
-            setIsAdvancing(false);
-          }, 200);
+          if (displayedBlockIndex < blocks.length) {
+            // More blocks already loaded - just advance
+            setDisplayedBlockIndex((prev) => prev + 1);
+            setTimeout(() => {
+              isAdvancingRef.current = false;
+              setIsAdvancing(false);
+            }, 200);
+          } else if (hasMore) {
+            // Need to fetch next block from server (BUG-321 fix)
+            fetchNextBlock();
+          } else {
+            // No more blocks - reset advancing state
+            setTimeout(() => {
+              isAdvancingRef.current = false;
+              setIsAdvancing(false);
+            }, 200);
+          }
         } else {
           setCurrentAnimationComplete(true);
         }
@@ -258,7 +294,7 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
         setPromptAnimationComplete(true);
       }
     },
-    [currentBlock, displayedBlockIndex, blocks.length]
+    [currentBlock, displayedBlockIndex, blocks.length, hasMore, fetchNextBlock]
   );
 
   // Reset animation states when block changes
@@ -298,16 +334,25 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     setIsAdvancing(true); // Sync state for button disabled UI
 
     setWaitingForContinue(false);
-    if (displayedBlockIndex < blocks.length) {
-      setDisplayedBlockIndex((prev) => prev + 1);
-    }
 
-    // Reset after state settles (longer delay to prevent rapid double-taps)
-    setTimeout(() => {
-      isAdvancingRef.current = false;
-      setIsAdvancing(false);
-    }, 200);
-  }, [displayedBlockIndex, blocks.length]);
+    if (displayedBlockIndex < blocks.length) {
+      // More blocks already loaded - just advance
+      setDisplayedBlockIndex((prev) => prev + 1);
+      setTimeout(() => {
+        isAdvancingRef.current = false;
+        setIsAdvancing(false);
+      }, 200);
+    } else if (hasMore) {
+      // Need to fetch next block from server
+      fetchNextBlock();
+    } else {
+      // No more blocks - reset advancing state
+      setTimeout(() => {
+        isAdvancingRef.current = false;
+        setIsAdvancing(false);
+      }, 200);
+    }
+  }, [displayedBlockIndex, blocks.length, hasMore, fetchNextBlock]);
 
   // Auto-save for text inputs
   const autoSave = useCallback(
@@ -685,7 +730,6 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
       showBreadcrumb={true}
       showInput={false}
       activeNavItem="home"
-      hideContents={true}
       onNavigate={handleNavigate}
     >
       <div
