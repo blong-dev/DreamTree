@@ -147,9 +147,10 @@ export default async function WorkbookPage() { // code_id:161
     .all<StemRow>();
 
   // Fetch all user responses
+  // BUG-367 FIX: Include exercise_id in query to handle reused prompts/tools
   const responses = await db.raw
     .prepare(`
-      SELECT ur.id, ur.prompt_id, ur.tool_id, ur.response_text
+      SELECT ur.id, ur.prompt_id, ur.tool_id, ur.exercise_id, ur.response_text
       FROM user_responses ur
       WHERE ur.user_id = ?
     `)
@@ -158,19 +159,23 @@ export default async function WorkbookPage() { // code_id:161
       id: string;
       prompt_id: number | null;
       tool_id: number | null;
+      exercise_id: string;
       response_text: string;
     }>();
 
-  // Build response maps
-  const promptResponses = new Map<number, { id: string; text: string }>();
-  const toolResponses = new Map<number, { id: string; text: string }>();
+  // Build response maps with compound key (content_id + exercise_id)
+  // This handles the case where the same prompt/tool appears in multiple exercises
+  const promptResponses = new Map<string, { id: string; text: string }>();
+  const toolResponses = new Map<string, { id: string; text: string }>();
 
   for (const r of responses.results || []) {
     if (r.prompt_id) {
-      promptResponses.set(r.prompt_id, { id: r.id, text: r.response_text });
+      const key = `${r.prompt_id}:${r.exercise_id}`;
+      promptResponses.set(key, { id: r.id, text: r.response_text });
     }
     if (r.tool_id) {
-      toolResponses.set(r.tool_id, { id: r.id, text: r.response_text });
+      const key = `${r.tool_id}:${r.exercise_id}`;
+      toolResponses.set(key, { id: r.id, text: r.response_text });
     }
   }
 
@@ -194,14 +199,17 @@ export default async function WorkbookPage() { // code_id:161
       let responseId: string | null = null;
 
       // Get response based on block type
+      // BUG-367 FIX: Use compound key (content_id + exercise_id) for lookup
       if (row.block_type === 'prompt' && content.id) {
-        const r = promptResponses.get(content.id);
+        const key = `${content.id}:${exerciseId}`;
+        const r = promptResponses.get(key);
         if (r) {
           response = r.text;
           responseId = r.id;
         }
       } else if (row.block_type === 'tool' && content.id) {
-        const r = toolResponses.get(content.id);
+        const key = `${content.id}:${exerciseId}`;
+        const r = toolResponses.get(key);
         if (r) {
           response = r.text;
           responseId = r.id;
