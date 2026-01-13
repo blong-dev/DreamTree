@@ -20,6 +20,7 @@ export function SOAREDFormWrapper({
   toolId,
   exerciseId,
   activityId,
+  connectionId,
   onComplete,
   initialData,
   readOnly = false,
@@ -37,6 +38,35 @@ export function SOAREDFormWrapper({
       }
     }
   }, [initialData]);
+
+  // BUG-416: Fetch connected data (prior SOARED stories) if provided
+  useEffect(() => {
+    if (!connectionId || readOnly || initialData) return;
+
+    fetch(`/api/data/connection?connectionId=${connectionId}`)
+      .then(res => res.json())
+      .then(result => {
+        if (result.isEmpty || !result.data) return;
+
+        // Connection data can be a single story or array of stories
+        const stories = Array.isArray(result.data) ? result.data : [result.data];
+        if (stories.length === 0) return;
+
+        // Pre-populate with first story's data (user can modify)
+        const story = stories[0];
+        setData({
+          title: story.title || '',
+          situation: story.situation || '',
+          obstacle: story.obstacle || '',
+          action: story.action || '',
+          result: story.result || '',
+          evaluation: story.evaluation || '',
+          discovery: story.discovery || '',
+          storyType: story.storyType || 'challenge',
+        });
+      })
+      .catch(err => console.error('[SOAREDFormWrapper] Failed to load connection data:', err));
+  }, [connectionId, readOnly, initialData]);
 
   const getData = useCallback(() => data, [data]);
 

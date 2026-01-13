@@ -9,6 +9,7 @@ export function IdeaTreeWrapper({
   toolId,
   exerciseId,
   activityId,
+  connectionId,
   onComplete,
   initialData,
   readOnly = false,
@@ -26,6 +27,26 @@ export function IdeaTreeWrapper({
       }
     }
   }, [initialData]);
+
+  // BUG-411: Fetch connected data (e.g., flow activities for inspiration)
+  useEffect(() => {
+    if (!connectionId || readOnly || initialData) return;
+
+    fetch(`/api/data/connection?connectionId=${connectionId}`)
+      .then(res => res.json())
+      .then(result => {
+        if (result.isEmpty || !result.data) return;
+        // Connection provides context data (e.g., energizing activities)
+        // For IdeaTree, we could pre-fill rootIdea with first activity
+        if (Array.isArray(result.data) && result.data.length > 0) {
+          const firstItem = result.data[0];
+          if (firstItem.activity && !data.rootIdea) {
+            setData(prev => ({ ...prev, rootIdea: firstItem.activity }));
+          }
+        }
+      })
+      .catch(err => console.error('[IdeaTreeWrapper] Failed to load connection data:', err));
+  }, [connectionId, readOnly, initialData, data.rootIdea]);
 
   const getData = useCallback(() => data, [data]);
 

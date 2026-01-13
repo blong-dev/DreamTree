@@ -14,6 +14,7 @@ export function CareerTimelineWrapper({
   toolId,
   exerciseId,
   activityId,
+  connectionId,
   onComplete,
   initialData,
   readOnly = false,
@@ -31,6 +32,22 @@ export function CareerTimelineWrapper({
       }
     }
   }, [initialData]);
+
+  // BUG-411: Fetch connected data (e.g., career options for context)
+  useEffect(() => {
+    if (!connectionId || readOnly || initialData) return;
+
+    fetch(`/api/data/connection?connectionId=${connectionId}`)
+      .then(res => res.json())
+      .then(result => {
+        // Career options provide context but don't directly map to milestones
+        // Connection data is available for future enhancements
+        if (!result.isEmpty && result.data) {
+          console.log('[CareerTimelineWrapper] Connection data loaded:', result.data.length, 'career options');
+        }
+      })
+      .catch(err => console.error('[CareerTimelineWrapper] Failed to load connection data:', err));
+  }, [connectionId, readOnly, initialData]);
 
   const getData = useCallback(() => data, [data]);
 

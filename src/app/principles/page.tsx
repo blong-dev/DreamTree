@@ -32,132 +32,126 @@ export default function PrinciplesPage() { // code_id:866
 
       <main className="about-main">
         <article className="about-content">
-          <h1>The DreamTree Principles</h1>
+          <h1>What We Believe</h1>
 
-          <p><em>A manifesto for the contribution economy.</em></p>
+          <p><em>The principles behind DreamTree — and why they matter for your career.</em></p>
 
           <hr />
 
-          <h2>1. Human contribution is the foundation of all value.</h2>
+          <h2>The Principles</h2>
+
+          <h3>1. Human contribution is the foundation of all value.</h3>
 
           <p>
-            Every idea, every skill, every insight began in a human mind. The digital economy
-            has obscured this truth, extracting value from attention while leaving creators
-            unrecognized. We believe the economy should be rebuilt on contribution — verified,
-            attributed, and compensated.
+            Every skill you have, every story you tell, every insight you&apos;ve earned — these
+            came from you. The digital economy has obscured this truth, extracting value from
+            attention while leaving creators unrecognized. DreamTree helps you see clearly
+            what you have to offer, and own it fully.
           </p>
 
-          <h2>2. What you create belongs to you.</h2>
+          <h3>2. What you create belongs to you.</h3>
 
           <p>
             Your data, your story, your work — these are not raw materials for others to harvest.
-            They are assets you own. Any system that touches your contributions must respect
-            your sovereignty over them. This is not a feature. It is a foundation.
+            They are yours. Your DreamTree workbook is encrypted with keys only you control.
+            We can&apos;t read it. Export everything anytime. Delete everything permanently.
+            That&apos;s the point.
           </p>
 
-          <h2>3. Knowledge should be free to use, but never free of its history.</h2>
+          <h3>3. Knowledge should be free to use, but never free of its history.</h3>
 
           <p>
-            Intelligence cannot be separated from provenance. Every insight stands on the
-            shoulders of those who came before. We build systems that remember — that trace
-            the lineage of ideas and honor the humans who shaped them.
+            Your skills came from somewhere — teachers, experiences, struggles, victories.
+            Every insight stands on shoulders. DreamTree helps you trace that lineage, turning
+            scattered memories into a coherent story you can tell with confidence.
           </p>
 
-          <h2>4. Barriers to self-knowledge are barriers to human flourishing.</h2>
+          <h3>4. Barriers to self-knowledge are barriers to human flourishing.</h3>
 
           <p>
-            The clarity that executives buy for thousands, a student in debt deserves too.
-            Libraries do not diminish books by lending them. We delete barriers not because
-            it is easy, but because the alternative — hoarding wisdom — diminishes us all.
+            The clarity that executives pay thousands for, you deserve too. Career coaches,
+            assessments, structured reflection — these shouldn&apos;t be luxuries. DreamTree
+            is free because the marginal cost of sharing knowledge is zero, and because
+            hoarding wisdom diminishes us all.
           </p>
 
-          <h2>5. Abundance is the horizon; cooperation is the path.</h2>
+          <h3>5. Abundance is the horizon; cooperation is the path.</h3>
 
           <p>
-            Game theory teaches what wisdom traditions have always known: in the long game,
-            cooperation wins. Harmony, balance, and moderation are not constraints on
-            abundance — they are the means by which we reach it. The prisoner&apos;s dilemma
-            resolves when we choose to cooperate.
+            In the long game, cooperation wins. Elinor Ostrom won a Nobel Prize proving it.
+            DreamTree is built on that bet: helping you succeed helps everyone. Your growth
+            is not zero-sum. Your clarity creates ripples.
           </p>
 
-          <h2>6. Attention is finite; contribution compounds.</h2>
+          <h3>6. Attention is finite; contribution compounds.</h3>
 
           <p>
-            The attention economy extracts until exhaustion. We all feel it. A contribution
-            economy can build. Every verified skill, every documented insight, every attributed
-            creation becomes a brick in a structure that outlasts us. We choose to build.
+            The attention economy extracts until exhaustion. We all feel it. DreamTree is
+            different: the work you do here compounds. Every skill you name, every story
+            you write, every value you clarify becomes yours to keep and build on. We choose
+            to build, not extract.
           </p>
 
-          <h2>7. Power without wisdom is adolescence.</h2>
+          <h3>7. Power without wisdom is adolescence.</h3>
 
           <p>
             We are living through the adolescence of artificial intelligence — and perhaps
-            our own. Adolescence is dangerous not because of its energy, but because of its
-            blindness. Maturity means aligning power with purpose, capability with conscience.
-            We build for wisdom, not just scale.
+            our own. Maturity means aligning capability with conscience. DreamTree asks not
+            just &quot;what can you do?&quot; but &quot;what should you do?&quot; Self-knowledge
+            is the beginning of wisdom.
           </p>
 
-          <h2>8. Centralization is fragility; distribution is resilience.</h2>
+          <h3>8. Centralization is fragility; distribution is resilience.</h3>
 
           <p>
-            When knowledge flows through a single gate, the gatekeeper becomes tyrant.
             When power concentrates, it corrupts — not always through malice, but through
-            the quiet displacement of conscience by convenience. We build systems that no
-            single entity can own or silence.
+            the quiet displacement of conscience by convenience. Your data lives with you,
+            not locked in our database. You can export everything, anytime. We are stewards,
+            not gatekeepers.
           </p>
 
-          <h2>9. The world takes care of those who take care of the world.</h2>
+          <h3>9. The world takes care of those who take care of the world.</h3>
 
           <p>
-            Not always. Not immediately. But often enough to bet on. We plant seeds knowing
-            we may not sit in their shade. We give freely because giving is not losing — it
-            is growing. The revolutionary path is generosity at scale.
+            Not always. Not immediately. But often enough to bet on. DreamTree is free
+            because we believe generosity compounds. We plant seeds knowing we may not sit
+            in their shade. We give freely because giving is not losing — it is growing.
           </p>
 
-          <h2>10. The story is still being written.</h2>
+          <h3>10. The story is still being written.</h3>
 
           <p>
-            We do not know the ending. We are the last generation to remember a time before
-            omnipresent intelligence, and the first to raise children who will never know
-            its absence. The hinge of history is now. What we build today becomes the
-            foundation of tomorrow. Choose wisely. Build boldly. The ending is not yet written.
+            We are the last generation to remember a time before omnipresent intelligence,
+            and the first to raise children who will never know its absence. Your story is
+            part of that larger story. DreamTree helps you write it clearly. The ending is
+            not yet written.
           </p>
 
           <hr />
 
           <h2>In Practice</h2>
 
-          <p>These principles guide everything we build:</p>
-
           <p>
-            <strong>DreamTree</strong> — where individuals discover and own their story
+            DreamTree is a free career coaching workbook — comprehensive, research-backed,
+            and entirely yours. Three parts. Fifteen modules. Sixty exercises. The clarity
+            that executives pay thousands for.
           </p>
 
           <p>
-            <strong>Value-Tech</strong> — where contributions become verifiable, portable assets
+            Your data is encrypted with keys only you control. You can export everything.
+            You can delete everything. We&apos;re steward-owned, which means we cannot be
+            acquired and profits stay in the mission.
           </p>
 
-          <p>
-            <strong>The Great Library</strong> — where human knowledge preserves its lineage forever
-          </p>
-
-          <p>
-            We are not building a product. We are building infrastructure for a more just
-            economy — one that recognizes, attributes, and rewards the humans who create value.
-          </p>
-
-          <p>We are only just beginning.</p>
+          <p>We are early. There is work to do.</p>
 
           <hr />
 
-          <h2>Join Us</h2>
+          <h2>Start</h2>
 
-          <p>
-            This is an open invitation. The code is open. The principles are public.
-            The mission belongs to anyone who shares it.
-          </p>
+          <p>The code is open. The principles are public. The workbook is free.</p>
 
-          <p>We climb the mountain the hard way because it is the right way.</p>
+          <p>We know this is the difficult path. It is also the right path.</p>
 
           <p><em>DreamTree, 2026</em></p>
 
@@ -171,7 +165,7 @@ export default function PrinciplesPage() { // code_id:866
                 fontWeight: 500,
               }}
             >
-              Read the full manifesto →
+              The philosophy behind this →
             </Link>
           </p>
         </article>

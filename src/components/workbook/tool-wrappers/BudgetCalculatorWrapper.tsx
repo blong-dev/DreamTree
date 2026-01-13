@@ -19,6 +19,7 @@ export function BudgetCalculatorWrapper({
   toolId,
   exerciseId,
   activityId,
+  connectionId,
   onComplete,
   initialData,
   readOnly = false,
@@ -36,6 +37,22 @@ export function BudgetCalculatorWrapper({
       }
     }
   }, [initialData]);
+
+  // BUG-411: Fetch connected data (e.g., experiences for income context)
+  useEffect(() => {
+    if (!connectionId || readOnly || initialData) return;
+
+    fetch(`/api/data/connection?connectionId=${connectionId}`)
+      .then(res => res.json())
+      .then(result => {
+        // Experience data provides context but doesn't directly map to budget fields
+        // Connection data is available for future enhancements
+        if (!result.isEmpty && result.data) {
+          console.log('[BudgetCalculatorWrapper] Connection data loaded:', result.data.length, 'experiences');
+        }
+      })
+      .catch(err => console.error('[BudgetCalculatorWrapper] Failed to load connection data:', err));
+  }, [connectionId, readOnly, initialData]);
 
   const getData = useCallback(() => data, [data]);
 
