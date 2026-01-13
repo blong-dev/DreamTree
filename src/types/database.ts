@@ -7,10 +7,14 @@ import type { D1Database } from '@cloudflare/workers-types';
 // CORE TABLES
 // ============================================================
 
+// User roles for RBAC (BUG-206)
+export type UserRole = 'user' | 'admin' | 'coach' | 'org';
+
 export interface User {
   id: string;
   is_anonymous: number; // 0 or 1
   workbook_complete: number; // 0 or 1
+  user_role: UserRole; // Added in migration 0016
   created_at: string; // ISO 8601
   updated_at: string;
 }

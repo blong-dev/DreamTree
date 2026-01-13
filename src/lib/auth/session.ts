@@ -75,6 +75,7 @@ export async function createAnonymousSession(db: D1Database): Promise<SessionDat
       id: userId,
       is_anonymous: 1,
       workbook_complete: 0,
+      user_role: 'user', // Default role for new users
       created_at: now,
       updated_at: now,
     },

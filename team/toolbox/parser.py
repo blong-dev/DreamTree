@@ -200,17 +200,109 @@ def migrate_bugs(bugs_md_path: str, dry_run: bool = False) -> Tuple[int, List[st
 
 def parse_board_md(file_path: str) -> List[Dict[str, Any]]:
     """
-    Parse BOARD.md and extract messages.
+    Parse BOARD.md or BOARD_HISTORY.md and extract messages.
 
-    Messages format:
-    ### [Author] Message Title — Date
-    or
-    **[Author]** TOPIC
+    Supports two formats:
+    1. BOARD.md: ### [Author] Message Title — Date
+    2. BOARD_HISTORY.md: ### YYYY-MM-DD followed by **[Author]** messages
 
     Returns list of dicts matching new messages schema:
-    - author, message_type, content, refs, mentions
+    - author, message_type, content, refs, mentions, created_at (optional)
     """
     content = Path(file_path).read_text(encoding="utf-8")
+    messages = []
+
+    # Check if this is a history file (has date headers)
+    has_date_headers = bool(re.search(r"^### \d{4}-\d{2}-\d{2}\s*$", content, re.MULTILINE))
+
+    if has_date_headers:
+        # Parse BOARD_HISTORY.md format: ### YYYY-MM-DD followed by **[Author]** messages
+        messages = _parse_board_history(content)
+    else:
+        # Parse BOARD.md format: ### [Author] Message Title — Date
+        messages = _parse_board_current(content)
+
+    return messages
+
+
+def _parse_board_history(content: str) -> List[Dict[str, Any]]:
+    """
+    Parse BOARD_HISTORY.md format with date headers.
+
+    Format:
+    ### 2026-01-09
+    **[Queen Bee]** Message content...
+    **[Fizz]** Another message...
+
+    ### 2026-01-10
+    **[Buzz]** More messages...
+    """
+    messages = []
+    current_date = None
+    msg_counter = 0  # Counter for ordering messages within a date
+
+    # Split by date headers
+    date_sections = re.split(r"(?=^### \d{4}-\d{2}-\d{2}\s*$)", content, flags=re.MULTILINE)
+
+    for section in date_sections:
+        if not section.strip():
+            continue
+
+        # Check for date header
+        date_match = re.match(r"^### (\d{4}-\d{2}-\d{2})\s*$", section, re.MULTILINE)
+        if date_match:
+            current_date = date_match.group(1)
+            msg_counter = 0  # Reset counter for new date
+            section_content = section[date_match.end():]
+        else:
+            section_content = section
+
+        if not current_date:
+            continue
+
+        # Find all **[Author]** messages in this date section
+        # Pattern: **[Author]** followed by content until next **[Author]** or end
+        msg_pattern = r"\*\*\[([^\]]+)\]\*\*\s*(.+?)(?=\*\*\[|\Z)"
+        for match in re.finditer(msg_pattern, section_content, re.DOTALL):
+            author = match.group(1).strip()
+            msg_content = match.group(2).strip()
+
+            if not msg_content:
+                continue
+
+            # Clean up content
+            msg_content = re.sub(r"^---+\s*$", "", msg_content, flags=re.MULTILINE).strip()
+
+            # Extract mentions, refs, type
+            mentions = extract_mentions(msg_content)
+            message_type = infer_message_type("", msg_content)
+            refs = extract_refs(msg_content)
+
+            # Create timestamp with time component for ordering
+            # Messages on same date get sequential times (00:01:00, 00:02:00, etc.)
+            msg_counter += 1
+            created_at = f"{current_date} {msg_counter:02d}:00:00"
+
+            messages.append({
+                "author": normalize_author(author),
+                "message_type": message_type,
+                "content": msg_content,
+                "refs": refs,
+                "mentions": mentions,
+                "created_at": created_at,
+            })
+
+    return messages
+
+
+def _parse_board_current(content: str) -> List[Dict[str, Any]]:
+    """
+    Parse BOARD.md format with author headers.
+
+    Format:
+    ### [Fizz] Status Update — 2026-01-09
+    Message content...
+    """
     messages = []
 
     # Pattern for section headers like ### [Fizz] Status Update — 2026-01-09
@@ -329,7 +421,9 @@ def extract_refs(content: str) -> Optional[Dict[str, Any]]:
 
 def migrate_board(board_md_path: str, dry_run: bool = False) -> Tuple[int, List[str]]:
     """
-    Migrate messages from BOARD.md to the database using new schema.
+    Migrate messages from BOARD.md or BOARD_HISTORY.md to the database.
+
+    Preserves chronological order using created_at timestamps from date headers.
     """
     from .storage import store_message
 
@@ -339,7 +433,8 @@ def migrate_board(board_md_path: str, dry_run: bool = False) -> Tuple[int, List[
     for msg in messages:
         if dry_run:
             content_preview = msg['content'][:50].encode('ascii', 'replace').decode('ascii')
-            print(f"Would store [{msg['message_type']}] from {msg['author']}: {content_preview}...")
+            date_info = f" @ {msg['created_at']}" if msg.get('created_at') else ""
+            print(f"Would store [{msg['message_type']}] from {msg['author']}{date_info}: {content_preview}...")
             stored_ids.append(str(len(stored_ids) + 1))
         else:
             try:
@@ -349,9 +444,11 @@ def migrate_board(board_md_path: str, dry_run: bool = False) -> Tuple[int, List[
                     content=msg["content"],
                     refs=msg["refs"],
                     mentions=msg["mentions"],
+                    created_at=msg.get("created_at"),  # Pass timestamp if available
                 )
                 stored_ids.append(str(msg_id))
-                print(f"Stored message {msg_id} [{msg['message_type']}] from {msg['author']}")
+                date_info = f" @ {msg['created_at']}" if msg.get('created_at') else ""
+                print(f"Stored message {msg_id} [{msg['message_type']}] from {msg['author']}{date_info}")
             except Exception as e:
                 print(f"Error storing message: {e}")
 

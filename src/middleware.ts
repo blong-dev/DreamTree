@@ -9,10 +9,15 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 
 // Routes that don't require authentication
-const PUBLIC_ROUTES = ['/', '/login', '/signup', '/api/auth/login', '/api/auth/signup'];
+const PUBLIC_ROUTES = ['/', '/login', '/signup', '/api/auth/login', '/api/auth/signup', '/about'];
 
 // Routes that require authentication
 const PROTECTED_ROUTES = ['/workbook', '/profile', '/tools', '/onboarding'];
+
+// Routes that require admin role (BUG-206)
+// Returns 404 for non-admins to hide existence of these pages
+// Both /admin (current) and /ops (future) are protected
+const ADMIN_ROUTES = ['/ops', '/admin'];
 
 export const config = {
   matcher: [
@@ -48,6 +53,46 @@ export async function middleware(request: NextRequest) { // code_id:488
   if (pathname.startsWith('/api/') && !pathname.startsWith('/api/auth/')) {
     // Let API routes handle their own auth
     return NextResponse.next();
+  }
+
+  // Admin routes require admin role (BUG-206)
+  // Returns 404 to hide existence of these pages from non-admins
+  const isAdminRoute = ADMIN_ROUTES.some(
+    (route) => pathname === route || pathname.startsWith(route + '/')
+  );
+
+  if (isAdminRoute) {
+    if (!hasSessionCookie) {
+      // No session - return 404 (not login redirect)
+      return new NextResponse(null, { status: 404 });
+    }
+
+    try {
+      const { env } = getCloudflareContext();
+      const db = env.DB;
+
+      // Get session and check user role
+      const result = await db
+        .prepare(`
+          SELECT u.user_role
+          FROM sessions s
+          JOIN users u ON s.user_id = u.id
+          WHERE s.id = ?
+        `)
+        .bind(sessionId)
+        .first<{ user_role: string }>();
+
+      if (!result || result.user_role !== 'admin') {
+        // Not admin - return 404 (not 403)
+        return new NextResponse(null, { status: 404 });
+      }
+
+      // Admin - allow through
+      return NextResponse.next();
+    } catch {
+      // DB error - return 404 to be safe
+      return new NextResponse(null, { status: 404 });
+    }
   }
 
   // Users with session cookie accessing login/signup - validate session first (BUG-025)

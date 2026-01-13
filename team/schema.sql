@@ -165,6 +165,9 @@ CREATE TABLE IF NOT EXISTS messages (
     content TEXT NOT NULL,
     refs TEXT,                              -- JSON: {bug_id, task_id, code_doc_id, reply_to}
     mentions TEXT,                          -- JSON array: ["@Fizz", "@Buzz"]
+    data TEXT,                              -- JSON: structured data for routing
+    routed_to TEXT,                         -- Target table: 'bugs', 'decisions', 'learnings'
+    routed_id TEXT,                         -- ID in target table (e.g., 'BUG-123')
     resolved INTEGER DEFAULT 0,             -- 1 = addressed/no longer active
     created_at TEXT DEFAULT (datetime('now'))  -- Auto-timestamp on insert
 );

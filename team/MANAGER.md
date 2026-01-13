@@ -240,44 +240,98 @@ Manager maintains the Change Log in `/CLAUDE.md` after:
 
 **Multiple Claude instances may work on this codebase simultaneously. This section ensures they don't conflict.**
 
-### The Bug Tracker: `team/BUGS.md`
+### The Bug Tracker: `team.db` (bugs table)
 
-All bugs and tasks are tracked in `team/BUGS.md`. This is the **single source of truth** for work coordination.
+All bugs and tasks are tracked in the database. Query via CLI:
+```bash
+python -m toolbox.cli bugs --status open
+python -m toolbox.cli bugs add --title "..." --area workbook
+```
 
-### The Message Board: `team/BOARD.md`
+All data stored in `team.db`.
 
-Async communication between instances. Check this when you start a session, post updates when you finish work or hit blockers. Tag others with `@Name`.
+### The Message Board: `team.db` (messages table)
+
+Async communication between instances using the **Board class**:
+
+```python
+from toolbox.board import Board
+
+board = Board("Fizz")
+
+# Post status
+board.post_status("Working on BUG-026")
+
+# File a bug (auto-routes to bugs table, validated)
+bug_id = board.file_bug(
+    title="Toast doesn't dismiss",
+    area="ui-primitives",
+    priority="high"
+)
+
+# Read recent messages (capped at 50)
+messages = board.get_recent()
+```
+
+All data stored in `team.db`.
 
 ### The Crawl Plan: `team/CRAWL.md`
 
 Systematic codebase exploration plan. Four phases of deep analysis. Check this for your current assignments and deliverables when in Learn Mode.
 
-### Workflow
+### Workflow (WorkSession - Enforced)
 
+**MANDATORY: Use `board.start_work()` for all bug work.** This enforces the process.
+
+```python
+from toolbox.board import Board
+
+board = Board("Fizz")
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │  1. START WORK - Context is automatically surfaced          │
+# └─────────────────────────────────────────────────────────────┘
+session = board.start_work("BUG-026")
+
+# You now have ALL relevant context:
+print(session.context.code_docs)     # Related files/functions
+print(session.context.learnings)     # Past learnings in this area
+print(session.context.similar_bugs)  # How similar bugs were fixed
+print(session.context.decisions)     # Relevant decisions
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │  2. TRACK WORK - Log files and notes as you go              │
+# └─────────────────────────────────────────────────────────────┘
+session.touch_file("src/components/Toast.tsx")
+session.add_note("Root cause: missing event handler")
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │  3. COMPLETE - Gates enforce requirements                   │
+# └─────────────────────────────────────────────────────────────┘
+session.complete(
+    summary="Added onClick handler to dismiss toast",
+    root_cause="Event handler was never attached",
+)
+# FAILS if: no summary, no root_cause, no files touched
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │  4. CAPTURE LEARNING - Linked to bug automatically          │
+# └─────────────────────────────────────────────────────────────┘
+session.log_learning("Always attach handlers in useEffect cleanup")
+
+# ┌─────────────────────────────────────────────────────────────┐
+# │  5. REQUEST REVIEW - Notifies QA                            │
+# └─────────────────────────────────────────────────────────────┘
+session.request_review()
 ```
-┌─────────────────────────────────────────────────────────────┐
-│  1. READ team/BUGS.md and team/BOARD.md                     │
-│     - See what's open, in-progress, done                    │
-│     - Check "Currently Editing" section for file locks      │
-│     - Check BOARD.md for team messages and context          │
-├─────────────────────────────────────────────────────────────┤
-│  2. CLAIM your work                                         │
-│     - Change status: open → in-progress (your-instance-id)  │
-│     - Add files you'll edit to "Currently Editing"          │
-│     - Save BUGS.md immediately                              │
-├─────────────────────────────────────────────────────────────┤
-│  3. WORK on the bug                                         │
-│     - Follow area docs for patterns                         │
-│     - Update progress notes in BUGS.md as you go            │
-├─────────────────────────────────────────────────────────────┤
-│  4. COMPLETE                                                │
-│     - Mark status: done                                     │
-│     - List files changed                                    │
-│     - Remove from "Currently Editing"                       │
-│     - Move to "Recently Completed" section                  │
-│     - Post update to BOARD.md                               │
-└─────────────────────────────────────────────────────────────┘
-```
+
+**WorkSession automatically:**
+- Claims the bug (sets status to `in_progress`)
+- Surfaces all relevant context (code docs, learnings, similar bugs)
+- Tracks files touched during work
+- Creates changelog entry on completion
+- Links learnings to the bug
+- Requests QA review
 
 ### Instance Identification
 
@@ -288,19 +342,43 @@ Use one of these as your instance ID:
 
 ### File Conflict Prevention
 
-**Before editing a file**, check the "Currently Editing" section in BUGS.md:
-- If file is listed by another instance → wait or coordinate with user
-- If file is free → add it to "Currently Editing" with your instance ID
+**Before editing a major file**, post to the board:
+```python
+board.post_status("Working on WorkbookView.tsx")
+```
 
-**After editing**, remove from "Currently Editing".
+Check recent messages to see if another instance is already working on it:
+```python
+messages = board.get_recent()
+for m in messages:
+    if "WorkbookView" in m.content:
+        print(f"{m.author} is working on this file")
+```
 
 ### Cross-Instance Communication
 
-Instances communicate through **BOARD.md** and **BUGS.md**:
-- **BOARD.md** — Status updates, blockers, coordination messages
-- **BUGS.md** — Technical progress notes, file warnings
-- **Tag teammates** — Use `@Fizz`, `@Buzz`, `@Pazz`, `@Queen` in BOARD.md
-- **Dependencies** — "BUG-005 must complete before BUG-006"
+Instances communicate through the **Board class**:
+
+```python
+from toolbox.board import Board
+
+board = Board("Fizz")
+
+# Post status update
+board.post_status("Working on BUG-XXX")
+
+# Assign work to teammates
+board.post_assignment("Please review", mentions=["@Fizz", "@Buzz"])
+
+# Ask questions
+board.post_question("Should we use X or Y?", mentions=["@Buzz"])
+
+# Read messages
+messages = board.get_recent()
+my_tasks = board.get_my_assignments()
+```
+
+**Database is the only source of truth** — always use CLI commands.
 
 ### Routing Bug Work
 
@@ -328,12 +406,12 @@ Worker completes bug → Status: "review" → Pazz verifies → Status: "done"
 ```
 
 **Pazz responsibilities:**
-1. Monitor BUGS.md for `review` status bugs
-2. Test against acceptance criteria (checkboxes in bug report)
+1. Query bugs in review: `python -m toolbox.cli bugs --status review`
+2. Test against acceptance criteria
 3. Verify build passes (`npm run build`)
 4. Check for regressions in related areas
-5. **Pass** → Move to `done`, add verification note
-6. **Fail** → Back to `in-progress`, add failure notes, tag worker in BOARD.md
+5. **Pass** → `python -m toolbox.cli bugs update BUG-XXX --status done`
+6. **Fail** → `python -m toolbox.cli bugs update BUG-XXX --status in_progress` and post to board
 
 **Skip review for trivial bugs:**
 - Bugs marked `Trivial: yes` can go straight to `done`
@@ -363,19 +441,51 @@ Every task completion should pass these checks:
 
 ## Team Toolbox (team.db)
 
+**CRITICAL: team.db is the source of truth. Use the Board class for all coordination.**
+
 The team uses a local SQLite database (`team/team.db`) for structured coordination.
+
+### Board Class (Primary Interface)
+
+**Every team member uses the Board class for coordination:**
+
+```python
+from toolbox.board import Board
+
+board = Board("Fizz")  # Your agent name
+
+# Communication
+board.post_status("Working on BUG-026")
+board.post_assignment("Fix the bug", mentions=["@Buzz"])
+board.post_question("Which approach?", mentions=["@Queen"])
+
+# Routable (auto-forward to target tables)
+bug_id = board.file_bug("Toast broken", area="ui-primitives", priority="high")
+board.log_learning("Memoize callbacks", category="tools")
+board.log_decision("Use WAL mode", rationale="Concurrent reads")
+
+# Read (capped at 50)
+messages = board.get_recent()
+my_tasks = board.get_my_assignments()
+
+# Manage
+board.resolve(123)
+board.delete(124)  # Own messages <1hr only
+```
 
 ### Key Tables
 
 | Table | Purpose |
 |-------|---------|
 | `code_docs` | Documentation for every file and function |
-| `bugs` | Bug tracking (replaces BUGS.md) |
-| `messages` | Board messages (append-only, DB is source of truth) |
+| `bugs` | Bug tracking |
+| `messages` | Board messages |
 | `changelog` | What changed and why |
 | `learnings` | Engineering learnings |
+| `decisions` | Architectural decisions |
+| `code_calls` | Function call graph (who calls what) |
 
-### Common CLI Commands
+### CLI Commands (Query & Research)
 
 ```bash
 cd dreamtree/team
@@ -383,36 +493,41 @@ cd dreamtree/team
 # Query code documentation
 python -m toolbox.cli docs --area workbook
 python -m toolbox.cli docs --symbol handleClick
+python -m toolbox.cli calls --to handleSave
+python -m toolbox.cli tree WorkbookView --depth 2
 
-# Bug management
+# Bug queries
 python -m toolbox.cli bugs --status open
-python -m toolbox.cli bugs add --title "..." --area workbook
-
-# Board messages (append-only)
-python -m toolbox.cli board --type assignment --resolved 0
-python -m toolbox.cli board post --author Queen --type assignment --content "..."
+python -m toolbox.cli bugs --status review
 
 # Research
 python -m toolbox.cli learn --category database
 python -m toolbox.cli history --days 7
-
-# Statistics
 python -m toolbox.cli stats
 ```
 
-### Board Message Types
+### Board Methods Reference
 
-| Type | Usage |
-|------|-------|
-| `assignment` | Task delegation |
-| `question` | Asking for input |
-| `answer` | Response to question |
-| `status` | Progress update |
-| `blocker` | Blocked on something |
-| `announcement` | General info |
-| `review_request` | Asking for review |
-| `approval` | Approving something |
-| `correction` | Fixing a previous message |
+**Communication methods** (stay in messages table):
+
+| Method | Usage |
+|--------|-------|
+| `post_status(content)` | Progress update |
+| `post_assignment(content, mentions)` | Delegate work |
+| `post_question(content, mentions?)` | Ask for input |
+| `post_answer(content, reply_to?)` | Respond |
+| `post_blocker(content)` | Report being blocked |
+| `post_announcement(content)` | General info |
+| `post_review_request(content, mentions?)` | Request review |
+| `post_approval(content, reply_to?)` | Approve something |
+
+**Routable methods** (auto-forward to target tables):
+
+| Method | Routes To |
+|--------|-----------|
+| `file_bug(title, area, priority)` | bugs table |
+| `log_decision(decision, rationale)` | decisions table |
+| `log_learning(learning, category)` | learnings table |
 
 ---
 

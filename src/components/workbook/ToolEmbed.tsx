@@ -8,7 +8,9 @@
  * This component just dispatches to the right wrapper.
  */
 
+import { useEffect, useCallback } from 'react';
 import type { ToolData } from './types';
+import { trackToolOpen, trackToolSubmit } from '@/lib/analytics';
 import { ErrorBoundary } from '../feedback';
 import {
   ListBuilderWrapper,
@@ -63,6 +65,21 @@ type ToolName =
 export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEmbedProps) { // code_id:13
   const toolName = (tool.name || '').toLowerCase().replace(/-/g, '_') as ToolName;
 
+  // Track tool open on mount
+  useEffect(() => {
+    if (tool.id) {
+      trackToolOpen(tool.id.toString());
+    }
+  }, [tool.id]);
+
+  // Wrap onComplete to track tool submission
+  const handleComplete = useCallback((data: ToolSaveResponse) => {
+    if (tool.id) {
+      trackToolSubmit(tool.id.toString());
+    }
+    onComplete(data);
+  }, [tool.id, onComplete]);
+
   // Guard: tool.id is required for saving
   if (!tool.id) {
     return (
@@ -79,7 +96,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
     exerciseId,
     connectionId,
     instructions: tool.instructions,
-    onComplete,
+    onComplete: handleComplete,
   };
 
   const renderTool = () => { // code_id:383

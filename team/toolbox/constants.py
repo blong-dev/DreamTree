@@ -139,6 +139,7 @@ AuthorType = Literal["Queen", "Fizz", "Buzz", "Pazz", "Rizz"]
 
 # Board message types
 VALID_MESSAGE_TYPES = [
+    # Communication types (stay in messages table only)
     "assignment",      # Task delegation: "@Fizz please fix BUG-026"
     "question",        # Asking for input: "Should we use X or Y?"
     "answer",          # Response to question
@@ -148,11 +149,16 @@ VALID_MESSAGE_TYPES = [
     "review_request",  # Asking for review: "Please review PR #123"
     "approval",        # Approving something: "Looks good"
     "correction",      # Fixing a previous message (append-only)
+    # Routable types (auto-forward to target tables)
+    "bug",             # Routes to bugs table
+    "decision",        # Routes to decisions table
+    "learning",        # Routes to learnings table
 ]
 
 MessageType = Literal[
     "assignment", "question", "answer", "status", "blocker",
-    "announcement", "review_request", "approval", "correction"
+    "announcement", "review_request", "approval", "correction",
+    "bug", "decision", "learning"
 ]
 
 # Function call types for code_calls table

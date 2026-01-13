@@ -88,36 +88,52 @@ dreamtree/CLAUDE.md    ← Project-level guidance
 
 ### When User Reports a Bug
 
-```
-1. UNDERSTAND — Ask clarifying questions if needed
-2. RECORD — Store bug in team.db:
-   python -m toolbox.cli bugs add --title "..." --area workbook --priority high
-3. RESEARCH — Query related code and past bugs:
-   python -m toolbox.cli docs --area workbook
-   python -m toolbox.cli bugs --area workbook --status done
-   python -m toolbox.cli learn --category workbook
-4. PLAN — Update bug with root cause and fix approach:
-   python -m toolbox.cli bugs update BUG-XXX --root-cause "..."
-5. DELEGATE — Post assignment to board:
-   python -m toolbox.cli board post --author Queen --type assignment \
-     --content "Fix BUG-XXX: ..." --bug BUG-XXX --mentions "@Fizz"
-6. CONFIRM — Tell user it's filed and assigned
+```python
+from toolbox.board import Board
+
+board = Board("Queen")
+
+# 1. UNDERSTAND — Ask clarifying questions if needed
+
+# 2. FILE BUG (auto-routes to bugs table)
+bug_id = board.file_bug(
+    title="User reported issue",
+    area="workbook",
+    priority="high",
+    description="Detailed description...",
+    acceptance_criteria=["Criterion 1", "Criterion 2"]
+)
+
+# 3. ASSIGN to worker
+board.post_assignment(
+    f"Fix {bug_id}: description here",
+    mentions=["@Fizz"]  # or @Buzz for data issues
+)
+
+# 4. CONFIRM — Tell user it's filed and assigned
 ```
 
 ### When Worker Completes a Task
 
-```
-1. READ — Query bug status:
-   python -m toolbox.cli bugs --id BUG-XXX
-2. VERIFY — Check acceptance criteria addressed
-3. ROUTE — If `review` status, Pazz will verify
-4. UPDATE — Mark bug done and post to board:
-   python -m toolbox.cli bugs update BUG-XXX --status done --verified-by Pazz
-   python -m toolbox.cli board post --author Queen --type status \
-     --content "BUG-XXX fixed and verified" --bug BUG-XXX
-5. LOG — Record in changelog:
-   python -m toolbox.cli history add --title "..." --what-changed "..." --why "..."
-6. REPORT — Tell user when fix is ready
+**Workers use WorkSession which auto-creates changelog entries.**
+
+```python
+# 1. CHECK bug status via CLI
+#    python -m toolbox.cli bugs --id BUG-XXX
+
+# 2. VERIFY WorkSession was used:
+#    - root_cause documented? ✓
+#    - fix_applied documented? ✓
+#    - files_changed tracked? ✓
+#    - learning captured? ✓
+#    - changelog entry created? ✓ (automatic)
+
+# 3. ROUTE to QA if in `review` status
+
+# 4. POST completion status
+board.post_status(f"{bug_id} fixed and verified")
+
+# 5. REPORT to user
 ```
 
 ### When Priorities Conflict
@@ -203,49 +219,6 @@ You are the hub. Information flows through you.
 
 ---
 
-## Board Maintenance
-
-**BOARD.md can grow large. Archive old messages periodically.**
-
-### When to Archive
-
-Check at the start of each session:
-```bash
-wc -l team/BOARD.md
-```
-
-**Threshold:** If over **1,500 lines**, archive.
-
-### How to Archive
-
-1. **Keep header** (lines 1-27 — protocol, team info)
-2. **Keep recent** (last ~500 lines of messages)
-3. **Archive the rest** to `BOARD_HISTORY.md`
-
-```bash
-cd team
-
-# Create new board with header + archive note + recent messages
-head -27 BOARD.md > BOARD_NEW.md
-echo -e "\n**Archive**: Older messages moved to \`BOARD_HISTORY.md\`\n\n---\n" >> BOARD_NEW.md
-tail -500 BOARD.md >> BOARD_NEW.md
-
-# Append old messages to history
-echo -e "\n---\n\n## Archived $(date +%Y-%m-%d)\n" >> BOARD_HISTORY.md
-sed -n '28,$p' BOARD.md | head -n -500 >> BOARD_HISTORY.md
-
-# Swap files
-mv BOARD_NEW.md BOARD.md
-```
-
-### After Archiving
-
-- Verify recent messages preserved (check last 20 lines)
-- Verify `<!-- New messages go above this line -->` marker exists
-- Post note: "Archived old messages to BOARD_HISTORY.md"
-
----
-
 ## Update Your Docs
 
 **When you learn something, document it immediately.**
@@ -280,7 +253,54 @@ When you notice learnings not being captured, remind the team:
 
 ## Team Toolbox (team.db)
 
-The team uses a SQLite database for coordination. Query it with the CLI:
+The team uses a SQLite database for coordination. **Use the Board class for all communication.**
+
+### Board Class (Primary Interface)
+
+```python
+from toolbox.board import Board
+
+board = Board("Queen")
+
+# Assign work to team members
+board.post_assignment("Fix BUG-026", mentions=["@Fizz"])
+
+# File bugs (auto-routes to bugs table, validated)
+bug_id = board.file_bug(
+    title="Toast doesn't dismiss on click",
+    area="ui-primitives",
+    priority="high",
+    description="Clicking outside toast should dismiss it"
+)
+
+# Log decisions (auto-routes to decisions table)
+board.log_decision(
+    decision="Use SQLite for team coordination",
+    rationale="Simple, local, no server needed",
+    alternatives=["PostgreSQL", "Firebase"]
+)
+
+# Log learnings (auto-routes to learnings table)
+board.log_learning(
+    learning="Always verify board state before posting",
+    category="general"
+)
+
+# Ask questions, post updates
+board.post_question("Should we use X or Y?", mentions=["@Fizz", "@Buzz"])
+board.post_status("BUG-026 fix complete")
+board.post_announcement("New pattern for tool components")
+
+# Read recent messages (capped at 50)
+messages = board.get_recent()
+open_assignments = board.get_by_type("assignment", resolved=False)
+
+# Manage messages
+board.resolve(123)           # Mark resolved
+board.delete(124)            # Delete own message if <1hr old
+```
+
+### CLI Commands (Query & Research)
 
 ```bash
 cd dreamtree/team
@@ -289,43 +309,41 @@ cd dreamtree/team
 python -m toolbox.cli init
 
 # Query code documentation
-python -m toolbox.cli docs --area workbook           # What code is in workbook?
-python -m toolbox.cli docs WorkbookView.tsx          # What does this file do?
-python -m toolbox.cli docs --symbol handleClick      # Find a function
+python -m toolbox.cli docs --area workbook
+python -m toolbox.cli docs --symbol handleClick
 
-# Bug management
-python -m toolbox.cli bugs --status open             # Open bugs
-python -m toolbox.cli bugs --area workbook           # Bugs in an area
-python -m toolbox.cli bugs add --title "..." --area workbook --priority high
-
-# Board messages (DB is source of truth, append-only)
-python -m toolbox.cli board                          # Recent messages
-python -m toolbox.cli board --type assignment --resolved 0  # Open assignments
-python -m toolbox.cli board post --author Queen --type assignment \
-  --content "..." --mentions "@Fizz"
-python -m toolbox.cli board resolve --id 123         # Mark resolved
+# Bug management (queries)
+python -m toolbox.cli bugs --status open
+python -m toolbox.cli bugs --area workbook
 
 # Research
-python -m toolbox.cli learn --category database      # What we learned
-python -m toolbox.cli history --days 7               # Recent changes
-
-# Statistics
+python -m toolbox.cli learn --category database
+python -m toolbox.cli history --days 7
 python -m toolbox.cli stats
 ```
 
-### Message Types
+### Board Methods Reference
 
-| Type | When to Use |
-|------|-------------|
-| `assignment` | Delegating work: "@Fizz please fix BUG-026" |
-| `question` | Asking for input: "Should we use X or Y?" |
-| `answer` | Response to question |
-| `status` | Progress update: "BUG-026 fix complete" |
-| `blocker` | Blocked on something: "Need DB access" |
-| `announcement` | General info: "New pattern for..." |
-| `review_request` | Asking for review: "Please review PR #123" |
-| `approval` | Approving something: "Looks good" |
-| `correction` | Fixing a previous message |
+**Communication methods** (stay in messages table):
+
+| Method | Usage |
+|--------|-------|
+| `post_assignment(content, mentions)` | Delegate work |
+| `post_question(content, mentions?)` | Ask for input |
+| `post_answer(content, reply_to?)` | Respond to question |
+| `post_status(content)` | Progress update |
+| `post_blocker(content)` | Report being blocked |
+| `post_announcement(content)` | General info |
+| `post_review_request(content, mentions?)` | Request review |
+| `post_approval(content, reply_to?)` | Approve something |
+
+**Routable methods** (auto-forward to target tables):
+
+| Type | Routes To | Required `--data` Fields |
+|------|-----------|-------------------------|
+| `bug` | bugs table | `area`, `priority` |
+| `decision` | decisions table | `rationale` |
+| `learning` | learnings table | `category` |
 
 ### Valid Authors
 

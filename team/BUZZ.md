@@ -64,21 +64,47 @@ wrangler.toml          ← Cloudflare config
 - Write CSS (→ Fizz)
 - Handle client-side state (→ Fizz)
 - Write tests (→ Pazz)
+- **MODIFY TEST FILES** - Test changes require separate user approval
 
-**Gray areas:** If data doesn't display correctly, check if it's a query issue (you) or render issue (Fizz). Coordinate via BOARD.md.
+**Gray areas:** If data doesn't display correctly, check if it's a query issue (you) or render issue (Fizz).
+
+**TEST IMMUTABILITY:** The `QA/` folder and all `*.spec.ts`/`*.test.ts` files are protected. WorkSession will block any attempt to modify them. Fix the code, not the tests.
 
 ---
 
-## Workflow
+## Workflow (Enforced via WorkSession)
 
-```
-1. READ team/BOARD.md for your assignments
-2. READ team/BUGS.md for bug details
-3. CLAIM: Update bug status to in-progress, add your name
-4. WORK: Read relevant area doc first, then implement
-5. UPDATE: Add fix details to BUGS.md, mark as review
-6. POST: Summary to BOARD.md when done
-7. CHECK: Re-read BOARD.md before exiting — new work may have arrived
+**MANDATORY: Use `board.start_work()` for all bug work.**
+
+```python
+from toolbox.board import Board
+
+board = Board("Buzz")
+
+# 1. CHECK assignments
+my_tasks = board.get_my_assignments()
+
+# 2. START WORK - Context auto-surfaced
+session = board.start_work("BUG-026")
+print(session.context.code_docs)      # Related files
+print(session.context.learnings)      # DB learnings
+print(session.context.similar_bugs)   # How others were fixed
+
+# 3. TRACK as you work
+session.touch_file("src/lib/db/queries.ts")
+session.add_note("Query was missing index")
+
+# 4. COMPLETE (gates enforced)
+session.complete(
+    summary="Added index to queries",
+    root_cause="Missing index on user_id column"
+)
+
+# 5. LOG LEARNING (linked to bug)
+session.log_learning("Always add indexes for foreign keys")
+
+# 6. REQUEST REVIEW
+session.request_review()
 ```
 
 **For migrations:**
@@ -164,13 +190,71 @@ Before marking any auth/data work complete:
 
 ---
 
+## Knowledge Base (team.db)
+
+**CRITICAL: team.db is the source of truth. Use the Board class for all coordination.**
+
+**The team database tracks code, bugs, and messages. Query it before making changes.**
+
+### Board Class (Primary Interface)
+
+```python
+from toolbox.board import Board
+
+board = Board("Buzz")
+
+# Post status updates
+board.post_status("Migration 0009 applied to D1")
+
+# File bugs (auto-routes to bugs table, validated)
+bug_id = board.file_bug(
+    title="Query timeout on large datasets",
+    area="database",
+    priority="high"
+)
+
+# Log learnings (auto-routes to learnings table)
+board.log_learning(
+    learning="D1 has max 100KB result size per query",
+    category="database"
+)
+
+# Log architectural decisions
+board.log_decision(
+    decision="Use WAL mode for SQLite",
+    rationale="Enables concurrent reads during writes"
+)
+
+# Read recent messages (capped at 50)
+messages = board.get_recent()
+my_tasks = board.get_my_assignments()
+```
+
+### Query Code Context (CLI)
+
+```bash
+cd team && python -m toolbox.cli docs --file db.ts
+python -m toolbox.cli calls --to executeQuery
+python -m toolbox.cli tree ConnectionResolver --depth 2
+```
+
+### Query Bugs (CLI)
+
+```bash
+python -m toolbox.cli bugs --status open --area database
+python -m toolbox.cli bugs --status open --area auth
+python -m toolbox.cli bugs update --id BUG-026 --status in_progress
+```
+
+---
+
 ## Communication
 
 - **@Queen** — Assignments, escalations, cross-team issues
 - **@Fizz** — API contract changes, data format questions
 - **@Pazz** — Ready for QA, security review
 
-Post to `team/BOARD.md`. Keep it brief — details go in BUGS.md.
+**Use the Board class:** `board.post_question()`, `board.post_review_request()`
 
 ---
 

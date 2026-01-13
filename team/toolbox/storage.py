@@ -703,6 +703,8 @@ def store_message(
     content: str,
     refs: Optional[Dict[str, Any]] = None,
     mentions: Optional[List[str]] = None,
+    created_at: Optional[str] = None,
+    data: Optional[Dict[str, Any]] = None,
 ) -> int:
     """
     Store a board message (append-only).
@@ -713,9 +715,11 @@ def store_message(
         content: Message content
         refs: References dict (bug_id, task_id, reply_to, code_doc_id)
         mentions: List of mentioned @names
+        created_at: Optional timestamp (ISO format). If not provided, auto-timestamps.
+        data: Optional structured data dict for routing (area, priority, etc.)
 
     Returns:
-        The message ID (auto-timestamped on insert).
+        The message ID.
     """
     msg = MessageInput(
         author=author,
@@ -725,23 +729,63 @@ def store_message(
         mentions=mentions or [],
     )
 
+    data_json = json.dumps(data) if data else None
+
     conn = get_connection()
     try:
-        cursor = conn.execute(
-            """
-            INSERT INTO messages (author, message_type, content, refs, mentions)
-            VALUES (?, ?, ?, ?, ?)
-            """,
-            (
-                msg.author,
-                msg.message_type,
-                msg.content,
-                msg.refs_json(),
-                msg.mentions_json(),
-            ),
-        )
+        if created_at:
+            cursor = conn.execute(
+                """
+                INSERT INTO messages (author, message_type, content, refs, mentions, data, created_at)
+                VALUES (?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    msg.author,
+                    msg.message_type,
+                    msg.content,
+                    msg.refs_json(),
+                    msg.mentions_json(),
+                    data_json,
+                    created_at,
+                ),
+            )
+        else:
+            cursor = conn.execute(
+                """
+                INSERT INTO messages (author, message_type, content, refs, mentions, data)
+                VALUES (?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    msg.author,
+                    msg.message_type,
+                    msg.content,
+                    msg.refs_json(),
+                    msg.mentions_json(),
+                    data_json,
+                ),
+            )
         conn.commit()
         return cursor.lastrowid
+    finally:
+        conn.close()
+
+
+def update_message_routing(msg_id: int, routed_to: str, routed_id: str) -> None:
+    """
+    Mark a message as routed to a target table.
+
+    Args:
+        msg_id: The message ID
+        routed_to: Target table name ('bugs', 'decisions', 'learnings')
+        routed_id: ID in the target table (e.g., 'BUG-123')
+    """
+    conn = get_connection()
+    try:
+        conn.execute(
+            "UPDATE messages SET routed_to = ?, routed_id = ? WHERE id = ?",
+            (routed_to, routed_id, msg_id)
+        )
+        conn.commit()
     finally:
         conn.close()
 

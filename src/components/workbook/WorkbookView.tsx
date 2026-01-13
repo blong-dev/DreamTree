@@ -24,6 +24,7 @@ import { TOCPanel } from '../overlays/TOCPanel';
 import type { WorkbookProgress, BreadcrumbLocation as TOCLocation } from '../overlays/types';
 
 import { useApplyTheme } from '@/hooks/useApplyTheme';
+import { trackExerciseStart, trackPromptSubmit } from '@/lib/analytics';
 import type { SaveStatus } from '../feedback/types';
 import type { BlockWithResponse, PromptData, ToolData, ThemeSettings } from './types';
 import type { Message, ContentBlock, UserResponseContent } from '../conversation/types';
@@ -105,6 +106,15 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
   const lastSavedValueRef = useRef<string>('');
   const blockContentCache = useRef<Map<number, ContentBlock[]>>(new Map());
   const animatedMessageIdsRef = useRef<Set<string>>(new Set());
+  const isAdvancingRef = useRef(false);
+  const isSavingRef = useRef(false); // Guard against save race conditions (BUG-022)
+
+  // State to sync with isAdvancingRef for button disabled state (refs don't trigger re-renders)
+  const [isAdvancing, setIsAdvancing] = useState(false);
+
+  // Analytics tracking refs
+  const exerciseStartTimeRef = useRef<number>(Date.now());
+  const lastTrackedExerciseRef = useRef<string>('');
 
   // Initialize animated message IDs for returning users
   const isInitializedRef = useRef(false);
@@ -223,10 +233,20 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
 
       if (currentBlock?.blockType === 'content' && messageId === `block-${currentBlock.id}`) {
         if (wasSkipped) {
+          // Guard against rapid skips (same pattern as handleContinue)
+          if (isAdvancingRef.current) return;
+          isAdvancingRef.current = true;
+          setIsAdvancing(true);
+
           setWaitingForContinue(false);
           if (displayedBlockIndex < blocks.length) {
             setDisplayedBlockIndex((prev) => prev + 1);
           }
+
+          setTimeout(() => {
+            isAdvancingRef.current = false;
+            setIsAdvancing(false);
+          }, 200);
         } else {
           setCurrentAnimationComplete(true);
         }
@@ -253,12 +273,32 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     }
   }, [displayedBlockIndex, currentBlock]);
 
-  // Handle continue button
+  // Track exercise start when exercise changes
+  useEffect(() => {
+    const exerciseId = currentBlock?.exerciseId;
+    if (exerciseId && exerciseId !== lastTrackedExerciseRef.current) {
+      lastTrackedExerciseRef.current = exerciseId;
+      exerciseStartTimeRef.current = Date.now();
+      trackExerciseStart(exerciseId);
+    }
+  }, [currentBlock?.exerciseId]);
+
+  // Handle continue button (guarded against rapid clicks)
   const handleContinue = useCallback(() => {
+    if (isAdvancingRef.current) return;
+    isAdvancingRef.current = true;
+    setIsAdvancing(true); // Sync state for button disabled UI
+
     setWaitingForContinue(false);
     if (displayedBlockIndex < blocks.length) {
       setDisplayedBlockIndex((prev) => prev + 1);
     }
+
+    // Reset after state settles (longer delay to prevent rapid double-taps)
+    setTimeout(() => {
+      isAdvancingRef.current = false;
+      setIsAdvancing(false);
+    }, 200);
   }, [displayedBlockIndex, blocks.length]);
 
   // Auto-save for text inputs
@@ -328,8 +368,10 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
   // Save response and get next block
   const handleSaveResponse = useCallback(
     async (responseText: string) => {
-      if (!currentBlock || isSaving) return;
+      // Use ref guard to prevent race conditions (BUG-022)
+      if (!currentBlock || isSavingRef.current) return;
       if (currentBlock.blockType !== 'prompt') return;
+      isSavingRef.current = true;
 
       if (autoSaveTimerRef.current) {
         clearTimeout(autoSaveTimerRef.current);
@@ -343,6 +385,7 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
         setInputType('none');
         lastSavedValueRef.current = '';
         setTimeout(() => {
+          isSavingRef.current = false;
           setDisplayedBlockIndex((prev) => prev + 1);
         }, 300);
         return;
@@ -366,6 +409,11 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
         }
 
         const data = await response.json();
+
+        // Track prompt submission
+        if (currentBlock.content.id) {
+          trackPromptSubmit(currentBlock.content.id.toString());
+        }
 
         // Update current block with response
         setBlocks((prev) =>
@@ -405,10 +453,11 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
           showToast('Failed to save your response. Please try again.', { type: 'error' });
         }
       } finally {
+        isSavingRef.current = false;
         setIsSaving(false);
       }
     },
-    [currentBlock, isSaving, editingBlockId, showToast]
+    [currentBlock, editingBlockId, showToast]
   );
 
   // Handle tool completion - receives data from useToolSave
@@ -696,7 +745,11 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
 
         {hasContinue && (
           <div className="workbook-continue">
-            <button className="button button-primary" onClick={handleContinue}>
+            <button
+              className="button button-primary"
+              onClick={handleContinue}
+              disabled={isAdvancing}
+            >
               Continue
             </button>
           </div>

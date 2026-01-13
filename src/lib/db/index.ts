@@ -30,8 +30,8 @@ export function createDb(db: D1Database) { // code_id:461
       const now = new Date().toISOString();
       await db
         .prepare(
-          `INSERT INTO users (id, is_anonymous, workbook_complete, created_at, updated_at)
-           VALUES (?, 1, 0, ?, ?)`
+          `INSERT INTO users (id, is_anonymous, workbook_complete, user_role, created_at, updated_at)
+           VALUES (?, 1, 0, 'user', ?, ?)`
         )
         .bind(id, now, now)
         .run();
@@ -40,6 +40,7 @@ export function createDb(db: D1Database) { // code_id:461
         id,
         is_anonymous: 1,
         workbook_complete: 0,
+        user_role: 'user' as const,
         created_at: now,
         updated_at: now,
       };

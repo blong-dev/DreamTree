@@ -20,11 +20,14 @@ import { cookies } from 'next/headers';
 import { getCloudflareContext } from '@opennextjs/cloudflare';
 import type { D1Database } from '@cloudflare/workers-types';
 import { getSessionData, type SessionData } from './session';
+import type { UserRole } from '@/types/database';
 import '@/types/database';
 
 export interface AuthContext {
   /** Current user's ID */
   userId: string;
+  /** Current user's role (user, admin, coach, org) */
+  userRole: UserRole;
   /** Raw D1 database binding */
   db: D1Database;
   /** Session ID (for PII encryption/decryption) */
@@ -73,6 +76,7 @@ export function withAuth(handler: AuthenticatedHandler) { // code_id:440
       // Call the authenticated handler with context
       return await handler(request, {
         userId: sessionData.user.id,
+        userRole: sessionData.user.user_role,
         db,
         sessionId,
         session: sessionData,
@@ -124,6 +128,7 @@ export async function getAuthContext(): Promise<
   return {
     ok: true,
     userId: sessionData.user.id,
+    userRole: sessionData.user.user_role,
     sessionId,
     session: sessionData,
     db: env.DB,

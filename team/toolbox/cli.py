@@ -45,6 +45,7 @@ from .storage import (
     get_call_tree,
     get_code_doc_by_name,
     get_nested_functions,
+    update_message_routing,
 )
 from .constants import (
     VALID_AREAS,
@@ -54,6 +55,25 @@ from .constants import (
     VALID_AUTHORS,
     VALID_MESSAGE_TYPES,
 )
+
+
+def sanitize_for_console(text: str) -> str:
+    """Replace unicode characters that Windows console can't display."""
+    replacements = {
+        '\u2705': '[OK]',      # ✅
+        '\u274c': '[X]',       # ❌
+        '\u2714': '[v]',       # ✔
+        '\u2718': '[x]',       # ✘
+        '\u2192': '->',        # →
+        '\u2190': '<-',        # ←
+        '\u2022': '*',         # •
+        '\u2013': '-',         # –
+        '\u2014': '--',        # —
+    }
+    for char, replacement in replacements.items():
+        text = text.replace(char, replacement)
+    # Fallback: replace any remaining non-ASCII with '?'
+    return text.encode('ascii', 'replace').decode('ascii')
 
 
 def format_table(rows: List[Dict[str, Any]], columns: List[str], max_width: int = 50) -> str:
@@ -77,7 +97,7 @@ def format_table(rows: List[Dict[str, Any]], columns: List[str], max_width: int 
     lines = [header, separator]
     for row in rows:
         line = " | ".join(
-            str(row.get(col, ""))[:widths[col]].ljust(widths[col])
+            sanitize_for_console(str(row.get(col, "")))[:widths[col]].ljust(widths[col])
             for col in columns
         )
         lines.append(line)
@@ -281,6 +301,56 @@ def cmd_learn(args: argparse.Namespace) -> int:
     return 0
 
 
+def route_message(msg_id: int, msg_type: str, content: str, data: dict) -> tuple:
+    """
+    Route a message to its target table based on type.
+
+    Returns:
+        Tuple of (routed_to, routed_id) or (None, None) if no routing needed.
+    """
+    if msg_type == "bug":
+        # Route to bugs table
+        bug_id = f"BUG-{msg_id}"
+        bug_data = {
+            "id": bug_id,
+            "title": content,
+            "area": data.get("area", "general"),
+            "priority": data.get("priority", "medium"),
+            "status": "open",
+            "description": data.get("description"),
+            "owner": data.get("owner"),
+        }
+        try:
+            store_bug(bug_data)
+            return ("bugs", bug_id)
+        except Exception as e:
+            print(f"Warning: Failed to route to bugs: {e}", file=sys.stderr)
+            return (None, None)
+
+    elif msg_type == "decision":
+        # Route to decisions table (if it exists)
+        # For now, just log - decisions table routing can be added later
+        return (None, None)
+
+    elif msg_type == "learning":
+        # Route to learnings table
+        learning_data = {
+            "category": data.get("category", "general"),
+            "learning": content,
+            "context": data.get("context"),
+            "related_bug_id": data.get("bug_id"),
+        }
+        try:
+            learning_id = store_learning(learning_data)
+            return ("learnings", str(learning_id))
+        except Exception as e:
+            print(f"Warning: Failed to route to learnings: {e}", file=sys.stderr)
+            return (None, None)
+
+    # Types that don't route: status, assignment, question, blocker, etc.
+    return (None, None)
+
+
 def cmd_board(args: argparse.Namespace) -> int:
     """Post to or query the board."""
     if args.action == "post":
@@ -300,14 +370,32 @@ def cmd_board(args: argparse.Namespace) -> int:
         if args.mentions:
             mentions = [m.strip() for m in args.mentions.split(",")]
 
+        # Parse --data JSON if provided
+        data = None
+        if args.data:
+            try:
+                data = json.loads(args.data)
+            except json.JSONDecodeError as e:
+                print(f"Error: Invalid JSON in --data: {e}", file=sys.stderr)
+                return 1
+
         msg_id = store_message(
             author=args.author,
             message_type=args.type,
             content=args.content,
             refs=refs if refs else None,
             mentions=mentions,
+            data=data,
         )
-        print(f"Posted message: {msg_id}")
+
+        # Auto-route based on message type
+        routed_to, routed_id = route_message(msg_id, args.type, args.content, data or {})
+
+        if routed_to:
+            update_message_routing(msg_id, routed_to, routed_id)
+            print(f"Posted message: {msg_id} -> {routed_id}")
+        else:
+            print(f"Posted message: {msg_id}")
 
     elif args.action == "resolve":
         if not args.id:
@@ -601,6 +689,7 @@ def main() -> int:
     board_parser.add_argument("--author", choices=VALID_AUTHORS, help="Author filter or value (for post)")
     board_parser.add_argument("--type", choices=VALID_MESSAGE_TYPES, help="Message type filter or value (for post)")
     board_parser.add_argument("--content", help="Message content (for post)")
+    board_parser.add_argument("--data", help="JSON data for routing (e.g., '{\"area\": \"workbook\", \"priority\": \"high\"}')")
     board_parser.add_argument("--bug", help="Related bug ID (for post)")
     board_parser.add_argument("--task", help="Related task ID (for post)")
     board_parser.add_argument("--reply-to", type=int, help="Reply to message ID (for post)")

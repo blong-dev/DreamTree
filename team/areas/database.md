@@ -247,6 +247,14 @@ npx wrangler d1 migrations apply dreamtree-db --local
 - Prepared statements are required
 - Max 100KB result size per query
 
+### SQL Injection Prevention (CRITICAL)
+- **All values** must use parameterized `.bind()` — never string interpolation
+- **Column names** cannot be parameterized — must be hardcoded or whitelist-validated
+- When dynamic column names are needed, validate against explicit whitelist array
+- For user-provided identifiers, use strict regex like `/^[a-zA-Z0-9_]+$/`
+- Pattern: `db.prepare('SELECT ? FROM table').bind(value)` for values
+- Pattern: `if (validColumns.includes(col)) { query = \`SELECT ${col}\` }` for columns
+
 ### Connection Gotchas
 - Connection IDs are numeric, exercise IDs are strings
 - `from_exercise` format: `"1.2.3"` (Part.Module.Exercise)

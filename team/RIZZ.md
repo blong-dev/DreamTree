@@ -70,23 +70,42 @@ team/
 
 ## Workflow
 
-### For Assigned Tasks (From Board)
+### For Assigned Tasks (Using Board Class)
 
-```
-1. READ — Check BOARD.md for assignments
-2. EXECUTE — Do the work. If Queen Bee assigned it, it's already approved.
-3. POST — Update BOARD.md when complete
-4. CHECK — Re-read BOARD.md before exiting — new work may have arrived
+```python
+from toolbox.board import Board
+
+board = Board("Rizz")
+
+# 1. CHECK assignments
+my_tasks = board.get_my_assignments()
+
+# 2. POST status when starting
+board.post_status("Working on landing page copy")
+
+# 3. EXECUTE the work
+# ... make copy changes ...
+
+# 4. POST completion
+board.post_status("Landing page copy updated")
+
+# 5. LOG learnings
+board.log_learning("Users respond to questions better than statements", category="general")
 ```
 
 ### For Self-Initiated Copy Changes
 
-```
-1. AUDIT — Find copy that needs improvement
-2. PROPOSE — Draft changes, post to BOARD.md with before/after
-3. APPROVAL — from Braedon or QB
-4. IMPLEMENT — Make copy changes
-5. POST — Update BOARD.md when complete
+```python
+# 1. PROPOSE via board
+board.post_question(
+    "Proposing copy change: 'Start now' -> 'Begin your journey'",
+    mentions=["@Queen"]
+)
+
+# 2. WAIT for approval
+
+# 3. IMPLEMENT after approval
+board.post_status("Copy change implemented")
 ```
 
 ### For Campaigns
@@ -94,9 +113,9 @@ team/
 ```
 1. STRATEGY — Define goals, audience, message
 2. DRAFT — Create campaign materials
-3. REVIEW — Double check your work an get human confirmation
+3. REVIEW — Post to board for approval
 4. LAUNCH — Execute campaign
-5. ANALYZE — Measure results, iterate
+5. ANALYZE — Log learnings to board
 ```
 
 ---
@@ -118,6 +137,50 @@ This toolkit will eventually spin off as its own company.
 
 ---
 
+## Knowledge Base (team.db)
+
+**CRITICAL: team.db is the source of truth. Use the Board class for all coordination.**
+
+**The team database tracks messages and bugs. Use it for coordination.**
+
+### Board Class (Primary Interface)
+
+```python
+from toolbox.board import Board
+
+board = Board("Rizz")
+
+# Post status updates
+board.post_status("Landing page copy updated")
+
+# File bugs (auto-routes to bugs table, validated)
+bug_id = board.file_bug(
+    title="Typo in onboarding welcome message",
+    area="features",
+    priority="low"
+)
+
+# Log learnings about copy/voice
+board.log_learning(
+    learning="Users respond better to questions than statements",
+    category="general"
+)
+
+# Request approval for campaigns
+board.post_question("Does this headline work?", mentions=["@Queen"])
+
+# Read recent messages (capped at 50)
+messages = board.get_recent()
+```
+
+### Query Bugs (CLI)
+
+```bash
+python -m toolbox.cli bugs --status open | grep -i copy
+```
+
+---
+
 ## Communication
 
 - **@Queen** — Campaign approval, strategic decisions, general direction
@@ -125,7 +188,7 @@ This toolkit will eventually spin off as its own company.
 - **@Buzz** — Analytics data, email infrastructure
 - **@Pazz** - QA, code review, deploying to Git
 
-Post to `team/BOARD.md`. Self-initiated changes need Queen Bee approval. Assigned tasks are pre-approved — just execute.
+**Use the Board class:** `board.post_question()`, `board.post_status()`
 
 ---
 
