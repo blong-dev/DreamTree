@@ -6657,35 +6657,21 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
 
 /* ============================================================
    WORKBOOK INPUT ZONE
-   Unified, fixed-position input area at bottom of workbook.
+   Unified input area at bottom of workbook (inline with content).
    Contains all input types: text, PromptInput, ToolEmbed, Continue.
+   BUG-342: Changed from fixed to inline positioning with floating indicator.
    ============================================================ */
 
+/* BUG-342 FIX: Input zone now flows inline with content instead of fixed positioning */
 .workbook-input-zone {
-  position: fixed;
-  bottom: var(--space-4);
-  left: 0;
-  right: 0;
-  z-index: var(--z-input);
+  position: relative;
+  z-index: var(--z-raised);
   background: var(--color-surface);
   border-top: var(--border-thin) solid var(--color-border);
   transition: all var(--duration-normal) var(--ease-default);
   /* Fixed height prevents content jumping when inputs appear/change */
   min-height: 80px;
-}
-
-/* Account for desktop nav */
-@media (min-width: 1024px) {
-  .workbook-input-zone {
-    left: var(--nav-width);
-  }
-}
-
-/* Account for mobile nav */
-@media (max-width: 1023px) {
-  .workbook-input-zone {
-    bottom: calc(var(--nav-height-mobile) + var(--space-4));
-  }
+  margin-top: var(--space-4);
 }
 
 /* Expanded state - normal content */
@@ -6777,9 +6763,62 @@ a:not([class*="button"]):not([class*="card"]):not([class*="nav"]) {
   flex-shrink: 0;
 }
 
-/* Ensure content area has padding to avoid overlap with fixed input zone */
-.workbook-view .conversation-thread {
-  padding-bottom: calc(var(--space-4) + 120px); /* Room for input zone */
+/* BUG-342: Removed padding-bottom hack - input zone now flows inline */
+
+/* Floating scroll indicator - appears when input zone is scrolled out of view */
+.workbook-scroll-indicator {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent);
+  color: var(--color-surface);
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  cursor: pointer;
+  border: var(--border-thin) solid var(--color-border);
+  z-index: var(--z-input);
+  transition: transform var(--duration-fast) var(--ease-default),
+              background var(--duration-fast) var(--ease-default);
+  animation: slideUp var(--duration-normal) var(--ease-default);
+}
+
+.workbook-scroll-indicator:hover {
+  background: var(--color-accent-hover);
+  transform: translateY(-2px);
+}
+
+.workbook-scroll-indicator:focus-visible {
+  outline: 2px solid var(--color-surface);
+  outline-offset: 2px;
+}
+
+.workbook-scroll-indicator svg {
+  width: 16px;
+  height: 16px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Account for mobile nav - position indicator above nav */
+@media (max-width: 1023px) {
+  .workbook-scroll-indicator {
+    bottom: calc(var(--nav-height-mobile) + var(--space-4));
+  }
 }
 
 /* History Zone - shows past exercises */
