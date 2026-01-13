@@ -77,6 +77,9 @@ export default async function WorkbookPage() { // code_id:161
 
   // Find user's current progress (highest sequence with a response)
   // BUG-246 FIX: Add exercise_id match to prevent false matches when same tool appears multiple times
+  // BUG-379 FIX: Add activity match to prevent false matches when same tool appears in different activities
+  // Note: activity_id in user_responses is TEXT, s.activity in stem is INTEGER
+  // Old responses have NULL activity_id - only match activity 1 for backwards compat (don't block 2/3)
   const progressResult = await db.raw
     .prepare(`
       SELECT MAX(s.sequence) as max_sequence
@@ -87,6 +90,7 @@ export default async function WorkbookPage() { // code_id:161
       )
       WHERE ur.user_id = ?
         AND ur.exercise_id = (s.part || '.' || s.module || '.' || s.exercise)
+        AND (ur.activity_id = CAST(s.activity AS TEXT) OR (ur.activity_id IS NULL AND s.activity <= 1))
     `)
     .bind(userId)
     .first<{ max_sequence: number | null }>();
@@ -167,16 +171,19 @@ export default async function WorkbookPage() { // code_id:161
 
   // Build response maps with compound key (content_id + exercise_id + activity_id)
   // BUG-379 FIX: Include activity_id for same tool in different activities within same exercise
+  // Old responses with NULL activity_id are mapped to activity "1" for backwards compatibility
   const promptResponses = new Map<string, { id: string; text: string }>();
   const toolResponses = new Map<string, { id: string; text: string }>();
 
   for (const r of responses.results || []) {
+    // Old responses with NULL activity_id map to activity "1" (first activity)
+    const activityKey = r.activity_id || '1';
     if (r.prompt_id) {
-      const key = `${r.prompt_id}:${r.exercise_id}:${r.activity_id || ''}`;
+      const key = `${r.prompt_id}:${r.exercise_id}:${activityKey}`;
       promptResponses.set(key, { id: r.id, text: r.response_text });
     }
     if (r.tool_id) {
-      const key = `${r.tool_id}:${r.exercise_id}:${r.activity_id || ''}`;
+      const key = `${r.tool_id}:${r.exercise_id}:${activityKey}`;
       toolResponses.set(key, { id: r.id, text: r.response_text });
     }
   }
