@@ -43,7 +43,11 @@ interface ToolEmbedProps {
   exerciseId: string;
   activityId: number; // BUG-379: Required to differentiate same tool in different activities
   connectionId: number | null;
-  onComplete: (data: ToolSaveResponse) => void;
+  onComplete?: (data: ToolSaveResponse) => void;
+  /** BUG-380: Pre-populated data for completed tools in history */
+  initialData?: string;
+  /** BUG-380: Read-only mode for completed tools in history */
+  readOnly?: boolean;
 }
 
 type ToolName =
@@ -63,22 +67,22 @@ type ToolName =
   | 'career_assessment'
   | 'competency_assessment';
 
-export function ToolEmbed({ tool, exerciseId, activityId, connectionId, onComplete }: ToolEmbedProps) { // code_id:13
+export function ToolEmbed({ tool, exerciseId, activityId, connectionId, onComplete, initialData, readOnly = false }: ToolEmbedProps) { // code_id:13
   const toolName = (tool.name || '').toLowerCase().replace(/-/g, '_') as ToolName;
 
-  // Track tool open on mount
+  // Track tool open on mount (only for active tools, not read-only history)
   useEffect(() => {
-    if (tool.id) {
+    if (tool.id && !readOnly) {
       trackToolOpen(tool.id.toString());
     }
-  }, [tool.id]);
+  }, [tool.id, readOnly]);
 
   // Wrap onComplete to track tool submission
   const handleComplete = useCallback((data: ToolSaveResponse) => {
     if (tool.id) {
       trackToolSubmit(tool.id.toString());
     }
-    onComplete(data);
+    onComplete?.(data);
   }, [tool.id, onComplete]);
 
   // Guard: tool.id is required for saving
@@ -99,6 +103,9 @@ export function ToolEmbed({ tool, exerciseId, activityId, connectionId, onComple
     connectionId,
     instructions: tool.instructions,
     onComplete: handleComplete,
+    // BUG-380: Support read-only mode for completed tools in history
+    initialData,
+    readOnly,
   };
 
   const renderTool = () => { // code_id:383

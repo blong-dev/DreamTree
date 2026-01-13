@@ -11,11 +11,25 @@ export function SkillTaggerWrapper({
   activityId,
   connectionId,
   onComplete,
+  initialData,
+  readOnly = false,
 }: ToolWrapperProps) { // code_id:380
   const [skills, setSkills] = useState<Skill[]>([]);
   const [selectedSkillIds, setSelectedSkillIds] = useState<string[]>([]);
   const [dataLoading, setDataLoading] = useState(false);
   const [dataError, setDataError] = useState<string | null>(null);
+
+  // BUG-380: Load initialData for read-only mode
+  useEffect(() => {
+    if (initialData) {
+      try {
+        const parsed = JSON.parse(initialData);
+        if (parsed.selectedSkillIds) setSelectedSkillIds(parsed.selectedSkillIds);
+      } catch (err) {
+        console.error('[SkillTaggerWrapper] Failed to parse initialData:', err);
+      }
+    }
+  }, [initialData]);
 
   // Fetch skills
   useEffect(() => {
@@ -35,9 +49,9 @@ export function SkillTaggerWrapper({
       .finally(() => setDataLoading(false));
   }, [skills.length]);
 
-  // Fetch connected data if provided
+  // Fetch connected data if provided (only for active tools)
   useEffect(() => {
-    if (!connectionId) return;
+    if (!connectionId || readOnly || initialData) return;
 
     fetch(`/api/data/connection?connectionId=${connectionId}`)
       .then(res => res.json())
@@ -49,7 +63,7 @@ export function SkillTaggerWrapper({
         setSelectedSkillIds(skillIds);
       })
       .catch(err => console.error('[SkillTaggerWrapper] Failed to load connection data:', err));
-  }, [connectionId]);
+  }, [connectionId, readOnly, initialData]);
 
   const getData = useCallback(() => ({ selectedSkillIds }), [selectedSkillIds]);
 
@@ -77,6 +91,19 @@ export function SkillTaggerWrapper({
 
   if (dataLoading) {
     return <div className="tool-embed-loading">Loading skills...</div>;
+  }
+
+  if (readOnly) {
+    return (
+      <div className="tool-completed-view">
+        <SkillTagger
+          skills={skills}
+          selectedSkillIds={selectedSkillIds}
+          onChange={() => {}}
+          storyTitle="Tagged skills"
+        />
+      </div>
+    );
   }
 
   return (

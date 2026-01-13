@@ -23,6 +23,8 @@ function ContentBlockRenderer({
   onComplete?: (wasSkipped: boolean) => void;
 }) { // code_id:32
   const [isSkipped, setIsSkipped] = useState(false);
+  // BUG-396: Track when animation completes naturally (replaces TypingEffect with plain text)
+  const [isNaturallyComplete, setIsNaturallyComplete] = useState(false);
   // Use ref to track completion state to avoid stale closures
   const hasCompletedRef = useRef(false);
 
@@ -61,15 +63,19 @@ function ContentBlockRenderer({
   const handleClick = handleSkip;
 
   // Memoize to prevent TypingEffect useEffect from restarting
+  // BUG-396: Also set isNaturallyComplete to remove TypingEffect from DOM
   const handleNaturalComplete = useCallback(() => {
     if (!hasCompletedRef.current) {
       hasCompletedRef.current = true;
+      setIsNaturallyComplete(true);
       onComplete?.(false); // Animation completed naturally
     }
   }, [onComplete]);
 
+  // BUG-396: Don't render TypingEffect if animation completed naturally
+  // This removes .typing-effect from DOM so E2E tests can detect completion
   const renderText = (text: string) => { // code_id:169
-    if (animate && !isSkipped) {
+    if (animate && !isSkipped && !isNaturallyComplete) {
       return (
         <TypingEffect
           text={text}

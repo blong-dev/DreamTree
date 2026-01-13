@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState, useEffect, memo } from 'react';
-import { Message, ContentBlock, UserResponseContent, DividerData, ScrollState } from './types';
+import { Message, ContentBlock, UserResponseContent, DividerData, ToolMessageData, ScrollState } from './types';
 import { MessageContent } from './MessageContent';
 import { MessageUser } from './MessageUser';
 import { Timestamp } from './Timestamp';
@@ -26,6 +26,8 @@ interface ConversationThreadProps {
   isLoadingHistory?: boolean;
   /** Disable typing animation entirely (for onboarding, etc.) */
   disableAnimation?: boolean;
+  /** BUG-380: Callback to render completed tools in conversation history */
+  renderTool?: (data: ToolMessageData, messageId: string) => React.ReactNode;
 }
 
 // IMP-006: Memoize MessageRenderer to prevent re-renders when messages array changes
@@ -34,11 +36,13 @@ const MessageRenderer = memo(function MessageRenderer({
   onEdit,
   animate,
   onAnimationComplete,
+  renderTool,
 }: {
   message: Message;
   onEdit?: () => void;
   animate?: boolean;
   onAnimationComplete?: (wasSkipped: boolean) => void;
+  renderTool?: (data: ToolMessageData, messageId: string) => React.ReactNode;
 }) { // code_id:29
   switch (message.type) {
     case 'content':
@@ -63,6 +67,12 @@ const MessageRenderer = memo(function MessageRenderer({
     case 'divider':
       const dividerData = message.data as DividerData;
       return <Divider type={dividerData.type} label={dividerData.label} />;
+    case 'tool':
+      // BUG-380: Render completed tools via callback
+      if (renderTool) {
+        return <>{renderTool(message.data as ToolMessageData, message.id)}</>;
+      }
+      return null;
     default:
       return null;
   }
@@ -73,7 +83,9 @@ const MessageRenderer = memo(function MessageRenderer({
     prevProps.message.type === nextProps.message.type &&
     prevProps.animate === nextProps.animate &&
     // For user messages, check if onEdit callback exists (not the reference)
-    !!prevProps.onEdit === !!nextProps.onEdit
+    !!prevProps.onEdit === !!nextProps.onEdit &&
+    // For tool messages, check if renderTool exists
+    !!prevProps.renderTool === !!nextProps.renderTool
   );
 });
 
@@ -89,6 +101,7 @@ export function ConversationThread({
   hasMoreHistory = false,
   isLoadingHistory = false,
   disableAnimation = false,
+  renderTool,
 }: ConversationThreadProps) { // code_id:28
   const threadRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState<ScrollState>('at-current');
@@ -188,6 +201,7 @@ export function ConversationThread({
                 ? () => onEditMessage(message.id)
                 : undefined
             }
+            renderTool={renderTool}
           />
         );
       })}

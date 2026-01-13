@@ -20,4 +20,8 @@ export interface ToolWrapperProps {
   connectionId: number | null;
   instructions?: string;
   onComplete: (data: ToolSaveResponse) => void;
+  /** BUG-380: Pre-populated data for completed tools in history */
+  initialData?: string;
+  /** BUG-380: Read-only mode for completed tools in history */
+  readOnly?: boolean;
 }

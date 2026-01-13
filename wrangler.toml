@@ -17,5 +17,5 @@ name = "dreamtree-staging"
 
 [[env.staging.d1_databases]]
 binding = "DB"
-database_name = "dreamtree-staging-db"
-database_id = "ce883f6e-87ff-4fbf-96ba-3590686c56da"
+database_name = "dreamtree-db"
+database_id = "28ff92b2-a0f1-4bab-a98f-da483b2fdcc1"

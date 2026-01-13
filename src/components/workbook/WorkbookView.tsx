@@ -28,7 +28,7 @@ import { useApplyTheme } from '@/hooks/useApplyTheme';
 import { trackExerciseStart, trackPromptSubmit } from '@/lib/analytics';
 import type { SaveStatus } from '../feedback/types';
 import type { BlockWithResponse, PromptData, ToolData, ThemeSettings } from './types';
-import type { Message, ContentBlock, UserResponseContent } from '../conversation/types';
+import type { Message, ContentBlock, UserResponseContent, ToolMessageData } from '../conversation/types';
 import type { BreadcrumbLocation, InputType } from '../shell/types';
 
 interface WorkbookViewProps {
@@ -189,8 +189,28 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
             timestamp: new Date(),
           });
         }
+      } else if (block.blockType === 'tool') {
+        // BUG-380: Add completed tools to conversation history
+        // Only show tools that have been completed (have a response)
+        if (block.response) {
+          const toolData: ToolMessageData = {
+            toolId: block.content.id || 0,
+            name: block.content.name || 'Tool',
+            description: block.content.description,
+            instructions: block.content.instructions,
+            exerciseId: block.exerciseId,
+            activityId: block.activityId || 1,
+            connectionId: block.connectionId,
+            response: block.response,
+          };
+          result.push({
+            id: `tool-${block.id}`,
+            type: 'tool',
+            data: toolData,
+            timestamp: new Date(),
+          });
+        }
       }
-      // Tools are rendered inline via ToolEmbed, not in messages
     }
 
     return result;
@@ -748,6 +768,28 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     return 'Tap to continue';
   };
 
+  // BUG-380: Render completed tools in conversation history
+  const renderTool = useCallback((data: ToolMessageData) => {
+    const toolData: ToolData = {
+      id: data.toolId,
+      name: data.name,
+      description: data.description,
+      instructions: data.instructions,
+    };
+    return (
+      <div className="workbook-completed-tool">
+        <ToolEmbed
+          tool={toolData}
+          exerciseId={data.exerciseId}
+          activityId={data.activityId}
+          connectionId={data.connectionId}
+          initialData={data.response}
+          readOnly={true}
+        />
+      </div>
+    );
+  }, []);
+
   return (
     <AppShell
       currentLocation={breadcrumbLocation}
@@ -769,6 +811,7 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
           animatedMessageIds={animatedMessageIdsRef.current}
           onMessageAnimated={handleMessageAnimated}
           scrollTrigger={displayedBlockIndex}
+          renderTool={renderTool}
         />
       </div>
 

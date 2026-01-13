@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { MBTISelector } from '@/components/tools';
 import { useToolSave } from '@/hooks/useToolSave';
 import type { ToolWrapperProps } from './types';
@@ -29,8 +29,22 @@ export function MBTISelectorWrapper({
   exerciseId,
   activityId,
   onComplete,
+  initialData,
+  readOnly = false,
 }: ToolWrapperProps) { // code_id:377
   const [value, setValue] = useState<string | null>(null);
+
+  // BUG-380: Load initialData for read-only mode
+  useEffect(() => {
+    if (initialData) {
+      try {
+        const parsed = JSON.parse(initialData);
+        if (parsed.selectedCode) setValue(parsed.selectedCode);
+      } catch (err) {
+        console.error('[MBTISelectorWrapper] Failed to parse initialData:', err);
+      }
+    }
+  }, [initialData]);
 
   const getData = useCallback(() => ({ selectedCode: value }), [value]);
 
@@ -41,6 +55,19 @@ export function MBTISelectorWrapper({
     getData,
     onComplete,
   });
+
+  if (readOnly) {
+    return (
+      <div className="tool-completed-view">
+        <MBTISelector
+          value={value}
+          onChange={() => {}}
+          types={MBTI_TYPES}
+          label="Selected MBTI type"
+        />
+      </div>
+    );
+  }
 
   return (
     <>

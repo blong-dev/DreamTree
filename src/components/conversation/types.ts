@@ -29,10 +29,22 @@ export type DividerData = {
   label?: string;
 };
 
+// BUG-380: Tool data for rendering completed tools in conversation
+export type ToolMessageData = {
+  toolId: number;
+  name: string;
+  description?: string;
+  instructions?: string;
+  exerciseId: string;
+  activityId: number;
+  connectionId: number | null;
+  response: string; // JSON stringified tool data
+};
+
 export type Message = {
   id: string;
-  type: 'content' | 'user' | 'timestamp' | 'divider';
-  data: ContentBlock[] | UserResponseContent | Date | DividerData;
+  type: 'content' | 'user' | 'timestamp' | 'divider' | 'tool';
+  data: ContentBlock[] | UserResponseContent | Date | DividerData | ToolMessageData;
   timestamp: Date;
 };
 
