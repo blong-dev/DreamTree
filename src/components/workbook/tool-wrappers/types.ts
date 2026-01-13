@@ -16,6 +16,7 @@ export interface ToolSaveResponse {
 export interface ToolWrapperProps {
   toolId: number;
   exerciseId: string;
+  activityId: number; // BUG-379: Required to differentiate same tool in different activities
   connectionId: number | null;
   instructions?: string;
   onComplete: (data: ToolSaveResponse) => void;

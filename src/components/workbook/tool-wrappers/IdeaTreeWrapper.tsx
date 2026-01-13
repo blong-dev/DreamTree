@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function IdeaTreeWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:374
   const [data, setData] = useState<IdeaTreeData>(getDefaultIdeaTreeData());
@@ -17,6 +18,7 @@ export function IdeaTreeWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function FlowTrackerWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:373
   const [data, setData] = useState<FlowTrackerData>({ entries: [] });
@@ -17,6 +18,7 @@ export function FlowTrackerWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

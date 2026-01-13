@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function RankingGridWrapper({
   toolId,
   exerciseId,
+  activityId,
   connectionId,
   onComplete,
 }: ToolWrapperProps) { // code_id:379
@@ -45,6 +46,7 @@ export function RankingGridWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

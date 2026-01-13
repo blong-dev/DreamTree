@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function CareerAssessmentWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:369
   const [data, setData] = useState<CareerAssessmentData>({ options: [] });
@@ -17,6 +18,7 @@ export function CareerAssessmentWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

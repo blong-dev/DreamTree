@@ -27,6 +27,7 @@ const MBTI_TYPES = [
 export function MBTISelectorWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:377
   const [value, setValue] = useState<string | null>(null);
@@ -36,6 +37,7 @@ export function MBTISelectorWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

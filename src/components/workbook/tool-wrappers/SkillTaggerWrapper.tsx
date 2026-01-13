@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function SkillTaggerWrapper({
   toolId,
   exerciseId,
+  activityId,
   connectionId,
   onComplete,
 }: ToolWrapperProps) { // code_id:380
@@ -55,6 +56,7 @@ export function SkillTaggerWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function ListBuilderWrapper({
   toolId,
   exerciseId,
+  activityId,
   connectionId,
   onComplete,
 }: ToolWrapperProps) { // code_id:376
@@ -35,6 +36,7 @@ export function ListBuilderWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

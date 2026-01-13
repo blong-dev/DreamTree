@@ -41,6 +41,7 @@ interface ToolSaveResponse {
 interface ToolEmbedProps {
   tool: ToolData;
   exerciseId: string;
+  activityId: number; // BUG-379: Required to differentiate same tool in different activities
   connectionId: number | null;
   onComplete: (data: ToolSaveResponse) => void;
 }
@@ -62,7 +63,7 @@ type ToolName =
   | 'career_assessment'
   | 'competency_assessment';
 
-export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEmbedProps) { // code_id:13
+export function ToolEmbed({ tool, exerciseId, activityId, connectionId, onComplete }: ToolEmbedProps) { // code_id:13
   const toolName = (tool.name || '').toLowerCase().replace(/-/g, '_') as ToolName;
 
   // Track tool open on mount
@@ -94,6 +95,7 @@ export function ToolEmbed({ tool, exerciseId, connectionId, onComplete }: ToolEm
   const commonProps = {
     toolId: tool.id,
     exerciseId,
+    activityId,
     connectionId,
     instructions: tool.instructions,
     onComplete: handleComplete,

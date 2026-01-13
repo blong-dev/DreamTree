@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function MindsetProfilesWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:378
   const [data, setData] = useState<MindsetProfilesData>({
@@ -25,6 +26,7 @@ export function MindsetProfilesWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

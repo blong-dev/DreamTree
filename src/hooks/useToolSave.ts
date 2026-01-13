@@ -13,6 +13,7 @@ interface ToolSaveResponse {
 interface UseToolSaveOptions {
   toolId: number;
   exerciseId: string;
+  activityId: number; // BUG-379: Required to differentiate same tool in different activities
   getData: () => unknown;
   onComplete: (data: ToolSaveResponse) => void;
 }
@@ -30,6 +31,7 @@ interface UseToolSaveResult {
 export function useToolSave({
   toolId,
   exerciseId,
+  activityId,
   getData,
   onComplete,
 }: UseToolSaveOptions): UseToolSaveResult { // code_id:108
@@ -65,6 +67,7 @@ export function useToolSave({
         body: JSON.stringify({
           toolId,
           exerciseId,
+          activityId: activityId.toString(), // BUG-379: Include activity to differentiate
           responseText: JSON.stringify(getDataRef.current()),
         }),
       });
@@ -86,7 +89,7 @@ export function useToolSave({
     } finally {
       setIsLoading(false);
     }
-  }, [toolId, exerciseId, onComplete]);
+  }, [toolId, exerciseId, activityId, onComplete]);
 
   // Auto-save effect (IMP-008)
   useEffect(() => {
@@ -107,6 +110,7 @@ export function useToolSave({
           body: JSON.stringify({
             toolId,
             exerciseId,
+            activityId: activityId.toString(), // BUG-379: Include activity to differentiate
             responseText: JSON.stringify(getDataRef.current()),
           }),
         });
@@ -120,7 +124,7 @@ export function useToolSave({
         clearTimeout(autoSaveTimeout.current);
       }
     };
-  }, [currentDataJson, toolId, exerciseId]);
+  }, [currentDataJson, toolId, exerciseId, activityId]);
 
   return { isLoading, error, save };
 }

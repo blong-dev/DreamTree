@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function CompetencyAssessmentWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:371
   const [data, setData] = useState<CompetencyAssessmentData>({ scores: [] });
@@ -38,6 +39,7 @@ export function CompetencyAssessmentWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

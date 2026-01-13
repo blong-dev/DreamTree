@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function BucketingToolWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:367
   const [data, setData] = useState<BucketingToolData>({
@@ -20,6 +21,7 @@ export function BucketingToolWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

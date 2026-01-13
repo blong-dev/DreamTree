@@ -31,108 +31,134 @@ export default function PrinciplesPage() {
 
       <main className="about-main">
         <article className="about-content">
-          <h1>Our Principles</h1>
+          <h1>The DreamTree Principles</h1>
+
+          <p><em>A manifesto for the contribution economy.</em></p>
+
+          <hr />
+
+          <h2>1. Human contribution is the foundation of all value.</h2>
 
           <p>
-            DreamTree is built on four principles. They&apos;re not marketing.
-            They&apos;re architectural decisions baked into the code.
+            Every idea, every skill, every insight began in a human mind. The digital economy
+            has obscured this truth, extracting value from attention while leaving creators
+            unrecognized. We believe the economy should be rebuilt on contribution — verified,
+            attributed, and compensated.
+          </p>
+
+          <h2>2. What you create belongs to you.</h2>
+
+          <p>
+            Your data, your story, your work — these are not raw materials for others to harvest.
+            They are assets you own. Any system that touches your contributions must respect
+            your sovereignty over them. This is not a feature. It is a foundation.
+          </p>
+
+          <h2>3. Knowledge should be free to use, but never free of its history.</h2>
+
+          <p>
+            Intelligence cannot be separated from provenance. Every insight stands on the
+            shoulders of those who came before. We build systems that remember — that trace
+            the lineage of ideas and honor the humans who shaped them.
+          </p>
+
+          <h2>4. Barriers to self-knowledge are barriers to human flourishing.</h2>
+
+          <p>
+            The clarity that executives buy for thousands, a student in debt deserves too.
+            Libraries do not diminish books by lending them. We delete barriers not because
+            it is easy, but because the alternative — hoarding wisdom — diminishes us all.
+          </p>
+
+          <h2>5. Abundance is the horizon; cooperation is the path.</h2>
+
+          <p>
+            Game theory teaches what wisdom traditions have always known: in the long game,
+            cooperation wins. Harmony, balance, and moderation are not constraints on
+            abundance — they are the means by which we reach it. The prisoner&apos;s dilemma
+            resolves when we choose to cooperate.
+          </p>
+
+          <h2>6. Attention is finite; contribution compounds.</h2>
+
+          <p>
+            The attention economy extracts until exhaustion. We all feel it. A contribution
+            economy can build. Every verified skill, every documented insight, every attributed
+            creation becomes a brick in a structure that outlasts us. We choose to build.
+          </p>
+
+          <h2>7. Power without wisdom is adolescence.</h2>
+
+          <p>
+            We are living through the adolescence of artificial intelligence — and perhaps
+            our own. Adolescence is dangerous not because of its energy, but because of its
+            blindness. Maturity means aligning power with purpose, capability with conscience.
+            We build for wisdom, not just scale.
+          </p>
+
+          <h2>8. Centralization is fragility; distribution is resilience.</h2>
+
+          <p>
+            When knowledge flows through a single gate, the gatekeeper becomes tyrant.
+            When power concentrates, it corrupts — not always through malice, but through
+            the quiet displacement of conscience by convenience. We build systems that no
+            single entity can own or silence.
+          </p>
+
+          <h2>9. The world takes care of those who take care of the world.</h2>
+
+          <p>
+            Not always. Not immediately. But often enough to bet on. We plant seeds knowing
+            we may not sit in their shade. We give freely because giving is not losing — it
+            is growing. The revolutionary path is generosity at scale.
+          </p>
+
+          <h2>10. The story is still being written.</h2>
+
+          <p>
+            We do not know the ending. We are the last generation to remember a time before
+            omnipresent intelligence, and the first to raise children who will never know
+            its absence. The hinge of history is now. What we build today becomes the
+            foundation of tomorrow. Choose wisely. Build boldly. The ending is not yet written.
           </p>
 
           <hr />
 
-          <h2>1. Conversational Intimacy</h2>
+          <h2>In Practice</h2>
+
+          <p>These principles guide everything we build:</p>
 
           <p>
-            Career work is personal. It deserves better than forms and progress bars.
+            <strong>DreamTree</strong> — where individuals discover and own their story
           </p>
 
           <p>
-            DreamTree feels like texting with a thoughtful coach. Messages appear one at a time.
-            You respond in your own words. The interface fades away, leaving just the conversation.
+            <strong>Value-Tech</strong> — where contributions become verifiable, portable assets
           </p>
 
           <p>
-            This isn&apos;t a design preference. It&apos;s the core emotional experience.
-            The conversation metaphor shapes everything — how content flows, how you interact,
-            how it feels to use.
+            <strong>The Great Library</strong> — where human knowledge preserves its lineage forever
           </p>
+
+          <p>
+            We are not building a product. We are building infrastructure for a more just
+            economy — one that recognizes, attributes, and rewards the humans who create value.
+          </p>
+
+          <p>We are only just beginning.</p>
 
           <hr />
 
-          <h2>2. User Autonomy</h2>
+          <h2>Join Us</h2>
 
           <p>
-            You set the pace. There are no deadlines, no reminders, no streaks to maintain.
+            This is an open invitation. The code is open. The principles are public.
+            The mission belongs to anyone who shares it.
           </p>
 
-          <p>
-            Skip the typing animation if you&apos;re in a hurry. Go back and edit previous answers.
-            Choose your own colors and fonts. This is your space, not ours.
-          </p>
+          <p>We climb the mountain the hard way because it is the right way.</p>
 
-          <p>
-            We don&apos;t gamify your progress because you&apos;re not a user to be retained.
-            You&apos;re a person doing important work. Points and badges would cheapen that.
-          </p>
-
-          <hr />
-
-          <h2>3. Data Sovereignty</h2>
-
-          <p>
-            Your data belongs to you. Not to us. Not to advertisers. Not to anyone else.
-          </p>
-
-          <p>
-            Personal information is encrypted with keys derived from your password.
-            We can&apos;t read your data — not as a policy choice, but as a mathematical fact.
-            Even if someone demanded access, we couldn&apos;t provide it.
-          </p>
-
-          <p>
-            Export everything anytime. Delete everything permanently. The code is open source
-            so you can verify these claims yourself.
-          </p>
-
-          <hr />
-
-          <h2>4. Magic Moments</h2>
-
-          <p>
-            DreamTree remembers what you&apos;ve said and weaves it back when it matters.
-          </p>
-
-          <p>
-            The skill you identified in Part 1 shows up in your story draft in Part 2.
-            The value you ranked highest becomes a filter for evaluating opportunities.
-            Your past answers inform your future exercises.
-          </p>
-
-          <p>
-            These moments create the feeling of being truly heard — the feeling that
-            separates real coaching from filling out forms. We call them connections,
-            and there are over thirty of them woven throughout the workbook.
-          </p>
-
-          <hr />
-
-          <h2>Why This Matters</h2>
-
-          <p>
-            Most software treats users as metrics to optimize. More engagement. More retention.
-            More data to harvest.
-          </p>
-
-          <p>
-            We think that&apos;s backwards. Technology should serve your intentions, not demand
-            your attention. It should respect your intelligence, protect your privacy,
-            and get out of the way.
-          </p>
-
-          <p>
-            These principles aren&apos;t aspirational. They&apos;re in the code.
-            <a href="https://github.com/blong-dev/DreamTree" target="_blank" rel="noopener noreferrer"> See for yourself.</a>
-          </p>
+          <p><em>DreamTree, 2026</em></p>
         </article>
       </main>
 

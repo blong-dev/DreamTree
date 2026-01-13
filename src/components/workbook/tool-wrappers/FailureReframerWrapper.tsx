@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function FailureReframerWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:372
   const [data, setData] = useState<FailureReframerData>({
@@ -25,6 +26,7 @@ export function FailureReframerWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

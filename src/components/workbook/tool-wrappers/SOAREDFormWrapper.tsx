@@ -19,6 +19,7 @@ const DEFAULT_SOARED_DATA: SOAREDStoryData = {
 export function SOAREDFormWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:381
   const [data, setData] = useState<SOAREDStoryData>(DEFAULT_SOARED_DATA);
@@ -28,6 +29,7 @@ export function SOAREDFormWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

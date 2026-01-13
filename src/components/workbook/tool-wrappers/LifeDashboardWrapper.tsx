@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function LifeDashboardWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:375
   const [data, setData] = useState<LifeDashboardData>({
@@ -22,6 +23,7 @@ export function LifeDashboardWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

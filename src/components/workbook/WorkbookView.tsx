@@ -824,6 +824,7 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
           <ToolEmbed
             tool={currentBlock.content as ToolData}
             exerciseId={currentBlock.exerciseId}
+            activityId={currentBlock.activityId}
             connectionId={currentBlock.connectionId}
             onComplete={handleToolComplete}
           />

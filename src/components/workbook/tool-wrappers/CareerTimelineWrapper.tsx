@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function CareerTimelineWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:370
   const [data, setData] = useState<CareerTimelineData>({
@@ -20,6 +21,7 @@ export function CareerTimelineWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });

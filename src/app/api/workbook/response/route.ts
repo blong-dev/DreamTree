@@ -130,13 +130,15 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
       }
     }
 
-    // Check if response already exists for this user/content/exercise
+    // BUG-379 FIX: Include activity_id in check to differentiate same tool in different activities
+    // Check if response already exists for this user/content/exercise/activity
     const existing = await db.raw
       .prepare(
         `SELECT id FROM user_responses
-         WHERE user_id = ? AND ${idColumn} = ? AND exercise_id = ?`
+         WHERE user_id = ? AND ${idColumn} = ? AND exercise_id = ?
+         AND (activity_id = ? OR (activity_id IS NULL AND ? IS NULL))`
       )
-      .bind(userId, contentId, exerciseId)
+      .bind(userId, contentId, exerciseId, activityId || null, activityId || null)
       .first<{ id: string }>();
 
     let finalResponseId: string;
@@ -178,21 +180,27 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
 
     // Find the sequence of the block that was just answered
     // BUG-367 FIX: Include exercise_id match to handle reused prompts/tools
+    // BUG-379 FIX: Include activity match for same tool in different activities
     const [partStr, moduleStr, exerciseStr] = exerciseId.split('.');
+    const activityNum = activityId ? parseInt(activityId, 10) : null;
     const currentBlockResult = await db.raw
       .prepare(`
         SELECT sequence FROM stem
         WHERE block_type = ? AND content_id = ?
           AND part = ? AND module = ? AND exercise = ?
+          ${activityNum !== null ? 'AND activity = ?' : ''}
           AND part <= 2
         LIMIT 1
       `)
       .bind(
-        isToolResponse ? 'tool' : 'prompt',
-        contentId,
-        parseInt(partStr, 10),
-        parseInt(moduleStr, 10),
-        parseInt(exerciseStr, 10)
+        ...[
+          isToolResponse ? 'tool' : 'prompt',
+          contentId,
+          parseInt(partStr, 10),
+          parseInt(moduleStr, 10),
+          parseInt(exerciseStr, 10),
+          ...(activityNum !== null ? [activityNum] : []),
+        ]
       )
       .first<{ sequence: number }>();
 

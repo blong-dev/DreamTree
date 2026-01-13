@@ -148,9 +148,10 @@ export default async function WorkbookPage() { // code_id:161
 
   // Fetch all user responses
   // BUG-367 FIX: Include exercise_id in query to handle reused prompts/tools
+  // BUG-379 FIX: Include activity_id for same tool in different activities
   const responses = await db.raw
     .prepare(`
-      SELECT ur.id, ur.prompt_id, ur.tool_id, ur.exercise_id, ur.response_text
+      SELECT ur.id, ur.prompt_id, ur.tool_id, ur.exercise_id, ur.activity_id, ur.response_text
       FROM user_responses ur
       WHERE ur.user_id = ?
     `)
@@ -160,21 +161,22 @@ export default async function WorkbookPage() { // code_id:161
       prompt_id: number | null;
       tool_id: number | null;
       exercise_id: string;
+      activity_id: string | null;
       response_text: string;
     }>();
 
-  // Build response maps with compound key (content_id + exercise_id)
-  // This handles the case where the same prompt/tool appears in multiple exercises
+  // Build response maps with compound key (content_id + exercise_id + activity_id)
+  // BUG-379 FIX: Include activity_id for same tool in different activities within same exercise
   const promptResponses = new Map<string, { id: string; text: string }>();
   const toolResponses = new Map<string, { id: string; text: string }>();
 
   for (const r of responses.results || []) {
     if (r.prompt_id) {
-      const key = `${r.prompt_id}:${r.exercise_id}`;
+      const key = `${r.prompt_id}:${r.exercise_id}:${r.activity_id || ''}`;
       promptResponses.set(key, { id: r.id, text: r.response_text });
     }
     if (r.tool_id) {
-      const key = `${r.tool_id}:${r.exercise_id}`;
+      const key = `${r.tool_id}:${r.exercise_id}:${r.activity_id || ''}`;
       toolResponses.set(key, { id: r.id, text: r.response_text });
     }
   }
@@ -200,15 +202,16 @@ export default async function WorkbookPage() { // code_id:161
 
       // Get response based on block type
       // BUG-367 FIX: Use compound key (content_id + exercise_id) for lookup
+      // BUG-379 FIX: Include activity for same tool in different activities
       if (row.block_type === 'prompt' && content.id) {
-        const key = `${content.id}:${exerciseId}`;
+        const key = `${content.id}:${exerciseId}:${row.activity}`;
         const r = promptResponses.get(key);
         if (r) {
           response = r.text;
           responseId = r.id;
         }
       } else if (row.block_type === 'tool' && content.id) {
-        const key = `${content.id}:${exerciseId}`;
+        const key = `${content.id}:${exerciseId}:${row.activity}`;
         const r = toolResponses.get(key);
         if (r) {
           response = r.text;

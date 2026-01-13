@@ -8,6 +8,7 @@ import type { ToolWrapperProps } from './types';
 export function BudgetCalculatorWrapper({
   toolId,
   exerciseId,
+  activityId,
   onComplete,
 }: ToolWrapperProps) { // code_id:368
   const [data, setData] = useState<BudgetCalculatorData>({
@@ -25,6 +26,7 @@ export function BudgetCalculatorWrapper({
   const { isLoading, error, save } = useToolSave({
     toolId,
     exerciseId,
+    activityId,
     getData,
     onComplete,
   });
