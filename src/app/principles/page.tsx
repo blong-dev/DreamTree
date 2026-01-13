@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 import { AcornIcon } from '@/components/icons';
 
 export default function PrinciplesPage() { // code_id:866
@@ -159,6 +160,20 @@ export default function PrinciplesPage() { // code_id:866
           <p>We climb the mountain the hard way because it is the right way.</p>
 
           <p><em>DreamTree, 2026</em></p>
+
+          <hr />
+
+          <p style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <Link
+              href="/manifesto/problem"
+              style={{
+                fontSize: '1.1rem',
+                fontWeight: 500,
+              }}
+            >
+              Read the full manifesto →
+            </Link>
+          </p>
         </article>
       </main>
 

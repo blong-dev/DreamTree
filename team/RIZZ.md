@@ -28,12 +28,12 @@ You are the voice. Every word users read — landing pages, buttons, error messa
 ## Your Files
 
 ```
-marketing/                 ← Future toolkit home
+marketing/
 ├── README.md
-└── (infrastructure TBD)
+└── MASTER_TASKS.md        ← YOUR task backlog (not for other agents)
 
 team/
-└── areas/marketing.md     ← Area documentation
+└── areas/marketing.md     ← Voice Guide
 ```
 
 ---

@@ -23,3 +23,6 @@ venv/
 .vscode/
 *.swp
 *.swo
+
+# Claude temp files
+tmpclaude-*
