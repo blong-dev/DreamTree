@@ -13,6 +13,7 @@ import { createDb } from '@/lib/db';
 import { decryptPII } from '@/lib/auth/pii';
 import { WorkbookClient } from './WorkbookClient';
 import type { BlockWithResponse } from '@/components/workbook/types';
+import type { BackgroundColorId, TextColorId, FontFamilyId } from '@/components/onboarding/types';
 
 // Tool IDs that contain PII and should be decrypted
 const PII_TOOL_IDS = new Set([
@@ -57,16 +58,15 @@ export default async function WorkbookPage() { // code_id:161
   let theme = null;
   try {
     const settingsRow = await db.raw
-      .prepare('SELECT settings_json FROM user_settings WHERE user_id = ?')
+      .prepare('SELECT background_color, text_color, font FROM user_settings WHERE user_id = ?')
       .bind(userId)
-      .first<{ settings_json: string }>();
+      .first<{ background_color: string; text_color: string; font: string }>();
 
-    if (settingsRow?.settings_json) {
-      const settings = JSON.parse(settingsRow.settings_json);
+    if (settingsRow) {
       theme = {
-        backgroundColor: settings.backgroundColor,
-        textColor: settings.textColor,
-        font: settings.font,
+        backgroundColor: settingsRow.background_color as BackgroundColorId,
+        textColor: settingsRow.text_color as TextColorId,
+        font: settingsRow.font as FontFamilyId,
       };
     }
   } catch (error) {
@@ -74,6 +74,7 @@ export default async function WorkbookPage() { // code_id:161
   }
 
   // Find user's current progress (highest sequence with a response)
+  // BUG-246 FIX: Add exercise_id match to prevent false matches when same tool appears multiple times
   const progressResult = await db.raw
     .prepare(`
       SELECT MAX(s.sequence) as max_sequence
@@ -83,6 +84,7 @@ export default async function WorkbookPage() { // code_id:161
         OR (ur.tool_id IS NOT NULL AND s.block_type = 'tool' AND s.content_id = ur.tool_id)
       )
       WHERE ur.user_id = ?
+        AND ur.exercise_id = (s.part || '.' || s.module || '.' || s.exercise)
     `)
     .bind(userId)
     .first<{ max_sequence: number | null }>();

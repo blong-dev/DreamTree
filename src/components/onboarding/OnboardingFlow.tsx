@@ -256,7 +256,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) { // code_id
       {/* Name step */}
       {step === 'name' && (
         <div className="onboarding-chat-content">
-          <ConversationThread messages={messages} autoScrollOnNew={true} />
+          <ConversationThread messages={messages} autoScrollOnNew={true} disableAnimation={true} />
           <div className="onboarding-input-area">
             <input
               ref={inputRef}
@@ -282,7 +282,7 @@ export function OnboardingFlow({ onComplete }: OnboardingFlowProps) { // code_id
       {/* Visuals step - all 3 selectors together */}
       {step === 'visuals' && (
         <div className="onboarding-chat-content">
-          <ConversationThread messages={messages} autoScrollOnNew={true} />
+          <ConversationThread messages={messages} autoScrollOnNew={true} disableAnimation={true} />
 
           <div className="onboarding-visuals-panel">
             {/* Background color */}

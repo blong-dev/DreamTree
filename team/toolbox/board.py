@@ -647,6 +647,9 @@ class Board:
         refs: Optional[Dict[str, Any]] = None,
     ) -> int:
         """Internal method to post a non-routable message."""
+        # ENFORCEMENT: Detect completion claims without proper workflow
+        self._check_completion_claim(content)
+
         conn = get_connection()
         conn.execute("PRAGMA journal_mode=WAL")
 
@@ -666,6 +669,111 @@ class Board:
             )
             conn.commit()
             return cursor.lastrowid
+        finally:
+            conn.close()
+
+    def _check_completion_claim(self, content: str) -> None:
+        """
+        ENFORCEMENT: Detect when someone claims to complete a bug without
+        actually updating the bug status via WorkSession.
+
+        Raises:
+            BoardError: If completion claimed but bug not updated
+        """
+        import re
+        content_lower = content.lower()
+
+        # Completion keywords
+        completion_words = ['complete', 'completed', 'done', 'fixed', 'resolved', 'finished']
+        has_completion = any(word in content_lower for word in completion_words)
+
+        if not has_completion:
+            return
+
+        # Find bug IDs mentioned
+        bug_ids = re.findall(r'BUG-\d+', content, re.IGNORECASE)
+        if not bug_ids:
+            return
+
+        # Check if mentioned bugs are actually marked done/review
+        conn = get_connection()
+        try:
+            for bug_id in bug_ids:
+                row = conn.execute(
+                    "SELECT status FROM bugs WHERE id = ? COLLATE NOCASE",
+                    (bug_id.upper(),)
+                ).fetchone()
+
+                if row and row[0] not in ('done', 'review'):
+                    raise BoardError(
+                        f"WORKFLOW VIOLATION: You claim {bug_id} is complete, but its status is '{row[0]}'. "
+                        f"Use board.start_work('{bug_id}') and session.complete() to properly update status, "
+                        f"or use board.complete_bug('{bug_id}') if you already fixed it."
+                    )
+        finally:
+            conn.close()
+
+    def complete_bug(self, bug_id: str, summary: str, root_cause: str) -> None:
+        """
+        Mark a bug as complete (done) without full WorkSession.
+
+        Use this when you've already fixed a bug but didn't use WorkSession.
+        This is the ESCAPE HATCH - prefer using board.start_work() for new work.
+
+        Args:
+            bug_id: Bug ID (e.g., "BUG-020")
+            summary: What was done to fix it
+            root_cause: What caused the bug
+
+        Raises:
+            BoardError: If bug not found
+        """
+        conn = get_connection()
+        conn.execute("PRAGMA journal_mode=WAL")
+
+        try:
+            conn.execute("BEGIN")
+
+            # Verify bug exists
+            row = conn.execute(
+                "SELECT id, status FROM bugs WHERE id = ? COLLATE NOCASE",
+                (bug_id.upper(),)
+            ).fetchone()
+
+            if not row:
+                raise BoardError(f"Bug '{bug_id}' not found")
+
+            # Update bug status
+            conn.execute(
+                """
+                UPDATE bugs
+                SET status = 'done',
+                    owner = ?,
+                    fix_applied = ?,
+                    root_cause = ?,
+                    updated_at = datetime('now')
+                WHERE id = ? COLLATE NOCASE
+                """,
+                (self.author, summary, root_cause, bug_id.upper())
+            )
+
+            # Post completion message
+            conn.execute(
+                """
+                INSERT INTO messages (author, message_type, content, created_at)
+                VALUES (?, 'status', ?, datetime('now'))
+                """,
+                (self.author, f"{bug_id.upper()} marked DONE. Summary: {summary}")
+            )
+
+            conn.execute("COMMIT")
+
+        except BoardError:
+            conn.execute("ROLLBACK")
+            raise
+        except Exception as e:
+            conn.execute("ROLLBACK")
+            raise BoardError(f"Failed to complete bug: {e}")
         finally:
             conn.close()
 

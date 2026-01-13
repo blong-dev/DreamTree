@@ -24,6 +24,8 @@ interface ConversationThreadProps {
   hasMoreHistory?: boolean;
   /** Whether history is currently being loaded */
   isLoadingHistory?: boolean;
+  /** Disable typing animation entirely (for onboarding, etc.) */
+  disableAnimation?: boolean;
 }
 
 // IMP-006: Memoize MessageRenderer to prevent re-renders when messages array changes
@@ -86,6 +88,7 @@ export function ConversationThread({
   onLoadMore,
   hasMoreHistory = false,
   isLoadingHistory = false,
+  disableAnimation = false,
 }: ConversationThreadProps) { // code_id:28
   const threadRef = useRef<HTMLDivElement>(null);
   const [scrollState, setScrollState] = useState<ScrollState>('at-current');
@@ -166,7 +169,8 @@ export function ConversationThread({
 
       {messages.map((message) => {
         // Only animate content messages that haven't been animated yet
-        const shouldAnimate = message.type === 'content' &&
+        const shouldAnimate = !disableAnimation &&
+          message.type === 'content' &&
           (!animatedMessageIds || !animatedMessageIds.has(message.id));
 
         return (
