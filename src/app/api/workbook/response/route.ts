@@ -177,13 +177,23 @@ export const POST = withAuth(async (request, { userId, db: rawDb, sessionId }) =
     }
 
     // Find the sequence of the block that was just answered
+    // BUG-367 FIX: Include exercise_id match to handle reused prompts/tools
+    const [partStr, moduleStr, exerciseStr] = exerciseId.split('.');
     const currentBlockResult = await db.raw
       .prepare(`
         SELECT sequence FROM stem
-        WHERE block_type = ? AND content_id = ? AND part <= 2
+        WHERE block_type = ? AND content_id = ?
+          AND part = ? AND module = ? AND exercise = ?
+          AND part <= 2
         LIMIT 1
       `)
-      .bind(isToolResponse ? 'tool' : 'prompt', contentId)
+      .bind(
+        isToolResponse ? 'tool' : 'prompt',
+        contentId,
+        parseInt(partStr, 10),
+        parseInt(moduleStr, 10),
+        parseInt(exerciseStr, 10)
+      )
       .first<{ sequence: number }>();
 
     const currentSequence = currentBlockResult?.sequence || 0;
