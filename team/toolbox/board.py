@@ -677,17 +677,34 @@ class Board:
         ENFORCEMENT: Detect when someone claims to complete a bug without
         actually updating the bug status via WorkSession.
 
+        Only triggers on explicit completion claims like:
+        - "BUG-XXX is done"
+        - "fixed BUG-XXX"
+        - "completed BUG-XXX"
+
+        Does NOT trigger on:
+        - Technical discussion mentioning completion callbacks
+        - Investigation/debugging notes
+
         Raises:
             BoardError: If completion claimed but bug not updated
         """
         import re
-        content_lower = content.lower()
 
-        # Completion keywords
-        completion_words = ['complete', 'completed', 'done', 'fixed', 'resolved', 'finished']
-        has_completion = any(word in content_lower for word in completion_words)
+        # Only check for explicit completion claims near bug IDs
+        # Pattern: completion word within 30 chars of BUG-XXX
+        completion_claim_patterns = [
+            r'BUG-\d+.{0,30}\b(done|fixed|resolved|completed|finished)\b',
+            r'\b(done|fixed|resolved|completed|finished)\b.{0,30}BUG-\d+',
+            r'BUG-\d+\s+(is\s+)?(done|fixed|resolved|completed|finished)',
+        ]
 
-        if not has_completion:
+        has_completion_claim = any(
+            re.search(pattern, content, re.IGNORECASE)
+            for pattern in completion_claim_patterns
+        )
+
+        if not has_completion_claim:
             return
 
         # Find bug IDs mentioned

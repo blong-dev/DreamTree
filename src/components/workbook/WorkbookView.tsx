@@ -9,6 +9,7 @@
  */
 
 import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useRouter } from 'next/navigation';
 
 const AUTO_SAVE_DELAY = 1500;
 
@@ -60,6 +61,7 @@ function blockToConversationContent(block: BlockWithResponse): ContentBlock[] { 
 
 export function WorkbookView({ initialBlocks, initialProgress, theme }: WorkbookViewProps) { // code_id:2
   const { showToast } = useToast();
+  const router = useRouter();
 
   // Apply user's theme on mount
   useApplyTheme({
@@ -265,6 +267,12 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
     setPromptAnimationComplete(false);
 
     // Check if new block is already animated (returning user)
+    if (currentBlock?.blockType === 'content') {
+      const contentMsgId = `block-${currentBlock.id}`;
+      if (animatedMessageIdsRef.current.has(contentMsgId)) {
+        setCurrentAnimationComplete(true);
+      }
+    }
     if (currentBlock?.blockType === 'prompt') {
       const promptMsgId = `prompt-${currentBlock.id}`;
       if (animatedMessageIdsRef.current.has(promptMsgId)) {
@@ -624,10 +632,20 @@ export function WorkbookView({ initialBlocks, initialProgress, theme }: Workbook
 
   // Handle navigation
   const handleNavigate = (id: string) => { // code_id:388
-    if (id === 'contents') {
-      setTocOpen(true);
+    switch (id) {
+      case 'contents':
+        setTocOpen(true);
+        break;
+      case 'home':
+        router.push('/');
+        break;
+      case 'profile':
+        router.push('/profile');
+        break;
+      case 'tools':
+        router.push('/tools');
+        break;
     }
-    // Other navigation handled by Next.js Link in AppShell
   };
 
   const handleTocNavigate = (location: TOCLocation) => { // code_id:389
